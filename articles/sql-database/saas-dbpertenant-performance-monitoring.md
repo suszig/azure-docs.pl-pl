@@ -3,24 +3,18 @@ title: "Monitorowanie wydajności wiele baz danych Azure SQL w wielodostępnych 
 description: "Monitorowanie i zarządzanie nimi wydajności bazy danych Azure SQL i pul w wielodostępnych aplikacji SaaS"
 keywords: "samouczek usługi sql database"
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorowanie i zarządzanie nimi wydajności bazy danych Azure SQL i pul w wielodostępnych aplikacji SaaS
 
@@ -181,7 +175,7 @@ Alternatywnym rozwiązaniem w stosunku do skalowania puli w górę jest utworzen
     1. Kliknij przycisk **dodać bazy danych** umożliwia wyświetlenie listy baz danych na serwerze, który można dodać do *Pool2*.
     1. Zaznacz wszystkie 10 bazy danych, aby przenieść je do nowej puli, a następnie kliknij przycisk **wybierz**. Jeśli działała generator obciążenia, usługa już wie, że Twój profil wydajności wymaga puli większych niż 50 eDTU domyślny rozmiar i zaleca, począwszy od 100 ustawienia liczby jednostek eDTU.
 
-    ![Zalecenia](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+    ![zalecenie](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
     1. W tym samouczku, pozostaw wartość domyślną w Edtu 50, a następnie kliknij przycisk **wybierz** ponownie.
     1. Wybierz **OK** Utwórz nową pulę i przejść do niej wybranych baz danych.
@@ -232,7 +226,7 @@ W przypadku, gdy zagregowane wykorzystanie dzierżaw jest zgodne z przewidywalny
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -245,7 +239,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 [Samouczek przywracania pojedynczej dzierżawy](saas-dbpertenant-restore-single-tenant.md)
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * Dodatkowe [samouczki, które zależą od Wingtip biletów SaaS bazy danych dla dzierżawy wdrożenia aplikacji](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pule elastyczne SQL](sql-database-elastic-pool.md)

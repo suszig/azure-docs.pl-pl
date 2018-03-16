@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8dfb664c7041d70f3ece812edb76df38a35e41f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Wdrażanie wielu wystąpień zasobów lub właściwości w szablonach usługi Azure Resource Manager
 W tym artykule przedstawiono warunkowo wdrażanie zasobu i porady dotyczące iteracji po do szablonu usługi Azure Resource Manager, aby utworzyć wiele wystąpień zasobu.
@@ -72,7 +72,7 @@ Zasobu do utworzenia wielokrotnie ma następujący format:
 }
 ```
 
-Należy zauważyć, że nazwa każdego zasobu zawiera `copyIndex()` funkcji, która zwraca bieżącą iterację w pętli. `copyIndex()`jest liczony od zera. Zatem w poniższym przykładzie:
+Należy zauważyć, że nazwa każdego zasobu zawiera `copyIndex()` funkcji, która zwraca bieżącą iterację w pętli. `copyIndex()` jest liczony od zera. Zatem w poniższym przykładzie:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -345,6 +345,8 @@ Określ, czy zasób jest wdrażane za pomocą po inny zasób `dependsOn` element
 }
 ```
 
+<a id="looping-on-a-nested-resource" />
+
 ## <a name="iteration-for-a-child-resource"></a>Iteracje dla zasobu podrzędnego
 Nie można używać pętli kopii zasobu podrzędnego. Aby utworzyć wiele wystąpień z zasobem, który zazwyczaj zdefiniowane jako zagnieżdżony w ramach innego zasobu, należy zamiast tego utworzyć tego zasobu jako zasób najwyższego poziomu. Można zdefiniować relacji z zasobem nadrzędnej za pośrednictwem typem i nazwą właściwości.
 
@@ -409,7 +411,7 @@ Poniżej przedstawiono typowe scenariusze dotyczące tworzenia wielu zasobów lu
 |[Skopiuj zmiennych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Przedstawia różne sposoby iteracja na zmiennych. |
 |[Wiele reguł zabezpieczeń](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Wdraża wiele reguł zabezpieczeń grupy zabezpieczeń sieci. Tworzy ona zasady zabezpieczeń z parametrem. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Jeśli chcesz dowiedzieć się więcej o części szablonu, zobacz [Authoring Azure Resource Manager szablony](resource-group-authoring-templates.md).
 * Aby dowiedzieć się, jak wdrożyć szablon, zobacz [wdrażanie aplikacji przy użyciu szablonu usługi Resource Manager Azure](resource-group-template-deploy.md).
 

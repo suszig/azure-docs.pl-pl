@@ -2,24 +2,18 @@
 title: "Praca awaryjna grupy i aktywna replikacja geograficzna — baza danych SQL Azure | Dokumentacja firmy Microsoft"
 description: "Użyj trybu failover automatycznie grup z aktywna replikacja geograficzna i Włącz autoomatic trybu failover w przypadku awarii."
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Omówienie: Grup trybu Failover i aktywna replikacja geograficzna
 Aktywna replikacja geograficzna można skonfigurować maksymalnie cztery czytelny dodatkowej bazy danych w centrach danych tego samego lub innego (regiony). Pomocniczych baz danych dostępnych do wykonywania zapytań i pracy awaryjnej w przypadku awarii centrum danych lub brakiem możliwości nawiązania połączenia podstawowej bazy danych. Tryb failover musi być inicjowana ręcznie przez użytkownika aplikacji. Po przejściu w tryb failover nową podstawową ma końcowego innego połączenia. 
@@ -77,7 +71,7 @@ Aktywna replikacja geograficzna udostępnia następujące podstawowe możliwośc
 * **Obsługa elastycznej puli baz danych**: aktywna replikacja geograficzna można skonfigurować dla dowolnej bazy danych w każdej puli elastycznej. Dodatkowej bazy danych może być w innej puli elastycznej. W przypadku regularnego baz danych pomocniczej można elastycznej puli i na odwrót tak długo, jak warstwy usług są takie same. 
 * **Poziom wydajności można skonfigurować bazy danych w dodatkowej**: podstawowe i pomocnicze bazy danych są musi być w tej samej warstwie usług (Basic, Standard i Premium). Można utworzyć pomocniczą bazę danych z mniejszą wydajnością (Dtu) niż podstawowy. Ta opcja nie jest zalecana dla aplikacji z działania zapisu bazy danych wysokiej ponieważ opóźnienie replikacji zwiększona zwiększa ryzyko utraty danych znacznej po przejściu w tryb failover. Ponadto po pracy awaryjnej wydajności aplikacji jest w pełni funkcjonalne dopiero po uaktualnieniu nową podstawową na wyższy poziom wydajności. Wykres procent we/wy dziennika w portalu Azure zapewnia dobry sposób, aby oszacować poziom wydajności minimalnej dodatkowej, która jest wymagana do obsługi obciążenia replikacji. Na przykład, jeśli P6 jest podstawową bazą danych (1000 DTU) i procent we/wy dziennika to 50% lokacji dodatkowej musi mieć co najmniej P4 (500 DTU). Można również pobierać dane we/wy dziennika przy użyciu [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) lub [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) bazy danych widoków.  Aby uzyskać więcej informacji na temat poziomów wydajności bazy danych SQL, zobacz [opcje bazy danych SQL i wydajność](sql-database-service-tiers.md). 
 * **Kontrolowane przez użytkownika trybu failover i powrotu po awarii**: pomocniczej bazy danych można jawnie przełącza się na podstawową rolą w dowolnym momencie przez użytkownika lub aplikacji. Podczas rzeczywista awaria opcji "nieplanowane" należy, która wspiera natychmiast pomocniczego się serwerem podstawowym. Kiedy nie powiodło się podstawowym odzyskuje i jest ponownie dostępny, system automatycznie oznacza odzyskane podstawowej jako dodatkowej i przełączyć go, instalując nową podstawową. Ze względu na specyfikę asynchroniczne replikacji niewielką ilość danych mogą zostać utracone podczas niezaplanowanych operacji Failover Jeśli podstawowy ulegnie awarii, przed rozpoczęciem replikacji najnowszych zmian na serwerze pomocniczym. W przypadku awarii podstawowego przy użyciu wielu pomocnicze bazy danych za pośrednictwem systemu automatycznie ponownie konfiguruje relacji replikacji i łączy pozostałe serwery do nowo utworzonego podstawowych bez interwencji użytkownika. Po awarii, który spowodował przejście w tryb failover jest niewielkie, może być pożądane, aby powrócić do aplikacji w regionie podstawowym. W tym celu polecenia pracy awaryjnej powinna być wywoływana z opcją "planowane". 
-* **Synchronizacja poświadczeń i jego reguły zapory**: Firma Microsoft zaleca używanie [bazy danych reguły zapory](sql-database-firewall-configure.md) replikacją geograficzną baz danych, więc te reguły mogą być replikowane z bazą danych, aby upewnić się, wszystkie pomocnicze bazy danych ma tego samego reguł zapory, jako podstawowy. Takie podejście eliminuje potrzebę stosowania klientów ręcznie konfigurowania i konserwacji reguły zapory na serwerach hostujących zarówno podstawowych i pomocniczych baz danych. Podobnie za pomocą [zawarte bazy danych użytkowników](sql-database-manage-logins.md) danych dostęp zapewnia podstawowe i pomocnicze bazy danych zawsze mieć taki sam poświadczenia użytkownika, dlatego podczas pracy w trybie failover nie przerwom z powodu niezgodności z logowania i hasła. Z dodatkiem [usługi Azure Active Directory](../active-directory/active-directory-whatis.md), klientów można zarządzać dostępem użytkowników do podstawowych i pomocniczych baz danych i wyeliminowanie konieczności zarządzania całkowicie poświadczeń w bazach danych.
+* **Synchronizacja poświadczeń i jego reguły zapory**: Firma Microsoft zaleca używanie [bazy danych reguły zapory](sql-database-firewall-configure.md) replikacją geograficzną baz danych, więc te reguły mogą być replikowane z bazy danych, aby zapewnić wszystkie pomocnicze bazy danych tym samym reguły zapory jako podstawowy. Takie podejście eliminuje potrzebę stosowania klientów ręcznie konfigurowania i konserwacji reguły zapory na serwerach hostujących zarówno podstawowych i pomocniczych baz danych. Podobnie za pomocą [zawarte bazy danych użytkowników](sql-database-manage-logins.md) danych dostęp zapewnia podstawowe i pomocnicze bazy danych zawsze mieć taki sam poświadczenia użytkownika, dlatego podczas pracy w trybie failover nie przerwom z powodu niezgodności z logowania i hasła. Z dodatkiem [usługi Azure Active Directory](../active-directory/active-directory-whatis.md), klientów można zarządzać dostępem użytkowników do podstawowych i pomocniczych baz danych i wyeliminowanie konieczności zarządzania całkowicie poświadczeń w bazach danych.
 
 ## <a name="auto-failover-group-capabilities"></a>Funkcje grupy pracy awaryjnej automatycznie
 
@@ -136,7 +130,7 @@ Ze względu na duże opóźnienia sieci rozległej ciągła kopia używa mechani
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Programowe zarządzanie grupami trybu failover i aktywna replikacja geograficzna
 Zgodnie z opisem wcześniej, pracy awaryjnej automatycznie grupy (w — wersja zapoznawcza) i aktywne — replikacja geograficzna może być także zarządzane programowo przy użyciu programu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń.
 
-**Interfejs API Menedżera zasobów Azure i zabezpieczenia oparte na rolach**: aktywna replikacja geograficzna zawiera zestaw interfejsów API usługi Azure Resource Manager do zarządzania, w tym [interfejsu API REST bazy danych SQL Azure](https://docs.microsoft.com/rest/api/sql/) i [poleceń cmdlet programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Te interfejsy API wymaga korzystania z grup zasobów i obsługuje zabezpieczeń opartych na rolach (RBAC). Aby uzyskać więcej informacji dotyczących sposobu wdrażania ról dostępu, zobacz [kontroli dostępu](../active-directory/role-based-access-control-what-is.md).
+**Interfejs API Menedżera zasobów Azure i zabezpieczenia oparte na rolach**: aktywna replikacja geograficzna zawiera zestaw interfejsów API usługi Azure Resource Manager do zarządzania, w tym [interfejsu API REST bazy danych SQL Azure](https://docs.microsoft.com/rest/api/sql/) i [Azure Polecenia cmdlet programu PowerShell](https://docs.microsoft.com/powershell/azure/overview). Te interfejsy API wymaga korzystania z grup zasobów i obsługuje zabezpieczeń opartych na rolach (RBAC). Aby uzyskać więcej informacji dotyczących sposobu wdrażania ról dostępu, zobacz [kontroli dostępu](../active-directory/role-based-access-control-what-is.md).
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Zarządzanie trybu failover bazy danych SQL przy użyciu języka Transact-SQL
 
@@ -155,11 +149,11 @@ Zgodnie z opisem wcześniej, pracy awaryjnej automatycznie grupy (w — wersja z
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Pobiera jeden lub więcej baz danych. |
-| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Tworzy pomocniczej bazy danych dla istniejącej bazy danych i rozpoczyna się replikacja danych. |
-| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Zmienia pomocniczej bazy danych jako głównej zainicjować trybu failover. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Kończy replikacji danych między bazą danych SQL i dodatkowej określonej bazy danych. |
-| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Pobiera linki — replikacja geograficzna między bazą danych SQL Azure i grupy zasobów lub SQL Server. |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Pobiera co najmniej jedną bazę danych. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Tworzy pomocniczą bazę danych dla istniejącej bazy danych i rozpoczyna replikację danych. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Przełącza pomocniczą bazę danych jako główną w celu zainicjowania trybu failover. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Przerywa replikację danych między bazą danych SQL Database i wybraną pomocniczą bazą danych. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Pobiera linki replikacji geograficznej między bazą danych Azure SQL Database i grupą zasobów lub programem SQL Server. |
 | [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   To polecenie tworzy grupę trybu failover i rejestruje go na serwerach głównych i dodatkowych|
 | [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Usuwa grupę trybu failover z serwera i wszystkich baz danych w dodatkowej uwzględnione grupy |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Pobiera grupy konfiguracji trybu failover |

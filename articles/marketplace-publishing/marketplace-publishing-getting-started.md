@@ -3,8 +3,8 @@ title: "Omówienie sposobu tworzenia i wdrażania oferty w portalu Marketplace |
 description: "Opis czynności, wymagane zatwierdzone Microsoft developer i utworzyć i wdrożyć obraz maszyny wirtualnej, szablonu, Usługa danych lub dewelopera usługi w portalu Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio
-ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: mbaldwin
+ms.openlocfilehash: 02df78de48c8466f3488ef5f8346e1852b4e3ded
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 > [!NOTE]
 > Ta dokumentacja nie jest już aktualny i nie jest dokładne. Zamiast tego, przejdź do portalu Azure Marketplace [przewodnik sprzedawcy](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) wskazówki dotyczące publikowanie oferty w portalu Azure Marketplace.
@@ -63,7 +63,7 @@ Aby opublikować rozwiązaniem na rynku, wykonaj następujące kroki:
 
     b. Spełnienia [techniczne wymagania wstępne maszyny Wirtualnej](marketplace-publishing-vm-image-creation-prerequisites.md).
 
-    d. Spełnienia [wymagania wstępne dotyczące technicznej rozwiązanie szablonu](marketplace-publishing-solution-template-creation-prerequisites.md).
+    c. Spełnienia [wymagania wstępne dotyczące technicznej rozwiązanie szablonu](marketplace-publishing-solution-template-creation-prerequisites.md).
 
 2. Utwórz ofertę.
 

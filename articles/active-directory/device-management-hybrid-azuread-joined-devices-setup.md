@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Konfigurowanie hybrydowego urządzeń przyłączonych do usługi Azure Active Directory
 
@@ -62,7 +62,13 @@ Aby zwiększyć czytelność opisy, w tym temacie używa następujących termin:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem włączenie hybrydowe usługi Azure AD przyłączone do urządzeń w Twojej organizacji, musisz upewnij się, że uruchamiasz zaktualizowanej wersji programu Azure AD connect.
+Przed rozpoczęciem włączenie hybrydowe usługi Azure AD przyłączone do urządzeń w Twojej organizacji, należy upewnić się, że:
+
+- Używasz zaktualizowanej wersji programu Azure AD connect.
+
+- Azure AD connect ma synchronizowane obiekty komputerów, urządzeń, aby być hybrydowe usługi Azure AD do usługi Azure AD. Jeśli obiekty komputerów należą do określonej jednostki organizacyjnej (OU), a następnie tych jednostek organizacyjnych, należy skonfigurować do synchronizacji w usłudze Azure AD connect również.
+
+  
 
 Azure AD Connect:
 
@@ -145,7 +151,7 @@ Poniższy skrypt pokazuje przykład za pomocą polecenia cmdlet. W tym skrypcie 
 `Initialize-ADSyncDomainJoinedComputerSync` Polecenia cmdlet:
 
 - Korzysta z modułu programu PowerShell usługi Active Directory i narzędzia usług AD DS, które zależą od usługi Active Directory w sieci Web uruchomiony na kontrolerze domeny. Usługi sieci Web w usłudze Active Directory jest obsługiwana na kontrolerach domeny z systemem Windows Server 2008 R2 lub nowszej.
-- Jest obsługiwana tylko przez **MSOnline PowerShell w wersji modułu 1.1.166.0**. Aby pobrać ten moduł, użyj [łącze](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Jest obsługiwana tylko przez **MSOnline PowerShell w wersji modułu 1.1.166.0**. Aby pobrać ten moduł, użyj [łącze](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
 - Jeśli nie zainstalowano narzędzi usług AD DS, `Initialize-ADSyncDomainJoinedComputerSync` zakończy się niepowodzeniem.  Narzędzia usług AD DS można zainstalować za pomocą Menedżera serwera w obszarze funkcje — narzędzia administracji zdalnej serwera — narzędzia do administrowania rolami.
 
 Dla kontrolerów domeny z systemem Windows Server 2008 lub starszej wersji Użyj poniższego skryptu, aby utworzyć punkt połączenia usługi.

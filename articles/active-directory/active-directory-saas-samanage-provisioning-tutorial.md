@@ -3,97 +3,154 @@ title: "Samouczek: Konfigurowanie Samanage dla użytkownika automatycznego inicj
 description: "Dowiedz się, jak skonfigurować usługi Azure Active Directory, aby automatycznie zapewnianie i usuwanie kont użytkowników do Samanage."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
-writer: asmalser-msft
-manager: mtillman
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+author: zhchia
+writer: zhchia
+manager: beatrizd-msft
+ms.assetid: na
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
-ms.author: asmalser-msft
-ms.openlocfilehash: 901f0ec7ceeb80687b7b75d9a3710e8d6bc1811c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 01/31/2018
+ms.author: v-ant
+ms.openlocfilehash: 8f11beff2c78386f4c3e8130c8e5d72465b8fe87
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Samanage dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
+Celem tego samouczka jest aby zademonstrować czynności wykonywanych w Samanage i Azure Active Directory (Azure AD), aby skonfigurować usługi Azure AD automatycznie zapewnianie i usuwanie użytkowników i/lub grup w celu Samanage.
 
-Celem tego samouczka jest opisano czynności, które należy wykonać w Samanage i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD Samanage. 
+> [!NOTE]
+> W tym samouczku opisano łącznika, rozszerzający usługi dostarczania użytkownika programu Azure AD. Uzyskać ważne szczegóły dotyczące tej usługi nie, jak to działa i często zadawane pytania, zobacz [zautomatyzować użytkownika alokowania i anulowania alokowania do aplikacji SaaS w usłudze Azure Active Directory](./active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że już następujące elementy:
+Scenariusz opisany w tym samouczku założono, że masz następujące:
 
-*   Dzierżawy usługi Azure Active directory
-*   Dzierżawcy Samanage z [Professional planu](https://www.samanage.com/pricing/) lub lepiej jest włączone 
+*   Dzierżawy usługi Azure Active Directory
+*   Dzierżawcy Samanage z [Professional](https://www.samanage.com/pricing/) plan lub lepiej jest włączone 
 *   Konto użytkownika z uprawnieniami administratora w Samanage 
 
 > [!NOTE]
 > Zależy od usługi Azure AD, inicjowania obsługi administracyjnej integracji [interfejsu API REST Samanage](https://www.samanage.com/api/), który jest dostępny dla zespołów Samanage w planie Professional lub większą.
 
+## <a name="adding-samanage-from-the-gallery"></a>Dodawanie Samanage z galerii
+Przed skonfigurowaniem Samanage dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure AD, należy dodać Samanage z galerii aplikacji Azure AD do listy zarządzanych aplikacji SaaS.
+
+**Aby dodać Samanage z galerii aplikacji Azure AD, wykonaj następujące czynności:**
+
+1. W  **[portalu Azure](https://portal.azure.com)**, w panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+
+    ![Przycisk usługi Azure Active Directory][1]
+
+2. Przejdź do **aplikacje dla przedsiębiorstw** > **wszystkie aplikacje**.
+
+    ![Aplikacje przedsiębiorstwa sekcji][2]
+    
+3. Aby dodać Samanage, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+
+    ![Nowy przycisk aplikacji][3]
+
+4. W polu wyszukiwania wpisz **Samanage**.
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage4.png)
+
+5. W panelu wyników wybierz **Samanage**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać Samanage do listy aplikacji SaaS.
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage6.png)
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage5.png)
+
 ## <a name="assigning-users-to-samanage"></a>Przypisywanie użytkowników do Samanage
 
-Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD jest zsynchronizowany. 
+Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatycznego inicjowania obsługi administracyjnej są synchronizowane tylko użytkowników i grupy, które zostały "przypisane" do aplikacji w usłudze Azure AD. 
 
-Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji Samanage. Po decyzję, postępując zgodnie z instrukcjami w tym miejscu można przypisać tych użytkowników do aplikacji Samanage:
+Przed Konfigurowanie i włączanie automatycznej aprowizacji użytkowników, należy podjąć decyzję dotyczącą użytkowników i/lub grup w usłudze Azure AD będą potrzebować dostępu do Samanage. Po decyzję, można przypisać użytkowników i/lub grup Samanage postępując zgodnie z instrukcjami poniżej:
 
-[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](active-directory-coreapps-assign-user-azure-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Ważne porady dotyczące przypisywania użytkowników do Samanage
 
-*   Zalecane jest jeden jest przypisany użytkownik usługi Azure AD Samanage do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest jeden jest przypisany użytkownik usługi Azure AD Samanage próba automatycznego przypisywania konfiguracji użytkowników. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-*   Przypisanie użytkownika do Samanage, należy wybrać opcję **użytkownika** rola, lub inny prawidłowy specyficzne dla aplikacji (jeśli jest dostępny) w oknie dialogowym przypisania. **Domyślnego dostępu** roli nie działa w przypadku inicjowania obsługi administracyjnej, a użytkownicy są pomijane.
+*   Podczas przypisywania Samanage użytkownika, należy wybrać prawidłową rolą specyficzne dla aplikacji (jeśli jest dostępny) w oknie dialogowym przypisania. Użytkownicy z **domyślnego dostępu** roli są wykluczone z inicjowania obsługi administracyjnej.
 
-> [!NOTE]
-> Dodano funkcję inicjowania obsługi usługi odczytuje wszystkie role niestandardowe zdefiniowane w Samanage i zaimportowanie ich do usługi Azure AD, w którym można je wybrać w oknie dialogowym Wybierz rolę. Te role nie będą widoczne w portalu Azure po włączeniu usługi inicjowania obsługi administracyjnej i jednego cyklu synchronizacji zostało ukończone.
+## <a name="configuring-automatic-user-provisioning-to-samanage"></a>Konfigurowanie użytkownika automatycznego inicjowania obsługi administracyjnej Samanage
 
-## <a name="configuring-user-provisioning-to-samanage"></a>Konfigurowanie inicjowania obsługi administracyjnej Samanage użytkownika 
-
-Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkownika w Samanage inicjowania obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania konta użytkowników przypisane w Samanage w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
+W tej sekcji przedstawiono kroki, aby skonfigurować usługi Azure AD świadczenie usługi do tworzenia, aktualizacji i wyłączanie użytkowników i/lub grup Samanage — w oparciu o przypisania użytkownika i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Można też włączyć na języku SAML logowania jednokrotnego dla Samanage, wykonując instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+> Można też włączyć na języku SAML rejestracji jednokrotnej dla Samanage, wykonując instrukcje podane w [Samanage pojedynczego logowania jednokrotnego samouczek](active-directory-saas-samanage-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od użytkownika automatycznego inicjowania obsługi administracyjnej, że te dwie funkcje uzupełniania siebie nawzajem. Aby uzyskać więcej informacji, zobacz [Samanage pojedynczego logowania jednokrotnego samouczek](active-directory-saas-samanage-tutorial.md).
 
+### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Samanage w usłudze Azure AD:
 
-### <a name="configure-automatic-user-account-provisioning-to-samanage-in-azure-ad"></a>Skonfiguruj użytkownika automatyczne Inicjowanie obsługi konta do Samanage w usłudze Azure AD:
+1. Zaloguj się do [portalu Azure](https://portal.azure.com) i przejdź do **usługi Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje**.
 
+2. Wybierz Samanage z listy aplikacji SaaS.
+ 
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage7.png)
 
-1. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
-
-2. Jeśli Samanage został już skonfigurowany dla logowania jednokrotnego, wyszukiwanie wystąpieniem Samanage przy użyciu pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **Samanage** w galerii aplikacji. Wybierz Samanage w wynikach wyszukiwania, a następnie dodaj go do listy aplikacji.
-
-3. Wybierz wystąpienia programu Samanage, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
+3. Wybierz **inicjowania obsługi administracyjnej** kartę.
+    
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage8.png)
 
 4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**.
 
-    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage9.png)
 
-5. W obszarze **poświadczeń administratora** sekcji wejściowych **nazwa użytkownika i hasło administratora** Twojego Samanage konta. 
+5. W obszarze **poświadczeń administratora** sekcji wejściowych **administratora**, i **hasło administratora** Twojego Samanages konta. Przykłady te wartości są:
 
-6. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji Samanage. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto Samanage ma uprawnienia administratora i spróbuj ponownie wykonać krok 5.
+    *   W **administratora** pola, nazwa użytkownika konta administratora dzierżawy Samanage wypełniania. Przykład: admin@contoso.com.
 
-7. Wprowadź adres e-mail osoby lub grupy, który powinien zostać wyświetlony inicjowania obsługi administracyjnej powiadomienia o błędach w **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail z powiadomieniem, gdy wystąpi błąd".
+    *   W **hasło administratora** pola, wypełnij hasła odpowiadającego wcześniej określona nazwa użytkownika.
 
-8. Kliknij pozycję **Zapisz**. 
+6. Przy wprowadzaniu pola pokazane w kroku 5, kliknij przycisk **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z Samanage. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto Samanage ma uprawnienia administratora i spróbuj ponownie.
 
-9. W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom Samanage**.
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage10.png)
 
-10. W **mapowań atrybutów** Przejrzyj atrybutów użytkowników, które są synchronizowane z usługi Azure AD Samanage. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Samanage dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+7. W **wiadomość E-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, które powinny odbierać powiadomienia błąd inicjowania obsługi administracyjnej i zaznacz pole wyboru **wysłać wiadomość e-mail z powiadomieniem, gdy wystąpi błąd**.
 
-11. Aby włączyć usługi Azure AD usługi dla Samanage inicjowania obsługi administracyjnej, zmień **stan inicjowania obsługi administracyjnej** do **na** w **ustawienia** sekcji
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage11.png)
 
-12. Kliknij pozycję **Zapisz**. 
+8. Kliknij pozycję **Zapisz**.
 
-Ta operacja uruchamia wstępnej synchronizacji użytkowników i/lub grupy przypisane do Samanage w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej.
+9. W obszarze **mapowania** zaznacz **synchronizacji Azure Active Directory użytkownikom Samanage**.
 
-Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage12.png)
 
+10. Przejrzyj atrybuty użytkowników, które są synchronizowane z usługi Azure AD Samanage w **mapowanie atrybutu** sekcji. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Samanage dla operacji update. Wybierz **zapisać** przycisk, aby zatwierdzić zmiany.
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage13.png)
+
+12. W obszarze **mapowania** zaznacz **synchronizacji Azure grup usługi Active Directory do Samanage**.
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage14.png)
+
+13. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD Samanage w **mapowanie atrybutu** sekcji. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania grup w Samanage dla operacji update. Wybierz **zapisać** przycisk, aby zatwierdzić zmiany.
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage15.png)
+
+14. Do konfigurowania filtrów zakresu, zapoznaj się z następujących instrukcji podanych w [Scoping filtru samouczek](./active-directory-saas-scoping-filters.md).
+
+15. Aby włączyć usługi Azure AD usługi dla Samanage inicjowania obsługi administracyjnej, zmień **stan inicjowania obsługi administracyjnej** do **na** w **ustawienia** sekcji.
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage16.png)
+
+16. Zdefiniuj użytkowników i/lub grup, które chcesz aby obsługiwać Samanage, wybierając odpowiednie wartości w **zakres** w **ustawienia** sekcji.
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage17.png)
+
+17. Gdy wszystko będzie gotowe, aby udostępnić, kliknij przycisk **zapisać**.
+
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage18.png)
+
+Ta operacja uruchamia synchronizacji początkowej wszystkich użytkowników i/lub grup zdefiniowanych w **zakres** w **ustawienia** sekcji. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 40 minut tak długo, jak działa usługi Azure AD, inicjowania obsługi usługi. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej działania raport, który opisuje wszystkie akcje wykonywane przez usługę Azure AD usługi na Samanage inicjowania obsługi administracyjnej.
+
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](./active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
@@ -103,3 +160,8 @@ Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi 
 ## <a name="next-steps"></a>Kolejne kroki
 
 * [Dowiedz się, jak należy przejrzeć dzienniki i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](active-directory-saas-provisioning-reporting.md)
+
+<!--Image references-->
+[1]: ./media/active-directory-saas-samanage-provisioning-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png

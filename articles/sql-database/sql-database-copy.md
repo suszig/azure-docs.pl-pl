@@ -2,30 +2,24 @@
 title: Kopiowanie bazy danych Azure SQL | Dokumentacja firmy Microsoft
 description: "Utwórz spójna transakcyjnie kopię istniejącej bazy danych Azure SQL na tym samym serwerze lub inny serwer."
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 ms.date: 06/15/2017
 ms.author: carlrab
-ms.workload: On Demand
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 7999c52a81165a9f8efb2f1302d04c9cb851faca
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c4a3836cfd0bbbb8d26a42af2980deab5f9d7681
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-an-azure-sql-database"></a>Kopiowanie bazy danych Azure SQL
 
 Baza danych SQL Azure zapewnia kilka metod tworzenia spójna transakcyjnie kopię istniejącej bazy danych Azure SQL na tym samym serwerze lub inny serwer. Możesz skopiować bazę danych SQL za pomocą portalu Azure, programu PowerShell lub T-SQL. 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Kopiowanie bazy danych jest migawką źródłowej bazy danych od chwili żądanie kopii. Możesz wybrać tego samego serwera lub inny serwer, jego warstwy usług i poziom wydajności lub poziomu wydajności różnych w ramach tej samej warstwie usług (wydanie). Po zakończeniu kopiowania staje się funkcjonalnej, niezależnie od bazy danych. W tym momencie możesz uaktualnić lub obniżyć go do dowolnej wersji. Nazwy logowania, użytkowników i uprawnień odbywa się niezależnie.  
 
@@ -105,7 +99,7 @@ Wszyscy użytkownicy w nowej bazy danych zachować uprawnienia, które miały ź
 
 Informacje na temat zarządzania użytkownikami i logowania do kopiowania bazy danych na inny serwer logiczny, zobacz [jak zarządzać zabezpieczeń bazy danych Azure SQL po awarii](sql-database-geo-replication-security-config.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Informacje logowania, zobacz [Zarządzanie logowania](sql-database-manage-logins.md) i [jak zarządzać zabezpieczeń bazy danych Azure SQL po awarii](sql-database-geo-replication-security-config.md).
 * Aby wyeksportować bazę danych, zobacz [wyeksportować do pliku BACPAC bazy danych](sql-database-export.md).

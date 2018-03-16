@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Obwody usługi ExpressRoute i domeny routingu
  Należy zamówić *obwodu ExpressRoute* do podłączenia infrastruktury lokalnej do firmy Microsoft za pośrednictwem dostawcy łączności. Na poniższej ilustracji przedstawiono logiczną reprezentację połączenia między sieci WAN i firmy Microsoft.
@@ -60,12 +60,12 @@ Połączenie jest zawsze inicjowane z sieci WAN do usług Microsoft Azure. Usłu
 
 W sieci, użycie trasy, które są potrzebne, można zdefiniować filtry tras niestandardowych. Zapoznaj się [Routing](expressroute-routing.md) strony, aby uzyskać szczegółowe informacje o konfiguracji routingu. 
 
-Zobacz [z często Zadawanymi pytaniami](expressroute-faqs.md) Aby uzyskać więcej informacji na temat usługi obsługiwane za pośrednictwem publicznej komunikacji równorzędnej domeny routingu. 
+Aby uzyskać więcej informacji o usługach obsługiwane za pośrednictwem publicznej komunikacji równorzędnej domeny routingu, zobacz [— często zadawane pytania](expressroute-faqs.md).
 
 ### <a name="microsoft-peering"></a>Komunikacja równorzędna firmy Microsoft
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Łączność z wszystkich innych usług Microsoft online (usługi Office 365, Dynamics 365 i Azure PaaS) jest za pomocą komunikacji równorzędnej firmy Microsoft. Firma Microsoft Włącz dwukierunkowej łączności między usług w chmurze firmy Microsoft i WAN za pośrednictwem domeny routingu komunikacji równorzędnej firmy Microsoft. Wymagane jest połączenie z usługi w chmurze firmy Microsoft tylko w przypadku publicznych adresów IP, które należą do firmy przez użytkownika lub dostawcą połączenia i musi być zgodne zdefiniowanych reguł. Zobacz [wymagania wstępne usługi ExpressRoute](expressroute-prerequisites.md) strony, aby uzyskać więcej informacji.
+Łączności z usługami online firmy Microsoft (usługi Office 365, Dynamics 365 i Azure PaaS) jest za pomocą komunikacji równorzędnej firmy Microsoft. Firma Microsoft Włącz dwukierunkowej łączności między usług w chmurze firmy Microsoft i WAN za pośrednictwem domeny routingu komunikacji równorzędnej firmy Microsoft. Wymagane jest połączenie z usługi w chmurze firmy Microsoft tylko w przypadku publicznych adresów IP, które należą do firmy przez użytkownika lub dostawcą połączenia i musi być zgodne zdefiniowanych reguł. Aby uzyskać więcej informacji, zobacz [wymagania wstępne usługi ExpressRoute](expressroute-prerequisites.md) strony.
 
 Zobacz [z często Zadawanymi pytaniami](expressroute-faqs.md) Aby uzyskać więcej informacji na temat usługi obsługiwane, kosztów i szczegóły konfiguracji. Zobacz [lokalizacje ExpressRoute](expressroute-locations.md) strony, aby uzyskać informacje na liście dostawców łączności oferty komunikacji równorzędnej pomocy technicznej firmy Microsoft.
 
@@ -77,9 +77,9 @@ W poniższej tabeli porównano trzy domeny routingu:
 | **Maks. prefiksy # obsługiwane na komunikacji równorzędnej** |4000 domyślnie 10 000 z ExpressRoute — wersja Premium |200 |200 |
 | **Obsługiwane zakresów adresów IP** |Dowolny prawidłowy adres IP w sieci WAN. |Publiczne adresy IP należące do przez użytkownika lub dostawcą połączenia. |Publiczne adresy IP należące do przez użytkownika lub dostawcą połączenia. |
 | **JAKO liczba wymagań** |Prywatne i publiczne jako liczby. Musi być właścicielem publicznego jako numer, jeśli chcesz używać jednego. |Prywatne i publiczne jako liczby. Jednak musisz udowodnić własność publicznych adresów IP. |Prywatne i publiczne jako liczby. Jednak musisz udowodnić własność publicznych adresów IP. |
-| **Obsługiwane protokoły IP**| IPv4 | IPv4 | IPv4 i IPv6 |
+| **Obsługiwane protokoły IP**| Protokół IPv4 | Protokół IPv4 | IPv4, IPv6 |
 | **Routingu adresów IP interfejsu** |RFC1918 i publiczne adresy IP |Publiczne adresy IP, w zarejestrowany w rejestrach routingu. |Publiczne adresy IP, w zarejestrowany w rejestrach routingu. |
-| **Obsługa wyznaczania wartości skrótu MD5** |Tak |Tak |Tak |
+| **Obsługa wyznaczania wartości skrótu MD5** |Yes |Yes |Yes |
 
 (*) Wymaga warstwy Premium dodatek jednostki SKU
 
@@ -87,7 +87,7 @@ Można włączyć jedną lub więcej domen routingu w ramach obwodu usługi Expr
 
 Jeśli wybierzesz opcję wszystkie trzy sesje komunikacji równorzędnej, muszą mieć trzy pary sesje BGP (jedna para dla każdego typu komunikacji równorzędnej). Pary sesji BGP podaj łącze wysokiej dostępności. Jeśli łączysz się za pośrednictwem warstwy 2 łączności dostawców, jest odpowiedzialny za konfigurowanie i zarządzanie nimi routingu. Dowiedz się więcej, przeglądając [przepływy pracy](expressroute-workflows.md) dotyczące konfigurowania usługi ExpressRoute.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Znajdź dostawcę usługi. Zobacz [usługi ExpressRoute dostawców i lokalizacje](expressroute-locations.md).
 * Upewnij się, że zostały spełnione wszystkie wymagania wstępne. Zobacz artykuł [ExpressRoute prerequisites](expressroute-prerequisites.md) (Wymagania wstępne usługi ExpressRoute).
 * Skonfiguruj połączenie usługi ExpressRoute.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 91819d0fba30dd2ada981435fa13b8ae0a7fcc45
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Obsługa błędów i wyjątków w aplikacji logiki
 
@@ -64,7 +64,7 @@ Gdy nie definiować zasady ponawiania w **retryPolicy** sekcji aplikację logiki
 }
 ```
 
-### <a name="none"></a>None
+### <a name="none"></a>Brak
 
 Jeśli ustawisz **retryPolicy** do **Brak**, ta zasada nie ponów żądań zakończonych niepowodzeniem.
 
@@ -280,8 +280,6 @@ Aby ocenić stany wykonywania, Monitoruj dzienniki i metryki lub do dowolnego na
 
 * [Zobacz, jak klient tworzy błąd obsługi z usługi Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Znajdź więcej Logic Apps przykłady i scenariusze](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Dowiedz się, jak utworzyć zautomatyzowanych wdrożeń dla aplikacji logiki](../logic-apps/logic-apps-create-deploy-template.md)
-* [Tworzenie i wdrażanie aplikacji logiki w programie Visual Studio](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

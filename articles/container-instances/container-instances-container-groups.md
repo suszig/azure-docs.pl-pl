@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Kontener grupy wystąpień kontenera platformy Azure
 
@@ -35,7 +35,11 @@ Ten przykład grupy kontenerów:
 * Zawiera dwie udziały plików platformy Azure jako instalacji woluminu i każdego kontenera instaluje jednej akcji lokalnie.
 
 > [!NOTE]
-> Kontener wielu grup są obecnie ograniczone do kontenerów systemu Linux. Gdy pracujemy, aby wyświetlić wszystkie funkcje w celu kontenery systemu Windows, można znaleźć bieżącej platformy różnice w [przydziały i dostępność wystąpień kontenera platformy Azure w danym regionie](container-instances-quotas.md).
+> Kontener wielu grup są obecnie ograniczone do kontenerów systemu Linux. Podczas gdy pracujemy, aby udostępnić wszystkie funkcje na potrzeby kontenerów systemu Windows, bieżące różnice dotyczące platform możesz znaleźć w temacie [Limity przydziałów i dostępność regionów dla usługi Azure Container Instances](container-instances-quotas.md).
+
+### <a name="deployment"></a>Wdrożenie
+
+**Grupy kontenerów** ma alokacji zasobów minimalną 1 vCPU i 1 GB pamięci. Poszczególne **kontenery** można udostępnić przy użyciu mniejszej niż 1 vCPU i 1 GB pamięci. W ramach kontenera grupy dystrybucji zasobów można dostosować, aby wiele kontenerów w granicach określonych na poziomie grupy kontenera. Na przykład dwa kontenery z 0,5 vCPU znajdującej się w obrębie grupy kontenera przydzielone 1 vCPU.
 
 ### <a name="networking"></a>Networking
 

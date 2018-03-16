@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Konfigurowanie pamięci podręcznej Redis Azure
 W tym temacie opisano konfiguracje, które są dostępne dla swoich wystąpień w pamięci podręcznej Redis Azure. W tym temacie omówiono również domyślną konfigurację serwera Redis wystąpienia pamięci podręcznej Redis Azure.
@@ -280,8 +280,6 @@ Początek i koniec zakresu adresów IP można określić reguły zapory. Reguły
 > [!IMPORTANT]
 > Połączenia z pamięcią podręczną Redis Azure monitorowania systemów będą zawsze dozwolone, nawet jeśli reguły zapory są skonfigurowane.
 > 
-> Reguły zapory są dostępne tylko dla pamięci podręcznej warstwy Premium.
-> 
 > 
 
 ### <a name="properties"></a>Właściwości
@@ -471,14 +469,14 @@ Aby uzyskać więcej informacji na temat baz danych, zobacz [co to są Redis baz
 > 
 > 
 
-Aby uzyskać więcej informacji o poleceniach Redis, zobacz [http://redis.io/commands](http://redis.io/commands).
+Aby uzyskać więcej informacji o poleceniach Redis, zobacz [ http://redis.io/commands ](http://redis.io/commands).
 
 ## <a name="redis-console"></a>Redis konsoli
 Można bezpiecznie wysyłać polecenia do Twojego wystąpienia pamięci podręcznej Redis Azure za pomocą **Redis konsoli**, która jest dostępna w portalu Azure dla wszystkich warstw pamięci podręcznej.
 
 > [!IMPORTANT]
 > - Konsola Redis nie działa z [sieci Wirtualnej](cache-how-to-premium-vnet.md). Jeśli pamięć podręczna jest częścią sieci Wirtualnej, tylko klienci w sieci Wirtualnej można uzyskać dostępu do pamięci podręcznej. Ponieważ Redis konsola jest uruchamiana w przeglądarce lokalnego znajduje się poza siecią Wirtualną, nie może nawiązać połączenia z pamięci podręcznej.
-> - Nie wszystkie polecenia Redis są obsługiwane w pamięci podręcznej Redis Azure. Listę poleceń pamięci podręcznej Redis, które są wyłączone dla pamięci podręcznej Redis Azure, zobacz poprzedni [polecenia nie są obsługiwane w pamięci podręcznej Redis Azure Redis](#redis-commands-not-supported-in-azure-redis-cache) sekcji. Aby uzyskać więcej informacji o poleceniach Redis, zobacz [http://redis.io/commands](http://redis.io/commands).
+> - Nie wszystkie polecenia Redis są obsługiwane w pamięci podręcznej Redis Azure. Listę poleceń pamięci podręcznej Redis, które są wyłączone dla pamięci podręcznej Redis Azure, zobacz poprzedni [polecenia nie są obsługiwane w pamięci podręcznej Redis Azure Redis](#redis-commands-not-supported-in-azure-redis-cache) sekcji. Aby uzyskać więcej informacji o poleceniach Redis, zobacz [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

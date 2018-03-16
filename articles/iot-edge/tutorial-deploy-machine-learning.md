@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Wdrażanie usługi Azure Machine Learning jako moduł krawędzi IoT — w wersji preview
 
@@ -41,12 +41,16 @@ W tej sekcji pobierania plików uczonego modelu i przekonwertować je na kontene
 
 Na komputerze z programem modułu zarządzania dla usługi Azure ML, Pobierz i Zapisz [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) i [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) z zestawu narzędzi IoT uczenie Maszynowe Azure w serwisie GitHub. Te pliki zdefiniuj przeszkolone maszyny, uczenie modelu, które zostaną wdrożone do urządzenia Iot krawędzi. 
 
-Umożliwia utworzenie kontenera, w którym można wdrożyć do urządzenia IoT brzegowe trenowanego modelu.
+Umożliwia utworzenie kontenera, w którym można wdrożyć do urządzenia IoT brzegowe trenowanego modelu. Użyj następującego polecenia, aby:
+
+   * Zarejestruj modelu.
+   * Utwórz manafest.
+   * Tworzenie kontenera Docker obrazu o nazwie *machinelearningmodule*.
+   * Wdróż obraz do klastra usługi kontenera platformy Azure (AKS).
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-Nazwa usługi *machinelearningmodule* w tym przykładzie staje się nazwa obrazu kontenera docker.
 
 ### <a name="view-the-container-repository"></a>Widok repozytorium kontenera
 

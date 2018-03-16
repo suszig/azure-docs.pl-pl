@@ -2,24 +2,18 @@
 title: "Zarządzanie bazami danych SQL Azure przy użyciu automatyzacji Azure | Dokumentacja firmy Microsoft"
 description: "Więcej informacji na temat sposobu usługi Automatyzacja Azure umożliwia zarządzanie bazami danych Azure SQL na dużą skalę."
 services: sql-database, automation
-documentationcenter: 
-author: jodoglevy
-manager: jhubbard
-editor: monicar
-ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
-ms.author: jhubbard
-ms.openlocfilehash: c5f7e6da09c6ca8ddc6cc3ddcbcf7c5b53116e26
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 0174b2b1dd5942e17ea60c2dce624c87fd1289c8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Zarządzanie bazami danych SQL Azure przy użyciu usługi Automatyzacja Azure
 W tym przewodniku przedstawiono usługi Automatyzacja Azure oraz jak on używany w celu uproszczenia zarządzania baz danych Azure SQL.
@@ -43,7 +37,7 @@ Automatyzacja Azure ma również możliwość komunikacji z serwerami SQL bezpo�
 * [Obciąć tabeli SQL, jeśli zbliża się do maksymalnego rozmiaru bazy danych](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
 * [Indeks tabel w bazie danych SQL Azure, jeśli są one bardzo pofragmentowane](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, kiedy znasz już podstawy usługi Automatyzacja Azure i jak może służyć do zarządzania baz danych Azure SQL, skorzystaj z poniższych linków, aby dowiedzieć się więcej na temat automatyzacji Azure.
 
 * [Omówienie usługi Automatyzacja Azure](../automation/automation-intro.md)

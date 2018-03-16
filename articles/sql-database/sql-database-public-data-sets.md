@@ -2,25 +2,18 @@
 title: "Publiczny zestawów danych w celu wykonania analizy Azure | Dokumentacja firmy Microsoft"
 description: "Więcej informacji na temat publicznej zestawów danych można użyć prototypem i testowanie usługi Azure analizy i rozwiązania."
 services: sql-database
-documentationcenter: 
 author: douglaslMS
 manager: craigg
-editor: 
-tags: 
 ms.custom: reference
-ms.assetid: 
 ms.service: sql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 03/20/2017
 ms.author: douglasl
-ms.openlocfilehash: ffb8c7cb4a5337e075c69f5e74552f7ead7c7565
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 34ff31c0542fba5fbd132c89c6bb028ba9ca6b88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Zestawy danych publicznych, testowanie i tworzenie prototypów
 
@@ -33,7 +26,7 @@ Przeglądaj tej listy publicznego zestawy danych na dane, które służy do usł
 | [Dane dla instytucji rządowych USA](https://www.census.gov/data.html) | Ponad 190,000 zestawów danych obejmujących rolnictwa, klimatem, odbiorców, ekosystemami edukacji, energii, finance kondycji, lokalnej produkcyjnym morskiego, Oceanu, bezpieczeństwa publicznego i nauki i badania w Stanach Zjednoczonych | Pliki o różnych rozmiarach w różnych formatach, w tym HTML, XML, CSV, JSON, Excel i wielu innych. Dostępne zestawy danych można filtrować według formatu pliku. |
 | [Dane spisu stany USA](https://www.census.gov/data.html) | Dane statystyczne dotyczące populacji Stanów Zjednoczonych | Zestawy danych znajdują się w różnych formatach. |
 | [Dane NASA nauki ziemi.](https://earthdata.nasa.gov/) | Zbiory danych niż 32 000 obejmujące rolnictwa, atmosfery, biosfery, klimatem, cryosphere, wymiary ludzi, hydrosfery, powierzchni ziemi, oceanów, interakcje sun ziemi i więcej. | Zestawy danych znajdują się w różnych formatach. |
-| [Opóźnienia transmitowane linii lotniczych i innych danych transportu](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "USA Stanowych przez Biuro statystyki transportu (BTS) śledzi wydajność na czas krajowych lotach obsługiwane przez nośniki dużych lotniczego (KROPKĄ). Podsumowanie liczby lotach na czas, opóźnione, anulowanych i kierunku pojawi się... w tabelach podsumowania zamieszczony na tej witrynie sieci Web." | Pliki są w formacie CSV. |
+| [Opóźnienia transmitowane linii lotniczych i innych danych transportu](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "The U.S. Stanowych przez Biuro statystyki transportu (BTS) śledzi wydajność na czas krajowych lotach obsługiwane przez nośniki dużych lotniczego (KROPKĄ). Podsumowanie liczby lotach na czas, opóźnione, anulowanych i kierunku pojawi się... w tabelach podsumowania zamieszczony na tej witrynie sieci Web." | Pliki są w formacie CSV. |
 | [Ruch zgonów - US Fatality analizy raportowania systemu (FARS)](http://www.nhtsa.gov/FARS) | "FARS jest krajowego spisu, zapewniając NHTSA, Kongresu, i American publicznego roczne dane dotyczące krytyczny uszkodzenia poniesione w motoryzacyjnego ruchu awarii (Crash)." | "Tworzenie własnych danych fatality Uruchom online przy użyciu systemu FARS zapytania. Lub pobrać wszystkich danych FARS z 1975 do prezentowania z witryny FTP." |
 | [Toksyczne chemicznych danych - warunkowy EPA toksyczności typu (ToxCast™)](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "EPA toksyczności wysokiej przepustowości najnowszych, publicznie dostępnych danych na tysiącach chemikaliów. Te dane jest generowany przez wysiłków badawczych ToxCast EPA". | Zestawy danych są dostępne w różnych formatach, takich jak arkusze kalkulacyjne, pakiety języka R i pliki bazy danych MySQL. |
 | [Dane chemicznych toksyczne — NIH Tox21 danych żądania 2014](https://tripod.nih.gov/tox21/challenge/) | "Żądanie danych Tox21 2014 ułatwia zrozumienie możliwości chemikaliów i związki testowane za pośrednictwem Toxicology inicjatywy 21 wieku zakłócić biologicznych ścieżek z metod, które mogą skutkować toksycznych służące." | Zestawy danych są dostępne w UŚMIECHY i SDF formatów. Udostępnia dane "Analiza dane o aktywności i struktur chemicznych w kolekcji Tox21 związków ~ 10 000 (Tox21 10K)." |

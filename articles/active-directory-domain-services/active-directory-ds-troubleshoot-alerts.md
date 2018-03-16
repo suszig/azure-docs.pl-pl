@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e4b8f31fe3eb79f9b38ae01af598290582a2cde3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Usługi domenowe Azure AD — rozwiązywanie alertów
 Ten artykuł zawiera przewodniki dotyczące rozwiązywania problemów w ramach wszystkich alertów, które mogą występować w domenie zarządzanej.
 
 
-Wybierz kroki rozwiązywania problemów, które odpowiadają lub alertu identyfikator lub wiadomości, które wystąpią.
+Wybierz odpowiadające kroki rozwiązywania problemów do Identyfikatora lub komunikat w alercie.
 
 | **Identyfikator alertu** | **Komunikat alertu** | **Rozdzielczość** |
 | --- | --- | :--- |
@@ -34,12 +34,12 @@ Wybierz kroki rozwiązywania problemów, które odpowiadają lub alertu identyfi
 | AADDS102 | *Wymagane dla usług domenowych Azure AD do prawidłowej nazwy głównej usługi został usunięty z katalogu usługi Azure AD. Ta konfiguracja ma wpływ na zdolność firmy Microsoft do monitorowania, zarządzania i poprawki i zsynchronizować domeny zarządzanej.* | [Brak nazwy głównej usługi](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Zakres adresów IP dla sieci wirtualnej, w której włączono usługi domenowe Azure AD jest w zakresie publicznego adresu IP. Usługi domenowe Azure AD musi być włączony w sieci wirtualnej z zakresu prywatnych adresów IP. Ta konfiguracja ma wpływ na zdolność firmy Microsoft do monitorowania, zarządzania i poprawki i zsynchronizować domeny zarządzanej.* | [Adres jest w zakresie publicznego adresu IP](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Firma Microsoft dokłada nawiązać kontrolery domeny dla tej domeny zarządzanej. Może się tak zdarzyć, jeśli grupa zabezpieczeń sieci (NSG) skonfigurowany na Twojej sieci wirtualnej blokuje dostęp do domeny zarządzanej. Inny możliwych przyczyn jest Brak trasy zdefiniowane przez użytkownika tego blokuje ruch przychodzący z Internetu.* | [Błąd sieci](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS500 | *Domeny zarządzanej ostatniej synchronizacji z usługą Azure AD na {0}. Użytkownicy nie będą mogli logowania do domeny zarządzanej lub członkostwa w grupach nie mogą być zsynchronizowane z usługą Azure AD.* | [Synchronizacja nie wystąpiło za pewien czas](#aadds500-synchronization-has-not-completed-in-a-while) |
-| AADDS501 | *Domeny zarządzanej utworzenia ostatniej kopii zapasowej na XX.* | [Kopia zapasowa nie podjęto za pewien czas](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS105 | *Usługa podmiotu zabezpieczeń z Identyfikatorem aplikacji "d87dcbc6-a371-462e-88e3-28ad15ec4e64" została usunięta, a Microsoft był w stanie utworzyć go ponownie. Nazwy głównej usługi zarządza innej nazwy głównej usługi i aplikacji, które są używane do synchronizacji haseł. Podmiot zabezpieczeń zarządzanych usług i aplikacji nie są autoryzowane w obszarze nazwy głównej usługi nowo utworzony i staną się nieaktualne po wygaśnięciu certyfikatu synchronizacji. Oznacza to, że główną nowo utworzony usługi będzie mógł zaktualizować starego zarządzanych aplikacji i synchronizacji obiektów z usługi AAD zostaną zmienione.* | [Aplikacja synchronizacji haseł jest nieaktualny](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS500 | *Domeny zarządzanej ostatniej synchronizacji z usługą Azure AD w dniu [Data]. Użytkownicy nie będą mogli logowania do domeny zarządzanej lub członkostwa w grupach nie mogą być zsynchronizowane z usługą Azure AD.* | [Synchronizacja nie wystąpiło za pewien czas](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *Domeny zarządzanej utworzenia ostatniej kopii zapasowej w dniu [Data].* | [Kopia zapasowa nie podjęto za pewien czas](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Bezpiecznego certyfikatu LDAP do domeny zarządzanej wygaśnie XX.* | [Wygasa bezpiecznego certyfikatu LDAP](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Domeny zarządzanej został wstrzymany, ponieważ subskrypcja platformy Azure skojarzone z tą domeną nie jest aktywny.* | [Zawieszenie ze względu na wyłączoną subskrypcję](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Domeny zarządzanej, jest wstrzymana z powodu nieprawidłowej konfiguracji. Usługa nie mogła zarządzać, poprawki, lub zaktualizuj kontrolery domeny dla domeny zarządzanej przez długi czas.* | [Zawieszenie z powodu nieprawidłowej konfiguracji](#aadds504-suspension-due-to-an-invalid-configuration) |
-
 
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Brak katalogu
@@ -47,7 +47,7 @@ Wybierz kroki rozwiązywania problemów, które odpowiadają lub alertu identyfi
 
 *Katalog usługi Azure AD skojarzony z domeny zarządzanej mogła zostać usunięta. Domeny zarządzanej nie jest już w obsługiwanej konfiguracji. Microsoft nie monitorowanie, zarządzanie, zastosować poprawki i synchronizacji domeny zarządzanej.*
 
-**Środki zaradcze:**
+**Rozwiązanie:**
 
 Przyczyną tego błędu jest zwykle nieprawidłowo przenoszenie subskrypcji platformy Azure do nowej usługi Azure AD directory i usuwanie starego katalogu usługi Azure AD, który jest nadal skojarzone z usług domenowych Azure AD.
 
@@ -58,7 +58,7 @@ Ten błąd jest nieodwracalny. Aby rozwiązać, należy [usunąć istniejące do
 
 *Nie można włączyć usługi domenowe Azure AD w katalogu usługi Azure AD B2C.*
 
-**Środki zaradcze:**
+**Rozwiązanie:**
 
 >[!NOTE]
 >Aby kontynuować korzystanie z usług domenowych Azure AD, należy ponownie utworzyć wystąpienie usług domenowych Azure AD w katalogu — z usługi Azure AD B2C.
@@ -75,7 +75,7 @@ Aby przywrócić usługę, wykonaj następujące kroki:
 
 *Zakres adresów IP dla sieci wirtualnej, w której włączono usługi domenowe Azure AD jest w zakresie publicznego adresu IP. Usługi domenowe Azure AD musi być włączony w sieci wirtualnej z zakresu prywatnych adresów IP. Ta konfiguracja ma wpływ na zdolność firmy Microsoft do monitorowania, zarządzania i poprawki i zsynchronizować domeny zarządzanej.*
 
-**Środki zaradcze:**
+**Rozwiązanie:**
 
 > [!NOTE]
 > Aby rozwiązać ten problem, należy usunąć istniejące domeny zarządzanej i utwórz go ponownie w sieci wirtualnej z zakresu prywatnych adresów IP. Ten proces jest destrukcyjne.
@@ -104,9 +104,9 @@ W sieci wirtualnej maszyny mogą wprowadzać żądania zasobów platformy Azure,
 
 **Komunikat alertu:**
 
-*Domeny zarządzanej ostatniej synchronizacji z usługą Azure AD na {0}. Użytkownicy nie będą mogli logowania do domeny zarządzanej lub członkostwa w grupach nie mogą być zsynchronizowane z usługą Azure AD.*
+*Domeny zarządzanej ostatniej synchronizacji z usługą Azure AD w dniu [Data]. Użytkownicy nie będą mogli logowania do domeny zarządzanej lub członkostwa w grupach nie mogą być zsynchronizowane z usługą Azure AD.*
 
-**Środki zaradcze:**
+**Rozwiązanie:**
 
 [Sprawdź kondycję domeny](active-directory-ds-check-health.md) w ramach wszystkich alertów, które mogą wskazywać na problemy w konfiguracji domeny zarządzanej. Czasami problemy z konfiguracją może zablokować możliwość synchronizacji domeny zarządzanej firmy Microsoft. Jeśli są w stanie rozwiązać wszystkie alerty, Zaczekaj dwie godziny i wyboru z powrotem do Jeśli synchronizacja zakończyła się w temacie.
 
@@ -115,9 +115,9 @@ W sieci wirtualnej maszyny mogą wprowadzać żądania zasobów platformy Azure,
 
 **Komunikat alertu:**
 
-*Domeny zarządzanej utworzenia ostatniej kopii zapasowej na XX.*
+*Domeny zarządzanej utworzenia ostatniej kopii zapasowej w dniu [Data].*
 
-**Środki zaradcze:**
+**Rozwiązanie:**
 
 [Sprawdź kondycję domeny](active-directory-ds-check-health.md) w ramach wszystkich alertów, które mogą wskazywać na problemy w konfiguracji domeny zarządzanej. Czasami problemy z konfiguracją może zablokować możliwość synchronizacji domeny zarządzanej firmy Microsoft. Jeśli są w stanie rozwiązać wszystkie alerty, Zaczekaj dwie godziny i wyboru z powrotem do Jeśli synchronizacja zakończyła się w temacie.
 
@@ -128,7 +128,7 @@ W sieci wirtualnej maszyny mogą wprowadzać żądania zasobów platformy Azure,
 
 *Domeny zarządzanej został wstrzymany, ponieważ subskrypcja platformy Azure skojarzone z tą domeną nie jest aktywny.*
 
-**Środki zaradcze:**
+**Rozwiązanie:**
 
 Aby przywrócić usługi [odnowić subskrypcję Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) skojarzone z domeny zarządzanej.
 
@@ -138,7 +138,7 @@ Aby przywrócić usługi [odnowić subskrypcję Azure](https://docs.microsoft.co
 
 *Domeny zarządzanej, jest wstrzymana z powodu nieprawidłowej konfiguracji. Usługa nie mogła zarządzać, poprawki, lub zaktualizuj kontrolery domeny dla domeny zarządzanej przez długi czas.*
 
-**Środki zaradcze:**
+**Rozwiązanie:**
 
 [Sprawdź kondycję domeny](active-directory-ds-check-health.md) w ramach wszystkich alertów, które mogą wskazywać na problemy w konfiguracji domeny zarządzanej. Jeśli te alerty mogą rozwiązania, należy to zrobić. Po skontaktuj się z pomocą techniczną, aby ponownie włączyć swoją subskrypcję.
 

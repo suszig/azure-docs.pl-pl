@@ -2,23 +2,18 @@
 title: "Wykrywanie — baza danych Azure SQL zagrożeń | Dokumentacja firmy Microsoft"
 description: "Wykrywanie zagrożeń wykrywa nietypowe działania bazy danych, które wskazują możliwe zagrożenia bezpieczeństwa bazy danych."
 services: sql-database
-documentationcenter: 
 author: rmatchoro
-manager: shaik
-editor: v-romcal
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-threat-detection"></a>Wykrywanie zagrożeń bazy danych SQL
 
@@ -33,7 +28,7 @@ Na przykład iniekcja kodu SQL jest jednym z typowych problemów zabezpieczeń a
 Wykrywanie zagrożeń SQL integruje alerty z [Centrum zabezpieczeń Azure](https://azure.microsoft.com/services/security-center/), i jest on rozliczany każdego chronionego serwera bazy danych SQL w tej samej cenie warstwy standardowa Centrum zabezpieczeń Azure, w $15 węzła/miesięcznie, gdzie każdy chronione bazy danych SQL serwer jest liczone jako jeden węzeł.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Skonfiguruj wykrywanie zagrożeń dla bazy danych w portalu Azure
-1. Uruchamianie portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com).
+1. Uruchamianie portalu Azure pod adresem [ https://portal.azure.com ](https://portal.azure.com).
 2. Przejdź do strony konfiguracji bazy danych SQL, który chcesz monitorować. Na stronie ustawień wybierz **Inspekcja i wykrywanie zagrożeń**. 
     ![Okienko nawigacji][1]
 3. W **Inspekcja i wykrywanie zagrożeń** strony konfiguracji, Włącz **ON** inspekcji, w którym są wyświetlane ustawienia wykrywania zagrożeń.

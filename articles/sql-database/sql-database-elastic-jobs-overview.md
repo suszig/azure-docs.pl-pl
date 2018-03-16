@@ -3,23 +3,18 @@ title: "Zarządzanie bazami danych w chmurze skalowalnych w poziomie | Dokumenta
 description: "Użyj usługi zadania elastycznej bazy danych do uruchomienia skryptu przez grupę baz danych."
 metakeywords: azure sql database elastic databases
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: f709cd38a690ba666ca290cc029caa2ce4f9dff0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 1f0e022eb98619b22f7e62e0602d36ba821def22
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Zarządzanie bazami danych w chmurze skalowalnych w poziomie
 Aby zarządzać bazy danych podzielonej skalowalnych w poziomie, **zadania elastycznej bazy danych** funkcji (wersja zapoznawcza) umożliwia niezawodnie wykonać skryptu języka Transact-SQL (T-SQL) między grupą baz danych, w tym:
@@ -134,7 +129,7 @@ Istnieje wiele typów zadania, wykonujących wykonywanie zadań:
 4. Po zakończeniu wszystkich zadań zadania, kontrolera aktualizacje stanu ukończenia zadania. 
    W dowolnym momencie podczas wykonywania zadania interfejs API środowiska PowerShell pozwala wyświetlać bieżący stan wykonywania zadania. Wszystkie godziny zwracana przez interfejsy API programu PowerShell są reprezentowane w formacie UTC. W razie potrzeby można zatrzymać zadania można zainicjować żądanie anulowania. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Zainstaluj składniki](sql-database-elastic-jobs-service-installation.md), następnie [Utwórz i Dodaj dziennika w każdej bazie danych w grupie baz danych](sql-database-manage-logins.md). Aby jeszcze lepiej zrozumieć Tworzenie zadania i zarządzanie nimi, zobacz [tworzenie i zarządzanie nimi zadania elastycznej bazy danych](sql-database-elastic-jobs-create-and-manage.md). Zobacz też [wprowadzenie zadania elastycznej bazy danych](sql-database-elastic-jobs-getting-started.md).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

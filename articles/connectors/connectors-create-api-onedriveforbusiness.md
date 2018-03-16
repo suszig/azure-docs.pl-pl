@@ -3,7 +3,7 @@ title: OneDrive dla firm | Dokumentacja firmy Microsoft
 description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Połączenie do usługi OneDrive dla firm do zarządzania plikami. Można wykonywać różne akcje takich jak przekazywanie, zaktualizować, Pobierz i usuwania plików."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 8bd447b59e8fd3573dad26ae6600e4b5c9cb7a7e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: a572d3d858bcaed817198420db7f2e09732b2366
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Wprowadzenie do usługi OneDrive dla firm łącznika
 Połączenie do usługi OneDrive dla firm do zarządzania plikami. Można wykonywać różne akcje takich jak przekazywanie, zaktualizować, Pobierz i usuwania plików.
@@ -31,7 +31,7 @@ Do tworzenia aplikacji logiki z usługą OneDrive dla firm, należy najpierw utw
 
 | Właściwość | Wymagane | Opis |
 | --- | --- | --- |
-| Token |Yes |Podaj poświadczenia usługi OneDrive dla Firm |
+| Token |Yes |Podaj usługi OneDrive dla firm poświadczeń |
 
 Po utworzeniu połączenia, można go wykonać akcje i będzie nasłuchiwać wyzwalaczy opisane w tym artykule.
 

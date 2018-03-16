@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 953ee3932ac1acad5cc41fba9bd5e168a94d7db7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -83,10 +83,10 @@ Wszystkie przykłady kodu w tym samouczku można dodać do metody `Main()` w pli
 Można użyć biblioteki Azure CosmosDB tabeli w dowolnego typu aplikacji .NET, w tym chmury Azure usługi lub aplikacji sieci web oraz aplikacje komputerów stacjonarnych i przenośnych. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
-Istnieją trzy pakiety, które należy odwoływać się do projektu do ukończenia tego samouczka:
+Istnieją trzy zalecane pakiety, który należy odwoływać się do projektu do ukończenia tego samouczka:
 
-* [Wspólna biblioteka magazynu Azure dla platformy .NET (8.6.0-preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
-* [Biblioteka CosmosDB tabeli platformy Microsoft Azure dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Ten pakiet zapewnia dostęp programistyczny do zasobów danych na Twoje konto magazynu tabel Azure lub interfejsu API Azure rozwiązania Cosmos DB tabeli konta.
+* [Biblioteki typowych Azure Storage dla platformy .NET (wersja zapoznawcza)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+* [Microsoft Azure rozwiązania Cosmos DB tabeli biblioteki dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Ten pakiet zapewnia dostęp programistyczny do zasobów danych na Twoje konto magazynu tabel Azure lub interfejsu API Azure rozwiązania Cosmos DB tabeli konta.
 * [Biblioteka programu Microsoft Azure Configuration Manager dla środowiska .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, niezależnie od tego, gdzie została uruchomiona aplikacja.
 
 Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
@@ -100,6 +100,11 @@ Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 > Zależności ODataLib w bibliotece wspólnej Storage dla platformy .NET są rozwiązywane przez pakiety ODataLib dostępne na NuGet, a nie z usługi danych WCF. Biblioteki ODataLib można pobrać bezpośrednio lub użyć odwołań w projekcie kodu za pośrednictwem pakietu NuGet. Określone pakiety ODataLib używane przez Bibliotekę klienta usługi Storage to [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) i [Spatial](http://nuget.org/packages/System.Spatial/). Te biblioteki są używane przez klasy magazynu tabel Azure, są one wymaganymi zależnościami do programowania za pomocą wspólnej biblioteki magazynu.
 > 
 > 
+
+> [!TIP]
+> Deweloperzy już zapoznać się z magazynem tabel Azure może użyto [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) pakietu w przeszłości. Zaleca się, że wszystkie nowe aplikacje tabeli używać [wspólna biblioteka magazynu Azure](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) i [biblioteki tabeli DB rozwiązania Cosmos Azure](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), ale pakiet WindowsAzure.Storage nadal jest obsługiwany. Jeśli używasz biblioteki WindowsAzure.Storage obejmują Microsoft.WindowsAzure.Storage.Table w za pomocą instrukcji.
+>
+>
 
 ### <a name="determine-your-target-environment"></a>Określanie środowiska docelowego
 W przypadku uruchamiania przykładów w tym przewodniku istnieją dwie opcje środowiska:

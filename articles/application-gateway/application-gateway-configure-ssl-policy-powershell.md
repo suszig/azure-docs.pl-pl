@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurowanie zasad zabezpieczeń SSL w wersjach i mechanizmy w bramie aplikacji szyfrowania
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Lista wstępnie zdefiniowane zasady SSL
 
-Brama aplikacji jest dostarczany z 3 wstępnie zdefiniowane zasady, które mogą być używane. `Get-AzureRmApplicationGatewaySslPredefinedPolicy` Polecenie cmdlet pobiera tych zasad. Wszystkie zasady mają różnych protokołów i mechanizmów szyfrowania włączone. Te wstępnie zdefiniowane zasady można szybko skonfigurować zasadę SSL na bramie aplikacji. Domyślnie **AppGwSslPolicy20170401** jest zaznaczone, jeśli nie określonych SSL zdefiniowano zasad.
+Brama aplikacji jest dostarczany z 3 wstępnie zdefiniowane zasady, które mogą być używane. `Get-AzureRmApplicationGatewaySslPredefinedPolicy` Polecenie cmdlet pobiera tych zasad. Wszystkie zasady mają różnych protokołów i mechanizmów szyfrowania włączone. Te wstępnie zdefiniowane zasady można szybko skonfigurować zasadę SSL na bramie aplikacji. Domyślnie **AppGwSslPolicy20150501** jest zaznaczone, jeśli nie określonych SSL zdefiniowano zasad.
 
 Poniżej przedstawiono przykład uruchomiona `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

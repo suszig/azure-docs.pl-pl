@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Często zadawane pytania i znane problemy z zarządzania usługi tożsamości (MSI) dla usługi Azure Active Directory
 
@@ -37,6 +37,10 @@ Nie, nie ma żadnych planów obsługi MSI w usługi w chmurze Azure.
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI działa z biblioteki uwierzytelniania usługi Active Directory (ADAL) lub biblioteki uwierzytelniania firmy Microsoft (MSAL)?
 
 Nie, MSI nie jest jeszcze zintegrowana z biblioteką ADAL lub MSAL. Aby uzyskać więcej informacji na temat pozyskiwania token MSI przy użyciu punktu końcowego MSI REST, zobacz [sposobu użycia Azure VM zarządzane usługi tożsamości (MSI) do przejęcia tokenu](how-to-use-vm-token.md).
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>Co to jest granicy zabezpieczeń tożsamości usługi zarządzania?
+
+Granica bezpieczeństwa tożsamości jest zasobów, do której jest dołączona do. Na przykład granicy zabezpieczeń MSI maszyny wirtualnej, jest maszyny wirtualnej. Dowolnego kodu uruchomionego na danej maszynie Wirtualnej jest w stanie połączenia punktu końcowego MSI i żądań tokenów. Jest podobne możliwości z innych zasobów, które obsługują MSI.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Co to są obsługiwane dystrybucje systemu Linux?
 

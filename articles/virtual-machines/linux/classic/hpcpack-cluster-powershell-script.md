@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: c15dc66718a855e22f8109448cb8c8a23787b9bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Utwórz Linux, wysokiej wydajności (HPC) klastra przy użyciu skryptu wdrażania HPC Pack IaaS
-Uruchom HPC Pack IaaS wdrożenie skryptu PowerShell do wdrożenia całego klastra HPC Pack 2012 R2 dla systemu Linux obciążeń na maszynach wirtualnych platformy Azure. Klaster składa się z węzłem głównym przyłączonych do usługi Active Directory systemem Windows Server i Microsoft HPC Pack i węzły obliczeniowe, które Uruchom jedno z dystrybucje systemu Linux obsługiwane przez HPC Pack. Jeśli chcesz wdrożyć klaster HPC Pack w obciążeń Azure dla systemu Windows, zobacz [utworzyć klaster HPC systemu Windows przy użyciu skryptu wdrażania HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Można także użyć szablonu usługi Azure Resource Manager do wdrażania klastra HPC Pack. Na przykład zobacz [utworzyć klaster HPC z węzłami obliczeniowymi Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
-
+Uruchom HPC Pack IaaS wdrożenie skryptu PowerShell do wdrożenia całego klastra HPC Pack 2012 R2 dla systemu Linux obciążeń na maszynach wirtualnych platformy Azure. Klaster składa się z węzłem głównym przyłączonych do usługi Active Directory systemem Windows Server i Microsoft HPC Pack i węzły obliczeniowe, które Uruchom jedno z dystrybucje systemu Linux obsługiwane przez HPC Pack. Jeśli chcesz wdrożyć klaster HPC Pack w obciążeń Azure dla systemu Windows, zobacz [utworzyć klaster HPC systemu Windows przy użyciu skryptu wdrażania HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 > [!IMPORTANT] 
 > Skrypt programu PowerShell opisanych w tym artykule jest tworzony klaster Microsoft HPC Pack 2012 R2 na platformie Azure przy użyciu klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
-> Ponadto skryptu opisane w tym artykule nie obsługuje HPC Pack 2016.
+> Ponadto skryptu opisane w tym artykule nie obsługuje HPC Pack 2016. Aby uzyskać informacje o szablonach usługi Resource Manager HPC Pack 2012 R2 i HPC Pack 2016, zobacz [opcji wdrażania klastrów HPC Pack na platformie Azure](../hpcpack-cluster-options.md).
+
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -82,7 +82,7 @@ Zastąp wartości dla nazwy usługi oraz konta i nazwę subskrypcji.
   
     Aby obejść ten problem, zaloguj się do kontrolera domeny i Usuń ustawienia konfiguracji usługi przesyłania dalej lub skonfigurować prawidłowe usługi przesyłania dalej serwera DNS. Aby to zrobić, w Menedżerze serwera kliknij pozycję **narzędzia** > **DNS** do Otwórz Menedżera DNS, a następnie kliknij dwukrotnie ikonę **usług przesyłania dalej**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zobacz [wprowadzenie węzły obliczeniowe systemu Linux w klastrze HPC Pack na platformie Azure](hpcpack-cluster.md) uzyskać informacji o obsługiwanych dystrybucjach systemu Linux, przenoszenia danych i przesyłanie zadań do klastra HPC Pack z systemem Linux węzły obliczeniowe.
 * Samouczki, które użyć skryptu, aby utworzyć klaster i uruchom obciążenia HPC systemu Linux zobacz:
   * [Uruchamianie NAMD z pakietem Microsoft HPC w węzłach obliczeń systemu Linux na platformie Azure](hpcpack-cluster-namd.md)

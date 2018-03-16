@@ -3,24 +3,18 @@ title: "Usługa SQL Database (PaaS) a program SQL Server w chmurze na maszynach 
 description: "Dowiedz się, która opcja programu SQL Server w chmurze jest odpowiednia do używanej aplikacji: usługa Azure SQL Database (PaaS) czy program SQL Server w chmurze na maszynach wirtualnych platformy Azure."
 services: sql-database, virtual-machines
 keywords: "chmura usługi SQL Server, SQL Server w chmurze, baza danych PaaS, chmura SQL Server, DBaaS"
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: cjgronlund
-ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 4a0fbb2a1f468493e5b22b12518be42fdd9d5ce6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Wybieranie opcji programu SQL Server w chmurze: usługa Azure SQL Database (PaaS) lub program SQL Server na maszynach wirtualnych Azure (IaaS)
 Platforma Azure ma dwie opcje do obsługi obciążeń programu SQL Server na platformie Microsoft Azure:

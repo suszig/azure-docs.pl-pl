@@ -5,15 +5,15 @@ services: iot-edge
 keywords: 
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Tworzenie i wdrażanie modułu krawędzi IoT C# w symulowane urządzenie — w wersji preview
 
@@ -48,7 +48,7 @@ W tym samouczku, można użyć dowolnego rejestru zgodnego Docker. Są dwa popul
 3. Wybierz pozycję **Utwórz**.
 4. Po utworzeniu kontenera rejestru przejdź do niego i wybierz **klucze dostępu**. 
 5. Przełącz **administrator** do **włączyć**.
-6. Skopiuj wartości **logowania serwera**, **Username**, i **hasło**. Te wartości będą używane w dalszej części tego samouczka. 
+6. Skopiuj wartości **logowania serwera**, **Username**, i **hasło**. Użyjesz tych wartości w dalszej części samouczka podczas publikowania obrazu Docker do rejestru, a podczas dodawania poświadczeń rejestru do środowiska wykonawczego krawędzi. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Tworzenie projektu modułu krawędzi IoT
 Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstawie .NET core 2.0 przy użyciu programu Visual Studio Code i rozszerzenie Azure IoT krawędzi.
@@ -227,15 +227,14 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
 2. Kliknij prawym przyciskiem myszy **plik Dockerfile** plik i kliknij przycisk **krawędzi IoT Tworzenie modułu Docker obrazu**. 
 3. W **wybierz Folder** okna, przejdź do albo wprowadź `./bin/Debug/netcoreapp2.0/publish`. Kliknij przycisk **wybierz Folder jako EXE_DIR**.
 4. W polu tekstowym wyskakujących w górnej części okna kodu programu VS wprowadź nazwę obrazu. Na przykład: `<your container registry address>/filtermodule:latest`. Adres rejestru kontenera jest taki sam jak serwer logowania, które zostały skopiowane z rejestru. Powinna być w formie `<your container registry name>.azurecr.io`.
-5. Zaloguj się do Docker, wprowadzając następujące polecenie w kodzie VS terminal zintegrowane: 
+5. Zaloguj się przy użyciu nazwy użytkownika, hasło i serwer logowania, skopiowany z rejestru kontenera platformy Azure podczas jego tworzenia Docker. W kodzie VS terminal zintegrowanego, wprowadź następujące polecenie: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Użyj nazwy użytkownika, hasło i serwer logowania, skopiowany z rejestru kontenera platformy Azure podczas jego tworzenia.
 
-3. Wypchnij obrazu do repozytorium Docker. Wybierz **widoku** > **palety polecenia** i wyszukaj **krawędzi: Push krawędzi IoT modułu Docker obrazu** polecenia menu. Wprowadź nazwę obrazu w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj takiej samej nazwy obraz, którego użyto w kroku 4.
+6. Wypchnij obrazu do rejestru kontenera. Wybierz **widoku** > **palety polecenia** i wyszukaj **krawędzi: Push krawędzi IoT modułu Docker obrazu** polecenia menu. Wprowadź nazwę obrazu w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj takiej samej nazwy obraz, którego użyto w kroku 4.
+7. Aby wyświetlić obraz w portalu Azure, przejdź do rejestru kontenera platformy Azure i wybierz **repozytoria**. Powinny pojawić się **filtermodule** na liście.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Dodawanie poświadczeń rejestru do środowiska wykonawczego krawędzi
 Dodaj poświadczenia do rejestru do środowiska wykonawczego Edge na komputerze, na którym są uruchomione Twoje urządzenie brzegowe. Te poświadczenia zapewniają dostęp środowiska uruchomieniowego do ściągnięcia kontenera. 

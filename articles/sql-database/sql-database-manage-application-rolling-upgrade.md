@@ -2,24 +2,18 @@
 title: "Wprowadzanie uaktualnień aplikacji — baza danych SQL Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak używać replikacja geograficzna bazy danych SQL Azure w celu obsługi online uaktualnień aplikacji w chmurze."
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 58f42859-1e37-463c-a3d8-a3ca2e867148
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 07/16/2016
 ms.author: sashan
-ms.openlocfilehash: deb91d55e5b796f7b1b53a99866156fe492e0a24
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6efc14e5f8fab5baafff50e8eb6844f8decca1c9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Zarządzanie stopniowe aplikacji w chmurze przy użyciu aktywna replikacja geograficzna bazy danych SQL
 > [!NOTE]
@@ -132,7 +126,7 @@ Klucz **korzyści** tej opcji jest można uaktualnić zarówno aplikacji, jak i 
 ## <a name="summary"></a>Podsumowanie
 Te dwie metody uaktualniania opisaną w artykule różnią się złożoność i dolara kosztów, ale ich obu skupić się na skrócenie czasu, gdy użytkownik końcowy jest ograniczona do operacji tylko do odczytu. Ta godzina bezpośrednio jest zdefiniowana przez czas trwania uaktualniania skryptów. Nie są zależne od rozmiaru bazy danych, wybranej warstwy usług, konfiguracji witryny sieci web i innych czynników, które nie można łatwo zarządzać. Jest to spowodowane wszystkie kroki przygotowania jest całkowicie niezależna od kroki uaktualniania i mogą być przeprowadzane bez wpływu na aplikacji produkcyjnej. Wydajność skryptów uaktualniania jest kluczowym czynnikiem, który określa środowisko użytkownika końcowego podczas uaktualniania. Dlatego najlepiej mogła ją udoskonalać jest koncentrujące się wysiłków na tworzenie jak najbardziej efektywne skrypt uaktualnienia skryptu.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Omówienie ciągłości działalności biznesowej i scenariuszy, zobacz [omówienie ciągłości działalności biznesowej](sql-database-business-continuity.md).
 * Aby dowiedzieć się więcej na temat usługi Azure SQL bazy danych automatycznego tworzenia kopii zapasowych, zobacz [bazy danych SQL automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md).
 * Aby dowiedzieć się więcej o używaniu kopie zapasowe automatycznego odzyskiwania, zobacz [przywrócić bazę danych z automatycznych kopii zapasowych](sql-database-recovery-using-backups.md).

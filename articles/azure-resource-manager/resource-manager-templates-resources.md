@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sekcja zasobów szablonów usługi Azure Resource Manager
 
@@ -69,16 +69,16 @@ Można zdefiniować zasoby o następującej strukturze:
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
 | warunek | Nie | Wartość logiczna wskazująca, czy zasób jest wdrażany. |
-| apiVersion |Tak |Wersja interfejsu API REST do użycia podczas tworzenia zasobu. |
-| type |Tak |Typ zasobu. Ta wartość jest kombinacją przestrzeń nazw dostawcy zasobów i typu zasobu (takich jak **magazyn.Microsoft/kontamagazynu**). |
-| name |Tak |Nazwa zasobu. Nazwa musi występować po zdefiniowane w RFC3986 ograniczenia składnika identyfikatora URI. Ponadto usług platformy Azure, które udostępniają poza strony zweryfikować nazwę, aby zapewnić, że nazwa zasobu nie jest próba podszywają się pod innego tożsamości. |
+| apiVersion |Yes |Wersja interfejsu API REST do użycia podczas tworzenia zasobu. |
+| type |Yes |Typ zasobu. Ta wartość jest kombinacją przestrzeń nazw dostawcy zasobów i typu zasobu (takich jak **magazyn.Microsoft/kontamagazynu**). |
+| name |Yes |Nazwa zasobu. Nazwa musi występować po zdefiniowane w RFC3986 ograniczenia składnika identyfikatora URI. Ponadto usług platformy Azure, które udostępniają poza strony zweryfikować nazwę, aby zapewnić, że nazwa zasobu nie jest próba podszywają się pod innego tożsamości. |
 | location |Zmienia się |Obsługiwane lokalizacje geograficzne podane zasobu. Można wybrać dowolny z dostępnych lokalizacji, ale zazwyczaj warto wybrać, który znajduje się w pobliżu użytkowników. Zazwyczaj również dobrym rozwiązaniem jest umieszczenie zasoby, które współdziałają ze sobą w tym samym regionie. Większość typów zasobów wymaga lokalizacji, ale nie wymagają lokalizację niektórych typów (takich jak przypisanie roli). |
 | tags |Nie |Tagi, które są skojarzone z zasobem. Zastosuj znaczniki, aby organizację zasobów w Twojej subskrypcji. |
 | Komentarze |Nie |Notatki za dokumentację zasobów w szablonie |
 | kopiuj |Nie |Jeśli wymagane jest więcej niż jedno wystąpienie, liczba zasobów do utworzenia. Domyślnym trybem jest równoległe. Określ tryb serial gdy nie ma wszystkich lub zasoby w celu wdrożenia w tym samym czasie. Aby uzyskać więcej informacji, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nie |Zasoby, które należy wdrożyć przed wdrożeniem tego zasobu. Menedżer zasobów ocenia zależności między zasobami i wdraża je w odpowiedniej kolejności. Zasoby nie są zależne od siebie, są wdrożone równolegle. Wartość może być rozdzielaną przecinkami listą zasobu nazwy lub unikatowych identyfikatorów zasobów. Tylko listy zasobów, które są wdrażane w tym szablonie. Zasoby, które nie są zdefiniowane w tym szablonie musi już istnieć. Unikaj Dodawanie zależności niepotrzebne, jak mogą spowalniać wdrożenia i utworzyć zależności cykliczne. Aby uzyskać wskazówki dotyczące zależności ustawienia, zobacz [Definiowanie zależności w szablonach usługi Azure Resource Manager](resource-group-define-dependencies.md). |
 | properties |Nie |Ustawienia konfiguracji określonych zasobów. Wartości właściwości są takie same jak wartości podane w treści żądania dla operacji interfejsu API REST (metody PUT) do utworzenia zasobu. Można również określić tablicy kopiowania, aby utworzyć wiele wystąpień właściwości. |
-| zasoby |Nie |Zasoby podrzędne, które zależą od zasobu został określony. Podaj tylko typy zasobów, które są dozwolone w schemacie zasobu nadrzędnego. Pełny typ zasobu podrzędnych obejmuje nadrzędny typ zasobu, takich jak **Microsoft.Web/sites/extensions**. Zależność od zasobu nadrzędnego nie jest oznaczany. Jawnie zdefiniuj tej zależności. |
+| — zasoby |Nie |Zasoby podrzędne, które zależą od zasobu został określony. Podaj tylko typy zasobów, które są dozwolone w schemacie zasobu nadrzędnego. Pełny typ zasobu podrzędnych obejmuje nadrzędny typ zasobu, takich jak **Microsoft.Web/sites/extensions**. Zależność od zasobu nadrzędnego nie jest oznaczany. Jawnie zdefiniuj tej zależności. |
 
 ## <a name="resource-specific-values"></a>Wartości zasobów
 
@@ -94,7 +94,7 @@ Ogólnie rzecz biorąc pracować z trzech rodzajów nazw zasobów w Menedżerze 
 ### <a name="unique-resource-names"></a>Nazwy zasobów unikatowy
 Musisz podać nazwę zasobu unikatowy dla dowolnego typu zasobu, która zawiera punkt końcowy dostępu do danych. Niektóre typowe typy zasobów, które wymagają unikatową nazwę obejmują:
 
-* Usługa Azure Storage<sup>1</sup> 
+* Azure Storage<sup>1</sup> 
 * Funkcje aplikacji internetowych w usłudze Azure App Service
 * Oprogramowanie SQL Server
 * W usłudze Azure Key Vault
@@ -102,7 +102,7 @@ Musisz podać nazwę zasobu unikatowy dla dowolnego typu zasobu, która zawiera 
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search
-* Usługa Azure HDInsight
+* Azure HDInsight
 
 <sup>1</sup> nazwy konta magazynu musi być także małe litery, 24 znaków lub mniej, a nie ma żadnych łączników.
 
@@ -213,7 +213,7 @@ Jeśli potrzebujesz kodowania lokalizację w szablonie, podaj nazwę jednego z o
 ```
 
 ## <a name="tags"></a>Tagi
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="add-tags-to-your-template"></a>Dodawanie tagów do szablonu
 
@@ -242,9 +242,9 @@ W niektórych typów zasobów można również zdefiniować tablicę zasoby podr
 
 Gdy zagnieżdżony, ma ustawioną wartość typu `databases` , ale jego typ zasobu pełne jest `Microsoft.Sql/servers/databases`. Nie podawaj `Microsoft.Sql/servers/` ponieważ zakłada się z nadrzędnego typu zasobu. Ustawiono nazwę zasobu podrzędnego `exampledatabase` , ale imię i nazwisko zawiera nazwę nadrzędnej. Nie podawaj `exampleserver` ponieważ zakłada się od zasobu nadrzędnego.
 
-Format podrzędny typ zasobu jest:`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+Format podrzędny typ zasobu jest: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-Format podrzędny Nazwa zasobu jest:`{parent-resource-name}/{child-resource-name}`
+Format podrzędny Nazwa zasobu jest: `{parent-resource-name}/{child-resource-name}`
 
 Jednak nie trzeba definiować bazy danych na serwerze. Można zdefiniować zasobu podrzędnego na najwyższym poziomie. Tej metody może użyć, jeśli zasobu nadrzędnego nie została wdrożona w tym samym szablonie, lub jeśli chcesz użyć `copy` utworzyć wiele podrzędnych zasobów. Z tej metody należy udostępniają typ zasobu pełne i nazwy zasobu podrzędne zawierają nazwę zasobu nadrzędnego.
 
@@ -273,7 +273,7 @@ Podczas konstruowania pełni kwalifikowane odwołanie do zasobu, aby połączyć
 
 Na przykład:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`jest poprawna `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` jest nieprawidłowy
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` jest poprawna `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` jest nieprawidłowy
 
 ## <a name="recommendations"></a>Zalecenia
 Poniższe informacje mogą być przydatne podczas pracy z zasobami:
@@ -388,7 +388,7 @@ Poniższe informacje mogą być przydatne podczas pracy z zasobami:
    > 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby wyświetlić pełną listę szablonów dla wielu różnych rozwiązań, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/).
 * Aby uzyskać więcej informacji o funkcje, których można użyć z w ramach szablonu, zobacz [funkcje szablonów usługi Azure Resource Manager](resource-group-template-functions.md).
 * Aby połączyć wiele szablonów podczas wdrażania, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).

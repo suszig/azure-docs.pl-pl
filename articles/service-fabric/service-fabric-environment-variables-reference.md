@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: a4bf082f5bd5a57bb5eb7641a25176e3a06503a3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9faefb43b9d5da81dddef8f326a3867b32842f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-environment-variables"></a>Zmienne środowiskowe sieci szkieletowej usług
 
@@ -32,11 +32,11 @@ Sieć szkieletowa usług ma zmienne środowiskowe wbudowanych ustawić dla każd
 | Fabric_Folder_App_Temp                       | Folder tymczasowy                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\temp     |
 | Fabric_Folder_App_Work                       | Folderów roboczych                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\work     |
 | Fabric_Folder_Application                    | Folder macierzysty aplikacji                                           | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12             |
-| Fabric_IsContainerHost                       | Bool, określając, czy proces jest kontenerem                   | fałsz                                                                |
+| Fabric_IsContainerHost                       | Bool, określając, czy proces jest kontenerem                   | false                                                                |
 | Fabric_NodeId                                | Identyfikator węzła węzła uruchomionego procesu                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | Adres IP lub nazwę FQDN węzła, jak określono w klastrze pliku manifestu. | nazwy LocalHost ani 10.0.0.1                                                |
 | Fabric_NodeName                              | Nazwa węzła węzła uruchomionego procesu                          | _Node_0                                                              |
-| Fabric_ServiceName                           | Nazwa usługi, jeśli usługa jest obsługiwana w trybie ExclusiveProcess  | MyService                                               |
+| Fabric_ServiceName                           | Nazwa usługi, jeśli usługa jest obsługiwana w trybie ExclusiveProcess. Wartość tej zmiennej jest dostępna tylko po utworzeniu usługi z ServicePackageActivationMode ExclusiveProcess.  | MyService                                               |
 | Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | A GUID                                                               |
 | Fabric_ServicePackageName                    | Nazwa pakietu usługi proces jest częścią                     | Web1Pkg                                                              |
 

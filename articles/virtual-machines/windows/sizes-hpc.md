@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6f2c72689811d26f95a64fdf5f473606f3ea3f7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Rozmiary maszyn wirtualnych wysokiej wydajności obliczeniowej
 
@@ -29,16 +29,8 @@ ms.lasthandoff: 02/22/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>Z funkcją RDMA wystąpień
-Podzbiór wystąpień obliczeniowych (H16r, H16mr A8 i A9) funkcji interfejsu sieciowego dla zdalnego pamięci bezpośredniego dostępu (do pamięci RDMA) łączności. Ten interfejs jest oprócz interfejsu standardowe sieć platformy Azure, dostępne dla innych rozmiarów maszyn wirtualnych. 
-  
-Ten interfejs umożliwia wystąpienia z funkcją RDMA do komunikacji za pośrednictwem sieci InfiniBand, działających z rozdzielczością stawki FDR H16r i H16mr maszyn wirtualnych i szybkości QDR A8 i A9 maszyn wirtualnych. Tych funkcji RDMA może zwiększyć skalowalność i wydajność aplikacji komunikat interfejsu (Passing Interface).
-
-Poniżej przedstawiono wymagania dotyczące maszyn wirtualnych systemu Windows z funkcją RDMA do uzyskania dostępu do sieci Azure RDMA: 
 
 * **System operacyjny** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-* **Zestaw dostępności lub usługi w chmurze** — wdrażanie maszyn wirtualnych z funkcją RDMA w tym samym zestawie dostępności (przy użyciu modelu wdrażania usługi Azure Resource Manager) lub samej usługi w chmurze (przy użyciu klasycznego modelu wdrażania). Jeśli używasz partii zadań Azure, maszyny wirtualne z funkcją RDMA musi być w tej samej puli.
 
 * **MPI** -MPI firmy Microsoft (MS-MPI) 2012 R2 lub nowszym, Intel MPI biblioteki 5.x
 
@@ -61,7 +53,6 @@ Poniżej przedstawiono wymagania dotyczące maszyn wirtualnych systemu Windows z
 ## <a name="using-hpc-pack"></a>Przy użyciu pakietu HPC
 
 [Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), rozwiązania firmy Microsoft wolnego HPC klastra i zadania zarządzania, jest jedną z opcji tworzenia klastra obliczeniowego na platformie Azure do uruchamiania aplikacji opartych na systemie Windows MPI i innych obciążeń HPC. HPC Pack 2012 R2 i nowsze wersje zawierają środowisko uruchomieniowe MPI MS wykorzystującego sieć Azure RDMA po wdrożeniu na maszynach wirtualnych z funkcją RDMA.
-
 
 
 

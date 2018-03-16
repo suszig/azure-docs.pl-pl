@@ -2,24 +2,18 @@
 title: Instalowanie zadania elastycznej bazy danych | Dokumentacja firmy Microsoft
 description: Przeprowadzenie instalacji funkcji elastycznej zadania.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalowanie omówienie zadania elastycznej bazy danych
 [**Zadania elastyczne bazy danych** ](sql-database-elastic-jobs-overview.md) można zainstalować za pomocą programu PowerShell lub za pośrednictwem portalu Azure. Możliwość uzyskania dostępu do utworzenia zadania i zarządzać nimi przy użyciu interfejsu API środowiska PowerShell, tylko w przypadku instalowania pakietu programu PowerShell. Ponadto API środowiska PowerShell stanowią znacznie więcej funkcji niż portalu w tym momencie.
@@ -29,7 +23,7 @@ Jeśli użytkownik zainstalował już **zadania elastycznej bazy danych** za po�
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure. Bezpłatnej wersji próbnej, zobacz [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Zainstaluj najnowszą wersję za pomocą [Instalatora platformy sieci Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Aby uzyskać szczegółowe informacje, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell).
-* [Narzędzie wiersza polecenia NuGet](https://nuget.org/nuget.exe) służy do zainstalowania pakietu zadania elastycznej bazy danych. Aby uzyskać więcej informacji zobacz http://docs.nuget.org/docs/start-here/installing-nuget.
+* [Narzędzie wiersza polecenia NuGet](https://nuget.org/nuget.exe) służy do zainstalowania pakietu zadania elastycznej bazy danych. Aby uzyskać więcej informacji, zobacz http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Pobieranie i importowanie pakietu programu PowerShell zadania elastycznej bazy danych
 1. Uruchom okno poleceń programu PowerShell usługi Microsoft Azure i przejdź do katalogu, którego pobrano narzędzie wiersza polecenia NuGet (nuget.exe).
@@ -68,7 +62,7 @@ Parametry podane na tej próbki wywołania można modyfikować dla żądane usta
   </tr>
 
 <tr>
-    <td>Grupy zasobów o nazwie</td>
+    <td>ResourceGroupName</td>
     <td>Zawiera nazwę grupy zasobów platformy Azure zawiera nowo utworzony składniki platformy Azure. Domyślnie ten parametr "__ElasticDatabaseJob". Nie zaleca się zmienić tę wartość.</td>
     </tr>
 
@@ -129,7 +123,7 @@ Aby zaktualizować rozmiaru maszyny Wirtualnej instalacji, uruchom następujący
 </tr>
 
   <tr>
-    <td>Grupy zasobów o nazwie</td>
+    <td>ResourceGroupName</td>
     <td>Określa nazwę grupy zasobów platformy Azure używana podczas początkowo zostały zainstalowane składniki zadania elastycznej bazy danych. Domyślnie ten parametr "__ElasticDatabaseJob". Ponieważ nie jest to zalecane, aby zmienić tę wartość, nie powinien zawierać określenie tego parametru.</td>
     </tr>
 </tr>
@@ -173,7 +167,7 @@ Po utworzeniu [utworzyć puli elastycznej](sql-database-elastic-pool-manage-port
 
 Jeśli wymagana jest dezinstalację, należy usunąć grupę zasobów. Zobacz [jak odinstalować składniki zadania elastycznej bazy danych](sql-database-elastic-jobs-uninstall.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Upewnij się, poświadczenie o odpowiednie prawa do wykonania skryptu jest utworzony w każdej bazie danych w grupie, aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych SQL](sql-database-manage-logins.md).
 Zobacz [Tworzenie zadania i zarządzać nimi elastycznej bazy danych](sql-database-elastic-jobs-create-and-manage.md) rozpocząć pracę.
 

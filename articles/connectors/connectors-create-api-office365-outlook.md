@@ -3,7 +3,7 @@ title: "Dodaj łącznik programu Outlook pakietu Office 365 w aplikacji logiki |
 description: "Tworzenie aplikacji logiki z łącznikiem usługi Office 365, aby umożliwić interakcję z usługą Office 365. Na przykład: tworzenie, edytowanie i aktualizowanie kontakty i elementy kalendarza."
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Rozpoczynanie pracy z łącznika programu Outlook pakietu Office 365
 Łącznik programu Outlook pakietu Office 365 umożliwia interakcję z programu Outlook w usłudze Office 365. Używaj tego łącznika do tworzenia, edycji i zaktualizuj kontakty i elementy kalendarza i również uzyskać, wysyłania i Odpowiedz na wiadomość e-mail.
@@ -30,7 +30,7 @@ W programie Outlook pakietu Office 365 możesz:
 * Wyzwalacze są używane do uruchomienia przepływu pracy po nowej wiadomości e-mail, po zaktualizowaniu elementu kalendarza i inne.
 * Użyj akcji, aby wysłać wiadomość e-mail, należy utworzyć nowe zdarzenie kalendarza i inne. Na przykład jeśli jest nowy obiekt w usłudze Salesforce (wyzwalacz), należy wysłać wiadomość e-mail programu Office 365 Outlook (działanie). 
 
-W tym temacie opisano sposób korzystania z łącznika programu Outlook pakietu Office 365 w aplikacji logiki, a także wyświetla wyzwalacze i akcje.
+W tym artykule przedstawiono sposób korzystania z łącznika programu Outlook pakietu Office 365 w aplikacji logiki, a także zawiera wyzwalacze i akcje.
 
 > [!NOTE]
 > Ta wersja artykułu ma zastosowanie do aplikacji logiki ogólnodostępnej (GA).

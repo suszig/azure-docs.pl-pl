@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Rozwiązywanie problemów z zadania usługi Azure Data Lake Analytics przy użyciu portalu Azure
-Dowiedz się, jak rozwiązywać problemy z zadań usługi Data Lake Analytics przy użyciu portalu Azure.
+# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Rozwiązywanie problemów z zadań usługi Azure Data Lake Analytics przy użyciu portalu Azure
+Dowiedz się, jak rozwiązywanie problemów z zadań usługi Data Lake Analytics za pomocą portalu Azure.
 
-W tym samouczku będzie brak problem pliku źródłowego instalacji i za pomocą portalu Azure do rozwiązania problemu.
+W tym samouczku zostanie Konfigurowanie Brak problem pliku źródłowego i użyj portalu Azure, aby rozwiązać problem.
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Przesyłanie zadania usługi Data Lake Analytics
 
@@ -62,7 +62,7 @@ Plik źródłowy zdefiniowane w skrypcie jest **/Samples/Data/SearchLog.tsv1**, 
 3. Kliknij przycisk **zadania zarządzania** Kafelek, aby wyświetlić zadania. Zadania są podzielone na **systemem**, **w kolejce**, i **zakończone**. Zostanie wyświetlona zadania nie powiodło się **zakończone** sekcji. Jest ona pierwsza z nich na liście. Jeśli masz wiele zadań, można kliknąć **filtru** ułatwiające można znaleźć zadania.
 
     ![Usługa Azure Data Lake Analytics filtrowania zadań](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Kliknij zadanie zakończone niepowodzeniem z listy, aby otworzyć w nowym bloku szczegóły zadania:
+4. Kliknij zadanie zakończone niepowodzeniem z listy, aby otworzyć szczegóły zadania:
 
     ![Azure Data Lake Analytics zadania nie powiodło się](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
@@ -73,12 +73,12 @@ Plik źródłowy zdefiniowane w skrypcie jest **/Samples/Data/SearchLog.tsv1**, 
 
     Określa, że nie znaleziono folderu źródłowego.
 6. Kliknij przycisk **zduplikowane skryptu**.
-7. Aktualizacja **FROM** ścieżka do następujących:
+7. Aktualizacja **FROM** ścieżkę do:
 
     "/ Samples/Data/SearchLog.tsv"
 8. Kliknij przycisk **Prześlij zadanie**.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie programu Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Wprowadzenie do usługi Azure Data Lake Analytics przy użyciu programu Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Rozpoczynanie pracy z usługą Azure Data Lake Analytics i języka U-SQL przy użyciu programu Visual Studio](data-lake-analytics-u-sql-get-started.md)

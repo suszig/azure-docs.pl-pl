@@ -2,24 +2,18 @@
 title: "Zarządzanie poświadczeniami w biblioteki klienta elastycznej bazy danych | Dokumentacja firmy Microsoft"
 description: "Jak ustawić odpowiedni poziom poświadczeń administratora tylko do odczytu, dla elastycznej bazy danych aplikacji"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Poświadczenia używane do dostępu biblioteki klienta elastycznej bazy danych
 [Biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md) używa trzech różnych rodzajów poświadczenia dostępu do [menedżera map niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md). Zależności od potrzeb za pomocą poświadczeń najniższego poziomu dostępu, które są możliwe.
@@ -71,7 +65,7 @@ W tym przykładzie **smmUserConnectionString** zawiera parametry połączenia dl
 
 Zgodnie z poświadczeniami administratora, nie używaj wartości w postaci "username@server". Zamiast tego można użyć "nazwa_użytkownika".  Należy również zauważyć, że parametry połączenia nie zawiera nazwę serwera i nazwę bazy danych. Jest to spowodowane tym **OpenConnectionForKey** wywołania automatycznie kieruje połączenie poprawny identyfikator niezależnego fragmentu opartą na kluczu. W związku z tym nazwy bazy danych i nazwy serwera nie są dostarczane. 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Zarządzanie bazami danych i nazwami logowania w usłudze Azure SQL Database](sql-database-manage-logins.md)
 
 [Zabezpieczanie bazy danych SQL](sql-database-security-overview.md)

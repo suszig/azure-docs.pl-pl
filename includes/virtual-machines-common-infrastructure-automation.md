@@ -7,14 +7,14 @@ Tworzenie i zarządzanie nimi Azure maszynach wirtualnych (VM) w spójny sposób
  
 - Automatyczne zarządzanie infrastrukturą
     - Narzędzia obejmują [pakujący](#packer) do automatyzacji niestandardowej maszyny Wirtualnej tworzy obraz, i [Terraform](#terraform) można zautomatyzować proces kompilacji infrastruktury.
-    - [Automatyzacja Azure](#azure-automation) może wykonywać akcje w infrastrukturze Azure i lokalnych.
+    - [Automatyzacja Azure](#azure-automation) może wykonywać akcje w infrastrukturze Azure i lokalnymi.
 
 - Automatyzacja wdrażania aplikacji i dostarczania
     - Przykłady obejmują [Visual Studio Team Services](#visual-studio-team-services) i [Wpięć](#jenkins).
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) jest aparatem automatyzacji zarządzania konfiguracją, tworzenie maszyny Wirtualnej lub wdrożenia aplikacji. Ansible używają modelu bez agenta, zwykle z kluczy SSH do uwierzytelniania i zarządzania komputerami docelowymi. Zadania konfiguracji są definiowane w elementach runbook z liczbą modułów Ansible dostępne do wykonywania określonych zadań. Aby uzyskać więcej informacji, zobacz [działa jak Ansible](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) jest aparatem automatyzacji zarządzania konfiguracją, tworzenie maszyny Wirtualnej lub wdrożenia aplikacji. Ansible używają modelu bez agenta, zwykle z kluczy SSH do uwierzytelniania i zarządzania komputerami docelowymi. Zadania konfiguracji są definiowane w playbooks z liczbą modułów Ansible dostępne do wykonywania określonych zadań. Aby uzyskać więcej informacji, zobacz [działa jak Ansible](https://www.ansible.com/how-ansible-works).
 
 Instrukcje:
 
@@ -41,19 +41,19 @@ Instrukcje:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Ponieważ init chmury jest wywoływana podczas początkowego procesu rozruchu, nie są żadne dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.  Aby uzyskać więcej informacji na temat sposobu poprawnie sformatowana Twojej `#cloud-config` plików, zobacz [witryna dokumentacji usługi chmury init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`pliki są plikami tekstowymi zakodowane w formacie base64.
+[Cloud-init](https://cloudinit.readthedocs.io) to powszechnie używana metoda dostosowywania maszyny wirtualnej z systemem Linux podczas jej pierwszego rozruchu. Za pomocą pakietu cloud-init można instalować pakiety i zapisywać pliki lub konfigurować użytkowników i zabezpieczenia. Ponieważ init chmury jest wywoływana podczas początkowego procesu rozruchu, nie są żadne dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.  Aby uzyskać więcej informacji na temat sposobu poprawnie sformatowana Twojej `#cloud-config` plików, zobacz [witryna dokumentacji usługi chmury init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` pliki są plikami tekstowymi zakodowane w formacie base64.
 
-Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji stanie get** lub **yum zainstalować** do zainstalowania pakietu. Zamiast tego można zdefiniować listę pakietów do zainstalowania. Init chmury automatycznie używa narzędzia do zarządzania natywnego pakietu dla distro, którą wybierzesz.
+Pakiet cloud-init działa również w różnych dystrybucjach. Przykładowo nie używa się poleceń **apt-get install** lub **yum install** do zainstalowania pakietu. Zamiast tego możesz zdefiniować listę pakietów do zainstalowania. Pakiet cloud-init automatycznie używa natywnego narzędzia do zarządzania pakietami dla wybranej dystrybucji.
 
  Obecnie pracujemy z partnerami potwierdzony distro systemu Linux w celu dostępnych obrazów włączone inicjowania chmury w portalu Azure marketplace. Te obrazy upewnij wdrożeń chmury init i konfiguracje współpracuje z maszynami wirtualnymi i zestawy skalowania maszyny wirtualnej. W poniższej tabeli przedstawiono bieżącej dostępności obrazów init chmury, włączone na platformie Azure:
 
 | Wydawca | Oferta | SKU | Wersja | gotowe init chmury
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04 LTS |najnowsza |tak | 
+|Canonical |UbuntuServer |16.04-LTS |najnowsza |tak | 
 |Canonical |UbuntuServer |14.04.5-LTS |najnowsza |tak |
 |CoreOS |CoreOS |Stable |najnowsza |tak |
-|OpenLogic |CentOS |7-CI |najnowsza |Wersja zapoznawcza |
-|RedHat |RHEL |7-RAW-CI |najnowsza |Wersja zapoznawcza |
+|OpenLogic |CentOS |7-CI |najnowsza |wersja zapoznawcza |
+|RedHat |RHEL |7-RAW-CI |najnowsza |wersja zapoznawcza |
 
 Dowiedz się więcej informacji na temat inicjowania chmurze na platformie Azure:
 
@@ -61,7 +61,7 @@ Dowiedz się więcej informacji na temat inicjowania chmurze na platformie Azure
 - [Spróbuj samouczek dotyczący automatycznych konfiguracji maszyny Wirtualnej przy użyciu chmury init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
-## <a name="powershell-dsc"></a>DSC środowiska PowerShell
+## <a name="powershell-dsc"></a>PowerShell DSC
 [Konfiguracji żądanego stanu środowiska PowerShell (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) to platforma zarządzania, aby zdefiniować konfigurację komputerów docelowych. DSC można również w systemie Linux za pomocą [Open Management Infrastructure (OMI) serwera](https://collaboration.opengroup.org/omi/).
 
 Konfiguracji DSC zdefiniować, co należy zainstalować na maszynie oraz sposób konfigurowania hosta. Aparat lokalnego Configuration Manager (LCM) działa na każdym węźle docelowym, który przetwarza żądane akcje wciśnięcia konfiguracji. Serwerem ściągania to usługa sieci web uruchomioną na hoście centralnej do przechowywania konfiguracji DSC i skojarzonych zasobów. Z serwerem ściągania komunikuje się z aparatem LCM na każdym hoście docelowym, aby zapewnić wymagane konfiguracje i raport dotyczący zgodności.
@@ -103,14 +103,14 @@ Instrukcje:
 
 
 ## <a name="azure-automation"></a>Azure Automation
-[Automatyzacja Azure](https://azure.microsoft.com/services/automation/) używa elementów runbook do przetwarzania zestawu zadań na tych maszynach docelowych. Automatyzacja Azure jest używana do zarządzania istniejących maszyn wirtualnych, a nie do utworzenia infrastruktury. Automatyzacja Azure można spotkać zarówno systemu Linux i maszyn wirtualnych systemu Windows, jak i maszyn wirtualnych lub fizycznych lokalnego z hybrydowy proces roboczy elementu runbook. Elementy Runbook mogą być przechowywane w repozytorium kontroli źródła, takich jak usługi GitHub. Te elementy runbook mogą następnie uruchomić ręcznie lub zgodnie z harmonogramem zdefiniowanym.
+[Automatyzacja Azure](https://azure.microsoft.com/services/automation/) używa elementów runbook do przetwarzania zestawu zadań na tych maszynach docelowych. Automatyzacja Azure jest używana do zarządzania istniejących maszyn wirtualnych, a nie do utworzenia infrastruktury. Automatyzacja Azure można spotkać zarówno systemu Linux i maszyn wirtualnych systemu Windows, jak i lokalnych maszyn wirtualnych lub fizycznych z hybrydowy proces roboczy elementu runbook. Elementy Runbook mogą być przechowywane w repozytorium kontroli źródła, takich jak usługi GitHub. Te elementy runbook mogą następnie uruchomić ręcznie lub zgodnie z harmonogramem zdefiniowanym.
 
 Usługi Automatyzacja Azure umożliwia również usługa konfiguracji żądanego stanu (DSC), która służy do tworzenia definicji dla konfiguracji podany zestaw maszyn wirtualnych. DSC następnie gwarantuje, że zastosowano wymaganej konfiguracji i maszyna wirtualna pozostaje spójna. Konfiguracja DSC automatyzacji Azure działa na komputerach z systemami Windows i Linux.
 
 Instrukcje:
 
 - [Tworzenie elementu runbook programu PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
-- [Używanie hybrydowy proces roboczy elementu Runbook do zarządzania zasobami lokalnego](../articles/automation/automation-hybrid-runbook-worker.md).
+- [Używanie hybrydowy proces roboczy elementu Runbook do zarządzania zasobami lokalnymi](../articles/automation/automation-hybrid-runbook-worker.md).
 - [Użyj usługi Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 

@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Jak containerize Twojego usługi sieć szkieletowa Reliable Services i Reliable Actors (wersja zapoznawcza)
 
 Sieć szkieletowa usług obsługuje containerizing mikrousług sieci szkieletowej usług (niezawodnej usługi i usługi niezawodnego aktora na podstawie). Aby uzyskać więcej informacji, zobacz [usługi sieć szkieletowa kontenery](service-fabric-containers-overview.md).
 
-
- Ta funkcja jest dostępna w wersji zapoznawczej i w tym artykule przedstawiono różne czynności wymagane do zainstalowania usługi uruchomione w kontenerze.  
+Ta funkcja jest dostępna w wersji zapoznawczej i w tym artykule przedstawiono różne czynności wymagane do zainstalowania usługi uruchomione w kontenerze.  
 
 > [!NOTE]
-> Ta funkcja jest w wersji zapoznawczej i nie jest obsługiwana w środowisku produkcyjnym. Obecnie ta funkcja działa tylko dla systemu Windows.
+> Ta funkcja jest w wersji zapoznawczej i nie jest obsługiwana w środowisku produkcyjnym. Obecnie ta funkcja działa tylko dla systemu Windows. Aby uruchomić kontenerów, klaster musi być uruchomiona w systemie Windows Server 2016 z kontenerów.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Kroki, aby containerize Twojej aplikacji sieci szkieletowej usług
 
@@ -110,6 +109,6 @@ Sieć szkieletowa usług obsługuje containerizing mikrousług sieci szkieletowe
 
 Teraz powinien mieć konteneryzowanych aplikacji usługi Service Fabric systemem klastra.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o uruchamianiu [kontenerów w usłudze Service Fabric](service-fabric-get-started-containers.md).
 * Uzyskaj informacje o [cyklu życia aplikacji](service-fabric-application-lifecycle.md) usługi Service Fabric.

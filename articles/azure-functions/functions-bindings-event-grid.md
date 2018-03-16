@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Wyzwalacz siatki zdarzeń dla usługi Azure Functions
 
@@ -37,11 +37,11 @@ Jeśli wolisz, można użyć wyzwalacza HTTP do obsługi zdarzeń siatki zdarze�
 
 Wyzwalacz zdarzenia siatki znajduje się w [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pakietu NuGet. Kod źródłowy dla pakietu jest w [eventgrid rozszerzenie, azure funkcji w-](https://github.com/Azure/azure-functions-eventgrid-extension) repozytorium GitHub.
 
-Pakiet jest używana do [programowanie biblioteki klas C#](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) i [funkcje rejestracji rozszerzenia powiązania v2](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Przykład
 
@@ -348,7 +348,7 @@ Po zakończeniu testowania, możesz użyć tej samej subskrypcji w środowisku p
 
 ### <a name="create-a-requestbin-endpoint"></a>Tworzenie punktu końcowego RequestBin
 
-RequestBin jest narzędziem open source, które akceptuje żądania HTTP i pokazuje treści żądania. Adres URL http://requestb.in pobiera szczególnego traktowania Azure zdarzeń siatki. Aby ułatwić testowanie, siatki zdarzeń wysyła zdarzenia do adresu URL RequestBin bez konieczności poprawne odpowiedzi na żądania weryfikacji subskrypcji. Taki sam sposób podane są dwa inne narzędzia testowania: http://webhookinbox.com i http://hookbin.com.
+RequestBin jest narzędziem open source, które akceptuje żądania HTTP i pokazuje treści żądania. http://requestb.in Szczególnego traktowania siatki zdarzeń platformy Azure pobiera adres URL. Aby ułatwić testowanie, siatki zdarzeń wysyła zdarzenia do adresu URL RequestBin bez konieczności poprawne odpowiedzi na żądania weryfikacji subskrypcji. Taki sam sposób podane są dwa inne narzędzia testowania: http://webhookinbox.com i http://hookbin.com.
 
 RequestBin nie jest przeznaczony do użycia z wysokiej przepływności. W przypadku wypchnięcia więcej niż jednego zdarzenia w tym samym czasie w narzędziu mogą nie być widoczne wszystkie zdarzenia.
 

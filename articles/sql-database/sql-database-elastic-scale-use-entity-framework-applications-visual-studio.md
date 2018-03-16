@@ -2,24 +2,18 @@
 title: Korzystanie z biblioteki klienta elastycznej bazy danych z programu Entity Framework | Dokumentacja firmy Microsoft
 description: "Użyj kodowania bazy danych biblioteki klienta elastycznej bazy danych i strukturą Entity Framework"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteka klienta usługi elastycznej bazy danych z programu Entity Framework
 Ten dokument przedstawia zmiany w aplikacji programu Entity Framework, które są potrzebne do integracji z [narzędzi elastycznej bazy danych](sql-database-elastic-scale-introduction.md). Koncentruje się na tworzenie [zarządzania mapy niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md) i [routingu zależne od danych](sql-database-elastic-scale-data-dependent-routing.md) z programu Entity Framework **Code First** podejście. [Najpierw - Code nową bazę danych](http://msdn.microsoft.com/data/jj193542.aspx) samouczek dotyczący EF służy jako przykład uruchomionych w tym dokumencie. Przykładowy kod towarzyszące ten dokument jest częścią narzędzi elastycznej bazy danych, ustaw próbek w przykładach kodu programu Visual Studio.
@@ -180,13 +174,13 @@ Powyższe przykłady kodu przedstawiono domyślny konstruktor ponownie zapisuje 
 
 | Bieżący Konstruktor | Konstruktor nowych danych | Konstruktora podstawowego | Uwagi |
 | --- | --- | --- | --- |
-| MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, wartość logiczna) |Połączenie musi być funkcją mapy niezależnego fragmentu i klucza routingu zależne od danych. Trzeba obejścia połączenia automatycznego tworzenia przez EF i zamiast tego użyć mapy niezależnego fragmentu do broker połączenia. |
-| MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, wartość logiczna) |Połączenie jest funkcją mapy niezależnego fragmentu i klucz routingu zależne od danych. Stałej bazy danych nazwa lub parametry połączenia nie działa jako ich obejścia weryfikacji przez niezależnego fragmentu mapy. |
-| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, model DbCompiledModel) |DbContext (DbConnection, model DbCompiledModel, wartość logiczna) |Połączenie pobiera utworzone dla danego niezależnych klucza mapy i dzielenia na fragmenty za pomocą modelu podane. Skompilowany modelu są przekazywane do podstawowej c'tor. |
+| MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, wartość logiczna) |Połączenie musi być funkcją mapy niezależnego fragmentu i klucza routingu zależne od danych. Trzeba obejścia połączenia automatycznego tworzenia przez EF i zamiast tego użyć mapy niezależnego fragmentu do broker połączenia. |
+| MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, wartość logiczna) |Połączenie jest funkcją mapy niezależnego fragmentu i klucz routingu zależne od danych. Stałej bazy danych nazwa lub parametry połączenia nie działa jako ich obejścia weryfikacji przez niezależnego fragmentu mapy. |
+| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, model DbCompiledModel, wartość logiczna) |Połączenie pobiera utworzone dla danego niezależnych klucza mapy i dzielenia na fragmenty za pomocą modelu podane. Skompilowany modelu są przekazywane do podstawowej c'tor. |
 | MyContext (DbConnection, wartość logiczna) |ElasticScaleContext (ShardMap, TKey, wartość logiczna) |DbContext (DbConnection, wartość logiczna) |Połączenie musi można wywnioskować na podstawie mapowania niezależnego fragmentu i klucz. Nie można podać jako dane wejściowe, (chyba że te dane wejściowe korzystał już z mapy niezależnych oraz klucz). Wartość logiczna są przekazywane. |
-| MyContext (ciąg, model DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, model DbCompiledModel) |DbContext (DbConnection, model DbCompiledModel, wartość logiczna) |Połączenie musi można wywnioskować na podstawie mapowania niezależnego fragmentu i klucz. Nie można podać jako dane wejściowe, (chyba że te dane wejściowe używał mapy niezależnych oraz klucz). Skompilowany modelu są przekazywane. |
+| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, model DbCompiledModel, wartość logiczna) |Połączenie musi można wywnioskować na podstawie mapowania niezależnego fragmentu i klucz. Nie można podać jako dane wejściowe, (chyba że te dane wejściowe używał mapy niezależnych oraz klucz). Skompilowany modelu są przekazywane. |
 | MyContext (ObjectContext, wartość logiczna) |ElasticScaleContext (ShardMap TKey, ObjectContext, wartość logiczna) |DbContext (ObjectContext, wartość logiczna) |Nowy Konstruktor musi upewnić, że wszystkie połączenia w obiekcie ObjectContext przekazany jako dane wejściowe jest przekierowane do połączenia zarządza elastycznego skalowania. Szczegółowe omówienie ObjectContexts wykracza poza zakres tego dokumentu. |
-| MyContext (DbConnection, model DbCompiledModel, wartość logiczna) |ElasticScaleContext (ShardMap TKey, model DbCompiledModel, wartość logiczna) |DbContext (DbConnection, model DbCompiledModel, wartość logiczna); |Połączenie musi można wywnioskować na podstawie mapowania niezależnego fragmentu i klucz. Połączenie nie można podać jako danych wejściowych (chyba że te dane wejściowe korzystał już z mapy niezależnych oraz klucz). Model i wartość logiczną są przekazywane do konstruktora klasy podstawowej. |
+| MyContext (DbConnection, model DbCompiledModel, wartość logiczna) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, model DbCompiledModel, wartość logiczna); |Połączenie musi można wywnioskować na podstawie mapowania niezależnego fragmentu i klucz. Połączenie nie można podać jako danych wejściowych (chyba że te dane wejściowe korzystał już z mapy niezależnych oraz klucz). Model i wartość logiczną są przekazywane do konstruktora klasy podstawowej. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Identyfikator niezależnego fragmentu wdrożenia schematu za pomocą migracji EF
 Zarządzanie automatyczne schematu jest udogodnienie pochodzącymi z programu Entity Framework. W kontekście aplikacji przy użyciu narzędzi elastycznej bazy danych ma zostać zachowany tej możliwości, aby automatycznie udostępniać schemat odłamków nowo utworzone po dodaniu bazy danych podzielonej aplikacji. Pierwotnym zastosowaniem jest zwiększenie pojemności w warstwie danych podzielonej aplikacji za pomocą EF. Zależne EF jego możliwości zarządzania schematu zmniejsza nakład pracy administracyjnej bazy danych z aplikacją podzielonej oparty na EF. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Pomoc techniczna platformy Azure wykres Gremlin DB rozwiązania Cosmos
 Obsługuje bazę danych systemu Azure rozwiązania Cosmos [Apache Tinkerpop](http://tinkerpop.apache.org) wykresu języka przechodzenie [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), która jest interfejs API programu Graph do tworzenia jednostek wykres i wykonywanie operacji zapytania wykresu. Język Gremlin służy do tworzenia jednostek graph (wierzchołki i krawędzi), zmodyfikuj właściwości w ramach tych jednostek, wykonywania zapytań i traversals i usuwania jednostek. 
@@ -84,7 +84,7 @@ W poniższej tabeli wymieniono funkcje TinkerPop implementowane za pomocą bazy 
 | Funkcje zmiennych | Obsługuje wartość logiczną, liczbą całkowitą, Byte, kliknij dwukrotnie, Float, Integer, Long, ciąg | Obsługuje typy pierwotne, jest niezgodny z typami złożonymi za pośrednictwem modelu danych |
 | Funkcje wierzchołków | Obsługuje RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Obsługuje tworzenie, modyfikowanie i usuwanie wierzchołków |
 | Funkcje właściwości wierzchołków | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Obsługuje tworzenie, modyfikowanie i usuwanie właściwości wierzchołków |
-| Funkcje krawędzi | AddEges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Obsługuje tworzenie, modyfikowanie i usuwanie krawędzi. |
+| Funkcje krawędzi | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Obsługuje tworzenie, modyfikowanie i usuwanie krawędzi. |
 | Funkcje właściwości Edge | Właściwości, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Obsługuje tworzenie, modyfikowanie i usuwanie właściwości edge |
 
 ## <a name="gremlin-wire-format-graphson"></a>Format przesyłania gremlin: GraphSON
@@ -171,9 +171,9 @@ Teraz Przyjrzyjmy się kroki Gremlin obsługiwane przez bazy danych Azure rozwi�
 | `addV` | Dodaje wierzchołka do wykresu | [krok addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
 | `and` | Zapewnia, że wszystkie traversals zwracają wartość | [i kroku](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Modulator krok można przypisać zmiennej do wyniku kroku | [krok](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | Używane z modulator krok `group` i`order` | [krok](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
+| `by` | Używane z modulator krok `group` i `order` | [krok](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Zwraca pierwszy przechodzenie, która zwraca wynik | [połączenie kroku](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | Zwraca wartość stałą. Używane z`coalesce`| [krok stałej](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
+| `constant` | Zwraca wartość stałą. Używane z `coalesce`| [krok stałej](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
 | `count` | Zwraca liczbę z podczas przechodzenia | [Liczba kroku](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
 | `dedup` | Zwraca wartości usunięciu duplikatów | [krok deduplikacji](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
 | `drop` | Porzucania wartości (wierzchołków/krawędź) | [Upuść krok](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |

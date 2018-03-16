@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do inicjowania obsługi użytkowników
 
@@ -35,7 +35,7 @@ Celem tego samouczka jest opisano czynności, które należy wykonać, aby zaimp
 
 * **Zapisywanie zwrotne e-mail adresów do produktu Workday** -użytkownika usługi Azure AD, świadczenie usługi można zapisu wybrane atrybuty użytkownika usługi Azure AD do pracy, takie jak adres e-mail.
 
-### <a name="scenarios-covered"></a>Omówione scenariusze
+### <a name="what-human-resources-scenarios-does-it-cover"></a>Jakie scenariuszy zasobów ludzkich obejmuje on?
 
 Dzień roboczy użytkownika inicjowania obsługi administracyjnej przepływów pracy obsługiwanych przez usługę inicjowania obsługi administracyjnej użytkowników usługi Azure AD automatyzować następujących zasobów ludzkich i scenariusze zarządzania cyklem życia tożsamości:
 
@@ -46,6 +46,20 @@ Dzień roboczy użytkownika inicjowania obsługi administracyjnej przepływów p
 * **Liczba przerwanych pracownika** — gdy pracownik zostaje zakończone w pracy, ich konta użytkownika jest automatycznie wyłączana w usłudze Active Directory, usługi Azure Active Directory i opcjonalnie usługi Office 365 i [innych aplikacji SaaS obsługiwany przez platformę Azure AD](active-directory-saas-app-provisioning.md).
 
 * **Pracownik ponownie wynajmuje** — gdy pracownik jest rehired w pracy, ich stare konto może być automatycznie ponownie uaktywnić lub ponownie zainicjowano obsługę administracyjną (w zależności od swoich preferencji) do usługi Active Directory, Azure Active Directory i opcjonalnie usługi Office 365 i [innych aplikacji SaaS obsługiwane przez usługę Azure AD](active-directory-saas-app-provisioning.md).
+
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Kto jest rozwiązanie inicjowania obsługi administracyjnej tego użytkownika najlepiej nadaje się do?
+
+Ten użytkownik produktu Workday inicjowania obsługi administracyjnej rozwiązania jest obecnie w wersji zapoznawczej i doskonale nadaje się do:
+
+* Organizacje, które konieczna jest wstępnie przygotowanych, oparte na chmurze rozwiązanie do produktu Workday Inicjowanie obsługi użytkowników
+
+* Organizacje, które wymagają bezpośredniego Inicjowanie obsługi użytkowników z produktu Workday do usługi Active Directory lub Azure Active Directory
+
+* Organizacje, które wymagają użytkownikom udostępniane przy użyciu danych uzyskanych z produktu Workday HCM modułu (zobacz [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) 
+
+* Organizacje wymagają dołączenie, przenoszenie, i pozostawienie użytkownikom synchronizowane z jednego lub więcej lasy usługi Active Directory, domeny i jednostki organizacyjne, tylko na podstawie zmienić informacje użytkownika w module HCM produktu Workday (zobacz [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
+
+* Organizacji do obsługi poczty e-mail przy użyciu usługi Office 365
 
 
 ## <a name="planning-your-solution"></a>Planowanie rozwiązania
@@ -62,10 +76,9 @@ Scenariusz opisany w tym samouczku założono, że już następujące elementy:
 * Inicjowanie obsługi użytkowników do usługi Active Directory, aby uzyskać przyłączonych do domeny serwera z systemem usługi systemu Windows 2012 lub nowszego jest wymagany do hosta [agent synchronizacji lokalnej](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) synchronizacji od usługi Active Directory i Azure AD
 
-
 ### <a name="solution-architecture"></a>Architektura rozwiązania
 
-Usługa Azure AD zapewnia bogaty zestaw inicjowania obsługi administracyjnej łączników, aby pomóc w określeniu, inicjowanie obsługi i tożsamości Zarządzanie cyklem życia z produktu Workday do usługi Active Directory, usługi Azure AD, aplikacji SaaS i późniejsze. Funkcje użytkownik użyje i sposób konfigurowania rozwiązania będą się różnić w zależności od środowiska i wymagań Twojej organizacji. Pierwszym krokiem wykonać zapasów, o ile poniżej są obecne i wdrożony w organizacji:
+Usługa Azure AD zapewnia bogaty zestaw inicjowania obsługi administracyjnej łączników, aby pomóc w określeniu tożsamości i udostępniania Zarządzanie cyklem życia z produktu Workday do usługi Active Directory, usługi Azure AD, aplikacji SaaS i późniejsze. Funkcje użytkownik użyje i sposób konfigurowania rozwiązania będą się różnić w zależności od środowiska i wymagań Twojej organizacji. Pierwszym krokiem wykonać zapasów, o ile poniżej są obecne i wdrożony w organizacji:
 
 * Ile lasy usługi Active Directory są używane?
 * Jak wiele domen usługi Active Directory są używane?
@@ -74,6 +87,7 @@ Usługa Azure AD zapewnia bogaty zestaw inicjowania obsługi administracyjnej ł
 * Istnieją użytkownicy, którzy muszą być przygotowana do usługi Active Directory i Azure Active Directory (np. "hybrydowe" użytkowników)?
 * Istnieją użytkownicy, którzy muszą być przygotowana do usługi Azure Active Directory, ale nie Active Directory (np. "tylko w chmurze" użytkowników)?
 * Czy adresu e-mail użytkownika muszą być zapisywane z powrotem do produktu Workday?
+
 
 Po uzyskaniu odpowiedzi na te pytania, możesz zaplanować pracy inicjowania obsługi wdrożenia, wykonując poniższe wskazówki.
 
@@ -144,7 +158,7 @@ Należy utworzyć grupę zabezpieczeń systemu nieograniczonego integracji i prz
    
     ![Grupa CreateSecurity](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity grupy")
 2. Zakończenie **Utwórz grupę zabezpieczeń** zadań.  
-3. Wybierz grupy zabezpieczeń systemu integracji — nieograniczonego z **typ grupy zabezpieczeń dzierżawcza** listy rozwijanej.
+3. Wybierz **integracji systemu zabezpieczeń grupy (nieograniczone)** z **typ grupy zabezpieczeń dzierżawcza** listy rozwijanej.
 4. Utwórz grupę zabezpieczeń, do których członkowie zostaną jawnie dodani. 
    
     ![Grupa CreateSecurity](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity grupy")
@@ -164,21 +178,11 @@ Należy utworzyć grupę zabezpieczeń systemu nieograniczonego integracji i prz
     ![Grupa zabezpieczeń systemu](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "grupa zabezpieczeń systemu")  
 
 ### <a name="configure-security-group-options"></a>Skonfiguruj opcje grupy zabezpieczeń
-W tym kroku zostanie udzielić zabezpieczeń domeny uprawnienia zasad dla danych procesu roboczego zabezpieczone przez następujące zasady zabezpieczeń domeny:
-
-
-| Operacja | Zasady zabezpieczeń domeny |
-| ---------- | ---------- | 
-| GET i Put |  Inicjowanie obsługi konta zewnętrznego |
-| GET i Put | Danych procesu roboczego: Raporty publicznego procesu roboczego |
-| GET i Put | Danych procesu roboczego: Wszystkie pozycje |
-| GET i Put | Danych procesu roboczego: Personel informacje o bieżącej |
-| GET i Put | Danych procesu roboczego: Tytuł firm proces roboczy w profilu |
-| Wyświetlanie i modyfikowanie | Dane procesu roboczego: Służbowy adres E-mail |
+W tym kroku zostanie Przyznaj zabezpieczeń domeny uprawnienia zasady dla danych procesu roboczego do grupy zabezpieczeń.
 
 **Aby skonfigurować opcje grupy zabezpieczeń:**
 
-1. W polu wyszukiwania wprowadź zasady zabezpieczeń domeny, a następnie kliknij łącze **zasady zabezpieczeń domeny dla Obszar funkcjonalny**.  
+1. Wprowadź **zasady zabezpieczeń domeny** w polu wyszukiwania, a następnie kliknij łącze **zasady zabezpieczeń domeny dla Obszar funkcjonalny**.  
    
     ![Zasady zabezpieczeń domeny](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "zasady zabezpieczeń domeny")  
 2. Wyszukaj systemu i wybierz **systemu** Obszar funkcjonalny.  Kliknij przycisk **OK**.  
@@ -190,23 +194,17 @@ W tym kroku zostanie udzielić zabezpieczeń domeny uprawnienia zasad dla danych
 4. Kliknij przycisk **Edytuj uprawnienia**, a następnie na **Edytuj uprawnienia** strony okna dialogowego Dodaj nową grupę zabezpieczeń do listy grup zabezpieczeń z **uzyskać** i **Put**  uprawnienia integracji. 
    
     ![Edytuj uprawnienia](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "uprawnienia do edycji")  
-5. Powtórz krok 1 powyżej, aby powrócić do ekranu wyboru obszarów funkcjonalnych, a następnie wybierz tego czasu, wyszukaj personel, **personel Obszar funkcjonalny** i kliknij przycisk **OK**.
+    
+5. Powtórz kroki 1 – 4 powyżej dla każdej z pozostałych zasady zabezpieczeń:
+
+| Operacja | Zasady zabezpieczeń domeny |
+| ---------- | ---------- | 
+| GET i Put | Danych procesu roboczego: Raporty publicznego procesu roboczego |
+| GET i Put | Danych procesu roboczego: Informacje kontaktowe pracy |
+| Get | Danych procesu roboczego: Wszystkie pozycje |
+| Get | Danych procesu roboczego: Personel informacje o bieżącej |
+| Get | Danych procesu roboczego: Tytuł firm proces roboczy w profilu |
    
-    ![Zasady zabezpieczeń domeny](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "zasady zabezpieczeń domeny")  
-6. Na liście zasad zabezpieczeń dla Obszar funkcjonalny Staffing, rozwiń węzeł **danych procesu roboczego: Staffing** i powtórz kroki 4 powyżej dla każdej z tych pozostałych zasady zabezpieczeń:
-
-   * Danych procesu roboczego: Raporty publicznego procesu roboczego
-   * Danych procesu roboczego: Wszystkie pozycje
-   * Danych procesu roboczego: Personel informacje o bieżącej
-   * Danych procesu roboczego: Tytuł firm proces roboczy w profilu
-   
-7. Powtórz krok 1, powyżej, aby powrócić do ekranu wyboru funkcjonalności obszarów i tym razem wyszukiwać **informacje kontaktowe**, wybierz obszar funkcjonalny Staffing i kliknij przycisk **OK**.
-
-8.  Na liście zasad zabezpieczeń dla Obszar funkcjonalny Staffing, rozwiń węzeł **danych procesu roboczego: informacje kontaktowe pracy**i powtórz kroki 4 powyżej dla zasad zabezpieczeń poniżej:
-
-    * Dane procesu roboczego: Służbowy adres E-mail
-
-    ![Zasady zabezpieczeń domeny](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "zasady zabezpieczeń domeny")  
     
 ### <a name="activate-security-policy-changes"></a>Aktywuj zmian zasad zabezpieczeń
 
@@ -225,6 +223,41 @@ W tym kroku zostanie udzielić zabezpieczeń domeny uprawnienia zasad dla danych
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Konfigurowanie Inicjowanie obsługi użytkowników z produktu Workday do usługi Active Directory
 Wykonaj te instrukcje, aby skonfigurować konto użytkownika, inicjowania obsługi administracyjnej z produktu Workday w każdym lesie usługi Active Directory, wymagające inicjowania obsługi administracyjnej.
 
+### <a name="planning"></a>Planowanie
+
+Przed skonfigurowaniem lesie usługi Active Directory Inicjowanie obsługi użytkowników, należy rozważyć następujące kwestie. Odpowiedzi na te pytania określają sposób mapowania atrybutu i filtry zakresu, na których trzeba ustawić. 
+
+* **Co użytkownicy w pracy muszą być przygotowana do tego lasu usługi Active Directory?**
+
+   * *Przykład: Użytkowników, których atrybut "Firmowe" produktu Workday zawiera wartość "Contoso" i "Regularne" zawiera atrybut "Worker_Type"*
+
+* **Jak użytkownicy są kierowane do jednostki innej organizacji (OU)**
+
+   * *Przykład: Użytkownicy są kierowane do jednostek organizacyjnych, które odpowiadają lokalizacji biura, zgodnie z definicją w produktu Workday "Jednostki administracyjnej" i "Country_Region_Reference" atrybutów*
+
+* **Jak następujące atrybuty powinny zostać wypełnione w usłudze Active Directory?**
+
+   * Nazwa pospolita (cn)
+      * *Przykład: Użyj wartości funkcja User_ID produktu Workday, zgodnie z ustawieniami kadr*
+      
+   * Identyfikator pracownika (identyfikator pracownika)
+      * *Przykład: Użyj wartości Worker_ID produktu Workday*
+      
+   * Nazwa konta SAM (sAMAccountName)
+      * *Przykład: Użyj wartości funkcja User_ID produktu Workday, filtrować za pomocą usługi Azure AD inicjowania obsługi administracyjnej wyrażenie Usuń nieprawidłowe znaki*
+      
+   * Nazwa główna użytkownika (userPrincipalName)
+      * *Przykład: Należy użyć wartości funkcja User_ID pracy z usługą Azure AD inicjowania obsługi administracyjnej wyrażenie dołączyć nazwę domeny*
+
+* **Jak użytkownicy powinny być zgodne między produktu Workday i usługi Active Directory?**
+
+  * *Przykład: Użytkownicy z określonym produktem Workday "Worker_ID" wartości są zgodne z użytkowników usługi Active Directory, gdzie "identyfikator pracownika" ma taką samą wartość. Wartość Worker_ID nie zostanie znaleziony w usłudze Active Directory, utworzenie nowego użytkownika.*
+  
+* **Las usługi Active Directory już zawiera identyfikatory wymagane logiki pasującego do pracy użytkowników?**
+
+  * *Przykład: Jeśli jest to nowe wdrożenie produktu Workday, zdecydowanie zalecane jest czy usługi Active Directory będzie wstępnie wypełniane poprawne wartości Worker_ID produktu Workday (lub unikatowa wartość Identyfikatora wyboru) do zachowania, wystarczy logika dopasowywania.*
+    
+    
 ### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Część 1: Dodawanie inicjowania obsługi administracyjnej aplikacja łącznika i tworzenie połączenia z produktu Workday
 
 **Aby skonfigurować produktu Workday do inicjowania obsługi usługi Active Directory:**
@@ -320,39 +353,38 @@ W tej sekcji skonfigurujesz, jak dane użytkownika wypływających z produktu Wo
 
 **Poniżej przedstawiono przykładowe Mapowanie atrybutów między produktu Workday i usługi Active Directory, z niektórych typowych wyrażeń**
 
--   Wyrażenie, które mapuje parentDistinguishedName atrybutu AD można go użyć do udostępnienia użytkownika do określonej jednostki Organizacyjnej, na podstawie jednego lub więcej atrybutów źródła produktu Workday. W tym przykładzie umieszcza użytkowników w różnych jednostkach organizacyjnych w zależności od ich danych Miasto w pracy.
+-   Wyrażenie, które mapy do atrybutu parentDistinguishedName służy do obsługi administracyjnej użytkowników do różnych jednostek organizacyjnych, na podstawie jednego lub więcej atrybutów źródła produktu Workday. W tym przykładzie tutaj umieszcza użytkowników w różnych jednostkach organizacyjnych oparte na jakim mieście znajdują się w.
 
--   Wyrażenie, który jest mapowany na atrybut userPrincipalName AD utworzyć nazwę UPN firstName.LastName@contoso.com. Zastępuje ona niedozwolone znaki specjalne.
+-   Atrybut userPrincipalName w usłudze Active Directory jest generowana przez połączenie produktu Workday identyfikator użytkownika z sufiksem domeny
 
--   [Brak dokumentację dotyczącą tutaj wyrażeń.](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+-   [Brak dokumentację dotyczącą wyrażeń w tym miejscu](active-directory-saas-writing-expressions-for-attribute-mappings.md). W tym przykłady dotyczące Usuń znaki specjalne.
 
   
 | ATRYBUT WORKDAY | ATRYBUT USŁUGI ACTIVE DIRECTORY |  ZGODNYM IDENTYFIKATOREM? | UTWÓRZ / ZAKTUALIZUJ |
 | ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  Identyfikator pracownika | **Tak** | Napisane przy tworzeniu tylko | 
-|  **Jednostki administracyjnej**   |   l   |     | Tworzenie i aktualizowanie |
-|  **Firmy**         | Firmy   |     |  Tworzenie i aktualizowanie |
-|  **CountryReferenceTwoLetter**      |   co |     |   Tworzenie i aktualizowanie |
-| **CountryReferenceTwoLetter**    |  c  |     |         Tworzenie i aktualizowanie |
-| **SupervisoryOrganization**  | Dział  |     |  Tworzenie i aktualizowanie |
-|  **PreferredNameData**  |  Nazwa wyświetlana |     |   Tworzenie i aktualizowanie |
-| **Identyfikator pracownika**    |  cn    |   |   Napisane przy tworzeniu tylko |
-| **Faksów**      | facsimileTelephoneNumber     |     |    Tworzenie i aktualizowanie |
-| **Imię**   | givenName       |     |    Tworzenie i aktualizowanie |
+| **WorkerID**  |  Identyfikator pracownika | **Tak** | Napisane przy tworzeniu tylko | 
+| **Nazwa użytkownika**    |  cn    |   |   Napisane przy tworzeniu tylko |
+| **Dołącz ("@", [UserID] "contoso.com")**   | userPrincipalName     |     | Napisane przy tworzeniu tylko 
+| **Zastąp (Mid (Zastąp (\[UserID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Napisane przy tworzeniu tylko |
 | **Przełącznik (\[Active\],, "0", "True", "1")** |  AccountDisabled      |     | Tworzenie i aktualizowanie |
-| **Mobile**  |    Telefon komórkowy       |     |       Tworzenie i aktualizowanie |
-| **EmailAddress**    | Poczty    |     |     Tworzenie i aktualizowanie |
+| **Imię**   | givenName       |     |    Tworzenie i aktualizowanie |
+| **Nazwisko**   |   SN   |     |  Tworzenie i aktualizowanie |
+| **PreferredNameData**  |  Nazwa wyświetlana |     |   Tworzenie i aktualizowanie |
+| **Firmy**         | Firmy   |     |  Tworzenie i aktualizowanie |
+| **SupervisoryOrganization**  | Dział  |     |  Tworzenie i aktualizowanie |
 | **ManagerReference**   | manager  |     |  Tworzenie i aktualizowanie |
+| **BusinessTitle**   |  tytuł     |     |  Tworzenie i aktualizowanie | 
+| **AddressLineData**    |  streetAddress  |     |   Tworzenie i aktualizowanie |
+| **Jednostki administracyjnej**   |   l   |     | Tworzenie i aktualizowanie |
+| **CountryReferenceTwoLetter**      |   co |     |   Tworzenie i aktualizowanie |
+| **CountryReferenceTwoLetter**    |  c  |     |         Tworzenie i aktualizowanie |
+| **CountryRegionReference** |  st     |     | Tworzenie i aktualizowanie |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Tworzenie i aktualizowanie |
 | **PostalCode**  |   postalCode  |     | Tworzenie i aktualizowanie |
-| **LocalReference** |  preferredLanguage  |     |  Tworzenie i aktualizowanie |
-| **Zastąp (Mid (Zastąp (\[identyfikator pracownika\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Napisane przy tworzeniu tylko |
-| **Nazwisko**   |   SN   |     |  Tworzenie i aktualizowanie |
-| **CountryRegionReference** |  st     |     | Tworzenie i aktualizowanie |
-| **AddressLineData**    |  streetAddress  |     |   Tworzenie i aktualizowanie |
 | **PrimaryWorkTelephone**  |  TelephoneNumber   |     | Tworzenie i aktualizowanie |
-| **BusinessTitle**   |  tytuł     |     |  Tworzenie i aktualizowanie |
-| **Dołącz ("@", Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (tekst (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp (Zastąp ( Zastąp (Join (".", [Imię], [Nazwisko]), "([Øø])", "oe",), "[Ææ]", "ae",), "([äãàâãåáąÄÃÀÂÃÅÁĄA])", "",), "[B]", "b",), "([CçčćÇČĆ])", "c",), "([ďĎD])", "d",), "([ëèéêęěËÈÉÊĘĚE])", "e",), "[F]", "f",), "([G])" ,, "g",), "([H])", "h",), "([ïîìíÏÎÌÍI])", "i",), "[J]", "j",), "([K])", "k",), "([ľłŁĽL])", "l",), "[M]", "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "[P]", "p",), "([Q])", "q",),  "([ŘŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([W])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Napisane przy tworzeniu tylko                                                   
+| **Faksów**      | facsimileTelephoneNumber     |     |    Tworzenie i aktualizowanie |
+| **Mobile**  |    Telefon komórkowy       |     |       Tworzenie i aktualizowanie |
+| **LocalReference** |  preferredLanguage  |     |  Tworzenie i aktualizowanie |                                               
 | **Przełącznik (\[jednostki administracyjnej\], "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = domyślne, OU = lokalizacjach, DC = = contoso, DC = com", "Dallas", "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Dallas, OU = lokalizacjach, DC = = contoso, DC = com", "Austin", "jednostki Organizacyjnej użytkowników standardowych, OU = Użytkownicy, OU = Austin, OU = lokalizacjach, DC = = contoso, DC = com ","Seattle"," jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Seattle, OU = lokalizacjach, DC = = contoso, DC = com ","Londyn"," jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Londyn, OU = lokalizacjach, DC = = contoso, DC = com ")**  | parentDistinguishedName     |     |  Tworzenie i aktualizowanie |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Część 3: Konfigurowanie agenta synchronizacji lokalnej
@@ -696,6 +728,7 @@ Aby to zrobić, należy użyć [Studio produktu Workday](https://community.workd
             <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
             <wd:Include_Photo>true</wd:Include_Photo>
             <wd:Include_User_Account>true</wd:Include_User_Account>
+            <wd:Include_Roles>true</wd:Include_Roles>
           </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>

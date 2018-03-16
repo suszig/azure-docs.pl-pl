@@ -2,24 +2,18 @@
 title: "Monitorowanie i poprawianie wydajności — baza danych SQL Azure | Dokumentacja firmy Microsoft"
 description: "Baza danych SQL Azure udostępnia wydajności narzędzia pomocne w identyfikacji obszarów, które może poprawić wydajność kwerend bieżącego."
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: a60b75ac-cf27-4d73-8322-ee4d4c448aa2
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 07/19/2016
 ms.author: sstein
-ms.openlocfilehash: 49b24619372d41ff25f815ca493ca7e6ce69ef9c
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1d327e33a84917688e70f234df311e7b7cf4b30b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorowanie i poprawianie wydajności
 Baza danych SQL Azure identyfikuje potencjalne problemy w bazie danych i zalecane akcje, które może poprawić wydajność obciążenia przez podanie inteligentnego akcje dostosowywania i zalecenia.
@@ -46,7 +40,7 @@ Ten widok zawiera podsumowanie wydajność bazy danych i pomaga wydajności dost
 * **Autostrojenie** kafelka pokazuje [automatycznego dostrajania konfiguracji](sql-database-automatic-tuning-enable.md) bazy danych (dostrajanie opcje, które są automatycznie stosowane do bazy danych). Kliknięcie tego kafelka otwiera okno dialogowe konfiguracji automatyzacji.
 * **Zapytań bazy danych** kafelka zawiera zestawienie wydajności kwerendy dla bazy danych (ogólną jednostek dtu w warstwie użycia i od góry zasobów korzystających z kwerendy). Kliknięcie tego kafelka przejście do  **[szczegółowe informacje o wydajności zapytań](#query-performance-insight)**.
 
-## <a name="performance-recommendations"></a>Zalecenia dotyczące wydajności
+## <a name="performance-recommendations"></a>Zalecenie dotyczące wydajności
 Ta strona zawiera inteligentnego [dostrajanie zalecenia](sql-database-advisor.md) które może poprawić wydajność bazy danych. Następujące typy zalecenia są wyświetlane na tej stronie:
 
 * Zalecenia dotyczące indeksów, które można utworzyć lub usunąć.
@@ -73,7 +67,7 @@ Bazy danych SQL Azure mogą automatycznie dostrajania wydajności bazy danych po
 
 Znaleźć więcej informacji na temat tej strony w artykule  **[sposób użycia szczegółowe informacje o wydajności zapytań](sql-database-query-performance.md)**.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [Azure wytyczne dotyczące wydajności bazy danych SQL dla pojedynczych baz danych](sql-database-performance-guidance.md)
 * [Kiedy należy użyć puli elastycznej?](sql-database-elastic-pool-guidance.md)
 

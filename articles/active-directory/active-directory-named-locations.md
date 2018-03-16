@@ -1,6 +1,6 @@
 ---
-title: "O nazwie lokalizacjach w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o nazwie co lokalizacje są i sposobach ich konfigurowania."
+title: "Skonfiguruj nazwane lokalizacje w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak skonfigurować lokalizacje nazwanego."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Nazwane lokalizacje w usłudze Azure Active Directory
+# <a name="configure-named-locations-in-azure-active-directory"></a>Skonfiguruj nazwane lokalizacje w usłudze Azure Active Directory
 
 Nazwane lokalizacje można opisać zaufanych zakresów adresów IP w Twojej organizacji. Nazwane lokalizacje w kontekście korzysta z usługi Azure Active Directory:
 
@@ -89,22 +89,14 @@ Można dostęp do strony konfiguracji nazwanych lokalizacji w **zabezpieczeń** 
 
 
 
-## <a name="what-you-should-know"></a>Co należy wiedzieć
-
-**Aktualizacje zbiorcze**: tworzenia lub aktualizowania nazwane lokalizacje aktualizacje zbiorcze, możesz przekazać lub pobrać plik CSV z zakresu adresów IP. Przekazanie dodaje zakresu adresów IP w pliku do listy zamiast zastępowanie na liście.
-
-![Przekazywanie i pobieranie łącza](./media/active-directory-named-locations/09.png)
-
-
-**Ograniczenia**: można określić maksymalnie 60 nazwane lokalizacje, z jeden zakres adresów IP przypisanych do każdego z nich. Jeśli masz tylko jedną lokalizację o nazwie skonfigurowane do 500 zakresów adresów IP można zdefiniować dla niego.
-
-
 ## <a name="next-steps"></a>Kolejne kroki
 
-Aby dowiedzieć się więcej o:
+Aby uzyskać więcej informacji, zobacz:
 
-- **Ryzyka zdarzenia**, zobacz [zdarzenia o podwyższonym ryzyku usługi Azure Active Directory](active-directory-reporting-risk-events.md).
+- [Dostęp warunkowy w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- **Dostęp warunkowy**, zobacz [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- [Lokalizacja warunki dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-locations.md)
 
-- **Raporty ryzykowne logowania**, zobacz [raportu ryzykowne logowania w portalu usługi Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
+- [Zdarzenia o podwyższonym ryzyku Azure Active Directory](active-directory-reporting-risk-events.md).
+
+- [Raport ryzykowne logowania w portalu usługi Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

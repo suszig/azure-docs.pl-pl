@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Odświeżanie asynchroniczne przy użyciu interfejsu API REST
 Przy użyciu języka programowania, który obsługuje wywołania REST, można wykonywać operacje asynchroniczne odświeżanie danych w sieci modele tabelaryczne usług Azure Analysis Services. W tym synchronizacji repliki tylko do odczytu dla zapytania skalowania w poziomie. 
@@ -36,7 +36,7 @@ Podstawowy adres URL ma następujący format:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Rozważmy na przykład modelu o nazwie AdventureWorks, na serwer o nazwie MójSerwer, znajdującego się w regionie Zachód nam Azure jest nazwa serwera:
+Rozważmy na przykład modelu o nazwie AdventureWorks na serwer o nazwie MójSerwer, znajdującego się w regionie Zachód nam Azure. Nazwa serwera jest:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ Podstawowy adres URL dla tej nazwy serwera jest:
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Przy użyciu podstawowego adresu URL, zasobów i operacje można dołączać oparte na następujących czynności: 
+Przy użyciu podstawowego adresu URL, zasobów i operacje można dołączać na podstawie następujących parametrów: 
 
 ![Odświeżanie asynchroniczne](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ Przy użyciu podstawowego adresu URL, zasobów i operacje można dołączać opa
 - Wszystko, co kończy **()** jest funkcją.
 - Cokolwiek innego jest obiektu/zasobów.
 
-Na przykład umożliwia zlecenie POST w kolekcji odświeża wykonaj operację odświeżania w następujący sposób:
+Na przykład umożliwia zlecenie POST w kolekcji odświeża wykonaj operację odświeżania:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -71,7 +71,7 @@ Wszystkie wywołania musi zostać uwierzytelniony z prawidłowym tokenem usługi
 - Użytkownik lub aplikacja musi mieć wystarczające uprawnienia na serwerze lub modelu do żądanego wywoływania. Poziom uprawnień zależy od ról w modelu lub grupy administratorów na serwerze.
 
     > [!IMPORTANT]
-    > Obecnie **administratora serwera** wymagane są uprawnienia roli.
+    > Obecnie **administratora serwera** niezbędne są uprawnienia roli.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
@@ -104,9 +104,9 @@ Określanie parametrów nie jest wymagane. Wartość domyślna została zastosow
 
 |Name (Nazwa)  |Typ  |Opis  |Domyślne  |
 |---------|---------|---------|---------|
-|Typ     |  wyliczenia       |  Typ przetwarzanie ma zostać wykonane. Typy są zgodne z TMSL [Odśwież polecenia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typy: pełne, clearValues, obliczenia tylko dane automatyczne, dodać i defragmentacji.       |   Automatyczne      |
+|Typ     |  wyliczenia       |  Typ przetwarzanie ma zostać wykonane. Typy są zgodne z TMSL [Odśwież polecenia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typy: pełne, clearValues, obliczenia tylko dane automatyczne, dodawanie i defragmentacji.       |   Automatyczne      |
 |CommitMode     |  wyliczenia       |  Określa, czy obiekty zostaną również zatwierdzone w partiach lub po zakończeniu. Tryby obejmują: partialBatch transakcyjna, domyślnie.  |  transakcyjne       |
-|MaxParallelism     |   Int      |  Ta wartość określa maksymalną liczbę wątków, na którym do uruchomienia polecenia przetwarzania równoległego. To wyrównane z właściwością MaxParallelism, które można ustawić w TMSL [sekwencji polecenia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) lub przy użyciu innych metod.       | 10        |
+|MaxParallelism     |   Int      |  Ta wartość określa maksymalną liczbę wątków, na którym do uruchomienia polecenia przetwarzania równoległego. Ta wartość jest wyrównywana z właściwości MaxParallelism, które można ustawić w TMSL [sekwencji polecenia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) lub przy użyciu innych metod.       | 10        |
 |RetryCount    |    Int     |   Wskazuje, ile razy ponowi operację przed niepowodzeniem.      |     0    |
 |Obiekty     |   Tablica      |   Tablica obiektów do przetworzenia. Każdy obiekt obejmuje: "table" podczas przetwarzania całą tabelę lub "table" i "partycji" podczas przetwarzania partycji. Jeśli nie określono żadnych obiektów, jest odświeżany całego modelu. |   Proces całego modelu      |
 
@@ -188,7 +188,7 @@ Aby sprawdzić stan operacji synchronizacji, użyj zlecenie GET, przekazując id
 }
 ```
 
-Wartości stan synchronizacji:
+Wartości `syncstate`:
 
 - 0: replikacji. Pliki bazy danych są replikowane do folderu docelowego.
 - 1: przywrócenie z magazynu trwałego. Jest on rehydrated bazy danych na serwer tylko do odczytu wystąpienia.
@@ -228,7 +228,7 @@ Ta forma uwierzytelniania wymaga aplikacji Azure można utworzyć z uprawnieniam
 
     ![Dodaj dostęp do interfejsu API](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  W **wybierz interfejs API**, typ **usług SQL Server Analysis Services** w polu wyszukiwania, a następnie wybierz **usług Azure Analysis Services (SQL Server Analysis usług Azure)**.
+5.  W **wybierz interfejs API**, typ **usług Azure Analysis Services** do wyszukiwania, a następnie wybierz go.
 
     ![Wybieranie interfejsu API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ Ta forma uwierzytelniania wymaga aplikacji Azure można utworzyć z uprawnieniam
 
 #### <a name="service-principal"></a>Jednostka usługi
 
-Zobacz [automatyzacji z usług Azure Analysis Services z programu PowerShell i nazwy główne usług](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) wpis w blogu na temat konfigurowania nazwy głównej usługi i przypisz odpowiednie uprawnienia w usług Azure Analysis Services. Po wykonaniu kroków szczegółowo opisane w blogu, należy wykonać następujące dodatkowe czynności:
+Zobacz [Utwórz zasadę usługi - portalu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) i [Dodaj zasadę usługi do roli administratora serwera](analysis-services-addservprinc-admins.md) Aby uzyskać więcej informacji na temat sposobu ustawiania nazwy głównej usługi i przypisz odpowiednie uprawnienia w Azure AS . Po wykonaniu czynności należy wykonać następujące dodatkowe czynności:
 
 1.  W przykładowym kodzie znaleźć **urzędu string =...** , Zastąp **wspólnej** organizacji dzierżawy identyfikatora.
 2.  Komentarz/usuń znaczniki komentarza, klasa poświadczeń klienta służy do tworzenia wystąpienia obiektu Faktury korygu. Upewnij się, \<identyfikator aplikacji > i \<klucz aplikacji > wartości są dostępne w sposób bezpieczny, lub Użyj uwierzytelniania opartego na certyfikatach dla nazwy główne usług.

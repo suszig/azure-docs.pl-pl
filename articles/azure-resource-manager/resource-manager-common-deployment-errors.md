@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager
 
@@ -38,6 +38,7 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 | Konflikt | Zażądano operacji, które nie są dozwolone w bieżącym stanie zasobu. Na przykład zmiana rozmiaru dysku jest dozwolona tylko w przypadku tworzenia maszyny Wirtualnej lub po cofnięciu przydziału maszyny Wirtualnej. | |
 | DeploymentActive | Poczekaj, aż równoczesnych wdrożenia do tej grupy zasobów, aby zakończyć. | |
 | Niepowodzenia wdrożenia | Błąd niepowodzenia wdrożenia jest błąd ogólny, który nie zapewnia szczegółowe informacje, musisz poprawić błąd. Sprawdź szczegóły błędu dla kodu błędu, zawierający więcej informacji. | [Znajdź kod błędu:](#find-error-code) |
+| DeploymentQuotaExceeded | Jeśli użytkownik osiągnie limit 800 wdrożeń dla grupy zasobów, usunięcie wdrożeń z historii, które nie są już potrzebne. Możesz usunąć pozycji z historii kodu za pomocą [usunąć wdrożenie grupy az](/cli/azure/group/deployment#az_group_deployment_delete) dla wiersza polecenia platformy Azure, lub [AzureRmResourceGroupDeployment Usuń](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) w programie PowerShell. Usuwanie wpisu z historii wdrożenia nie ma wpływu na zasoby wdrażania. | |
 | DnsRecordInUse | Nazwa rekordu DNS musi być unikatowa. Podaj inną nazwę, albo zmodyfikować istniejący rekord. | |
 | ImageNotFound | Sprawdź ustawienia obrazu maszyny Wirtualnej. |  |
 | InUseSubnetCannotBeDeleted | Błąd może się pojawić podczas próby zaktualizowania zasobu, ale żądanie jest przetwarzane przez usunięcie i utworzenie zasobu. Upewnij się określić wszystkie wartości bez zmian. | [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 | InvalidResourceNamespace | Sprawdź przestrzeni nazw zasobu określony w **typu** właściwości. | [Odwołanie do szablonu](/azure/templates/) |
 | InvalidResourceReference | Zasób jeszcze nie istnieje lub jest niepoprawnie odwołuje się do. Sprawdź, czy konieczne jest dodanie zależności. Upewnij się, że korzystanie z **odwołania** funkcja zawiera parametry wymagane dla danego scenariusza. | [Rozwiąż zależności](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Typ wyboru zasób określony w **typu** właściwości. | [Odwołanie do szablonu](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Zarejestrować subskrypcji u dostawcy zasobów. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Sprawdź składnię szablonu błędów. | [Nieprawidłowy szablon rozwiązania](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | Usuń zbędne zależności. | [Rozwiązanie zależności cykliczne](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Sprawdź, czy używane konto należy do tej samej dzierżawy jako grupa zasobów, które wdrażasz. | |
 | LinkedInvalidPropertyId | Identyfikator zasobu dla zasobu nie jest poprawnie rozpoznawania. Sprawdź, podaj wartości wszystkich wymaganych identyfikatorów zasobów, w tym identyfikator subskrypcji, nazwa grupy zasobów, typ zasobu, nazwa zasobu nadrzędnego (Jeśli to konieczne) i nazwa zasobu. | |
 | LocationRequired | Podaj lokalizację dla zasobu. | [Ustawianie lokalizacji](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | Upewnij się, że zasób ma nieprawidłową liczbę segmentów w nazwę i typ zagnieżdżony. | [Rozwiąż segmenty zasobu](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Sprawdź stan rejestracji dostawcy zasobów i obsługiwane lokalizacje. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Zarejestrować subskrypcji u dostawcy zasobów. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Sprawdzaj stan rejestracji dostawcy zasobów. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 | StorageAccountAlreadyTaken | Podaj unikatową nazwę konta magazynu. | [Rozpoznanie nazwy konta magazynu](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Sprawdź subskrypcji, grupy zasobów i nazwy konta magazynu, którego próbujesz użyć. | |
 | SubnetsNotInSameVnet | Maszyna wirtualna może mieć tylko jedną sieć wirtualną. W przypadku wdrażania wielu kart sieciowych, upewnij się, że należą one do tej samej sieci wirtualnej. | [Wiele kart sieciowych](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | Usuń zbędne zależności. | [Rozwiązanie zależności cykliczne](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | Zmniejsz liczbę grup zasobów dla pojedynczego wdrożenia. | [Wdrażanie krzyżowe w grupach zasobów](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>Znajdź kod błędu:
 

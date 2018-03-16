@@ -3,7 +3,7 @@ title: "Używany jest łącznik serwera programu SharePoint w aplikacji logiki |
 description: "Rozpoczynanie pracy przy użyciu łącznika serwera programu SharePoint w aplikacji logiki"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Rozpoczynanie pracy z łącznikiem programu SharePoint
-Łącznik programu SharePoint umożliwia pracę z listy w programie SharePoint.
+Łącznik programu SharePoint zapewnia sposób pracy z listy w programie SharePoint.
 
 Rozpoczynanie pracy przez tworzenie aplikacji logiki; zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -33,9 +33,9 @@ Do korzystania z łącznika programu SharePoint, należy najpierw utworzyć **po
 | --- | --- | --- |
 | Token |Yes |Podaj poświadczenia programu SharePoint |
 
-Aby nawiązać połączenie **SharePoint**, wprowadź swoją tożsamość, (nazwa użytkownika i hasło, inteligentne poświadczeń karty, itp.) w programie SharePoint. Po zostały uwierzytelniono, można przystąpić do korzystania z łącznika programu SharePoint w aplikacji logiki. 
+Aby nawiązać połączenie **SharePoint**, wprowadź swoją tożsamość, (nazwa użytkownika i hasło, poświadczeń karty inteligentnej i tak dalej). Po uwierzytelniono, można przystąpić do korzystania z łącznika programu SharePoint w aplikacji logiki. 
 
-W Projektancie aplikacji logiki, wykonaj następujące kroki, aby zalogować się do programu SharePoint do utworzenia połączenia **połączenia** do użycia w aplikacji logiki:
+W Projektancie aplikacji logiki, wykonaj następujące kroki, aby Zaloguj się i utworzyć **połączenia** do użycia w aplikacji logiki:
 
 1. Wprowadź w polu wyszukiwania programu SharePoint i poczekaj, aż wyszukiwania zwrócić wszystkie wpisy z programem SharePoint w nazwie:   
    ![Konfigurowanie programu SharePoint][1]  
@@ -44,10 +44,10 @@ W Projektancie aplikacji logiki, wykonaj następujące kroki, aby zalogować si�
    ![Konfigurowanie programu SharePoint][2]    
 4. Podaj poświadczenia programu SharePoint, aby zalogować się do uwierzytelniania za pomocą programu SharePoint   
    ![Konfigurowanie programu SharePoint][3]     
-5. Po zakończeniu uwierzytelniania będzie zostanie przekierowany do aplikacji logiki do ukończenia jej przez skonfigurowanie SharePoint **podczas tworzenia pliku** okna dialogowego.          
+5. Po zakończeniu uwierzytelniania są przekierowywane do aplikacji logiki do ukończenia jej przez skonfigurowanie SharePoint **podczas tworzenia pliku** okna dialogowego.          
    ![Konfigurowanie programu SharePoint][4]  
 6. Następnie można dodać inne wyzwalacze i akcje, które należy wykonać aplikację logiki.   
-7. Zapisz swoją pracę, wybierając **zapisać** na pasku menu powyżej.  
+7. Zapisz swoją pracę, wybierając **zapisać** menu (w kierunku do góry).
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 

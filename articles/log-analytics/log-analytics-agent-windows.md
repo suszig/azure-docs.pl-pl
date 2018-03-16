@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Łączenie komputerów z systemem Windows z usługą analizy dzienników na platformie Azure
 
@@ -38,7 +38,7 @@ Aby poznać wymagania sieci i systemu w celu wdrażania agenta systemu Windows, 
 ## <a name="obtain-workspace-id-and-key"></a>Uzyskiwanie identyfikatora i klucza obszaru roboczego
 Przed zainstalowaniem programu Microsoft Monitoring Agent dla systemu Windows potrzebne są identyfikator i klucz obszaru roboczego usługi Log Analytics.  Te informacje są wymagane podczas instalacji z każdej metody instalacji, aby poprawnie skonfigurować agenta i upewnij się, że mogą się komunikować z analizy dzienników na platformie Azure handlowych i w chmurze instytucji rządowych Stanów Zjednoczonych.  
 
-1. W portalu Azure kliknij **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
+1. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 2. Na liście obszarów roboczych usługi Analiza dzienników wybierz obszar roboczy, które mają na skonfigurowanie agenta zgłoszenia do.
 3. Wybierz pozycję **Ustawienia zaawansowane**.<br><br> ![Ustawienia zaawansowane usługi Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Wybierz **Połączone źródła**, a następnie **Serwery Windows**.   
@@ -63,7 +63,7 @@ Następujące kroki instalowania i konfigurowania agenta dla analizy dzienników
 Po ukończeniu instalacji program **Microsoft Monitoring Agent** będzie wyświetlany w **Panelu sterowania**. Aby upewnić się, to jest raportowanie do analizy dzienników, przejrzyj [zweryfikować łączności agenta analizy dzienników](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Zainstaluj agenta przy użyciu wiersza polecenia
-Pobrany plik dla agenta jest pakietem instalacyjnym niezależne utworzone za pomocą IExpress.  Program instalacyjny programu agent i pliki pomocnicze są zawarte w pakiecie i wymagają do wyodrębnienia, aby można było poprawnie zainstalować przy użyciu wiersza polecenia pokazano w poniższych przykładach.    
+Pobrany plik dla agenta jest pakietem instalacyjnym niezależne.  Program instalacyjny programu agent i pliki pomocnicze są zawarte w pakiecie i wymagają do wyodrębnienia, aby można było poprawnie zainstalować przy użyciu wiersza polecenia pokazano w poniższych przykładach.    
 
 >[!NOTE]
 >Jeśli chcesz uaktualnić agenta, należy użyć analizy dzienników interfejs API obsługi skryptów. Zobacz temat [zarządzanie i obsługę agenta analizy dzienników systemu Windows i Linux](log-analytics-agent-manage.md) Aby uzyskać więcej informacji.
@@ -72,6 +72,7 @@ W poniższej tabeli wymieniono obsługiwane przez Instalatora dla agenta, w tym 
 
 |Opcje MMA                   |Uwagi         |
 |---------------------------------------|--------------|
+| NOAPM=1                               | Parametr opcjonalny. Instaluje agenta bez .NET Application Performance Monitoring.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Konfigurowanie agenta z obszaru roboczego                |
 |OPINSIGHTS_WORKSPACE_ID                | Identyfikator obszaru roboczego (guid) dla obszaru roboczego do dodania                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Klucz obszaru roboczego używany do uwierzytelniania początkowo z obszaru roboczego |
@@ -80,7 +81,7 @@ W poniższej tabeli wymieniono obsługiwane przez Instalatora dla agenta, w tym 
 |OPINSIGHTS_PROXY_USERNAME               | Nazwa użytkownika do uzyskania dostępu uwierzytelnionego serwera proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Hasło dostępu uwierzytelnionego serwera proxy |
 
-1. Aby wyodrębnić pliki instalacyjne agenta, w wierszu polecenia z podwyższonym poziomem uprawnień uruchom `extract MMASetup-<platform>.exe` i zostanie wyświetlony monit dla ścieżki do wyodrębnienia plików.  Alternatywnie można określić ścieżkę przez przekazanie argumentów `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  Aby uzyskać więcej informacji na swtiches wiersza polecenia, obsługiwane przez IExpress, zobacz [przełączniki wiersza polecenia dla IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) , a następnie zaktualizować przykładu do własnych potrzeb.
+1. Aby wyodrębnić pliki instalacyjne agenta, w wierszu polecenia z podwyższonym poziomem uprawnień uruchom `MMASetup-<platform>.exe /c` i zostanie wyświetlony monit dla ścieżki do wyodrębnienia plików.  Alternatywnie można określić ścieżkę przez przekazanie argumentów `MMASetup-<platform>.exe /c /t:<Path>`.  
 2. Aby dyskretnie zainstalować agenta i skonfigurować go do raportu do obszaru roboczego w chmurze komercyjnych Azure, z folderu zostały wyodrębnione pliki instalacyjne do typu: 
    
      ```dos
@@ -108,9 +109,9 @@ W poniższym przykładzie instalowana agent 64-bitowe, zidentyfikowane przez `UR
 
 32-bitowe i 64-bitowe wersje pakietu agent mają kody innego produktu i nowych wersji wydanych również mieć unikatową wartość.  Kod produktu jest identyfikator GUID, który jest główny identyfikator aplikacji lub produktu i jest reprezentowana przez Instalatora Windows **ProductCode** właściwości.  `ProductId value` w **MMAgent.ps1** skryptu musi odpowiadać kodu produktu z 32-bitowy lub 64-bitowy agent pakiet Instalatora.
 
-Aby pobrać kod produktu pakietu instalacji agenta bezpośrednio, można użyć Orca.exe z [Windows SDK składników dla deweloperów systemu Windows Instalator](https://msdn.microsoft.com/library/windows/desktop/aa370834%27v=vs.85%28.aspx) oznacza to składnik systemu Windows Software Development Kit lub przy użyciu Następujące PowerShell [przykładowy skrypt](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) napisane przez Microsoft cenne Professional (MVP).
+Aby pobrać kod produktu pakietu instalacji agenta bezpośrednio, można użyć Orca.exe z [Windows SDK składników dla deweloperów systemu Windows Instalator](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) oznacza to składnik systemu Windows Software Development Kit lub przy użyciu Następujące PowerShell [przykładowy skrypt](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) napisane przez Microsoft cenne Professional (MVP).  Dla obu podejście, należy najpierw wyodrębnić **MOMagent.msi** plików z pakietu instalacyjnego MMASetup.  Przedstawiono to w pierwszym krokiem w sekcji [zainstalować agenta przy użyciu wiersza polecenia](#install-the-agent-using-the-command-line).  
 
-1. Importowanie konfiguracji DSC xPSDesiredStateConfiguration modułu na podstawie [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) w automatyzacji Azure.  
+1. Importowanie konfiguracji DSC xPSDesiredStateConfiguration modułu na podstawie [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) w automatyzacji Azure.  
 2.  Tworzenie zasobów zmiennej usługi Automatyzacja Azure *OPSINSIGHTS_WS_ID* i *OPSINSIGHTS_WS_KEY*. Ustaw *OPSINSIGHTS_WS_ID* do zestawu i identyfikator obszaru roboczego analizy dzienników *OPSINSIGHTS_WS_KEY* w kluczu podstawowym obszaru roboczego.
 3.  Skopiuj skrypt i zapisz go jako MMAgent.ps1
 
@@ -161,7 +162,7 @@ Z komputera w **Panelu sterowania**, Znajdź element **programu Microsoft Monito
 
 Można również wykonywać proste dziennik wyszukiwania w portalu Azure.  
 
-1. W portalu Azure kliknij **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.  
+1. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.  
 2. Na stronie obszaru roboczego analizy dzienników, wybierz docelowy obszar roboczy, a następnie wybierz **wyszukiwania dziennika** kafelka. 
 2. W okienku wyszukiwania dziennika, w polu wpisz kwerendę:  
 

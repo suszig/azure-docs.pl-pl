@@ -11,31 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 504fbc20f11243ccd825eb69171cd0893782e611
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c2b8498b2d32e2c3c7ed5dca3295ae6a98fa2676
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Aby utworzyć aplikację usługi Azure Active Directory i nazwy głównej usługi, który ma dostęp do zasobów za pomocą portalu
 
-Jeśli masz aplikację, która potrzebuje dostępu lub modyfikacji zasobów, należy skonfigurować aplikację Azure Active Directory (AD) i przypisz wymagane uprawnienia do niego. Ta metoda jest preferowana, na którym uruchomiono aplikację z poświadczeniami użytkownika, ponieważ:
-
-* Można przypisać uprawnienia do tożsamości aplikacji, które są inne niż własnych uprawnień. Zazwyczaj te uprawnienia są ograniczone do dokładnie co aplikacja powinna wykonać.
-* Nie masz umożliwia zmianę poświadczeń aplikacji Zmień Twoje obowiązki. 
-* Certyfikat służy do automatyzacji procesu uwierzytelniania podczas wykonywania skryptu instalacji nienadzorowanej.
+Jeśli masz kod, który wymaga dostępu lub modyfikacji zasobów, należy skonfigurować aplikację Azure Active Directory (AD). Wymagane uprawnienia są przypisywane do aplikacji usługi AD. Ta metoda jest preferowana, na którym uruchomiono aplikację z poświadczeniami użytkownika, ponieważ można przypisać uprawnienia do tożsamości aplikacji, które są inne niż własnych uprawnień. Zazwyczaj te uprawnienia są ograniczone do dokładnie co aplikacja powinna wykonać.
 
 W tym artykule przedstawiono sposób wykonywania tych kroków za pośrednictwem portalu. Głównie aplikacji pojedynczej dzierżawy, gdzie aplikacja jest przeznaczona do uruchamiania tylko jednej organizacji. Zwykle użyć pojedynczej dzierżawy aplikacji dla aplikacji — biznesowych, które uruchamiane w danej organizacji.
+
+> [!IMPORTANT]
+> Zamiast tworzenia nazwy głównej usługi, należy wziąć pod uwagę przy użyciu usługi Azure AD zarządzane tożsamości usługi dla tożsamości użytkownika aplikacji. Azure AD MSI jest w publicznej wersji zapoznawczej usługi Azure Active Directory, które upraszcza tworzenie tożsamości dla kodu. Jeśli kod jest uruchomiony na to usługa, która obsługuje program Azure AD MSI i uzyskuje dostęp do zasobów, które obsługują uwierzytelnianie usługi Azure Active Directory, Azure AD MSI jest lepszym rozwiązaniem dla Ciebie. Aby dowiedzieć się więcej na temat usługi Azure AD MSI, łącznie z usług, które obecnie obsługuje, zobacz [zarządzane tożsamość usługi Azure zasobów](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 
 Aby ukończyć w tym artykule, należy wystarczających uprawnień do rejestrowania aplikacji w dzierżawie usługi Azure AD i przypisywanie aplikacji do roli w ramach subskrypcji platformy Azure. Upewnij się, że masz odpowiednie uprawnienia do wykonania tych kroków.
 
 ### <a name="check-azure-active-directory-permissions"></a>Sprawdź uprawnienia usługi Azure Active Directory
-
-1. Zaloguj się do konta platformy Azure za pośrednictwem [portalu Azure](https://portal.azure.com).
 
 1. Wybierz **usługi Azure Active Directory**.
 
@@ -49,21 +46,9 @@ Aby ukończyć w tym artykule, należy wystarczających uprawnień do rejestrowa
 
    ![Wyświetlanie rejestracji aplikacji](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Jeśli ustawiono rejestracji aplikacji, ustawianie **nr**tylko administrator użytkownicy będą mogli zarejestrować aplikacji. Sprawdź, czy Twoje konto administratora dla dzierżawy usługi Azure AD. Wybierz **omówienie** i **znaleźć użytkownika** z szybkiego zadania.
+1. Jeśli ustawiono rejestracji aplikacji, ustawianie **nr**tylko administrator użytkownicy będą mogli zarejestrować aplikacji. Sprawdź, czy Twoje konto administratora dla dzierżawy usługi Azure AD. Wybierz **omówienie** i przyjrzyj się informacje o użytkowniku. Jeśli Twoje konto jest przypisany do roli użytkownika, ale ustawienia rejestracji aplikacji (z poprzedniego kroku) jest ograniczona do administratorów, skontaktuj się z administratorem, aby albo przypisanie do roli administratora lub aby użytkownicy mogli zarejestrować aplikacji.
 
-   ![Znajdź użytkownika](./media/resource-group-create-service-principal-portal/find-user.png)
-
-1. Wyszukaj Twoje konto i wybrania go podczas go znaleźć.
-
-   ![Wyszukaj użytkownika](./media/resource-group-create-service-principal-portal/show-user.png)
-
-1. Dla Twojego konta, wybierz **roli katalogu**.
-
-   ![Rola katalogu](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-
-1. Wyświetl roli użytkownika przypisany katalog w usłudze Azure AD. Jeśli Twoje konto jest przypisany do roli użytkownika, ale ustawienia rejestracji aplikacji (z powyższych kroków) jest ograniczona do administratorów, skontaktuj się z administratorem, aby albo przypisanie do roli administratora lub aby użytkownicy mogli zarejestrować aplikacji.
-
-   ![Rola widoku](./media/resource-group-create-service-principal-portal/view-role.png)
+   ![Znajdź użytkownika](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Sprawdź uprawnienia subskrypcji platformy Azure
 
@@ -71,23 +56,17 @@ W Twojej subskrypcji platformy Azure, jego konto musi mieć `Microsoft.Authoriza
 
 Aby sprawdzić uprawnienia subskrypcji:
 
-1. Jeśli nie już poszukujesz konta usługi Azure AD z powyższych kroków, wybierz **usługi Azure Active Directory** w lewym okienku.
+1. Wybierz konto w prawym górnym rogu i wybierz **Moje uprawnienia**.
 
-1. Znajdź konto usługi Azure AD. Wybierz **omówienie** i **znaleźć użytkownika** z szybkiego zadania.
+   ![Wybierz uprawnienia użytkownika](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
-   ![Znajdź użytkownika](./media/resource-group-create-service-principal-portal/find-user.png)
+1. Z listy rozwijanej wybierz subskrypcję. Wybierz **kliknij tutaj, aby wyświetlić pełny dostęp do szczegółowych informacji dla tej subskrypcji**.
 
-1. Wyszukaj Twoje konto i wybrania go podczas go znaleźć.
+   ![Znajdź użytkownika](./media/resource-group-create-service-principal-portal/view-details.png)
 
-   ![Wyszukaj użytkownika](./media/resource-group-create-service-principal-portal/show-user.png)
+1. Wyświetl przypisane role i określić, czy masz odpowiednie uprawnienia, aby przypisać aplikację usługi AD do roli. Jeśli nie, poproś administratora subskrypcji możesz dodać do roli Administrator dostępu użytkowników. Na poniższej ilustracji użytkownik jest przypisany do właściciela roli, co oznacza, że użytkownik ma odpowiednie uprawnienia.
 
-1. Wybierz **zasobów Azure**.
-
-   ![Wybierz zasoby](./media/resource-group-create-service-principal-portal/select-azure-resources.png)
-
-1. Wyświetl przypisane role i określić, czy masz odpowiednie uprawnienia, aby przypisać aplikację usługi AD do roli. Jeśli nie, poproś administratora subskrypcji możesz dodać do roli Administrator dostępu użytkowników. Na poniższej ilustracji użytkownik jest przypisany do roli właściciela subskrypcji dwa, co oznacza, że użytkownik ma odpowiednie uprawnienia.
-
-   ![Pokaż uprawnienia](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
+   ![Pokaż uprawnienia](./media/resource-group-create-service-principal-portal/view-user-role.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>Tworzenie aplikacji usługi Azure Active Directory
 
@@ -104,7 +83,7 @@ Aby sprawdzić uprawnienia subskrypcji:
 
    ![Dodaj aplikację](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Podaj nazwę i adres URL dla aplikacji. Wybierz **aplikacji sieci Web / interfejs API** dla typu aplikacji, w którym chcesz utworzyć. Nie można utworzyć poświadczenia dla **natywnego** aplikacji, w związku z tym tego typu nie działa w przypadku zautomatyzowanych aplikacji. Po ustawieniu wartości, wybierz **Utwórz**.
+1. Podaj nazwę i adres URL dla aplikacji. Wybierz **aplikacji sieci Web / interfejs API** dla typu aplikacji, w którym chcesz utworzyć. Nie można utworzyć poświadczenia dla [aplikacji natywnej](../active-directory/active-directory-application-proxy-native-client.md); w związku z tym, że typ nie działa w przypadku zautomatyzowanych aplikacji. Po ustawieniu wartości, wybierz **Utwórz**.
 
    ![Nazwa aplikacji](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -121,6 +100,10 @@ Podczas logowania programowo, potrzebny jest identyfikator dla aplikacji i klucz
 1. Kopiuj **identyfikator aplikacji** i zapisze go w kodzie aplikacji. Niektóre [przykładowe aplikacje](#log-in-as-the-application) odwoływać się do tej wartości jako identyfikator klienta.
 
    ![Identyfikator klienta](./media/resource-group-create-service-principal-portal/copy-app-id.png)
+
+1. Aby wygenerować klucz uwierzytelniania, wybierz **ustawienia**.
+
+   ![Wybierz ustawienia](./media/resource-group-create-service-principal-portal/select-settings.png)
 
 1. Aby wygenerować klucz uwierzytelniania, wybierz **klucze**.
 
@@ -181,19 +164,6 @@ Na poziomie subskrypcji, grupy zasobów lub zasobów można ustawić zakresu. Up
    ![Wyszukiwanie aplikacji](./media/resource-group-create-service-principal-portal/search-app.png)
 
 1. Wybierz **zapisać** na zakończenie przypisanie roli. Zostanie wyświetlona aplikacja w listy użytkowników przypisanych do roli dla tego zakresu.
-
-## <a name="log-in-as-the-application"></a>Zaloguj się jako aplikacji
-
-Aplikacja jest teraz skonfigurowane w usłudze Azure Active Directory. Masz identyfikator i klucz do użycia podczas podpisywania co aplikacja. Aplikacja jest przypisany do roli, która zapewnia jej pewne akcje, które może wykonywać. Aby uzyskać informacje o zalogowanie się jako aplikacji za pomocą różnych platform zobacz:
-
-* [Program PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [Interfejs wiersza polecenia platformy Azure](resource-group-authenticate-service-principal-cli.md)
-* [REST](/rest/api/#create-the-request)
-* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
-* [Java](/java/azure/java-sdk-azure-authenticate)
-* [Node.js](/javascript/azure/node-sdk-azure-authenticate-principal?view=azure-node-latest)
-* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
-* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Kolejne kroki
 * Aby skonfigurować aplikację wielu dzierżawców, zobacz [przewodnik dewelopera do autoryzacji przy użyciu interfejsu API Menedżera zasobów Azure](resource-manager-api-authentication.md).

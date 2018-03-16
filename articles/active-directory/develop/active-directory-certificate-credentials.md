@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Certyfikat poświadczeń do uwierzytelniania aplikacji
 
@@ -32,7 +32,7 @@ Do obliczenia potwierdzenia, prawdopodobnie chcesz skorzystać z jednej z wielu 
 #### <a name="header"></a>Nagłówek
 
 | Parametr |  Uwagi |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Powinien być **RS256** |
 | `typ` | Powinien być **JWT** |
 | `x5t` | Powinien być odcisk palca certyfikatu X.509 SHA-1. |
@@ -40,8 +40,8 @@ Do obliczenia potwierdzenia, prawdopodobnie chcesz skorzystać z jednej z wielu 
 #### <a name="claims-payload"></a>Oświadczenia (ładunku)
 
 | Parametr |  Uwagi |
-| --- | --- | --- |
-| `aud` | Grupy odbiorców: Powinien być **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token.** |
+| --- | --- |
+| `aud` | Grupy odbiorców: Powinien być  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/token.** |
 | `exp` | Data wygaśnięcia: Data wygaśnięcia tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC czasu wygaśnięcia ważności tokenu.|
 | `iss` | Wystawca: powinien być client_id (identyfikator aplikacji usługi klienta) |
 | `jti` | Identyfikator GUID: identyfikator JWT |
@@ -49,9 +49,11 @@ Do obliczenia potwierdzenia, prawdopodobnie chcesz skorzystać z jednej z wielu 
 | `sub` | Podmiot: jak w przypadku `iss`, powinny być client_id (identyfikator aplikacji usługi klienta) |
 
 #### <a name="signature"></a>Podpis
+
 Podpis jest obliczana stosowania certyfikatu zgodnie z opisem w [specyfikacji RFC7519 tokenu Web JSON](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Przykład dekodowane potwierdzenia JWT
+
 ```
 {
   "alg": "RS256",
@@ -73,6 +75,7 @@ Podpis jest obliczana stosowania certyfikatu zgodnie z opisem w [specyfikacji RF
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Przykład zakodowanego potwierdzenia JWT
+
 Następujący ciąg jest przykładem zakodowanego potwierdzenia. Zwróć uwagę, można zauważyć trzy części oddzielone kropkami (.).
 Pierwsza sekcja koduje nagłówka, drugi ładunku oraz za ostatni jest z podpisem obliczonym z certyfikatami od zawartości najpierw dwie sekcje.
 ```
@@ -81,14 +84,17 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Zarejestruj certyfikat z usługą Azure AD
+
 Aby skojarzyć poświadczenia certyfikatu z aplikacji klienckiej w usłudze Azure AD, należy edytować manifest aplikacji.
 O wstrzymywania certyfikatu, należy obliczyć:
+
 - `$base64Thumbprint`, która jest base64 kodowanie skrót certyfikatu
 - `$base64Value`, która jest base64 kodowanie dane pierwotne certyfikatu
 
-należy również podać identyfikator GUID, aby zidentyfikować klucza w manifeście aplikacji (`$keyId`)
+Należy również podać identyfikator GUID, aby zidentyfikować klucza w manifeście aplikacji (`$keyId`).
 
 W aplikacji Azure rejestracji aplikacji klienckiej, otwórz plik manifestu aplikacji i Zastąp *keyCredentials* właściwości z informacjami certyfikatu przy użyciu następującego schematu:
+
 ```
 "keyCredentials": [
     {

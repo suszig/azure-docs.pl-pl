@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostyki dla aplikacji sieci web w usłudze aplikacji Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Platforma Azure oferuje wbudowane narzędzia diagnostyczne, aby pomóc w debugowaniu [aplikacji sieci web usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714). W tym artykule dowiesz się, jak włączyć rejestrowanie diagnostyczne i dodać Instrumentacji do aplikacji, a także sposobu uzyskania dostępu do informacji rejestrowane przez platformę Azure.
 
 W tym artykule wykorzystano [portalu Azure](https://portal.azure.com), programu Azure PowerShell i interfejsu wiersza polecenia platformy Azure (Azure CLI) do pracy z dzienników diagnostycznych. Aby uzyskać informacje na temat pracy z dzienników diagnostycznych przy użyciu programu Visual Studio, zobacz [Rozwiązywanie problemów z platformy Azure w programie Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
@@ -88,7 +88,7 @@ Podczas wszystkich trzech lokalizacji magazynu zapewniają te same informacje po
 >
 >
 
-## <a name="download"></a>Porady: pobieranie dzienników
+## <a name="download"></a> Porady: pobieranie dzienników
 Informacje diagnostyczne są przechowywane w systemie plików aplikacji sieci web są dostępne bezpośrednio za pomocą protokołu FTP. Można go również pobrać jako archiwum Zip przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 Dzienniki są przechowywane w strukturą katalogów jest następujący:
@@ -97,7 +97,7 @@ Dzienniki są przechowywane w strukturą katalogów jest następujący:
 * **Nie powiodło się żądanie śladów** -/ LogFiles/W3SVC ### /. Ten folder zawiera plik XSL i co najmniej jeden plik XML. Upewnij się, Pobierz plik XSL do tego samego katalogu jako pliki XML, ponieważ plik XSL udostępnia funkcje dotyczące formatowania i filtrowanie zawartości plików XML, podczas wyświetlania w przeglądarce Internet Explorer.
 * **Szczegółowe dzienniki błędów** -/LogFiles/DetailedErrors /. Ten folder zawiera jeden lub więcej plików htm, które zapewniają szczegółowe informacje, które wystąpiły błędy HTTP.
 * **Dzienniki serwera w sieci Web** -/LogFiles/http/RawLogs. Ten folder zawiera jeden lub więcej plików tekst sformatowany przy użyciu [rozszerzonym formacie W3C dziennika pliku](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Dzienniki wdrożenia** -/ LogFiles/Git. Ten folder zawiera dzienniki generowane przez procesy wewnętrznego wdrażania aplikacji sieci web platformy Azure, a także wdrożeń Git w dziennikach.
+* **Dzienniki wdrożenia** -/ LogFiles/Git. Ten folder zawiera dzienniki generowane przez procesy wewnętrznego wdrażania aplikacji sieci web platformy Azure, a także wdrożeń Git w dziennikach. Można również znaleźć dzienniki wdrożenia w obszarze D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
 
@@ -141,7 +141,7 @@ Visual Studio Application Insights udostępnia narzędzia do filtrowania i wyszu
 
 [Dowiedz się więcej na temat wydajności śledzenia z usługą Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a>Porady: strumienia dzienników
+## <a name="streamlogs"></a> Porady: strumienia dzienników
 Podczas tworzenia aplikacji, często jest przydatne wyświetlić informacje o rejestrowaniu w czasie niemal rzeczywistym. Informacje o rejestrowaniu można strumienia do środowiska deweloperskiego przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 > [!NOTE]
@@ -194,7 +194,7 @@ Do filtrowania typów określonego dziennika, takich jak HTTP, użyj **— ście
 >
 >
 
-## <a name="understandlogs"></a>Porady: zrozumienie dzienników diagnostycznych
+## <a name="understandlogs"></a> Porady: zrozumienie dzienników diagnostycznych
 ### <a name="application-diagnostics-logs"></a>Dzienniki diagnostyki aplikacji
 Diagnostyka aplikacji są przechowywane informacje w określonym formacie aplikacji .NET, w zależności od tego, czy są przechowywane dzienniki systemu plików, Magazyn tabel lub magazynie obiektów blob. Podstawowy zestaw przechowywanych danych jest taka sama we wszystkich trzech typów magazynu - Data i godzina wystąpienia zdarzenia, identyfikator procesu, który utworzone zdarzenie, typu zdarzenia (informacje, ostrzeżenie, błąd) i komunikaty o zdarzeniach.
 
@@ -222,7 +222,7 @@ Po zalogowaniu się do magazynu tabel, dodatkowe właściwości są używane do 
 | EventTickCount |Data i godzina wystąpienia zdarzenia, format znaczników (większą dokładność) |
 | ApplicationName |Nazwa aplikacji sieci web |
 | Poziom |Poziom zdarzenia (na przykład błąd, ostrzeżenie, informacje) |
-| Identyfikator zdarzenia |Identyfikator zdarzenia to zdarzenie<p><p>Wartość domyślna to 0, jeśli nie określono żadnego |
+| EventId |Identyfikator zdarzenia to zdarzenie<p><p>Wartość domyślna to 0, jeśli nie określono żadnego |
 | Identyfikator wystąpienia |Wystąpienie aplikacji sieci web, który wystąpił nawet na |
 | Identyfikator procesu |Identyfikator procesu |
 | TID |Identyfikator wątku wątku wytworzonego zdarzenia |
@@ -239,7 +239,7 @@ Po zalogowaniu się do magazynu obiektów blob, dane są przechowywane w formaci
 | ApplicationName |Nazwa aplikacji sieci web |
 | Identyfikator wystąpienia |Wystąpienie aplikacji sieci web, w którym wystąpiło zdarzenie w |
 | EventTickCount |Data i godzina wystąpienia zdarzenia, format znaczników (większą dokładność) |
-| Identyfikator zdarzenia |Identyfikator zdarzenia to zdarzenie<p><p>Wartość domyślna to 0, jeśli nie określono żadnego |
+| EventId |Identyfikator zdarzenia to zdarzenie<p><p>Wartość domyślna to 0, jeśli nie określono żadnego |
 | Identyfikator procesu |Identyfikator procesu |
 | TID |Identyfikator wątku wątku wytworzonego zdarzenia |
 | Komunikat |Szczegóły komunikatu o zdarzeniu |

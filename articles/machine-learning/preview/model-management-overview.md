@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Zarządzanie modelami w usłudze Azure Machine Learning
 
@@ -99,27 +99,27 @@ Pełny przepływ pracy opisujące tych pojęć jest przechwytywany na poniższej
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania 
-- Jakie typy danych są obsługiwane? Czy można przekazać tablice NumPy, bezpośrednio jako dane wejściowe do usługi sieci web?
+- **Jakie typy danych są obsługiwane? Czy można przekazać tablice NumPy, bezpośrednio jako dane wejściowe do usługi sieci web?**
 
    Jeśli udostępniasz pliku schematu, który został utworzony przy użyciu zestawu SDK generate_schema następnie można przekazać NumPy i/lub Pandas DF. Można również przekazać nakładów serializacji JSON. Obraz można przekazać jako zakodowany ciąg binarny również.
 
-- Usługa sieci web obsługuje wielu danych wejściowych lub przeanalizować różnych komponentów? 
+- **Usługa sieci web obsługuje wielu danych wejściowych lub przeanalizować różnych komponentów?**
 
    Tak, może potrwać wielu danych wejściowych, umieszczone w jednym żądaniu JSON w formie słownika. Każdy danych wejściowych odpowiada jednego słownika Unikatowy klucz.
 
-- Jest blokowania wywołania lub wywołanie asynchroniczne wywołanie aktywowany przez żądania sieci web usługi?
+- **Jest blokowania wywołania lub wywołanie asynchroniczne wywołanie aktywowany przez żądania sieci web usługi?**
 
    Jeśli usługa została utworzona przy użyciu opcji czasu rzeczywistego ramach interfejsu wiersza polecenia lub interfejsu API, to blokuje synchroniczne wywołania. Oczekuje się być szybkiego w czasie rzeczywistym. Chociaż po stronie klienta, można wywołać za pomocą biblioteki async HTTP, aby uniknąć zablokowania wątku klienta.
 
-- Ile żądań może jednocześnie obsługiwać usługę sieci web?
+- **Ile żądań może jednocześnie obsługiwać usługę sieci web?**
 
    To zależy od skali usługi sieci web i klastra. Możesz skalować w poziomie usługi do 100 x repliki, a następnie może obsługiwać wiele żądań jednocześnie. Można również skonfigurować maksymalny równoczesnych żądań dla repliki w celu zwiększenia przepływności usługi.
 
-- Ile żądań można kolejki usługi sieci web?
+- **Ile żądań można kolejki usługi sieci web?**
 
    Można to zrobić. Domyślnie jest równa 10 ~ na pojedynczą replikę, ale użytkownik może zwiększenie/zmniejszenie go do wymagań aplikacji. Zazwyczaj zwiększenie jego liczba żądań w kolejce zwiększa przepustowość usługi, ale powoduje, że co gorsza opóźnienia na wyższe percentylu. Do zachowania spójności opóźnienia, może chcesz ustawić kolejkowania niską wartość (1-5) i zwiększyć liczbę replik do obsługi przepływności. Można również włączyć funkcję skalowania automatycznego, aby liczba replik dostosowywania automatycznie na podstawie na obciążenia. 
 
-- Czy tego samego komputera lub klastra można używać do wielu punktów końcowych usługi sieci web?
+- **Czy tego samego komputera lub klastra można używać do wielu punktów końcowych usługi sieci web?**
 
    Naturalnie. 100 x usług/punktów końcowych można uruchamiać na tym samym klastrze. 
 

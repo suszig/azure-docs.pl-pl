@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Program Microsoft Graph powiązania dla usługi Azure Functions
 
@@ -33,7 +33,13 @@ Rozszerzenia Microsoft Graph zapewnia następujące powiązania:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Program Microsoft Graph powiązania są obecnie w wersji zapoznawczej.
+> Program Microsoft Graph powiązania są obecnie w wersji zapoznawczej usługi Azure Functions wersji 2.x. Nie są obsługiwane w wersji funkcji 1.x.
+
+## <a name="packages"></a>Pakiety
+
+Token powiązania wejściowego uwierzytelniania jest udostępniany w [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) pakietu NuGet. Inne powiązania Microsoft Graph znajdują się w [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) pakietu. Kod źródłowy pakietów jest [microsoftgraph rozszerzenie, azure funkcji w-](https://github.com/Azure/azure-functions-microsoftgraph-extension/) repozytorium GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="setting-up-the-extensions"></a>Konfigurowanie rozszerzeń
 
@@ -54,9 +60,7 @@ W obu przypadkach zostanie wyświetlone ostrzeżenie, który określa rozszerzen
 > [!Note] 
 > Plan przez proces instalacji w portalu może zająć do 10 minut.
 
-Jeśli używasz programu Visual Studio rozszerzeń można uzyskać przez zainstalowanie tych pakietów NuGet:
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
+Jeśli używasz programu Visual Studio, rozszerzeń można uzyskać, instalując [pakietów NuGet, które są wymienione w tym artykule](#packages).
 
 ### <a name="configuring-authentication--authorization"></a>Konfigurowanie uwierzytelniania / autoryzacji
 
@@ -199,7 +203,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---attributes"></a>Token uwierzytelniania — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [tokenu](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [tokenu](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) atrybutu.
 
 ### <a name="auth-token---configuration"></a>Token uwierzytelniania — Konfiguracja
 
@@ -212,7 +216,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**||Wymagana — musi być ustawiona `in`.|
 |**Tożsamości**|**Tożsamość**|Wymagana — tożsamości, która będzie służyć do wykonania akcji. Może to być jedna z następujących wartości:<ul><li><code>userFromRequest</code> — Jedyne prawidłowe z [wyzwalacza HTTP]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym identyfikatorze. Zobacz <code>userId</code> właściwości.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowany przez określony token. Zobacz <code>userToken</code> właściwości.</li><li><code>clientCredentials</code> -Ma zostać użyta tożsamość aplikacji funkcji.</li></ul>|
 |**Nazwa użytkownika**|**Nazwa użytkownika**  |Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromId`. Użytkownik identyfikator podmiotu zabezpieczeń skojarzone z wcześniej zalogowanego użytkownika.|
-|**userToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
+|**UserToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
 |**Zasób**|**resource**|Wymagana — adres URL zasobu usługi Azure AD, dla którego token jest wymagany.|
 
 <a name="token-input-code"></a>
@@ -332,7 +336,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---attributes"></a>Excel wejściowych — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) atrybutu.
 
 ### <a name="excel-input---configuration"></a>Dane wejściowe — w programie Excel konfiguracji
 
@@ -345,9 +349,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**||Wymagana — musi być ustawiona `in`.|
 |**Tożsamości**|**Tożsamość**|Wymagana — tożsamości, która będzie służyć do wykonania akcji. Może to być jedna z następujących wartości:<ul><li><code>userFromRequest</code> — Jedyne prawidłowe z [wyzwalacza HTTP]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym identyfikatorze. Zobacz <code>userId</code> właściwości.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowany przez określony token. Zobacz <code>userToken</code> właściwości.</li><li><code>clientCredentials</code> -Ma zostać użyta tożsamość aplikacji funkcji.</li></ul>|
 |**Nazwa użytkownika**|**Nazwa użytkownika**  |Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromId`. Użytkownik identyfikator podmiotu zabezpieczeń skojarzone z wcześniej zalogowanego użytkownika.|
-|**userToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
+|**UserToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
 |**Ścieżka**|**Ścieżka**|Wymagana — ścieżka w usłudze OneDrive do skoroszytu programu Excel.|
-|**worksheetName**|**WorksheetName**|Arkusz, w którym znajduje się tabela.|
+|**WorksheetName**|**WorksheetName**|Arkusz, w którym znajduje się tabela.|
 |**tableName**|**TableName**|Nazwa tabeli. Jeśli nie zostanie określony, będzie używany zawartość arkusza.|
 
 <a name="excel-input-code"></a>
@@ -492,7 +496,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---attributes"></a>Excel output — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) atrybutu.
 
 ### <a name="excel-output---configuration"></a>Dane wyjściowe — w programie Excel konfiguracji
 
@@ -505,9 +509,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**||Wymagana — musi być ustawiona `out`.|
 |**Tożsamości**|**Tożsamość**|Wymagana — tożsamości, która będzie służyć do wykonania akcji. Może to być jedna z następujących wartości:<ul><li><code>userFromRequest</code> — Jedyne prawidłowe z [wyzwalacza HTTP]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym identyfikatorze. Zobacz <code>userId</code> właściwości.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowany przez określony token. Zobacz <code>userToken</code> właściwości.</li><li><code>clientCredentials</code> -Ma zostać użyta tożsamość aplikacji funkcji.</li></ul>|
 |**Nazwa użytkownika** |**Nazwa użytkownika** |Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromId`. Użytkownik identyfikator podmiotu zabezpieczeń skojarzone z wcześniej zalogowanego użytkownika.|
-|**userToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
+|**UserToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
 |**Ścieżka**|**Ścieżka**|Wymagana — ścieżka w usłudze OneDrive do skoroszytu programu Excel.|
-|**worksheetName**|**WorksheetName**|Arkusz, w którym znajduje się tabela.|
+|**WorksheetName**|**WorksheetName**|Arkusz, w którym znajduje się tabela.|
 |**tableName**|**TableName**|Nazwa tabeli. Jeśli nie zostanie określony, będzie używany zawartość arkusza.|
 |**updateType**|**UpdateType**|Wymagana — typ zmiany należy do tabeli. Może to być jedna z następujących wartości:<ul><li><code>update</code> -Zastępuje zawartość tabeli w usłudze OneDrive.</li><li><code>append</code> -Dodaje ładunku na koniec tabeli w usłudze OneDrive, tworząc nowe wiersze.</li></ul>|
 
@@ -636,7 +640,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---attributes"></a>Plik wejściowy — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) atrybutu.
 
 ### <a name="file-input---configuration"></a>Plik wejściowy — Konfiguracja
 
@@ -649,7 +653,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**||Wymagana — musi być ustawiona `in`.|
 |**Tożsamości**|**Tożsamość**|Wymagana — tożsamości, która będzie służyć do wykonania akcji. Może to być jedna z następujących wartości:<ul><li><code>userFromRequest</code> — Jedyne prawidłowe z [wyzwalacza HTTP]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym identyfikatorze. Zobacz <code>userId</code> właściwości.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowany przez określony token. Zobacz <code>userToken</code> właściwości.</li><li><code>clientCredentials</code> -Ma zostać użyta tożsamość aplikacji funkcji.</li></ul>|
 |**Nazwa użytkownika**|**Nazwa użytkownika**  |Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromId`. Użytkownik identyfikator podmiotu zabezpieczeń skojarzone z wcześniej zalogowanego użytkownika.|
-|**userToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
+|**UserToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
 |**Ścieżka**|**Ścieżka**|Wymagana — ścieżka w usłudze OneDrive do pliku.|
 
 <a name="onedrive-input-code"></a>
@@ -781,7 +785,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---attributes"></a>Plik wyjściowy — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) atrybutu.
 
 ### <a name="file-output---configuration"></a>Dane wyjściowe — plik konfiguracji
 
@@ -794,7 +798,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**||Wymagana — musi być ustawiona `out`.|
 |**Tożsamości**|**Tożsamość**|Wymagana — tożsamości, która będzie służyć do wykonania akcji. Może to być jedna z następujących wartości:<ul><li><code>userFromRequest</code> — Jedyne prawidłowe z [wyzwalacza HTTP]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym identyfikatorze. Zobacz <code>userId</code> właściwości.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowany przez określony token. Zobacz <code>userToken</code> właściwości.</li><li><code>clientCredentials</code> -Ma zostać użyta tożsamość aplikacji funkcji.</li></ul>|
 |**Nazwa użytkownika** |**Nazwa użytkownika** |Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromId`. Użytkownik identyfikator podmiotu zabezpieczeń skojarzone z wcześniej zalogowanego użytkownika.|
-|**userToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
+|**UserToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
 |**Ścieżka**|**Ścieżka**|Wymagana — ścieżka w usłudze OneDrive do pliku.|
 
 <a name="onedrive-output-code"></a>
@@ -930,7 +934,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---attributes"></a>Outlook output — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) atrybutu.
 
 ### <a name="outlook-output---configuration"></a>Dane wyjściowe programu Outlook — Konfiguracja
 
@@ -943,7 +947,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**||Wymagana — musi być ustawiona `out`.|
 |**Tożsamości**|**Tożsamość**|Wymagana — tożsamości, która będzie służyć do wykonania akcji. Może to być jedna z następujących wartości:<ul><li><code>userFromRequest</code> — Jedyne prawidłowe z [wyzwalacza HTTP]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym identyfikatorze. Zobacz <code>userId</code> właściwości.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowany przez określony token. Zobacz <code>userToken</code> właściwości.</li><li><code>clientCredentials</code> -Ma zostać użyta tożsamość aplikacji funkcji.</li></ul>|
 |**Nazwa użytkownika**|**Nazwa użytkownika**  |Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromId`. Użytkownik identyfikator podmiotu zabezpieczeń skojarzone z wcześniej zalogowanego użytkownika.|
-|**userToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
+|**UserToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
 
 <a name="outlook-output-code"></a>
 ### <a name="outlook-output---usage"></a>Wyjście - Outlook użycia
@@ -1071,7 +1075,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Element Webhook wyzwalacza — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) atrybutu.
 
 ### <a name="webhook-trigger---configuration"></a>Wyzwalacz Webhook — Konfiguracja
 
@@ -1222,7 +1226,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Element Webhook wejściowych — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) atrybutu.
 
 ### <a name="webhook-input---configuration"></a>Dane wejściowe elementu Webhook — Konfiguracja
 
@@ -1362,7 +1366,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Element Webhook output — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) atrybutu.
 
 ### <a name="webhook-output---configuration"></a>Dane wyjściowe elementu Webhook — Konfiguracja
 
@@ -1375,7 +1379,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**||Wymagana — musi być ustawiona `out`.|
 |**Tożsamości**|**Tożsamość**|Wymagana — tożsamości, która będzie służyć do wykonania akcji. Może to być jedna z następujących wartości:<ul><li><code>userFromRequest</code> — Jedyne prawidłowe z [wyzwalacza HTTP]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym identyfikatorze. Zobacz <code>userId</code> właściwości.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowany przez określony token. Zobacz <code>userToken</code> właściwości.</li><li><code>clientCredentials</code> -Ma zostać użyta tożsamość aplikacji funkcji.</li></ul>|
 |**Nazwa użytkownika**|**Nazwa użytkownika**  |Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromId`. Użytkownik identyfikator podmiotu zabezpieczeń skojarzone z wcześniej zalogowanego użytkownika.|
-|**userToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
+|**UserToken**|**UserToken**|Wymagane w przypadku i tylko wtedy, gdy _tożsamości_ ma ustawioną wartość `userFromToken`. Token nieprawidłowy dla funkcji aplikacji. |
 |**Akcja**|**Akcja**|Niewymagana — określa akcji powiązanie powinny być obsługiwane. Może to być jedna z następujących wartości:<ul><li><code>create</code> -Rejestruje nową subskrypcję.</li><li><code>delete</code> — Usuwa z określonej subskrypcji.</li><li><code>refresh</code> -Odświeża określonej subskrypcji, aby zapobiec wygaśnięciu.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|Wymagane w przypadku i tylko wtedy, gdy _akcji_ ma ustawioną wartość `create`. Określa zasób Microsoft Graph, które będą monitorowane zmian. Zobacz [Praca z elementów webhook w programie Microsoft Graph]. |
 |**changeType**|**ChangeType**|Wymagane w przypadku i tylko wtedy, gdy _akcji_ ma ustawioną wartość `create`. Wskazuje typ zmiany w subskrybowanego zasób, który zostanie podniesiony powiadomienie. Obsługiwane wartości to: `created`, `updated`, `deleted`. Można łączyć wiele wartości, używając listy rozdzielanej przecinkami.|

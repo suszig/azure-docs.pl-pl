@@ -8,7 +8,7 @@
 | Serwery bazy danych SQL dla subskrypcji |6 |150 |
 | Serwery DNS dla subskrypcji |9 |100 |
 | Zastrzeżonych adresów IP dla subskrypcji |20 |100 |
-| Certyfikaty usługi hostowanej na subskrypcję |400 |400 |
+| Certyfikaty usługi hostowanej na subskrypcję |199 |199 |
 | [Grupy koligacji](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) na subskrypcję |256 |256 |
 
 

@@ -1,4 +1,19 @@
-
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines
+author: zivraf
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: zivr
+ms.custom: include file
+ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Maszyny wirtualne widoku zaplanowane w celu przeprowadzenia konserwacji w portalu
 
 Gdy zaplanowano wave planowanej konserwacji i powiadomienia są wysyłane, można zaobserwować listę maszyn wirtualnych, które ma wpływ wave zbliżającej się konserwacji. 
@@ -17,10 +32,10 @@ Można korzystać z portalu Azure i wyszukaj zaplanowane do obsługi maszyn wirt
       
       | Wartość | Opis |
       |-------|-------------|
-      | Rozpocznij teraz | Maszyna wirtualna jest w oknie konserwacji samoobsługi, która pozwala na zainicjowanie obsługi samodzielnie. Poniżej dostępne są w sposób uruchamiania konserwacji na maszynie Wirtualnej | 
-      | Zaplanowany | Maszyna wirtualna jest zaplanowane dla obsługi z opcją nie można zainicjować obsługi. Aby dowiedzieć się okna obsługi, wybierając okno zaplanowane automatycznie w tym widoku lub przez kliknięcie przycisku na maszynie Wirtualnej | 
-      | Ukończono | Pomyślnie zainicjowano i konserwację na maszynie Wirtualnej. | 
-      | Pominięto| Wybrany do inicjowania obsługi nie pomyślnie. Nie można użyć opcji samoobsługi konserwacji. Maszyny Wirtualnej musi zostać uruchomiony ponownie przez platformę Azure w fazie zaplanowanej konserwacji. | 
+      | Rozpocznij teraz | Maszyna wirtualna znajduje się w oknie konserwacji samoobsługowej, które pozwala na samodzielne zainicjowanie konserwacji. Poniżej dostępne są w sposób uruchamiania konserwacji na maszynie Wirtualnej | 
+      | Zaplanowane | Maszyna wirtualna jest zaplanowana do konserwacji bez opcji umożliwiającej samodzielne zainicjowanie konserwacji. Aby dowiedzieć się okna obsługi, wybierając okno zaplanowane automatycznie w tym widoku lub przez kliknięcie przycisku na maszynie Wirtualnej | 
+      | Ukończone | Pomyślnie zainicjowano i konserwację na maszynie Wirtualnej. | 
+      | Pominięto| Wybrano zainicjowanie konserwacji, bez powodzenia. Nie można użyć opcji samoobsługi konserwacji. Maszyny Wirtualnej musi zostać uruchomiony ponownie przez platformę Azure w fazie zaplanowanej konserwacji. | 
 
    **Konserwacja aktywnej** — przedstawia przedział czasu, gdy dla maszyn wirtualnych można uruchomić samodzielnie konserwacji.
    

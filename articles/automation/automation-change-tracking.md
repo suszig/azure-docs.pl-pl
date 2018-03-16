@@ -2,32 +2,28 @@
 title: "Śledzenie zmian w usłudze Automatyzacja Azure | Dokumentacja firmy Microsoft"
 description: "Rozwiązanie śledzenia zmian pomaga w identyfikacji oprogramowania i zmiany usługi systemu Windows w środowisku."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c5f354c3e63856474e46e2b6928af829604e15
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fcee2956d2d33133c5d1a5bf367643a2095cad71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Śledzenie zmian w oprogramowaniu w Twoim środowisku z rozwiązaniem do śledzenia zmian
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Śledzenie zmian w środowisku z rozwiązaniem do śledzenia zmian
 
 W tym artykule opisano, jak za pomocą rozwiązania śledzenia zmian można łatwo zidentyfikować zmian w środowisku. Rozwiązania śledzi zmiany do oprogramowania systemu Windows i Linux, plików systemu Windows i Linux, kluczy rejestru systemu Windows, usług systemu Windows i demonów systemu Linux. Identyfikowanie zmian konfiguracji może pomóc w określeniu problemy z działaniem.
 
 Zmiany zainstalowanego oprogramowania, usług systemu Windows, plików i rejestru systemu Windows i demonów systemu Linux na monitorowanych serwerach są wysyłane do analizy dzienników usługi w chmurze do przetwarzania. Logika jest stosowany do odebranych danych i usługi w chmurze rejestruje dane. Korzystając z informacji na pulpicie nawigacyjnym śledzenia zmian, można łatwo zobaczyć zmiany wprowadzone w ramach infrastruktury serwera.
 
-## <a name="enable-change-tracking-and-inventory"></a>Włączanie śledzenia zmian i magazynu
+## <a name="enable-change-tracking-and-inventory"></a>Włączanie rozwiązania Change Tracking and Inventory
 
 
 Aby rozpocząć śledzenie zmian, musisz włączyć śledzenie zmian i spisu rozwiązanie dla konta automatyzacji.
@@ -55,14 +51,14 @@ Aby skonfigurować plik śledzenia na komputerach z systemem Linux, wykonaj nast
 |Enabled (Włączony)     | Określa, czy ustawienia została zastosowana.        |
 |Nazwa elementu     | Przyjazna nazwa pliku, które mają być śledzone.        |
 |Grupa     | Nazwa grupy logiczne grupowanie plików.        |
-|Wprowadź ścieżkę     | Ścieżka do sprawdzenia pliku. Na przykład: "/etc/*.conf"       |
+|Wprowadzanie ścieżki     | Ścieżka do sprawdzenia pliku. Na przykład: "/etc/*.conf"       |
 |Typ ścieżki     | Typ elementu ma być monitorowany, możliwe wartości są plików i katalogów.        |
-|Rekursja     | Określa, czy rekursji jest używane podczas wyszukiwania elementu mają być śledzone.        |
-|Użyj operacji Sudo     | To ustawienie określa, czy sudo jest używany podczas sprawdzania elementu.         |
-|Linki     | To ustawienie określa, jak symboliczne łącza omówione podczas przesyłania katalogów.<br> **Ignoruj** — ignoruje łącza symbolicznego i nie zawiera plików/katalogów, do których odwołuje się.<br>**Wykonaj** — następuje łącza symbolicznego podczas rekursji, a także plików/katalogów, do których odwołuje się.<br>**Zarządzanie** — wykonał łącza symbolicznego ale umożliwia zmienianie zwrócony zawartości.     |
+|Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
+|Użyj polecenia Sudo     | To ustawienie określa, czy podczas sprawdzania elementu jest używane polecenie sudo.         |
+|Linki     | To ustawienie określa, w jaki sposób są obsługiwane linki symboliczne podczas przechodzenia między katalogami.<br> **Ignoruj** — ignoruje łącza symbolicznego i nie zawiera plików/katalogów, do których odwołuje się.<br>**Wykonaj** — następuje łącza symbolicznego podczas rekursji, a także plików/katalogów, do których odwołuje się.<br>**Zarządzanie** — wykonał łącza symbolicznego ale umożliwia zmienianie zwrócony zawartości.     |
 
 > [!NOTE]
-> Opcja łącza "Manage" nie jest zalecane. Pobieranie zawartości pliku nie jest obsługiwana.
+> Opcja linków „Zarządzaj” nie jest zalecana. Pobieranie zawartości plików nie jest obsługiwane.
 
 ### <a name="configure-windows-files-to-track"></a>Konfiguruj pliki systemu Windows do śledzenia
 
@@ -77,7 +73,7 @@ Aby skonfigurować pliki śledzenia na komputerach z systemem Windows, wykonaj n
 |Enabled (Włączony)     | Określa, czy ustawienia została zastosowana.        |
 |Nazwa elementu     | Przyjazna nazwa pliku, które mają być śledzone.        |
 |Grupa     | Nazwa grupy logiczne grupowanie plików.        |
-|Wprowadź ścieżkę     | Ścieżka do sprawdzenia pliku, na przykład: "c:\temp\myfile.txt"       |
+|Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „c:\temp\mojplik.txt”       |
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Konfigurowanie kluczy rejestru systemu Windows do śledzenia
 
@@ -195,8 +191,8 @@ W poniższej tabeli przedstawiono przykładowy dziennik wyszukiwania Zmień reko
 
 |Zapytanie  |Opis  |
 |---------|---------|
-|ConfigurationData<br>&#124; gdzie ConfigDataType == "WindowsServices" i SvcStartupType == "Auto"<br>&#124; gdzie SvcState == "Zatrzymana"<br>&#124; Podsumuj arg_max(TimeGenerated, *) przez SoftwareName, komputer         | Zawiera najnowsze rekordów spisu dla usług systemu Windows, zostały ustawione na Auto, które zostały zgłoszone jako zatrzymania<br>Wyniki są ograniczone do ostatniego rekordu tego SoftwareName i komputera      |
-|Zmianakonfiguracji<br>&#124; gdzie ConfigChangeType == "Oprogramowanie" i ChangeCategory == "Usunięte"<br>&#124; kolejność według TimeGenerated desc|Pokazuje rekordów zmian oprogramowania usunięty|
+|ConfigurationData<br>&#124;gdzie ConfigDataType == "WindowsServices" i SvcStartupType == "Auto"<br>&#124;gdzie SvcState == "Zatrzymana"<br>&#124;Podsumuj arg_max(TimeGenerated, *) przez SoftwareName, komputer         | Zawiera najnowsze rekordów spisu dla usług systemu Windows, zostały ustawione na Auto, które zostały zgłoszone jako zatrzymania<br>Wyniki są ograniczone do ostatniego rekordu tego SoftwareName i komputera      |
+|Zmianakonfiguracji<br>&#124;gdzie ConfigChangeType == "Oprogramowanie" i ChangeCategory == "Usunięte"<br>&#124;kolejność według TimeGenerated desc|Pokazuje rekordów zmian oprogramowania usunięty|
 
 ## <a name="next-steps"></a>Kolejne kroki
 

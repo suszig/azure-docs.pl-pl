@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych maszyn wirtualnych wdrożonych przez program Resource Manager
 
@@ -49,12 +49,6 @@ Jeśli te warunki istnieje już w danym środowisku, przejdź do [kopii zapasowy
 Aby przygotować środowisko, należy zrozumieć następujące ograniczenia:
 
 * Tworzenie kopii zapasowych maszyn wirtualnych z więcej niż 16 dysków danych nie jest obsługiwane.
-* Tworzenie kopii zapasowych maszyn wirtualnych z danymi dysku o rozmiarze przekraczającym 1,023 GB nie jest obsługiwane.
-
-  > [!NOTE]
-  > Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych z więcej niż jednego dysków TB. Aby uzyskać więcej informacji, zapoznaj się [prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych dużych dysków](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
-  >
-
 * Tworzenie kopii zapasowych maszyn wirtualnych z zastrzeżonego adresu IP i nie zdefiniowanych punktów końcowych nie jest obsługiwane.
 * Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux zaszyfrowany za pomocą szyfrowania Linux Unified klucz instalacji (LUKS) nie jest obsługiwana.
 * Nie zaleca się tworzenie kopii zapasowych maszyn wirtualnych, które zawierają konfigurację udostępnionych woluminów klastra (CSV) lub serwera plików skalowalnego w poziomie. Wymagają one, obejmujące wszystkich maszyn wirtualnych uwzględnione w konfiguracji klastra podczas zadania migawki. Kopia zapasowa Azure nie obsługuje wielu maszyn wirtualnych. 

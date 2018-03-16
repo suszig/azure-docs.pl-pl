@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenia maszyny Wirtualnej diagnostyki Azure wydajności dla systemu Windows
 
@@ -227,9 +227,7 @@ Narzędzie PerfInsights gromadzi różne dzienniki, konfiguracji i danych diagno
 
 ## <a name="view-and-share-the-results"></a>Wyświetlanie i udostępnianie wyników
 
-Dane wyjściowe z rozszerzenia są przechowywane w folderze. Folder o nazwie log_collection i znajduje się w obszarze dysk Temp (zazwyczaj D:\log_collection) domyślnie. Pliki zip zawierający dzienników diagnostycznych i raport o wyniki i zalecenia można wyświetlić w tym folderze.
-
-Można również znaleźć plik zip na koncie magazynu podane podczas instalacji. Są one udostępniane przez 30 dni przy użyciu [udostępnionego sygnatur dostępu (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Plik tekstowy o nazwie *zipfilename*_saslink.txt również jest tworzony w folderze log_collection. Ten plik zawiera łącze SAS utworzone, aby pobrać plik zip. Każdy, kto ma to łącze jest w stanie pobrać plik zip.
+Dane wyjściowe z rozszerzenia można znaleźć w pliku zip, który przekazywane do konta magazynu określony podczas instalacji i jest udostępniany przez 30 dni przy użyciu [udostępnionego sygnatur dostępu (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Ten plik zip zawiera dzienników diagnostycznych i raport o wyniki i zalecenia. Łącze SAS do pliku zip danych wyjściowych znajdują się wewnątrz plik tekstowy o nazwie *zipfilename*_saslink.txt w folderze **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<wersji >**. Każdy, kto ma to łącze jest w stanie pobrać plik zip.
 
 Ułatwiających z pracownikiem pomocy technicznej pracuje biletu pomocy technicznej firmy Microsoft może Użyj tego łącza SAS do pobierania danych diagnostyki.
 
@@ -240,7 +238,7 @@ Należy również można pobrać plik zip bezpośrednio z portalu, wybierając r
 ![Zrzut ekranu wydajności diagnostyki szczegółowy stan](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> Łącze SAS wyświetlana w portalu może nie działać. To może być spowodowane źle sformułowany adres URL podczas operacji kodowania i dekodowania. Zamiast tego można uzyskać łącze bezpośrednio z pliku *_saslink.txt z maszyny Wirtualnej.
+> Łącze SAS wyświetlana w portalu może nie działać czasem. To może być spowodowane źle sformułowany adres URL podczas operacji kodowania i dekodowania. Zamiast tego można uzyskać łącze bezpośrednio z pliku *_saslink.txt z maszyny Wirtualnej.
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i obsługa techniczna
 
@@ -249,6 +247,6 @@ Należy również można pobrać plik zip bezpośrednio z portalu, wybierając r
     Ten problem można zignorować, dopóki stan rozszerzenia wskazuje, że rozszerzenie zostanie pomyślnie zainicjowana.
 - Niektóre problemy można rozwiązać podczas instalacji przy użyciu dzienników rozszerzenia. Dane wyjściowe wykonania rozszerzenia jest rejestrowany pliki znajdujące się w następującym katalogu:
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 Jeśli potrzebujesz więcej pomocy w dowolnym momencie, w tym artykule, możesz skontaktować się ekspertów platformy Azure na [fora MSDN Azure i przepełnienie stosu](https://azure.microsoft.com/support/forums/). Alternatywnie można pliku zdarzenia pomocy technicznej platformy Azure. Przejdź do [witrynę pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/)i wybierz **uzyskać pomoc techniczną**. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, przeczytaj [pomocy technicznej Microsoft Azure — często zadawane pytania](https://azure.microsoft.com/support/faq/).

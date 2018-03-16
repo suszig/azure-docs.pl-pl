@@ -2,25 +2,18 @@
 title: "Kod bufor pierścień systemu XEvent dla bazy danych SQL | Dokumentacja firmy Microsoft"
 description: "Zawiera przykładowy kod języka Transact-SQL, które zostało utworzone przy użyciu obiektu docelowego buforu pierścień w bazie danych SQL Azure łatwo i szybko."
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: 61251eb9b125209ffd15adafdb0bace495e7cadd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f553933d5a1435a96421939af8522daf53db1ff3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Pierścienia kodu docelowego buforu dla zdarzeń rozszerzonych w bazie danych SQL
 
@@ -60,7 +53,7 @@ W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 
 Drobne zmiany w poniższym przykładzie kodu bufor pierścień umożliwia uruchamianie bazy danych SQL Azure lub programu Microsoft SQL Server. Różnica polega na obecność węzeł 'bazy _danych"nazwach niektórych dynamicznych widoków zarządzania (widoków DMV), używany w klauzuli FROM w kroku 5. Na przykład:
 
-* sys.dm_xe**bazy _danych**_session_targets
+* sys.dm_xe**_database**_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;

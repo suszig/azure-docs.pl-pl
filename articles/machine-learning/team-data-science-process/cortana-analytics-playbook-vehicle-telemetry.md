@@ -12,23 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 8584cade8e12b4f06ae455227e702844a06f512a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 02b3e0e0808cb9a1a8a2186b1abe6da7dd13e56e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle podręcznikowym rozwiązania analizy Telemetrii
 Tego łącza menu rozdziałów, w tym podręcznika dotyczącego: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-## <a name="overview"></a>Omówienie
-Superkomputerów został przeniesiony poza laboratorium i są teraz stoi w garaży. Tych samochodów najnowocześniejsze zawiera wiele czujników, które pozwalają im na śledzenie i monitorowanie miliony zdarzeń w ciągu sekundy. 2020 większość tych pojazdów zostanie połączony z Internetem. Naciskając pozycję w tym wiele danych może zapewnić większe bezpieczeństwo, niezawodność i pobudzenie lepsze środowisko. Firma Microsoft udostępnia to marzy rzeczywistością z Cortana Intelligence.
+## <a name="overview"></a>Przegląd
+Komputery Super został przeniesiony poza laboratorium i są teraz stoi w garaży. Są one obecnie zostanie umieszczona w najnowocześniejsze samochodów, które zawierają wiele czujników. Czujniki te pozwalają je na śledzenie i monitorowanie miliony zdarzeń w ciągu sekundy. 2020 większość tych pojazdów zostanie połączony z Internetem. Naciskając pozycję w tym wiele danych zapewnia większe bezpieczeństwo, niezawodność, i dlatego zwiększają lepsze środowisko. Firma Microsoft udostępnia to marzy rzeczywistością z Cortana Intelligence.
 
-Cortana Intelligence jest pełni zarządzanych danych big data oraz pakiet zaawansowane metody analizy, który służy do przekształcania danych inteligentnego akcji. Szablon rozwiązania analizy Telemetrii Cortana analizy Vehicle pokazano, jak przedstawicielstw samochodu handlowych, producentów samochodów i ubezpieczeń można uzyskać w czasie rzeczywistym i zwyczaje predykcyjnej rozeznanie vehicle kondycji i wspierającym. 
+Cortana Intelligence jest pełni zarządzanych danych big data oraz pakiet zaawansowane metody analizy, który służy do przekształcania danych inteligentnego akcji. Szablon rozwiązania analizy Telemetrii Cortana analizy Vehicle pokazano, jak przedstawicielstw samochodu handlowych, producentów samochodów i ubezpieczeń są możliwe uzyskanie w czasie rzeczywistym i zwyczaje predykcyjnej rozeznanie vehicle kondycji i wspierającym.
 
 Rozwiązanie jest zaimplementowany jako [wzorzec architektury lambda](https://en.wikipedia.org/wiki/Lambda_architecture), który wskazuje pełny potencjalnych platformy Cortana Intelligence w czasie rzeczywistym i przetwarzania wsadowego.
 
@@ -38,7 +38,7 @@ Na tym diagramie przedstawiono architekturę rozwiązania analizy Telemetrii Veh
 ![Diagram architektury rozwiązania](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 
 
-To rozwiązanie obejmuje następujące składniki Cortana Intelligence i ich integracji end-to-end ilustrację:
+To rozwiązanie obejmuje następujące składniki Cortana Intelligence i ich integracji ilustrację:
 
 * **Usługa Azure Event Hubs** wysyła strumień miliony zdarzeń telemetrii vehicle na platformie Azure.
 * **Usługa Azure Stream Analytics** zapewnia wgląd w czasie rzeczywistym w kondycję vehicle i będzie się powtarzał tych danych do długoterminowego przechowywania dla bardziej zaawansowane funkcje analizy partii.
@@ -50,5 +50,5 @@ To rozwiązanie obejmuje następujące składniki Cortana Intelligence i ich int
 To rozwiązanie uzyskuje dostęp do dwóch różnych źródeł danych: 
 
 * **Symulowane sygnały vehicle i informacji diagnostycznych**: symulatora telematyki vehicle emituje informacje diagnostyczne i sygnalizuje, że odpowiada do stanu mechanizm i kierowania wzorca w danym punkcie w czasie. 
-* **Vehicle katalogu**: ten zestaw danych odwołania mapuje VINs modeli.
+* **Vehicle katalogu**: ten zestaw danych odwołania mapuje numery VIN modeli.
 

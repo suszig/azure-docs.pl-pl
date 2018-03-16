@@ -1,5 +1,19 @@
-
-
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 0b6846a68806354a58516fcbc87913815af87343
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/16/2018
+---
 Niektórych obciążeń bazy danych, takich jak SQL Server lub Oracle wymagają pamięci wysokiej, magazynu i przepustowości we/wy, ale nie liczba rdzeni wysoki. Wiele obciążeń bazy danych nie są użycie Procesora CPU. System Azure oferuje niektórych rozmiarów maszyn wirtualnych, w którym można ograniczyć liczbę vCPU maszyny Wirtualnej, aby zredukować koszty licencjonowania oprogramowania, przy zachowaniu tej samej pamięci, magazynu i przepustowości we/wy.
 
 Liczba vCPU może być ograniczona do połowy lub co kwartał oryginalnego rozmiaru maszyny Wirtualnej. Te nowe rozmiary maszyny Wirtualnej mają sufiks, który określa liczbę aktywnych Vcpu, aby łatwiej zidentyfikować.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Czym się różni punktu końcowego v2.0?
 Jeśli zaznajomieni z usługą Azure Active Directory lub mieć zintegrowanych aplikacji z usługą Azure AD w ciągu ostatnich, może być pewne różnice w punkcie końcowym v2.0, nie oczekuje.  Ten dokument uwidacznia różnic zrozumienie.
@@ -56,7 +56,7 @@ Naszym celem jest, że spowoduje to prowadzić do bardziej uproszczone zarządza
 ## <a name="scopes-not-resources"></a>Zakresy, nie zasobów
 W usłudze Azure Active Directory, aplikacja może zachowywać się jak **zasobów**, lub odbiorcy tokenów.  Zasób można zdefiniować wiele **zakresy** lub **oAuth2Permissions** siebie, umożliwiając klienckim aplikacje do żądania tokenów do tego zasobu dla zestawu zakresów.  Należy wziąć pod uwagę interfejsu API Azure AD Graph, na przykład zasobu:
 
-* Identyfikator zasobu lub `AppID URI`:`https://graph.windows.net/`
+* Identyfikator zasobu lub `AppID URI`: `https://graph.windows.net/`
 * Zakresy, lub `OAuth2Permissions`: `Directory.Read`, `Directory.Write`itp.  
 
 Wszystko to jest spełniony dla punktu końcowego v2.0.  Aplikacja nadal może działać jako zasób, Zdefiniuj zakresy oraz być identyfikowany przez identyfikator URI.  Aplikacje klienckie nadal może zażądać dostępu do tych zakresów.  Jednak sposób, w którym klient żąda uprawnienia została zmieniona.  W przeszłości autoryzacji OAuth 2.0 żądania do usługi Azure AD mogą sprawdzono, takich jak:

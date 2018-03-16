@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Użyj monitorowania i diagnostyki z szablonów maszyny Wirtualnej systemu Windows i usługi Azure Resource Manager
 Rozszerzenie diagnostyki Azure udostępnia możliwości monitorowania i diagnostyki na maszynie wirtualnej z systemem Windows Azure. Te możliwości w maszynie wirtualnej można włączyć w tym rozszerzenia jako częścią szablonu usługi Azure Resource Manager. Zobacz [tworzenia szablonów usługi Azure Resource Manager z rozszerzeń maszyny Wirtualnej](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) uzyskać więcej informacji o tym wszystkie rozszerzenia w ramach szablonu maszyny wirtualnej. W tym artykule opisano, jak dodać rozszerzenie diagnostyki Azure do szablonu maszyny wirtualnej systemu windows.  
@@ -152,7 +152,7 @@ W przypadku tworzenia wielu maszyn wirtualnych w pętli, musisz wypełnić *reso
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-Wartość MetricAggregation *PT1H* i *PT1M* oznaczającego agregacji na minutę i agregacji ponad godzinę.
+Wartość MetricAggregation *PT1M* i *PT1H* odpowiednio oznaczającego agregacji na minutę i agregacji w ciągu godziny.
 
 ## <a name="wadmetrics-tables-in-storage"></a>Tabele WADMetrics w magazynie
 Konfiguracja metryki powyżej generuje tabel na koncie magazynu diagnostyki z następujących konwencji nazewnictwa:
@@ -168,7 +168,7 @@ Przykład: *WADMetricsPT1HP10DV2S20151108* zawierają zagregowane ponad godzinę
 Każda tabela WADMetrics będzie zawierać następujące kolumny:
 
 * **PartitionKey**: Klucz partycji jest tworzony na podstawie *resourceID* wartość do unikatowej identyfikacji zasobu maszyny Wirtualnej. Na przykład: 002Fsubscriptions:<subscriptionID>: 002FresourceGroups:002F<ResourceGroupName>: 002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-* **RowKey**: zgodne z formatem `<Descending time tick>:<Performance Counter Name>`. Malejącej obliczanie osi czasu jest Takty maksymalny czas minus godzina rozpoczęcia okresu agregacji. Na przykład jeśli okres próbki rozpoczęty w dniu 2015-10-lis i będzie 00:00Hrs UTC, a następnie obliczenia: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Dla dostępnych bajtów pamięci licznika wydajności klucz wiersza będą wyglądać jak:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **RowKey**: zgodne z formatem `<Descending time tick>:<Performance Counter Name>`. Malejącej obliczanie osi czasu jest Takty maksymalny czas minus godzina rozpoczęcia okresu agregacji. Na przykład jeśli okres próbki rozpoczęty w dniu 2015-10-lis i będzie 00:00Hrs UTC, a następnie obliczenia: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Dla dostępnych bajtów pamięci licznika wydajności klucz wiersza będą wyglądać jak: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: Nazwa licznika wydajności. Odpowiada *counterSpecifier* zdefiniowane w pliku konfiguracji xml.
 * **Maksymalna**: maksymalna wartość licznika wydajności w okresie agregacji.
 * **Minimalna**: minimalną wartość licznika wydajności w okresie agregacji.

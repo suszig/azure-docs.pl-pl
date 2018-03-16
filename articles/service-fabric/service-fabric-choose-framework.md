@@ -3,7 +3,7 @@ title: "Omówienie modelu programowania sieci szkieletowej usług | Dokumentacja
 description: "Sieć szkieletowa usług oferuje dwie struktury umożliwiający tworzenie usług: framework aktora i w ramach usługi. Oferują one kompromisy różne prostoty i kontroli."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Omówienie modelu programowania sieci szkieletowej usług
-Sieć szkieletowa usług oferuje wiele sposobów, aby zapisać i zarządzania usługami. Usługi mogą być w pełni korzystać z funkcji platformy i struktury aplikacji przy użyciu interfejsów API usługi sieci szkieletowej. Można także skompilowany program wykonywalny napisane w dowolnym języku lub kodu uruchamianego w kontenerze, po prostu hostowanych w klastrze usługi sieć szkieletowa usług.
+Sieć szkieletowa usług oferuje wiele sposobów, aby zapisać i zarządzania usługami. Usługi mogą być w pełni korzystać z funkcji platformy i struktury aplikacji przy użyciu interfejsów API usługi sieci szkieletowej. Można także skompilowany program wykonywalny napisane w dowolnym języku lub kodu uruchamianego w kontenerze hostowanych w klastrze usługi sieć szkieletowa usług.
 
 ## <a name="guest-executables"></a>Pliki wykonywalne gościa
-A [pliku wykonywalnego gościa](service-fabric-deploy-existing-app.md) jest istniejące, dowolnego pliku wykonywalnego (zapisany w dowolnym języku) może zostać uruchomiony jako usługa w aplikacji. Pliki wykonywalne gościa należy wywoływać bezpośrednio interfejsy API zestawu SDK sieci szkieletowej usług. Jednak one nadal korzystać z funkcji oferuje platformie, takich jak usługi odnajdywania, niestandardowe kondycji i obciążenia raportowania przez wywoływanie interfejsów API REST udostępnianych przez usługi sieć szkieletowa usług. Mają one również pełny cykl życia pomocy technicznej.
+A [pliku wykonywalnego gościa](service-fabric-guest-executables-introduction.md) jest istniejące, dowolnego pliku wykonywalnego (zapisany w dowolnym języku) może zostać uruchomiony jako usługa w aplikacji. Pliki wykonywalne gościa należy wywoływać bezpośrednio interfejsy API zestawu SDK sieci szkieletowej usług. Jednak one nadal korzystać z funkcji oferuje platformie, takich jak usługi odnajdywania, niestandardowe kondycji i obciążenia raportowania przez wywoływanie interfejsów API REST udostępnianych przez usługi sieć szkieletowa usług. Mają one również pełny cykl życia pomocy technicznej.
 
 Wprowadzenie do plików wykonywalnych gościa przez wdrożenie pierwszego [aplikacja wykonywalna gościa](service-fabric-deploy-existing-app.md).
 
 ## <a name="containers"></a>Kontenery
-Domyślnie usługi sieć szkieletowa wdraża i aktywuje usługi jako procesów. Sieć szkieletowa usług można także wdrożyć usług w [kontenery](service-fabric-containers-overview.md). Sieć szkieletowa usług obsługuje wdrażanie kontenery systemu Linux i kontenery systemu Windows w systemie Windows Server 2016. Kontener obrazów można ściągnąć z dowolnym repozytorium kontenera i wdrożone na maszynie. Istniejące aplikacje można wdrożyć jako gość exectuables, sieć szkieletowa usług bezstanowych i stanowych niezawodne usługi lub Reliable Actors w kontenerach i usług w kontenerach w tej samej aplikacji i usług w procesach, które można łączyć.
+Domyślnie usługi sieć szkieletowa wdraża i aktywuje usługi jako procesów. Sieć szkieletowa usług można także wdrożyć usług w [kontenery](service-fabric-containers-overview.md). Sieć szkieletowa usług obsługuje wdrażanie kontenery systemu Linux i kontenery systemu Windows w systemie Windows Server 2016. Kontener obrazów można ściągnąć z dowolnym repozytorium kontenera i wdrożone na maszynie. Istniejące aplikacje można wdrożyć jako gość pliki wykonywalne, sieć szkieletowa usług bezstanowych i stanowych niezawodne usługi lub Reliable Actors w kontenerach i usług w kontenerach w tej samej aplikacji i usług w procesach, które można łączyć.
 
 [Dowiedz się więcej o containerizing usług w systemie Windows lub Linux](service-fabric-deploy-container.md)
 
@@ -50,7 +50,7 @@ Platformy ASP.NET Core to nowa open source i międzyplatformowa struktura do two
 ## <a name="reliable-actors"></a>Reliable Actors
 Wbudowane niezawodne usługi, framework niezawodnego aktora jest struktury aplikacji, która implementuje wzorca aktora wirtualnego, oparte na wzorcu aktora. Platforma niezawodnego aktora korzysta niezależne jednostki zasobów obliczeniowych i stan z jednowątkowego wykonywania o nazwie złośliwych użytkowników. Framework niezawodnego aktora zapewnia komunikacji wbudowanej złośliwych użytkowników i wstępnie ustawiony stan stanu trwałego i skalowalnego w poziomie konfiguracji.
 
-Reliable Actors sam jest struktury aplikacji w oparciu niezawodne usługi, jego jest w pełni zintegrowana z platformy sieć szkieletowa usług i korzyści wynikające z pełnym zestawem funkcji oferowanych przez platformę.
+Ponieważ struktury aplikacji w oparciu niezawodne usługi Reliable Actors, jego jest w pełni zintegrowana z platformy sieć szkieletowa usług i korzyści wynikające z pełnym zestawem funkcji oferowanych przez platformę.
 
 [Dowiedz się więcej o Reliable Actors](service-fabric-reliable-actors-introduction.md) lub Rozpoczynanie pracy przez [pisanie pierwszej usługi niezawodnego aktora](service-fabric-reliable-actors-get-started.md)
 
@@ -64,7 +64,7 @@ Reliable Actors sam jest struktury aplikacji w oparciu niezawodne usługi, jego 
 
 [Niezawodne podmiotów — omówienie](service-fabric-reliable-actors-introduction.md)
 
-[Sieć szkieletowa usług i ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+[Sieć szkieletowa usług i ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

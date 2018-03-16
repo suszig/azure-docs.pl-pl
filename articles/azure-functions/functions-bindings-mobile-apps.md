@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Aplikacje mobilne powiązania dla usługi Azure Functions 
 
@@ -28,6 +28,12 @@ W tym artykule opisano sposób pracy z [Azure Mobile Apps](../app-service-mobile
 Powiązania Mobile Apps pozwalają na odczytywanie i aktualizowanie tabel danych w aplikacjach mobilnych.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakiety
+
+Aplikacje mobilne powiązania znajdują się w [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) pakietu NuGet. Kod źródłowy dla pakietu jest w [azure-zadań webjob sdk rozszerzenia](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) repozytorium GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Dane wejściowe
 
@@ -128,7 +134,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Dane wejściowe — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atrybutu.
 
 Informacje o właściwości atrybutów, które można skonfigurować, zobacz [następującą sekcję konfiguracji](#input---configuration).
 
@@ -142,8 +148,8 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 | **Kierunek**||Musi być ustawiona na "w"|
 | **Nazwa**|| Nazwa parametru wejściowego w sygnaturze funkcji.|
 |**tableName** |**TableName**|Nazwa tabeli danych aplikacji mobilnej|
-| **Identyfikator**| **Identyfikator** | Identyfikator rekordu do pobrania. Może być statyczne lub w oparciu o wyzwalacz, który wywołuje funkcję. Na przykład, jeśli używasz wyzwalacz kolejki dla funkcji, następnie `"id": "{queueTrigger}"` używa wartości ciągu komunikatu w kolejce jako identyfikator rekordu do pobrania.|
-|**połączenia**|**Połączenia**|Nazwa ustawienia aplikacji, które ma adres URL aplikacji mobilnej. Funkcja używa tego adresu URL do skonstruowania wymagane operacje REST względem aplikacji mobilnej. Utwórz ustawienie aplikacji w aplikacji funkcji zawierający adres URL aplikacji mobilnej, a następnie określ nazwę ustawienia aplikacji w `connection` właściwości w Twojej powiązania wejściowego. Adres URL wygląda `http://<appname>.azurewebsites.net`.
+| **id**| **Identyfikator** | Identyfikator rekordu do pobrania. Może być statyczne lub w oparciu o wyzwalacz, który wywołuje funkcję. Na przykład, jeśli używasz wyzwalacz kolejki dla funkcji, następnie `"id": "{queueTrigger}"` używa wartości ciągu komunikatu w kolejce jako identyfikator rekordu do pobrania.|
+|**Połączenia**|**Połączenia**|Nazwa ustawienia aplikacji, które ma adres URL aplikacji mobilnej. Funkcja używa tego adresu URL do skonstruowania wymagane operacje REST względem aplikacji mobilnej. Utwórz ustawienie aplikacji w aplikacji funkcji zawierający adres URL aplikacji mobilnej, a następnie określ nazwę ustawienia aplikacji w `connection` właściwości w Twojej powiązania wejściowego. Adres URL wygląda `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|Nazwa ustawienia aplikacji, który ma klucz interfejsu API aplikacji mobilnej. Jeśli klucza interfejsu API zapewniają możesz [zaimplementować klucz interfejsu API w aplikacji mobilnej Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), lub [zaimplementować klucz interfejsu API w aplikacji mobilnej .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Aby podać klucz, utworzyć ustawienie aplikacji w Twojej aplikacji funkcji, który zawiera klucz interfejsu API, a następnie dodaj `apiKey` właściwości w Twojej powiązania wejściowego o nazwie ustawienia aplikacji. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -274,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atrybutu.
 
 Informacje o właściwości atrybutów, które można skonfigurować, zobacz [wyjście - konfiguracji](#output---configuration). Oto `MobileTable` przykład atrybutu w podpisie metody:
 
@@ -301,7 +307,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 | **Kierunek**||Musi być ustawiona na "out"|
 | **Nazwa**|| Nazwa parametru wyjściowego w funkcji podpisu.|
 |**tableName** |**TableName**|Nazwa tabeli danych aplikacji mobilnej|
-|**połączenia**|**MobileAppUriSetting**|Nazwa ustawienia aplikacji, które ma adres URL aplikacji mobilnej. Funkcja używa tego adresu URL do skonstruowania wymagane operacje REST względem aplikacji mobilnej. Utwórz ustawienie aplikacji w aplikacji funkcji zawierający adres URL aplikacji mobilnej, a następnie określ nazwę ustawienia aplikacji w `connection` właściwości w Twojej powiązania wejściowego. Adres URL wygląda `http://<appname>.azurewebsites.net`.
+|**Połączenia**|**MobileAppUriSetting**|Nazwa ustawienia aplikacji, które ma adres URL aplikacji mobilnej. Funkcja używa tego adresu URL do skonstruowania wymagane operacje REST względem aplikacji mobilnej. Utwórz ustawienie aplikacji w aplikacji funkcji zawierający adres URL aplikacji mobilnej, a następnie określ nazwę ustawienia aplikacji w `connection` właściwości w Twojej powiązania wejściowego. Adres URL wygląda `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|Nazwa ustawienia aplikacji, który ma klucz interfejsu API aplikacji mobilnej. Podaj if klucza interfejsu API można [implementować klucz interfejsu API zaplecza aplikacji mobilnej Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), lub [implementować klucz interfejsu API zaplecza aplikacji mobilnej .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Aby podać klucz, utworzyć ustawienie aplikacji w Twojej aplikacji funkcji, który zawiera klucz interfejsu API, a następnie dodaj `apiKey` właściwości w Twojej powiązania wejściowego o nazwie ustawienia aplikacji. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -313,9 +319,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 W języku C# skrypt funkcji, należy użyć parametru wyjściowego o nazwie typu `out object` uzyskać dostęp do rekordu danych wyjściowych. W języku C# biblioteki klas `MobileTable` atrybut może być używany z dowolnymi z następujących typów:
 
-* `ICollector<T>`lub `IAsyncCollector<T>`, gdzie `T` jest `JObject` lub dowolny typ z `public string Id` właściwości.
+* `ICollector<T>` lub `IAsyncCollector<T>`, gdzie `T` jest `JObject` lub dowolny typ z `public string Id` właściwości.
 * `out JObject`
-* `out T`lub `out T[]`, gdzie `T` jest dowolnego typu `public string Id` właściwości.
+* `out T` lub `out T[]`, gdzie `T` jest dowolnego typu `public string Id` właściwości.
 
 W przypadku funkcji Node.js użyj `context.bindings.<name>` uzyskać dostęp do rekordu danych wyjściowych.
 

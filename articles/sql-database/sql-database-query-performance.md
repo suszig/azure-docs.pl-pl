@@ -2,24 +2,18 @@
 title: "Zapytanie szczegółowe informacje o wydajności dla usługi Azure SQL Database | Dokumentacja firmy Microsoft"
 description: "Monitorowanie wydajności zapytania identyfikuje większość używające Procesora zapytań dla bazy danych SQL Azure."
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Wgląd wydajności kwerendy bazy danych Azure SQL
 Zarządzanie i dostrajania wydajności relacyjnych baz danych jest trudne zadanie, które wymaga znaczących wiedzę i czas inwestycji. Szczegółowe informacje o wydajności zapytań umożliwia poświęcają mniej czasu Rozwiązywanie problemów z bazy danych wydajności przez korzystanie z następujących:
@@ -37,7 +31,7 @@ Zarządzanie i dostrajania wydajności relacyjnych baz danych jest trudne zadani
 ## <a name="permissions"></a>Uprawnienia
 Następujące [kontroli dostępu opartej na rolach](../active-directory/role-based-access-control-what-is.md) wymagane są uprawnienia do używania szczegółowe informacje o wydajności zapytań: 
 
-* **Czytnik**, **właściciela**, **współautora**, **Współautor bazy danych SQL**, lub **programu SQL Server współautora** uprawnienia są do wyświetlania zasobu najwyższego wykorzystywanie kwerend i wykresy wymagane. 
+* **Czytnik**, **właściciela**, **współautora**, **Współautor bazy danych SQL**, lub **programu SQL Server współautora** uprawnienia są wymagane Aby wyświetlić zasobu najwyższego wykorzystywanie kwerend i wykresy. 
 * **Właściciel**, **współautora**, **Współautor bazy danych SQL**, lub **programu SQL Server współautora** wymagane są uprawnienia do wyświetlania tekstu zapytania.
 
 ## <a name="using-query-performance-insight"></a>Przy użyciu szczegółowe informacje o wydajności zapytań
@@ -93,7 +87,7 @@ Aby wyświetlić szczegóły kwerendy:
 
 1. Kliknij każde zapytanie na liście najważniejszych zapytań.
    
-    ![Szczegóły](./media/sql-database-query-performance/details.png)
+    ![szczegóły](./media/sql-database-query-performance/details.png)
 2. Otwiera widok szczegółów i liczba zużycie/czas trwania/wykonania Procesora kwerend dzieli się wraz z upływem czasu.
 3. Kliknij przycisk wokół wykresu, aby uzyskać szczegółowe informacje.
    
@@ -209,7 +203,7 @@ Stosowanie tych ustawień spowoduje po pewnym czasie magazynu zapytań zbieranie
 ## <a name="summary"></a>Podsumowanie
 Szczegółowe informacje o wydajności zapytań ułatwia zrozumienie wpływu obciążenia zapytania i jego znaczenia zużycie zasobów w bazie danych. W przypadku tej funkcji będzie informacje o zapytania zużywające najwięcej zasobów i łatwo zidentyfikować te, aby rozwiązać problem, zanim staną się problem.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać dodatkowe zalecenia dotyczące poprawy wydajności bazy danych SQL, kliknij [zalecenia](sql-database-advisor.md) na **szczegółowe informacje o wydajności zapytań** bloku.
 
 ![Doradca wydajności](./media/sql-database-query-performance/ia.png)

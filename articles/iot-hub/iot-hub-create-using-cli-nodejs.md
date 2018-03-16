@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Tworzenie Centrum IoT przy użyciu wiersza polecenia platformy Azure
 
@@ -88,7 +88,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **Grupa zasobów**. Nazwa grupy zasobów. Format jest bez uwzględniania wielkości liter alfanumeryczne, podkreślenia i łączniki, długość 1-64.
-* **name**. Nazwa centrum IoT, który ma zostać utworzony. Format jest bez uwzględniania wielkości liter alfanumeryczne, podkreślenia i łączniki, 3 – 50 długości.
+* **name**. Nazwa centrum IoT, który ma zostać utworzony. Format jest rozróżniana wielkość znaków alfanumerycznych i łącznik, 3 – 50 długości.
 * **Lokalizacja**. Lokalizacja (region/centrum danych azure) do obsługi administracyjnej Centrum IoT.
 * **Nazwa jednostki SKU**. Nazwa jednostki sku, jeden z: [F1, S1, S2, S3]. Aby uzyskać pełną listę najnowszych można znaleźć na stronie cenowa Centrum IoT.
 * **jednostki**. Liczba jednostek elastycznie. Zakres: F1 [1-1]: S1, S2 [1 – 200]: [1 – 10] S3. Jednostki Centrum IoT bazują na łącznej liczbie komunikatów i liczbę urządzeń, którymi chcesz się połączyć.
@@ -114,7 +114,7 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
 > ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o tworzeniu aplikacji Centrum IoT, zobacz następujący artykuł:
 

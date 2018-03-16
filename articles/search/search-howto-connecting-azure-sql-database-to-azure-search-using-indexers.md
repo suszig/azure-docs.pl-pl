@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Połączenie bazy danych SQL Azure do usługi Azure Search przy użyciu indeksatorów
 
@@ -57,6 +57,9 @@ W zależności od wielu czynników odnoszących się do danych użycie indeksato
 | Typy danych są zgodne | Większość, ale nie wszystkie typy SQL są obsługiwane w indeksie usługi wyszukiwanie Azure. Aby uzyskać listę, zobacz [mapowania typów danych](#TypeMapping). |
 | Synchronizacja danych w czasie rzeczywistym nie jest wymagane | Indeksator można ponownie indeksu tabeli, co najwyżej co pięć minut. Jeśli dane ulegają częstym zmianom i zmiany muszą być odzwierciedlone w indeksie w ciągu sekund lub minut pojedynczego, firma Microsoft zaleca używanie [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) lub [zestawu .NET SDK](search-import-data-dotnet.md) wypychanej bezpośrednio zaktualizowanych wierszy. |
 | Możliwe jest przyrostowe indeksowania | Jeśli masz dużych zestawów danych i zamierzasz uruchomić indeksatora zgodnie z harmonogramem, musi być mógł zidentyfikować nowych, zmodyfikowane lub usunięte wiersze, wydajne usługi Azure Search. Indeksowanie przyrostowe nie jest dozwolona tylko indeksowania na żądanie (nie zgodnie z harmonogramem), lub indeksowania mniej niż 100 000 wierszy. Aby uzyskać więcej informacji, zobacz [Przechwytywanie zmienione i usunąć wiersze](#CaptureChangedRows) poniżej. |
+
+> [!NOTE] 
+> Usługa Azure Search obsługuje tylko uwierzytelnianie programu SQL Server. Jeśli wymagana jest Obsługa uwierzytelniania hasła usługi Azure Active Directory, proszę Zagłosuj na to [sugestię UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Utwórz indeksator Azure SQL
 
@@ -168,7 +171,7 @@ Zastanówmy się przykładem, aby ustawić to bardziej konkretną. Załóżmy, �
 
 Oto, co się stanie:
 
-1. Rozpoczyna się pierwszego wykonywanie indeksatora, w tym miejscu lub wokół 1 marca 2015 od 12:00 CZAS UTC.
+1. Rozpoczyna się pierwszego wykonywanie indeksatora, w tym miejscu lub wokół 1 marca 2015 od 12:00 UTC.
 2. Załóżmy, że wykonanie tego ma 20 minut (lub w dowolnym momencie mniej niż 1 godzina).
 3. Wykonanie drugiej rozpoczyna się w tym miejscu lub wokół 1 marca 2015 od godziny 1:00
 4. Teraz załóżmy, że wykonanie tego ma ponad godzinę — na przykład 70 minut —, więc ukończy około 2:10:00
@@ -221,7 +224,7 @@ Te zasady wykrywania zmian polega na kolumnę "znacznik limitu górnego" Przechw
 * Wstawia wszystkie Określ wartość dla kolumny.
 * Wszystkie aktualizacje do elementu również zmienić wartość kolumny.
 * Wartość w tej kolumnie zwiększa się wraz z każdym insert lub update.
-* Zapytania z następującymi gdzie i klauzuli ORDER BY, które mogą być wykonywane wydajnie:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
+* Zapytania z następującymi gdzie i klauzuli ORDER BY, które mogą być wykonywane wydajnie: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
 > Zdecydowanie zaleca się używanie [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) typu danych dla kolumny znacznik limitu górnego. Jeśli jest używany inny typ danych, śledzenie zmian nie jest gwarantowana Aby przechwytywać zmiany wszystkich obecności transakcji wykonywanych równocześnie z zapytania indeksatora. Korzystając z **rowversion** w konfiguracji z replikami tylko do odczytu musi wskazywać indeksatora w replice podstawowej. Tylko replika podstawowa może służyć do scenariuszy synchronizacji danych.
@@ -285,13 +288,13 @@ Korzystając z techniki usuwania nietrwałego, można określić zasady usuwania
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mapowanie między typy danych SQL i usługi Azure Search
 | Typ danych SQL | Dozwolone typy pól indeksu docelowego | Uwagi |
 | --- | --- | --- |
-| bitowe |Typem Edm.Boolean, typem Edm.String | |
-| int, smallint, tinyint |Typem Edm.String z typem Edm.Int32, Edm.Int64, | |
-| bigint |Edm.Int64, typem Edm.String | |
-| rzeczywiste, float |Edm.Double, typem Edm.String | |
+| bitowe |Edm.Boolean, Edm.String | |
+| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
+| rzeczywiste, float |Edm.Double, Edm.String | |
 | Smallmoney, pieniędzy dziesiętną liczbowe |Edm.String |Usługa Azure Search nie obsługuje konwersji typu decimal do Edm.Double, ponieważ spowoduje to utratę dokładności |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Ciąg SQL może służyć do wypełnienia pola Collection(Edm.String), czy ciąg reprezentuje tablicę JSON ciągów:`["red", "white", "blue"]` |
-| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, typem Edm.String | |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Ciąg SQL może służyć do wypełnienia pola Collection(Edm.String), czy ciąg reprezentuje tablicę JSON ciągów: `["red", "white", "blue"]` |
+| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Lokalizacja geograficzna |Edm.GeographyPoint |Obsługiwane są tylko geograficzne wystąpienia typu punktu z 4326 SRID, (która jest wartością domyślną) |
 | ROWVERSION |ND |Kolumny wersji wiersza nie mogą być przechowywane w indeksie wyszukiwania, ale może służyć do śledzenia zmian |
@@ -303,7 +306,7 @@ Indeksator SQL udostępnia kilka ustawień konfiguracji:
 | Ustawienie | Typ danych | Przeznaczenie | Wartość domyślna |
 | --- | --- | --- | --- |
 | queryTimeout |ciąg |Ustawia limit czasu wykonywania zapytań SQL |5 minut ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |wartość logiczna |Powoduje, że zapytanie SQL używanego przez zasady znacznik limitu górnego, aby pominąć klauzuli ORDER BY. Zobacz [zasad znacznik limitu górnego](#HighWaterMarkPolicy) |fałsz |
+| disableOrderByHighWaterMarkColumn |bool |Powoduje, że zapytanie SQL używanego przez zasady znacznik limitu górnego, aby pominąć klauzuli ORDER BY. Zobacz [zasad znacznik limitu górnego](#HighWaterMarkPolicy) |false |
 
 Te ustawienia są używane w `parameters.configuration` obiektu w definicji indeksatora. Na przykład aby ustawić limit czasu zapytania do 10 minut, utworzyć lub zaktualizować indeksatora przy użyciu następującej konfiguracji:
 

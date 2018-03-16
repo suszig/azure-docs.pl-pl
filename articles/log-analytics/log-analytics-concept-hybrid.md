@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Zbieranie danych z komputerów w środowisku z analizy dzienników
 
@@ -77,14 +77,14 @@ Oficjalnie obsługiwane są następujące dystrybucje systemu Linux.  Jednak age
 * SUSE Linux Enterprise Server 11 i 12 (x86/x64)
 
 #### <a name="network-configuration"></a>Konfiguracja sieci
-Informacje poniżej listy proxy i zapory konfiguracji wymaganych informacji dla agenta systemu Linux do komunikowania się z analizy dzienników. Ruch jest wychodzący z sieci lokalnej z usługą analizy dzienników. 
+Informacje poniżej listy proxy i zapory konfiguracji wymaganych informacji dla agenta systemu Linux do komunikowania się z analizy dzienników.  
 
-|Zasób agenta| Porty |  
-|------|---------|  
-|*.ods.opinsights.azure.com | Port 443|   
-|*.oms.opinsights.azure.com | Port 443|   
-|*.blob.core.windows.net | Port 443|   
-|*.azure-automation.net | Port 443|  
+|Zasób agenta| Porty | Kierunek |  
+|------|---------|--------|  
+|*.ods.opinsights.azure.com | Port 443 | Przychodzące i wychodzące|  
+|*.oms.opinsights.azure.com | Port 443 | Przychodzące i wychodzące|  
+|*.blob.core.windows.net | Port 443 | Przychodzące i wychodzące|  
+|*.azure-automation.net | Port 443 | Przychodzące i wychodzące|  
 
 Agent systemu Linux obsługuje komunikacji przy użyciu serwera proxy lub bramy OMS z usługą analizy dzienników przy użyciu protokołu HTTPS.  Obsługiwane są zarówno anonimowych, jak i podstawowego uwierzytelniania (nazwy użytkownika i hasła).  Podczas instalacji lub modyfikując plik konfiguracji proxy.conf po zakończeniu instalacji można określić serwer proxy.  
 

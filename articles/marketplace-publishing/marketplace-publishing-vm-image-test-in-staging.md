@@ -3,8 +3,8 @@ title: "Testowanie ofertę maszyny Wirtualnej dla witryny Marketplace | Dokument
 description: Zrozumienie sposobu testowania obrazu maszyny Wirtualnej w portalu Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 7f225f113dd465f79d5d195b59a809fe3be6a1f8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testowanie ofertę maszyny Wirtualnej do portalu Azure Marketplace tymczasowych
 Przemieszczania oznacza wdrażanie Twojego jednostki SKU w prywatnej "piaskownicy", gdzie testowania i zweryfikować jego działanie przed jego wdrożeniem w portalu Marketplace. Jednostka SKU jest wyświetlany w przemieszczania analogiczny, jak na rzecz klienta, który został wdrożony go. Obraz maszyny Wirtualnej muszą być certyfikowane do zostać przeniesiony do tymczasowego.
@@ -47,7 +47,7 @@ Przemieszczania oznacza wdrażanie Twojego jednostki SKU w prywatnej "piaskownic
    * Upewnij się, że marketingu zawartości wyświetlane prawidłowo w witrynie Marketplace.
    * Wdrażanie na trasie obrazu maszyny Wirtualnej.
      
-      ![img mapy portalu](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
+      ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
 > [!IMPORTANT]
 > Ofertę pozostanie w przejściowym dopóki powiadamiania firmy Microsoft za pośrednictwem portalu publikowania [**publikowania** kartę > kliknij przycisk **"Żądania zatwierdzenia do wypychania do produkcji"**] można przystąpić do produkcji. Jest to idealne czasu na wszystkie elementy członkowskie wyboru Twojego zespołu nad wszystko w ramach przygotowania do Twojej oferty, przechodząc do listy.
@@ -56,9 +56,9 @@ Przemieszczania oznacza wdrażanie Twojego jednostki SKU w prywatnej "piaskownic
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, gdy ofertę jest "przemieszczone" i jego funkcje zostały przetestowane i marketingu zawartości, możesz przejść do fazy publikowania końcowego **krok 4**: [wdrażanie Twojej oferty w portalu Marketplace](marketplace-publishing-push-to-production.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md)
 

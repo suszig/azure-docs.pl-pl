@@ -1,26 +1,19 @@
 ---
 title: Przechowywanie kopii zapasowych bazy danych SQL Azure przez maksymalnie 10 lat | Dokumentacja firmy Microsoft
 description: "Dowiedz się, jak baza danych SQL Azure obsługuje przechowywania kopii zapasowych maksymalnie 10 lat."
-keywords: 
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Przechowywanie kopii zapasowych bazy danych SQL Azure przez maksymalnie 10 lat
 Wiele aplikacji ma przepisów prawnych, zgodności lub innych firm celów, które wymagają przechowywania kopii zapasowych bazy danych poza 7 35 dni pochodzącymi z bazy danych SQL Azure [automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md). Za pomocą funkcji długoterminowego przechowywania kopii zapasowych, można przechowywać kopie zapasowe bazy danych SQL w magazynie usług odzyskiwania Azure przez maksymalnie 10 lat. Można przechowywać maksymalnie 1000 baz danych na magazynie. Następnie można wybrać jakiejkolwiek kopii zapasowej w magazynie, aby przywrócić go jako nową bazę danych.
@@ -164,5 +157,5 @@ Ponieważ firma Microsoft nie wykonuj kopie zapasowe replik, nie ma opcja długo
 * Po przejściu w tryb failover wykonywany i baza danych będzie podstawowej bazy danych, możemy zająć pełnej kopii zapasowej, który zostanie przekazany do magazynu.
 * Jest nie żadnymi dodatkowymi kosztami klientowi konfigurowania długoterminowego przechowywania kopii zapasowej w pomocniczej bazie danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Ponieważ kopie zapasowe bazy danych ochronę danych przed przypadkowym uszkodzenia lub usunięcia, są one integralną część wszelkie ciągłość prowadzenia działalności biznesowej i strategii odzyskiwania po awarii. Aby dowiedzieć się więcej o innych rozwiązań ciągłość prowadzenia działalności biznesowej bazy danych SQL, zobacz [omówienie ciągłości działalności biznesowej](sql-database-business-continuity.md).

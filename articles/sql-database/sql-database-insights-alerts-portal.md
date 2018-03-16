@@ -2,28 +2,22 @@
 title: "Tworzenie alertów bazy danych SQL za pomocą portalu Azure | Dokumentacja firmy Microsoft"
 description: "Użyj portalu Azure, aby utworzyć alerty bazy danych SQL, które mogą wyzwalać powiadomienia lub automatyzacji po spełnieniu warunków, które określisz."
 author: aamalvea
-manager: jhubbard
-editor: 
+manager: craigg
 services: sql-database
-documentationcenter: 
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.openlocfilehash: fd21c9b5e573ac6a47fef88c2a9d31c52618ecb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 611b88c540902bc7a72d53671dacd098d9798b48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utwórz alerty dla bazy danych SQL Azure i magazynem danych za pomocą portalu Azure
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono sposób konfigurowania alertów bazy danych SQL Azure i magazynem danych przy użyciu portalu Azure. Ten artykuł zawiera również najlepsze rozwiązania dotyczące ustawiania alertu okresów.    
 
 Możesz otrzymywać alertu na podstawie metryki monitorowania lub zdarzenia na usługami Azure.
@@ -39,8 +33,8 @@ Możesz skonfigurować alert o konieczności wyzwala, wykonaj następujące czyn
 
 Można skonfigurować i uzyskać informacje na temat przy użyciu reguły alertów
 
-* [Witryna Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
+* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Program PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Interfejs wiersza polecenia (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
@@ -58,7 +52,7 @@ Można skonfigurować i uzyskać informacje na temat przy użyciu reguły alert�
 
 3. Wybierz **Dodaj alert** poleceń i wypełnij pola.
    
-    ![Dodawanie alertu](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Dodaj alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. **Nazwa** alertu reguły, a następnie wybierz pozycję **opis**, który pokazuje również w wiadomości e-mail z powiadomieniem.
 5. Wybierz **Metryka** chcesz monitorować, a następnie wybierz pozycję **warunku** i **próg** wartość metryki. Wybierz również **okres** czas, przez który metryki reguły muszą zostać spełnione przed wyzwalaczy alertu. Tak na przykład, jeśli używasz okres "PT5M" i alertu szuka procesora CPU przekracza 80%, alert wyzwala kiedy **średni** były procesora CPU przekracza 80% 5 minut. W momencie to pierwszy wyzwalacz, ponownie uruchamia to, gdy średnie wykorzystanie Procesora wynosi poniżej 80% ponad 5 minut. Pomiar Procesora występuje co minutę. Poszukaj poniższą tabelę obsługiwanych czas systemu windows i agregacji wpisz każdy alert nie używa wszystkie alerty Użyj średnia wartość.   
 6. Sprawdź **E-mail właścicieli...**  Jeśli chcesz, aby administratorzy i współadministratorzy w celu przesłania pocztą e-mail po zgłoszeniu alertu.
@@ -84,43 +78,43 @@ Po utworzeniu alertu, zostanie ona wybrana oraz:
 | Baza danych SQL | physical_data_read_percent | Procent użycia operacji we/wy na danych | Średnia | 5 minut |
 | Baza danych SQL | log_write_percent | Procent we/wy dziennika | Średnia | 5 minut |
 | Baza danych SQL | dtu_consumption_percent | Procent użycia jednostek DTU | Średnia | 5 minut |
-| Baza danych SQL | Magazyn | Rozmiar całkowitą bazy danych | Maksymalna | 30 minut |
+| Baza danych SQL | magazyn | Rozmiar całkowitą bazy danych | Maksimum | 30 minut |
 | Baza danych SQL | connection_successful | Udane połączenia | Łącznie | 10 minut |
 | Baza danych SQL | connection_failed | Połączenia nie powiodło się | Łącznie | 10 minut |
 | Baza danych SQL | blocked_by_firewall | Blokowane przez zaporę | Łącznie | 10 minut |
 | Baza danych SQL | Zakleszczenie | Zakleszczenie | Łącznie | 10 minut |
-| Baza danych SQL | storage_percent | Procent użycia rozmiaru bazy danych | Maksymalna | 30 minut |
+| Baza danych SQL | storage_percent | Procent użycia rozmiaru bazy danych | Maksimum | 30 minut |
 | Baza danych SQL | xtp_storage_percent | Percent(Preview) magazynu OLTP w pamięci | Średnia | 5 minut |
 | Baza danych SQL | workers_percent | Procent pracowników | Średnia | 5 minut |
 | Baza danych SQL | sessions_percent | Procent sesji | Średnia | 5 minut |
 | Baza danych SQL | dtu_limit | Limit jednostek dtu w warstwie | Średnia | 5 minut |
 | Baza danych SQL | dtu_used | Jednostek dtu w warstwie używane | Średnia | 5 minut |
 ||||||
-| Puli elastycznej | cpu_percent | Procent użycia procesora CPU | Średnia | 10 minut |
-| Puli elastycznej | physical_data_read_percent | Procent użycia operacji we/wy na danych | Średnia | 10 minut |
-| Puli elastycznej | log_write_percent | Procent we/wy dziennika | Średnia | 10 minut |
-| Puli elastycznej | dtu_consumption_percent | Procent użycia jednostek DTU | Średnia | 10 minut |
-| Puli elastycznej | storage_percent | Procent użycia magazynu | Średnia | 10 minut |
-| Puli elastycznej | workers_percent | Procent pracowników | Średnia | 10 minut |
-| Puli elastycznej | eDTU_limit | limit liczby jednostek eDTU | Średnia | 10 minut |
-| Puli elastycznej | storage_limit | Limit magazynu | Średnia | 10 minut |
-| Puli elastycznej | eDTU_used | eDTU używane | Średnia | 10 minut |
-| Puli elastycznej | storage_used | Użyty magazyn | Średnia | 10 minut |
+| Pula elastyczna | cpu_percent | Procent użycia procesora CPU | Średnia | 10 minut |
+| Pula elastyczna | physical_data_read_percent | Procent użycia operacji we/wy na danych | Średnia | 10 minut |
+| Pula elastyczna | log_write_percent | Procent we/wy dziennika | Średnia | 10 minut |
+| Pula elastyczna | dtu_consumption_percent | Procent użycia jednostek DTU | Średnia | 10 minut |
+| Pula elastyczna | storage_percent | Procent użycia magazynu | Średnia | 10 minut |
+| Pula elastyczna | workers_percent | Procent pracowników | Średnia | 10 minut |
+| Pula elastyczna | eDTU_limit | limit liczby jednostek eDTU | Średnia | 10 minut |
+| Pula elastyczna | storage_limit | Limit magazynu | Średnia | 10 minut |
+| Pula elastyczna | eDTU_used | eDTU używane | Średnia | 10 minut |
+| Pula elastyczna | storage_used | Użyty magazyn | Średnia | 10 minut |
 ||||||               
-| Magazyn danych SQL | cpu_percent | Procent użycia procesora CPU | Średnia | 10 minut |
-| Magazyn danych SQL | physical_data_read_percent | Procent użycia operacji we/wy na danych | Średnia | 10 minut |
-| Magazyn danych SQL | Magazyn | Rozmiar całkowitą bazy danych | Maksymalna | 10 minut |
-| Magazyn danych SQL | connection_successful | Udane połączenia | Łącznie | 10 minut |
-| Magazyn danych SQL | connection_failed | Połączenia nie powiodło się | Łącznie | 10 minut |
-| Magazyn danych SQL | blocked_by_firewall | Blokowane przez zaporę | Łącznie | 10 minut |
-| Magazyn danych SQL | service_level_objective | Cel poziomu usługi bazy danych | Łącznie | 10 minut |
-| Magazyn danych SQL | dwu_limit | Jednostka dwu limit | Maksymalna | 10 minut |
-| Magazyn danych SQL | dwu_consumption_percent | Procent jednostka DWU | Średnia | 10 minut |
-| Magazyn danych SQL | dwu_used | Jednostka DWU używane | Średnia | 10 minut |
+| magazyn danych SQL | cpu_percent | Procent użycia procesora CPU | Średnia | 10 minut |
+| magazyn danych SQL | physical_data_read_percent | Procent użycia operacji we/wy na danych | Średnia | 10 minut |
+| magazyn danych SQL | magazyn | Rozmiar całkowitą bazy danych | Maksimum | 10 minut |
+| magazyn danych SQL | connection_successful | Udane połączenia | Łącznie | 10 minut |
+| magazyn danych SQL | connection_failed | Połączenia nie powiodło się | Łącznie | 10 minut |
+| magazyn danych SQL | blocked_by_firewall | Blokowane przez zaporę | Łącznie | 10 minut |
+| magazyn danych SQL | service_level_objective | Cel poziomu usługi bazy danych | Łącznie | 10 minut |
+| magazyn danych SQL | dwu_limit | Jednostka dwu limit | Maksimum | 10 minut |
+| magazyn danych SQL | dwu_consumption_percent | Procent jednostka DWU | Średnia | 10 minut |
+| magazyn danych SQL | dwu_used | Jednostka DWU używane | Średnia | 10 minut |
 ||||||
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie monitorowania Azure](../monitoring-and-diagnostics/monitoring-overview.md) w tym typy informacji, można zbierać i monitorowania.
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Pobierz [Przegląd dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) i zbieranie szczegółowych metryki wysokiej częstotliwości w usłudze.

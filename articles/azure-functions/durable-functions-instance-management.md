@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a938e5949896ad3bfa91903106d56ccdf827c725
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Zarządzanie wystąpieniami w funkcjach trwałe (usługi Azure Functions)
 
@@ -26,12 +26,14 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="starting-instances"></a>Uruchamianie wystąpienia
 
-[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metoda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) uruchamia nowe wystąpienie funkcji programu orchestrator. Wystąpienia tej klasy można uzyskać za pomocą `orchestrationClient` powiązania. Wewnętrznie, ta metoda enqueues wiadomości do kolejki kontroli, następnie wyzwala początku funkcji o określonej nazwie, która używa `orchestrationTrigger` wyzwolenia powiązania.
+[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metoda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) uruchamia nowe wystąpienie funkcji programu orchestrator. Wystąpienia tej klasy można uzyskać za pomocą `orchestrationClient` powiązania. Wewnętrznie, ta metoda enqueues wiadomości do kolejki kontroli, następnie wyzwala początku funkcji o określonej nazwie, która używa `orchestrationTrigger` wyzwolenia powiązania. 
+
+Zadanie kończy się po uruchomieniu procesu aranżacji. Rozpocząć procesu aranżacji w ciągu 30 sekund. Jeśli trwa dłużej, `TimeoutException` jest generowany. 
 
 Parametry [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) są następujące:
 
 * **Nazwa**: Nazwa funkcji programu orchestrator do zaplanowania.
-* **Wejściowy**: wszystkie dane serializacji JSON, który powinien zostać przekazany jako dane wejściowe do funkcji programu orchestrator.
+* **Wejściowy**: wszystkie dane do serializacji JSON, który powinien zostać przekazany jako dane wejściowe do funkcji programu orchestrator.
 * **Identyfikator wystąpienia**: (opcjonalnie) Unikatowy identyfikator wystąpienia. Jeśli nie zostanie określony, zostanie wygenerowany identyfikator wystąpienia losowej.
 
 Poniżej przedstawiono prosty przykład C#:
@@ -48,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-Dla języków .NET z systemem innym niż funkcja powiązania wyjściowego można uruchomić także nowego wystąpienia. W takim przypadku można użyć dowolnego obiektu podlegającego serializacji JSON, którego powyżej trzy parametry jako pola. Rozważmy na przykład następująca funkcja Node.js:
+Dla języków .NET z systemem innym niż funkcja powiązania wyjściowego można uruchomić także nowego wystąpienia. W takim przypadku można użyć dowolnego obiektu podlegającego serializacji JSON, zawierający powyżej trzy parametry jako pola. Rozważmy na przykład następująca funkcja Node.js:
 
 ```js
 module.exports = function (context, input) {
@@ -68,7 +70,7 @@ module.exports = function (context, input) {
 
 ## <a name="querying-instances"></a>Wykonywanie zapytania wystąpień
 
-[GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) metoda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasy zapytanie o stan wystąpienia aranżacji. Trwa `instanceId` jako parametr i zwraca obiekt z następującymi właściwościami:
+[GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) metoda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasy zapytanie o stan wystąpienia aranżacji. Trwa `instanceId` (wymagane), `showHistory` (opcjonalnie) i `showHistoryOutput` (opcjonalnie) jako parametry. Jeśli `showHistory` ma ustawioną wartość `true`, odpowiedź będzie zawierać historii wykonywania. Jeśli `showHistoryOutput` ustawiono `true` jak również historię wykonywania będzie zawierać danych wyjściowych działania. Metoda zwraca obiekt z następującymi właściwościami:
 
 * **Nazwa**: Nazwa funkcji programu orchestrator.
 * **Identyfikator wystąpienia**: Identyfikatora wystąpienia orchestration (powinna być taka sama jak `instanceId` wejściowych).
@@ -82,6 +84,7 @@ module.exports = function (context, input) {
     * **ContinuedAsNew**: wystąpienie uruchomieniu się o nowych historii. Jest to stan przejściowy.
     * **Nie powiodło się**: wystąpienie nie powiodło się z powodu błędu.
     * **Zakończone**: wystąpienie zostało nagle przerwane.
+* **Historia**: historii wykonywania orchestration. To pole jest wypełniane tylko, jeśli `showHistory` ma ustawioną wartość `true`.
     
 Ta metoda zwraca `null` Jeśli wystąpienie nie istnieje lub nie została jeszcze uruchomiona uruchomiona.
 
@@ -145,6 +148,60 @@ public static Task Run(
 
 > [!WARNING]
 > Jeśli żadne wystąpienie aranżacji z określonym *identyfikator wystąpienia* lub jeśli wystąpienie nie oczekuje na określonym *Nazwa zdarzenia*, komunikaty o zdarzeniach zostaną odrzucone. Aby uzyskać więcej informacji dotyczących tego zachowania, zobacz [problem GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+
+## <a name="wait-for-orchestration-completion"></a>Czekaj na zakończenie aranżacji
+
+[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasy ujawnia [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) interfejsu API, który może służyć do pobrania synchronicznie rzeczywiste dane wyjściowe z wystąpienia aranżacji. Metoda korzysta z wartości domyślnej 10 sekund `timeout` i 1 sekundę dla `retryInterval` gdy nie są ustawione.  
+
+Oto przykład funkcja wyzwalacza HTTP, który demonstruje sposób użycia tego interfejsu API:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
+
+Funkcja może być wywołany z następującego wiersza przy użyciu 2 sekund limitu czasu i interwał ponawiania 0,5 sekundy:
+
+```bash
+    http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
+```
+
+Istnieją dwa przypadki, w zależności od czas potrzebny na odpowiedź z wystąpienia orchestration:
+
+1. Wystąpień aranżacji ukończona w ciągu zdefiniowanego limitu czasu (w tym przypadku 2 sekundy), odpowiedź rzeczywiste aranżacji wystąpienia przekazywane są dostarczane synchronicznie:
+
+    ```http
+        HTTP/1.1 200 OK
+        Content-Type: application/json; charset=utf-8
+        Date: Thu, 14 Dec 2017 06:14:29 GMT
+        Server: Microsoft-HTTPAPI/2.0
+        Transfer-Encoding: chunked
+
+        [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ]
+    ```
+
+2. Wystąpienia orchestration nie może zakończyć w ciągu zdefiniowanego limitu czasu (w tym przypadku 2 sekundy), odpowiedź jest domyślnym, co opisano w **odnajdywania HTTP URL interfejsu API**:
+
+    ```http
+        HTTP/1.1 202 Accepted
+        Content-Type: application/json; charset=utf-8
+        Date: Thu, 14 Dec 2017 06:13:51 GMT
+        Location: http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}
+        Retry-After: 10
+        Server: Microsoft-HTTPAPI/2.0
+        Transfer-Encoding: chunked
+
+        {
+            "id": "d3b72dddefce4e758d92f4d411567177",
+            "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+        }
+    ```
+
+> [!NOTE]
+> Format adresów URL elementu webhook mogą się różnić w zależności od posiadanej wersji programu host usługi Azure Functions. Powyższy przykład jest przeznaczony dla hosta Azure funkcji 2.0.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

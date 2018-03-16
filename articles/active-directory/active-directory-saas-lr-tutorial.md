@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracji Azure Active Directory z lr | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i lr."
+title: 'Samouczek: Integracji Azure Active Directory z LoginRadius | Dokumentacja firmy Microsoft'
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i LoginRadius."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: f7728c37db286b130a79db1353ee40825e8a4336
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 22f937a2ae9a2c715ce0866c2db0ac17769f0399
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lr"></a>Samouczek: Integracji Azure Active Directory z lr
+# <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Samouczek: Integracji Azure Active Directory z LoginRadius
 
-Z tego samouczka dowiesz się integrowanie lr w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie LoginRadius z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD lr zapewnia następujące korzyści:
+Integracja z usługą Azure AD LoginRadius zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do lr.
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do lr (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do LoginRadius.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do LoginRadius (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
 - Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z lr, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z LoginRadius, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
-- Lr logowanie jednokrotne włączone subskrypcji
+- LoginRadius jednokrotnego włączone subskrypcji
 
 > [!NOTE]
 > Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
@@ -50,13 +50,13 @@ Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 ## <a name="scenario-description"></a>Opis scenariusza
 W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie lr z galerii
+1. Dodawanie LoginRadius z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-lr-from-the-gallery"></a>Dodawanie lr z galerii
-Aby skonfigurować integrację usługi Azure AD lr, należy dodać lr z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-loginradius-from-the-gallery"></a>Dodawanie LoginRadius z galerii
+Aby skonfigurować integrację usługi Azure AD LoginRadius, należy dodać LoginRadius z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać lr z galerii, wykonaj następujące czynności:**
+**Aby dodać LoginRadius z galerii, wykonaj następujące czynności:**
 
 1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
@@ -70,58 +70,58 @@ Aby skonfigurować integrację usługi Azure AD lr, należy dodać lr z galerii 
 
     ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania wpisz **lr**, wybierz pozycję **lr** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania wpisz **LoginRadius**, wybierz pozycję **LoginRadius** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![LR na liście wyników](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
+    ![LoginRadius na liście wyników](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z lr w oparciu o nazwie "Britta Simona" użytkownika testowego.
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z LoginRadius w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w lr jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w lr musi się.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w LoginRadius jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w LoginRadius musi się.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z lr, należy wykonać poniższe bloki konstrukcyjne:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z LoginRadius, należy wykonać poniższe bloki konstrukcyjne:
 
 1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
 2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego lr](#create-a-lr-test-user)**  — mają odpowiednika Simona Britta w lr połączonego z usługi Azure AD reprezentację użytkownika.
+3. **[Tworzenie użytkownika testowego LoginRadius](#create-a-loginradius-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta LoginRadius połączonego z usługi Azure AD reprezentację użytkownika.
 4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
 5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji lr.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji LoginRadius.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z lr, wykonaj następujące czynności:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z LoginRadius, wykonaj następujące czynności:**
 
-1. W portalu Azure na **lr** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **LoginRadius** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
 2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
-    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
+    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_samlbase.png)
 
-3. Na **lr domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na **LoginRadius domeny i adres URL** sekcji, wykonaj następujące czynności:
 
-    ![LR domeny i adres URL pojedynczego logowania jednokrotnego informacji](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
+    ![Adresy URL i domeny LoginRadius pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_url.png)
 
-    a.  W **adres URL logowania** tekstowym, wpisz adres URL:`https://secure.loginradius.com/login`
+    a.  W **adres URL logowania** tekstowym, wpisz adres URL: `https://secure.loginradius.com/login`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL:`https://lr.hub.loginradius.com/`
+    b. W **identyfikator** tekstowym, wpisz adres URL: `https://LoginRadius.hub.loginradius.com/`
      
     > [!NOTE] 
-    > Otwórz stronę adres URL logowania. Polecenie **rejestracji jednokrotnej** i wprowadzić **nazwa wtyczki** podana przez [lr zespołem pomocy technicznej](mailto:support@loginradius.com) następnie kliknij przycisk **Zaloguj** przycisk i będzie Przekierowanie do strony usługi Azure AD dla nazwy logowania. 
+    > Otwórz stronę adres URL logowania. Kliknij **rejestracji jednokrotnej** i wprowadzić **nazwa wtyczki** podana przez [LoginRadius obsługuje zespołu](mailto:support@loginradius.com) następnie kliknij przycisk **Zaloguj** button będzie przekierowany do strony logowania usługi Azure AD. 
 
 5. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_certificate.png) 
 
 6. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
     
-7. Skonfigurować logowanie jednokrotne w **lr** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej lr](mailto:support@loginradius.com). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
+7. Do konfigurowania rejestracji jednokrotnej na **LoginRadius** stronie, musisz wysłać pobrany **XML metadanych** do [LoginRadius obsługuje zespołu](mailto:support@loginradius.com). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,25 +158,25 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     d. Kliknij przycisk **Utwórz**.
  
-### <a name="create-a-lr-test-user"></a>Tworzenie użytkownika testowego lr
+### <a name="create-a-loginradius-test-user"></a>Tworzenie użytkownika testowego LoginRadius
 
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w lr. Praca z [zespołem pomocy technicznej lr](mailto:support@loginradius.com) Aby dodać użytkowników do platformy lr. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w LoginRadius. Praca z [LoginRadius obsługuje zespołu](mailto:support@loginradius.com) Aby dodać użytkowników do platformy LoginRadius. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania jednokrotnego za udzielanie dostępu do lr.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu LoginRadius.
 
 ![Przypisanie roli użytkownika][200] 
 
-**Aby przypisać Simona Britta lr, wykonaj następujące czynności:**
+**Aby przypisać Simona Britta LoginRadius, wykonaj następujące czynności:**
 
 1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **lr**.
+2. Na liście aplikacji zaznacz **LoginRadius**.
 
-    ![Łącze lr na liście aplikacji](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
+    ![Łącze LoginRadius na liście aplikacji](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_app.png)  
 
 3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
@@ -196,7 +196,7 @@ W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania 
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka lr w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji lr.
+Po kliknięciu kafelka LoginRadius w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji LoginRadius.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe

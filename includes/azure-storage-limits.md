@@ -11,7 +11,7 @@
 
 <sup>1</sup>obejmuje zarówno standardowa i Premium konta magazynu. Jeśli potrzebujesz więcej niż 200 kont magazynu, wyślij żądanie za pośrednictwem [Pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/). Zespół usługi Azure Storage przejrzy Twój przypadek biznesowy i może zatwierdzić do 250 kont magazynu. 
 
-<sup>2</sup> można uzyskać konta magazynu w warstwie standardowa do zwiększenia poza granicami anonsowany w polu Szybkość pojemności, wejście/wyjście i żądania, Wyślij żądanie za pośrednictwem [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/faq/). Zespół usługi Azure Storage będzie Przejrzyj żądanie i może zatwierdzić wyższe limity na podstawie przypadku.
+<sup>2</sup> Jeśli potrzebujesz rozwinięte limity konta magazynu, skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/faq/). Zespół usługi Azure Storage będzie Przejrzyj żądanie i może zatwierdzić wyższe limity na podstawie przypadku. Zarówno ogólnego przeznaczenia i kont magazynu obiektów Blob obsługują zwiększenia pojemności, wejście/wyjście i liczby żądań przez żądanie. Dla nowego maksymalne wartości dla konta magazynu obiektów Blob, zobacz [Announcing kont magazynu w skali większych i wyższe](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 <sup>3</sup> ograniczone tylko przez limity wejście/wyjście konta. *Transfer danych przychodzących* odwołuje się do wszystkich danych (liczba żądań) są wysyłane do konta magazynu. *Ruch wychodzący* odnosi się do wszystkich danych (żądań) wysyłanych z konta magazynu.  
 

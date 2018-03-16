@@ -2,24 +2,18 @@
 title: "Rozwiązywanie typowych problemów z połączeniem z usługą Azure SQL Database"
 description: "Kroki w celu identyfikacji i rozwiązywania typowych błędów połączenia bazy danych SQL Azure."
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56ebe6876d621e190b4e808804113ff80cb3f50c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Rozwiązywanie problemów z połączeniem z bazą danych SQL Azure
 Podczas połączenia z bazą danych SQL Azure nie powiedzie się, zostanie wyświetlony [komunikaty o błędach](sql-database-develop-error-messages.md). W tym artykule jest scentralizowane temat, który pomaga w rozwiązywaniu problemów z połączeniem bazy danych SQL Azure. Podaj [typowe przyczyny](#cause) problemów połączenie zaleca [rozwiązywania problemów](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) pomaga tożsamości problemu i instrukcje dotyczące rozwiązywania problemów do rozwiązania [przejściowej błędy](#troubleshoot-transient-errors) i [trwałe lub nieprzejściowego błędów](#troubleshoot-persistent-errors). 
@@ -80,12 +74,12 @@ Jeśli aplikacja trwale nie może nawiązać połączenia z bazą danych SQL Azu
 3. Sprawdź ciąg połączenia i inne ustawienia połączenia. W sekcji parametrów połączenia w [tematu problemy z łącznością](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Sprawdź kondycję usług na pulpicie nawigacyjnym. Jeśli uważasz, że istnieje regionalnej awarii, zobacz [odzyskiwanie po awarii](sql-database-disaster-recovery.md) dla czynności, aby odzyskać do nowego regionu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Rozwiązywanie problemów z wydajnością bazy danych SQL Azure](sql-database-troubleshoot-performance.md)
 * [Wyszukiwanie w dokumentacji w systemie Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Wyświetl najnowsze aktualizacje do usługi baza danych SQL Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [Omówienie tworzenia bazy danych SQL](sql-database-develop-overview.md)
 * [Ogólne wskazówki obsługi błędów przejściowych](../best-practices-retry-general.md)
 * [Biblioteki połączeń dla bazy danych SQL i programu SQL Server](sql-database-libraries.md)

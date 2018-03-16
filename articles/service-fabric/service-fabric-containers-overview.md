@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f12dc08953372b2dfae773df11cf1f47b42a1b89
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-and-containers"></a>Sieć szkieletowa usług i kontenerów
 > [!NOTE]
@@ -26,11 +26,11 @@ ms.lasthandoff: 01/13/2018
 >   
 
 > [!NOTE]
-> Usługi Service Fabric w wersji 6.1 obsługuje podglądu dla systemu Windows Server w wersji 1709. Otwórz sieci i usługa sieci szkieletowej usług DNS nie działają w systemie Windows Server w wersji 1709. 
+> Usługa Service Fabric w wersji 6.1 obejmuje obsługę wersji zapoznawczej systemu Windows Server w wersji 1709. Otwarta sieć i usługa DNS w usłudze Service Fabric nie działają w systemie Windows Server w wersji 1709. 
 > 
 
 ## <a name="introduction"></a>Wprowadzenie
-Sieć szkieletowa usług Azure to [orchestrator](service-fabric-cluster-resource-manager-introduction.md) usługi w klastrze maszyn z wielu lat użycia i optymalizację na ogromną skalę usług firmy Microsoft. Usługi mogą być opracowane na wiele sposobów korzystania z [usługi sieć szkieletowa modele programowania](service-fabric-choose-framework.md) wdrażanie [pliki wykonywalne gościa](service-fabric-deploy-existing-app.md). Domyślnie usługi sieć szkieletowa wdraża i aktywuje tych usług jako procesów. Procesy Podaj najszybszym aktywacji i najwyższy gęstość użycia zasobów w klastrze. Sieć szkieletowa usług można także wdrożyć usługi kontenera obrazów. Ważne można mieszać usług w procesach i usług w kontenerach w tej samej aplikacji.   
+Sieć szkieletowa usług Azure to [orchestrator](service-fabric-cluster-resource-manager-introduction.md) usługi w klastrze maszyn z wielu lat użycia i optymalizację na ogromną skalę usług firmy Microsoft. Usługi mogą być opracowane na wiele sposobów korzystania z [usługi sieć szkieletowa modele programowania](service-fabric-choose-framework.md) wdrażanie [pliki wykonywalne gościa](service-fabric-guest-executables-introduction.md). Domyślnie usługi sieć szkieletowa wdraża i aktywuje tych usług jako procesów. Procesy Podaj najszybszym aktywacji i najwyższy gęstość użycia zasobów w klastrze. Sieć szkieletowa usług można także wdrożyć usługi kontenera obrazów. Ważne można mieszać usług w procesach i usług w kontenerach w tej samej aplikacji.   
 
 ## <a name="what-are-containers"></a>Co to są kontenerami?
 Kontenery są hermetyzowany, indywidualnie do wdrożenia składników działających jako izolowanych wystąpień w tej samej jądra, aby móc korzystać z wirtualizacji, który zawiera system operacyjny. W związku z tym każdej aplikacji i bibliotek środowiska uruchomieniowego, zależności i system uruchomienia wewnątrz kontenera pełne, prywatny dostęp do widoku kontenera własnych izolowane konstrukcji systemu operacyjnego. Wraz z przenośnością poziomu izolacji zabezpieczeń i zasobów jest głównym korzyści korzystania z usługi Service Fabric uruchamianego w przeciwnym razie usług w procesach przy użyciu kontenerów.
@@ -72,7 +72,7 @@ Poniżej przedstawiono typowe przykłady gdzie jest dobrym rozwiązaniem, konten
 ## <a name="service-fabric-support-for-containers"></a>Obsługa sieci szkieletowej usług dla kontenerów
 Sieć szkieletowa usług obsługuje wdrażanie kontenerów Docker na kontenery systemu Linux i Windows Server w systemie Windows Server 2016, wraz z możliwością w trybie izolacji funkcji Hyper-V. 
 
-W sieci szkieletowej usług [model aplikacji](service-fabric-application-model.md), kontener reprezentuje hosta aplikacji, w których wiele usługi repliki są umieszczane. Usługi sieć szkieletowa można uruchamiać żadnych kontenerów oraz scenariusz jest podobny do [scenariusza pliku wykonywalnego gościa](service-fabric-deploy-existing-app.md), gdy pakiet istniejącej aplikacji wewnątrz kontenera. Ten scenariusz jest często zdarza używany dla kontenerów i przykłady, uruchomienie aplikacji napisane przy użyciu dowolnego języka lub struktury, ale nie za pomocą wbudowanych modele programowania sieci szkieletowej usług.
+W sieci szkieletowej usług [model aplikacji](service-fabric-application-model.md), kontener reprezentuje hosta aplikacji, w których wiele usługi repliki są umieszczane. Usługi sieć szkieletowa można uruchamiać żadnych kontenerów oraz scenariusz jest podobny do [scenariusza pliku wykonywalnego gościa](service-fabric-guest-executables-introduction.md), gdy pakiet istniejącej aplikacji wewnątrz kontenera. Ten scenariusz jest często zdarza używany dla kontenerów i przykłady, uruchomienie aplikacji napisane przy użyciu dowolnego języka lub struktury, ale nie za pomocą wbudowanych modele programowania sieci szkieletowej usług.
 
 Ponadto można uruchomić [usługi sieć szkieletowa usług wewnątrz kontenerów](service-fabric-services-inside-containers.md) również. Obsługa uruchomione usługi sieć szkieletowa usług wewnątrz kontenerów jest aktualnie ograniczona i zostanie poprawiona w kolejnych wersjach.
 

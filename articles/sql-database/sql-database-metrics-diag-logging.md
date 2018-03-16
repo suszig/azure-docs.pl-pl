@@ -4,22 +4,17 @@ description: "Więcej informacji na temat sposobu konfigurowania bazy danych SQL
 services: sql-database
 documentationcenter: 
 author: veljko-msft
-manager: jhubbard
-editor: 
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/13/2018
 ms.author: vvasic
-ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3ac0c87ca41315eb3b63ddfab2736f68bac8dbee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metryki bazy danych SQL Azure i rejestrowanie danych diagnostycznych 
 Baza danych SQL Azure może emitować metryki i informacji diagnostycznych dzienników łatwiejsze monitorowania. Usługę SQL Database można skonfigurować do przechowywania danych dotyczących użycia zasobów, pracowników i sesji oraz połączeń z jednym z następujących zasobów platformy Azure:
@@ -257,7 +252,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-storage"></a>Pobierz dzienniki i metryki z magazynu
 
-Dowiedz się, jak [pobrać dzienniki metryki i informacji diagnostycznych z magazynu](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Dowiedz się, jak [pobrać dzienniki metryki i informacji diagnostycznych z magazynu](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="metrics-and-logs-available"></a>Metryki i dostępnych dzienników
 
@@ -478,4 +473,4 @@ Aby dowiedzieć się więcej o usłudze Event Hubs, należy przeczytać:
 * [Co to jest usługa Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Rozpoczynanie pracy z usługą Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Aby dowiedzieć się więcej na temat magazynu, zobacz temat jak [pobrać dzienniki metryki i informacji diagnostycznych z magazynu](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Aby dowiedzieć się więcej na temat magazynu, zobacz temat jak [pobrać dzienniki metryki i informacji diagnostycznych z magazynu](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

@@ -1,109 +1,119 @@
 ---
-title: "Scenariusz — Utwórz pulpit nawigacyjny szczegółowych informacji klienta z Azure Niekorzystającą | Dokumentacja firmy Microsoft"
-description: "Przykład sposobu można tworzyć pulpit nawigacyjny do zarządzania opinie klientów, dane społecznościowe i inne aplikacje logiki platformy Azure i usługi Azure Functions."
+title: "Scenariusz niekorzystającą — Utwórz pulpit nawigacyjny szczegółowych informacji klienta przy użyciu platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak można zarządzać opinie klientów, dane mediów społecznościowych i innych Tworzenie pulpitu nawigacyjnego klienta z usługi Azure Logic Apps i usługi Azure Functions"
 keywords: 
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: SyntaxC4
 editor: 
 documentationcenter: 
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
-ms.author: jehollan
-ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 03/15/2018
+ms.author: jehollan; LADocs
+ms.openlocfilehash: 0a31a71305a4729575c5266b3a6138004d2dbdc6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Utwórz pulpit nawigacyjny szczegółowych informacji w czasie rzeczywistym klienta z usługi Azure Logic Apps i usługi Azure Functions
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Utwórz przesyłania strumieniowego pulpit nawigacyjny szczegółowych informacji klienta z usługi Azure Logic Apps i usługi Azure Functions
 
-Narzędzia Niekorzystającą Azure zapewniają wydajnego szybkie tworzenie i hostowanie aplikacji w chmurze, bez konieczności pomyśleć o infrastruktury.  W tym scenariuszu zostanie utworzony pulpit nawigacyjny do wyzwolenia na opinie klientów, analizowanie opinii z uczenia maszynowego i insights Opublikuj źródła, takich jak usługi Power BI lub usługi Azure Data Lake.
+System Azure oferuje niekorzystającą narzędzia, które ułatwiają szybkie kompilacji i hosta aplikacji w chmurze, bez myśleć o infrastruktury. W tym samouczku można utworzyć pulpit nawigacyjny, który wyzwala na opinie klientów, analizuje Reaguj uczenia maszynowego i publikuje wgląd w źródła, takich jak usługi Power BI lub usługi Azure Data Lake.
 
-## <a name="overview-of-the-scenario-and-tools-used"></a>Omówienie scenariusza i narzędzia
+Dla tego rozwiązania, użyj tych najważniejsze składniki platformy Azure dla aplikacji niekorzystającą: [usługi Azure Functions](https://azure.microsoft.com/services/functions/) i [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+Aplikacje logiki platformy Azure udostępnia aparatem niekorzystającą przepływu pracy w chmurze, dzięki czemu można tworzyć orchestrations między składnikami niekorzystającą i łączyć się z 200 + usług i interfejsów API. Środowisko Azure Functions zapewnia niekorzystającą obliczeniowych w chmurze. To rozwiązanie używa usługi Azure Functions dla Flagowanie tweetów klienta na podstawie wstępnie zdefiniowanych słów kluczowych.
 
-Aby zaimplementować to rozwiązanie, firma Microsoft będzie korzystać dwie najważniejsze składniki niekorzystającą aplikacji na platformie Azure: [usługi Azure Functions](https://azure.microsoft.com/services/functions/) i [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+W tym scenariuszu utworzysz aplikację logiki, które wyzwala znajdowanie opinie od klientów. Niektóre czy pomoc w odpowiedzi na opinie klientów obejmują Outlook.com, usługi Office 365, ankiety małp, Twitter, łączniki i [żądania HTTP za pomocą formularza sieci web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Przepływ pracy, który można utworzyć monitoruje hasztagiem w serwisie Twitter.
 
-Logic Apps jest aparatem niekorzystającą przepływu pracy w chmurze.  Udostępnia aranżacji między składnikami niekorzystającą, a także łączy się przez ponad 100 usług i interfejsów API.  W tym scenariuszu utworzymy aplikację logiki, aby wyzwolić na opinie klientów.  Łączniki, które mogą pomóc w reakcji na opinie klientów między innymi Outlook.com, usługi Office 365 małp ankiety, Twitter i żądania HTTP [za pomocą formularza sieci web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/).  Poniżej przepływu pracy firma Microsoft będzie monitorował hasztagiem w serwisie Twitter.
+Możesz [skompilować całe rozwiązanie w programie Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) i [wdrażanie rozwiązania z szablonem usługi Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Przewodnik wideo przedstawiający sposób tworzenia tego rozwiązania [Obejrzyj ten film Channel 9](http://aka.ms/logicappsdemo). 
 
-Funkcje umożliwiać niekorzystającą obliczeniowych w chmurze.  W tym scenariuszu użyjemy usługi Azure Functions do flagi tweetów z klientów w oparciu o szereg wstępnie zdefiniowanych słów kluczowych.
+## <a name="trigger-on-customer-data"></a>Wyzwalanie w zależności od danych klientów
 
-Całe rozwiązanie może być [kompilacji w programie Visual Studio](logic-apps-deploy-from-vs.md) i [wdrożenia w ramach szablonu zasobów](logic-apps-create-deploy-template.md).  Istnieje również przewodnik wideo scenariusza [witrynie Channel 9](http://aka.ms/logicappsdemo).
+1. W portalu Azure lub programu Visual Studio tworzenie aplikacji logiki puste. 
 
-## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Tworzenie aplikacji logiki, aby wyzwolić na dane klienta
+   Jeśli jesteś nowym użytkownikiem aplikacji logiki, przejrzyj [Szybki Start dla portalu Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md) lub [szybkiego startu dla programu Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-Po [tworzenie aplikacji logiki](quickstart-create-first-logic-app-workflow.md) w programie Visual Studio lub w portalu Azure:
+2. W Projektancie aplikacji logiki, odnaleźć i dodać wyzwalaczy usługi Twitter, które ma tę akcję: **po jest przesyłana z nowego tweet**
 
-1. Dodaj wyzwalacz **na nowych Tweetów** z serwisem Twitter
-2. Skonfiguruj wyzwalacza słuchać tweetów — słowo kluczowe lub hasztagiem.
+3. Konfigurowanie wyzwalacz do nasłuchiwania na podstawie — słowo kluczowe lub hasztagiem tweetów.
 
-   > [!NOTE]
-   > Właściwość cyklu w wyzwalaczu określają częstotliwość aplikacji logiki sprawdza dostępność nowych elementów na podstawie sondowania wyzwalacze
+   Na podstawie sondowania wyzwalaczy, takich jak wyzwalacza Twitter właściwość cyklu określa, jak często sprawdza aplikacji logiki dla nowych elementów.
 
    ![Przykład wyzwalacza Twitter][1]
 
-Ta aplikacja będzie teraz Wyzwól na wszystkich nowych tweetów.  Następnie możemy pobrania tych danych tweet i dowiedzieć się więcej o wskaźniki nastrojów klientów wyrażone.  W tym używamy [kognitywnych usługę Azure](https://azure.microsoft.com/services/cognitive-services/) wykryć wskaźniki nastrojów klientów tekstu.
+Ta aplikacja logiki teraz generowane na wszystkich nowych tweetów. Można wykonać i analizować dane tweet, dzięki czemu można lepiej zrozumieć opinie wyrażone. 
 
-1. Kliknij przycisk **nowy krok**
-1. Wybierz lub Wyszukaj **Analiza tekstu** łącznika
-1. Wybierz **wykrywa wskaźniki nastrojów klientów** operacji
-1. Po wyświetleniu monitu podaj prawidłowy klucz kognitywnych usług dla usługi Analiza tekstu
-1. Dodaj **tekst Tweet** jako tekst do analizy.
+## <a name="analyze-tweet-text"></a>Analizowanie tekstu tweet
 
-Teraz, gdy mamy tweet dane i informacje na tweet wiele innych łączników mogą być istotne:
-* Power BI — Dodawanie wierszy do przesyłania strumieniowego zestawu danych: Wyświetl tweetów w czasie rzeczywistym na pulpicie nawigacyjnym usługi Power BI.
-* Azure Data Lake — Dołącz plik: Dodaj do zestawu danych usługi Azure Data Lake do uwzględnienia w zadania usługi analiza danych klienta.
-* SQL — Dodawanie wierszy: przechowywanie danych w bazie danych do nowszej pobierania.
-* Slack — wysyłanie wiadomości: Alert kanału slack na negatywnej opinii, która wymaga działania.
+Aby wykryć wskaźniki nastrojów klientów za część tekstu, można użyć [kognitywnych usług Azure](https://azure.microsoft.com/services/cognitive-services/).
 
-Funkcję platformy Azure można również wykonać więcej niestandardowego obliczenia na podstawie danych.
+1. W Projektancie aplikacji logiki, w obszarze wyzwalacza, wybierz **nowy krok**.
 
-## <a name="enriching-the-data-with-an-azure-function"></a>Wzbogacenie danych przy użyciu funkcji platformy Azure
+2. Znajdź **Analiza tekstu** łącznika.
 
-Zanim można utworzyć funkcji, musimy mieć aplikacji funkcji w naszym subskrypcji platformy Azure.  Szczegółowe informacje na temat tworzenia funkcji platformy Azure w portalu można [można znaleźć tutaj](../azure-functions/functions-create-first-azure-function-azure-portal.md)
+3. Wybierz **wykrywa wskaźniki nastrojów klientów** akcji.
 
-Dla funkcję, która ma być wywoływana bezpośrednio z aplikacji logiki, musi mieć HTTP wyzwolenia powiązania.  Firma Microsoft zaleca używanie **HttpTrigger** szablonu.
+4. Po wyświetleniu monitu podaj prawidłowy klucz kognitywnych usług dla usługi Analiza tekstu.
 
-W tym scenariuszu treść żądania funkcji platformy Azure będzie tweet tekstu.  Kod funkcji wystarczy zdefiniować logiki Jeśli tekst tweet zawiera słowo kluczowe lub frazę.  Ta funkcja może znajdować się proste lub złożone, zgodnie z potrzebami dla tego scenariusza.
+5. W obszarze **treść żądania**, wybierz pozycję **tekst Tweet** pola, które zawiera tekst tweet jako dane wejściowe do analizy.
 
-Na końcu funkcję po prostu zwraca odpowiedź do aplikacji logiki z niektórych danych.  Może to być wartość logiczną proste (np. `containsKeyword`), lub obiekt złożony.
+Po uzyskaniu tweet dane i informacje o tweet można teraz używać kilka innych odpowiednich łączników i działań:
+
+* **Power BI — Dodawanie wierszy do przesyłania strumieniowego zestawu danych**: Wyświetl tweetów przychodzących na pulpicie nawigacyjnym usługi Power BI.
+* **Azure Data Lake — Dołącz plik**: Dodaj do zestawu danych usługi Azure Data Lake do uwzględnienia w zadania usługi analiza danych klienta.
+* **SQL — Dodawanie wierszy**: przechowywanie danych w bazie danych do nowszej pobierania.
+* **Slack — wysyłanie wiadomości**: powiadomić kanału Slack o negatywnej opinii, który może wymagać podjęcia akcji.
+
+Można również tworzyć i Azure działać tak, aby można było wykonać niestandardowe przetwarzanie na podstawie danych. 
+
+## <a name="process-data-with-azure-functions"></a>Proces danych za pomocą usługi Azure Functions
+
+Przed utworzeniem funkcji tworzenia aplikacji funkcji w ramach subskrypcji platformy Azure. Ponadto aplikacji logiki do bezpośredniego wywoływania funkcji, funkcji muszą być HTTP wyzwolenia powiązanie, na przykład, użyj **HttpTrigger** szablonu. Dowiedz się [tworzenie pierwszej aplikacji funkcji i funkcji w portalu Azure](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+
+W tym scenariuszu należy użyć tekstu tweet jako treści żądania dla funkcji Azure. W kodzie funkcja zdefiniować logikę, która określa, czy tekst tweet zawiera słowo kluczowe lub wyrażenie. Zachowaj funkcji jako prostymi lub złożonymi zgodnie z potrzebami dla scenariusza.
+Na końcu funkcja zwraca odpowiedź do aplikacji logiki z niektórych danych, na przykład, wartość logiczna dla prosty przykład `containsKeyword` lub obiekt złożony.
+
+> [!TIP]
+> Aby uzyskać dostęp do złożonych odpowiedzi przez funkcję aplikacji logiki, użyj **przeanalizować JSON** akcji.
+
+Gdy wszystko będzie gotowe, Zapisz funkcji, a następnie dodać funkcję jako akcji w aplikacji logiki, które tworzysz.
+
+## <a name="add-azure-function-to-logic-app"></a>Dodawanie funkcji platformy Azure do aplikacji logiki
+
+1. W Projektancie aplikacji logiki w obszarze **wykrywa wskaźniki nastrojów klientów** akcji, wybierz **nowy krok**.
+
+2. Znajdź **usługi Azure Functions** łącznika, a następnie wybierz funkcję, która zostanie utworzona.
+
+3. W obszarze **treść żądania**, wybierz pozycję **tekst Tweet**.
 
 ![Skonfigurowany krok funkcji platformy Azure][2]
 
-> [!TIP]
-> Podczas uzyskiwania dostępu do złożonych odpowiedzi przez funkcję aplikacji logiki, użyj akcji przeanalizować JSON.
+## <a name="run-and-monitor-your-logic-app"></a>Uruchomić i monitorować aplikację logiki
 
-Po zapisaniu funkcji, można dodać do aplikacji logiki utworzone powyżej.  W aplikacji logiki:
+Aby wyświetlić wszystkie bieżące i poprzednie uruchomień aplikacji logiki, można użyć zaawansowanej debugowania i możliwości, które Azure Logic Apps oferuje w portalu Azure, programu Visual Studio lub za pośrednictwem interfejsów API REST Azure i zestawy SDK monitorowania.
 
-1. Kliknij, aby dodać **nowy krok**
-1. Wybierz **usługi Azure Functions** łącznika
-1. Zaznacz, aby wybrać istniejące funkcję i przejdź do funkcji utworzone
-1. Wysyłanie w **Tweetować tekst** dla **treść żądania**
+Aby łatwo przetestuj aplikację logiki w Projektancie aplikacji logiki, wybierz **uruchomić wyzwalacz**. Wyzwalacz sonduje wyszukiwane tweety oparte na określonego harmonogramu, aż do znalezienia tweet, który spełnia kryteria. Podczas wykonywania realizowany Projektant przedstawiono na żywo dla tego uruchomienia.
 
-## <a name="running-and-monitoring-the-solution"></a>Uruchamiania i monitorowania rozwiązania
+Do widoku poprzedniego uruchomienia historii w programie Visual Studio lub w portalu Azure: 
 
-Jedną z zalet tworzenia niekorzystającą orchestrations w aplikacjach logiki jest sformatowany debugowania i możliwości monitorowania.  Wszelkie Uruchom (bieżącą lub historyczny) mogą być wyświetlane z poziomu programu Visual Studio, portalu Azure lub za pośrednictwem interfejsu API REST i zestawy SDK.
+* Otwórz Eksplorator chmury programu Visual Studio. Znajdź aplikację logiki, otwórz menu skrótów aplikacji. Wybierz **Historia uruchomień Otwórz**.
 
-Jednym ze sposobów najłatwiejsza do testowania aplikacji logiki przy użyciu **Uruchom** przycisk w projektancie.  Kliknięcie przycisku **Uruchom** będzie sondować wyzwalacza co 5 sekund, dopóki nie zostanie wykryte zdarzenie i nadaj widoku aktywnego w trakcie wykonywania.
+* W portalu Azure Znajdź aplikację logiki. W menu aplikację logiki, wybierz **omówienie**. 
 
-Poprzednie historii wykonywania można wyświetlić w bloku omówienie w portalu Azure lub za pomocą programu Visual Studio Cloud Explorer.
+## <a name="create-automated-deployment-templates"></a>Tworzenie szablonów automatycznego wdrażania
 
-## <a name="creating-a-deployment-template-for-automated-deployments"></a>Tworzenie szablonu wdrożenia dla zautomatyzowanych wdrożeń
+Po utworzeniu rozwiązania aplikacji logiki, można przechwycić i wdrożyć aplikację jako [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) na dowolny region platformy Azure na świecie. Ta funkcja służy zarówno do modyfikowania parametrów do utworzenia różnych wersji aplikacji i integrowanie rozwiązania kompilacji i wydania potoku. Możesz również uwzględnić usługi Azure Functions w szablonie wdrożenia, dzięki czemu można zarządzać całe rozwiązanie wszystkich zależności jako jednego szablonu. Dowiedz się [jak utworzyć szablony wdrażania aplikacji logiki](../logic-apps/logic-apps-create-deploy-template.md).
 
-Po rozwiązaniu został opracowany, można przechwycić i wdrażane za pomocą szablonu wdrożenia usługi Azure do dowolnego regionu Azure na świecie.  Jest to przydatne w przypadku obu parametrów modyfikujących dla różnych wersji tego przepływu pracy, ale również do integracji to rozwiązanie w potoku kompilacji i wydania.  Szczegóły dotyczące tworzenia szablonu wdrożenia można znaleźć [w tym artykule](logic-apps-create-deploy-template.md).
-
-Środowisko Azure Functions można również włączona Szablon wdrożenia — tak całego rozwiązania z wszystkie zależności mogą być zarządzane jako jednego szablonu.  Przykład wdrożenia szablonu funkcji można znaleźć w [repozytorium szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+Przykład wdrożenia szablonu z funkcją Azure, sprawdź [repozytorium szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-* [Zobacz inne przykłady i scenariusze dla usługi Azure Logic Apps](logic-apps-examples-and-scenarios.md)
-* [Obejrzyj wideo wskazówki na temat tworzenia tego rozwiązania end-to-end](http://aka.ms/logicappsdemo)
-* [Informacje o sposobie obsługi i przechwytywanie wyjątków w aplikacji logiki](logic-apps-exception-handling.md)
+* [Znajdź inne przykłady i scenariusze dla usługi Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-social-serverless/twitter.png

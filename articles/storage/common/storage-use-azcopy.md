@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transfer danych za pomocą narzędzia AzCopy w systemie Windows
 Narzędzie AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych z magazynu obiektów Blob Microsoft Azure, plików i tabeli, przy użyciu prostego polecenia przeznaczone do uzyskania optymalnej wydajności. Możesz skopiować dane między systemem plików i konto magazynu lub kont magazynu.  
@@ -56,7 +56,7 @@ Należy pamiętać, że jeśli folder `C:\myfolder` nie istnieje, tworzy AzCopy 
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Pobieranie pojedynczego obiektu blob z regionu pomocniczego
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Należy pamiętać, że użytkownik musi mieć dostęp do odczytu magazynu geograficznie nadmiarowego umożliwia dostęp do regionu pomocniczego.
@@ -106,7 +106,7 @@ Po wykonaniu operacji pobierania folderu `C:\myfolder` zawiera następujące pli
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Prefiks ma zastosowanie do katalogu wirtualnego, który stanowi pierwsza część nazwy obiektu blob. W przykładzie przedstawionym powyżej katalogu wirtualnego nie pasuje określony prefiks, więc nie zostanie pobrana. Ponadto jeśli opcja `\S` nie zostanie określony, narzędzie AzCopy nie pobiera wszystkie obiekty BLOB.
+Prefiks ma zastosowanie do katalogu wirtualnego, który stanowi pierwsza część nazwy obiektu blob. W przykładzie przedstawionym powyżej katalogu wirtualnego nie pasuje określony prefiks, więc nie zostanie pobrana. Ponadto jeśli opcja `/S` nie zostanie określony, narzędzie AzCopy nie pobiera wszystkie obiekty BLOB.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Ustawianie czasu ostatniej modyfikacji plików wyeksportowane taka sama jak obiekty BLOB źródła
 
@@ -276,7 +276,7 @@ Narzędzie AzCopy domyślnie kopiuje dane między dwoma punktami końcowymi maga
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 ```
 
-`/SyncCopy`może generować dodatkowe wyjście koszt w porównaniu do kopiowania asynchroniczne, zalecanym rozwiązaniem jest użycie tej opcji w maszynie Wirtualnej platformy Azure, który znajduje się w tym samym regionie co konta magazynu źródłowego, aby uniknąć kosztów wyjście.
+`/SyncCopy` może generować dodatkowe wyjście koszt w porównaniu do kopiowania asynchroniczne, zalecanym rozwiązaniem jest użycie tej opcji w maszynie Wirtualnej platformy Azure, który znajduje się w tym samym regionie co konta magazynu źródłowego, aby uniknąć kosztów wyjście.
 
 ## <a name="download-files-from-file-storage"></a>Pobierz pliki z pliku magazynu
 
@@ -614,9 +614,9 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 Poniżej opisano parametry narzędzia AzCopy. Można również wpisać jedną z następujących poleceń z poziomu wiersza polecenia, aby uzyskać pomoc przy użyciu narzędzia AzCopy:
 
-* Aby uzyskać szczegółową pomoc wiersza polecenia AzCopy:`AzCopy /?`
-* Szczegółowe informacje o żadnych parametrów narzędzia AzCopy:`AzCopy /?:SourceKey`
-* Przykłady wiersza polecenia:`AzCopy /?:Samples`
+* Aby uzyskać szczegółową pomoc wiersza polecenia AzCopy: `AzCopy /?`
+* Szczegółowe informacje o żadnych parametrów narzędzia AzCopy: `AzCopy /?:SourceKey`
+* Przykłady wiersza polecenia: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/ Źródła: "source"
 

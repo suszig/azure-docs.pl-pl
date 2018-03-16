@@ -3,8 +3,8 @@ title: Tworzenie obrazu maszyny wirtualnej lokalnej do portalu Azure Marketplace
 description: "Zrozumienie i wykonaj kroki, aby utworzyć lokalnej obrazu maszyny Wirtualnej i wdrażanie w portalu Azure Marketplace innym osobom do zakupu."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Tworzenie obrazu maszyny wirtualnej lokalnej dla portalu Azure Marketplace
 Zdecydowanie zaleca się tworzenie Azure wirtualnych dysków twardych (VHD) bezpośrednio w chmurze przy użyciu protokołu Remote Desktop Protocol. Jeśli musisz, prawdopodobnie Pobierz wirtualnego dysku twardego i opracowanie go za pomocą infrastruktury lokalnej.  
@@ -75,7 +75,7 @@ Oprócz przy użyciu portalu Azure, możesz użyć [Save-AzureVhd](http://msdn.m
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-For example, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
+Na przykład Zapisz-AzureVhd-źródła "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath "C:\Users\Administrator\Desktop\baseimagevm.vhd" - atrybutu StorageKey <String>
 
 > [!NOTE]
 > **Zapisz-AzureVhd** ma również **NumberOfThreads** opcja, która może służyć do zwiększenia równoległości, aby jak najlepiej wykorzystać dostępnej przepustowości dla pobierania.
@@ -92,7 +92,7 @@ Aby utworzyć konto magazynu, można użyć [portalu Microsoft Azure](https://po
 
 **Utwórz konto magazynu z portalu Microsoft Azure**
 
-1. Kliknij przycisk **Utwórz zasób**.
+1. Kliknij pozycję **Utwórz zasób**.
 2. Wybierz **magazynu**.
 3. Wprowadź nazwę konta magazynu, a następnie wybierz lokalizację.
    

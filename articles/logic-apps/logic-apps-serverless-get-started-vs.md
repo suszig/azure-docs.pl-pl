@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Tworzenie aplikacji bez serwera w programie Visual Studio z Logic Apps i funkcje
 
@@ -83,10 +83,10 @@ Szablon wdrożenia wdraża wszystkie funkcje platformy Azure, znajdujących się
 
 Jeśli przy użyciu języka JavaScript, Python, F #, Bash, partii lub programu PowerShell, wykonaj [czynnościach w ramach funkcji interfejsu wiersza polecenia](../azure-functions/functions-run-local.md) do tworzenia projektu.  Tworzenie funkcji w języku C#, można użyć [biblioteki klas C#](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/) w bieżącym rozwiązaniu dla funkcji platformy Azure.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Dowiedz się, jak niekorzystającą społecznościowych pulpit nawigacyjny kompilacji](logic-apps-scenario-social-serverless.md)
-* [Zarządzanie aplikacji logiki z programu Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
+* [Zarządzanie aplikacji logiki z programu Visual Studio Cloud Explorer](manage-logic-apps-with-visual-studio.md)
 * [Język definicji przepływu pracy aplikacji logiki](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

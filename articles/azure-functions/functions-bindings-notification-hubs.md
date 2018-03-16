@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 6be75035247f05995949734cd4f4f0d934e30685
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 292c8295cbc2705c12365a20cee0e80b6da639a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Centra powiadomień w danych wyjściowych wiązanie dla usługi Azure Functions
 
@@ -28,6 +28,12 @@ W tym artykule wyjaśniono, jak wysyłać powiadomienia wypychane przy użyciu [
 Centra powiadomień Azure musi być skonfigurowana dla platformy powiadomienia usługi (PNS) ma być używany. Aby dowiedzieć się, jak otrzymywać powiadomień wypychanych w aplikacji klienta z usługi Notification Hubs, zobacz [wprowadzenie do korzystania z usługi Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) i wybierz z listy rozwijanej w górnej części strony docelowej platformy klienta.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakiety
+
+Powiązania usługi Notification Hubs znajdują się w [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) pakietu NuGet. Kod źródłowy dla pakietu jest w [azure-zadań webjob sdk rozszerzenia](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/) repozytorium GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example---template"></a>Przykład — szablonu
 
@@ -266,7 +272,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="attributes"></a>Atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) atrybutu.
 
 Ten atrybut parametrami konstruktora a właściwości zostały opisane w [konfiguracji](#configuration) sekcji.
 
@@ -281,7 +287,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Nazwa** |Nie dotyczy| Nazwa zmiennej używane w kodzie funkcja komunikat Centrum powiadomień. |
 |**tagExpression** |**TagExpression** | Wyrażeń tagów umożliwiają określenie, czy do zestawu urządzeń, które zostały zarejestrowane, aby otrzymywać powiadomienia, które odpowiada wyrażeniu tagu można dostarczyć powiadomień.  Aby uzyskać więcej informacji, zobacz [wyrażenia routingu i tagu](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nazwa zasobu Centrum powiadomień, w portalu Azure. |
-|**połączenia** | **ConnectionStringSetting** | Nazwa ustawienia aplikacji, który zawiera ciąg połączenia usługi Notification Hubs.  Ciąg połączenia musi mieć ustawioną *DefaultFullSharedAccessSignature* wartość dla Centrum powiadomień. Zobacz [ustawienia połączenia](#connection-string-setup) dalszej części tego artykułu.|
+|**Połączenia** | **ConnectionStringSetting** | Nazwa ustawienia aplikacji, który zawiera ciąg połączenia usługi Notification Hubs.  Ciąg połączenia musi mieć ustawioną *DefaultFullSharedAccessSignature* wartość dla Centrum powiadomień. Zobacz [ustawienia połączenia](#connection-string-setup) dalszej części tego artykułu.|
 |**platform** | **Platformy** | Właściwość platformy wskazuje platforma klienta celów powiadomień. Domyślnie w przypadku pominięcia właściwości platformy z wiązania danych wyjściowych szablonu powiadomienia można współpracować z dowolną platformą skonfigurowany w Centrum powiadomień Azure. Aby uzyskać więcej informacji na korzystanie z szablonów ogólnie do wysyłania wielu powiadomień platformy przy użyciu Centrum powiadomień Azure, zobacz [szablony](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Po ustawieniu **platformy** musi mieć jedną z następujących wartości: <ul><li><code>apns</code>&mdash;Usługa powiadomień wypychanych firmy Apple. Aby uzyskać więcej informacji na temat konfigurowania Centrum powiadomień dla APNS odbieranie powiadomień w aplikacji klienta, zobacz [wysyłanie powiadomień wypychanych do systemu iOS przy użyciu usługi Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Usługi Amazon Device Messaging](https://developer.amazon.com/device-messaging). Aby uzyskać więcej informacji na temat konfigurowania Centrum powiadomień dla ADM odbieranie powiadomień w aplikację dla urządzeń Kindle, zobacz [wprowadzenie do korzystania z usługi Notification Hubs dla aplikacji dla urządzeń Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Usługa Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, która jest nowa wersja usługi GCM, jest również obsługiwany. Aby uzyskać więcej informacji, zobacz [wysyłanie powiadomień wypychanych w systemie Android przy użyciu usługi Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Usług powiadomień Wns](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) przeznaczonych dla platformy systemu Windows. Windows Phone 8.1 lub nowszy jest również obsługiwana przez usługi WNS. Aby uzyskać więcej informacji, zobacz [wprowadzenie Notification Hubs dla uniwersalnych aplikacji systemu Windows platformy](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Usługa powiadomień wypychanych firmy Microsoft](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Ta platforma obsługuje starszych platform Windows Phone i Windows Phone 8. Aby uzyskać więcej informacji, zobacz [wysyłanie powiadomień wypychanych przy użyciu usługi Azure Notification Hubs na Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

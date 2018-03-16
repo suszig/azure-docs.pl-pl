@@ -1,6 +1,19 @@
-
-
-
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: bf4adf075842effeb26aa5a600c09f7bd1866264
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/16/2018
+---
 **Dokument ostatniej aktualizacji**: 6 marca 10:00 AM PST.
 
 Ostatnie ujawnienie [nowa klasa luk w zabezpieczeniach Procesora](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) znany jako rozważana wykonywania ataków kanału po stronie spowodowało pytania, korzystając z wyszukiwania jasności więcej klientów.  
@@ -27,7 +40,7 @@ W poniższych ofertach Oto nasze zalecane działania, aby zaktualizować System 
 
 <table>
 <tr>
-<th>Oferty</th> <th>Zalecane działanie </th>
+<th>Oferty</th> <th>Zalecana akcja </th>
 </tr>
 <tr>
 <td>usług Azure Cloud Services </td>  <td>Włącz Aktualizacje automatyczne lub upewnij się, że używasz najnowszej systemu operacyjnego gościa.</td>
@@ -57,6 +70,6 @@ Jeśli korzysta z systemu Linux i hosting kodzie niezaufanym, należy również 
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej, zobacz [Zabezpieczanie klientów systemu Azure z usterka Procesora](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).

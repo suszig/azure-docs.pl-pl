@@ -3,7 +3,7 @@ title: "Łącznik MailChimp w usłudze Azure Logic Apps | Dokumentacja firmy Mic
 description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. MailChimp to usługa SaaS umożliwiająca firmom zarządzanie czynnościami związanymi z marketingiem e-mail, takimi jak wysyłanie marketingowych wiadomości e-mail, wiadomości zautomatyzowanych i kampanii ukierunkowanych, oraz automatyzowanie tych czynności."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 50919fd903c24e4748a6efe29af2c188b1c3c195
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 041212771db5b5971ccd220e68d71d59d8220531
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Rozpoczynanie pracy z łącznikiem MailChimp
-MailChimp to usługa SaaS umożliwiająca firmom zarządzanie czynnościami związanymi z marketingiem e-mail, takimi jak wysyłanie marketingowych wiadomości e-mail, wiadomości zautomatyzowanych i kampanii ukierunkowanych, oraz automatyzowanie tych czynności.
+MailChimp jest usługi SaaS, które umożliwia firmom zarządzania i automatyzowania działań marketingowych wiadomości e-mail, w tym wysyłania marketingowe wiadomości e-mail, wiadomości automatycznych i ukierunkowanych kampanii.
 
 Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

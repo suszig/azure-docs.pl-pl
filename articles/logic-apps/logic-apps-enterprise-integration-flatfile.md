@@ -3,7 +3,7 @@ title: "Kodowania i dekodowania plików prostych w aplikacjach logiki platformy 
 description: "Jak używać pliku plik encoder lub dekodera w pakiet integracyjny dla przedsiębiorstw w aplikacjach logiki"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: LADocs; mandia
-ms.openlocfilehash: 8795687c002282b68ebd1a4fa3fe18a9b102af4a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: LADocs; divswa
+ms.openlocfilehash: 410f2e184a92b879d4f75b31216da783e82dc953
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Omówienie integracji przedsiębiorstwa z plików prostych
 
@@ -36,7 +36,7 @@ Wykonaj następujące kroki, aby dodać plik prosty kodowanie łącznika do apli
    
     b. Wybierz **Dodaj akcję** łącza (pojawia się po wybraniu znak plus).
    
-    d. W polu wyszukiwania wprowadź *płaskiej* do filtrowania wszystkie akcje do tego, który ma być używany.
+    c. W polu wyszukiwania wprowadź *płaskiej* do filtrowania wszystkie akcje do tego, który ma być używany.
    
     d. Wybierz **płaskiej kodowanie pliku** opcję z listy.   
    ![Opcja Zrzut ekranu z płaskim kodowanie pliku](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
@@ -66,7 +66,7 @@ Teraz możesz przetestować Twojego łącznika przesyłania do punktu końcowego
    
     b. Wybierz **Dodaj akcję** łącza (pojawia się po wybraniu znak plus).
    
-    d. W polu wyszukiwania wprowadź *płaskiej* do filtrowania wszystkie akcje do tego, który ma być używany.
+    c. W polu wyszukiwania wprowadź *płaskiej* do filtrowania wszystkie akcje do tego, który ma być używany.
    
     d. Wybierz **płaskiej dekodowania pliku** opcję z listy.   
    ![Zrzut ekranu z płaskim pliku dekodowania opcji](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6b8aa174f7c25f04393de9dd32718a5078cba4ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Aktualizacja rozwiązania do zarządzania na platformie Azure
 
@@ -207,13 +207,13 @@ W poniższej tabeli przedstawiono przykładowy dziennik wyszukuje zebrane przez 
 
 | Zapytanie | Opis |
 | --- | --- |
-|Aktualizacja<br>&#124; gdzie UpdateState == "Wymagane" i opcjonalne == false<br>&#124; Projekt komputera, Title, KBID, klasyfikacja, PublishedDate |Wszystkie komputery z brakującymi aktualizacjami<br>Dodaj jeden z następujących czynności, aby ograniczyć systemu operacyjnego:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Aktualizacja<br>&#124; gdzie UpdateState == "Wymagane" i opcjonalne == false<br>&#124; gdy komputer == "ContosoVM1.contoso.com"<br>&#124; Projekt komputera, Title, KBID, produktu, PublishedDate |Brakujące aktualizacje dla konkretnego komputera (zastąp wartość własną nazwą komputera)|
-| Wydarzenie<br>&#124; gdzie EventLevelName == "error" i komputera w ((Aktualizuj &#124; where (klasyfikacji == "Aktualizacje zabezpieczeń" lub klasyfikacji == "Aktualizacje krytyczne")<br>&#124; gdzie UpdateState == "Wymagane" i opcjonalne == false <br>&#124; DISTINCT Computer)) |Zdarzenia błędu dotyczące komputerów, na których brakuje wymaganych aktualizacji krytycznych lub zabezpieczeń |
-| Aktualizacja<br>&#124; gdzie UpdateState == "Wymagane" i opcjonalne == false<br>&#124; różne tytułu |Różne brakujące aktualizacje na wszystkich komputerach | 
-| UpdateRunProgress<br>&#124; gdzie InstallationStatus == "nie powiodło się" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Komputery z aktualizacjami, których nie powiodła się w przebiegu aktualizacji<br>Dodaj jeden z następujących czynności, aby ograniczyć systemu operacyjnego:<br>OSType = "Windows"<br>OSType == "Linux" | 
-| Aktualizacja<br>&#124; gdzie OSType == "Linux"<br>&#124; gdzie UpdateState! = "Nie jest wymagane" i (klasyfikacji == "Aktualizacje krytyczne" lub klasyfikacji == "Aktualizacje zabezpieczeń")<br>&#124; summarize AggregatedValue = count() by Computer |Listę wszystkich maszyn systemu Linux, które mają dostępnych aktualizacji pakietu, która usterki krytyczne lub zabezpieczeń | 
-| UpdateRunProgress<br>&#124; gdzie UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Komputery, które zostały zaktualizowane w ramach tego przebiegu aktualizacji (zastąp wartość nazwą własnego wdrożenia aktualizacji) | 
+|Aktualizacja<br>&#124;gdzie UpdateState == "Wymagane" i opcjonalne == false<br>&#124;Projekt komputera, Title, KBID, klasyfikacja, PublishedDate |Wszystkie komputery z brakującymi aktualizacjami<br>Dodaj jeden z następujących czynności, aby ograniczyć systemu operacyjnego:<br>OSType = "Windows"<br>OSType == "Linux" |
+| Aktualizacja<br>&#124;gdzie UpdateState == "Wymagane" i opcjonalne == false<br>&#124;gdy komputer == "ContosoVM1.contoso.com"<br>&#124;Projekt komputera, Title, KBID, produktu, PublishedDate |Brakujące aktualizacje dla konkretnego komputera (zastąp wartość własną nazwą komputera)|
+| Wydarzenie<br>&#124;gdzie EventLevelName == "error" i komputera w ((aktualizacja &#124; where (klasyfikacji == "Aktualizacje zabezpieczeń" lub klasyfikacji == "Aktualizacje krytyczne")<br>&#124;gdzie UpdateState == "Wymagane" i opcjonalne == false <br>&#124;DISTINCT Computer)) |Zdarzenia błędu dotyczące komputerów, na których brakuje wymaganych aktualizacji krytycznych lub zabezpieczeń |
+| Aktualizacja<br>&#124;gdzie UpdateState == "Wymagane" i opcjonalne == false<br>&#124;różne tytułu |Różne brakujące aktualizacje na wszystkich komputerach | 
+| UpdateRunProgress<br>&#124;gdzie InstallationStatus == "nie powiodło się" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Komputery z aktualizacjami, których nie powiodła się w przebiegu aktualizacji<br>Dodaj jeden z następujących czynności, aby ograniczyć systemu operacyjnego:<br>OSType = "Windows"<br>OSType == "Linux" | 
+| Aktualizacja<br>&#124;gdzie OSType == "Linux"<br>&#124;gdzie UpdateState! = "Nie jest wymagane" i (klasyfikacji == "Aktualizacje krytyczne" lub klasyfikacji == "Aktualizacje zabezpieczeń")<br>&#124; summarize AggregatedValue = count() by Computer |Listę wszystkich maszyn systemu Linux, które mają dostępnych aktualizacji pakietu, która usterki krytyczne lub zabezpieczeń | 
+| UpdateRunProgress<br>&#124;gdzie UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Komputery, które zostały zaktualizowane w ramach tego przebiegu aktualizacji (zastąp wartość nazwą własnego wdrożenia aktualizacji) | 
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integracja z programem System Center Configuration Manager
 

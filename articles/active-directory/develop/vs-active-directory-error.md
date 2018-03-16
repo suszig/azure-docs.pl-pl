@@ -1,10 +1,10 @@
 ---
-title: "Jak diagnozowanie błędów przy użyciu usługi Azure Active Directory połączenia Kreatora"
-description: "Kreator połączenia usługi active directory wykryto typ uwierzytelniania niezgodne"
+title: "Jak diagnozowanie błędów w usłudze Azure Active Directory połączona usługa"
+description: "W usłudze active directory połączone wykryto typ uwierzytelniania niezgodne"
 services: active-directory
 documentationcenter: 
 author: kraigb
-manager: mtillman
+manager: ghogen
 editor: 
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
@@ -12,88 +12,88 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 186bb1ede11c869b1352906b7ebafe57025f4f09
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab81c3385479a96fbfa7e68c4e81129ff327ed4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Diagnozowanie błędów przy użyciu usługi Azure Active Directory połączenia Kreatora
-Podczas wykrywania poprzedni kod uwierzytelniania, Kreator wykrył typ uwierzytelniania niezgodne.   
+# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnozowanie błędów przy użyciu usługi Azure Active Directory połączone
 
-## <a name="what-is-being-checked"></a>Co to jest sprawdzany?
-**Uwaga:** poprawnie wykryć poprzedni kod uwierzytelniania w projekcie, projektu muszą zostać skompilowane.  Jeśli wystąpił błąd i nie masz poprzedni kod uwierzytelniania w projekcie, skompiluj ponownie i spróbuj ponownie.
+Podczas wykrywania poprzedni kod uwierzytelniania, połączenia usługi Azure Active Directory server wykryto typ uwierzytelniania niezgodne.
 
-### <a name="project-types"></a>Typy projektów
-Kreator sprawdza, czy typ projektu, który projektujesz tak go wstrzyknąć logika uwierzytelniania prawo do projektu.  W przypadku dowolnego kontrolera, która jest pochodną `ApiController` projektu jest uznawany za projektu WebAPI w projekcie.  Jeśli występują tylko te kontrolery, które pochodzą z `MVC.Controller` w projekcie, projektu jest uznawany za projekt platformy MVC.  Cokolwiek innego nie jest obsługiwana przez kreatora.
+Aby poprawnie wykrywać poprzedni kod uwierzytelniania w projekcie, projektu muszą zostać skompilowane.  Jeśli wystąpił błąd i nie masz poprzedni kod uwierzytelniania w projekcie, skompiluj ponownie i spróbuj ponownie.
 
-### <a name="compatible-authentication-code"></a>Kod uwierzytelniania zgodne
-Kreator sprawdza również ustawienia uwierzytelniania, które zostały wcześniej skonfigurowane przy użyciu kreatora lub są zgodne z kreatorem.  Jeśli wszystkie ustawienia są obecne, jest on uznawany za przypadek wielobieżnej i otwiera kreatora należy wyświetlić ustawienia.  Jeśli tylko niektóre ustawienia są obecne, jest uznawane za przypadek błędu.
+## <a name="project-types"></a>Typy projektów
 
-W projekcie programu MVC Kreator sprawdza, czy dla każdego z następujących ustawień, wynikające z poprzednich Użyj kreatora:
+Podłączonej usługi sprawdza typ projektu, który projektujesz tak go wstrzyknąć logika uwierzytelniania prawo do projektu. W przypadku dowolnego kontrolera, która jest pochodną `ApiController` projektu jest uznawany za projektu WebAPI w projekcie. Jeśli występują tylko te kontrolery, które pochodzą z `MVC.Controller` w projekcie, projektu jest uznawany za projekt platformy MVC. Podłączonej usługi nie obsługuje żadnego typu projektu.
+
+## <a name="compatible-authentication-code"></a>Kod uwierzytelniania zgodne
+
+Ustawienia uwierzytelniania, które zostały wcześniej skonfigurowane lub są zgodne z usługą sprawdza również podłączonej usługi. Jeśli wszystkie ustawienia są obecne, jest uznawany za przypadek wielobieżnej i otwiera podłączonej usługi wyświetlić ustawienia.  Jeśli tylko niektóre ustawienia są obecne, jest uznawane za przypadek błędu.
+
+W projekcie MVC podłączonej usługi sprawdza dla żadnej z następujących ustawień, wynikające z poprzednich korzystania z usługi:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Ponadto Kreator sprawdza, czy dla każdego z następujących ustawień w projekcie interfejsu API sieci Web, wynikające z poprzednich Użyj kreatora:
+Ponadto podłączonej usługi sprawdza następujące ustawienia w projekcie interfejsu API sieci Web, wynikające z poprzednich korzystania z usługi:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
-### <a name="incompatible-authentication-code"></a>Kod uwierzytelniania niezgodne
-Ponadto kreator próbuje wykryć wersji kod uwierzytelniania, które zostały skonfigurowane z poprzednich wersji programu Visual Studio. Jeśli wystąpił ten błąd, oznacza to, że projekt zawiera typ uwierzytelniania niezgodne. Kreator wykrywa następujące typy uwierzytelniania z poprzednich wersji programu Visual Studio:
+## <a name="incompatible-authentication-code"></a>Kod uwierzytelniania niezgodne
 
-* Uwierzytelnianie systemu Windows 
-* Indywidualne konta użytkowników 
-* Konta organizacyjne 
+Na koniec podłączonej usługi próbuje wykryć wersji kod uwierzytelniania, które zostały skonfigurowane z poprzednich wersji programu Visual Studio. Jeśli wystąpił ten błąd, oznacza to, że projekt zawiera typ uwierzytelniania niezgodne. Podłączonej usługi wykrywa następujące typy uwierzytelniania z poprzednich wersji programu Visual Studio:
 
-Do wykrywania uwierzytelniania systemu Windows w projekcie programu MVC, Kreator sprawdza `authentication` element na podstawie Twojej **web.config** pliku.
+* Uwierzytelnianie systemu Windows
+* Indywidualne konta użytkowników
+* Konta organizacyjne
 
-<pre>
-    &lt;configuration&gt;
-        &lt;system.web&gt;
-            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-        &lt;/system.web&gt;
-    &lt;/configuration&gt;
-</pre>
+Do wykrywania uwierzytelniania systemu Windows w projekcie programu MVC, połączonych szuka `authentication` element w Twojej `web.config` pliku.
 
-Aby wykrywać uwierzytelniania systemu Windows w projekcie interfejsu API sieci Web, Kreator wyszukuje `IISExpressWindowsAuthentication` element z projektu **.csproj** pliku:
+```xml
+<configuration>
+    <system.web>
+        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+    </system.web>
+</configuration>
+```
 
-<pre>
-    &lt;Project&gt;
-        &lt;PropertyGroup&gt;
-            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup>
-    &lt;/Project&gt;
-</pre>
+Do wykrywania uwierzytelniania systemu Windows w projekcie interfejsu API sieci Web, podłączonej usługi szuka `IISExpressWindowsAuthentication` elementu do projektu `.csproj` pliku:
 
-Do wykrywania uwierzytelniania indywidualnych kont użytkowników, Kreator sprawdza element pakietu z sieci **Packages.config** pliku.
+```xml
+<Project>
+    <PropertyGroup>
+        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+    </PropertyGroup>
+</Project>
+```
 
-<pre>
-    &lt;packages&gt;
-        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-    &lt;/packages&gt;
-</pre>
+Wyszukuje podłączonej usługi do wykrywania uwierzytelniania indywidualnych kont użytkowników, element pakietu w Twojej `packages.config` pliku.
 
-Aby wykrywać stare formy uwierzytelniania konto organizacyjne, Kreator wygląda dla następującego elementu z **web.config**:
+```xml
+<packages>
+    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+</packages>
+```
 
-<pre>
-    &lt;configuration&gt;
-        &lt;appSettings&gt;
-            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-        &lt;/appSettings&gt;
-    &lt;/configuration&gt;
-</pre>
+Aby wykrywać stare formy uwierzytelniania konto organizacyjne, podłączonej usługi szuka następujący element w`web.config`:
 
-Aby zmienić typ uwierzytelniania, Usuń typ uwierzytelniania niezgodne, a następnie ponownie uruchom kreatora.
+```xml
+<configuration>
+    <appSettings>
+        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+    </appSettings>
+</configuration>
+```
+
+Aby zmienić typ uwierzytelniania, Usuń typ uwierzytelniania niezgodne, a następnie spróbuj ponownie dodać podłączonej usługi.
 
 Aby uzyskać więcej informacji, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](active-directory-authentication-scenarios.md).
-
-#<a name="next-steps"></a>Następne kroki
-- [Scenariusze uwierzytelniania dla usługi Azure AD](active-directory-authentication-scenarios.md)

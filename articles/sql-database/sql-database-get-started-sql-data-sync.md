@@ -2,25 +2,19 @@
 title: Konfigurowanie synchronizacji danych SQL Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft
 description: "Ten samouczek pokazuje, jak skonfigurować synchronizację danych SQL Azure (wersja zapoznawcza)"
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Konfigurowanie synchronizacji danych SQL (wersja zapoznawcza)
 Z tego samouczka dowiesz się sposobu konfigurowania synchronizacji danych SQL Azure, tworząc grupy synchronizacji hybrydowych, zawierającej wystąpienia zarówno usługi Azure SQL Database i programu SQL Server. Nowa grupa synchronizacji jest w pełni skonfigurowane i synchronizuje się zgodnie z harmonogramem, które można ustawić.
@@ -62,7 +56,7 @@ Aby uzyskać pełną przykładów programu PowerShell, które przedstawiają spo
         > [!NOTE]
         > Firma Microsoft zaleca, aby utworzyć nową, pustą bazę danych do użycia jako bazy danych usługi synchronizacji metadanych. Synchronizacja danych tworzy tabele w tej bazie danych i uruchamia częste obciążenia. Ta baza danych jest automatycznie udostępniony jako bazy danych usługi synchronizacji metadanych dla wszystkich grup synchronizacji w wybranym regionie. Nie można zmienić bazy danych usługi synchronizacji metadanych lub jego nazwa bez porzuceniem jej.
 
-        Jeśli została wybrana opcja **nową bazę danych**, wybierz pozycję **Utwórz nową bazę danych.** **Bazy danych SQL** zostanie otwarta strona. Na **bazy danych SQL** strony, nazwy i skonfiguruj nową bazę danych. Następnie wybierz **OK**.
+        Jeśli została wybrana opcja **nową bazę danych**, wybierz pozycję **Utwórz nową bazę danych.** **Bazy danych SQL** zostanie otwarta strona. Na **bazy danych SQL** strony, nazwy i skonfiguruj nową bazę danych. Następnie wybierz przycisk **OK**.
 
         Jeśli została wybrana opcja **Użyj istniejącej bazy danych**, wybierz bazę danych z listy.
 
@@ -110,7 +104,7 @@ Na **Konfigurowanie bazy danych Azure** wykonaj następujące czynności:
 
     ![Dodano nowy element członkowski synchronizacji bazy danych SQL](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-on-prem"></a>Dodaj lokalną bazą danych programu SQL Server
+### <a name="add-on-prem"></a> Dodaj lokalną bazą danych programu SQL Server
 
 W **bazy danych elementów członkowskich** sekcji i opcjonalnie Dodaj lokalny serwer SQL do grupy synchronizacji, wybierając **Dodaj bazę danych z lokalnego**. **Konfigurowanie lokalnego** zostanie otwarta strona.
 
@@ -159,7 +153,7 @@ Na **Konfigurowanie lokalnego** wykonaj następujące czynności:
 
         ![Dodaj i skonfiguruj bazę danych programu SQL Server](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
 
-    10. W **konfiguracji serwera SQL** oknie dialogowym Wybierz, czy nawiązać połączenie przy użyciu uwierzytelniania programu SQL Server lub uwierzytelniania systemu Windows. Jeśli wybrano opcję uwierzytelniania programu SQL Server, wprowadź istniejących poświadczeń. Podaj nazwę serwera SQL i nazwę bazy danych, które mają być synchronizowane. Wybierz **połączenie testowe** Aby przetestować ustawienia. Następnie wybierz **zapisać**. Zarejestrowane bazy danych zostanie wyświetlony na liście.
+    10. W **konfiguracji serwera SQL** oknie dialogowym Wybierz, czy nawiązać połączenie przy użyciu uwierzytelniania programu SQL Server lub uwierzytelniania systemu Windows. Jeśli wybrano opcję uwierzytelniania programu SQL Server, wprowadź istniejących poświadczeń. Podaj nazwę serwera SQL i nazwę bazy danych, które mają być synchronizowane. Wybierz **połączenie testowe** Aby przetestować ustawienia. Następnie wybierz pozycję **Zapisz**. Zarejestrowane bazy danych zostanie wyświetlony na liście.
 
         ![Baza danych SQL Server zostanie zarejestrowany](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
 
@@ -185,11 +179,11 @@ Po nowych członków grupy synchronizacji są tworzone i wdrażane, krok 3 **Kon
 
 2.  Z listy dostępnych tabel wybierz tabele, które mają być synchronizowane.
 
-    ![Wybierz tabele do synchronizacji](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
+    ![Wybieranie tabel do zsynchronizowania](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
 3.  Domyślnie wybrane są wszystkie kolumny w tabeli. Jeśli nie chcesz zsynchronizować wszystkie kolumny, wyłącz pole wyboru dla kolumn, które nie mają być synchronizowane. Pamiętaj pozostawić wybrana kolumna klucza podstawowego.
 
-    ![Wybierz pola do synchronizacji](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
+    ![Wybieranie pól do zsynchronizowania](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Na koniec wybierz **zapisać**.
 
@@ -270,7 +264,7 @@ Jeśli chcesz uruchomić lokalnego agenta z innego komputera niż aktualnie znaj
 
 5. Podaj poświadczenia bazy danych dla wszystkich baz danych zawierających jako niedostępny. Te bazy danych musi być dostępny z nowym komputerze, na którym jest zainstalowany agent.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Gratulacje. Utworzono grupę synchronizacji, która zawiera zarówno wystąpienie bazy danych SQL, jak i bazy danych programu SQL Server.
 
 Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:

@@ -2,19 +2,19 @@
 title: "Usługa Azure Machine Learning Model zarządzania instalacja i Konfiguracja | Dokumentacja firmy Microsoft"
 description: "W tym dokumencie opisano kroki i pojęcia związane z w instalowaniu i konfigurowaniu modelu zarządzania w usłudze Azure Machine Learning."
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: AashishB
+ms.author: AashishB
 manager: hjerez
-ms.reviewer: jmartens,jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: 4e2ac548ee08f1a20cf2c1744242ee13535e55cc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c3efc7373e8825115af9b08f3f46e55e8490758a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="model-management-setup"></a>Model konfiguracji zarządzania
 
@@ -37,7 +37,7 @@ W innych systemach trzeba zainstalować CLIs.
 
 ### <a name="installing-or-updating-on-windows"></a>Instalowanie (lub aktualizowania) w systemie Windows
 
-Instalowanie języka Python z https://www.python.org/. Upewnij się, że wybrano opcję zainstalowania pip.
+Zainstaluj środowisko Python z https://www.python.org/. Upewnij się, że wybrano opcję zainstalowania pip.
 
 Otwórz wiersz polecenia przy użyciu Uruchom jako Administrator i uruchom następujące polecenia:
 
@@ -70,7 +70,7 @@ Uruchom program z lokalnego wdrożenia, zweryfikuj, czy model i kod działają, 
 Aby rozpocząć, należy skonfigurować środowisko wdrażania. Konfigurowanie środowiska jest zadanie w czasie. Po zakończeniu instalacji można ponownie użyć środowiska w przypadku kolejnych wdrożeń. Zobacz sekcję poniżej, aby uzyskać więcej szczegółów.
 
 Po zakończeniu instalacji środowiska:
-- Zostanie wyświetlony monit logowanie do platformy Azure. Do logowania, aby otworzyć https://aka.ms/devicelogin strony i wprowadź kod podany w celu uwierzytelnienia korzystanie z przeglądarki internetowej.
+- Zostanie wyświetlony monit logowanie do platformy Azure. Do logowania, użyj przeglądarki sieci web, aby otworzyć stronę https://aka.ms/devicelogin i wprowadź kod podany w celu uwierzytelnienia.
 - W procesie uwierzytelniania zostanie wyświetlony monit o konta do uwierzytelniania. Ważne: Wybierz konto, które ma ważnej subskrypcji platformy Azure i wystarczających uprawnień do utworzenia zasobów w ramach konta. Podczas logowania zostanie zakończone, zobaczy informacji o subskrypcji i zostanie wyświetlony monit, czy chcesz kontynuować z wybranym kontem.
 
 ### <a name="environment-setup"></a>Konfigurowanie środowiska

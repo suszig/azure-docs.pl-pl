@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Często zadawane pytania dotyczące usługi Azure rozwiązania Cosmos bazy danych
 ## <a name="azure-cosmos-db-fundamentals"></a>Podstawowe informacje na temat usługi Azure DB rozwiązania Cosmos
@@ -211,6 +211,7 @@ Istnieją pewne różnice zachowanie, które użytkownicy pochodzące z magazyne
 * CORS nie jest obecnie obsługiwany.
 * Nazwy tabeli w magazynie tabel platformy Azure nie jest rozróżniana, ale są one interfejsu API Azure rozwiązania Cosmos DB tabeli
 * Azure rozwiązania Cosmos DB wewnętrzny formaty kodowania informacje, np. pola binarnego nie są obecnie tak efektywne jak jedną może. W związku z tym może to spowodować nieoczekiwane ograniczenia na rozmiar danych. Na przykład aktualnie jedną nie można użyć pełnej 1 mg jednostki tabeli do przechowywania danych binarnych, ponieważ szyfrowanie zwiększa rozmiar danych.
+* Nazwa właściwości jednostki "Id" obecnie nieobsługiwane
 
 Pod względem interfejsu API REST istnieje wiele opcji punkty końcowe/zapytania, które nie są obsługiwane przez interfejs API Azure rozwiązania Cosmos DB tabeli:
 | Metody REST | Opcja punktu końcowego/zapytania REST | Adresy URL dokumentu | Wyjaśnienie |
@@ -282,7 +283,7 @@ Tak, można połączyć się przez utworzenie dwóch osobnych wystąpień CloudT
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Jak przeprowadzić migrację istniejącej aplikacji magazynu tabel Azure z tą ofertą?
 [Narzędzie AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) i [narzędzia migracji danych DB rozwiązania Cosmos Azure](import-data.md) są obsługiwane.
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>W jaki sposób rozszerzania rozmiaru magazynu zrobić dla tej usługi, jeśli na przykład uruchomić z  *n*  GB danych i danych wzrośnie do 1 TB w czasie? 
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>W jaki sposób rozszerzania rozmiaru magazynu zrobić dla tej usługi, jeśli na przykład uruchomić z *n* GB danych i danych wzrośnie do 1 TB w czasie? 
 Azure DB rozwiązania Cosmos zaprojektowano w celu zapewnienia nieograniczony magazyn wykorzystaniem skalowanie w poziomie. Usługę można monitorować i skutecznie zwiększyć pamięć masową. 
 
 ### <a name="how-do-i-monitor-the-table-api-offering"></a>Jak monitorować oferty tabeli interfejsu API?
@@ -377,7 +378,7 @@ Z zestawu SDK .NET mogą być dostarczane w pliku app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure DB rozwiązania Cosmos jako platforma wydaje się, że ma wiele funkcji, takich jak sortowanie, agregacje, hierarchii oraz innych funkcji. Będzie można dodawanie tych funkcji do interfejsu API tabeli? 
-Interfejs API tabeli zawiera te same funkcje zapytania jako magazynu tabel Azure. Azure DB rozwiązania Cosmos obsługuje również sortowanie, agregacje, dane geograficzne zapytania hierarchii i szeroki zakres funkcji wbudowanych. Firma Microsoft udostępni dodatkowe funkcje w interfejsie API tabeli w przyszłej aktualizacji. Aby uzyskać więcej informacji, zobacz [zapytania SQL](sql-api-sql-query.md).
+Interfejs API tabeli zawiera te same funkcje zapytania jako magazynu tabel Azure. Usługa Azure Cosmos DB obsługuje także sortowanie, agregaty, zapytania geoprzestrzenne, hierarchię i szeroki zakres funkcji wbudowanych. Firma Microsoft udostępni dodatkowe funkcje w interfejsie API tabeli w przyszłej aktualizacji. Aby uzyskać więcej informacji, zobacz [zapytania SQL](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Podczas zmiany TableThroughput dla interfejsu API tabeli?
 Należy zmienić TableThroughput, gdy stosuje się jeden z następujących warunków:

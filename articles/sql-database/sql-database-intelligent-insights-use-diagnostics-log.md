@@ -2,24 +2,19 @@
 title: "Inteligentnego szczegółowych informacji diagnostycznych dziennika wydajności — baza danych SQL Azure | Dokumentacja firmy Microsoft"
 description: "Usługa inteligentnego Insights udostępnia dziennik diagnostyki problemów z wydajnością bazy danych SQL Azure"
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b380d3a8a35750602a4a0d20d595f71b125fc118
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Korzystanie z dziennika inteligentnego bazy danych SQL Azure Insights wydajności diagnostyki
 
@@ -87,12 +82,12 @@ W zależności od wydajności wykrytego problemu, szczegóły wyjściowych diagn
 | Wykorzystanie pamięci | <li>Pracownik pamięci.</li> |
 | Blokowanie | <li>Wpływ na skróty zapytania</li><li>Blokowanie skrótów zapytania</li> |
 | Zwiększona MAXDOP | <li>Skróty zapytania</li><li>Czasy oczekiwania CXP</li><li>Czas oczekiwania</li> |
-| Pagelatch rywalizacji | <li>Zapytanie skrótów zapytania powodujące rywalizacji</li> |
+| Pagelatch Contention | <li>Zapytanie skrótów zapytania powodujące rywalizacji</li> |
 | Brak indeksu | <li>Skróty zapytania</li> |
 | Nowe zapytanie | <li>Zapytanie skrótu nowej kwerendy</li> |
 | Statystyka nietypowe zachowanie podczas oczekiwania | <li>Typy nietypowe zachowanie podczas oczekiwania</li><li>Skróty zapytania</li><li>Czas oczekiwania na zapytania</li> |
 | Bazy danych TempDB rywalizacji | <li>Zapytanie skrótów zapytania powodujące rywalizacji</li><li>Przypisanie zapytania do ogólnej bazy danych pagelatch rywalizacji czas oczekiwania [%]</li> |
-| Brak jednostek DTU puli elastycznej | <li>Puli elastycznej</li><li>Górny używające jednostek dtu w warstwie bazy danych</li><li>Procent puli jednostek dtu w warstwie używane przez górny konsumenta</li> |
+| Brak jednostek DTU puli elastycznej | <li>Pula elastyczna</li><li>Górny używające jednostek dtu w warstwie bazy danych</li><li>Procent puli jednostek dtu w warstwie używane przez górny konsumenta</li> |
 | Planowanie regresji | <li>Skróty zapytania</li><li>Dobry plan identyfikatorów</li><li>Nieprawidłowy plan identyfikatorów</li> |
 | Zmiana wartości o zakresie bazy danych konfiguracji | <li>Zmiany w konfiguracji o zakresie bazy danych w porównaniu do wartości domyślnych</li> |
 | Powolna klienta | <li>Skróty zapytania</li><li>Czas oczekiwania</li> |
@@ -141,7 +136,7 @@ Ostatnia część dziennika wydajności inteligentnego Insights odnosi się do a
 
 Można użyć dziennika wydajności inteligentnego szczegółowych informacji o [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) lub rozwiązanie innej firmy DevOps niestandardowe alerty i raporty dotyczące możliwości.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się więcej o [Insights inteligentnego](sql-database-intelligent-insights.md) pojęcia.
 - Dowiedz się, jak [bazy danych SQL Azure Rozwiązywanie problemów z wydajnością z informacjami dotyczącymi inteligentnego](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Dowiedz się, jak [monitorować bazy danych SQL Azure za pomocą usługi Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).

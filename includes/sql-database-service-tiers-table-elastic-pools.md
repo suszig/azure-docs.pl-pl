@@ -87,6 +87,6 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Aby uzyskać więcej informacji, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/). Wielkość magazynu jest większa niż ilość miejsca w magazynie uwzględnione są w wersji zapoznawczej i zastosowania dodatkowych kosztów. Aby uzyskać więcej informacji, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* W warstwie Premium ponad 1 TB miejsca do magazynowania jest obecnie dostępny w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Kanada Środkowa, Kanada Wschodnia, Francja Środkowa, Niemcy Środkowe, Japonia Wschodnia, Korea Środkowa, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia i Europa Zachodnia. 
+> \* W warstwie Premium więcej niż 1 TB pamięci masowej jest obecnie dostępna w następujących regionach: Kanada centralnej, Kanada Wschodnia Francja centralnej, Niemcy centralnej, Japonia Wschodnia, Korea centralnej, południowo-środkowe stany, Południowej Azja Wschodnia, nam East2, zachodnie stany USA, Virginia nam wersji dla instytucji rządowych i zachodnie Europa. 
 >
 

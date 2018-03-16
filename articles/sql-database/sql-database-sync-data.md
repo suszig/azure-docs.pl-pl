@@ -2,25 +2,19 @@
 title: Synchronizacja danych Azure SQL (wersja zapoznawcza) | Dokumentacja firmy Microsoft
 description: "W tym omówieniu przedstawiono synchronizacji danych SQL Azure (wersja zapoznawcza)"
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: data-sync
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z opcją synchronizacji danych SQL (wersja zapoznawcza)
 
@@ -78,7 +72,7 @@ Synchronizacja danych nie jest odpowiedni dla następujących scenariuszy:
     -   W przypadku wybrania *wins Centrum*, zmiany w Centrum zawsze zastąpienie zmian w elemencie członkowskim.
     -   W przypadku wybrania *wins elementu członkowskiego*, zmiany w zmian Zastąp elementów członkowskich w Centrum. Jeśli istnieje więcej niż jeden element członkowski, końcowa wartość zależy który element członkowski jest najpierw zsynchronizowane.
 
-## <a name="sync-req-lim"></a>Wymagania i ograniczenia
+## <a name="sync-req-lim"></a> Wymagania i ograniczenia
 
 ### <a name="general-considerations"></a>Zagadnienia ogólne
 
@@ -122,7 +116,7 @@ Używa synchronizacji danych wstawiania, aktualizowania i usuwania wyzwalaczy do
 | Nazwy bazy danych, tabel, schematów i kolumn                       | 50 znaków według nazwy |                             |
 | Tabele w grupie synchronizacji                                          | 500                    | Utwórz wiele grup synchronizacji |
 | Kolumn w tabeli w grupie synchronizacji                              | 1000                   |                             |
-| Rozmiar wiersza danych w tabeli                                        | 24 mb                  |                             |
+| Rozmiar wiersza danych w tabeli                                        | 24 Mb                  |                             |
 | Interwał synchronizacji minimalna                                           | 5 minut              |                             |
 |||
 
@@ -164,7 +158,7 @@ Tak. Synchronizacja danych SQL obsługuje sortowanie w następujących scenarius
 
 Główna baza danych Federacji może służyć usługi synchronizacji danych SQL (wersja zapoznawcza) nie podlega żadnym ograniczeniom. Nie można dodać punktu końcowego federacyjnych bazy danych do wersji bieżącej synchronizacji danych SQL (wersja zapoznawcza).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
 

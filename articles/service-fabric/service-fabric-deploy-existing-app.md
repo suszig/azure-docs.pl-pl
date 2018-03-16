@@ -1,6 +1,6 @@
 ---
 title: "Wdrażanie istniejącego pliku wykonywalnego na sieć szkieletowa usług Azure | Dokumentacja firmy Microsoft"
-description: "Przewodnik dotyczący sposobu pakietu istniejącą aplikację jako gość pliku wykonywalnego, więc można wdrożyć klaster sieci szkieletowej usług"
+description: "Dowiedz się, jak pakiet istniejącą aplikację jako gość pliku wykonywalnego, dlatego może on zostać wdrożony do klastra usługi sieć szkieletowa usług."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,68 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: c851e1f756957d58d5f7372098620e4b7129b089
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="deploy-a-guest-executable-to-service-fabric"></a>Wdrażanie pliku wykonywalnego gościa sieci szkieletowej usług
-Możesz uruchomić dowolnego typu kodu, np. Node.js, Java lub C++ w sieci szkieletowej usług Azure, jako usługa. Sieć szkieletowa usług odwołuje się do tych typów usług jako pliki wykonywalne gościa.
-
-Pliki wykonywalne gościa są traktowane przez sieć szkieletowa usług takich jak usług bezstanowych. W związku z tym są umieszczane w węzłach w klastrze, w oparciu o dostępności i inne metryki. W tym artykule opisano pakietu i wdrażanie pliku wykonywalnego gościa do klastra usługi sieć szkieletowa usług za pomocą programu Visual Studio lub narzędzia wiersza polecenia.
-
-W tym artykule firma Microsoft opisano kroki, aby pakiet pliku wykonywalnego gościa, a następnie wdrożyć go w sieci szkieletowej usług.  
-
-## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Zalety uruchamiania Gość pliku wykonywalnego w sieci szkieletowej usług
-Ma kilka zalet do uruchomienia pliku wykonywalnego w klastrze usługi sieć szkieletowa Gość:
-
-* Wysoka dostępność. Aplikacje uruchamiane w sieci szkieletowej usług są zyskuje dużą dostępność. Sieć szkieletowa usług zapewnia uruchomionych wystąpień aplikacji.
-* Monitorowanie kondycji. Monitorowanie kondycji sieci szkieletowej usług wykrywa, czy aplikacja działa i udostępnia informacje diagnostyczne, w przypadku awarii.   
-* Zarządzanie cyklem życia aplikacji. Oprócz zapewnienia uaktualnienia bez przestojów, sieci szkieletowej usług umożliwia automatyczne przywrócenie poprzedniej wersji, jeśli istnieje zdarzenie kondycji zły zgłoszone podczas uaktualniania.    
-* Gęstości. Wiele aplikacji można uruchomić w klastrze, która eliminuje potrzebę dla każdej aplikacji do uruchamiania na jego własnej sprzętu.
-* Odnajdowanie: Za pomocą usługi REST można wywołać usługi Usługa nazewnictwa sieci szkieletowej, aby znaleźć inne usługi w klastrze. 
-
-## <a name="samples"></a>Przykłady
-* [Przykład dla pakowanie i wdrażanie pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Przykład dwóch gościa pliki wykonywalne (C# i nodejs) podczas komunikacji za pośrednictwem usługi nazw za pomocą usługi REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-
-## <a name="overview-of-application-and-service-manifest-files"></a>Omówienie aplikacji i pliki manifestu usługi
-W ramach wdrażania pliku wykonywalnego gościa, warto poznać modelu pakowania i wdrażania usługi sieć szkieletowa usług, zgodnie z opisem w [model aplikacji](service-fabric-application-model.md). Model pakowania sieci szkieletowej usług opiera się na dwa pliki XML: manifestów aplikacji i usług. Definicja schematu dla pliku ApplicationManifest.xml i ServiceManifest.xml plików jest instalowany z zestawu SDK sieci szkieletowej usług w *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
-
-* **Manifest aplikacji** manifest aplikacji jest używany do opisu aplikacji. Wyświetla listę usług, które go tworzą i innych parametrów, które są używane do definiowania sposobu co najmniej jednej usługi powinny zostać wdrożone, takie jak liczba wystąpień.
-
-  W sieci szkieletowej usług aplikacji jest jednostką wdrożenia i uaktualnienia. Aplikację można aktualizować jako pojedyncza jednostka, w której zarządzane potencjalnych awarii i wycofywanie potencjalne zmian. Sieć szkieletowa usług gwarantuje, że proces uaktualniania jest pomyślnie, lub Jeśli uaktualnienie nie powiedzie się, nie pozostawi aplikacji w stan nieznany lub niestabilny.
-* **Manifest usługi** manifestu usługi opisano składniki usługi. Zawiera dane, takie jak nazwa i typ usługi, kodu i konfiguracji. Manifest usługi zawiera również pewne dodatkowe parametry, których można użyć do skonfigurowania usługi, po wdrożeniu.
-
-## <a name="application-package-file-structure"></a>Struktura pliku pakietu aplikacji
-Aby wdrożyć aplikację sieci szkieletowej usług, aplikacji powinien być zgodny struktury katalogów wstępnie zdefiniowane. Oto przykład tej struktury.
-
-```
-|-- ApplicationPackageRoot
-    |-- GuestService1Pkg
-        |-- Code
-            |-- existingapp.exe
-        |-- Config
-            |-- Settings.xml
-        |-- Data
-        |-- ServiceManifest.xml
-    |-- ApplicationManifest.xml
-```
-
-ApplicationPackageRoot zawiera pliku ApplicationManifest.xml, który definiuje aplikacji. Podkatalog dla poszczególnych usług zawartych w aplikacji jest używany do zawierają wszystkie artefakty wymagane przez usługę. Te podkatalogi są ServiceManifest.xml i zwykle następujące:
-
-* *Kod*. Ten katalog zawiera kodu usługi.
-* *Config*. Ten katalog zawiera pliku Settings.xml (i innych plików, jeśli to konieczne) czy usługa może uzyskać dostęp w czasie wykonywania można pobrać ustawień określonej konfiguracji.
-* *Dane*. Jest to dodatkowe katalog do przechowywania dodatkowych danych lokalnych, które usługa może być konieczne. Danych powinna być używana do przechowywania tylko danych tymczasowych. Sieć szkieletowa usług nie skopiować lub replikować zmiany do katalogu danych, jeśli usługi musi być przemieszczane (na przykład w trybie failover).
-
-> [!NOTE]
-> Nie trzeba tworzyć `config` i `data` katalogów, jeśli nie są potrzebne.
->
->
-
-## <a name="package-an-existing-executable"></a>Pakiet istniejącego pliku wykonywalnego
-Podczas pakowania pliku wykonywalnego gościa, można albo użyć szablonu projektu programu Visual Studio lub [ręcznie utworzyć pakiet aplikacji](#manually). Za pomocą programu Visual Studio, struktura pakietu aplikacji i pliki manifestu są tworzone przez nowy szablon projektu dla Ciebie.
+# <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pakiet, a następnie wdrożyć istniejącego pliku wykonywalnego sieci szkieletowej usług
+Podczas pakowania istniejącego pliku wykonywalnego jako [pliku wykonywalnego gościa](service-fabric-guest-executables-introduction.md), można wybrać jedną, aby użyć szablonu projektu programu Visual Studio lub [ręcznie utworzyć pakiet aplikacji](#manually). Za pomocą programu Visual Studio, struktura pakietu aplikacji i pliki manifestu są tworzone przez nowy szablon projektu dla Ciebie.
 
 > [!TIP]
 > Najprostszym sposobem pakietu Windows istniejącego pliku wykonywalnego do usługi jest użycie programu Visual Studio i w systemie Linux, aby użyć narzędzia Yeoman
@@ -91,13 +37,15 @@ Program Visual Studio udostępnia szablonu usługi Service Fabric ułatwiają wd
    * *Program* Określa plik wykonywalny, który powinien być wykonywany w celu uruchomienia usługi.
    * *Argumenty* Określa argumenty, które powinny być przekazywane do pliku wykonywalnego. Może być lista parametrów z argumentami.
    * *WorkingFolder* Określa katalog roboczy dla procesu, który ma zostać uruchomiony. Można określić trzy wartości:
-     * `CodeBase`Określa, że katalog roboczy ma można ustawić katalogu kodu w pakiecie aplikacji (`Code` katalog pokazywany w poprzednim struktury plików).
-     * `CodePackage`Określa, że katalog roboczy ma być ustawiany na katalog główny pakietu aplikacji (`GuestService1Pkg` pokazano w poprzednim struktury plików).
-     * `Work`Określa, czy pliki są umieszczane w podkatalogu o nazwie pracy.
+     * `CodeBase` Określa, że katalog roboczy ma można ustawić katalogu kodu w pakiecie aplikacji (`Code` katalog pokazywany w poprzednim struktury plików).
+     * `CodePackage` Określa, że katalog roboczy ma być ustawiany na katalog główny pakietu aplikacji (`GuestService1Pkg` pokazano w poprzednim struktury plików).
+     * `Work` Określa, czy pliki są umieszczane w podkatalogu o nazwie pracy.
 4. Nadaj nazwę usłudze i kliknij przycisk **OK**.
 5. Jeśli usługa wymaga punktu końcowego do komunikacji, protokół, port i typ można teraz dodać do pliku ServiceManifest.xml. Na przykład: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Można teraz za pomocą pakietu i opublikować akcji względem klastra lokalnego przez debugowanie rozwiązań w programie Visual Studio. Po wykonaniu tych czynności możesz opublikować aplikację do zdalnego klastra lub zaewidencjonować rozwiązanie do kontroli źródła.
-7. Przejdź na końcu tego artykułu, aby zobaczyć sposób wyświetlania pliku wykonywalnego usługi gościa w narzędziu Service Fabric Explorer.
+7. Odczyt [Sprawdź aplikację usługi uruchomione](#check-your-running-application) zobacz sposób wyświetlania pliku wykonywalnego usługi gościa w narzędziu Service Fabric Explorer.
+
+Na przykład wskazówki, zobacz [tworzenie pierwszej aplikacji pliku wykonywalnego gościa za pomocą programu Visual Studio](quickstart-guest-app.md).
 
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Użyj narzędzia Yeoman do pakietu i wdrażanie istniejącego pliku wykonywalnego w systemie Linux
 
@@ -192,7 +140,7 @@ Element elementu CodePackage Określa lokalizację (i wersji) kodu usługi.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-`Name` Elementu służy do określenia nazwy katalogu w pakiecie aplikacji, który zawiera kod usługi. `CodePackage`ma również `version` atrybutu. Może służyć do określania wersji kodu i może również służyć do uaktualniania kodu usługi za pomocą infrastruktury zarządzania cyklem życia aplikacji w sieci szkieletowej usług.
+`Name` Elementu służy do określenia nazwy katalogu w pakiecie aplikacji, który zawiera kod usługi. `CodePackage` ma również `version` atrybutu. Może służyć do określania wersji kodu i może również służyć do uaktualniania kodu usługi za pomocą infrastruktury zarządzania cyklem życia aplikacji w sieci szkieletowej usług.
 
 #### <a name="optional-update-setupentrypoint"></a>Opcjonalnie: SetupEntrypoint aktualizacji
 ```xml
@@ -208,7 +156,7 @@ Istnieje tylko jeden element SetupEntryPoint, więc skryptów instalacji koniecz
 
 W powyższym przykładzie element SetupEntryPoint uruchamia plik wsadowy o nazwie `LaunchConfig.cmd` znajdującej się w `scripts` podkatalogu w katalogu kodu (zakładając, że WorkingFolder element jest ustawiony na wartość CodeBase).
 
-#### <a name="update-entrypoint"></a>Aktualizowanie punktu wejścia
+#### <a name="update-entrypoint"></a>Update EntryPoint
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -221,12 +169,12 @@ W powyższym przykładzie element SetupEntryPoint uruchamia plik wsadowy o nazwi
 
 `EntryPoint` Elementu w pliku manifestu usługi służy do określenia sposobu uruchamiania usługi. `ExeHost` Element Określa plik wykonywalny (i argumenty) należy uruchomić usługę.
 
-* `Program`Określa nazwę pliku wykonywalnego, który należy uruchomić usługę.
-* `Arguments`Określa argumenty, które powinny być przekazywane do pliku wykonywalnego. Może być lista parametrów z argumentami.
-* `WorkingFolder`Określa katalog roboczy dla procesu, który ma zostać uruchomiony. Można określić trzy wartości:
-  * `CodeBase`Określa, że katalog roboczy ma można ustawić katalogu kodu w pakiecie aplikacji (`Code` katalogu w poprzednim struktury plików).
-  * `CodePackage`Określa, że katalog roboczy ma być ustawiany na katalog główny pakietu aplikacji (`GuestService1Pkg` w poprzednim struktury plików).
-    * `Work`Określa, czy pliki są umieszczane w podkatalogu o nazwie pracy.
+* `Program` Określa nazwę pliku wykonywalnego, który należy uruchomić usługę.
+* `Arguments` Określa argumenty, które powinny być przekazywane do pliku wykonywalnego. Może być lista parametrów z argumentami.
+* `WorkingFolder` Określa katalog roboczy dla procesu, który ma zostać uruchomiony. Można określić trzy wartości:
+  * `CodeBase` Określa, że katalog roboczy ma można ustawić katalogu kodu w pakiecie aplikacji (`Code` katalogu w poprzednim struktury plików).
+  * `CodePackage` Określa, że katalog roboczy ma być ustawiany na katalog główny pakietu aplikacji (`GuestService1Pkg` w poprzednim struktury plików).
+    * `Work` Określa, czy pliki są umieszczane w podkatalogu o nazwie pracy.
 
 WorkingFolder przydaje się do ustawienia poprawny katalog roboczy, aby ścieżek względnych mogą być używane przez skrypty aplikacji lub inicjowania.
 
@@ -240,7 +188,7 @@ WorkingFolder przydaje się do ustawienia poprawny katalog roboczy, aby ścieże
 W powyższym przykładzie `Endpoint` element określa punkty końcowe, które można nasłuchiwać aplikacji. W tym przykładzie aplikacji Node.js nasłuchuje http na porcie 3000.
 
 Ponadto można zadawać sieci szkieletowej usług, aby opublikować ten punkt końcowy Naming Service, inne usługi można odnaleźć adres punktu końcowego do tej usługi. Dzięki temu można mieć możliwości komunikacji między usługami, które są pliki wykonywalne gościa.
-Adres punktu końcowego opublikowanych ma postać `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme`i `PathSuffix` są opcjonalne atrybuty. `IPAddressOrFQDN`jest adresem IP lub nazwy FQDN węzła dotyczącymi pobiera tego pliku wykonywalnego, a jest obliczana automatycznie.
+Adres punktu końcowego opublikowanych ma postać `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme` i `PathSuffix` są opcjonalne atrybuty. `IPAddressOrFQDN` jest adresem IP lub nazwy FQDN węzła dotyczącymi pobiera tego pliku wykonywalnego, a jest obliczana automatycznie.
 
 W poniższym przykładzie, po wdrożeniu usługi Service Fabric Explorer jest widoczny podobne do punktu końcowego `http://10.1.4.92:3000/myapp/` opublikowany dla wystąpienia usługi. Lub jeśli jest to komputer lokalny, zobacz `http://localhost:3000/myapp/`.
 
@@ -292,11 +240,11 @@ Przekierowywanie konsoli można skonfigurować w `ServiceManifest.xml` plik za p
 </EntryPoint>
 ```
 
-`ConsoleRedirection`można przekierować dane wyjściowe konsoli (stdout i stderr) do katalogu roboczego. To pozwala, aby sprawdzić, czy podczas instalacji lub wykonanie aplikacji w klastrze usługi sieć szkieletowa nie ma żadnych błędów.
+`ConsoleRedirection` można przekierować dane wyjściowe konsoli (stdout i stderr) do katalogu roboczego. To pozwala, aby sprawdzić, czy podczas instalacji lub wykonanie aplikacji w klastrze usługi sieć szkieletowa nie ma żadnych błędów.
 
-`FileRetentionCount`Określa, ile plików są zapisywane w katalogu roboczym. Na przykład wartość 5, oznacza, że pliki dziennika dla poprzedniego wykonaniami pięć są przechowywane w katalogu roboczym.
+`FileRetentionCount` Określa, ile plików są zapisywane w katalogu roboczym. Na przykład wartość 5, oznacza, że pliki dziennika dla poprzedniego wykonaniami pięć są przechowywane w katalogu roboczym.
 
-`FileMaxSizeInKb`Określa maksymalny rozmiar plików dziennika.
+`FileMaxSizeInKb` Określa maksymalny rozmiar plików dziennika.
 
 Pliki dziennika są zapisywane w jednym z katalogów roboczych usługi. Aby określić, gdzie znajdują się pliki, użyj Eksploratora usługi sieć szkieletowa ustalenie, który węzeł usługa jest uruchomiona na i katalog roboczy, który jest używany. Ten proces jest uwzględnione w dalszej części tego artykułu.
 
@@ -345,7 +293,7 @@ Przejdź do katalogu za pomocą Eksploratora serwera można znaleźć katalogu r
 
 ![Lokalizacja dziennika](./media/service-fabric-deploy-existing-app/loglocation.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule zapoznaniu pakietu pliku wykonywalnego gościa i wdrożyć ją sieci szkieletowej usług. Zobacz następujące artykuły dla zadania i powiązane informacje.
 
 * [Przykład dla pakowanie i wdrażanie pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), łącznie z łączem do wstępną narzędzia pakowania

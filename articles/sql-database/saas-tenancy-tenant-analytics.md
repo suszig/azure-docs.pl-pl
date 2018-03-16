@@ -3,23 +3,19 @@ title: "Uruchom analytics między dzierżawcy przy użyciu wyodrębnione dane | 
 description: "Zapytania analityczne między dzierżawcy przy użyciu danych pobranych z wielu baz danych z bazy danych SQL Azure."
 keywords: "samouczek usługi sql database"
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: MightyPen
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/08/2017
-ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: sstein
+ms.reviewer: anjangsh; billgib; genemi
+ms.openlocfilehash: ff57bd054f3ff28662d3fd2eb46dca02e74af69b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analytics między dzierżawcy przy użyciu wyodrębnione dane
 

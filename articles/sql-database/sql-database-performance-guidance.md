@@ -2,24 +2,18 @@
 title: "Dostosowywanie wskazówki dotyczące wydajności bazy danych SQL Azure | Dokumentacja firmy Microsoft"
 description: "Informacje o używaniu zalecenia, aby zwiększyć wydajność przeszukiwania bazy danych SQL Azure."
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 63a8b9f8c81ad3dc122bf25d8a06cdf242a0f35b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Dostrajanie wydajności w bazie danych SQL Azure
 
@@ -262,7 +256,7 @@ Na przykład jeśli bazy danych ma nazwę odbiorcy, kolejność i szczegółów 
 
 Chociaż dzielenia na fragmenty bazy danych nie zmniejszyć pojemność zagregowanych danych zasobu dla rozwiązania, jest wysoce efektywne Obsługa bardzo dużych rozwiązań, które rozprzestrzeniają się przez wiele baz danych. Każda baza danych można uruchomić na poziomie różnych wydajności do obsługi bardzo duży, "skuteczne" bazy danych o wysokich wymaganiach dotyczących zasobów.
 
-### <a name="functional-partitioning"></a>Partycje funkcjonalne
+### <a name="functional-partitioning"></a>Partycjonowanie funkcjonalne
 Użytkownicy programu SQL Server często łączyć wiele funkcji w jednej bazie danych. Na przykład jeśli aplikacja ma logikę umożliwiającą zarządzanie zapasami magazynu, tej bazy danych może być logiki skojarzonej z magazynu śledzenia zakupów, procedury składowane i indeksowanych lub zmaterializowanych widoków, które Zarządzanie raportowaniem koniec miesiąca. Ta metoda ułatwia administrowanie operacje, takie jak Kopia zapasowa bazy danych, ale również wymaga rozmiaru sprzętu do obsługi obciążenia szczytowego we wszystkich funkcji aplikacji.
 
 Jeśli używasz skalowalność architektury w bazie danych SQL Azure jest dobrym rozwiązaniem jest podział różne funkcje aplikacji do różnych baz danych. Korzystając z tej techniki, każda aplikacja skaluje niezależnie. Aplikacji staje się coraz bardziej zajęty (i zwiększa obciążenie bazy danych), administrator może wybrać poziomy wydajności niezależne dla każdej funkcji aplikacji. Na granicy, z tej architektury aplikacji może być większy niż maszyny pojedynczego towaru może obsłużyć, ponieważ obciążenie pracą rozkłada się na wielu komputerach.

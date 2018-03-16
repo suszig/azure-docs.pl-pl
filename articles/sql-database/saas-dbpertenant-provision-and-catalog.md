@@ -3,24 +3,18 @@ title: "Udostępnianie nowej dzierżawy w aplikacji wielodostępnych, który uż
 description: "Informacje o sposobie obsługi administracyjnej i w katalogu nowych dzierżaw w wielodostępnych aplikacji SaaS bazy danych SQL Azure"
 keywords: "samouczek usługi sql database"
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Dowiedz się, jak udostępnić nowi dzierżawcy i zarejestruj je w katalogu
 
@@ -99,8 +93,8 @@ Aby zrozumieć, jak aplikacja biletów Wingtip implementuje nowej dzierżawy ini
 
 Poniżej przedstawiono nie kroki do wykonania w sposób jawny, lecz wyjaśnienie przepływu pracy, które można wykonywać krokowo podczas debugowania skryptu:
 
-1. **Zaimportuj moduł SubscriptionManagement.psm1**, który zawiera funkcje logowania się w usłudze Azure i wybierania używanej subskrypcji platformy Azure.
 1. **Zaimportuj moduł CatalogAndDatabaseManagement.psm1**, który tworzy warstwę abstrakcji wykazu i dzierżawy nad funkcjami [zarządzania fragmentami](sql-database-elastic-scale-shard-map-management.md). Ten moduł hermetyzuje znacznie wzorca katalogu i warto eksploracji.
+1. **Zaimportuj moduł SubscriptionManagement.psm1**, który zawiera funkcje logowania się w usłudze Azure i wybierania używanej subskrypcji platformy Azure.
 1. **Uzyskaj szczegółowe informacje o konfiguracji**. Wkrocz Get-konfiguracji (z F11) i zobacz, jak określono w konfiguracji aplikacji. Nazwy zasobów i inne wartości specyficzny dla aplikacji są zdefiniowane w tym miejscu, ale nie należy zmieniać tych wartości, dopóki nie znasz skryptów.
 1. **Pobierz obiekt wykazu**. Wkrocz Get-katalog, który Redaguj i zwraca obiekt katalogu, który jest używany w skrypcie wyższego poziomu.  Ta funkcja korzysta z funkcji zarządzania niezależnego fragmentu, które są importowane z **AzureShardManagement.psm1**. Obiekt katalogu składa się z następujących elementów:
    * $catalogServerFullyQualifiedName jest tworzony przy użyciu standardowych stem oraz nazwę użytkownika: _katalogu -\<użytkownika\>. database.windows .net_.

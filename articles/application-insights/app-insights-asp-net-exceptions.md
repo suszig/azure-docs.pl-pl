@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ee04fc3338dec7893f9f33322bd6b9af932199e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach sieci web za pomocą usługi Application Insights
 Wyjątki w aplikacji sieci web na żywo są zgłaszane przez [usługi Application Insights](app-insights-overview.md). Żądań zakończonych niepowodzeniem może być zgodne z wyjątków i innych zdarzeń klienta i serwera, dzięki czemu można szybko diagnozowania przyczyn.
@@ -102,7 +102,7 @@ Szczegóły żądania nie zawierają danych wysłanych do aplikacji w wywołaniu
 
 ![Drążenie wskroś](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="exceptions"></a>Przechwytywanie wyjątków i powiązane dane diagnostyczne
+## <a name="exceptions"></a> Przechwytywanie wyjątków i powiązane dane diagnostyczne
 Na początku nie będą widzieć w portalu wszystkie wyjątki, które spowodować awarię aplikacji. Zobaczysz wszystkie wyjątki przeglądarki (Jeśli używasz [JavaScript SDK](app-insights-javascript.md) na stronach sieci web). Jednak większość serwera wyjątki są przechwytywane przez usługi IIS i trzeba napisać z bitowego kodu w celu zapoznania się z nimi.
 
 Możesz:
@@ -113,8 +113,7 @@ Możesz:
 ## <a name="reporting-exceptions-explicitly"></a>Raportowanie jawnie wyjątków
 Najprostszym sposobem jest aby wstawić wywołań funkcji trackexception() obsługi wyjątków.
 
-JavaScript
-
+```javascript
     try
     { ...
     }
@@ -124,9 +123,9 @@ JavaScript
         {Game: currentGame.Name,
          State: currentGame.State.ToString()});
     }
+```
 
-C#
-
+```csharp
     var telemetry = new TelemetryClient();
     ...
     try
@@ -144,9 +143,9 @@ C#
        // Send the exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
+```
 
-VB
-
+```VB
     Dim telemetry = New TelemetryClient
     ...
     Try
@@ -162,6 +161,7 @@ VB
       ' Send the exception telemetry:
       telemetry.TrackException(ex, properties, measurements)
     End Try
+```
 
 Właściwości i pomiarów parametry są opcjonalne, ale są przydatne w przypadku [filtrowanie i dodawanie](app-insights-diagnostic-search.md) dodatkowe informacje. Na przykład jeśli aplikację można uruchomić kilka gier, można znaleźć wszystkie raporty wyjątek związane z określonym gier. Możesz dodać dowolną liczbę elementów jak do każdego słownika.
 
@@ -175,8 +175,7 @@ W przypadku formularzy sieci web modułu HTTP będzie można zebrać wyjątki, k
 
 Ale jeśli masz active przekierowania, Dodaj następujące wiersze do funkcji Application_Error w Global.asax.cs. (Dodaj plik Global.asax, jeśli nie został wcześniej).
 
-*C#*
-
+```csharp
     void Application_Error(object sender, EventArgs e)
     {
       if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
@@ -186,11 +185,28 @@ Ale jeśli masz active przekierowania, Dodaj następujące wiersze do funkcji Ap
          ai.TrackException(Server.GetLastError());
       }
     }
-
+```
 
 ## <a name="mvc"></a>MVC
+Począwszy od zestawu SDK aplikacji informacje na temat technologii sieci Web w wersji 2.6 (beta3 i nowszych), usługi Application Insights zbiera nieobsługiwany wyjątki zgłaszane w metodach 5 + kontrolerów MVC automatycznie. Jeśli wcześniej dodano niestandardowego programu obsługi, aby śledzić takie wyjątki (zgodnie z opisem w poniższych przykładach), można usunąć go w celu uniemożliwienia podwójne śledzenia wyjątków.
+
+Istnieje wiele przypadków, które nie obsługują filtry wyjątków. Na przykład:
+
+* Wyjątki generowane z konstruktorami kontrolera.
+* Wyjątków zgłaszanych przez programy obsługi wiadomości.
+* Wyjątki generowane podczas routingu.
+* Wyjątki generowane podczas serializacji treści odpowiedzi.
+* Zgłoszono wyjątek podczas uruchamiania aplikacji.
+* Wystąpił wyjątek przy zadania w tle.
+
+Wszystkie wyjątki *obsługiwane* przez aplikację nadal muszą być śledzone ręcznie. Nieobsługiwane wyjątki pochodzące z kontrolerów zazwyczaj wynikiem odpowiedzi 500 "Wewnętrzny błąd serwera". Jeśli takie odpowiedzi jest ręcznie utworzone w wyniku obsłużył wyjątek (lub żaden wyjątek wcale) są śledzone w odpowiednie dane telemetryczne żądania z `ResultCode` 500, jednak zestaw SDK usługi Application Insights nie może śledzić odpowiednich wyjątków.
+
+### <a name="prior-versions-support"></a>Obsługuje poprzednie wersje
+Jeśli używasz MVC 4 (i przed) Application Insights sieci Web zestawu SDK 2.5 (i przed), zapoznaj się następujące przykłady śledzić wyjątki.
+
 Jeśli [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) konfiguracja jest `Off`, a następnie wyjątki będą dostępne dla [moduł HTTP](https://msdn.microsoft.com/library/ms178468.aspx) do zbierania. Jednak jeśli jest `RemoteOnly` (ustawienie domyślne) lub `On`, a następnie wyjątek zostanie wyczyszczony i nie są dostępne dla usługi Application Insights w celu automatycznego zbierania. Możesz rozwiązać ten problem, zastępowanie [klasy System.Web.Mvc.HandleErrorAttribute](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)i stosowanie przesłoniętych klasy, jak pokazano poniżej różnych wersji MVC ([źródła github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
+```csharp
     using System;
     using System.Web.Mvc;
     using Microsoft.ApplicationInsights;
@@ -215,22 +231,26 @@ Jeśli [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) konfigur
         }
       }
     }
+```
 
 #### <a name="mvc-2"></a>MVC 2
 Zastąp atrybutu HandleError Twojego nowy atrybut w kontrolerach.
 
+```csharp
     namespace MVC2App.Controllers
     {
        [AiHandleError]
        public class HomeController : Controller
        {
     ...
+```
 
-[Próbki](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[próbki](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Zarejestruj `AiHandleErrorAttribute` jako filtr globalny w Global.asax.cs:
 
+```csharp
     public class MyMvcApplication : System.Web.HttpApplication
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -238,12 +258,14 @@ Zarejestruj `AiHandleErrorAttribute` jako filtr globalny w Global.asax.cs:
          filters.Add(new AiHandleErrorAttribute());
       }
      ...
+```
 
-[Próbki](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[próbki](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 AiHandleErrorAttribute rejestru jako filtr globalny w FilterConfig.cs:
 
+```csharp
     public class FilterConfig
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -252,12 +274,31 @@ AiHandleErrorAttribute rejestru jako filtr globalny w FilterConfig.cs:
         filters.Add(new AiHandleErrorAttribute());
       }
     }
+```
 
-[Próbki](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[próbki](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
-## <a name="web-api-1x"></a>Interfejs API sieci Web 1.x
-Zastąp System.Web.Http.Filters.ExceptionFilterAttribute:
+## <a name="web-api"></a>Interfejs API sieci Web
+Począwszy od zestawu SDK aplikacji informacje na temat technologii sieci Web w wersji 2.6 (beta3 i nowszych), usługi Application Insights zbiera nieobsługiwanych wyjątków zgłoszonych w metodach kontrolera automatycznie dla WebAPI 2 +. Jeśli wcześniej dodano niestandardowego programu obsługi, aby śledzić takie wyjątki (zgodnie z opisem w poniższych przykładach), można usunąć go w celu uniemożliwienia podwójne śledzenia wyjątków.
 
+Istnieje wiele przypadków, które nie obsługują filtry wyjątków. Na przykład:
+
+* Wyjątki generowane z konstruktorami kontrolera.
+* Wyjątków zgłaszanych przez programy obsługi wiadomości.
+* Wyjątki generowane podczas routingu.
+* Wyjątki generowane podczas serializacji treści odpowiedzi.
+* Zgłoszono wyjątek podczas uruchamiania aplikacji.
+* Wystąpił wyjątek przy zadania w tle.
+
+Wszystkie wyjątki *obsługiwane* przez aplikację nadal muszą być śledzone ręcznie. Nieobsługiwane wyjątki pochodzące z kontrolerów zazwyczaj wynikiem odpowiedzi 500 "Wewnętrzny błąd serwera". Jeśli takie odpowiedzi jest ręcznie utworzone w wyniku obsłużył wyjątek (lub żaden wyjątek wcale) są śledzone w odpowiednie dane telemetryczne żądania z `ResultCode` 500, jednak zestaw SDK usługi Application Insights nie może śledzić odpowiednich wyjątków.
+
+### <a name="prior-versions-support"></a>Obsługuje poprzednie wersje
+Jeśli używasz WebAPI 1 (i przed) Application Insights sieci Web zestawu SDK 2.5 (i przed), zapoznaj się następujące przykłady śledzić wyjątki.
+
+#### <a name="web-api-1x"></a>Interfejs API sieci Web 1.x
+Override System.Web.Http.Filters.ExceptionFilterAttribute:
+
+```csharp
     using System.Web.Http.Filters;
     using Microsoft.ApplicationInsights;
 
@@ -276,9 +317,11 @@ Zastąp System.Web.Http.Filters.ExceptionFilterAttribute:
         }
       }
     }
+```
 
 Możesz dodać ten atrybut przesłoniętej do określonych kontrolerów lub dodać je do konfiguracji filtrów globalnych klasy WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using WebApi1.x.App_Start;
 
@@ -298,19 +341,14 @@ Możesz dodać ten atrybut przesłoniętej do określonych kontrolerów lub doda
         }
       }
     }
+```
 
-[Próbki](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[próbki](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Istnieje wiele przypadków, które nie obsługują filtry wyjątków. Na przykład:
-
-* Wyjątki generowane z konstruktorami kontrolera.
-* Wyjątków zgłaszanych przez programy obsługi wiadomości.
-* Wyjątki generowane podczas routingu.
-* Wyjątki generowane podczas serializacji treści odpowiedzi.
-
-## <a name="web-api-2x"></a>Interfejs API sieci Web 2.x
+#### <a name="web-api-2x"></a>Interfejs API sieci Web 2.x
 Dodaj implementacji interfejsu IExceptionLogger:
 
+```csharp
     using System.Web.Http.ExceptionHandling;
     using Microsoft.ApplicationInsights;
 
@@ -329,9 +367,11 @@ Dodaj implementacji interfejsu IExceptionLogger:
         }
       }
     }
+```
 
 Dodaj ją do usług w WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
     using ProductsAppPureWebAPI.App_Start;
@@ -355,9 +395,10 @@ Dodaj ją do usług w WebApiConfig:
             config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger());
         }
       }
-  }
+     }
+```
 
-[Próbki](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[próbki](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Opis rozwiązań alternatywnych można:
 
@@ -367,6 +408,7 @@ Opis rozwiązań alternatywnych można:
 ## <a name="wcf"></a>WCF
 Dodaj klasę Attribute i implementującą interfejsy IErrorHandler i IServiceBehavior.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -416,7 +458,7 @@ Dodaj klasę Attribute i implementującą interfejsy IErrorHandler i IServiceBeh
       }
     }
 
-Dodaj atrybut do implementacji usługi:
+Add the attribute to the service implementations:
 
     namespace WcfService4
     {
@@ -424,8 +466,9 @@ Dodaj atrybut do implementacji usługi:
         public class Service1 : IService1
         {
          ...
+```
 
-[Próbki](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[próbki](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Liczniki wydajności wyjątku
 Jeśli masz [zainstalować agenta programu Application Insights](app-insights-monitor-performance-live-website-now.md) na serwerze, można uzyskać wykres wyjątki szybkości, mierząc .NET. Dotyczy to zarówno obsłużonych i nieobsłużonych wyjątków .NET.

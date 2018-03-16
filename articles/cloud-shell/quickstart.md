@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: 3f605645e7a53f285cb7e508034ebab0daa0d335
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e48c54216c5c4ae8e53d4802aafce8883ee97c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Szybki Start dla Bash w chmurze Azure powłoki
 
@@ -28,53 +28,74 @@ Ten dokument zawiera szczegóły dotyczące używania Bash w powłoce chmury Azu
 > A [programu PowerShell w powłoce chmury Azure](quickstart-powershell.md) szybkiego startu jest również dostępna.
 
 ## <a name="start-cloud-shell"></a>Uruchom powłokę chmury
-1. Uruchom **powłoki chmury** w górnym menu nawigacyjnym portalu Azure <br>
+1. Uruchom **powłoki chmury** w górnym menu nawigacyjnym portalu Azure. <br>
 ![](media/quickstart/shell-icon.png)
-2. Wybierz subskrypcję, aby utworzyć konto magazynu i udostępniać pliki programu Microsoft Azure
+
+2. Wybierz subskrypcję, aby utworzyć konto magazynu i udostępniać pliki programu Microsoft Azure.
 3. Wybierz opcję "Utwórz magazyn"
 
 > [!TIP]
-> Azure CLI 2.0 są automatycznie uwierzytelniani w każdym sesssion.
+> Azure CLI 2.0 są automatycznie uwierzytelniani w każdej sesji.
 
 ### <a name="select-the-bash-environment"></a>Wybierz środowisko Bash
-1. Wybierz środowisko rozwijanej z lewej strony okna powłoki <br>
+Sprawdź, czy środowisko listy rozwijanej z lewej strony okna powłoki mówi `Bash`. <br>
 ![](media/quickstart/env-selector.png)
-2. Wybierz Bash
 
 ### <a name="set-your-subscription"></a>Ustaw swoją subskrypcję
-1. Subskrypcje listy, do których masz dostęp do: <br>
-`az account list`
+1. Subskrypcje listy, do których masz dostęp do.
+```azurecli-interactive
+az account list
+```
+
 2. Ustaw preferowany subskrypcji: <br>
-`az account set --subscription my-subscription-name`
+```azurecli-interactive
+az account set --subscription my-subscription-name`
+```
 
 > [!TIP]
 > Subskrypcja zostanie zapamiętany dla przyszłych sesji przy użyciu `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
-Utwórz nową grupę zasobów w WestUS o nazwie "MyRG": <br>
-`az group create -l westus -n MyRG` <br>
+Utwórz nową grupę zasobów w WestUS o nazwie "MyRG".
+```azurecli-interactive
+az group create --location westus --name MyRG
+```
 
 ### <a name="create-a-linux-vm"></a>Tworzenie maszyny wirtualnej z systemem Linux
-Tworzenie maszyny Wirtualnej systemu Ubuntu w nowej grupy zasobów. Azure CLI 2.0 tworzenie kluczy SSH, a następnie skonfigurować maszynę Wirtualną z nimi. <br>
-`az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
+Tworzenie maszyny Wirtualnej systemu Ubuntu w nowej grupy zasobów. Azure CLI 2.0 tworzenie kluczy SSH, a następnie skonfigurowanie maszyny Wirtualnej z nimi. <br>
+
+```azurecli-interactive
+az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
+```
 
 > [!NOTE]
-> Klucze publiczne i prywatne używane do uwierzytelniania maszyny Wirtualnej są umieszczane w `/home/<user>/.ssh/id_rsa` i `/home/<user>/.ssh/id_rsa.pub` przez Azure CLI 2.0 domyślnie. Folderu .ssh jest utrwalona w obrazie 5 GB na dołączonych udział plików Azure.
+> Przy użyciu `--generate-ssh-keys` nakazuje 2.0 interfejsu wiersza polecenia Azure, aby utworzyć i skonfigurować klucze publiczne i prywatne w maszynie Wirtualnej i `$Home` katalogu. Domyślnie klucze są umieszczane w chmurze powłoki w `/home/<user>/.ssh/id_rsa` i `/home/<user>/.ssh/id_rsa.pub`. Twoje `.ssh` folder jest utrwalona w obrazie 5 GB na udział załączonego pliku użytą do utrwalenia `$Home`.
 
 Nazwa użytkownika na tej maszynie Wirtualnej zostanie nazwy użytkownika używane w chmurze powłoki ($User@Azure:).
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH do maszyny Wirtualnej systemu Linux
-1. Wyszukaj nazwę maszyny Wirtualnej na pasku wyszukiwania portalu Azure
-2. Kliknij przycisk "Połącz", a następnie uruchom: `ssh username@ipaddress`
-
+1. Wyszukaj nazwę maszyny Wirtualnej na pasku wyszukiwania portalu Azure.
+2. Kliknij przycisk "Połącz", aby pobrać swoją nazwę maszyny Wirtualnej i publiczny adres IP. <br>
 ![](media/quickstart/sshcmd-copy.png)
+
+3. SSH z maszyną wirtualną z `ssh` cmd.
+```
+ssh username@ipaddress
+```
 
 Podczas ustanawiania połączenia SSH, powinien zostać wyświetlony monit powitalnej Ubuntu. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Czyszczenie 
-Usunięcie grupy zasobów i wszystkie zasoby w niej: <br>
-Uruchom polecenie `az group delete -n MyRG`
+1. Zakończ użytkownika ssh sesji.
+```azurecli-interactive
+exit
+```
+
+2. Usunięcie grupy zasobów i wszystkie zasoby w niej.
+```azurecli-interactive
+Run `az group delete -n MyRG`
+```
 
 ## <a name="next-steps"></a>Kolejne kroki
 [Więcej informacji na temat plików utrwalanie dla Bash w powłoce chmury](persisting-shell-storage.md) <br>
