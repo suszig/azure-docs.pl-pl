@@ -4,7 +4,7 @@ description: "Przy użyciu projektanta widoków analizy dzienników, można twor
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 6fd19cce955e1f06c9b6f5a9ef5d85d9fd63c1c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Podręcznik projektanta widoków części wizualizacji analizy dzienników
 Przy użyciu projektanta widoków Analiza dzienników Azure, można tworzyć widoki niestandardowe w portalu Azure, która przedstawia różne wizualizacje danych z obszaru roboczego analizy dzienników. W tym artykule jest przewodnik odwołanie do ustawienia dla części wizualizacji, które są dostępne w niestandardowych widoków.
@@ -28,21 +28,19 @@ Aby uzyskać więcej informacji na temat Projektant widoków zobacz:
 * [Wyświetl projektanta](log-analytics-view-designer.md): zawiera omówienie projektanta widoków i procedur tworzenia i edytowania widoków niestandardowych.
 * [Kafelek odwołanie](log-analytics-view-designer-tiles.md): zawiera odwołanie do ustawienia dla każdego kafelka dostępne w niestandardowych widoków.
 
->[!NOTE]
-> Jeśli został uaktualniony do obszaru roboczego [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), zapytania we wszystkich widokach musi być napisana w [nowy język kwerendy](https://go.microsoft.com/fwlink/?linkid=856078). Wszystkie widoki, które zostały utworzone przed uaktualnieniem obszaru roboczego są konwertowane automatycznie.
 
 W poniższej tabeli opisano dostępne typy kafelka Projektant widoków:
 
 | Typ widoku | Opis |
 |:--- |:--- |
 | [Listy zapytań](#list-of-queries-part) |Wyświetla listę dziennika zapytania wyszukiwania. Możesz wybrać każdego zapytania, aby wyświetlić wyniki. |
-| [Liczba i listy](#number-amp-list-part) |Nagłówek zawiera jeden numer, który pokazuje liczbę rekordów dziennika zapytania wyszukiwania. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
-| [Dwie liczb i listy](#two-numbers-amp-list-part) |Nagłówek przedstawia dwóch liczb przedstawiających liczby rekordów dziennika oddzielne zapytania wyszukiwania. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
-| [Pierścień i listy](#donut-amp-list-part) |Nagłówek przedstawia jeden numer sumującą wartości kolumny w zapytaniu dziennika. Pierścień graficznie wyświetla wyniki top trzy rekordów. |
-| [Dwóch osiach czasu i listy](#two-timelines-amp-list-part) |Nagłówek wyświetla wyniki dwa zapytania dziennika w czasie, gdy wykresy kolumnowe z objaśnienia wyświetlający jeden numer sumującą wartości kolumny w zapytaniu dziennika. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
+| [Liczba i listy](#number-and-list-part) |Nagłówek zawiera jeden numer, który pokazuje liczbę rekordów dziennika zapytania wyszukiwania. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
+| [Dwie liczb i listy](#two-numbers-and-list-part) |Nagłówek przedstawia dwóch liczb przedstawiających liczby rekordów dziennika oddzielne zapytania wyszukiwania. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
+| [Pierścień i listy](#donut-and-list-part) |Nagłówek przedstawia jeden numer sumującą wartości kolumny w zapytaniu dziennika. Pierścień graficznie wyświetla wyniki top trzy rekordów. |
+| [Dwóch osiach czasu i listy](#two-timelines-and-list-part) |Nagłówek wyświetla wyniki dwa zapytania dziennika w czasie, gdy wykresy kolumnowe z objaśnienia wyświetlający jeden numer sumującą wartości kolumny w zapytaniu dziennika. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
 | [Informacje](#information-part) |Nagłówek Wyświetla tekst statyczny oraz opcjonalnie łącza. Lista zawiera jeden lub więcej elementów z tytułu statyczne i tekst. |
-| [Wykres liniowy, objaśnienia i listy](#line-chart-callout-amp-list-part) |Nagłówek przedstawia wykres liniowy z wielu serii z dziennika zapytanie dotyczące czasu i objaśnienie z podsumowaniem wartości. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
-| [Wykres liniowy i listy](#line-chart-amp-list-part) |Nagłówek przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika wraz z upływem czasu. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
+| [Wykres liniowy, objaśnienia i listy](#line-chart-callout-and-list-part) |Nagłówek przedstawia wykres liniowy z wielu serii z dziennika zapytanie dotyczące czasu i objaśnienie z podsumowaniem wartości. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
+| [Wykres liniowy i listy](#line-chart-and-list-part) |Nagłówek przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika wraz z upływem czasu. Na liście zostaną wyświetlone najwyższego dziesięć wyniki zapytania wykresu, który określa względne wartości liczbowej lub zmian w czasie. |
 | [Stos część wykresów wiersza](#stack-of-line-charts-part) |Wyświetla trzech oddzielnych z wykresami liniowymi, wielu serii w wyniku zapytania dziennika wraz z upływem czasu. |
 
 Kolejne sekcje opisują typy kafelków i ich właściwości szczegółowo.
@@ -78,13 +76,14 @@ Nagłówek zawiera jeden numer, który pokazuje liczbę rekordów dziennika zapy
 | **Tytuł** | |
 | Legenda |Tekst, który jest wyświetlany w górnej części nagłówka. |
 | Zapytanie |Zapytania w celu uruchomienia nagłówka. Liczba rekordów, które są zwracane przez zapytanie zostanie wyświetlona. |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Lista** | |
 | Zapytanie |Zapytania w celu uruchomienia dla listy. Wyświetlane są dwa pierwsze właściwości pierwszych dziesięciu rekordów w wynikach. Pierwszą właściwością jest wartość tekstową, a drugą właściwością jest wartość liczbowa. Paski są tworzone automatycznie oparte na względnej wartości kolumny liczbowej.<br><br>Użyj `Sort` polecenia w zapytaniu, aby posortować rekordy na liście. Aby uruchomić zapytanie i przywrócić wszystkie rekordy, można wybrać **zobaczyć wszystkie**. |
 | Ukryj wykresu |Wybierz to łącze, aby wyłączyć wykres z prawej strony kolumny liczbowej. |
 | Włącz wykresy przebiegu w czasie |Wybierz ten link, aby wyświetlić wykres przebiegu w czasie zamiast poziomy pasek. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Kolor |Kolor słupków lub wykresy przebiegu w czasie. |
 | Nazwa i wartość separatora |Ogranicznik na potrzeby analizy właściwości text w wielu wartości. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
-| Zapytanie nawigacji |Zapytanie do uruchomienia po wybraniu elementu na liście. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#navigation-query). |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknij element na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Lista** |**> Tytuły kolumn** |
 | Name (Nazwa) |Tekst, który jest wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst, który jest wyświetlany w górnej części drugiej kolumny. |
@@ -103,6 +102,8 @@ Nagłówek ma dwie liczb, zawierające liczbę rekordów dziennika oddzielne zap
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, zaczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wynik w nagłówku. |
 | Użyj ikony |Wybierz ten link, aby wyświetlić ikonę. |
+| **Tytuł nawigacji** | |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Tytuł** | |
 | Legenda |Tekst, który jest wyświetlany w górnej części nagłówka. |
 | Zapytanie |Zapytania w celu uruchomienia nagłówka. Liczba rekordów, które są zwracane przez zapytanie zostanie wyświetlona. |
@@ -113,7 +114,7 @@ Nagłówek ma dwie liczb, zawierające liczbę rekordów dziennika oddzielne zap
 | Kolor |Kolor słupków lub wykresy przebiegu w czasie. |
 | Operacja |Operacja do wykonania dla przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nazwa i wartość separatora |Ogranicznik na potrzeby analizy właściwości text w wielu wartości. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
-| Zapytanie nawigacji |Zapytanie do uruchomienia po wybraniu elementu na liście. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#navigation-query). |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknij element na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Lista** |**> Tytuły kolumn** |
 | Name (Nazwa) |Tekst, który jest wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst, który jest wyświetlany w górnej części drugiej kolumny. |
@@ -137,6 +138,7 @@ Nagłówek przedstawia jeden numer sumującą wartości kolumny w zapytaniu dzie
 | Podtytuł |Tekst, który jest wyświetlany w obszarze tytuł u góry nagłówka. |
 | **pierścień** | |
 | Zapytanie |Zapytanie, które mają działać pierścień. Pierwszą właściwością jest wartość tekstową, a drugą właściwością jest wartość liczbowa. |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **pierścień** |**> Center** |
 | Tekst |Tekst, który jest wyświetlany w obszarze wartość w pierścień. |
 | Operacja |Operacja do wykonania na wartość właściwości Podsumowując jako pojedyncza wartość.<ul><li>Sum: Dodaje wartości wszystkich rekordów.</li><li>Wartość procentowa: Stosunek rekordów zwróconych przez wartości **powoduje wartości używana podczas operacji centrum** całkowita liczba rekordów w zapytaniu.</li></ul> |
@@ -153,7 +155,7 @@ Nagłówek przedstawia jeden numer sumującą wartości kolumny w zapytaniu dzie
 | Kolor |Kolor słupków lub wykresy przebiegu w czasie. |
 | Operacja |Operacja do wykonania dla przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nazwa i wartość separatora |Ogranicznik na potrzeby analizy właściwości text w wielu wartości. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
-| Zapytanie nawigacji |Zapytanie do uruchomienia po wybraniu elementu na liście. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#navigation-query). |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknij element na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Lista** |**> Tytuły kolumn** |
 | Name (Nazwa) |Tekst, który jest wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst, który jest wyświetlany w górnej części drugiej kolumny. |
@@ -172,6 +174,8 @@ Nagłówek wyświetla wyniki dwa zapytania dziennika w czasie, gdy wykresy kolum
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, zaczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wynik w nagłówku. |
 | Użyj ikony |Wybierz ten link, aby wyświetlić ikonę. |
+| **Tytuł nawigacji** | |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Najpierw wykresu<br>drugi wykresu** | |
 | Legenda |Tekst, który jest wyświetlany w obszarze objaśnienia pierwszy serii. |
 | Kolor |Kolor używany do kolumn w serii. |
@@ -183,7 +187,7 @@ Nagłówek wyświetla wyniki dwa zapytania dziennika w czasie, gdy wykresy kolum
 | Włącz wykresy przebiegu w czasie |Wybierz ten link, aby wyświetlić wykres przebiegu w czasie zamiast poziomy pasek. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Kolor |Kolor słupków lub wykresy przebiegu w czasie. |
 | Operacja |Operacja do wykonania dla przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
-| Zapytanie nawigacji |Zapytanie do uruchomienia po wybraniu elementu na liście. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#navigation-query). |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknij element na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Lista** |**> Tytuły kolumn** |
 | Name (Nazwa) |Tekst, który jest wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst, który jest wyświetlany w górnej części drugiej kolumny. |
@@ -228,6 +232,7 @@ Nagłówek przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika
 | Podtytuł |Tekst, który jest wyświetlany w obszarze tytuł u góry nagłówka. |
 | **Wykres liniowy** | |
 | Zapytanie |Zapytania w celu uruchomienia wykresu liniowego. Pierwszą właściwością jest wartość tekstową, a drugą właściwością jest wartość liczbowa. To zapytanie zazwyczaj używa *miary* — słowo kluczowe do podsumowania wyników. Jeśli zapytanie używa *interwał* — słowo kluczowe, osi x wykresu używa tego przedziału czasu. Jeśli zapytanie nie obejmuje *interwał* — słowo kluczowe, przedziały co godzinę używa osi x. |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Wykres liniowy** |**> Objaśnienie** |
 | Tytuł objaśnienia |Tekst, który jest wyświetlany powyżej wartości objaśnienia. |
 | Nazwa serii |Wartość właściwości serii użyć wartości objaśnienia. W przypadku serii nie są używane wszystkie rekordy z zapytania. |
@@ -243,7 +248,7 @@ Nagłówek przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika
 | Kolor |Kolor słupków lub wykresy przebiegu w czasie. |
 | Operacja |Operacja do wykonania dla przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nazwa i wartość separatora |Ogranicznik na potrzeby analizy właściwości text w wielu wartości. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
-| Zapytanie nawigacji |Zapytanie do uruchomienia po wybraniu elementu na liście. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#navigation-query). |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknij element na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Lista** |**> Tytuły kolumn** |
 | Name (Nazwa) |Tekst, który jest wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst, który jest wyświetlany w górnej części drugiej kolumny. |
@@ -267,6 +272,7 @@ Nagłówek przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika
 | Podtytuł |Tekst, który jest wyświetlany w obszarze tytuł u góry nagłówka. |
 | **Wykres liniowy** | |
 | Zapytanie |Zapytania w celu uruchomienia wykresu liniowego. Pierwszą właściwością jest wartość tekstową, a drugą właściwością jest wartość liczbowa. To zapytanie zazwyczaj używa *miary* — słowo kluczowe do podsumowania wyników. Jeśli zapytanie używa *interwał* — słowo kluczowe, osi x wykresu używa tego przedziału czasu. Jeśli zapytanie nie obejmuje *interwał* — słowo kluczowe, przedziały co godzinę używa osi x. |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Wykres liniowy** |**> Oś y** |
 | Użyj skali logarytmicznej |Wybierz ten link do użycia skali logarytmicznej dla osi y. |
 | Jednostki |Określ jednostki dla wartości zwracanej przez zapytanie. Te informacje są używane do wyświetlania etykiet wykresu, wskazujące typy wartości i, opcjonalnie, aby przekonwertować wartości. *Jednostki* typu określa kategorię jednostki i definiuje dostępnych *bieżącej jednostce* typu wartości. W przypadku wybrania wartości w *Konwertuj na*, wartości liczbowe są konwertowane z *bieżącej jednostce* typ *przekonwertować* typu. |
@@ -278,7 +284,7 @@ Nagłówek przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika
 | Kolor |Kolor słupków lub wykresy przebiegu w czasie. |
 | Operacja |Operacja do wykonania dla przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nazwa i wartość separatora |Ogranicznik na potrzeby analizy właściwości text w wielu wartości. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
-| Zapytanie nawigacji |Zapytanie do uruchomienia po wybraniu elementu na liście. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#navigation-query). |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknij element na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Lista** |**> Tytuły kolumn** |
 | Name (Nazwa) |Tekst, który jest wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst, który jest wyświetlany w górnej części drugiej kolumny. |
@@ -301,6 +307,7 @@ Stos wykres liniowy Wyświetla trzech oddzielnych z wykresami liniowymi, wielu s
 | Podtytuł |Tekst, który jest wyświetlany w polu Tytuł w górnej części wykresu. |
 | **Wykres 1<br>wykresu 2<br>wykresu 3** |**Wykres liniowy** |
 | Zapytanie |Zapytania w celu uruchomienia wykresu liniowego. Pierwszą właściwością jest wartość tekstową, a drugą właściwością jest wartość liczbowa. To zapytanie zazwyczaj używa *miary* — słowo kluczowe do podsumowania wyników. Jeśli zapytanie używa *interwał* — słowo kluczowe, osi x wykresu używa tego przedziału czasu. Jeśli zapytanie nie obejmuje *interwał* — słowo kluczowe, przedziały co godzinę używa osi x. |
+| Kliknij przycisk przeglądania nawigacji | Akcja podejmowana, gdy kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Wykres** |**> Oś y** |
 | Użyj skali logarytmicznej |Wybierz ten link do użycia skali logarytmicznej dla osi y. |
 | Jednostki |Określ jednostki dla wartości zwracanej przez zapytanie. Te informacje są używane do wyświetlania etykiet wykresu, wskazujące typy wartości i, opcjonalnie, aby przekonwertować wartości. *Jednostki* typu określa kategorię jednostki i definiuje dostępnych *bieżącej jednostce* typu wartości. W przypadku wybrania wartości w *Konwertuj na*, wartości liczbowe są konwertowane z *bieżącej jednostce* typ *przekonwertować* typu. |
@@ -314,10 +321,18 @@ Nazwa i wartość separatora jest ogranicznik na potrzeby analizy właściwości
 
 Rozważmy na przykład właściwość o nazwie *lokalizacji* który dostępnych wartości takich jak *41 budowania Redmond* i *12 budowania Bellevue*. Łączniki (-) można określić nazwę i wartość separatora i *budowania miast* dla nazwy. Takie podejście analizuje każdej wartości w dwie właściwości o nazwie *miasta* i *budynku*.
 
-### <a name="navigation-query"></a>Zapytanie nawigacji
-Zapytanie nawigacji jest zapytania do uruchomienia po wybraniu elementu na liście. Użyj *{wybranego elementu}* uwzględnienie składnia elementu wybranego użytkownika.
+### <a name="click-through-navigation"></a>Kliknij przycisk przeglądania nawigacji
+Kliknięć nawigacji definiuje, jakie działania zostaną wykonane po kliknięciu nagłówka lub listy elementu w widoku.  Spowoduje to otwarcie albo kwerendy w [dziennik wyszukiwania portalu](log-analytics-log-search-portals.md#log-search) lub uruchom innego widoku.
 
-Na przykład, jeśli zapytanie zawiera kolumnę o nazwie *komputera* zapytanie nawigacji *{wybranego elementu}*, zapytania, takie jak *komputer = "Mój komputer"* jest uruchamiany po wybraniu komputer. Jeśli zapytanie nawigacji jest *typu = zdarzeń {wybranego elementu}*, zapytanie *typu = zdarzeń komputer = "Mój komputer"* jest uruchamiany.
+W poniższej tabeli opisano ustawienia kliknięć nawigacji.
+
+| Ustawienie           | Opis |
+|:--|:--|
+| Dziennik wyszukiwania (automatycznie) | Dziennik wyszukiwania do uruchomienia po wybraniu elementu nagłówka.  To jest tym samym wyszukiwania dziennika, na podstawie elementu.
+| Przeszukiwanie dzienników        | Dziennik wyszukiwania do uruchomienia po wybraniu elementu na liście.  Wpisz kwerendę do **zapytania nawigacji** pole.   Użyj *{wybranego elementu}* uwzględnienie składnia elementu wybranego użytkownika.  Na przykład, jeśli zapytanie zawiera kolumnę o nazwie *komputera* zapytanie nawigacji *{wybranego elementu}*, zapytania, takie jak *komputer = "Mój komputer"* jest uruchamiany po wybraniu komputer. Jeśli zapytanie nawigacji jest *typu = zdarzeń {wybranego elementu}*, zapytanie *typu = zdarzeń komputer = "Mój komputer"* jest uruchamiany. |
+| Widok              | Widok do otwarcia po wybraniu elementu nagłówka lub element listy.  Wybierz nazwę widoku w obszarze roboczym w **nazwy widoku** pole. |
+
+
 
 ### <a name="sparklines"></a>Wykresy przebiegu w czasie
 Wykres przebiegu w czasie jest wykres liniowy małych, która ilustruje wartość wpisu listy wraz z upływem czasu. Wizualizacja składników z listy można wybrać, czy ma być wyświetlany poziomy pasek wskazuje względne wartości liczbowej lub wykres przebiegu w czasie, co oznacza jego wartości w czasie.

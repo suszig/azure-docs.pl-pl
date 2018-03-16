@@ -2,19 +2,18 @@
 title: "Porównanie funkcji w usłudze Azure SQL Database | Dokumentacja firmy Microsoft"
 description: "W tym artykule porównano funkcje bazy danych SQL Azure i zarządzanych wystąpień ze sobą oraz z programem SQL Server."
 services: sql-database
-documentationcenter: 
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: jovanpop
-manager: cguyer
-ms.openlocfilehash: 34aafdc377acf0b67674dbac2e67237440ed1420
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: craigg
+ms.openlocfilehash: 11439a8bc10e616773068416b5a7def2f4becb36
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Porównanie funkcji: Azure SQL Database i programu SQL Server 
 
@@ -115,7 +114,7 @@ Poniższa tabela zawiera listę głównych funkcji programu SQL Server oraz info
 | [Program SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Nie — zobacz [zadania elastyczne](sql-database-elastic-jobs-getting-started.md) | Tak — zobacz [różnice programu SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nie — zobacz [usług Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Nie — zobacz [usług Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Inspekcja programu SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Nie — zobacz [inspekcji bazy danych SQL](sql-database-auditing.md) | Tak — zobacz [inspekcji różnic](sql-database-managed-instance-transact-sql-information.md#auditing) |
-| [Program SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes | Yes |
+| [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes | Yes |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Partial — programowanie pakietu w SQL Server Data Tools nie jest obsługiwany. | Nie, nie znajduje się w publicznej wersji zapoznawczej |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes |
 | [SQL Server w programie PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |

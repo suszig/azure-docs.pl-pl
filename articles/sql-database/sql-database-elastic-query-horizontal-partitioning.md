@@ -3,22 +3,18 @@ title: Raportowanie dla baz danych w chmurze skalowalnych w poziomie | Dokumenta
 description: "jak skonfigurować elastycznej zapytań za pośrednictwem poziomych partycji"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ec47a10fcfcb3ef52810ba2b3da9599b65db375a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Raportowanie w chmurze skalowalnych w poziomie bazy danych (wersja zapoznawcza)
 ![Wysyłanie zapytań na odłamków][1]
@@ -35,11 +31,11 @@ Podzielonej baz danych, zobacz [zapytania dla baz danych chmury z różnych sche
 * Użytkownik musi mieć uprawnienie ALTER ANY zewnętrznego źródła danych. To uprawnienie jest dołączany uprawnienie ALTER DATABASE.
 * Aby odwołać się do źródła danych są potrzebne uprawnienia ALTER ANY zewnętrznego źródła danych.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Te instrukcje tworzenia reprezentację metadanych warstwę danych podzielonej w elastycznej kwerendy bazy danych. 
 
 1. [TWORZENIE KLUCZA GŁÓWNEGO](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [UTWÓRZ BAZĘ DANYCH O ZAKRESIE POŚWIADCZEŃ](https://msdn.microsoft.com/library/mt270260.aspx)
+2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 3. [TWORZENIE ZEWNĘTRZNEGO ŹRÓDŁA DANYCH](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [TWORZENIE TABELI ZEWNĘTRZNEJ](https://msdn.microsoft.com/library/dn935021.aspx) 
 
@@ -191,7 +187,7 @@ Użyj parametrów połączenia z regularnych programu SQL Server, aby połączy�
 * Elastyczne zapytania aktualnie nie wykonuje eliminacji niezależnych podczas predykaty za pośrednictwem klucza dzielenia na fragmenty pozwala bezpiecznie wykluczyć pewne odłamków z przetwarzania.
 * Zapytania elastycznej działa najlepiej dla zapytań gdzie na odłamków można wykonać większość obliczenia. Zwykle uzyskać najlepszą wydajność zapytań z predykatu filtru selektywnego, które może przyjąć odłamków lub sprzężenia za pośrednictwem partycjonowania kluczy, które mogą być wykonywane w sposób wyrównany do partycji na wszystkich fragmentów. Innymi wzorcami zapytań może być konieczne ładowania dużych ilości danych z fragmentów do węzła głównego i mogą działać nieprawidłowo
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Omówienie elastycznej zapytania, zobacz [elastycznej zapytań — omówienie](sql-database-elastic-query-overview.md).
 * Samouczek partycjonowania pionowego, zobacz [wprowadzenie do korzystania z bazy danych między kwerendy (partycjonowanie pionowe)](sql-database-elastic-query-getting-started-vertical.md).

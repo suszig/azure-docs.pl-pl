@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Zestawy danych i usług połączonych w fabryce danych Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ W tym przykładzie w poprzedniej sekcji ustawiono typ zestawu danych **AzureSqlT
 }
 ```
 ## <a name="dataset-structure"></a>Struktura zestawu danych
-**Struktury** sekcja jest opcjonalna. Definiuje schemat zestawu danych przez zawierający kolekcję nazwy i typy danych kolumn. Sekcja struktury umożliwia Podaj informacje o typie, który służy do konwersji typów i mapowanie kolumn ze źródła do miejsca docelowego. W poniższym przykładzie element dataset zawiera trzy kolumny: timestamp, projectname i pageviews. Są one typu String, typ String i dziesiętnych, odpowiednio.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+**Struktury** sekcja jest opcjonalna. Definiuje schemat zestawu danych przez zawierający kolekcję nazwy i typy danych kolumn. Sekcja struktury umożliwia Podaj informacje o typie, który służy do konwersji typów i mapowanie kolumn ze źródła do miejsca docelowego.
 
 Każda kolumna w strukturze zawiera następujące właściwości:
 
 Właściwość | Opis | Wymagane
 -------- | ----------- | --------
 name | Nazwa kolumny. | Yes
-type | Typ danych kolumny. | Nie
+type | Typ danych kolumny. Fabryka danych obsługuje następujące typy danych tymczasowych jako dozwolone wartości: **Int16, Int32, Int64, pojedynczego, Double, Decimal bajtów [], wartość logiczna, ciąg, Guid, Datetime, Datetimeoffset i Timespan** | Nie
 Kultury | . Kulturę opartą na sieci do użycia, gdy typem jest typ architektury .NET: `Datetime` lub `Datetimeoffset`. Wartość domyślna to `en-us`. | Nie
-Format | Ciąg do użycia, gdy typem jest typ architektury .NET formatu: `Datetime` lub `Datetimeoffset`. | Nie
+Format | Ciąg do użycia, gdy typem jest typ architektury .NET formatu: `Datetime` lub `Datetimeoffset`. Zapoznaj się [niestandardowe ciągi daty i godziny Format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) w sposób formatowania daty i godziny. | Nie
 
-Poniższe wskazówki pomocne w określeniu, kiedy obejmują informacje o strukturze i elementów do uwzględnienia w **struktury** sekcji.
+### <a name="example"></a>Przykład
+W poniższym przykładzie załóżmy, że źródło danych obiektu Blob jest w formacie CSV i zawiera trzy kolumny: nazwa użytkownika, nazwę i lastlogindate. Są one typu Int64, ciągu i daty/godziny w formacie datetime niestandardowych za pomocą nazwy skróconej francuskim dzień tygodnia.
 
-- **Dla źródeł danych strukturalnych**, określ sekcji struktury tylko wtedy, gdy ma mapować kolumny źródłowe do zbiornika, kolumn i ich nazwy nie są takie same. Tego rodzaju źródła danych strukturalnych przechowuje informacje o schematu i typu danych oraz samych danych. Przykładami źródeł danych strukturalnych programu SQL Server, Oracle i bazy danych SQL Azure.<br/><br/>Ponieważ informacje o typie jest już dostępne dla źródeł danych strukturalnych, nie może zawierać informacje o typie zawierają sekcji struktury.
-- **Do schematu w źródłach danych odczytu (w szczególności magazynu obiektów Blob)**, można wybrać do przechowywania danych bez przechowywania żadnych informacji schematu lub typ z danymi. W przypadku tych typów źródeł danych mają strukturę, aby mapować kolumny źródłowe do zbiornika kolumn. Gdy zestaw danych jest wartością wejściową dla działania kopiowania i typy danych zestawu źródła danych powinny być konwertowane na typy natywne dla obiekt sink także struktury.<br/><br/> Fabryka danych obsługuje następujące wartości udostępnienie informacji o typie w strukturze: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Zdefiniuj struktury zestawu danych obiektów Blob w następujący sposób wraz z definicji typu dla kolumny:
 
-Dowiedz się więcej informacji na temat sposobu fabryki danych mapowania źródła danych do zbiornika z [schematu i mapowanie typu]( copy-activity-schema-and-type-mapping.md) i kiedy należy określić informacje o strukturze.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>Wskazówki
+
+Poniższe wskazówki ułatwiają zrozumienie, kiedy uwzględnić informacje o strukturze i elementów do uwzględnienia w **struktury** sekcji. Dowiedz się więcej informacji na temat sposobu fabryki danych mapowania źródła danych do zbiornika i kiedy należy określić informacje o strukturze z [schematu i mapowanie typu](copy-activity-schema-and-type-mapping.md).
+
+- **Dla źródeł danych silne schematu**, określ sekcji struktury tylko wtedy, gdy ma mapować kolumny źródłowe do zbiornika, kolumn i ich nazwy nie są takie same. Tego rodzaju źródła danych strukturalnych przechowuje informacje o schematu i typu danych oraz samych danych. Przykładami źródeł danych strukturalnych programu SQL Server, Oracle i bazy danych SQL Azure.<br/><br/>Ponieważ informacje o typie jest już dostępne dla źródeł danych strukturalnych, nie może zawierać informacje o typie zawierają sekcji struktury.
+- **Nie/niska schematu źródła danych np. pliku tekstowego w magazynie obiektów blob**, mają strukturę, gdy zestaw danych jest wartością wejściową dla działania kopiowania i typy danych zestawu źródła danych powinny być konwertowane na typy natywne dla obiekt sink. I mają strukturę, aby mapować kolumny źródłowe do zbiornika kolumn.
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
 Zestawy danych można utworzyć za pomocą jednej z tych narzędzi i zestawy SDK: [interfejs API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [interfejsu API REST](quickstart-create-data-factory-rest-api.md), szablon Menedżera zasobów Azure i portalu Azure

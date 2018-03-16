@@ -16,17 +16,23 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Powiązanie usługi Twilio dla usługi Azure Functions
 
 W tym artykule wyjaśniono, jak wysyłać wiadomości tekstowych przy użyciu [usługi Twilio](https://www.twilio.com/) powiązania usługi Azure Functions. Azure funkcji obsługuje dane wyjściowe powiązania usługi Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakiety
+
+Powiązania usługi Twilio znajdują się w [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) pakietu NuGet. Kod źródłowy dla pakietu jest w [zestaw sdk zadań webjob azure](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) repozytorium GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Przykład
 
@@ -195,7 +201,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) atrybutu.
 
 Informacje o właściwości atrybutów, które można skonfigurować, zobacz [konfiguracji](#configuration). Oto `TwilioSms` przykład atrybutu w podpisie metody:
 
@@ -225,10 +231,10 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**|| należy wybrać opcję `out`.|
 |**Nazwa**|| Nazwa zmiennej używane w kodzie funkcja wiadomości SMS usługi Twilio. |
 |**accountSid**|**AccountSid**| Ta wartość musi mieć ustawioną nazwę ustawienia aplikacji obsługującej Twojego identyfikatora Sid konta usługi Twilio.|
-|**parametr authToken**|**Parametr AuthToken**| Ta wartość musi mieć ustawioną Nazwa ustawienia aplikacji, który zawiera token uwierzytelniania usługi Twilio.|
+|**authToken**|**Parametr AuthToken**| Ta wartość musi mieć ustawioną Nazwa ustawienia aplikacji, który zawiera token uwierzytelniania usługi Twilio.|
 |**Aby**|**Do**| Ta wartość jest równa numer telefonu, który tekst wiadomości SMS są wysyłane do.|
-|**z**|**Z**| Ta wartość jest równa numer telefonu, który tekst wiadomości SMS są wysyłane z.|
-|**treści**|**Treść**| Ta wartość może być używana twardego kodu wiadomość SMS, jeśli nie trzeba ustawić ją dynamicznie w kodzie dla funkcji. |
+|**Z**|**Z**| Ta wartość jest równa numer telefonu, który tekst wiadomości SMS są wysyłane z.|
+|**body**|**Treść**| Ta wartość może być używana twardego kodu wiadomość SMS, jeśli nie trzeba ustawić ją dynamicznie w kodzie dla funkcji. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

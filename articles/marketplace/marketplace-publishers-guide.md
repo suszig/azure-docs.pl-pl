@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Przewodnik AppSource wydawcy i portalu Azure Marketplace
 
@@ -51,7 +51,7 @@ Wykorzystać możliwości portalu marketplace do rozwoju firmy:
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Jakie są portalu Azure Marketplace i AppSource?
 
-Firma Microsoft udostępnia dwa sklepy różne marketplace, umożliwiających partnerów listy oferty, Włącz prób i transact bezpośrednio z ekosystemem i klientów firmy Microsoft: — Azure Marketplace (https://azuremarketplace.microsoft.com) i () [AppSource] https://appsource.microsoft.com). Te Sklepy Zezwalaj klientom znaleźć, spróbuj, a następnie Kup aplikacji i usług, które przyspieszyć ich przekształcenie cyfrowych i pomóc wydawców wzrostu ich firmy przez zwiększenie dostęp do klientów i ekosystemem partnerów firmy Microsoft.
+Firma Microsoft udostępnia dwa sklepy różne marketplace, umożliwiających partnerów listy oferty, Włącz prób i transact bezpośrednio z ekosystemem i klientów firmy Microsoft: [Azure Marketplace] (https://azuremarketplace.microsoft.com) i [AppSource] (https://appsource.microsoft.com). Te Sklepy Zezwalaj klientom znaleźć, spróbuj, a następnie Kup aplikacji i usług, które przyspieszyć ich przekształcenie cyfrowych i pomóc wydawców wzrostu ich firmy przez zwiększenie dostęp do klientów i ekosystemem partnerów firmy Microsoft.
  
 Sklepy marketplace są wyrównane do odbiorców i produktów w chmurze firmy Microsoft, aby ułatwić klientom znalezienie potrzebnych informacji. Każdy sklepu oferty specjalne opcje publikowania, aby ułatwić zmaksymalizowaniu zwrotu z inwestycji publikowania podsumowane w poniższej tabeli:
 
@@ -112,7 +112,7 @@ W tej sekcji opisano za pomocą opcji dostępnych dla Ciebie w obu sklepy.
 
 |**Opcja publikowania**  | **Typ oferty** | **Sklepu**  |
 |---------|---------|---------|
-|Lista    |    Skontaktować się ze mną konsultacji usługi     |  Azure Marketplace, AppSource       |
+|**Lista**    |    Skontaktować się ze mną konsultacji usługi     |  Azure Marketplace, AppSource       |
 |**Wersja próbna**   |     W warstwie bezpłatna wersja próbna, wersja próbna SaaS, pokaz interaktywny, testowanie    |  Azure Marketplace, AppSource       |
 |**Transact**     |   Maszyna wirtualna, szablon rozwiązania zarządzanych aplikacji      |    Azure Marketplace     |
 
@@ -172,7 +172,7 @@ Użyj **szablon rozwiązania Azure** kiedy rozwiązanie wymaga dodatkowej automa
 Użyj **aplikacji zarządzanych platformy Azure** podczas wdrażania maszyny wirtualnej lub całego rozwiązania opartego na IaaS subskrypcją klienta podczas wydawcy lub odbiorcy żąda rozwiązania do zarządzania przez 3 strony, na przykład SI lub MSP. Dowiedz się więcej o [tutaj tworzenie aplikacji zarządzanych przez](https://docs.microsoft.com/azure/managed-applications/overview). Aby uzyskać listę często zadawanych pytań, zobacz [Azure Marketplace — często zadawane pytania](https://azure.microsoft.com/marketplace/faq/).
 
 >[!NOTE]
-> Zarządzane aplikacje muszą być możliwe za pośrednictwem portalu marketplace. Jeśli komunikacji klienta jest istotny, należy pamiętać, że można dotrzeć do zainteresowanych klientów, jeśli włączono udostępnianie potencjalnych klientów.
+> Zarządzane aplikacje muszą być możliwe za pośrednictwem portalu marketplace. Jeśli komunikacji z klientami jest istotny, należy pamiętać, że można dotrzeć do zainteresowanych klientów, jeśli włączono udostępnianie potencjalnych klientów.
 
 ### <a name="azure-certified"></a>Certyfikaty platformy Azure
 
@@ -210,11 +210,11 @@ Z drugiej strony Jeśli włączysz użycie własnej licencji jako opcja:
 |Koszt licencji     | Opłata licencji negocjowane i rozliczane według wydawcy        |
 |---------|---------|
 |Koszt użycia platformy Azure (D1 1-rdzeni)    | $0.14 na godzinę         |
-|**Jest on rozliczany klienta przez firmę Microsoft**     | $0.14 na godzinę        |
+|**Jest on rozliczany klienta przez firmę Microsoft**     | **$0.14 na godzinę**        |
 
 W tym scenariuszu Microsoft rachunków $0.14 na godzinę do użycia opublikowanego obrazu maszyny wirtualnej. 
 
-|**Opłaty firmy Microsoft**    |   $0.14 na godzinę      |
+|**Opłaty firmy Microsoft**    |   **$0.14 na godzinę**      |
 |---------|---------|
 |Microsoft zachowuje koszt użycia usługi Azure     |    $0.14 na godzinę     |
 |Microsoft zachowuje 0% koszt licencji     |  0,00 USD na godzinę       |
@@ -238,7 +238,7 @@ Każdy klient mający umowę Enterprise Agreement może dodać do niej opcję ko
 
 |**Wymaganie**  |**Szczegóły**  |**Opcja publikowania**  |
 |---------|---------|---------|
-|**Zasady udziału**    | Przejrzyj Azure Marketplace udział zasady [tutaj] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, z wersji próbnej, Transact        |
+|**Zasady udziału**    | Przejrzyj zasady udziału Marketplace Azure [tutaj] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, z wersji próbnej, Transact        |
 |**Integracja z programem Microsoft**    | Azure ofert witryny Marketplace należy wykorzystać lub rozszerzenia usług Microsoft Azure, takich jak obliczeniowych, sieci lub magazynu i wyrównanie do istniejącej kategorii portalu Azure Marketplace, np. baz danych, zabezpieczeń, sieci. Znajdź pełną listę [tutaj](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lista, z wersji próbnej, Transact        |
 |**Audience**    | Azure ofert witryny Marketplace musi być dla specjalistów IT, deweloperów chmury lub innych ról technicznej klienta.       |  Lista, z wersji próbnej, Transact 
 |**Zarządzanie potencjalnymi klientami**    | Aby otrzymywać potencjalnych klientów z witryny Marketplace, należy włączyć programu CRM (Marketo, Microsoft Dynamics lub Salesforce) akceptować dane potencjalnych klientów.        |   Lista, z wersji próbnej, Transact      |
@@ -260,20 +260,20 @@ Każdy klient mający umowę Enterprise Agreement może dodać do niej opcję ko
 |**Wymaganie**  |**Szczegóły** |**Opcja publikowania**  |
 |---------|---------|---------|
 |**Rozliczenia i pomiarów**    |  Maszyny wirtualnej musi obsługiwać albo Bring Your Own License lub opartej na użyciu, co miesiąc rozliczeń.       |    Transact    |
-|**Azure zgodnego wirtualnego dysku twardego (VHD)**     |   Maszyny wirtualne muszą zostać skompilowane na (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) [systemu Windows] lub [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Azure zgodnego wirtualnego dysku twardego (VHD)**     |   Maszyny wirtualne muszą zostać skompilowane na [systemu Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) lub () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Wymagania wstępne dotyczące do konsultacji Publikowanie usług
 
 
-|Wymagania |**Szczegóły**  |**Opcja publikowania**  |
+|**Wymagania** |**Szczegóły**  |**Opcja publikowania**  |
 |---------|---------|---------|
 |**Właściwości oferty usługi**     | Konsultacji usługi musi być dostarczonego stałego zakresu, stały czas trwania, ustalonej ceny (lub wolne) zaangażowania, przede wszystkim przedsprzedaży skoncentrowany na zadaniach, ograniczone do jednego odbiorcy i przeprowadzić na miejscu        |    List     |
-|**Partner wymagania dotyczące usługi doradcze**    |   **Tylko AppSource.**  Dynamics 365 dla klienta Engagement [chmury Silver lub Gold klienta relacji zarządzania kompetencja](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 Finanse i operacje Enterprise Edition: Silver lub Gold [planowania zasobów przedsiębiorstwa] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetencja i minimalna przychodu 25K $ w chmurze Operacje w końcu 12 miesięcy. Dynamics 365 Finance oraz w operacjach, Business edition: służyć jako [dostawcy usługi w chmurze (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) lub [cyfrowe partnera rekordu (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) dla co najmniej jednego odbiorcy. Usługa Power BI: Spełniają kryteria (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf) [rozwiązań partnerskich]. Rozwiązanie PowerApps: Ma rozwiązania — partnera pokazy (https://powerapps.microsoft.com/en-us/partner-showcase/) |    List     |
+|**Partner wymagania dotyczące usługi doradcze**    |   **Tylko AppSource.**  Dynamics 365 dla klienta Engagement [chmury Silver lub Gold klienta relacji zarządzania kompetencja](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 Finanse i operacje Enterprise Edition: Silver lub Gold [planowania zasobów przedsiębiorstwa] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetencja i minimalna przychody z $25 K w operacji w ciągu 12 miesięcy końcowe. Dynamics 365 Finance oraz w operacjach, Business edition: służyć jako [dostawcy usługi w chmurze (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) lub [cyfrowe partnera rekordu (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) dla co najmniej jednego odbiorcy. Usługa Power BI: Spełniają kryteria (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf) [rozwiązań partnerskich]. Rozwiązanie PowerApps: Ma [pokazy partnera] (https://powerapps.microsoft.com/en-us/partner-showcase/) rozwiązania |    List     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Aby włączyć prób przy użyciu usługi Azure Active Directory
 Azure Active Directory (AAD) to usługa tożsamości chmury, która umożliwia uwierzytelnianie za pomocą programu Microsoft służbowego konta za pomocą standardowych protokołach branżowych: OAuth i OpenID Connect. Dowiedz się więcej o usłudze AAD [tutaj](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft uwierzytelnia wszystkich Marketplace użytkowników przy użyciu usługi AAD, dlatego po kliknięciu przez listę Twojej wersji próbnej w witrynie Marketplace uwierzytelnionego użytkownika, a jest przekierowane do środowiska wersji próbnej można udostępnić użytkownika bezpośrednio do korzystania z wersji próbnej, bez konieczności Dodatkowe logowania kroku. [Token odbierająca aplikacji z usługi AAD podczas uwierzytelniania] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) zawiera informacje przydatne użytkownika, którego można używać do tworzenia konto użytkownika w aplikacji, dzięki któremu można zautomatyzować proces inicjowania obsługi administracyjnej oraz zwiększyć prawdopodobieństwo konwersji. 
+Microsoft uwierzytelnia wszystkich Marketplace użytkowników przy użyciu usługi AAD, dlatego po kliknięciu przez listę Twojej wersji próbnej w witrynie Marketplace uwierzytelnionego użytkownika, a jest przekierowane do środowiska wersji próbnej można udostępnić użytkownika bezpośrednio do korzystania z wersji próbnej, bez konieczności Dodatkowe logowania kroku. [Token odbierająca aplikacji z usługi AAD podczas uwierzytelniania] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) zawiera użytkownika cenne informacje, które umożliwia tworzenie konta użytkownika w aplikacji, dzięki któremu można zautomatyzować proces inicjowania obsługi administracyjnej oraz zwiększyć prawdopodobieństwo Konwersja. 
 
 Aby włączyć uwierzytelnianie kliknij 1 do aplikacji lub wersji próbnej przy użyciu usługi AAD:
 
@@ -303,7 +303,7 @@ W przypadku aplikacji pojedynczej dzierżawy:
 
 Istnieje wiele opcji dla pojedynczej dzierżawy aplikacji:
 
-- Dodawanie użytkowników do katalogu jako goście przy użyciu [B2B usługi Azure] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- Dodawanie użytkowników do katalogu jako goście przy użyciu () [B2B usługi Azure]https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 - Ręcznie Zapewnij prób dla klientów za pośrednictwem "Skontaktuj się z Me"
 - Tworzenie dla klienta "Test dysk"
 - Tworzenie wielodostępnych przykładową aplikację pokaz logowania jednokrotnego
@@ -392,7 +392,7 @@ Przed rozpoczęciem procesu publikowania, jest przydatne do zrozumienia składni
 
 |Będzie on potrzebny publikowania artefaktów  |Dla tego typu oferty  |
 |---------|---------|
-|Numer wersji     |    Transact "aplikacje platformy Azure (szablony rozwiązań i zarządzanych aplikacji)     |
+|**Numer wersji**     |    Transact "aplikacje platformy Azure (szablony rozwiązań i zarządzanych aplikacji)     |
 |**Plik pakietu zawierający pliki szablonów i createUIDefinitionFile**   |Transact "aplikacje platformy Azure (szablony rozwiązań i zarządzanych aplikacji)         |
 |**Szczegóły dotyczące systemu operacyjnego**    |   Transact "maszyny wirtualne      |
 |**Porty i protokoły w użyciu**    |  Transact "maszyny wirtualne       |
@@ -422,7 +422,7 @@ Wybrany adres e-mail najlepiej musi należeć do domeny firmowej i kontrolowane 
 Jako część procesu dołączania Marketplace należy przesłać formularz wyznaczenie przesyłanie informacji o aplikacji lub oferty usługi, informacje o Twojej firmie i poziomu obsługi, który będzie dostarczać.  
 Po przesłaniu formularza zespół Marketplace Przejrzyj aplikacji i sprawdzić poprawności żądania. Po weryfikowane żądanie, otrzymasz powiadomienie za pośrednictwem poczty e-mail kolejne kroki, które muszą zostać wykonane jako zatwierdzone partnera w portalu dla partnerów chmury. Prześlij Twojej nazwy w:
 
-Azure Marketplace Nomination: http://aka.ms/listonazuremarketplace   
+Wyznaczenie witrynę Azure Marketplace: http://aka.ms/listonazuremarketplace   
 Wyznaczenie AppSource: http://aka.ms/listonappsource
 
 #### <a name="register-in-the-developer-center"></a>Zarejestruj w Centrum deweloperów
@@ -510,7 +510,7 @@ Podczas tworzenia konta firmy, zgodna z tymi wytycznymi Jeśli więcej niż jedn
 - Dodaj numer telefonu firmy, który nie wymaga rozszerzenia i jest dostępna dla członków zespołu klucza.
 - Ogólnie rzecz biorąc mieć deweloperzy Użyj zaufanych urządzeń, aby zalogować się do konta dewelopera w firmie. Wszyscy członkowie zespołu kluczy powinien mieć dostęp do tych zaufanych urządzeń. Zmniejsza to potrzebę kody zabezpieczeń do wysłania podczas uzyskiwania dostępu do konta.
 - Jeśli chcesz zezwolić na dostęp do konta z komputera z systemem innym niż zaufane, ograniczyć tej dostęp do maksymalnie pięć deweloperów. Najlepiej, jeśli te deweloperzy powinien uzyskiwać dostęp do konta z maszyny, które identyczny geograficzne i lokalizacja w sieci.
-- Często przejrzeć informacje zabezpieczające firmy na stronie [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) się upewnić, że jest ona wszystkie bieżące.
+- Często przejrzeć informacje zabezpieczające firmy na stronie [ https://account.live.com/proofs/Manage ](https://account.live.com/proofs/Manage) się upewnić, że jest ona wszystkie bieżące.
 
 Konto dewelopera powinni mieć dostęp przede wszystkim z zaufanych komputerów. Jest to krytyczny, ponieważ istnieje limit liczby kody wygenerowane dla danego konta, na tydzień. Umożliwia także bezproblemową obsługę logowania.
 Aby uzyskać więcej informacji o wytycznych konta dewelopera dodatkowe i zabezpieczeniach, kliknij przycisk [tutaj](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
@@ -521,7 +521,7 @@ Twoje konto firmowe mogą federacyjnego, przy użyciu [usługi Azure Active Dire
 
 Firma Microsoft zaleca, Utwórz nowy adres e-mail w  **@outlook.com**  domeny. Wykonaj następujące kroki:
 
-1. Przejdź do [https://signup.live.com/signup](https://signup.live.com/signup) i wybierz **Pobierz nowy adres e-mail**
+1. Przejdź do [ https://signup.live.com/signup ](https://signup.live.com/signup) i wybierz **Pobierz nowy adres e-mail**
 
 
 2. Utwórz nowy adres e-mail, a następnie wprowadź hasło. Spowoduje to utworzenie zarówno nowy identyfikator firmy Microsoft, jak i skrzynki pocztowej poczty e-mail w usłudze outlook.com. Proces rejestracji należy kontynuować do momentu utworzenia konta.
@@ -538,7 +538,7 @@ Po wykonaniu tego kroku ostatniego, konieczne będzie wiadomości e-mail/korespo
 ### <a name="instructions-on-how-to-register-in-the-development-center"></a>Instrukcje dotyczące rejestrowania w Centrum opracowywania rozwiązań
 
 1. Otwórz nowy Internet Explorer InPrivate lub Incognito przeglądarki Chrome Przeglądanie sesji aby upewnić się, że nie zalogowano Cię na koncie osobistym.
-2. Przejdź do [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) Aby zarejestrować się jako sprzedawcy w Centrum deweloperów. Przed kontynuowaniem przeczytaj następujące ważne uwagi.
+2. Przejdź do [ http://dev.windows.com/registration?accountprogram=azure ](http://dev.windows.com/registration?accountprogram=azure) Aby zarejestrować się jako sprzedawcy w Centrum deweloperów. Przed kontynuowaniem przeczytaj następujące ważne uwagi.
 
    ![Centrum deweloperów poczty E-mail](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
@@ -548,7 +548,7 @@ Po wykonaniu tego kroku ostatniego, konieczne będzie wiadomości e-mail/korespo
    ![Informacje o koncie](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
-   >"Sprzedaje — od" krajach: sprzedaż usług w witrynie Azure Marketplace, zarejestrowanych jednostki musi być z jednej z zatwierdzonych "sprzedaje — od" krajów powyżej. To ograniczenie jest ze względu na wypłaty i podatków. Aby uzyskać więcej informacji zobacz https://azure.microsoft.com/support/legal/marketplace/participation-policies/ [Marketplace udział zasady].
+   >"Sprzedaje — od" krajach: sprzedaż usług w witrynie Azure Marketplace, zarejestrowanych jednostki musi być z jednej z zatwierdzonych "sprzedaje — od" krajów powyżej. To ograniczenie jest ze względu na wypłaty i podatków. Aby uzyskać więcej informacji, zobacz [zasady udziału Marketplace]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
 
 5. Wybierz opcję "Typ konta" jako **firmy** , a następnie kliknij przycisk **dalej** przycisku.
 
@@ -614,7 +614,7 @@ Jeśli chcesz opublikować komercyjnych oferty zakupu, należy dodać wypłaty i
 
 Jeśli masz problemy z rejestracji w Centrum deweloperów, zgodnie z poniższymi instrukcjami dziennika biletu pomocy technicznej:
 
-1. Przejdź do pomocy technicznej https://developer.microsoft.com/windows/support łącza
+1. Przejdź do łącza pomocy technicznej https://developer.microsoft.com/windows/support
 2. W obszarze **skontaktuj się z nami** sekcji, kliknij przycisk **przesłać zdarzenia** jak pokazano na ekranie zrzut poniżej.
 3. Wybierz opcję "Pomoc z Centrum deweloperów" jako **typ problemu** i "publikowania aplikacji i zarządzanie nimi" jako **kategorii**. Następnie kliknij przycisk "E-mail Start".
 

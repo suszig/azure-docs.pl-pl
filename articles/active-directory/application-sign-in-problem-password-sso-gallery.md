@@ -1,5 +1,5 @@
 ---
-title: Problemy przy logowaniu do aplikacji Azure AD galerii skonfigurowane dla federacyjnych logowanie jednokrotne | Dokumentacja firmy Microsoft
+title: "Problemy przy logowaniu do aplikacji Azure AD galerii skonfigurowane hasło logowanie jednokrotne | Dokumentacja firmy Microsoft"
 description: "Jak rozwiązywać problemy z aplikacją Azure AD galerii skonfigurowane dla hasła logowania jednokrotnego"
 documentationcenter: 
 author: ajamess
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: de6c876c7583da0b00ae2365646b1d381fda2b1e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b6de9d066f861d300bbe3601701e846410e93773
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>Problemy przy logowaniu do aplikacji Azure AD galerii skonfigurowane dla federacyjnego logowania jednokrotnego
+# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemy przy logowaniu do aplikacji Azure AD galerii skonfigurowane dla hasła logowania jednokrotnego
 
 Panel dostępu jest widok, a następnie uruchom chmurowych aplikacji, które administrator usługi Azure AD udzielił im dostępu do portalu sieci web, dzięki czemu użytkownik, który ma konto służbowe w usłudze Azure Active Directory (Azure AD). Użytkownik, który ma wersje usługi Azure AD umożliwia także grupami samoobsługi i funkcje zarządzania aplikacjami za pomocą panelu dostępu. Panel dostępu jest oddzielony od portalu Azure i nie wymaga użytkownikom posiadania subskrypcji platformy Azure.
 

@@ -3,8 +3,8 @@ title: Tworzenie obrazu maszyny wirtualnej dla portalu Azure Marketplace | Dokum
 description: "Szczegółowe instrukcje dotyczące sposobu tworzenia obrazu maszyny wirtualnej do portalu Azure Marketplace innym osobom do zakupu."
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Przewodnik dotyczący tworzenia obrazu maszyny wirtualnej do portalu Azure Marketplace
 W tym artykule **krok 2**, przeprowadzi Cię przez przygotowanie wirtualnych dysków twardych (VHD), które zostaną wdrożone w portalu Azure Marketplace. Dyski VHD są podstawę sieci jednostki SKU. Proces jest różny w zależności od tego, czy udostępniasz SKU opartych na systemie Linux lub z systemem Windows. W tym artykule przedstawiono oba scenariusze. Ten proces można przeprowadzić równolegle z [o tworzeniu konta i rejestracji][link-acct-creation].
@@ -29,7 +29,7 @@ W tej sekcji dowiesz się zdefiniować oferty i ich skojarzonych jednostki SKU.
 Oferta pełni rolę nadrzędną względem wszystkich swoich jednostek SKU. Można określić wiele ofert. Decyzja dotycząca określenia struktury ofert należy do Ciebie. Wypchnięcie oferty do wdrażania przejściowego jest równoznaczne z wypchnięciem wszystkich jej jednostek SKU. Zastanów się uważnie z identyfikatorów jednostki SKU, ponieważ będą one widoczne w adresie URL:
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Portal Azure w wersji zapoznawczej: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
+* Portal Azure w wersji zapoznawczej: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 Jednostka SKU jest komercyjnych nazwę obrazu maszyny Wirtualnej. Obraz maszyny Wirtualnej zawiera jeden system operacyjny dysku oraz zero lub więcej dysków z danymi. Zasadniczo stanowi on kompletny profil magazynu dla maszyny wirtualnej. Jeden wirtualny dysk twardy jest wymagany na dysku. Dysków z danymi nawet puste wymagane do utworzenia dysku VHD.
 
@@ -372,7 +372,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL SAS za pomocą Ekspl
 
 Poniżej przedstawiono kroki podczas generowania adresu URL SAS za pomocą Eksploratora usługi Microsoft Azure Storage
 
-1.  Pobierz formularza Eksploratora usługi Microsoft Azure Storage [http://storageexplorer.com/](http://storageexplorer.com/) witryny sieci Web. Przejdź do [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com/releasenotes.html) i kliknij przycisk **"Pobierz dla systemu Windows"**.
+1.  Pobierz formularza Eksploratora usługi Microsoft Azure Storage [ http://storageexplorer.com/ ](http://storageexplorer.com/) witryny sieci Web. Przejdź do [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com/releasenotes.html) i kliknij przycisk **"Pobierz dla systemu Windows"**.
 
     ![Rysowanie](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
@@ -474,7 +474,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL sygnatury dostępu W
 
     Przykład:
 
-    TestRGVM201631920152.vhd jest nazwa wirtualnego dysku twardego, a następnie będzie adres URL SAS wirtualnego dysku twardego 
+    TestRGVM201631920152.vhd jest nazwa wirtualnego dysku twardego, a następnie będzie adres URL SAS wirtualnego dysku twardego
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

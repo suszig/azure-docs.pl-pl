@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Zapewnianie dostępu aplikacji do stosu Azure
 
@@ -51,14 +51,14 @@ W tej sekcji utworzysz aplikację (nazwy głównej usługi) w usłudze Azure AD,
 Utworzono nazwy głównej usługi dla aplikacji.
 
 ### <a name="get-credentials"></a>Pobieranie poświadczeń
-Podczas logowania programowo, można użyć Identyfikatora aplikacji i klucz uwierzytelniania. Aby uzyskać te wartości, wykonaj następujące kroki:
+Podczas logowania programowo, użyj Identyfikatora aplikacji i dla aplikacji sieci Web / interfejs API, klucz uwierzytelniania. Aby uzyskać te wartości, wykonaj następujące kroki:
 
 1. Z **rejestracji aplikacji** w usłudze Active Directory, wybierz aplikację.
 
 2. Kopiuj **identyfikator aplikacji** i zapisze go w kodzie aplikacji. Aplikacje w [przykładowe aplikacje](#sample-applications) sekcji odnoszą się do tej wartości jako identyfikator klienta.
 
      ![identyfikator klienta](./media/azure-stack-create-service-principal/image12.png)
-3. Aby wygenerować klucz uwierzytelniania, wybierz **klucze**.
+3. Aby wygenerować klucz uwierzytelniania dla aplikacji sieci Web / interfejs API, wybierz **ustawienia** > **klucze**. 
 
 4. Podaj opis klucza i czas trwania dla klucza. Po zakończeniu wybierz **zapisać**.
 

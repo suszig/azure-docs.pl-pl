@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2b53dc5eeb2e5f25a0714af778ef3db1d5a79dc1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
 W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
@@ -37,7 +37,7 @@ Wykonaj następujące czynności w przypadku danych na dysku do zaimportowania d
 10. Skopiuj następujący wiersz polecenia do edytora tekstu, a następnie edytuj go w celu utworzenia wiersza polecenia:
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     W poniższej tabeli opisano te opcje wiersza polecenia:
@@ -50,13 +50,13 @@ Wykonaj następujące czynności w przypadku danych na dysku do zaimportowania d
     |/bk:     |Klucza funkcji BitLocker dla dysku.         |
     |/srcdir:     |Litera dysku do wysłania następuje `:\`. Na przykład `D:\`.         |
     |/dstdir:     |Nazwa kontenera docelowego w usłudze Azure Storage         |
-
+    |/skipwrite:     |Opcję określającą, że nie istnieje żadne nowe dane wymagane do skopiowania i istniejące dane na dysku jest przygotowany         |
 1. Powtórz krok 10 dla każdego dysku, który ma zostać wysłane.
 2. Plik dziennika o nazwie dostarczone z parametrem /j: jest tworzony dla każdego uruchomienia wiersza polecenia.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Krok 2: Tworzenie zadania importu z portalu Azure.
 
-1. Dziennik się https://portal.azure.com/ i w obszarze więcej usług -> MAGAZYNU -> "zadania importu/eksportu" kliknij **zadania importu/eksportu Utwórz**.
+1. Zaloguj się do https://portal.azure.com/ i w obszarze więcej usług -> MAGAZYNU -> "zadania importu/eksportu" kliknij **zadania importu/eksportu Utwórz**.
 
 2. W sekcji podstawy wybierz "Import do platformy Azure", wprowadź ciąg nazwy zadania, wybierz subskrypcję, wprowadź lub wybierz grupę zasobów. Wprowadź nazwę opisową dla zadania importu. Należy pamiętać, że wprowadzona nazwa może zawierać tylko małe litery, cyfry, łączniki i podkreślenia, musi zaczynać się literą i nie może zawierać spacji. Możesz użyć nazwy wybrane do śledzenia zadań, gdy są one w toku, a po zakończeniu.
 

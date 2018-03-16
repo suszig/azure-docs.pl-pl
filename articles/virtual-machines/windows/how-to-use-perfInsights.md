@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Jak używać PerfInsights 
 
@@ -238,11 +238,11 @@ Aby uruchomić narzędzie PerfInsights, wykonaj następujące kroki:
     >
     >Jeśli przełącznik czas trwania **/d** nie zostanie określony, PerfInsights spowoduje wyświetlenie monitu do odtworzenia problemu podczas uruchamiania vmslow, azurefiles i scenariusze dostosowywania. 
 
-Po ukończeniu operacji lub śladów nowy plik zostanie wyświetlony w D:\\dziennika\_kolekcji (lub tymczasowej stacji). Nazwa pliku jest **CollectedData\_RRRR MM-dd\_hh\_mm\_ss.zip.** Można wysłać ten plik do agenta programu obsługi dla analizy lub otworzyć raport w pliku zip, aby przejrzeć wyniki i zalecenia.
+Po ukończeniu operacji lub dane śledzenia w tym samym folderze co PerfInsights pojawi się nowy plik. Nazwa pliku jest **CollectedData\_RRRR MM-dd\_hh-mm-ss-fff.zip.** Można wysłać ten plik do agenta programu obsługi dla analizy lub otworzyć raport w pliku zip, aby przejrzeć wyniki i zalecenia.
 
 ## <a name="review-the-diagnostics-report"></a>Przejrzyj raport diagnostyczny
 
-W ramach **CollectedData\_RRRR MM-dd\_hh\_mm\_ss.zip** plików, można znaleźć raport HTML ze szczegółami ustalenia PerfInsights. Aby wyświetlić raport, rozwiń węzeł **CollectedData\_RRRR MM-dd\_hh\_mm\_ss.zip** pliku, a następnie otwórz **PerfInsights Report.html** plik.
+W ramach **CollectedData\_RRRR MM-dd\_hh-mm-ss-fff.zip** plików, można znaleźć raport HTML ze szczegółami ustalenia PerfInsights. Aby wyświetlić raport, rozwiń węzeł **CollectedData\_RRRR MM-dd\_hh-mm-ss-fff.zip** pliku, a następnie otwórz **PerfInsights Report.html** pliku.
 
 Wybierz **ustalenia** kartę.
 
@@ -307,4 +307,4 @@ Poniższy zrzut ekranu przedstawia podobne do może zostać wyświetlony komunik
 
 Postępuj zgodnie z instrukcjami w komunikacie dostępu do obszaru roboczego transferu plików. Aby dodatkowo zwiększyć bezpieczeństwo należy zmienić hasło przy pierwszym użyciu.
 
-Po zalogowaniu, znajdują się okno dialogowe, aby przekazać **CollectedData\_RRRR MM-dd\_hh\_mm\_ss.zip** pliku, który został zebrany przez PerfInsights.
+Po zalogowaniu, znajdują się okno dialogowe, aby przekazać **CollectedData\_RRRR MM-dd\_hh-mm-ss-fff.zip** pliku, który został zebrany przez PerfInsights.

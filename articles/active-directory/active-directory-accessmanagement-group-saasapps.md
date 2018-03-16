@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 49a2c86516f0882f341597876d2a44ea3a312ea8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4aee5b28fd42be98fac8f9c7d61538319e3efd9a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Używanie grupy do zarządzania dostępem do aplikacji SaaS
 Za pomocą usługi Azure Active Directory (Azure AD) z licencją Azure AD Premium lub usługi Azure AD podstawowa, można użyć grupy do udzielania dostępu do aplikacji SaaS, który jest zintegrowany z usługą Azure AD. Na przykład, jeśli ma zostać przypisany dostęp dla działu marketingu do używania pięciu różnych aplikacji SaaS, można utworzyć grupę, która zawiera użytkowników w dziale marketingu i przypisz następujące pięć aplikacji SaaS, które są wymagane przez tę grupę Dział marketingu. W ten sposób można oszczędzić czas dzięki zarządzaniu członkostwa w dziale marketingu w jednym miejscu. Następnie przypisywania użytkowników do aplikacji podczas zostaną dodane jako członkowie grupy marketing, i ich przypisania usunięte z aplikacji w przypadku usunięcia ich z grupy marketing. Ta możliwość może służyć z setkami aplikacji, które można dodać z w galerii aplikacji usługi Azure AD.
 
 > [!IMPORTANT]
-> Ta funkcja służy tylko wtedy, gdy zakupu licencji Azure AD Premium lub usługi Azure AD podstawowa lub uruchomić wersji próbnej platformy Azure AD Premium.
-> Aktualnie w ramach przypisywania do aplikacji na podstawie grup nie jest obsługiwane członkostwo w grupach zagnieżdżonych.
+> Ta funkcja służy tylko wtedy, gdy zakupu licencji Azure AD Premium lub usługi Azure AD podstawowa lub uruchomić wersji próbnej platformy Azure AD Premium. Przypisywanie na podstawie grupy jest obsługiwana tylko dla grup zabezpieczeń. Aktualnie w ramach przypisywania do aplikacji na podstawie grup nie jest obsługiwane członkostwo w grupach zagnieżdżonych.
 
 **Aby przypisać dostępu dla użytkownika lub grupy do aplikacji SaaS**
 
@@ -38,7 +37,7 @@ Za pomocą usługi Azure Active Directory (Azure AD) z licencją Azure AD Premiu
 6. Wybierz dowolną liczbę grup lub użytkowników, można dowolnie, następnie kliknij lub naciśnij polecenie **wybierz** dodanie ich do **Dodaj przydziału** listy. Na tym etapie można także przypisać rolę użytkownikowi.
 7. Wybierz **przypisać** można przypisać użytkowników lub grup, do aplikacji wybranej przedsiębiorstwa.
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 * [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)

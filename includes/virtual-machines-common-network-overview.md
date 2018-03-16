@@ -1,3 +1,19 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/16/2018
+---
 Utworzenie maszyny wirtualnej (VM) platformy Azure wymaga utworzenia [sieci wirtualnej](../articles/virtual-network/virtual-networks-overview.md) (VNet) lub użycia istniejącej sieci wirtualnej. Należy także określić sposób dostępu do maszyn wirtualnych w sieci wirtualnej. Ważne jest [zaplanowanie tworzenia zasobów](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) i dokładne zapoznanie się z [limitami zasobów sieciowych](../articles/azure-subscription-service-limits.md#networking-limits).
 
 Na poniższej ilustracji przedstawiono maszyny wirtualne jako serwery sieci Web i serwery baz danych. Poszczególne zestawy maszyn wirtualnych są przypisane do oddzielnych podsieci w sieci wirtualnej.
@@ -75,7 +91,7 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia siec
 | [Azure Portal](../articles/virtual-network/quick-create-portal.md) | Jeśli wybierzesz opcję utworzenia sieci wirtualnej podczas tworzenia maszyny wirtualnej na platformie Azure, nazwa sieci wirtualnej będzie składać się z nazwy grupy zasobów zawierającej sieć wirtualną i ciągu **-vnet**. Przestrzeń adresowa to 10.0.0.0/24, wymagana nazwa podsieci to **domyślna**, a zakres adresów podsieci to 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Aby utworzyć podsieć i sieć wirtualną, użyj poleceń [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) i [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork). Za pomocą polecenia [AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) możesz również dodać podsieć do istniejącej sieci wirtualnej. |
 | [Interfejs wiersza polecenia platformy Azure](../articles/virtual-network/quick-create-cli.md) | Podsieć i sieć wirtualna są tworzone jednocześnie. Użyj polecenia [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) z parametrem**--subnet-name**, podając nazwę podsieci. |
-| [Szablon](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Najprostszym sposobem utworzenia sieci wirtualnej i podsieci jest pobranie istniejącego szablonu, takiego jak [Sieć wirtualna z dwiema podsieciami](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), i dostosowanie go do własnych potrzeb. |
+| Szablon | Najprostszym sposobem tworzenia sieci wirtualnej i podsieci jest pobranie istniejącego szablonu, takie jak [sieci wirtualnej z dwoma podsieciami](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)i zmodyfikuj go do potrzeb. |
 
 ## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 
@@ -147,7 +163,7 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia masz
 | [Interfejs wiersza polecenia platformy Azure](../articles/virtual-machines/linux/create-cli-complete.md) | Tworzenie i łączenie maszyny Wirtualnej do sieci wirtualnej, podsieci i karty interfejsu Sieciowego z kompilacji jako poszczególne kroki. |
 | [Szablon](../articles/virtual-machines/windows/ps-template.md) | Przewodnik [Bardzo proste wdrożenie maszyny wirtualnej z systemem Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) ułatwia wdrożenie maszyny wirtualnej przy użyciu szablonu. |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby specyficzne dla maszyny Wirtualnej instrukcje na temat zarządzania sieci wirtualnych platformy Azure dla maszyn wirtualnych, zobacz [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) lub [Linux](../articles/virtual-machines/linux/tutorial-virtual-network.md) samouczki.
 
 Dostępne są także samouczki dotyczące maszyn wirtualnych równoważenia obciążenia i utworzyć aplikacje o wysokiej dostępności dla [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) lub [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md).

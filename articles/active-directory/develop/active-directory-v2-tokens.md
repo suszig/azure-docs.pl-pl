@@ -3,7 +3,7 @@ title: "Azure Active Directory v2.0 tokeny odwołania | Dokumentacja firmy Micro
 description: "Typy tokenów i oświadczeń emitowane przez punktu końcowego v2.0 usługi Azure AD"
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: hpsin
 manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory w wersji 2.0 tokeny odwołania
 Punktu końcowego v2.0 usługi Azure Active Directory (Azure AD) emituje kilka typów tokenów zabezpieczających w każdym [przepływ uwierzytelniania](active-directory-v2-flows.md). To odwołanie opisuje format właściwości zabezpieczeń i zawartości każdego typu tokenu.
@@ -54,7 +54,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 >
 
 #### <a name="claims-in-id-tokens"></a>Oświadczenia w tokenach identyfikator
-| Nazwa | Claim | Przykładowa wartość | Opis |
+| Name (Nazwa) | Claim | Przykładowa wartość | Opis |
 | --- | --- | --- | --- |
 | grupy odbiorców |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identyfikuje adresata tokenu. W tokenach identyfikator odbiorców jest identyfikator aplikacji aplikacji, przypisany do aplikacji w portalu rejestracji aplikacji firmy Microsoft. Aplikację należy sprawdzić tę wartość i odrzucenie tokenu, jeśli wartość nie jest zgodna. |
 | Wystawcy |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identyfikuje usługę tokenu zabezpieczającego (STS), które tworzy i zwraca token i dzierżawy usługi Azure AD, w którym użytkownik został uwierzytelniony. Aplikację należy zweryfikować oświadczenia wystawcy, aby upewnić się, że token pochodzą z punktem końcowym v2.0. On również należy używać części identyfikatora GUID oświadczenie tak, aby ograniczyć zestaw dzierżawcami, które można zalogować się do aplikacji. Identyfikator GUID, który wskazuje, czy użytkownik jest użytkownikiem użytkownika z konta Microsoft jest `9188040d-6c67-4c5b-b112-36a304b66dad`. |
@@ -67,7 +67,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Skrót token dostępu |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Tokeny dostępu, których token wyznaczania wartości skrótu jest uwzględniona w identyfikatorze, tylko gdy wydano tokenu identyfikator z tokenem dostępu protokołu OAuth 2.0. Może służyć do zweryfikowania autentyczności tokenu dostępu. Aby uzyskać szczegółowe informacje o wykonywaniu tej weryfikacji, zobacz [OpenID Connect specyfikacji](http://openid.net/specs/openid-connect-core-1_0.html). |
 | Identyfikator jednorazowy |`nonce` |`12345` |Identyfikator jednorazowy jest strategii łagodzenia ataków powtórzeń tokenów. Aplikację można określić identyfikatora jednorazowego w żądaniu autoryzacji przy użyciu `nonce` parametr zapytania. Wartości podane w żądaniu jest emitowany w tokenie identyfikator `nonce` oświadczenia, nie mają być modyfikowane. Aplikację można sprawdzić wartość względem wartości określone dla żądania, który kojarzy z określonym tokenem identyfikator sesji aplikacji. Aplikację należy wykonać tej weryfikacji w procesie weryfikacji tokenu identyfikator. |
 | name |`name` |`Babe Ruth` |Oświadczenia nazwy zawiera wartość zrozumiałą dla użytkownika, która identyfikuje podmiotu tokenu. Wartość nie musi być unikatowy, jest modyfikowalna, i został zaprojektowany tak, aby można używać tylko do wyświetlania. `profile` Zakres jest wymagany w celu odbierania tego oświadczenia. |
-| wyślij wiadomość e-mail |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Podstawowego adresu e-mail skojarzonego z konta użytkownika, jeśli taka istnieje. Jego wartość jest modyfikowalna i może ulec zmianie. `email` Zakres jest wymagany w celu odbierania tego oświadczenia. |
+| e-mail |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Podstawowego adresu e-mail skojarzonego z konta użytkownika, jeśli taka istnieje. Jego wartość jest modyfikowalna i może ulec zmianie. `email` Zakres jest wymagany w celu odbierania tego oświadczenia. |
 | Preferowany nazwy użytkownika |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Nazwa głównej reprezentuje użytkownika w punkcie końcowym v2.0. Może to być adres e-mail, numer telefonu lub ogólny nazwy użytkownika bez określonego formatu. Jego wartość jest modyfikowalna i może ulec zmianie. Ponieważ jest modyfikowalna, ta wartość nie należy używana do podejmowania decyzji dotyczących autoryzacji. `profile` Zakres jest wymagany w celu odbierania tego oświadczenia. |
 | Temat |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Podmiot zabezpieczeń o tym, które token deklaracji rozkazujących informacje, takie jak użytkownika aplikacji. Ta wartość jest niezmienne i nie można ponownie przypisać lub ponownie. Może służyć do wykonywania sprawdzeń autoryzacji bezpiecznie, np. gdy jest używany do uzyskania dostępu do zasobu, a może być używany jako klucz w tabelach bazy danych. Ponieważ podmiot jest zawsze znajdujących się w tokeny problemów z usługą Azure AD, zaleca się korzystanie z tej wartości w systemie autoryzacji ogólnego przeznaczenia. Podmiot jest jednak parowania identyfikator — unikatowy identyfikator aplikacji.  W związku z tym jeśli jeden użytkownik zaloguje się do dwóch różnych aplikacji przy użyciu dwóch identyfikatorów innego klienta, tych aplikacji zostanie wyświetlony dwóch różnych wartości oświadczeń podmiotu.  To może lub nie może być wskazane w zależności od wymagań architektury i ochrony prywatności. |
 | Identyfikator obiektu: |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Niezmienne identyfikator obiektu programu Microsoft identity system, w tym przypadku konta użytkownika.  Można go również używane do wykonywania sprawdzeń autoryzacji i bezpiecznie jako klucz w tabelach bazy danych. Ten identyfikator unikatowo identyfikuje użytkownika w aplikacjach — dwóch różnych aplikacji podpisywania w ten sam użytkownik otrzyma tę samą wartość w `oid` oświadczeń.  Oznacza to, że mogą być używane podczas wykonywania kwerend do usług online firmy Microsoft, takich jak Microsoft Graph.  Program Microsoft Graph, którą będzie zwracać ten identyfikator jako `id` właściwości dla danego konta użytkownika.  Ponieważ `oid` umożliwia wielu aplikacjom do skorelowania użytkowników, `profile` zakres jest wymagany w celu odbierania tego oświadczenia. Należy pamiętać, że jeden użytkownik istnieje w wielu dzierżawców, użytkownik będzie zawierać identyfikator inny obiekt, w każdej dzierżawy — są traktowane jako różne konta, nawet jeśli użytkownik loguje się do wszystkich kont z tymi samymi poświadczeniami. |
@@ -86,7 +86,7 @@ Tokeny odświeżania są wielu zasobów. Token odświeżania otrzymał podczas �
 
 Aby otrzymywać odświeżania w odpowiedzi tokenu, aplikacji należy zażądać i otrzymać `offline_acesss` zakresu. Aby dowiedzieć się więcej o `offline_access` zakres, zobacz [zgody i zakresy](active-directory-v2-scopes.md) artykułu.
 
-Tokenów odświeżania są i zawsze będą, całkowicie nieprzezroczysta dla aplikacji. One są wystawiane przez punktu końcowego v2.0 usługi Azure AD i można tylko inspekcji, a interpretowane przez punktu końcowego v2.0. Są one długotrwałe, ale aplikacji nie powinna być zapisana można oczekiwać, że token odświeżania będą trwać przez dowolnego okresu. Tokeny odświeżania nieważne można w dowolnym momencie z różnych przyczyn. Jedynym sposobem na aplikację, aby sprawdzić, czy token odświeżania jest prawidłowy jest próba Zrealizuj go, wykonując żądania tokenu do punktu końcowego v2.0.
+Tokenów odświeżania są i zawsze będą, całkowicie nieprzezroczysta dla aplikacji. One są wystawiane przez punktu końcowego v2.0 usługi Azure AD i można tylko inspekcji, a interpretowane przez punktu końcowego v2.0. Są one długotrwałe, ale aplikacji nie powinna być zapisana można oczekiwać, że token odświeżania będą trwać przez dowolnego okresu. Tokeny odświeżania może być nieważne w dowolnym momencie z różnych przyczyn — Aby uzyskać więcej informacji, zobacz [tokenu odwołania](active-directory-token-and-claims.md#token-revocation). Jedynym sposobem na aplikację, aby sprawdzić, czy token odświeżania jest prawidłowy jest próba Zrealizuj go, wykonując żądania tokenu do punktu końcowego v2.0.
 
 Gdy zrealizować token odświeżania, aby uzyskać nowy token dostępu (i jeśli przyznano aplikacji `offline_access` zakresu), zostanie wyświetlony nowy token odświeżania w odpowiedzi tokenu. Zapisz token odświeżania nowo wystawione, aby zastąpić ten, który zostanie użyty w żądaniu. Gwarantuje to, że tokenów odświeżania ważność tak długo, jak to możliwe.
 
@@ -140,7 +140,7 @@ Aby uzyskać pełną listę operacji sprawdzania poprawności oświadczenia, kt�
 
 Szczegóły oczekiwanych wartości oświadczenia te są objęte [tokeny Identyfikatora](# ID tokens) sekcji.
 
-## <a name="token-lifetimes"></a>Okresy istnienia tokenu
+## <a name="token-lifetimes"></a>Czasy życia tokenu
 Firma Microsoft udostępnia następujące okresy tokenu tylko charakter informacyjny. Informacje mogą ułatwić opracowanie i debugowania aplikacji. Aplikacji nie powinna być zapisana oczekiwać żadnego z tych okresy istnienia pozostaje stała. Token może okresy istnienia i zmieni się w dowolnym momencie.
 
 | Token | Cykl życia | Opis |

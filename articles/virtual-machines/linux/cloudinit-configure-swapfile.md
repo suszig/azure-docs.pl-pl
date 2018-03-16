@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 7f9defc1f414819cf856fc92f5eb51eafdc67be9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Konfigurowanie swapfile na Maszynę wirtualną systemu Linux za pomocą init chmury
 W tym artykule przedstawiono sposób użycia [init chmury](https://cloudinit.readthedocs.io) skonfigurować swapfile w różnych dystrybucje systemu Linux. Swapfile tradycyjnie została skonfigurowana przez Linux Agent (WALA) oparte na które dystrybucji wymagany jeden.  Ten dokument zostanie wchodzą w skład procesu tworzenia swapfile na żądanie w czasie inicjowania obsługi administracyjnej za pomocą init chmury.  Aby uzyskać więcej informacji na temat chmury inicjowania działania natywnie Azure i obsługiwanych dystrybucjach systemu Linux, zobacz [init chmury — omówienie](using-cloud-init.md)
@@ -28,23 +28,23 @@ Domyślnie na platformie Azure Ubuntu obrazów Galeria nie należy tworzyć plik
 
 ## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>Utwórz swapfile RedHat i CentOS na podstawie obrazów
 
-Utwórz plik w bieżącym powłoki o nazwie *cloud_init_swapfile.txt* i wklej następującą konfigurację. Na przykład można utworzyć pliku w powłoce chmury nie na komputerze lokalnym. Można użyć dowolnego edytora, którego chcesz. Wprowadź `sensible-editor cloud_init_swapfile.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Wybierz #1, aby użyć **nano** edytora. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszego wiersza.  
+Utwórz plik w bieżącym powłoki o nazwie *cloud_init_swapfile.txt* i wklej następującą konfigurację. Na przykład można utworzyć pliku w powłoce chmury nie na komputerze lokalnym. Możesz użyć dowolnego edytora. Wprowadź `sensible-editor cloud_init_swapfile.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Wybierz #1, aby użyć **nano** edytora. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszego wiersza.  
 
 ```yaml
 #cloud-config
 disk_setup:
-ephemeral0:
-table_type: gpt
-layout: [66, [33,82]]
-overwrite: True
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
 fs_setup:
-- device: ephemeral0.1
-filesystem: ext4
-- device: ephemeral0.2
-filesystem: swap
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
 mounts:
-- ["ephemeral0.1", "/mnt"]
-- ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
 Przed wdrożeniem tego obrazu, należy utworzyć nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#az_group_create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.

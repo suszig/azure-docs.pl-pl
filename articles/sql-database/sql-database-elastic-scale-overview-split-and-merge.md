@@ -2,30 +2,25 @@
 title: "Przenoszenie danych między bazami danych w chmurze skalowalnych w poziomie | Dokumentacja firmy Microsoft"
 description: "Wyjaśniono, jak do manipulowania odłamków i przenoszenia danych za pośrednictwem usługi hostowania samoobsługowego przy użyciu interfejsów API elastycznej bazy danych."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Przenoszenie danych między skalowanymi bazami danych w chmurze
 Jeśli jesteś oprogramowania jako deweloper usługi, i nagle aplikacji ulega ogromne żądanie, należy uwzględnić rozwój. Dlatego należy dodać więcej baz danych (odłamków). Jak wszystkie dane do nowych baz danych bez zakłócania integralność danych Użyj **narzędzia do scalania podziału** do przenoszenia danych z baz danych ograniczone do nowych baz danych.  
 
 Narzędzia do scalania podziału działa jako usługa sieci web platformy Azure. Administratorem lub deweloperem używa narzędzia do przenoszenia shardlets (dane z niezależnego fragmentu) między różnych baz danych (odłamków). Narzędzie wykorzystuje niezależnego fragmentu mapy zarządzania do obsługi bazy danych metadanych usługi i zapewnić spójne mapowania.
 
-![Omówienie][1]
+![Przegląd][1]
 
 ## <a name="download"></a>Do pobrania
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
@@ -184,7 +179,7 @@ Diagnostycznej mogli łatwo uzyskiwać dostęp z Eksploratora serwera Visual Stu
 
 WADLogsTable wyróżnione na rysunku powyżej zawiera szczegółowe zdarzenia z dziennika aplikacji usługi podziału scalania. Należy pamiętać, że domyślna konfiguracja pobranego pakietu jest przeznaczone dla wdrożenia produkcyjnego. W związku z tym interwał, jaką dzienniki i liczniki są pobierane z wystąpień usługi jest duża (5 minut). Badań i rozwoju niższym interwał dostosowując ustawienia diagnostyki sieci web lub roli procesu roboczego do własnych potrzeb. Kliknij prawym przyciskiem myszy rolę w Eksploratorze serwera usługi Visual Studio (zobacz powyżej), a następnie Dostosuj okres transferu w oknie dialogowym ustawień konfiguracji diagnostyki: 
 
-![Konfiguracja][3]
+![Konfigurowanie][3]
 
 ## <a name="performance"></a>Wydajność
 Ogólnie rzecz biorąc lepszą wydajność ma z tym wyższy więcej wydajności warstw usług w bazie danych SQL Azure. Wyższy alokacji we/wy, Procesor i pamięć dla wyższych warstw usługi korzystać kopiowania zbiorczego i usuwanie operacji używane przez usługę podziału scalania. Z tego powodu należy zwiększyć warstwy usługi tylko dla tych baz danych zdefiniowana, ograniczony okres czasu.

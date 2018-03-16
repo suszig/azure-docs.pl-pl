@@ -3,17 +3,17 @@ title: "Konfigurowanie uwierzytelniania usługi Azure Active Directory - SQL | D
 description: "Dowiedz się, jak nawiązać połączenie bazy danych SQL, zarządzane wystąpienia i SQL Data Warehouse przy użyciu usługi Azure uwierzytelnianie usługi Active Directory — po skonfigurowaniu usługi Azure AD."
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Konfigurowanie i zarządzanie nimi uwierzytelniania usługi Azure Active Directory z bazy danych SQL, zarządzane wystąpienia lub SQL Data Warehouse
 
@@ -193,7 +193,7 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 ## <a name="configure-your-client-computers"></a>Konfigurowanie komputerów klienckich
 Na wszystkich komputerach klienckich, z których aplikacje lub użytkowników połączyć się z bazą danych SQL Azure lub usługi Azure SQL Data Warehouse przy użyciu tożsamości usługi Azure AD, należy zainstalować następujące oprogramowanie:
 
-* .NET framework 4.6 lub nowszy z [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+* .NET framework 4.6 lub nowszy z [ https://msdn.microsoft.com/library/5a4x27ek.aspx ](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 * Azure Active Directory Authentication Library dla programu SQL Server (**ADALSQL. Biblioteki DLL**) są dostępne w wielu językach (x x86 i amd64) z Centrum pobierania [Microsoft Active Directory Authentication Library dla programu Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 Można spełnienia tych wymagań:

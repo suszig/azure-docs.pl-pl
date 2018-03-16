@@ -56,9 +56,9 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 To polecenie zwraca wyniki podobne do poniższej tabeli:
 
-| Nazwa użytkownika | nazwa użytkownika | Partycji | rowkey |
+| Nazwa użytkownika | nazwa użytkownika | partycja | rowkey |
 |----|---------|---------------|----|
-| 1 | Krzysztof | Partycja1 | URZĄD CERTYFIKACJI |
+| 1 | Krzysztof | Partycja1 | Urząd certyfikacji |
 | 3 | Christine | Partycja1 | WA |
 | 2 | Joasia | Partycja2 | NM |
 | 4 | Steven | Partycja2 | TX |
@@ -72,9 +72,9 @@ Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $parti
 ```
 Wyniki wyglądać podobnie do poniższej tabeli:
 
-| Nazwa użytkownika | nazwa użytkownika | Partycji | rowkey |
+| Nazwa użytkownika | nazwa użytkownika | partycja | rowkey |
 |----|---------|---------------|----|
-| 1 | Krzysztof | Partycja1 | URZĄD CERTYFIKACJI |
+| 1 | Krzysztof | Partycja1 | Urząd certyfikacji |
 | 3 | Christine | Partycja1 | WA |
 
 #### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Pobieranie jednostek dla określonej wartości w określonej kolumnie
@@ -95,7 +95,7 @@ To zapytanie pobiera jeden rekord.
 | Nazwa użytkownika | 1 |
 | nazwa użytkownika | Krzysztof |
 | PartitionKey | Partycja1 |
-| RowKey      | URZĄD CERTYFIKACJI |
+| RowKey      | Urząd certyfikacji |
 
 #### <a name="retrieve-entities-using-a-custom-filter"></a>Pobieranie jednostek przy użyciu niestandardowego filtru 
 
@@ -104,7 +104,7 @@ Aby pobrać jednostek przy użyciu niestandardowego filtru, należy użyć **Get
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 To zapytanie pobiera jeden rekord.
@@ -114,11 +114,11 @@ To zapytanie pobiera jeden rekord.
 | Nazwa użytkownika | 1 |
 | nazwa użytkownika | Krzysztof |
 | PartitionKey | Partycja1 |
-| RowKey      | URZĄD CERTYFIKACJI |
+| RowKey      | Urząd certyfikacji |
 
 ### <a name="updating-entities"></a>Aktualizowanie jednostek 
 
-Istnieją trzy kroki dla aktualizowanie jednostek. Najpierw należy pobrać jednostki zostanie zmieniony. Po drugie wprowadzić zmiany. Trzecie, Zatwierdź zmiany przy użyciu **AzureStorageTableRow aktualizacji**.
+Istnieją trzy kroki dla aktualizowanie jednostek. Najpierw należy pobrać jednostki można zmienić. Po drugie wprowadzić zmiany. Trzecie, Zatwierdź zmiany przy użyciu **AzureStorageTableRow aktualizacji**.
 
 Aktualizowanie jednostki z nazwą użytkownika = Joasia, aby nazwa użytkownika = "Jessie2". W tym przykładzie przedstawiono również inny sposób tworzenia niestandardowego filtru przy użyciu typów .NET. 
 
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Usuń wszystkie jednostki w tabeli 
 
-Aby usunąć wszystkich jednostek w tabeli, pobrać potoku do polecenia cmdlet remove wyniki. 
+Aby usunąć wszystkich jednostek w tabeli, pobrać je i przekazać wyników w potoku do polecenia cmdlet remove. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

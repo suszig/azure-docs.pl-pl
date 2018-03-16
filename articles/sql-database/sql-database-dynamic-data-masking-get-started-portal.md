@@ -2,24 +2,18 @@
 title: 'Portalu Azure: maskowania danych dynamicznych bazy danych SQL | Dokumentacja firmy Microsoft'
 description: "Jak rozpocząć pracę z bazy danych SQL maskowania danych dynamicznych w portalu Azure"
 services: sql-database
-documentationcenter: 
 author: ronitr
-manager: jhubbard
-editor: 
-ms.assetid: "2"
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 11/22/2016
 ms.author: ronitr
-ms.openlocfilehash: 20d344bc6ae971012bd181d14d130432263a3b76
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2db546d8165956dc6f9fad21f66af315ba301c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Rozpoczynanie pracy z danymi dynamicznymi bazy danych SQL, maskowanie przy użyciu portalu Azure
 
@@ -27,7 +21,7 @@ W tym artykule przedstawiono sposób wykonania [maskowania danych dynamicznych](
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Konfigurowanie dynamiczne maskowanie danych dla bazy danych przy użyciu portalu Azure
-1. Uruchamianie portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com).
+1. Uruchamianie portalu Azure pod adresem [ https://portal.azure.com ](https://portal.azure.com).
 2. Przejdź do strony ustawień bazy danych, która zawiera dane poufne, które do zamaskowania.
 3. Kliknij przycisk **dynamicznego maskowania danych** kafelka, który uruchamia **dynamicznego maskowania danych** strony konfiguracji.
    
@@ -56,7 +50,7 @@ W tym artykule przedstawiono sposób wykonania [maskowania danych dynamicznych](
 10. Kliknij przycisk **zapisać** danych maskowania strony konfiguracji, aby zapisać nowe lub zaktualizowane maskowania zasad.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Omówienie maskowania danych dynamicznych, zobacz [maskowania danych dynamicznych](sql-database-dynamic-data-masking-get-started.md).
 * Można też wdrożyć przy użyciu maskowania danych dynamicznych [poleceń cmdlet usługi Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx) lub [interfejsu API REST](https://msdn.microsoft.com/library/dn505719.aspx).

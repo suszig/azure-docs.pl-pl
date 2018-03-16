@@ -2,25 +2,19 @@
 title: "Omówienie zabezpieczeń usługi Azure SQL Database | Microsoft Docs"
 description: "Więcej informacji na temat zabezpieczeń usługi Azure SQL Database i programu SQL Server, w tym różnice w chmurze i lokalnej instalacji programu SQL Server."
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: 
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Zabezpieczanie bazy danych SQL
 
@@ -62,7 +56,6 @@ Aby ułatwić ochronę danych, zapora uniemożliwia wszelki dostęp do serwera b
 
 ### <a name="authentication"></a>Authentication
 Uwierzytelnianie w usłudze SQL Database to sposób potwierdzenia tożsamości podczas nawiązywania połączenia z bazą danych. Usługa SQL Database obsługuje dwa typy uwierzytelniania:
-
 * **Uwierzytelnianie usługi SQL**, które używa nazwy użytkownika i hasła. Po utworzeniu serwera logicznego bazy danych należy określić nazwę logowania „server admin” przy użyciu nazwy użytkownika i hasła. Przy użyciu tych poświadczeń można wybrać metodę uwierzytelniania w każdej innej bazie danych na tym serwerze jako jej właściciel, czyli „dbo”. 
 * **Uwierzytelnianie usługi Azure Active Directory**, które korzysta z tożsamości zarządzanej przez usługę Azure Active Directory i jest obsługiwane w przypadku zarządzanych i zintegrowanych domen. Używaj uwierzytelniania usługi Active Directory (zabezpieczeń zintegrowanych), [gdy tylko jest to możliwe](https://msdn.microsoft.com/library/ms144284.aspx). Aby skorzystać z uwierzytelniania przy użyciu usługi Azure Active Directory, należy utworzyć innego administratora serwera o nazwie „Azure AD admin”, co umożliwi administrowanie użytkownikami i grupami usługi Azure AD. Ten administrator może również wykonywać wszystkie operacje, które może wykonać zwykły administrator serwera. Zobacz artykuł [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) (Łączenie z usługą SQL Database przy użyciu uwierzytelniania usługi Azure Active Directory), aby poznać krok po kroku sposób tworzenia administratora usługi Azure AD w celu włączenia uwierzytelniania usługi Azure Active Directory.
 
@@ -86,6 +79,21 @@ Wykrywanie zagrożeń uzupełnia inspekcji, zapewniając dodatkową warstwę zab
  
 ## <a name="compliance"></a>Zgodność
 Oprócz powyższych funkcji i funkcji, które ułatwiają także spełnić różne wymagania dotyczące zabezpieczeń, baza danych SQL Azure aplikacji uczestniczy w regularne inspekcje i jest certyfikowany na liczbie standardów zgodności. Aby uzyskać więcej informacji, zobacz witrynę [Centrum zaufania Microsoft Azure](https://azure.microsoft.com/support/trust-center/), w której można znaleźć aktualną listę [certyfikatów zgodności usługi SQL Database](https://azure.microsoft.com/support/trust-center/services/).
+
+
+## <a name="security-management"></a>Zarządzanie zabezpieczeniami
+
+Baza danych SQL pomaga w zarządzaniu bezpieczeństwa danych przez podanie skanowania bazy danych i pulpit nawigacyjny scentralizowanych zabezpieczeń przy użyciu [oceny luk w zabezpieczeniach SQL](sql-vulnerability-assessment.md).
+
+**Oceny luk w zabezpieczeniach**: [oceny luk w zabezpieczeniach SQL](sql-vulnerability-assessment.md) (obecnie w wersji zapoznawczej) jest łatwo skonfigurować narzędzie wbudowane w bazie danych SQL Azure, które mogą pomóc w odnajdywania, śledzenia i skorygować potencjalnych bazy danych luki w zabezpieczeniach. Ocena wykonuje skanowanie luki w zabezpieczeniach w Twojej bazie danych i generuje raport, który zapewnia wgląd w stan zabezpieczeń, w tym kroki można wykonać, aby rozwiązać problemy z zabezpieczeniami i zwiększyć poziom bezpieczeństwa bazy danych. Raport oceny można dostosować dla danego środowiska, ustawiając dopuszczalne linii bazowej konfiguracji uprawnień, konfiguracji funkcji i ustawień bazy danych. Może to ułatwić Ci:
+
+- Spełnić wymagania zgodności, które wymagają raporty skanowania bazy danych. 
+
+- Spełniać normy prywatności danych. 
+
+- Monitorowanie środowiska dynamicznej bazy danych, której zmiany są trudne do śledzenia.
+
+Aby uzyskać więcej informacji, zobacz [oceny luk w zabezpieczeniach SQL](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
 

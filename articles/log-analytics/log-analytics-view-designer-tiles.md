@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Podręcznik projektanta widoku kafelków w analizy dzienników
 Przy użyciu projektanta widoków Analiza dzienników Azure, można tworzyć widoki niestandardowe w portalu Azure, która przedstawia różne wizualizacje danych w obszarze roboczym analizy dzienników. W tym artykule jest przewodnik odwołanie do ustawienia dla kafelków, które są dostępne w niestandardowych widoków.
@@ -28,8 +28,6 @@ Aby uzyskać więcej informacji na temat Projektant widoków zobacz:
 * [Wyświetl projektanta](log-analytics-view-designer.md): zawiera omówienie projektanta widoków i procedur tworzenia i edytowania widoków niestandardowych.
 * [Odwołanie do części wizualizacji](log-analytics-view-designer-parts.md): zawiera przewodnik odwołanie do ustawienia dla części wizualizacji, które są dostępne w niestandardowych widoków.
 
-> [!NOTE]
-> Jeśli został uaktualniony do obszaru roboczego [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), zapytania we wszystkich widokach musi być napisana w [nowy język kwerendy](https://go.microsoft.com/fwlink/?linkid=856078). Wszystkie widoki, które zostały utworzone przed uaktualnieniem obszaru roboczego są konwertowane automatycznie.
 
 W poniższej tabeli opisano dostępne Kafelki Projektant widoków:  
 
@@ -53,7 +51,7 @@ Kolejne sekcje opisują typy kafelków i ich właściwości szczegółowo.
 |:--- |:--- |
 | Name (Nazwa) |Tekst, który jest wyświetlany w górnej części fragmentu. |
 | Opis |Tekst, który jest wyświetlany w obszarze Nazwa kafelka. |
-| Kafelek | |
+| **Kafelek** | |
 | Legenda |Tekst, który jest wyświetlany w polu wartość. |
 | Zapytanie |Zapytanie, do którego jest uruchamiany. Liczba rekordów, które są zwracane przez zapytanie zostanie wyświetlona. |
 | **Zaawansowane** |**> Weryfikacja przepływu danych** |

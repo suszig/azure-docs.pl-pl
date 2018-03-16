@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Omówienie usług Reliable Services
 Sieć szkieletowa usług Azure upraszcza zapisywanie i bezstanowe i stanowe niezawodne usługi zarządzania. W tym temacie omówiono:
@@ -34,7 +34,7 @@ Usługa Service Fabric zarządza czasem istnienia usług, od aprowizacji i wdro�
 ## <a name="what-are-reliable-services"></a>Co to są niezawodne usługi?
 Niezawodne usługi zapewnia prosty, zaawansowane, najwyższego poziomu model programowania ułatwiające express, co jest ważne do tej aplikacji. Z usługami Reliable Services modelu programowania można uzyskać:
 
-* Dostęp do pozostałej części sieci szkieletowej usług programowania interfejsów API. W przeciwieństwie do usługi sieci szkieletowej usług formę [pliki wykonywalne gościa](service-fabric-deploy-existing-app.md), Pobierz niezawodne usługi do użycia bezpośrednio z resztą interfejsów API usługi Service Fabric. Dzięki temu usługi do:
+* Dostęp do pozostałej części sieci szkieletowej usług programowania interfejsów API. W przeciwieństwie do usługi sieci szkieletowej usług formę [pliki wykonywalne gościa](service-fabric-guest-executables-introduction.md), Pobierz niezawodne usługi do użycia bezpośrednio z resztą interfejsów API usługi Service Fabric. Dzięki temu usługi do:
   * wykonywanie zapytań względem systemu
   * Raport kondycji temat jednostek w klastrze
   * odbieranie powiadomień o zmianach dotyczących konfiguracji i kod

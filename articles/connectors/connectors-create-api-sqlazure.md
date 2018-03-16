@@ -3,7 +3,7 @@ title: "Dodawanie łącznika usługi Azure SQL Database w aplikacjach logiki | D
 description: "Omówienie łącznika usługi Azure SQL Database z parametrami interfejsu API REST"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Rozpoczynanie pracy z łącznika usługi Azure SQL Database
 Za pomocą łącznika usługi Azure SQL Database, tworzyć przepływy pracy dla organizacji zarządzających danych w tabelach. 
@@ -29,7 +29,7 @@ Z bazy danych SQL można:
 * Tworzenie przepływu pracy przez dodanie nowego klienta do bazy danych klientów lub aktualizowania zamówienia w bazie danych zamówienia.
 * Użyj akcji, aby pobrać wiersz danych, wstawienia nowego wiersza, a nawet usuwać. Na przykład gdy zostaje utworzony rekord w Dynamics CRM Online (wyzwalacz), następnie wstawienia wiersza w bazie danych SQL Azure (działanie). 
 
-W tym temacie opisano sposób korzystania z łącznika bazy danych SQL w aplikacji logiki, a także zawiera listę akcji.
+W tym artykule przedstawiono sposób korzystania z łącznika bazy danych SQL w aplikacji logiki, a także zawiera listę akcji.
 
 Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [co to jest logic apps](../logic-apps/logic-apps-overview.md) i [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -58,7 +58,7 @@ Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logik
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    Jeśli zostanie wyświetlony monit o informacje dotyczące połączenia, wprowadź szczegóły, aby utworzyć połączenie. [Utwórz połączenie](connectors-create-api-sqlazure.md#create-the-connection) w tym temacie opisano te właściwości. 
+    Jeśli zostanie wyświetlony monit o informacje dotyczące połączenia, wprowadź szczegóły, aby utworzyć połączenie. [Utwórz połączenie](connectors-create-api-sqlazure.md#create-the-connection) w tym artykule opisano te właściwości. 
    
    > [!NOTE]
    > W tym przykładzie zostanie zwrócona wiersz z tabeli. Aby wyświetlić dane w tym wierszu, Dodaj inną akcję, która tworzy plik za pomocą pola z tabeli. Na przykład dodać akcję OneDrive, która używa pól Imię i nazwisko, aby utworzyć nowy plik w konta magazynu w chmurze. 
@@ -71,5 +71,5 @@ Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logik
 Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Kolejne kroki
-[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Eksploruj dostępnych łączników w aplikacjach logiki w [listy interfejsów API](apis-list.md).
 

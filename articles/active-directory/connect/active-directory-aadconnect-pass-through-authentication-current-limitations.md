@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Usługi Azure Active Directory przekazywanego uwierzytelniania: Bieżące ograniczenia
 
@@ -29,24 +29,25 @@ ms.lasthandoff: 03/08/2018
 
 Pełni są obsługiwane następujące scenariusze:
 
-- Logowania użytkownika do wszystkich aplikacji opartej na przeglądarce sieci web
-- Logowania użytkownika do aplikacji pakietu Office, które obsługują [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga): pakiet Office 2016 i Office 2013 _z_ nowoczesnego uwierzytelniania
+- Użytkownik logowania do wszystkich aplikacji opartej na przeglądarce sieci web.
+- Logowania użytkownika do aplikacji pakietu Office, które obsługują [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga): pakiet Office 2016 i Office 2013 _z_ nowoczesnego uwierzytelniania.
 - Logowania użytkowników do klientów programu Outlook przy użyciu starszej wersji protokołów, takich jak program Exchange ActiveSync, SMTP, POP i IMAP.
-- Użytkownik logowania do usługi Skype dla firm tego Obsługa nowoczesnego uwierzytelniania, w tym Online i hybrydowych topologii. Dowiedz się więcej na temat obsługiwanych topologii [tutaj](https://technet.microsoft.com/library/mt803262.aspx).
-- Dołącza domenowych Azure AD dla urządzeń z systemem Windows 10
+- Logowania użytkownika do usługi Skype dla firm obsługujące nowoczesnego uwierzytelniania, w tym w trybie online i hybrydowych topologii. Dowiedz się więcej na temat obsługiwanych topologii [tutaj](https://technet.microsoft.com/library/mt803262.aspx).
+- Łączy domenowych Azure AD dla urządzeń z systemem Windows 10.
 - Hasła aplikacji w usłudze Multi-Factor Authentication.
 
 ## <a name="unsupported-scenarios"></a>Nieobsługiwane scenariusze
 
 Poniższe scenariusze są _nie_ obsługiwane:
 
-- Logowania użytkownika do starszych aplikacjach klienckich pakietu Office, z wyjątkiem programu Outlook: pakiet Office 2010 i Office 2013 _bez_ nowoczesnego uwierzytelniania. Organizacje zaleca się przełączyć do nowoczesnego uwierzytelniania, jeśli to możliwe. Umożliwia obsługę uwierzytelniania przekazywanego nowoczesnego uwierzytelniania. Pomaga również Zabezpieczanie kont użytkowników przy użyciu [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) funkcje, takie jak uwierzytelnianie wieloskładnikowe Azure.
+- Logowania użytkownika do starszych aplikacjach klienckich pakietu Office, z wyjątkiem programu Outlook (zobacz **obsługiwane scenariusze** powyżej): pakiet Office 2010 i Office 2013 _bez_ nowoczesnego uwierzytelniania. Organizacje zaleca się przełączyć do nowoczesnego uwierzytelniania, jeśli to możliwe. Umożliwia obsługę uwierzytelniania przekazywanego nowoczesnego uwierzytelniania. Pomaga również Zabezpieczanie kont użytkowników przy użyciu [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) funkcje, takie jak uwierzytelnianie wieloskładnikowe Azure.
+- Dostęp do kalendarza udostępniania i informacje wolny/zajęty w programie Exchange środowisk hybrydowych obejmujących na pakiet Office 2010 tylko.
 - Użytkownik logowania do usługi Skype dla firm aplikacje klienckie _bez_ nowoczesnego uwierzytelniania.
 - Użytkownik logowania do programu PowerShell w wersji 1.0. Firma Microsoft zaleca użycie programu PowerShell w wersji 2.0.
 - Wykrywanie użytkownikom [ujawnione poświadczenia](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Usługi domenowe Azure AD wymaga synchronizacji skrótu hasła w dzierżawie. W związku z tym dzierżawcami, które korzystają z uwierzytelniania przekazywanego _tylko_ nie działa w przypadku scenariuszy, które wymagają usług domenowych Azure AD.
 - Przekazywanego uwierzytelniania nie jest zintegrowany z [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- Apple Device Enrollment Program (DEP firmy Apple) nie obsługuje nowoczesnego uwierzytelniania.  Urządzeń DEP firmy Apple nie będzie można zarejestrować w usłudze Intune dla domen przy użyciu uwierzytelniania przekazywanego.
+- Program rejestracji urządzeń firmy Apple (DEP firmy Apple) przy użyciu Asystenta ustawień systemu iOS nie obsługuje nowoczesnego uwierzytelniania. To nie będzie można zarejestrować urządzeń DEP firmy Apple do usługi Intune dla domen zarządzanych przy użyciu przekazywanego uwierzytelniania. Należy rozważyć użycie [aplikacji Portal firmy](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) jako alternatywę.
 
 >[!IMPORTANT]
 >Jako obejścia nieobsługiwane scenariusze _tylko_, włączanie synchronizacji skrótów haseł na [funkcje opcjonalne](active-directory-aadconnect-get-started-custom.md#optional-features) strony kreatora programu Azure AD Connect.

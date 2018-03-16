@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Za pomocą połączonego i zagnieżdżone szablony, w przypadku wdrażania zasobów platformy Azure
 
@@ -27,8 +27,6 @@ Aby wdrożyć rozwiązanie, służy jednego szablonu lub szablonu głównego z w
 Dla małych i średnich rozwiązania jednego szablonu jest łatwiejsze do zrozumienia i obsługa. Jesteś w stanie zobaczyć wszystkie zasoby i wartości w jednym pliku. Dla zaawansowanych scenariuszy połączonego Szablony umożliwiają podział rozwiązania do elementów docelowych i ponowne użycie szablonów.
 
 Podczas korzystania z połączonego szablonu, tworzenia szablonu głównego, który odbiera wartości parametrów podczas wdrażania. Główny szablon zawiera wszystkie połączone szablony i przekazuje wartości do tych szablonów, zgodnie z potrzebami.
-
-![Szablony połączonego](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## <a name="link-or-nest-a-template"></a>Połącz lub zagnieździć szablonu
 
@@ -486,9 +484,9 @@ Poniższe przykłady przedstawiają typowe zastosowania szablonów połączonych
 
 |Główny szablonu  |Połączone szablonu |Opis  |
 |---------|---------| ---------|
-|[Witaj, świecie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Zwraca ciąg z połączonego szablonu. |
-|[Moduł równoważenia obciążenia z publicznym adresem IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Zwraca publiczny adres IP z szablonów połączonych i ustawia tę wartość w usłudze równoważenia obciążenia. |
-|[Wiele adresów IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Tworzy wiele publicznych adresów IP w szablonie połączony.  |
+|[Witaj, świecie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Zwraca ciąg z połączonego szablonu. |
+|[Moduł równoważenia obciążenia z publicznym adresem IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Zwraca publiczny adres IP z szablonów połączonych i ustawia tę wartość w usłudze równoważenia obciążenia. |
+|[Wiele adresów IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Tworzy wiele publicznych adresów IP w szablonie połączony.  |
 
 ## <a name="next-steps"></a>Kolejne kroki
 

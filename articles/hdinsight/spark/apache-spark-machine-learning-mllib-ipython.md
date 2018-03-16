@@ -15,17 +15,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/13/2018
 ms.author: jgao
-ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ec9852cb47ab57736edadecf38173c314195f324
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Użyj Spark MLlib do tworzenia aplikacji uczenia maszynowego i analizować zestawu danych
 
-Dowiedz się, jak używać platformy Spark **MLlib** do tworzenia aplikacji w celu proste analizy predykcyjnej na Otwórz zestaw danych uczenia maszynowego. Z maszyny wbudowanych platforma Spark uczenia biblioteki, w tym przykładzie użyto *klasyfikacji* za pośrednictwem Regresja logistyczna. 
+Dowiedz się, jak używać platformy Spark [MLlib](https://spark.apache.org/mllib/) do tworzenia aplikacji w celu proste analizy predykcyjnej na Otwórz zestaw danych uczenia maszynowego. Z maszyny wbudowanych platforma Spark uczenia biblioteki, w tym przykładzie użyto *klasyfikacji* za pośrednictwem Regresja logistyczna. 
 
 > [!TIP]
 > W tym przykładzie jest również dostępny jako notesu Jupyter w klastrze Spark (Linux), które są tworzone w usłudze HDInsight. Środowisko notesu umożliwia uruchamianie fragmenty kodu języka Python z notesu samej siebie. Aby wykonać samouczek z poziomu Notes, tworzenie klastra Spark, a następnie uruchom notesu Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). A następnie uruchomić notesu **Spark Machine Learning - analizy predykcyjnej na dane inspekcji żywności przy użyciu MLlib.ipynb** w obszarze **Python** folderu.
@@ -41,7 +41,7 @@ MLlib jest biblioteki Spark core, która udostępnia wiele narzędzi przydatne d
 * Rozkład wartości pojedynczej (SVD) i analizy głównych składników (PCA)
 * Hipoteza testowania i obliczania statystyk próbki
 
-## <a name="what-are-classification-and-logistic-regression"></a>Jakie są klasyfikacji i Regresja logistyczna?
+## <a name="understand-classification-and-logistic-regression"></a>Zrozumienie klasyfikacji i Regresja logistyczna
 *Klasyfikacja*, maszynę popularnych uczenia zadań, to proces polegający na sortowanie danych wejściowych w kategorie. To zadanie jest algorytm klasyfikacji, aby dowiedzieć się, jak można przypisać "etykiety", aby wprowadzić dane podane. Na przykład można traktować z algorytmu uczenia maszynowego, który akceptuje podstawowe informacje jako dane wejściowe i zasoby są podzielone na dwie kategorie: zasobów, które powinny sprzedaży i zasobów, które należy przechowywać.
 
 Regresja logistyczna jest algorytmem, której użyjesz dla klasyfikacji. Regresja logistyczna firmy Spark interfejsu API jest przydatne w przypadku *klasyfikacji binarnej*, lub klasyfikacji danych wejściowych do jednej z dwóch grup. Aby uzyskać więcej informacji na temat logistyczna regresji, zobacz [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
@@ -53,280 +53,324 @@ W tym przykładzie używasz do wykonywania analizy predykcyjnej na dane inspekcj
 
 W poniższych krokach opracowywania modelu, aby zobaczyć, co jest potrzebne do powodzenie lub Niepowodzenie inspekcji żywności.
 
-## <a name="start-building-a-spark-mmlib-machine-learning-app"></a>Rozpocząć tworzenie aplikacji uczenia maszynowego Spark MMLib
-1. W witrynie [Azure Portal](https://portal.azure.com/) na tablicy startowej kliknij kafelek klastra Spark (jeśli został przypięty do tablicy startowej). Możesz także przejść do klastra, wybierając polecenia **Przeglądaj wszystko** > **Klastry usługi HDInsight**.   
-1. W bloku klastra Spark kliknij pozycję **Pulpit nawigacyjny klastra**, a następnie opcję **Jupyter Notebook**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
+## <a name="create-a-spark-mllib-machine-learning-app"></a>Tworzenie aplikacji Spark MLlib machine learning
 
-   > [!NOTE]
-   > Można również przejść do aplikacji Jupyter Notebook dla klastra, otwierając następujący adres URL w przeglądarce. Zastąp ciąg **CLUSTERNAME** nazwą klastra:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-1. Utwórz notes. Kliknij opcję **New** (Nowy), a następnie kliknij pozycję **PySpark**.
+1. Tworzenie notesu Jupyter z użyciem jądra PySpark. Aby uzyskać instrukcje, zobacz [tworzenie notesu Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-    ![Tworzenie notesu Jupyter](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-create-jupyter.png "Tworzenie nowego notesu Jupyter")
-1. Zostanie utworzony i otwarty nowy notes o nazwie Untitled.pynb. Kliknij nazwę notesu u góry, a następnie wprowadź przyjazną nazwę.
+2. Importowania typów wymaganych dla tej aplikacji. Skopiuj i wklej następujący kod do pustej komórki, a następnie naciśnij klawisz **SHIRT + ENTER**.
 
-    ![Wprowadzanie nazwy notesu](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-name-jupyter.png "Wprowadzanie nazwy notesu")
-1. Ponieważ notes został utworzony z użyciem jądra PySpark, nie ma konieczności jawnego tworzenia kontekstów. Konteksty Spark i Hive są automatycznie tworzone po uruchomieniu pierwszej komórki kodu. Można rozpocząć tworzenie komputera nauki aplikacji od importowania typów wymaganych w tym scenariuszu. Aby to zrobić, umieść kursor w komórce i naciśnij klawisze **SHIFT + ENTER**.
+    ```PySpark
+    from pyspark.ml import Pipeline
+    from pyspark.ml.classification import LogisticRegression
+    from pyspark.ml.feature import HashingTF, Tokenizer
+    from pyspark.sql import Row
+    from pyspark.sql.functions import UserDefinedFunction
+    from pyspark.sql.types import *
+    ```
+    Z powodu jądra PySpark nie ma potrzeby jawnego tworzenia kontekstów. Konteksty Spark i Hive są automatycznie tworzone po uruchomieniu pierwszej komórki kodu. 
 
-        from pyspark.ml import Pipeline
-        from pyspark.ml.classification import LogisticRegression
-        from pyspark.ml.feature import HashingTF, Tokenizer
-        from pyspark.sql import Row
-        from pyspark.sql.functions import UserDefinedFunction
-        from pyspark.sql.types import *
+## <a name="construct-the-input-dataframe"></a>Konstrukcja dataframe wejściowych
 
-## <a name="construct-an-input-dataframe"></a>Konstrukcja dataframe wejściowych
-Można użyć `sqlContext` wykonania przekształcenia na danych strukturalnych. Pierwszym zadaniem jest ładowanie przykładowych danych ((**Food_Inspections1.csv**)) do programu Spark SQL *dataframe*.
+Ponieważ dane pierwotne w formacie CSV, można użyć obiektu context Spark może kopiować plik do pamięci jako tekst bez struktury, a następnie użyć języka Python CSV biblioteki można przeanalizować każdego wiersza danych.
 
-1. Ponieważ dane pierwotne w formacie CSV, musisz użyć kontekstu Spark ściągania każdy wiersz w pliku do pamięci jako tekst bez struktury. następnie należy użyć języka Python CSV biblioteki można przeanalizować indywidualnie każdego wiersza.
+1. Uruchom następujące wiersze do utworzenia odporność rozproszonych zestawu danych (RDD) przez importowanie i analizowanie danych wejściowych.
 
-        def csvParse(s):
-            import csv
-            from StringIO import StringIO
-            sio = StringIO(s)
-            value = csv.reader(sio).next()
-            sio.close()
-            return value
+    ```PySpark
+    def csvParse(s):
+        import csv
+        from StringIO import StringIO
+        sio = StringIO(s)
+        value = csv.reader(sio).next()
+        sio.close()
+        return value
+    
+    inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+                    .map(csvParse)
+    ```
 
-        inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
-                        .map(csvParse)
-1. Plik CSV jest teraz dostępna jako RDD.  Aby poznać schemat danych, można pobierać z RDD jeden wiersz.
+2. Uruchom następujący kod, aby pobrać jeden wiersz z RDD, co pozwoli podjąć wygląd schemat danych:
 
-        inspections.take(1)
+    ```PySpark
+    inspections.take(1)
+    ```
 
-    Powinny pojawić się dane wyjściowe podobne do następujących:
+    Wynik jest:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```
+    [['413707',
+        'LUNA PARK INC',
+        'LUNA PARK  DAY CARE',
+        '2049789',
+        "Children's Services Facility",
+        'Risk 1 (High)',
+        '3250 W FOSTER AVE ',
+        'CHICAGO',
+        'IL',
+        '60625',
+        '09/21/2010',
+        'License-Task Force',
+        'Fail',
+        '24. DISH WASHING FACILITIES: PROPERLY DESIGNED, CONSTRUCTED, MAINTAINED, INSTALLED, LOCATED AND OPERATED - Comments: All dishwashing machines must be of a type that complies with all requirements of the plumbing section of the Municipal Code of Chicago and Rules and Regulation of the Board of Health. OBSEVERD THE 3 COMPARTMENT SINK BACKING UP INTO THE 1ST AND 2ND COMPARTMENT WITH CLEAR WATER AND SLOWLY DRAINING OUT. INST NEED HAVE IT REPAIR. CITATION ISSUED, SERIOUS VIOLATION 7-38-030 H000062369-10 COURT DATE 10-28-10 TIME 1 P.M. ROOM 107 400 W. SURPERIOR. | 36. LIGHTING: REQUIRED MINIMUM FOOT-CANDLES OF LIGHT PROVIDED, FIXTURES SHIELDED - Comments: Shielding to protect against broken glass falling into food shall be provided for all artificial lighting sources in preparation, service, and display facilities. LIGHT SHIELD ARE MISSING UNDER HOOD OF  COOKING EQUIPMENT AND NEED TO REPLACE LIGHT UNDER UNIT. 4 LIGHTS ARE OUT IN THE REAR CHILDREN AREA,IN THE KINDERGARDEN CLASS ROOM. 2 LIGHT ARE OUT EAST REAR, LIGHT FRONT WEST ROOM. NEED TO REPLACE ALL LIGHT THAT ARE NOT WORKING. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned. MISSING CEILING TILES WITH STAINS IN WEST,EAST, IN FRONT AREA WEST, AND BY THE 15MOS AREA. NEED TO BE REPLACED. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair. SPLASH GUARDED ARE NEEDED BY THE EXPOSED HAND SINK IN THE KITCHEN AREA | 34. FLOORS: CONSTRUCTED PER CODE, CLEANED, GOOD REPAIR, COVING INSTALLED, DUST-LESS CLEANING METHODS USED - Comments: The floors shall be constructed per code, be smooth and easily cleaned, and be kept clean and in good repair. INST NEED TO ELEVATE ALL FOOD ITEMS 6INCH OFF THE FLOOR 6 INCH AWAY FORM WALL.  ',
+        '41.97583445690982',
+        '-87.7107455232781',
+        '(41.97583445690982, -87.7107455232781)']]
+    ```
 
-        [['413707',
-          'LUNA PARK INC',
-          'LUNA PARK  DAY CARE',
-          '2049789',
-          "Children's Services Facility",
-          'Risk 1 (High)',
-          '3250 W FOSTER AVE ',
-          'CHICAGO',
-          'IL',
-          '60625',
-          '09/21/2010',
-          'License-Task Force',
-          'Fail',
-          '24. DISH WASHING FACILITIES: PROPERLY DESIGNED, CONSTRUCTED, MAINTAINED, INSTALLED, LOCATED AND OPERATED - Comments: All dishwashing machines must be of a type that complies with all requirements of the plumbing section of the Municipal Code of Chicago and Rules and Regulation of the Board of Health. OBSEVERD THE 3 COMPARTMENT SINK BACKING UP INTO THE 1ST AND 2ND COMPARTMENT WITH CLEAR WATER AND SLOWLY DRAINING OUT. INST NEED HAVE IT REPAIR. CITATION ISSUED, SERIOUS VIOLATION 7-38-030 H000062369-10 COURT DATE 10-28-10 TIME 1 P.M. ROOM 107 400 W. SURPERIOR. | 36. LIGHTING: REQUIRED MINIMUM FOOT-CANDLES OF LIGHT PROVIDED, FIXTURES SHIELDED - Comments: Shielding to protect against broken glass falling into food shall be provided for all artificial lighting sources in preparation, service, and display facilities. LIGHT SHIELD ARE MISSING UNDER HOOD OF  COOKING EQUIPMENT AND NEED TO REPLACE LIGHT UNDER UNIT. 4 LIGHTS ARE OUT IN THE REAR CHILDREN AREA,IN THE KINDERGARDEN CLASS ROOM. 2 LIGHT ARE OUT EAST REAR, LIGHT FRONT WEST ROOM. NEED TO REPLACE ALL LIGHT THAT ARE NOT WORKING. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned. MISSING CEILING TILES WITH STAINS IN WEST,EAST, IN FRONT AREA WEST, AND BY THE 15MOS AREA. NEED TO BE REPLACED. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair. SPLASH GUARDED ARE NEEDED BY THE EXPOSED HAND SINK IN THE KITCHEN AREA | 34. FLOORS: CONSTRUCTED PER CODE, CLEANED, GOOD REPAIR, COVING INSTALLED, DUST-LESS CLEANING METHODS USED - Comments: The floors shall be constructed per code, be smooth and easily cleaned, and be kept clean and in good repair. INST NEED TO ELEVATE ALL FOOD ITEMS 6INCH OFF THE FLOOR 6 INCH AWAY FORM WALL.  ',
-          '41.97583445690982',
-          '-87.7107455232781',
-          '(41.97583445690982, -87.7107455232781)']]
-1. Dane wyjściowe poprzedniego daje wyobrażenie o schemat pliku wejściowego. Zawiera nazwę każda jednostka organizacyjna, typ ustanowienia, adres, dane inspekcji i lokalizacji, między innymi. Ta funkcja pozwala wybrać kilka kolumn, które są przydatne w przypadku naszego analizy predykcyjnej i grupowania wyników jako dataframe, które zostaną następnie użyte do utworzenia tabeli tymczasowej.
+    Dane wyjściowe daje wyobrażenie o schemat pliku wejściowego. Zawiera nazwę każda jednostka organizacyjna, typ ustanowienia, adres, dane inspekcji i lokalizacji, między innymi. 
 
-        schema = StructType([
-        StructField("id", IntegerType(), False),
-        StructField("name", StringType(), False),
-        StructField("results", StringType(), False),
-        StructField("violations", StringType(), True)])
+3. Uruchom następujący kod, aby utworzyć dataframe (*df*) i tabeli tymczasowej (*CountResults*) z kilka kolumn, które są przydatne w przypadku analizy predykcyjnej. `sqlContext` Służy do wykonywania transformacji na danych strukturalnych. 
 
-        df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
-        df.registerTempTable('CountResults')
-1. Masz teraz *dataframe*, `df` na której można wykonać nasze analizy. Masz również wywołanie tabeli tymczasowej **CountResults**. Dodaliśmy cztery kolumny zainteresowanie dataframe: **identyfikator**, **nazwa**, **wyniki**, i **naruszeń**.
+    ```PySpark
+    schema = StructType([
+    StructField("id", IntegerType(), False),
+    StructField("name", StringType(), False),
+    StructField("results", StringType(), False),
+    StructField("violations", StringType(), True)])
+    
+    df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
+    df.registerTempTable('CountResults')
+    ```
 
-    Załóż małej przykładowej danych:
+    Są cztery kolumny zainteresowanie dataframe **identyfikator**, **nazwa**, **wyniki**, i **naruszeń**.
 
-        df.show(5)
+4. Uruchom następujący kod, aby pobrać małej przykładowej danych:
 
-    Powinny pojawić się dane wyjściowe podobne do następujących:
+    ```PySpark
+    df.show(5)
+    ```
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    Wynik jest:
 
-        +------+--------------------+-------+--------------------+
-        |    id|                name|results|          violations|
-        +------+--------------------+-------+--------------------+
-        |413707|       LUNA PARK INC|   Fail|24. DISH WASHING ...|
-        |391234|       CAFE SELMARIE|   Fail|2. FACILITIES TO ...|
-        |413751|          MANCHU WOK|   Pass|33. FOOD AND NON-...|
-        |413708|BENCHMARK HOSPITA...|   Pass|                    |
-        |413722|           JJ BURGER|   Pass|                    |
-        +------+--------------------+-------+--------------------+
+    ```
+    +------+--------------------+-------+--------------------+
+    |    id|                name|results|          violations|
+    +------+--------------------+-------+--------------------+
+    |413707|       LUNA PARK INC|   Fail|24. DISH WASHING ...|
+    |391234|       CAFE SELMARIE|   Fail|2. FACILITIES TO ...|
+    |413751|          MANCHU WOK|   Pass|33. FOOD AND NON-...|
+    |413708|BENCHMARK HOSPITA...|   Pass|                    |
+    |413722|           JJ BURGER|   Pass|                    |
+    +------+--------------------+-------+--------------------+
+    ```
 
 ## <a name="understand-the-data"></a>Zrozumieć dane
-1. Zacznijmy zorientować zawiera naszym zestawie danych. Na przykład, jakie są różne wartości w **wyniki** kolumny?
 
-        df.select('results').distinct().show()
+Zacznijmy zorientować zawiera zestaw danych. 
 
-    Powinny pojawić się dane wyjściowe podobne do następujących:
+1. Uruchom następujący kod, aby wyświetlić różne wartości w **wyniki** kolumny:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```PySpark
+    df.select('results').distinct().show()
+    ```
 
-        +--------------------+
-        |             results|
-        +--------------------+
-        |                Fail|
-        |Business Not Located|
-        |                Pass|
-        |  Pass w/ Conditions|
-        |     Out of Business|
-        +--------------------+
-1. Szybkie wizualizacji, ułatwisz nam Przyczyna informacji o dystrybucji tych wyników. Masz już dane w tabeli tymczasowej **CountResults**. Można uruchomić następujące zapytanie SQL dla tabeli, aby uzyskać lepsze zrozumienie rozkład wyniki.
+    Wynik jest:
 
-        %%sql -o countResultsdf
-        SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    ```
+    +--------------------+
+    |             results|
+    +--------------------+
+    |                Fail|
+    |Business Not Located|
+    |                Pass|
+    |  Pass w/ Conditions|
+    |     Out of Business|
+    +--------------------+
+    ```
 
-    `%%sql` Magic następuje `-o countResultsdf` gwarantuje, że wyniki kwerendy jest trwały lokalnie na serwerze Jupyter (zazwyczaj headnode klastra). Dane wyjściowe jest utrwalony jako [Pandas](http://pandas.pydata.org/) dataframe o określonej nazwie **countResultsdf**.
+2. Uruchom poniższy kod do wizualizacji dystrybucji tych wyników:
 
-    Powinny pojawić się dane wyjściowe podobne do następujących:
+    ```PySpark
+    %%sql -o countResultsdf
+    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    ```
+
+    `%%sql` Magic następuje `-o countResultsdf` gwarantuje, że wyniki kwerendy jest trwały lokalnie na serwerze Jupyter (zazwyczaj headnode klastra). Dane wyjściowe jest utrwalony jako [Pandas](http://pandas.pydata.org/) dataframe o określonej nazwie **countResultsdf**. Aby uzyskać więcej informacji na temat polecenia magicznego `%%sql` oraz innych poleceń magicznych dostępnych za pośrednictwem jądra PySpark, zobacz [Jądra dostępne dla notesu Jupyter w klastrze Spark w usłudze HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+
+    Wynik jest:
 
     ![Dane wyjściowe kwerendy SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "wyników zapytania SQL")
 
-    Aby uzyskać więcej informacji na temat polecenia magicznego `%%sql` oraz innych poleceń magicznych dostępnych za pośrednictwem jądra PySpark, zobacz [Jądra dostępne dla notesu Jupyter w klastrze Spark w usłudze HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
-1. Umożliwia także Matplotlib, biblioteki użyta do skonstruowania wizualizację danych, aby utworzyć wykres. Ponieważ powierzchni musi zostać utworzona z utrwalonego lokalnie **countResultsdf** dataframe, fragment kodu musi rozpoczynać się od `%%local` magic. Dzięki temu, że jest on uruchamiany lokalnie na serwerze Jupyter.
 
-        %%local
-        %matplotlib inline
-        import matplotlib.pyplot as plt
+3. Można również użyć [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), biblioteki użyta do skonstruowania wizualizacji danych do utworzenia wykresu. Ponieważ powierzchni musi zostać utworzona z utrwalonego lokalnie **countResultsdf** dataframe, fragment kodu musi rozpoczynać się od `%%local` magic. Dzięki temu, że jest on uruchamiany lokalnie na serwerze Jupyter.
 
-        labels = countResultsdf['results']
-        sizes = countResultsdf['cnt']
-        colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
-        plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-        plt.axis('equal')
+    ```PySpark
+    %%local
+    %matplotlib inline
+    import matplotlib.pyplot as plt
 
-    Powinny pojawić się dane wyjściowe podobne do następujących:
+    labels = countResultsdf['results']
+    sizes = countResultsdf['cnt']
+    colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
+    plt.axis('equal')
+    ```
+
+    Wynik jest:
 
     ![Wyjście Spark machine learning aplikacji - wykres kołowy z pięciu wyników inspekcji różne](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "maszyny Spark uczenia wyników w danych wyjściowych")
-1. Aby sprawdzić, czy 5 różne wyniki, które mogą mieć inspekcji:
 
-   * Biznesowe, które nie znajdują się
-   * Niepowodzenie
-   * Powodzenie
-   * PSS z warunkami
-   * Poza biznesowa
+    Istnieje 5 różne wyniki, które mogą mieć inspekcji:
 
-     Daj nam opracowywania modelu, który można odgadnąć wyników inspekcji żywności, podane naruszenia. Regresja logistyczna jest metoda klasyfikacji binarnej, warto do grupowania danych w dwóch kategorii: **niepowodzenie** i **przekazać**. "Przekaż z warunkami" jest nadal przebiegu, więc po nauczenia modelu, należy wziąć pod uwagę wyniki równoważne. Dane z innych wyników ("Nie znajduje się biznesowych" lub "Out of Business") nie są przydatne, usuń je z naszego zestawu szkoleniowego. Powinno to być poprawny, ponieważ te dwie kategorie tworzą niewielka wyników mimo to.
-1. Daj nam Przejdź dalej i przekonwertować naszych istniejących dataframe (`df`) do nowej dataframe, gdzie każdej kontroli jest reprezentowany jako pary naruszeń etykiety. W tym przypadku etykiety `0.0` reprezentuje awarii etykiety `1.0` reprezentuje sukcesu i etykiety `-1.0` reprezentuje pewnych wyników oprócz tych dwóch. Można odfiltrować innych uzyskanych przy obliczaniu nowej ramki danych.
+    - Biznesowe, które nie znajdują się
+    - Niepowodzenie
+    - Powodzenie
+    - Przekazywanie z warunkami
+    - Poza biznesowa
 
-        def labelForResults(s):
-            if s == 'Fail':
-                return 0.0
-            elif s == 'Pass w/ Conditions' or s == 'Pass':
-                return 1.0
-            else:
-                return -1.0
-        label = UserDefinedFunction(labelForResults, DoubleType())
-        labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
+    Do przewidywania wyników kontroli żywności, konieczne jest opracowanie modelu oparte na naruszenia. Regresja logistyczna jest metoda klasyfikacji binarnej, warto grupować dane wynikowe w dwóch kategorii: **niepowodzenie** i **przekazać**:
 
-    Aby zobaczyć, jakie danych oznaczonych prawdopodobnie, możemy pobrać jeden wiersz.
+    - Powodzenie
+        - Powodzenie
+        - Przekazywanie z warunkami
+    - Niepowodzenie
+        - Niepowodzenie
+    - Odrzuć
+        - Biznesowe, które nie znajdują się
+        - Poza biznesowa
 
-        labeledData.take(1)
+    Dane z innych wyników ("Nie znajduje się biznesowych" lub "Out of Business") nie są przydatne, i stanowią one niewielka wyników mimo to.
 
-    Powinny pojawić się dane wyjściowe podobne do następujących:
+4. Uruchom następujący kod, aby przekonwertować istniejące dataframe (`df`) do nowej dataframe, gdzie każdej kontroli jest reprezentowany jako pary naruszeń etykiety. W tym przypadku etykiety `0.0` reprezentuje awarii etykiety `1.0` reprezentuje sukcesu i etykiety `-1.0` reprezentuje pewnych wyników oprócz tych dwóch. 
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```PySpark
+    def labelForResults(s):
+        if s == 'Fail':
+            return 0.0
+        elif s == 'Pass w/ Conditions' or s == 'Pass':
+            return 1.0
+        else:
+            return -1.0
+    label = UserDefinedFunction(labelForResults, DoubleType())
+    labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
+    ```
 
-        [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
+5. Uruchom następujący kod, aby wyświetlić jeden wiersz etykietami danych:
+
+    ```PySpark
+    labeledData.take(1)
+    ```
+
+    Wynik jest:
+
+    ```
+    [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
+    ```
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Tworzenie modelu Regresja logistyczna z dataframe wejściowych
-Nasze ostatnim zadaniem jest można przekonwertować danych oznaczonych do formatu, który może zostać przeanalizowana przez Regresja logistyczna. Dane wejściowe algorytm Regresja logistyczna powinna być zestaw *pary wektor etykiety funkcji*, gdzie "wektor funkcji" jest wektorem liczb reprezentujący punkt wejściowy. Tak należy przekonwertować kolumny "naruszeń", która jest częściową strukturą i zawiera wiele komentarzy w niezależnych, do tablicy liczb rzeczywistych, które maszyna można łatwo zrozumieć.
+
+Ostatnim zadaniem jest można przekonwertować danych oznaczonych do formatu, który może zostać przeanalizowana przez Regresja logistyczna. Dane wejściowe algorytm Regresja logistyczna musi być zestawem *pary wektor etykiety funkcji*, gdzie "wektor funkcji" jest wektorem liczb reprezentujący punkt wejściowy. Tak należy przekonwertować kolumny "naruszeń", która jest częściową strukturą i zawiera wiele komentarzy w niezależnych, do tablicy liczb rzeczywistych, które maszyna można łatwo zrozumieć.
 
 Na jednym komputerze standardowe uczenia podejście do przetwarzania języka naturalnego jest przypisanie każdego wyrazu różne "index", a następnie przekazać wektora maszynie Algorytm uczenia w taki sposób, że każdy indeks wartość zawiera względne częstotliwości tego wyrazu w ciągu tekstowym.
 
 MLlib zapewnia prosty sposób wykonania tej operacji. Po pierwsze "tokenizacji" każdego ciąg naruszeń, aby uzyskać poszczególnych wyrazów w każdym ciągu. Następnie należy użyć `HashingTF` Aby przekonwertować każdego zestawu tokenów wektor funkcji, które można następnie przekazać do algorytmu Regresja logistyczna do konstruowania modelu. Wszystkie kroki przeprowadzić przy użyciu "potoku".
 
-    tokenizer = Tokenizer(inputCol="violations", outputCol="words")
-    hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
-    lr = LogisticRegression(maxIter=10, regParam=0.01)
-    pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
+```PySpark
+tokenizer = Tokenizer(inputCol="violations", outputCol="words")
+hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
+lr = LogisticRegression(maxIter=10, regParam=0.01)
+pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 
-    model = pipeline.fit(labeledData)
+model = pipeline.fit(labeledData)
+```
 
-## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Ocena modelu na oddzielne testowego zestawu danych
-Można użyć modelu utworzonego wcześniej do *prognozowania* co wyników inspekcji nowych będzie, oparte na naruszenia, które zaobserwowano. Uczenia modelu w zestawie danych **Food_Inspections1.csv**. Daj nam użyj drugiego zestawu danych, **Food_Inspections2.csv**, do *oceny* siłę tego modelu na nowych danych. Drugi zestaw danych (**Food_Inspections2.csv**) powinna już być domyślnego kontenera magazynu skojarzone z klastrem.
+## <a name="evaluate-the-model-using-another-dataset"></a>Ocena modelu przy użyciu innego elementu dataset
 
-1. Poniższy fragment kodu tworzy nowy dataframe, **predictionsDf** zawierający prognozy generowane przez model. Fragment kodu tworzy także tabeli tymczasowej o nazwie **prognoz** oparte na dataframe.
+Można użyć modelu utworzonego wcześniej do *prognozowania* co wyników inspekcji nowych będzie, oparte na naruszenia, które zaobserwowano. Uczenia modelu w zestawie danych **Food_Inspections1.csv**. Drugi zestaw danych, można użyć **Food_Inspections2.csv**, do *oceny* siłę tego modelu do nowych danych. Drugi zestaw danych (**Food_Inspections2.csv**) znajduje się w domyślnego kontenera magazynu skojarzone z klastrem.
 
-        testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
-                 .map(csvParse) \
-                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
-        testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
-        predictionsDf = model.transform(testDf)
-        predictionsDf.registerTempTable('Predictions')
-        predictionsDf.columns
+1. Uruchom następujący kod, aby utworzyć nowy dataframe, **predictionsDf** zawierający prognozy generowane przez model. Fragment kodu tworzy także tabeli tymczasowej o nazwie **prognoz** oparte na dataframe.
+
+    ```PySpark
+    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+                .map(csvParse) \
+                .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
+    testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
+    predictionsDf = model.transform(testDf)
+    predictionsDf.registerTempTable('Predictions')
+    predictionsDf.columns
+    ```
 
     Powinny pojawić się dane wyjściowe podobne do następujących:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```
+    # -----------------
+    # THIS IS AN OUTPUT
+    # -----------------
 
-        ['id',
-         'name',
-         'results',
-         'violations',
-         'words',
-         'features',
-         'rawPrediction',
-         'probability',
-         'prediction']
+    ['id',
+        'name',
+        'results',
+        'violations',
+        'words',
+        'features',
+        'rawPrediction',
+        'probability',
+        'prediction']
+    ```
+
 1. Spójrz na jeden z prognozy. Uruchom ten fragment kodu:
 
-        predictionsDf.take(1)
+    ```PySpark
+    predictionsDf.take(1)
+    ```
 
    Brak prognozowania pierwszego wpisu w testowego zestawu danych.
-1. `model.transform()` Metoda stosuje przekształcenia do nowych danych z tego samego schematu i przyjeździe Prognozowanie klasyfikowania danych. Można wykonać statystykami proste uzyskanie zorientować się, jak dokładny zostały naszego operacje przewidywania dla:
+1. `model.transform()` Metoda stosuje przekształcenia do nowych danych z tego samego schematu i przyjeździe Prognozowanie klasyfikowania danych. Można wykonać statystykami proste uzyskanie zorientować się, jak dokładny zostały prognozy:
 
-        numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
-                                              (prediction = 1 AND (results = 'Pass' OR
-                                                                   results = 'Pass w/ Conditions'))""").count()
-        numInspections = predictionsDf.count()
+    ```PySpark
+    numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
+                                            (prediction = 1 AND (results = 'Pass' OR
+                                                                results = 'Pass w/ Conditions'))""").count()
+    numInspections = predictionsDf.count()
 
-        print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
-        print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+    print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
+    print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+    ```
 
     Dane wyjściowe wygląda następująco:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```
+    # -----------------
+    # THIS IS AN OUTPUT
+    # -----------------
 
-        There were 9315 inspections and there were 8087 successful predictions
-        This is a 86.8169618894% success rate
+    There were 9315 inspections and there were 8087 successful predictions
+    This is a 86.8169618894% success rate
+    ```
 
-    Korzystanie z platformy Spark Regresja logistyczna daje dokładne modelu relacji między opisy naruszeń w języku angielskim i czy danej firmy spowoduje powodzenie lub Niepowodzenie inspekcji żywności.
+    Korzystanie z platformy Spark Regresja logistyczna umożliwia precyzyjne modelu relacji między opisy naruszeń w języku angielskim i czy danej firmy spowoduje powodzenie lub Niepowodzenie inspekcji żywności.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Utwórz wizualną reprezentację Prognozowanie
-Można teraz utworzyć końcowego wizualizacji, aby pomóc nam Przyczyna o wyniki tego testu.
+Można teraz utworzyć końcowego wizualizacji ułatwiające przyczyny o wyniki tego testu.
 
 1. Możesz uruchomić wyodrębnianie różnych prognoz i wyniki z **prognoz** tabeli tymczasowej utworzony wcześniej. Następujące kwerendy oddzielnych danych wyjściowych w formacie *true_positive*, *false_positive*, *true_negative*, i *false_negative*. W zapytaniach poniżej, możesz wyłączyć wizualizacji przy użyciu `-q` i zapisać dane wyjściowe (przy użyciu `-o`) jako dataframes, który można następnie użyć z `%%local` magic.
 
-        %%sql -q -o true_positive
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
+    ```PySpark
+    %%sql -q -o true_positive
+    SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
 
-        %%sql -q -o false_positive
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
+    %%sql -q -o false_positive
+    SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
 
-        %%sql -q -o true_negative
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
+    %%sql -q -o true_negative
+    SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
 
-        %%sql -q -o false_negative
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
+    %%sql -q -o false_negative
+    SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
+    ```
+
 1. Na koniec użyj następującego fragmentu kodu można wygenerować za pomocą kreślenia **Matplotlib**.
 
-        %%local
-        %matplotlib inline
-        import matplotlib.pyplot as plt
+    ```PySpark
+    %%local
+    %matplotlib inline
+    import matplotlib.pyplot as plt
 
-        labels = ['True positive', 'False positive', 'True negative', 'False negative']
-        sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
-        colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
-        plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-        plt.axis('equal')
+    labels = ['True positive', 'False positive', 'True negative', 'False negative']
+    sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
+    colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
+    plt.axis('equal')
+    ```
 
     Powinny być widoczne następujące dane wyjściowe:
 

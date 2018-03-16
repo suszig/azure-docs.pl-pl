@@ -3,25 +3,18 @@ title: "Reguły zapory bazy danych SQL Azure | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania zapory bazy danych SQL do zarządzania dostępem za pomocą reguł zapory na poziomie serwera i bazy danych."
 keywords: zapora bazy danych
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: cgronlun
-tags: 
-ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: cde076dfdcc2f3aea69081def7ea86be2744ccc7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Reguły zapory poziomu serwera i bazy danych na poziomie bazy danych SQL Azure 
 

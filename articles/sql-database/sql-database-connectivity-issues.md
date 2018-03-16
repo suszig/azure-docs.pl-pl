@@ -3,24 +3,18 @@ title: "Napraw błąd połączenia SQL, błąd przejściowy | Dokumentacja firmy
 description: "Dowiedz się, jak rozwiązywanie problemów, diagnozowanie i zapobieganie błąd połączenia SQL lub Błąd przejściowy w bazie danych SQL Azure."
 keywords: "Połączenie SQL, ciąg połączenia, problemy z łącznością, błąd przejściowy, błąd połączenia"
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: 7d393cd08ef5c20ef680e4e1ab3aded191abe932
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f6b5f825d7f8111075fe37b5dc29d174928d913e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Rozwiązywanie problemów, diagnozowanie i unikanie błędów połączenia SQL oraz błędów przejściowych w usłudze SQL Database
 W tym artykule opisano sposób zapobiec, rozwiązywanie problemów z zdiagnozować i ograniczyć błędów połączenia i błędom przejściowym, których aplikacja kliencka napotka przy interakcji z bazy danych SQL Azure. Dowiedz się, jak skonfigurować logiki ponawiania próby utworzenia parametrów połączenia i inne ustawienia połączenia.
@@ -427,7 +421,7 @@ public bool IsTransient(Exception ex)
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać więcej informacji na temat rozwiązywania inne typowe problemy z połączeniami bazy danych SQL, zobacz [Rozwiązywanie problemów z połączeniem z bazą danych SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
 * [Biblioteki połączeń dla bazy danych SQL i programu SQL Server](sql-database-libraries.md)
 * [Połączenie z serwerem SQL buforowanie (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)

@@ -13,29 +13,30 @@ ms.devlang:
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c7b3fa2b566ab02e7fb4a03055db83f1545895e8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b067dfd6d50b61614c2f3de2fa0e159cd645f9eb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Uzyskuj dostęp do sieci wirtualnych sieci wirtualnej komunikacji równorzędnej przy użyciu programu PowerShell
 
-Sieci wirtualne można połączyć ze sobą z sieci wirtualnej komunikacji równorzędnej. Po połączyć się za pomocą sieci wirtualnych, zasobów w obie sieci wirtualne są mogły komunikować się ze sobą, z tym samym opóźnienia i przepustowości tak, jakby był zasoby w tej samej sieci wirtualnej. W tym artykule opisano tworzenie i równorzędna dwie sieci wirtualne. Omawiane kwestie:
+Sieci wirtualne można połączyć ze sobą z sieci wirtualnej komunikacji równorzędnej. Po połączyć się za pomocą sieci wirtualnych, zasobów w obie sieci wirtualne są mogły komunikować się ze sobą, z tym samym opóźnienia i przepustowości tak, jakby był zasoby w tej samej sieci wirtualnej. W tym artykule dowiesz się, jak:
 
 > [!div class="checklist"]
 > * Utwórz dwie sieci wirtualne
-> * Utwórz komunikacji równorzędnej między sieciami wirtualnymi
-> * Komunikacja równorzędna testu
+> * Połącz dwie sieci wirtualnej z sieci wirtualnej komunikacji równorzędnej
+> * Wdróż maszynę wirtualną (VM) do każdej sieci wirtualnej
+> * Komunikację między maszynami wirtualnymi
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Jeśli użytkownik chce zainstalować i używać środowiska PowerShell lokalnie, w tym artykule wymaga programu Azure PowerShell w wersji modułu 3,6 lub nowszej. Uruchom ` Get-Module -ListAvailable AzureRM` można odnaleźć zainstalowanej wersji. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
+Jeśli użytkownik chce zainstalować i używać środowiska PowerShell lokalnie, w tym artykule wymaga programu Azure PowerShell w wersji modułu 5.4.1 lub nowszym. Uruchom ` Get-Module -ListAvailable AzureRM` można odnaleźć zainstalowanej wersji. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure. 
 
 ## <a name="create-virtual-networks"></a>Tworzenie sieci wirtualnych
 
@@ -90,8 +91,6 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork2 | Set-AzureRmVirtualNetwork
 ```
 
-Prefiks adresu *myVirtualNetwork2* sieci wirtualnej nakłada się na prefiksie adresu z *myVirtualNetwork1* sieci wirtualnej. Nie można elementów równorzędnych sieci wirtualnych o nakładających się prefiksów adresów.
-
 ## <a name="peer-virtual-networks"></a>Sieci wirtualne elementów równorzędnych
 
 Utwórz komunikacji równorzędnej z [AzureRmVirtualNetworkPeering Dodaj](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering). Następujące elementy równorzędne przykład *myVirtualNetwork1* do *myVirtualNetwork2*.
@@ -123,19 +122,13 @@ Get-AzureRmVirtualNetworkPeering `
 
 Zasoby w jednej sieci wirtualnej nie może komunikować się z zasobami w innych sieci wirtualnej do **PeeringState** dla komunikacji równorzędnych w obu sieci wirtualnych jest *połączony*. 
 
-Komunikacji równorzędnych są między dwiema sieciami wirtualnymi, ale nie są przechodnie. Tak, na przykład, jeśli chcesz także elementu równorzędnego *myVirtualNetwork2* do *myVirtualNetwork3*, należy utworzyć dodatkowe komunikacji równorzędnej między sieciami wirtualnymi *myVirtualNetwork2* i *myVirtualNetwork3*. Mimo że *myVirtualNetwork1* jest połączyć za pomocą z *myVirtualNetwork2*, zasobów w ramach *myVirtualNetwork1* tylko dostęp do zasobów w  *myVirtualNetwork3* Jeśli *myVirtualNetwork1* została także połączyć za pomocą z *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Przed równorzędna sieci wirtualnych w środowisku produkcyjnym, zalecane jest, że należy dokładnie zapoznać się z [Omówienie komunikacji równorzędnej](virtual-network-peering-overview.md), [Zarządzanie równorzędna](virtual-network-manage-peering.md), i [limity sieci wirtualnej ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Chociaż w tym artykule przedstawiono komunikacji równorzędnej między dwie sieci wirtualne w tej samej subskrypcji i lokalizacji, również elementów równorzędnych sieci wirtualnych w [różnych regionach](#register) i [różnych subskrypcji Azure](create-peering-different-subscriptions.md#powershell). Można również utworzyć [gwiazdy sieci projektów](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) z komunikacji równorzędnej.
+Tworzenie maszyny Wirtualnej w każdej sieci wirtualnej, dzięki czemu użytkownik może komunikować się między nimi w kolejnym kroku.
 
-## <a name="test-peering"></a>Komunikacja równorzędna testu
+### <a name="create-the-first-vm"></a>Tworzenie pierwszej maszyny Wirtualnej
 
-Aby przetestować komunikację sieciową między maszynami wirtualnymi w różnych sieciach wirtualnych za pomocą komunikacji równorzędnej, Wdróż maszynę wirtualną w każdej podsieci, a następnie komunikować się między maszynami wirtualnymi. 
-
-### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
-
-Utwórz maszynę wirtualną w każdej sieci wirtualnej, aby móc weryfikować komunikację między nimi w kolejnym kroku.
-
-Utwórz maszynę wirtualną z [AzureRmVM nowy](/powershell/module/azurerm.compute/new-azurermvm). Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm1* w *myVirtualNetwork1* sieci wirtualnej. `-AsJob` Opcja tworzy maszynę wirtualną w tle, dzięki czemu można kontynuować do następnego kroku. Po wyświetleniu monitu wprowadź nazwę użytkownika i hasło, które chcesz zalogować się do maszyny wirtualnej z.
+Utwórz maszynę Wirtualną z [nowe AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVm1* w *myVirtualNetwork1* sieci wirtualnej. `-AsJob` Opcja tworzy maszynę Wirtualną w tle, dzięki czemu można kontynuować do następnego kroku. Po wyświetleniu monitu wprowadź nazwę użytkownika i hasło, które chcesz zalogować się do maszyny Wirtualnej z.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -148,9 +141,7 @@ New-AzureRmVm `
   -AsJob
 ```
 
-Azure automatycznie przypisuje 10.0.0.4 jako prywatny adres IP maszyny wirtualnej, ponieważ 10.0.0.4 jest pierwszy dostępny adres IP w *podsieć1* z *myVirtualNetwork1*. 
-
-Utwórz maszynę wirtualną w *myVirtualNetwork2* sieci wirtualnej.
+### <a name="create-the-second-vm"></a>Tworzenie drugiej maszyny Wirtualnej
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -162,13 +153,11 @@ New-AzureRmVm `
   -Name "myVm2"
 ```
 
-Maszyna wirtualna ma kilka minut na utworzenie. Chociaż w dane wyjściowe, Azure nieprzypisany 10.1.0.4 jako prywatny adres IP maszyny wirtualnej, ponieważ 10.1.0.4 jest pierwszy dostępny adres IP w *podsieć1* z *myVirtualNetwork2*. 
+Maszyna wirtualna ma kilka minut na utworzenie. Nie Kontynuuj dalszych krokach dopóki Azure tworzy maszynę Wirtualną i zwraca dane wyjściowe do programu PowerShell.
 
-Nie Kontynuuj dalszych krokach dopóki Azure tworzy maszynę wirtualną i zwraca dane wyjściowe do programu PowerShell.
+## <a name="communicate-between-vms"></a>Komunikację między maszynami wirtualnymi
 
-### <a name="test-virtual-machine-communication"></a>Testowanie łączności maszyny wirtualnej
-
-Publiczny adres IP maszyny wirtualnej można połączyć z Internetu. Użyj [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) do zwrócenia publicznego adresu IP maszyny wirtualnej. Poniższy przykład zwraca publicznego adresu IP *myVm1* maszyny wirtualnej:
+Publiczny adres IP maszyny Wirtualnej można połączyć z Internetu. Użyj [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) do zwrócenia publiczny adres IP maszyny wirtualnej. Poniższy przykład zwraca publicznego adresu IP *myVm1* maszyny Wirtualnej:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -176,37 +165,35 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Użyj następującego polecenia, aby utworzyć sesję pulpitu zdalnego z *myVm1* maszynę wirtualną z komputera lokalnego. Zastąp `<publicIpAddress>` adres IP zwrócony z poprzednie polecenie.
+Użyj następującego polecenia, aby utworzyć sesję pulpitu zdalnego z *myVm1* maszyny Wirtualnej z komputera lokalnego. Zastąp `<publicIpAddress>` adres IP zwrócony z poprzednie polecenie.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 
-Plik protokołu Remote Desktop Protocol (RDP) jest utworzony, pobrana na komputer i otworzyć. Wprowadź nazwę użytkownika i hasło (musisz wybrać **więcej opcji**, następnie **korzystała z innego konta**, aby określić poświadczenia zostały wprowadzone podczas tworzenia maszyny wirtualnej), a następnie kliknij przycisk  **OK**. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Kliknij przycisk **Tak** lub **Kontynuuj**, aby kontynuować nawiązywanie połączenia.
+Plik protokołu Remote Desktop Protocol (RDP) jest utworzony, pobrana na komputer i otworzyć. Wprowadź nazwę użytkownika i hasło (musisz wybrać **więcej opcji**, następnie **korzystała z innego konta**, aby określić poświadczenia zostały wprowadzone podczas tworzenia maszyny Wirtualnej), a następnie kliknij przycisk **OK** . Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Kliknij przycisk **Tak** lub **Kontynuuj**, aby kontynuować nawiązywanie połączenia.
 
-W wierszu polecenia, włącza ping przez zaporę systemu Windows, więc można zbadać poleceniem ping tę maszynę wirtualną z *myVm2* w kolejnym kroku.
+Na *myVm1* maszyny Wirtualnej, Włącz zapory kontroli protokołu ICMP (Internet Message) za pośrednictwem systemu Windows, można zbadać poleceniem ping tej maszyny Wirtualnej z *myVm2* w kolejnym kroku przy użyciu programu PowerShell:
 
+```powershell
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
 
-Chociaż ping jest używany podczas testowania w tym artykule, nie zaleca się stosowanie protokołu ICMP przez zaporę systemu Windows dla wdrożeń produkcyjnych.
+Chociaż ping jest używany do komunikacji między maszynami wirtualnymi w tym artykule, nie zaleca się stosowanie protokołu ICMP przez zaporę systemu Windows dla wdrożeń produkcyjnych.
 
-Aby nawiązać połączenie *myVm2* maszyny wirtualnej, wprowadź następujące polecenie w wierszu polecenia *myVm1* maszyny wirtualnej:
+Aby nawiązać połączenie *myVm2* maszyny Wirtualnej, wprowadź następujące polecenie w wierszu polecenia *myVm1* maszyny Wirtualnej:
 
 ```
 mstsc /v:10.1.0.4
 ```
 
-Ponieważ włączony ping *myVm1*, użytkownik może teraz wysyłać polecenia ping go za pomocą adresu IP z wiersza polecenia na *myVm2* maszyny wirtualnej:
+Ponieważ włączony ping *myVm1*, użytkownik może teraz wysyłać polecenia ping go za pomocą adresu IP z wiersza polecenia na *myVm2* maszyny Wirtualnej:
 
 ```
 ping 10.0.0.4
 ```
 
-Otrzymasz cztery odpowiedzi. Jeśli wywołać według nazwy maszyny wirtualnej (*myVm1*), zamiast adresu IP ping nie powiedzie się, ponieważ *myVm1* jest nazwą Nieznany host. Rozpoznawanie nazw domyślne platformy Azure działa między maszynami wirtualnymi w tej samej sieci wirtualnej, ale nie między maszynami wirtualnymi w różnych sieciach wirtualnych. Rozpoznawanie nazw w sieciach wirtualnych, należy najpierw [wdrożenia serwera DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) lub użyj [prywatnej domen usługi Azure DNS](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-Odłączyć swoje sesje protokołu RDP do obu *myVm1* i *myVm2*.
+Otrzymasz cztery odpowiedzi. Odłączyć swoje sesje protokołu RDP do obu *myVm1* i *myVm2*.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -242,9 +229,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-W tym artykule przedstawiono sposób połączyć dwie sieci z sieci wirtualnej komunikacji równorzędnej. Możesz [połączyć swojego komputera do sieci wirtualnej](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) za pośrednictwem sieci VPN i interakcji z zasobami w sieci wirtualnej lub połączyć za pomocą sieci wirtualnych.
+W tym artykule przedstawiono sposób połączyć dwie sieci z sieci wirtualnej komunikacji równorzędnej. W tym artykule przedstawiono sposób połączyć dwie sieci w tej samej lokalizacji platformy Azure z sieci wirtualnej komunikacji równorzędnej. Można również elementów równorzędnych sieci wirtualnych w [różnych regionach](#register)w [różnych subskrypcji Azure](create-peering-different-subscriptions.md#portal) i tworzenia [gwiazdy projektów sieci](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) z komunikacji równorzędnej. Przed równorzędna sieci wirtualnych w środowisku produkcyjnym, zalecane jest, że należy dokładnie zapoznać się z [Omówienie komunikacji równorzędnej](virtual-network-peering-overview.md), [Zarządzanie równorzędna](virtual-network-manage-peering.md), i [sieci wirtualnej limity](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Nadal przykłady skryptów dla skryptów wielokrotnego użytku do wykonania wielu zadań omówione w artykułach sieci wirtualnej.
+Możesz [połączyć swojego komputera do sieci wirtualnej](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) za pośrednictwem sieci VPN i interakcji z zasobami w sieci wirtualnej lub połączyć za pomocą sieci wirtualnych. Nadal przykłady skryptów dla skryptów wielokrotnego użytku do wykonania wielu zadań omówione w artykułach sieci wirtualnej.
 
 > [!div class="nextstepaction"]
 > [Przykłady skryptów sieci wirtualnej](../networking/powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -2,24 +2,19 @@
 title: "Połącz z bazą danych SQL za pomocą C i C++ | Dokumentacja firmy Microsoft"
 description: "Użyj przykładowy kod w tym szybki start, aby skompilować modern aplikacji z C++ i kopii zapasowej przez zaawansowanych relacyjnej bazy danych w chmurze z bazy danych SQL Azure."
 services: sql-database
-documentationcenter: 
 author: edmacauley
-manager: jhubbard
-editor: 
-ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: edmacauley
-ms.openlocfilehash: 7c78f90c14c1915c760720948d6d7ae99ceb6f1d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 659b413b2686a50a0681e7307b51188e6e6d0859
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Połącz z bazą danych SQL za pomocą C i C++
 Ten wpis jest przeznaczony dla deweloperów C i C++ podejmuje próbę nawiązania połączenia z bazą danych SQL Azure. Podzielona jest na sekcje, można przejść do sekcji, która najlepiej przechwytuje zainteresowanie. 
@@ -113,7 +108,7 @@ Ostatnim etapem przed kompilacji jest dodanie **odbc** jako zależności bibliot
 
 Aby uruchomić aplikację, wyświetlić konsoli systemu Linux z **debugowania** menu: 
 
-![Konsola systemu Linux](./media/sql-database-develop-cplusplus-simple/linuxconsole.png)
+![Linux Console](./media/sql-database-develop-cplusplus-simple/linuxconsole.png)
 
 Jeśli połączenie zakończyło się pomyślnie, powinien zostać wyświetlony nazwa bieżącej bazy danych na konsoli systemu Linux: 
 
@@ -127,11 +122,11 @@ Można znaleźć rozwiązania GetStarted, które zawiera wszystkie przykłady w 
 * [Przykładowe Windows w języku C++ ODBC](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29), Pobierz Windows C++ ODBC próby połączenia z serwerem Azure SQL
 * [Przykładowe ODBC C++ Linux](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29), Pobierz Linux C++ ODBC próby połączenia z serwerem Azure SQL
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Przegląd [omówienie tworzenia bazy danych SQL](sql-database-develop-overview.md)
 * Więcej informacji na temat [dokumentacja interfejsu API ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [Wzorce projektowe dla wielodostępnych aplikacji SaaS wykorzystujących usługę Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Poznaj wszystkie [możliwości usługi SQL Database](https://azure.microsoft.com/services/sql-database/)
 

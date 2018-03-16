@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 6675603bf741b1a668ba387c8304d2e2b7ab4e12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e8e5513df5ab412857403382e1940da27c85274a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Tworzenie klastra sieci szkieletowej usług za pomocą usługi Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -117,7 +117,7 @@ Użyj następującego polecenia, aby utworzyć klaster szybkie, określając par
 
 Szablon używany jest dostępna na [przykłady szablonu sieci szkieletowej usług azure: szablonu systemu windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) i [Ubuntu szablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-Polecenia poniżej działa w przypadku tworzenia klastrów systemu Windows i Linux, wystarczy określić odpowiednio systemu operacyjnego. Programu powershell / polecenia interfejsu wiersza polecenia również certyfikat w theCertificateOutputFolder określony w danych wyjściowych. Polecenie przyjmuje inne parametry, takie jak SKU maszyna wirtualna również.
+Polecenia poniżej działa w przypadku tworzenia klastrów systemu Windows i Linux, wystarczy określić odpowiednio systemu operacyjnego. Programu PowerShell / polecenia interfejsu wiersza polecenia również certyfikat w określonym CertificateOutputFolder jednak upewnij się, że dane wyjściowe certyfikatu folder już utworzony. Polecenie przyjmuje inne parametry, takie jak SKU maszyna wirtualna również.
 
 ```Powershell
 
@@ -126,13 +126,13 @@ $resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
-$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword="Password!4321" | ConvertTo-SecureString -AsPlainText -Force
+$certPassword="Password123!@#" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword="Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser –Location $resourceGroupLocation
 
 ```
 
@@ -178,7 +178,7 @@ Jeśli już masz szablonu niestandardowego, a następnie upewnij się, że podw�
 ```
 
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -195,7 +195,7 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Certifica
 
 ```
 
-Oto analogiczne polecenie interfejsu wiersza polecenia, aby zrobić to samo. Zmień wartości w instrukcji declare odpowiednie wartości. Interfejs wiersza polecenia obsługuje wszystkie parametry, które obsługuje powyższe polecenie programu powershell.
+Oto analogiczne polecenie interfejsu wiersza polecenia, aby zrobić to samo. Zmień wartości w instrukcji declare odpowiednie wartości. Interfejs wiersza polecenia obsługuje wszystkie parametry, które obsługuje powyższe polecenie programu PowerShell.
 
 ```CLI
 
@@ -226,7 +226,8 @@ Jeśli jest to podpisem certyfikatu urzędu certyfikacji, który spowoduje utwor
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Użyj domyślnego 5 szablonu nodetype 1 węzła, który jest dostarczany w module
 Szablon, który jest używany jest dostępna na [przykładów dla platformy azure: szablon windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) i [Ubuntu szablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-```Powershell
+```PowerShell
+
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -279,7 +280,7 @@ Jeśli już masz szablonu niestandardowego, a następnie upewnij się, że podw�
 ```
 
 
-```Powershell
+```PowerShell
 
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
@@ -292,7 +293,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 
 ```
 
@@ -314,34 +315,34 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-keyvault"></a>Za pomocą wskaźnika do hasła, które już zostały przekazane do parametru keyvault
+#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-key-vault"></a>Za pomocą wskaźnika do hasła, które już zostały przekazane do magazynu kluczy
 
 Aby użyć istniejącego magazynu kluczy, możesz _należy włączyć dla wdrożenia_ umożliwia dostawcy zasobów obliczeniowych uzyskanie certyfikatów i zainstalować go na węzłach klastra:
 
-```powershell
+```PowerShell
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
-$secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+$secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 Oto analogiczne polecenie interfejsu wiersza polecenia, aby zrobić to samo. Zmień wartości w instrukcji declare odpowiednie wartości.
 
-```cli
-
+```CLI
+declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifieraz $secretID  \
+    --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 
 ```
@@ -522,9 +523,9 @@ Konfiguracji usługi Azure AD s należy dodać do szablonu usługi Resource Mana
 ```
 
 ### <a name="populate-the-parameter-file-with-the-values"></a>Wypełnij pliku parametrów z wartościami.
-Na koniec użyj wartości danych wyjściowych z magazynu kluczy i poleceń programu powershell usługi Azure AD do wypełnienia pliku parametrów:
+Na koniec użyj wartości danych wyjściowych z magazynu kluczy i poleceń programu PowerShell usługi Azure AD do wypełnienia pliku parametrów:
 
-Jeśli planujesz używać usługi Azure modułów programu powershell Menedżera zasobów sieci szkieletowej, nie należy wypełnić informacji o certyfikacie klastra, możesz opcji system do generowania samoobsługowego podpisany certyfikat zabezpieczeń klastra, pamiętaj jako wartość null. 
+Jeśli planujesz używać sieci szkieletowej usług Azure, moduły programu RM PowerShell, możesz nie ma potrzeby wypełnić informacji o certyfikacie klastra, jeśli ma system do generowania samoobsługowego podpisany certyfikat zabezpieczeń klastra możesz po prostu zachowywać je jako wartość null. 
 
 > [!NOTE]
 > Dla modułów RM na odebranie i wypełnić wartości tych parametrów pusta nazwy parametrów znacznie pasują poniższe nazwy
@@ -542,9 +543,9 @@ Jeśli planujesz używać usługi Azure modułów programu powershell Menedżera
         },
 ```
 
-Jeśli używasz aplikacji certyfikaty lub korzystają z istniejącego klastra, które zostały przekazane do parametru keyvault, należy pobrać tych informacji i wypełnić je 
+Jeśli używasz aplikacji certyfikaty lub korzystają z istniejącego klastra, które zostały przekazane do magazynu kluczy, należy pobrać tych informacji i wypełnić je 
 
-Moduły protokołu RM nie masz możliwość geneate konfiguracji usługi Azure AD. Dlatego jeśli planujesz używać usługi Azure AD dla dostępu klientów, należy umieścić w nim.
+Moduły protokołu RM nie mają możliwość wygenerowania konfiguracji usługi Azure AD. Dlatego jeśli planujesz używać usługi Azure AD dla dostępu klientów, należy umieścić w nim.
 
 ```json
 {
@@ -587,13 +588,13 @@ Moduły protokołu RM nie masz możliwość geneate konfiguracji usługi Azure A
 ### <a name="test-your-template"></a>Testowanie szablonu  
 Do przetestowania pliku parametrów szablonu usługi Resource Manager, należy użyć następującego polecenia programu PowerShell:
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 W przypadku napotkania problemów i pobieranie wiadomości one niezrozumiałe, następnie użyj "-Debug" jako opcja.
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
@@ -605,7 +606,7 @@ Na poniższym diagramie przedstawiono, w którym magazyn kluczy i konfiguracji u
 
 Teraz można wdrożyć klaster przy użyciu kroków opisanych wcześniej w dokumencie lub jeśli wartości w pliku parametrów wypełnione, następnie teraz można przystąpić do tworzenia klastra przy użyciu [wdrażania szablonu zasobów platformy Azure] [ resource-group-template-deploy] bezpośrednio.
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
@@ -677,7 +678,7 @@ Wybierz opcję "Rejestracji aplikacji" na stronie usługi AAD, wybierz aplikacj�
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Połącz klaster przy użyciu uwierzytelniania usługi Azure AD za pomocą programu PowerShell
 Połącz z klastrem usługi sieć szkieletowa, użyj następującego polecenia programu PowerShell:
 
-```powershell
+```PowerShell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

@@ -2,23 +2,18 @@
 title: "Tworzenie i zarządzanie nimi przy użyciu programu PowerShell zadania elastyczne | Dokumentacja firmy Microsoft"
 description: "Umożliwia Zarządzanie pulami bazy danych SQL Azure PowerShell"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: sstein
+ms.openlocfilehash: 17e4176129da747925596c66ca9df936a3828c2d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Tworzenie i zarządzanie nimi zadania elastycznej bazy danych SQL przy użyciu programu PowerShell (wersja zapoznawcza)
 
@@ -50,7 +45,7 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     <td>Poświadczenie</td>
     <td>Nazwa użytkownika i hasło do użycia podczas nawiązywania połączenia bazy danych dla wykonywania skryptów lub aplikacji DACPACs. <p>Hasło jest szyfrowane przed wysłaniem do i przechowywania w bazie danych zadania elastyczne bazy danych.  Hasło jest odszyfrowywany przez usługę zadania elastyczne bazy danych za pomocą poświadczeń utworzone i załadowane w skrypcie instalacji.</td>
     <td><p>Get-AzureSqlJobCredential</p>
-    <p>Nowe AzureSqlJobCredential</p><p>Zestaw AzureSqlJobCredential</p></td></td>
+    <p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
@@ -60,8 +55,8 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     <td>
     <p>Get-AzureSqlJobContent</p>
     <p>Get-AzureSqlJobContentDefinition</p>
-    <p>Nowe AzureSqlJobContent</p>
-    <p>Zestaw AzureSqlJobContentDefinition</p>
+    <p>New-AzureSqlJobContent</p>
+    <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
 
@@ -71,8 +66,8 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
-    <p>Nowe AzureSqlJobContent</p>
-    <p>Zestaw AzureSqlJobContentDefinition</p>
+    <p>New-AzureSqlJobContent</p>
+    <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
   <tr>
@@ -81,7 +76,7 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Nowe AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
   <tr>
@@ -90,8 +85,8 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Nowe AzureSqlJobTarget</p>
-    <p>Zestaw AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
+    <p>Set-AzureSqlJobTarget</p>
     </td>
   </tr>
 <tr>
@@ -99,15 +94,15 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     <td>Zdefiniowane grupy baz danych do zbiorczo użycia dla wykonania.</td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Nowe AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
 <tr>
     <td>Docelowy podrzędnej kolekcji niestandardowej</td>
     <td>Obiekt docelowy bazy danych, do którego odwołuje się z kolekcji niestandardowej.</td>
     <td>
-    <p>Dodaj AzureSqlJobChildTarget</p>
-    <p>Usuń AzureSqlJobChildTarget</p>
+    <p>Add-AzureSqlJobChildTarget</p>
+    <p>Remove-AzureSqlJobChildTarget</p>
     </td>
   </tr>
 
@@ -118,8 +113,8 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     </td>
     <td>
     <p>Get-AzureSqlJob</p>
-    <p>Nowe AzureSqlJob</p>
-    <p>Zestaw AzureSqlJob</p>
+    <p>New-AzureSqlJob</p>
+    <p>Set-AzureSqlJob</p>
     </td>
   </tr>
 
@@ -130,9 +125,9 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
-    <p>Start AzureSqlJobExecution</p>
+    <p>Start-AzureSqlJobExecution</p>
     <p>Stop-AzureSqlJobExecution</p>
-    <p>AzureSqlJobExecution oczekiwania</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -143,9 +138,9 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
-    <p>Start AzureSqlJobExecution</p>
+    <p>Start-AzureSqlJobExecution</p>
     <p>Stop-AzureSqlJobExecution</p>
-    <p>AzureSqlJobExecution oczekiwania</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -156,8 +151,8 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     </td>
     <td>
     <p>Get-AzureSqlJobExecutionPolicy</p>
-    <p>Nowe AzureSqlJobExecutionPolicy</p>
-    <p>Zestaw AzureSqlJobExecutionPolicy</p>
+    <p>New-AzureSqlJobExecutionPolicy</p>
+    <p>Set-AzureSqlJobExecutionPolicy</p>
     </td>
   </tr>
 
@@ -168,8 +163,8 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     </td>
     <td>
     <p>Get-AzureSqlJobSchedule</p>
-    <p>Nowe AzureSqlJobSchedule</p>
-    <p>Zestaw AzureSqlJobSchedule</p>
+    <p>New-AzureSqlJobSchedule</p>
+    <p>Set-AzureSqlJobSchedule</p>
     </td>
   </tr>
 
@@ -179,8 +174,8 @@ W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastyc
     <p>Mapowanie między zadania i harmonogramu wykonywania wyzwalacza zadania zgodnie z harmonogramem.</p>
     </td>
     <td>
-    <p>Nowe AzureSqlJobTrigger</p>
-    <p>Usuń AzureSqlJobTrigger</p>
+    <p>New-AzureSqlJobTrigger</p>
+    <p>Remove-AzureSqlJobTrigger</p>
     </td>
   </tr>
 </table>

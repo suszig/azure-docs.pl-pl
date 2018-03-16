@@ -3,8 +3,8 @@ title: "Nietechniczna pomoc wymagania wstępne dotyczące tworzenia oferty w por
 description: "Poznaj wymagania dotyczące tworzenia i wdrażania oferty w portalu Azure Marketplace innym osobom do zakupu."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5c30e62bf345843fe83b3f17b728e1a937d19ce3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Ogólne wymagania wstępne dotyczące tworzenia oferty w portalu Azure Marketplace
 Informacje ogólne, business procesu skoncentrowane na wstępne, które są potrzebne, aby rozpocząć proces tworzenia oferty.
@@ -73,12 +73,12 @@ Jest to subskrypcji, która będzie używać do tworzenia obrazów maszyn wirtua
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po nietechnicznych wymagania wstępne są spełnione, obok są oferty określonych technicznych wymagań wstępnych. Kliknij link do artykułu dla typu oferty odpowiednich, który chcesz utworzyć dla portalu Azure Marketplace.
 
 * [Maszyna wirtualna techniczne wymagania wstępne](marketplace-publishing-vm-image-creation-prerequisites.md)
 * [Wymagania wstępne techniczne szablon rozwiązania](marketplace-publishing-solution-template-creation-prerequisites.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md)
 

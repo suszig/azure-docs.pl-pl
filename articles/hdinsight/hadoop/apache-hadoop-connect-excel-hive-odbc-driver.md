@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2050741b46699043836cae1e6465e18dbae87d25
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Łączenie programu Excel do platformy Hadoop w usłudze Azure HDInsight z sterownik Microsoft Hive ODBC
 
@@ -31,10 +31,7 @@ Rozwiązania danych Big Data firmy Microsoft składniki Microsoft Business Intel
 
 Istnieje również możliwość łączenia danych związanych z klastrem usługi HDInsight i innych źródeł danych, w tym inne klastry Hadoop (z systemem innym niż HDInsight), w programie Excel przy użyciu dodatku Microsoft Power Query dla programu Excel. Aby uzyskać informacje na temat instalowania i za pomocą dodatku Power Query, zobacz [łączenie programu Excel do usługi HDInsight za pomocą dodatku Power Query][hdinsight-power-query].
 
-> [!NOTE]
-> Chociaż kroki opisane w tym artykule mogą być używane z klastra z systemem Linux lub HDInsight opartych na systemie Windows, Windows jest wymagany dla stacji roboczej klienta.
-> 
-> 
+
 
 **Wymagania wstępne**:
 

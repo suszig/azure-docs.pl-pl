@@ -3,8 +3,8 @@ title: "Przewodnik dotyczący tworzenia szablonu rozwiązania dla witryny Market
 description: "Szczegółowe instrukcje dotyczące sposobu tworzenia, certyfikować i wdrażania wielu maszyn wirtualnych szablon rozwiązania obrazu dla kupić w witrynie Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.author: mbaldwin
+ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Przewodnik, aby utworzyć szablon rozwiązania dla portalu Azure Marketplace
 Po ukończeniu kroku 1, [o tworzeniu konta i rejestracji][link-acct-creation], możemy przewodnikiem po utworzeniu szablonu rozwiązania Azure zgodnego w [techniczne wymagania wstępne dotyczące tworzenia szablonu rozwiązania](marketplace-publishing-solution-template-creation-prerequisites.md). Obecnie firma Microsoft przeprowadzi Cię przez kolejne etapy tworzenia szablonu rozwiązanie dla wielu maszyn wirtualnych na [Portal publikowania] [ link-pubportal] dla portalu Azure Marketplace.
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Utwórz ofertę szablon rozwiązania w portalu publikowania
-Przejdź do [https://publish.windowsazure.com](http://publish.windowsazure.com). Po zalogowaniu po raz pierwszy do [Portal publikowania](https://publish.windowsazure.com/), użyj tego samego konta z został zarejestrowany w firmie sprzedawcy profilu. Później możesz dodać każdy pracownik firmy jako współadministrator w portalu publikowania.
+Przejdź do [ https://publish.windowsazure.com ](http://publish.windowsazure.com). Po zalogowaniu po raz pierwszy do [Portal publikowania](https://publish.windowsazure.com/), użyj tego samego konta z został zarejestrowany w firmie sprzedawcy profilu. Później możesz dodać każdy pracownik firmy jako współadministrator w portalu publikowania.
 
 ### <a name="1-select-solution-templates"></a>1. Wybierz opcję "Szablony rozwiązań"
   ![Rysowanie][img-pubportal-menu-sol-templ]
@@ -37,9 +37,9 @@ Szablon rozwiązania jest nadrzędny dla wszystkich jego topologii. Można zdefi
 
 * Utworzyć topologię: "Identyfikator topologii" jest zazwyczaj nazwą topologii szablon rozwiązania. Identyfikator topologii jest używana w adresie URL, jak pokazano poniżej:
 
-  Witrynę Azure Marketplace: http://azure.microsoft.com/marketplace/partners/ {PublisherNamespace} / {OfferIdentifier} {TopologyIdentifier}
+  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Portalu Azure: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {TopologyIdentifier}
+  Portalu Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 * Dodaj nową wersję.
 
 ### <a name="4-get-your-topology-versions-certified"></a>4. Pobieranie Twojej wersji topologii certyfikowane
@@ -53,7 +53,7 @@ Przekaż plik zip, który zawiera wszystkie wymagane pliki do udostępnienia tej
   >
   >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, gdy zostanie utworzony szablon rozwiązania i przekazać plik zip, postępuj zgodnie z instrukcjami wyświetlanymi w [Marketplace Przewodnik po zawartości marketingowej](marketplace-publishing-push-to-staging.md) przed wypchnięciem ofertę przemieszczania. Aby wyświetlić pełny zestaw marketplace publikowanie artykułów, odwiedź stronę [wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md).
 
 Być może zainteresuje te pokrewne artykuły:

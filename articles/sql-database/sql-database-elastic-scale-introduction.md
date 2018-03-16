@@ -2,24 +2,18 @@
 title: "Skalowanie w poziomie przy użyciu usługi Azure SQL Database | Dokumentacja firmy Microsoft"
 description: "Oprogramowanie jako usługa (SaaS) deweloperzy mogą łatwo utworzyć elastyczne, skalowalne baz danych w chmurze za pomocą tych narzędzi"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: a99607a0a57087c313d1718ff0b77af3637e1fa9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 784f244f64464c92f1b04ce0523e8850f66b8383
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scaling out with Azure SQL Database (Skalowanie w poziomie za pomocą usługi Azure SQL Database)
 Możesz łatwo skalować w poziomie baz danych Azure SQL przy użyciu **elastycznej bazy danych** narzędzia. Te narzędzia i funkcje pozwala korzystać z zasobów bazy danych **bazy danych SQL Azure** do tworzenia rozwiązań dla obciążeń transakcyjnych, a szczególnie oprogramowania jako aplikacje usługi (SaaS). Elastyczne funkcje bazy danych składają się z:
@@ -66,7 +60,7 @@ Większość aplikacji baz danych w skali chmury użycie kombinacji tych dwóch 
 * Skalowanie w poziomie jest zarządzany przy użyciu [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md).
 * Skalowanie w pionie odbywa się przy użyciu poleceń cmdlet programu Azure PowerShell, aby zmienić warstwę usługi lub poprzez umieszczenie bazy danych w puli elastycznej.
 
-## <a name="sharding"></a>Dzielenia na fragmenty
+## <a name="sharding"></a>Dzielenie na fragmenty
 *Dzielenia na fragmenty* to technika do dystrybucji dużych ilości danych strukturalnych tak samo dla pewnej liczby niezależnych baz danych. Jest to szczególnie popularnych z deweloperami chmury tworzenie oprogramowania jako ofert usługi (SAAS) dla klientów końcowych lub firmy. Tych klientów końcowych są często określane jako "dzierżawców". Dzielenia na fragmenty mogą być wymagane dla wielu sytuacjach:  
 
 * Całkowita ilość danych jest za duży dla ograniczenia pojedynczej bazy danych
@@ -88,7 +82,7 @@ Inne scenariusze pakietu wielu dzierżawców ze sobą do bazy danych zamiast izo
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Przenoszenie danych z wielu baz danych z pojedynczej dzierżawy
 Podczas tworzenia aplikacji SaaS, jest typowy oferowanie potencjalnych odbiorców wersję próbną oprogramowania. W tym przypadku jest ekonomiczna korzystanie z bazy danych z wieloma dzierżawcami danych. Jednak gdy dot, dzierżawy pojedynczej bazy danych jest lepszym rozwiązaniem, ponieważ zapewnia lepszą wydajność. Jeśli klient ma utworzony danych podczas okresu próbnego, użyj [narzędzia do scalania podziału](sql-database-elastic-scale-overview-split-and-merge.md) przenoszenia danych z wieloma dzierżawcami do nowej bazy danych jednego dzierżawcy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby przykładową aplikację prezentującą biblioteki klienta, zobacz [wprowadzenie do narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md).
 
 Aby dokonać konwersji istniejących baz danych do korzystania z narzędzi, zobacz [migracji istniejących baz danych do skalowania w poziomie](sql-database-elastic-convert-to-use-elastic-tools.md).

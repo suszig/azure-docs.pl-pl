@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów z usługi Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -34,6 +34,7 @@ Ten artykuł pomaga informacje o typowych problemów dotyczących usługi Azure 
 - Bezproblemowe logowanie Jednokrotne nie działa w trybie przeglądania prywatnym w programie Firefox.
 - Bezproblemowe logowanie Jednokrotne nie działa w programie Internet Explorer, gdy jest włączony tryb rozszerzony chronione.
 - Bezproblemowe logowanie Jednokrotne nie działa w przeglądarkach dla urządzeń przenośnych w systemach iOS i Android.
+- Jeśli użytkownik wchodzi w skład zbyt wielu grup w usłudze Active Directory, biletu Kerberos użytkownika będzie prawdopodobnie zbyt duży, aby przetworzyć i spowoduje bezproblemowe logowanie Jednokrotne zakończyć się niepowodzeniem. Azure żądań AD HTTPS może mieć nagłówków o maksymalnym rozmiarze 16 KB; Bilety Kerberos muszą być znacznie mniejszy niż ten numer, aby zmieścił się w pozostałych artefaktów usługi Azure AD, takich jak pliki cookie. Nasze zalecenie jest Zmniejsz członkostwa grupy użytkownika i spróbuj ponownie.
 - Jeśli synchronizacja 30 lub większą liczbą lasów usługi Active Directory, nie można włączyć bezproblemowe logowania jednokrotnego za pośrednictwem usługi Azure AD Connect. Jako rozwiązanie alternatywne można [ręcznie włączyć](#manual-reset-of-azure-ad-seamless-sso) tę funkcję na dzierżawy.
 - Dodawanie adresu URL usługi Azure AD (https://autologon.microsoftazuread-sso.com) do strefy Zaufane witryny zamiast lokalnej strefy intranetowej *uniemożliwia użytkownikom logowanie*.
 - Wyłączanie korzystania z **RC4_HMAC_MD5** typ szyfrowania dla protokołu Kerberos w ustawieniach usługi Active Directory spowoduje przerwanie bezproblemowe logowania jednokrotnego. W narzędziu do Edytora zarządzania zasadami grupy upewnij się, że wartość **RC4_HMAC_MD5** w obszarze **Konfiguracja komputera -> Ustawienia systemu Windows -> Ustawienia zabezpieczeń -> Zasady lokalne -> Opcje zabezpieczeń — > "Zabezpieczenia sieci: Konfigurowanie typów szyfrowania dozwolone dla protokołu Kerberos"** jest "Enabled".

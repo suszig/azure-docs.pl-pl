@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Rozpoznawanie jednostek biomedycznych przy użyciu szablonu zespołu danych nauki procesu (TDSP)
 
-Jednostki wyodrębniania jest podzadaniem wyodrębniania informacji (znanej także jako [rozpoznawanie jednostek o nazwie (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), podziału jednostki i identyfikacji jednostek). W tym scenariuszu rzeczywistych ma na celu Wyróżnij jak używać usługi Azure Machine Learning Workbench rozwiązać skomplikowanych zadań przetwarzania języka naturalnego (NLP) takich jak jednostki wyodrębniania z tekstu bez struktury:
+Wyodrębniania jednostki jest podzadaniem wyodrębniania informacji (znanej także jako [rozpoznawanie jednostek o nazwie (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), jednostki podziału i identyfikacji jednostek). W tym scenariuszu rzeczywistych ma na celu Wyróżnij jak używać usługi Azure Machine Learning Workbench rozwiązać skomplikowanych zadań przetwarzania języka naturalnego (NLP) takich jak jednostki wyodrębniania z tekstu bez struktury:
 
 1. W jaki sposób w celu przeszkolenia neuronowej word osadzeń model, w Boże tekstu, z około 18 milionów PubMed streszczenia przy użyciu [Spark Word2Vec implementacji](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).
 2. Jak utworzyć głębokie modelu powtarzającego się sieci neuronowej długi krótkoterminowe pamięci (LSTM) do wyodrębnienia jednostki na włączone GPU danych nauki maszynie wirtualnej platformy Azure (GPU DS VM) na platformie Azure.
@@ -32,19 +32,19 @@ Jednostki wyodrębniania jest podzadaniem wyodrębniania informacji (znanej tak�
 
 4. Przykładem w ramach usługi Azure Machine Learning Workbench następujące możliwości:
 
-    * Tworzenie wystąpienia [Struktura zespołu danych nauki procesu (TDSP) i szablony](how-to-use-tdsp-in-azure-ml.md).
+    * Tworzenie wystąpienia [Struktura zespołu danych nauki procesu (TDSP) i szablony](how-to-use-tdsp-in-azure-ml.md)
     * Automatyczne zarządzanie tym pobierania i instalacji zależności projektu
-    * Wykonywanie skryptów języka Python na differetn obliczeniowe środowisk.
-    * Uruchom śledzenie danych historycznych dotyczących skrypty języka Python.
-    * Wykonanie zadania na serwerze zdalnym Spark obliczeniowe kontekstu za pomocą klastry HDInsight Spark 2.1.
-    * Wykonywanie zadań w zdalnym GPU maszyn wirtualnych na platformie Azure.
-    * Łatwe operationalization modeli uczenia głębokie jako usługi sieci web na platformie Azure kontenera Services (ACS).
+    * Wykonywanie skryptów języka Python w środowiskach różnych obliczeń
+    * Uruchom śledzenie danych historycznych dotyczących skrypty języka Python
+    * Wykonanie zadania na serwerze zdalnym Spark obliczeniowe kontekstów z użyciem klastrów HDInsight Spark 2.1
+    * Wykonywanie zadań w zdalnym GPU maszyn wirtualnych na platformie Azure
+    * Łatwe operationalization modeli uczenia głębokie jako usługi sieci web na platformie Azure kontenera Services (ACS)
 
 ## <a name="use-case-overview"></a>Omówienie przypadków użycia
 Rozpoznawanie biomedycznych nazwanej jednostki jest krytyczne krok w przypadku złożonych zadań NLP biomedycznych, takich jak: 
-* Wyodrębnianie uwagi o nazwie jednostek chorób, DS, chemikaliów i objawy z elektronicznych medyczne lub kondycji rekordów.
+* Wyodrębnianie uwagi o nazwie jednostek takich chorób, ds chemikaliów i objawy z elektronicznych medyczne lub kondycji rekordów.
 * Odnajdywanie narkotyków
-* Opis interakcje między inną jednostkę typy takich jak narkotyków narkotyków interakcji, choroby narkotyków relacji i białka gen relacji.
+* Opis interakcje między inną jednostkę typy narkotyków narkotyków interakcji, choroby narkotyków relacji i białka gen relacji.
 
 Nasze scenariuszem użycia koncentruje się na jak dużą ilość danych niestrukturalnych Boże, takich jak streszczenia Medline PubMed można analizować w celu przeszkolenia wyraz osadzanie modelu. Następnie osadzone dane wyjściowe są traktowane jako funkcje automatycznie generowane w celu przeszkolenia ekstraktor neuronowej jednostki.
 
@@ -79,7 +79,7 @@ Najpierw pobraliśmy nieprzetworzone dane abstrakcyjny MEDLINE z [MEDLINE](https
 
 ### <a name="2-lstm-model-training-data"></a>2. Dane szkoleniowe LSTM modelu
 
-Uczenia modelu wyodrębniania neuronowej jednostki i ocenić publiclly dostępne zestawy danych. Aby uzyskać szczegółowy opis tych zestawów danych, można odwoływać się do następujących źródeł:
+Uczenia modelu wyodrębniania neuronowej jednostki i ocenić publicznie dostępne zestawy danych. Aby uzyskać szczegółowy opis tych zestawów danych, można odwoływać się do następujących źródeł:
  * [Zadanie rozpoznawania mnie jednostki w 2004 BioNLP/NLPBA](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR Boże zadań](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 — zadanie 9.1 (rozpoznawanie narkotyków)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -106,7 +106,7 @@ Poniżej znajduje się łącze do publicznego repozytorium GitHub rzeczywistych 
 
 ### <a name="python-packages"></a>Pakiety języka Python
 
-Wszystkie wymagane zależności są zdefiniowane w pliku aml_config/conda_dependencies.yml w folderze projektu scenariusza. Zależności zdefiniowane w tym pliku będą automatycznie udostępniane dla przebiegów przed docker, maszyny Wirtualnej i HDI klastra elementów docelowych. Aby uzyskać więcej informacji o formacie pliku środowiska Conda, zapoznaj się [tutaj](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+Wszystkie wymagane zależności są zdefiniowane w pliku aml_config/conda_dependencies.yml w folderze projektu scenariusza. Zależności zdefiniowane w tym pliku są automatycznie konfigurowani dla przebiegów przed docker, maszyny Wirtualnej i HDI klastra elementów docelowych. Aby uzyskać więcej informacji o formacie pliku środowiska Conda, zapoznaj się [tutaj](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -139,14 +139,14 @@ Nieprzetworzone Boże MEDLINE ma łącznie streszczenia 27 milionów gdzie artyk
 * Przetwarzanie wstępne abstrakcyjny tekst w tym dzielenia zdania, tokenizacji i normalizacji wielkości.
 * Wyklucz artykuły, gdy pole abstrakcyjnej jest pusty lub zawiera krótki tekst 
 * Tworzenie słownictwa programu word z streszczenia szkolenia
-* szkolenie word osadzanie neuronowej modelu. Aby uzyskać więcej informacji, zapoznaj się [GitHub kod łącze](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) rozpocząć pracę.
+* szkolenie word osadzanie neuronowej modelu. Aby uzyskać więcej informacji, zobacz [GitHub kod łącze](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) rozpocząć pracę.
 
 
 Po analizie plików XML, danych ma następujący format: 
 
 ![Przykładowe dane](./media/scenario-tdsp-biomedical-recognition/datasample.png)
 
-Uczenia modelu wyodrębniania neuronowej jednostki i ocenić publiclly dostępne zestawy danych. Aby uzyskać szczegółowy opis tych zestawów danych, można odwoływać się do następujących źródeł:
+Uczenia modelu wyodrębniania neuronowej jednostki i ocenić publicznie dostępne zestawy danych. Aby uzyskać szczegółowy opis tych zestawów danych, można odwoływać się do następujących źródeł:
  * [Zadanie rozpoznawania mnie jednostki w 2004 BioNLP/NLPBA](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR Boże zadań](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 — zadanie 9.1 (rozpoznawanie narkotyków)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -167,7 +167,7 @@ Word2Vec to słowo osadzanie Algorytm uczenia nienadzorowanych, który przygotow
 
 ![Pomiń Gram modelu](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Model używa Softmax hierarchicznej i ujemną próbkowania w celu zoptymalizowania wydajności. Hierarchiczna SoftMax (H-SoftMax) jest przybliżeniem przez drzew binarnych. H-SoftMax zasadniczo zastępuje płaskiej warstwy SoftMax hierarchiczna warstwy, która zawiera wyrazy, jak pozostawia. Pozwala to dekompozycji obliczanie prawdopodobieństwo o jedno słowo w sekwencji obliczeń prawdopodobieństwa oszczędza nam konieczności obliczać kosztowne normalizacji za pośrednictwem wszystkich wyrazów. Ponieważ głębokość log2 ma zrównoważone drzewa binarnego (| V |) (V jest słownictwa), musimy oszacować co najwyżej log2 — (| V |) węzły do uzyskania końcowego prawdopodobieństwo wystąpienia wyrazu. Prawdopodobieństwo w word podane jego c kontekstu jest następnie po prostu produktu prawdopodobieństwa podjęcia prawej i lewej odpowiednio włącza wywołujące do węzła typu liść. Firma Microsoft można utworzyć drzewa Huffman na podstawie częstotliwości słów w zestawie danych Aby upewnić się, że słowa częstsze uzyskać reprezentacje krótsze. Aby uzyskać więcej informacji, zapoznaj się [to łącze](http://sebastianruder.com/word-embeddings-softmax/).
+Model używa Softmax hierarchicznej i ujemną próbkowania w celu zoptymalizowania wydajności. Hierarchiczna SoftMax (H-SoftMax) jest przybliżeniem przez drzew binarnych. H-SoftMax zasadniczo zastępuje płaskiej warstwy SoftMax hierarchiczna warstwy, która zawiera wyrazy, jak pozostawia. Pozwala to dekompozycji obliczanie prawdopodobieństwo o jedno słowo w sekwencji obliczeń prawdopodobieństwa oszczędza nam konieczności obliczać kosztowne normalizacji za pośrednictwem wszystkich wyrazów. Ponieważ głębokość log2 ma zrównoważone drzewa binarnego (| V |) (V jest słownictwa), musimy oszacować co najwyżej log2 — (| V |) węzły do uzyskania końcowego prawdopodobieństwo wystąpienia wyrazu. Prawdopodobieństwo w word podane jego c kontekstu jest następnie po prostu produktu prawdopodobieństwa podjęcia prawej i lewej odpowiednio włącza wywołujące do węzła typu liść. Firma Microsoft można utworzyć drzewa Huffman na podstawie częstotliwości słów w zestawie danych Aby upewnić się, że słowa częstsze uzyskać reprezentacje krótsze. Aby uzyskać więcej informacji, zobacz [to łącze](http://sebastianruder.com/word-embeddings-softmax/).
 Obraz z [tutaj](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Wizualizacja
@@ -188,7 +188,7 @@ Jak pokazano na poniższej ilustracji, wizualizacji Oddelegowany t rozdzielenie 
 
 * Wizualizacja z Oddelegowany t
 
-![Ekspert t](./media/scenario-tdsp-biomedical-recognition/tsne.png)
+![t-SNE](./media/scenario-tdsp-biomedical-recognition/tsne.png)
 
 * Punkty najbliżej "Raka" (są one wszystkich podtypów raka)
 
@@ -198,7 +198,7 @@ Jak pokazano na poniższej ilustracji, wizualizacji Oddelegowany t rozdzielenie 
 
 Zobacz [uczenia ekstraktor neuronowej jednostki](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md).
 
-Architektura sieci neuronowej do przodu kanału informacyjnego boryka się z problem Traktuj każdego dane wejściowe i wyjściowe jako niezależne od innych danych wejściowych i wyjściowych. Tej architektury nie modelu sekwencja do sekwencji zadań etykietowania, takich jak tłumaczenia maszynowego i wyodrębniania jednostki. Modele powtarzającego się sieci neuronowej rozwiązać ten problem, jak przekazywanie informacji obliczana teraz do następnego węzła. Ta właściwość jest wywoływana po pamięci w sieci, ponieważ jest ona w stanie wykorzystać te informacje wcześniej obliczanej, jak pokazano na poniższej ilustracji:
+Architektura sieci neuronowej do przodu kanału informacyjnego odczuwa problem Traktuj każdego dane wejściowe i wyjściowe jako niezależne od innych danych wejściowych i wyjściowych. Tej architektury nie modelu sekwencja do sekwencji zadań etykietowania, takich jak tłumaczenia maszynowego i wyodrębniania jednostki. Modele powtarzającego się sieci neuronowej rozwiązać ten problem, jak przekazywanie informacji obliczana teraz do następnego węzła. Ta właściwość jest wywoływana po pamięci w sieci, ponieważ jest ona w stanie wykorzystać te informacje wcześniej obliczanej, jak pokazano na poniższej ilustracji:
 
 ![RNN](./media/scenario-tdsp-biomedical-recognition/rnn-expanded.png)
 
@@ -244,7 +244,7 @@ Możemy wykonać obliczenie osadzeń programu word w innych zestawów danych w p
 ![Porównanie modeli 5](./media/scenario-tdsp-biomedical-recognition/mc5.png)
 
 #### <a name="tensorflow-versus-cntk"></a>TensorFlow i CNTK
-Zgłoszony modelu są uczone przy użyciu Keras z TensorFlow jako wewnętrznej bazy danych. Keras z CNTK wewnętrznej bazy danych nie obsługuje "odwrotną", w czasie pracy to zostało zrobione. W związku z tym dla porównania, firma Microsoft ma uczony model LSTM jednokierunkowe z CNTK wewnętrznej bazy danych i porównuje go modelu LSTM jednokierunkowe z TensorFlow wewnętrznej bazy danych. Zainstaluj CNTK 2.0 dla Keras z [tutaj](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
+Zgłoszony modele są uczone przy użyciu Keras z TensorFlow jako wewnętrznej bazy danych. Keras z CNTK wewnętrznej bazy danych nie obsługuje "odwrotną", w czasie pracy to zostało zrobione. W związku z tym dla porównania, firma Microsoft ma uczony model LSTM jednokierunkowe z CNTK wewnętrznej bazy danych i porównuje go modelu LSTM jednokierunkowe z TensorFlow wewnętrznej bazy danych. Zainstaluj CNTK 2.0 dla Keras z [tutaj](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
 
 ![Porównanie modeli 6](./media/scenario-tdsp-biomedical-recognition/mc6.png)
 
@@ -266,7 +266,7 @@ Poszliśmy za pośrednictwem szczegóły jak można uczenia modelu osadzania wor
 
 * Mikolov Tomasowi, Kai Chen Corrado Gregowi i Jeffrey Dean. 2013a. Efektywne oszacowanie reprezentacje słowa w obszarze wektora. W postępowaniu ICLR.
 * Tomasowi Mikolov, Ilya Sutskever Kai Chen, Corrado S Gregowi i Jeff Dean. 2013b. Rozproszone reprezentacje słów i wyrażeń oraz ich compositionality. W postępowaniu NIPS strony 3111 — 3119.
-* Billy'emu Chiu, Gamal Crichton i Anna Korhonen Sampo Pyysalo. 2016. [Jak Train dobrej Word Osadzeń biomedycznych NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), 166 — 174 stron w postępowaniu 15 Workshop biomedycznych przetwarzania języka naturalnego.
+* Billy'emu Chiu, Gamal Crichton Anna Korhonen i Sampo Pyysalo. 2016. [Jak Train dobrej Word Osadzeń biomedycznych NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), 166 — 174 stron w postępowaniu 15 Workshop biomedycznych przetwarzania języka naturalnego.
 * [Wektor reprezentacje słowa](https://www.tensorflow.org/tutorials/word2vec)
 * [Powtarzającego się sieci Neuronowej](https://www.tensorflow.org/tutorials/recurrent)
 * [Problemy z Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

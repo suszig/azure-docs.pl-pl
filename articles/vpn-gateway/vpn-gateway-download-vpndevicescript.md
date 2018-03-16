@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2018
 ms.author: yushwang
-ms.openlocfilehash: ebff881cdaa7dd3e14fa1687588408cd9a911553
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2ec428bc5d2cdfb376db3c27b9899014c7ffa2af
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Pobierz skrypty do konfiguracji urządzenia sieci VPN dla połączeń sieci VPN S2S
 
@@ -103,4 +103,4 @@ Po pobraniu i sprawdzić poprawności skryptu konfiguracji, następnym krokiem j
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Kontynuować konfigurowanie Twojego [połączenie lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

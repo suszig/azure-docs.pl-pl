@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e5b8523422aae00655b003bf15103d5467b4177
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Sieć szkieletowa usług aplikacji i następne kroki
 Utworzono aplikację sieci szkieletowej usług Azure. W tym artykule opisano niektóre samouczkami, aby wypróbować, w skład projektu, pewne dodatkowe informacje, które mogą być zainteresowane i potencjalne następne kroki.
@@ -32,7 +32,7 @@ Lub, wypróbuj jedną z następujących przewodników i tworzenie pierwszej...
 - [C# niezawodnej usługi w systemie Windows](service-fabric-reliable-services-quick-start.md) 
 - [C# Reliable Actors usługi w systemie Windows](service-fabric-reliable-actors-get-started.md) 
 - [Usługa wykonywalna gościa w systemie Windows](quickstart-guest-app.md) 
-- [Aplikacja kontenera systemu Windows](service-fabric-get-started-containers.md) 
+- [Aplikacja kontenera dla systemu Windows](service-fabric-get-started-containers.md) 
 
 Może być również zainteresowana wypróbowaniem naszej [przykładowe aplikacje](http://aka.ms/servicefabricsamples).
 
@@ -55,7 +55,7 @@ Projekt aplikacji obejmuje:
 
 
 ## <a name="learn-more-about-the-programming-models"></a>Dowiedz się więcej o modelach programowania
-Sieć szkieletowa usług oferuje wiele sposobów, aby zapisać i zarządzania usługami.  Poniżej przedstawiono omówienie i podstawowe pojęcia [bezstanowe i stanowe niezawodne usługi](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [kontenery](service-fabric-containers-overview.md), [gościa pliki wykonywalne ](service-fabric-deploy-existing-app.md), i [bezstanowych i stanowych usług platformy ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
+Sieć szkieletowa usług oferuje wiele sposobów, aby zapisać i zarządzania usługami.  Poniżej przedstawiono omówienie i podstawowe pojęcia [bezstanowe i stanowe niezawodne usługi](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [kontenery](service-fabric-containers-overview.md), [gościa pliki wykonywalne ](service-fabric-guest-executables-introduction.md), i [bezstanowych i stanowych usług platformy ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="learn-about-service-communication"></a>Dowiedz się więcej o komunikacji usługi
 Aplikacji usługi sieć szkieletowa składa się z różnych usług, w którym każda usługa wykonuje zadanie specjalne. Te usługi może komunikować się ze sobą i mogą być aplikacje klienckie poza klastrem, które nawiązać połączenie i łączyć się z usługami. Dowiedz się, jak [ustawienia komunikacji z i od usług](service-fabric-connect-and-communicate-with-services.md) w sieci szkieletowej usług. 
@@ -68,7 +68,7 @@ Twoja aplikacja mogą zawierać poufne informacje, takie jak parametry połącze
 ## <a name="learn-about-the-application-lifecycle"></a>Więcej informacji na temat cyklu życia aplikacji
 Zgodnie z innych platform aplikacji usługi Service Fabric zwykle odbywa się przez następujących faz: projekt, programowanie testowania, wdrożenia, uaktualnianie, obsługi i usuwania. [W tym artykule](service-fabric-application-lifecycle.md) zawiera omówienie interfejsów API i jak są używane przez różne role w etapy cyklu życia aplikacji sieci szkieletowej usług.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Tworzenie klastra systemu Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Wizualizowanie klastra, w tym wdrożone aplikacje i fizycznego układu z [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Wersja i uaktualniania usług](service-fabric-application-upgrade-tutorial.md)

@@ -4,17 +4,17 @@ description: "Dowiedz się więcej na temat migracji bazy danych programu SQL Se
 keywords: "migracja bazy danych,migracja bazy danych programu sql server,narzędzia migracji bazy danych,migracja bazy danych,migracja bazy danych sql"
 services: sql-database
 author: CarlRabeler
-manager: Craig.Guyer
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 32377b4a80fcafd1d997daa11a90699b581093a6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7892c74f03647e289ed96055fb9db5c2f08f0234
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migracja bazy danych programu SQL Server z bazą danych SQL Azure
 

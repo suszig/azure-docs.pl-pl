@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Tworzenie wyrażeń na potrzeby mapowań atrybutów w usłudze Azure Active Directory
 Po skonfigurowaniu udostępniania do aplikacji SaaS, jest jeden z typów mapowań atrybutów, które można określić mapowanie wyrażenia. W tym przypadku należy napisać wyrażenie przypominającej skryptu, które pozwala na przekształcanie danych użytkowników do formatów, które są bardziej dozwolone dla aplikacji SaaS.
@@ -62,7 +62,7 @@ Składnia wyrażeń dla mapowań atrybutów jest przypominający Visual Basic dl
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **source** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektem źródłowym. |
-| **inputFormat** |Wymagane |Ciąg |Oczekiwany format wartości źródłowej. Dla obsługiwanych formatów, zobacz [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Wymagane |Ciąg |Oczekiwany format wartości źródłowej. Dla obsługiwanych formatów, zobacz [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Wymagane |Ciąg |Format wyjściowej daty. |
 
 - - -
@@ -91,8 +91,8 @@ Jeśli jedna z wartości źródła jest atrybutu wielowartościowego, każda war
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **source** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu. |
-| **start** |Wymagane |liczba całkowita |Indeks w **źródła** ciąg, gdzie powinna zaczynać się podciąg. Pierwszy znak w ciągu ma indeks równy 1, drugi ma indeks 2 i tak dalej. |
-| **length** |Wymagane |liczba całkowita |Długość podciąg. Jeśli długość kończy się poza **źródła** ciągu, funkcja zwraca podciąg z **start** indeksu do końca **źródła** ciągu. |
+| **start** |Wymagane |integer |Indeks w **źródła** ciąg, gdzie powinna zaczynać się podciąg. Pierwszy znak w ciągu ma indeks równy 1, drugi ma indeks 2 i tak dalej. |
+| **length** |Wymagane |integer |Długość podciąg. Jeśli długość kończy się poza **źródła** ciągu, funkcja zwraca podciąg z **start** indeksu do końca **źródła** ciągu. |
 
 - - -
 ### <a name="not"></a>nie
@@ -108,7 +108,7 @@ Jeśli jedna z wartości źródła jest atrybutu wielowartościowego, każda war
 
 - - -
 ### <a name="replace"></a>Replace
-**Funkcja:**<br> ObsoleteReplace (źródła, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, szablon)
+**Funkcja:**<br> Zastąp (źródła, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, szablon)
 
 **Opis:**<br>
 Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
@@ -119,13 +119,13 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 * Gdy **oldValue** i **szablonu** są udostępniane:
   
   * Zamienia wszystkie wystąpienia **oldValue** w **szablonu** z **źródła** wartość
-* Gdy **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue** są udostępniane:
+* Gdy **regexPattern**, **regexGroupName**, **replacementValue** są udostępniane:
   
   * Zamienia wszystkie wartości dopasowania oldValueRegexPattern w ciągu z replacementValue ze źródłem
-* Gdy **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName** są udostępniane:
+* Gdy **regexPattern**, **regexGroupName**, **replacementPropertyName** są udostępniane:
   
-  * Jeśli **źródła** ma wartość, **źródła** jest zwracana
-  * Jeśli **źródła** nie ma wartości, używa **oldValueRegexPattern** i **oldValueRegexGroupName** można wyodrębnić wartość zastępcza z właściwości o **replacementPropertyName**. Zastąpienie wartości jest zwracana w wyniku
+  * Jeśli **źródła** nie ma wartości, **źródła** jest zwracana
+  * Jeśli **źródła** ma wartość, używa **regexPattern** i **regexGroupName** można wyodrębnić wartość zastępcza z właściwości z **replacementPropertyName** . Zastąpienie wartości jest zwracana w wyniku
 
 **Parametry:**<br> 
 
@@ -137,7 +137,7 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 | **regexGroupName** |Optional (Opcjonalność) |Ciąg |Nazwa grupy wewnątrz **regexPattern**. Tylko wtedy, gdy jest używana replacementPropertyName, firma Microsoft będzie Wyodrębnij wartości tej grupy jako replacementValue z właściwości zastąpienia. |
 | **replacementValue** |Optional (Opcjonalność) |Ciąg |Nowa wartość Aby zastąpić stary z. |
 | **replacementAttributeName** |Optional (Opcjonalność) |Ciąg |Nazwa atrybutu do użycia podczas wartość zastępcza źródło nie ma wartości. |
-| **szablon** |Optional (Opcjonalność) |Ciąg |Gdy **szablonu** wartość zostanie podana, firma Microsoft będzie szukać **oldValue** wewnątrz szablonu i zamień ją na wartość źródła. |
+| **Szablon** |Optional (Opcjonalność) |Ciąg |Gdy **szablonu** wartość zostanie podana, firma Microsoft będzie szukać **oldValue** wewnątrz szablonu i zamień ją na wartość źródła. |
 
 - - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
@@ -175,8 +175,8 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 | --- | --- | --- | --- |
 | **source** |Wymagane |Ciąg |**Źródło** wartość do aktualizacji. |
 | **defaultValue** |Optional (Opcjonalność) |Ciąg |Wartość domyślna ma być używany podczas źródłowym nie odpowiada żadnych kluczy. Może być pustym ciągiem (""). |
-| **klucz** |Wymagane |Ciąg |**Klucz** do porównania **źródła** wartości z. |
-| **wartość** |Wymagane |Ciąg |Wartość zastąpienia **źródła** pasujących do klucza. |
+| **Klucz** |Wymagane |Ciąg |**Klucz** do porównania **źródła** wartości z. |
+| **Wartość** |Wymagane |Ciąg |Wartość zastąpienia **źródła** pasujących do klucza. |
 
 ## <a name="examples"></a>Przykłady
 ### <a name="strip-known-domain-name"></a>Nazwa domeny znane taśmy
@@ -214,6 +214,17 @@ Należy wygenerować użytkownika alias przez pierwsze 3 litery imię użytkowni
 * **Dane wejściowe** (nazwisko): "Nowak"
 * **Dane wyjściowe**: "JohDoe"
 
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Usuń z ciągu znaków diakrytycznych i przekonwertować na małe litery.
+Należy usunąć znaki specjalne z ciągu i przekonwertować wielkich liter na małe litery.
+
+**Wyrażenie:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**Próba wejścia/wyjścia:** <br>
+
+* **Dane wejściowe** (imię): "Zoë"
+* **Dane wyjściowe**: "zoe"
+
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Dane wyjściowe daty w postaci ciągu w określonym formacie
 Chcesz wysłać daty do aplikacji SaaS w określonym formacie. <br>
 Na przykład które chcesz sformatować dat dla usługi ServiceNow.
@@ -240,7 +251,7 @@ Jeśli kod stanu nie odpowiada żadnemu z wstępnie zdefiniowanych opcji, należ
 * **Dane wejściowe** (stan): "QLD"
 * **Dane wyjściowe**: "Australii/Brisbane"
 
-## <a name="related-articles"></a>Powiązane artykuły
+## <a name="related-articles"></a>Pokrewne artykuły
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Automatyzowanie użytkownika udostępniania/anulowania obsługi do aplikacji SaaS](active-directory-saas-app-provisioning.md)
 * [Dostosowywanie mapowań atrybutów do inicjowania obsługi użytkowników](active-directory-saas-customizing-attribute-mappings.md)

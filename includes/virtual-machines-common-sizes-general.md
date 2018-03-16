@@ -1,3 +1,19 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 1b46eac189f4b06ad134b7a4e6d8f5a281a66b94
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/16/2018
+---
 Rozmiary maszyn wirtualnych ogólnego przeznaczenia Podaj zrównoważonym stosunek pamięć Procesora. Idealne na potrzeby testowania i programowania, małych i średnich baz danych oraz serwerów sieci Web o niewielkim i średnim ruchu. Ten artykuł zawiera informacje o liczbie Vcpu, dysków z danymi i karty sieciowe, a także przepustowości przepływności i sieć magazynu dla każdego rozmiaru w tej metodzie grupowania. 
 
 - Maszyny wirtualne z serii A i Av2 można wdrażać na różnych typach sprzętu i procesorach. Rozmiar jest ograniczany w zależności od sprzętu, aby zapewnić spójną wydajność procesora dla uruchomionego wystąpienia niezależnie od sprzętu, na którym jest ono wdrożone. Aby określić sprzęt fizyczny, na którym jest wdrażany dany rozmiar, utwórz zapytanie o sprzęt wirtualny z poziomu maszyny wirtualnej.
@@ -85,7 +101,7 @@ ACU: 210–250
 | Standardowa_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
 | Standardowa_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
 | Standardowa_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standardowa_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000  |
+| Standardowa_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000  |
 
 
 <br>

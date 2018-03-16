@@ -12,21 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Wykonywanie operacji magazynu tabel Azure przy użyciu programu Azure PowerShell 
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
->[!NOTE]
->Interfejsu API Azure rozwiązania Cosmos DB tabeli zawiera funkcje premium magazynu tabel gotowe dystrybucji globalnych, odczyty małe opóźnienia i zapisy, automatycznego indeksowania dodatkowej i dedykowanych przepływności. W większości przypadków poleceń programu PowerShell w pracach tego artykułu dla magazynu zarówno interfejsu API Azure rozwiązania Cosmos DB tabeli i tabel Azure, ale w tym artykule jest specyficzne dla magazynu tabel Azure. Jeśli korzystasz z interfejsu API Azure rozwiązania Cosmos DB tabeli, zobacz [operacje interfejsu API Azure rozwiązania Cosmos DB tabeli przy użyciu programu Azure PowerShell](table-powershell.md).
->
-
-Magazyn tabel Azure to magazyn danych NoSQL, która służy do przechowywania i zapytań dotyczących dużych zestawów strukturalnych danych nierelacyjnych. Główne składniki usługi są tabele, jednostki i właściwości. Tabela jest kolekcji jednostek. Jednostka jest zbiór właściwości. Każdy obiekt może mieć maksymalnie 252 właściwości, które są wszystkie pary nazwa wartość. W tym artykule przyjęto założenie, że znasz już pojęcia dotyczące usługi Magazyn tabel Azure. Aby uzyskać szczegółowe informacje, zobacz [opis modelu danych usługi tabel](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) i [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](table-storage-how-to-use-dotnet.md).
+Azure magazyn tabel jest magazynem danych NoSQL, który służy do przechowywania i zapytań dotyczących dużych zestawów strukturalnych danych nierelacyjnych. Główne składniki usługi są tabele, jednostki i właściwości. Tabela jest kolekcji jednostek. Jednostka jest zbiór właściwości. Każdy obiekt może mieć maksymalnie 252 właściwości, które są wszystkie pary nazwa wartość. W tym artykule przyjęto założenie, że znasz już pojęcia dotyczące usługi Magazyn tabel Azure. Aby uzyskać szczegółowe informacje, zobacz [opis modelu danych usługi tabel](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) i [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](table-storage-how-to-use-dotnet.md).
 
 W tym artykule opisano typowe operacje magazynu tabel Azure. Omawiane kwestie: 
 
@@ -38,7 +35,7 @@ W tym artykule opisano typowe operacje magazynu tabel Azure. Omawiane kwestie:
 > * Usuwanie jednostek tabeli
 > * Usuwanie tabeli
 
-W tym artykule przedstawiono sposób tworzenia nowego konta magazynu w nową grupę zasobów, można łatwo usunąć ją po zakończeniu. Jeśli zamiast czy użyć istniejącego konta magazynu, możesz to zrobić zamiast tego.
+W tym artykule przedstawiono sposób tworzenia nowego konta magazynu Azure w nową grupę zasobów, można łatwo usunąć ją po zakończeniu. Jeśli zamiast czy użyć istniejącego konta magazynu, możesz to zrobić zamiast tego.
 
 Przykłady wymagają programu Azure PowerShell w wersji modułu 4.4.0 lub nowszym. W oknie programu PowerShell, uruchom `Get-Module -ListAvailable AzureRM` można znaleźć wersji. Jeśli nie będą wyświetlane żadne lub konieczne uaktualniania, zobacz [modułu instalacji programu Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 Pobieranie listy tabel za pomocą konta magazynu [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Pobierz odwołanie do określonej tabeli

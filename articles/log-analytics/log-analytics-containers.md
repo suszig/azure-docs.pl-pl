@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kontener rozwiązania monitorowanie analizy dzienników
 
@@ -51,7 +51,7 @@ W poniższej tabeli przedstawiono aranżacji Docker i monitorowania obsługę ko
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Usługa<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Usługa<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Otwórz<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autonomiczna) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serwer systemu Linux<br>(autonomiczna) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -103,7 +103,7 @@ Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiąz
     - Jeśli masz klaster Kubernetes za pomocą usługi kontenera platformy Azure, przejrzyj [skonfigurować agenta pakietu OMS dla Kubernetes](#configure-an-oms-agent-for-kubernetes).
     - W przypadku klastra usługi kontenera platformy Azure DC/OS więcej w [monitorować klastra usługi kontenera platformy Azure DC/OS w usłudze Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Jeśli masz środowisku trybu Docker Swarm, dowiedzieć się więcej o [skonfigurować agenta pakietu OMS dla rozwiązania Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-    - Jeśli używasz kontenery z sieci szkieletowej usług dowiedzieć się więcej na [Omówienie usługi Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+    - Jeśli masz klaster sieci szkieletowej usług dowiedzieć się więcej na [monitorować kontenery z analizy dzienników OMS](../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Przegląd [aparatem platformy Docker w systemie Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artykułu, aby uzyskać dodatkowe informacje o sposobie instalowania i konfigurowania silnik Docker na komputerach z systemem Windows.
 
@@ -544,7 +544,7 @@ W poniższej tabeli przedstawiono przykłady rekordów zebrane przez rozwiązani
 
 | Typ danych | Typ danych w dzienniku wyszukiwania | Pola |
 | --- | --- | --- |
-| Wydajność dla hostów i kontenerów | `Type=Perf` | Komputer, nazwa obiektu, CounterName &#40; czas procesora (%), dysk odczytuje MB, dysku zapisuje MB, użycie pamięć (MB), sieci odbieranie bajtów, sieci wysyłania w bajtach, procesor s użycia sieci &#41; równowartości, TimeGenerated, Ścieżka_licznika, SourceSystem |
+| Wydajność dla hostów i kontenerów | `Type=Perf` | Komputer, nazwa obiektu, CounterName &#40;czas procesora (%), dysk odczytuje MB, dysku zapisuje MB, użycie pamięć (MB), sieci odbieranie bajtów, sieci wysyłania w bajtach, procesor s użycia, sieć&#41;, równowartości, TimeGenerated, Ścieżka_licznika, SourceSystem |
 | Kontener magazynu | `Type=ContainerInventory` | TimeGenerated, komputera, nazwę kontenera, ContainerHostname, obraz, ImageTag, ContainerState, ExitCode, EnvironmentVar, polecenia, CreatedTime, StartedTime, FinishedTime, SourceSystem, identyfikatora kontenera, ImageID |
 | Kontener magazynu obrazu | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
 | Kontener dziennika | `Type=ContainerLog` | TimeGenerated, komputer, identyfikator obrazu, nazwy kontenera, LogEntrySource, LogEntry, SourceSystem, identyfikatora kontenera |

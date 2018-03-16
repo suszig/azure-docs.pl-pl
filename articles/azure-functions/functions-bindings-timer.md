@@ -17,17 +17,23 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla usługi Azure Functions 
 
 W tym artykule opisano sposób pracy z wyzwalaczy czasomierza w usługi Azure Functions. Wyzwalacz czasomierza umożliwia uruchamianie funkcji zgodnie z harmonogramem. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakiety
+
+Wyzwalacz czasomierza znajduje się w [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pakietu NuGet. Kod źródłowy dla pakietu jest w [azure-zadań webjob sdk rozszerzenia](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) repozytorium GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Przykład
 
@@ -136,7 +142,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
 Konstruktor atrybutu ma wyrażenie CRON, jak pokazano w poniższym przykładzie:
 
@@ -161,7 +167,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Typ** | Nie dotyczy | Musi być równa "timerTrigger". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek** | Nie dotyczy | Należy wybrać opcję "w". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt czasomierza w kodzie funkcji. | 
-|**Harmonogram**|**ScheduleExpression**|W planie zużycie można zdefiniować harmonogramy za pomocą usługi CRON wyrażenia. Jeśli używasz planu usługi App Service można również użyć `TimeSpan` ciągu. W poniższych sekcjach opisano CRON wyrażenia. Można umieścić wyrażenia harmonogramu w ustawieniu aplikacji i ustawić tę właściwość na wartość otoczona  **%**  znaków, jak w poniższym przykładzie: "% NameOfAppSettingWithCRONExpression %". |
+|**schedule**|**ScheduleExpression**|W planie zużycie można zdefiniować harmonogramy za pomocą usługi CRON wyrażenia. Jeśli używasz planu usługi App Service można również użyć `TimeSpan` ciągu. W poniższych sekcjach opisano CRON wyrażenia. Można umieścić wyrażenia harmonogramu w ustawieniu aplikacji i ustawić tę właściwość na wartość otoczona  **%**  znaków, jak w poniższym przykładzie: "% NameOfAppSettingWithCRONExpression %". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

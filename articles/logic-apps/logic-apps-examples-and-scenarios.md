@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Typowe scenariusze, przykłady samouczki i wskazówki dla usługi Azure Logic Apps
 
@@ -81,7 +81,7 @@ Aplikacje logiki to rozbudowane możliwości przepływu sterowania zaawansowanyc
 
 Pełni mogą tworzyć i wdrażać aplikacje logiki z programu Visual Studio, Visual Studio Team Services lub innymi kontroli źródła i narzędzi kompilacji automatycznych. Do obsługi wdrożenia dla przepływów pracy i zależne połączeń w szablonie zasobów, aplikacje logiki Użyj szablony wdrażania zasobów platformy Azure. Narzędzia programu Visual Studio automatycznie generować tych szablonów, które można sprawdzić kontroli źródła dla wersji.
 
-* [Tworzenie i wdrażanie aplikacji logiki w programie Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Tworzenie i wdrażanie aplikacji logiki z programem Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Włącz monitorowanie, rejestrowanie i alerty dla istniejących aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Tworzenie szablonu automatycznego wdrażania](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Dostęp, konwersji i przekształcanie wiele typów zawartości za pomocą wielu 
 
 * [Sposób działania wyrażeń przepływu pracy w aplikacji logiki](../logic-apps/logic-apps-author-definitions.md)
 * [Obsługi typów zawartości bez JSON](../logic-apps/logic-apps-content-type.md), takiej jak `application/xml`, `application/octet-stream`, i `multipart/formdata`
-* [Odwołanie: Język definicji przepływu pracy aplikacje logiki platformy Azure](http://aka.ms/logicappsdocs)
+* [Schemat języka definicji przepływu pracy dla usługi Azure Logic Apps](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Inne integracji i możliwości
 

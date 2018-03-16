@@ -3,24 +3,18 @@ title: "Monitorowanie wydajności bazy danych w usłudze Azure SQL Database | Mi
 description: "Poznaj opcje monitorowania bazy danych za pomocą narzędzi Azure i dynamicznych widoków zarządzania."
 keywords: "monitorowanie bazy danych, wydajność bazy danych w chmurze"
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: f6b370db3363180017c6561d7bd3a6d6b40d03ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ba2239b1a4cd14f7723e88ee83f7ad93da717e0a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorowanie wydajności bazy danych w usłudze Azure SQL Database
 Monitorowanie wydajności bazy danych SQL na platformie Azure rozpoczyna się od monitorowania wykorzystania zasobów względem wybranego poziomu wydajności bazy danych. Monitorowanie pomaga ustalić, czy baza danych nie ma nadmiarowej pojemności lub czy nie występują problemy z powodu maksymalnego wykorzystania zasobów. Następnie na tej podstawie można zdecydować, czy nadszedł czas, aby dostosować poziom wydajności i [warstwę usług](sql-database-service-tiers.md) bazy danych. Bazę danych można monitorować za pomocą narzędzi graficznych w [witrynie Azure Portal](https://portal.azure.com) lub przy użyciu [dynamicznych widoków zarządzania](https://msdn.microsoft.com/library/ms188754.aspx) SQL.

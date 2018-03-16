@@ -4,7 +4,7 @@ description: "Użycie danych referencyjnych w kwerendzie analiza strumienia"
 keywords: "Tabela odnośnika, dane referencyjne"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Przy użyciu tabel danych lub wyszukiwanie odwołań w Stream Analytics strumienia wejściowego
 Dane referencyjne (znanej także jako tabela odnośnika) jest ograniczone zestawu danych, który jest statyczny lub spowalniając zmianę charakteru, używany do wyszukiwania lub do skorelowania ze strumienia danych. Aby użyć danych odwołanie do zadania usługi analiza strumienia Azure, zwykle użyje [dołączenia danych odwołania](https://msdn.microsoft.com/library/azure/dn949258.aspx) w zapytaniu. Stream Analytics korzysta z magazynu obiektów Blob platformy Azure jako warstwy magazynu danych referencyjnych i z odwołaniem do fabryki danych Azure danych można przekształcone lub kopiowane do magazynu obiektów Blob platformy Azure, do użycia jako dane odwołanie z [dowolnej liczby oparte na chmurze i lokalnych magazynów danych](../data-factory/copy-activity-overview.md). Dane referencyjne ma formę sekwencji obiektów blob (zdefiniowany w konfiguracji wejściowych) w rosnącej kolejności Data/Godzina podana w nazwie obiektu blob. On **tylko** obsługuje dodawanie na końcu sekwencji za pomocą daty/godziny **większa** niż określona przez ostatnich obiektów blob w sekwencji.
@@ -67,7 +67,7 @@ Aby skonfigurować dane odwołanie, należy najpierw utworzyć danych wejściowy
 </tr>
 <tr>
 <td>Format serializacji zdarzeń</td>
-<td>Aby upewnić się, że zapytania mogły działać w oczekiwany sposób, analiza strumienia musi mieć określony format serializacji używasz przypadku przychodzących strumieni danych. Dla danych referencyjnych obsługiwane formaty to CSV i JSON.</td>
+<td>Aby zapytania działały zgodnie z oczekiwaniami, usługa Stream Analytics musi znać format serializacji używany w przypadku przychodzących strumieni danych. Dla danych referencyjnych obsługiwane formaty to CSV i JSON.</td>
 </tr>
 <tr>
 <td>Encoding</td>
@@ -95,12 +95,12 @@ Jeśli dane odwołanie jest wolno zmieniającego zestawu danych, następnie obs�
 ## <a name="tips-on-refreshing-your-reference-data"></a>Porady dotyczące odświeżania danych odwołania
 1. Zastępowanie obiektów blob danych odwołania nie spowoduje Stream Analytics ponownie załadować obiektu blob, a w niektórych przypadkach może spowodować niepowodzenie zadania. Zalecanym sposobem zmiany danych referencyjnych jest dodanie nowego obiektu blob przy użyciu tego samego wzorca kontenera i ścieżki zdefiniowane w danych wejściowych zadania i Użyj daty/godziny **większa** niż określona przez ostatnich obiektów blob w sekwencji.
 2. Obiekty BLOB danych odwołania są **nie** uporządkowana obiektu blob "Ostatniej modyfikacji" czasu, ale tylko w programie określona w obiekcie blob Data i godzina nazwy przy użyciu {date} i {time} podstawienia.
-3. W kilku przypadkach zadania musi wrócić do poprzedniej strony w czasie, w związku z tym obiekty BLOB danych odwołania może nie być zmieniane ani usuwane w.
+3. Aby uniknąć konieczności listy dużą liczbę obiektów blob, rozważ usunięcie bardzo stare obiekty BLOB, dla których przetwarzanie zostanie już wykonane. Należy pamiętać, ASA może przejść, trzeba ponownie przetworzyć niewielkie w niektórych scenariuszach, takich jak ponowne uruchomienie komputera.
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 Aby uzyskać dalszą pomoc, skorzystaj z naszego [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W niniejszym artykule przedstawiono usługę Stream Analytics — zarządzaną usługę służącą do analizy danych przesyłanych strumieniowo z Internetu rzeczy. Aby dowiedzieć się więcej na temat tej usługi, zobacz:
 
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)

@@ -1,4 +1,19 @@
-
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/16/2018
+---
 Rodziny wirtualna B serii można wybrać rozmiar maszyny Wirtualnej, w którym dostarcza niezbędne podstawowym poziomie wydajności dla obciążenia, możliwość serii wydajności procesora CPU do 100% v4 Intel® Broadwell E5-2673 2.3 GHz lub procesor Intel® Haswell 2,4 GHz E5-2673 v3 vCPU.
 
 Maszyny wirtualne serii B idealnie nadają się do obciążeń, które nie muszą pełną wydajność procesora, takich jak serwery sieci web, małych baz danych i programowania i testowania środowisk. Te obciążenia mają zwykle burstable wymagania. Seria B zapewnia możliwość nabycia dla rozmiaru maszyny Wirtualnej z linii bazowej wydajności i wystąpienia maszyny Wirtualnej buduje środków, podczas korzystania z mniej niż jego linii bazowej. Po zebraniu środki maszyny Wirtualnej, maszyna wirtualna może serii powyżej linii bazowej, przy użyciu maksymalnie 100% vCPU, gdy aplikacja wymaga wyższej wydajności procesora CPU.
@@ -24,7 +39,7 @@ Seria B składa się z następujących sześciu rozmiarów maszyn wirtualnych:
 
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Pytanie: jak można monitorować Moje salda środków oraz zużycie
-**A**: Firma Microsoft będzie wprowadzenie 2 nowe metryki w najbliższych tygodniach **środki** Metryka pozwala wyświetlić liczbę środków maszyny Wirtualnej ma wpłaty i **ConsumedCredit** Metryka przedstawia liczbę Kredyty procesora CPU wykorzystana maszyny Wirtualnej z banku.    Będzie mogła wyświetlać te metryki z okienka metryki w portalu lub programistycznie za pośrednictwem interfejsów API usługi Azure monitora.
+**A**: Firma Microsoft będzie wprowadzenie 2 nowe metryki w najbliższych tygodniach **środki** Metryka pozwala wyświetlić liczbę środków maszyny Wirtualnej ma wpłaty i **ConsumedCredit** Metryka przedstawia liczbę procesorów środki na korzystanie z banku zużyła maszyny Wirtualnej.    Będzie mogła wyświetlać te metryki z okienka metryki w portalu lub programistycznie za pośrednictwem interfejsów API usługi Azure monitora.
 
 Aby uzyskać więcej informacji na temat sposobu uzyskania dostępu do danych metryki dla platformy Azure, zobacz [omówienie metryk w Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 

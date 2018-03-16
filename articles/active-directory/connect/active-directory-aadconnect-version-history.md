@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect z nowych funkcji. Nie wszystkie dodatki mają zastosowanie do wszystkich grup odbiorców.
@@ -36,8 +36,19 @@ Wymagane uprawnienia | Uprawnienia wymagane do zastosowania aktualizacji, zobacz
 
 Pobierz | [Pobieranie programu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117500"></a>1.1.750.0
+Stan: Wydane do wybranych klientów, które tej wersji jest obecnie dystrybuowane do zaznaczonych małych i losowe dzierżawcy programu AADConnect została włączona automatycznej aktualizacji. Firma Microsoft będzie Rozwiń tę grupę, dzierżawców w najbliższych tygodniach aż do 100% automatycznego uaktualnienia klientów otrzymali tej wersji. Po tym będzie ogłoszeniem kompilacji do pobrania ogólne powyżej łącze pobierania.
+>[!NOTE]
+>Po zakończeniu uaktualniania do tej nowej wersji automatycznie spowodują uruchomienie pełnej synchronizacji i pełny import dla łącznika usługi Azure AD i pełnej synchronizacji dla łącznika usługi AD. Ponieważ to może zająć trochę czasu, w zależności od wielkości środowiska Azure AD Connect upewnij się, czy wykonano czynności niezbędnych do obsługi to lub Wstrzymaj się na temat uaktualniania, aby znaleźć dogodnym momencie Aby to zrobić.
+
+### <a name="azure-ad-connect"></a>Program Azure AD Connect
+#### <a name="fixed-issues"></a>Rozwiązane problemy
+
+* Polecenia cmdlet Set-ADSyncAutoUpgrade wcześniej uniemożliwiają Autoupgrade, jeśli ustawiono stan automatycznej aktualizacji na zawieszone. To teraz zostanie zmieniona, więc nie blokuje AutoUpgrade kompilacji w przyszłości.
+
 ## <a name="117490"></a>1.1.749.0
-Stan: Wydane do wybranych klientów, które tej wersji obecnie jest dystrybuowane w małych i losowe część dzierżawcy programu AADConnect została włączona automatycznej aktualizacji. Firma Microsoft będzie Rozwiń tę grupę, dzierżawców w najbliższych tygodniach aż do 100% automatycznego uaktualnienia klientów otrzymali tej wersji. Po tym będzie ogłoszeniem kompilacji do pobrania ogólne powyżej łącze pobierania — obecnie planowanych do połowy z marca 2018.
+Stan: Wydane do wybranych klientów
+
 >[!NOTE]
 >Po zakończeniu uaktualniania do tej nowej wersji automatycznie spowodują uruchomienie pełnej synchronizacji i pełny import dla łącznika usługi Azure AD i pełnej synchronizacji dla łącznika usługi AD. Ponieważ może to potrwać pewien czas w zależności od wielkości środowiska Azure AD Connect upewnij się, że wykonaniu czynności niezbędnych do obsługi to lub Wstrzymaj się na temat uaktualniania, aby znaleźć dogodnym momencie w tym celu.
 
@@ -45,15 +56,15 @@ Stan: Wydane do wybranych klientów, które tej wersji obecnie jest dystrybuowan
 #### <a name="fixed-issues"></a>Rozwiązane problemy
 * Usuń okna czasowego na zadania w tle dla strony filtrowania partycji podczas przełączania do następnej strony.
 
-* Stałe błędu, który spowodował naruszenie zasad dostępu podczas akcji niestandardowej ConfigDB
+* Stałe błędu, który spowodował naruszenie zasad dostępu podczas ConfigDB akcji niestandardowej.
 
 * Stałe błędów pozwoli na odzyskanie limit czasu połączenia SQL.
 
-* Stałe usterki, w których certyfikatów z symbolami wieloznacznymi sieci SAN nie powiodło się sprawdzanie wymagań wstępnych
+* Stałe usterki, w których certyfikatów z symbolami wieloznacznymi sieci SAN nie powiodło się sprawdzanie wymagań wstępnych.
 
 * Stałe błędów, co powoduje, że miiserver.exe do awarii podczas eksportowania łącznika usługi Azure AD.
 
-* Stałe błędów rejestrowane próba nieprawidłowe hasło, które na kontrolerze domeny, podczas uruchamiania kreatora Azure AD Connect, aby zmienić konfigurację
+* Stała usterki rejestrowane próba nieprawidłowe hasło, które na kontrolerze domeny, podczas uruchamiania kreatora Azure AD Connect, aby zmienić konfigurację.
 
 
 #### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
@@ -787,8 +798,8 @@ Wydanie: Lutego 2016
 
 * [Automatyczne uaktualnianie](active-directory-aadconnect-feature-automatic-upgrade.md) funkcji Express ustawienia klientów.
 * Obsługa administratora globalnego przy użyciu usługi Azure Multi-Factor Authentication i Privileged Identity Management w Kreatorze instalacji.
-  * Musisz zezwolić proxy można też zezwolić na ruch do https://secure.aadcdn.microsoftonline-p.com Jeśli używane jest uwierzytelnianie wieloskładnikowe.
-  * Należy dodać https://secure.aadcdn.microsoftonline-p.com do listy zaufanych witryn, uwierzytelnianie wieloskładnikowe działać poprawnie.
+  * Musisz zezwolić proxy również zezwalająca na ruch do https://secure.aadcdn.microsoftonline-p.com Jeśli używane jest uwierzytelnianie wieloskładnikowe.
+  * Konieczne jest dodanie https://secure.aadcdn.microsoftonline-p.com do listy zaufanych witryn, uwierzytelnianie wieloskładnikowe działać poprawnie.
 * Zezwalaj na zmienianie metoda logowania użytkownika po wstępnej instalacji.
 * Zezwalaj na [domenę i jednostkę Organizacyjną filtrowania](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) w Kreatorze instalacji. Dzięki temu, nawiązywanie połączeń z lasów, w którym nie wszystkie domeny są dostępne.
 * [Harmonogram](active-directory-aadconnectsync-feature-scheduler.md) korzysta z wbudowanej w aparatu synchronizacji.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Wskazówki i zalecenia dotyczące niezawodnej kolekcji w sieci szkieletowej usług Azure
 Ta sekcja zawiera wskazówki dotyczące korzystania niezawodnej Menedżer stanu i niezawodne kolekcji. Celem jest ułatwienie użytkownikom uniknąć typowych problemów.
@@ -26,7 +26,7 @@ Ta sekcja zawiera wskazówki dotyczące korzystania niezawodnej Menedżer stanu 
 Wytyczne dzielą się na prosty zalecenia prefiksem warunki *czy*, *rozważ*, *należy unikać* i *nie*.
 
 * Nie należy modyfikować niestandardowego typu zwrócone przez operacje odczytu obiektu (na przykład `TryPeekAsync` lub `TryGetValueAsync`). Niezawodne kolekcje, podobnie jak kolekcji współbieżnych zwraca odwołanie do obiektów, a nie kopię.
-* Przed zmodyfikowaniem go, należy wykonać bezpośrednich kopii zwrócony obiekt typu niestandardowego. Ponieważ wbudowane typy i struktury są przebiegu przez wartość, nie trzeba zrobić bezpośrednich kopii na nich.
+* Przed zmodyfikowaniem go, należy wykonać bezpośrednich kopii zwrócony obiekt typu niestandardowego. Ponieważ wbudowane typy i struktury są przebiegu przez wartość, nie trzeba zrobić bezpośrednich kopii na nich, chyba że zawierają one wpisane odwołanie do pola lub właściwości, które chcesz zmodyfikować.
 * Nie używaj `TimeSpan.MaxValue` dla limitu czasu. Limity czasu powinien służyć do wykrywania zakleszczenia.
 * Nie używaj transakcji po została zatwierdzona, zostało przerwane lub usunięty.
 * Nie należy używać wyliczania poza zasięg transakcji, który został utworzony.
@@ -49,7 +49,7 @@ Poniżej przedstawiono niektóre czynności, które należy wziąć pod uwagę:
   Oznacza to, że wersji danych, które są odczytywane z jednej dodatkowej może FAŁSZ postępem.
   Odczyty z podstawowego zawsze są stabilne: może nie być false biegiem czasu.
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 * [Praca z elementami Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transakcje i blokad](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [Menedżer stanu niezawodnych i wewnętrzne kolekcji](service-fabric-reliable-services-reliable-collections-internals.md)

@@ -13,17 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: be25e9ffab4fee79b8d9cc6c88c6ffb3e852af0d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 1ad6c62c3c5828143cb78f464fc1181bdf3b19f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute
 
 W tym artykule opisano tworzenie i zarządzanie nimi konfiguracji routingu dla obwodu usługi ExpressRoute w modelu wdrażania usługi Resource Manager przy użyciu portalu Azure. Można również sprawdzić stan, update lub delete i anulowanie zastrzeżenia komunikacji równorzędnych dla obwodu usługi ExpressRoute. Jeśli chcesz użyć innej metody do pracy z obwodu, wybierz artykułu z poniższej listy:
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Program PowerShell](expressroute-howto-routing-arm.md)
+> * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
+> * [Video - prywatnej komunikacji równorzędnej](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video - publicznej komunikacji równorzędnej](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Video - komunikacji równorzędnej firmy Microsoft](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [PowerShell (klasyczny)](expressroute-howto-routing-classic.md)
+> 
 
 
 ## <a name="configuration-prerequisites"></a>Wymagania wstępne dotyczące konfiguracji
@@ -114,7 +124,7 @@ Ta sekcja pomoże Ci tworzenie, get, aktualizowanie i usuwanie konfiguracji plat
 
 1. Skonfiguruj obwód usługi ExpressRoute. Zanim przejdziesz dalej, upewnij się, że obwód jest w całości obsługiwany przez dostawcę połączenia. Jeśli dostawca połączenia udostępnia usługi warstwy 3 zarządzane, możesz poprosić dostawcą połączenia, aby włączyć prywatnej komunikacji równorzędnej platformy Azure dla Ciebie. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu, nadal konfigurację za pomocą następnych krokach.
 
-  ![Lista](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+  ![lista](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Skonfiguruj prywatną komunikację równorzędną Azure dla obwodu. Zanim przejdziesz do następnych kroków, upewnij się, czy masz następujące elementy:
 
   * Podsieć /30 dla połączenia podstawowego. Podsieci nie może być częścią żadnych przestrzeni adresowej zarezerwowane dla sieci wirtualnych.
@@ -194,7 +204,7 @@ Można usunąć konfiguracji komunikacji równorzędnej, wybierając ikonę Usu�
 
 ![Usuń publicznej komunikacji równorzędnej](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Następny krok [połączyć sieć wirtualną z obwodem usługi ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Więcej informacji na temat przepływów pracy usługi ExpressRoute znajduje się w artykule [ExpressRoute workflows](expressroute-workflows.md) (Przepływy pracy usługi ExpressRoute).

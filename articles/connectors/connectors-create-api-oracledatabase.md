@@ -3,7 +3,7 @@ title: "Dodaj łącznik bazy danych Oracle w aplikacje logiki platformy Azure | 
 description: "Korzystania z łącznika danych Oracle w aplikacji logiki"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Rozpoczynanie pracy z bazą danych Oracle łącznika
 
@@ -28,7 +28,7 @@ Za pomocą łącznika bazą danych Oracle, możesz utworzyć organizacyjnej prze
 * Tworzenie przepływu pracy przez dodanie nowego klienta do bazy danych klientów lub aktualizowania zamówienia w bazie danych zamówienia.
 * Użyj akcji, aby pobrać wiersz danych, wstawienia nowego wiersza, a nawet usuwać. Na przykład gdy zostaje utworzony rekord w Dynamics CRM Online (wyzwalacz), następnie wstawienia wiersza w bazie danych programu Oracle (działanie). 
 
-W tym temacie przedstawiono sposób korzystania z łącznika danych Oracle w aplikacji logiki.
+W tym artykule przedstawiono sposób korzystania z łącznika danych Oracle w aplikacji logiki.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,7 +46,7 @@ W tym temacie przedstawiono sposób korzystania z łącznika danych Oracle w apl
   [64-bitowych ODAC 12c w wersji 4 (12.1.0.2.4) dla systemu Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Jeśli nie zainstalowano klienta programu Oracle, wystąpi błąd podczas próby utworzenia lub używania połączenia. Zobacz typowe błędy w tym temacie.
+    > Jeśli nie zainstalowano klienta programu Oracle, wystąpi błąd podczas próby utworzenia lub używania połączenia. Zobacz typowe błędy w tym artykule.
 
 
 ## <a name="add-the-connector"></a>Dodawanie łącznika
@@ -104,7 +104,7 @@ W tym temacie przedstawiono sposób korzystania z łącznika danych Oracle w apl
 
 **Środki zaradcze**: Upewnij się, że brama jest uruchomiona na lokalnym komputerze, na którym został zainstalowany i czy można go połączyć z Internetem.  Firma Microsoft zaleca, nie zainstalowano bramę na komputerze, który może zostać wyłączone lub uśpienia. Można również uruchomić ponownie usługę bramy danych lokalnych (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Błąd**: używany dostawca jest przestarzały: "element System.Data.OracleClient wymaga Oracle oprogramowania klienta w wersji version 8.1.7 lub nowszej.". Odwiedź stronę [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) Aby zainstalować oficjalnego dostawcę.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Błąd**: używany dostawca jest przestarzały: "element System.Data.OracleClient wymaga Oracle oprogramowania klienta w wersji version 8.1.7 lub nowszej.". Zobacz [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) Aby zainstalować oficjalnego dostawcę.
 
 **Przyczyna**: zestaw SDK nie jest zainstalowany na komputerze, na którym jest uruchomiona brama lokalna danych klienta Oracle.  
 
@@ -130,8 +130,8 @@ Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żad
 
 [Forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) jest doskonałym miejscem, aby zadać pytania, odpowiedzi na pytania i zobacz, co robią użytkownicy innych Logic Apps. 
 
-Można zwiększyć Logic Apps i łącznikami głosu i przesyłanie pomysłów na [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+Można zwiększyć Logic Apps i łącznikami głosu i przesyłanie pomysłów na [ http://aka.ms/logicapps-wish ](http://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Kolejne kroki
-[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)i przejrzyj dostępne łączniki w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)i przejrzyj dostępne łączniki w aplikacjach logiki w [listy interfejsów API](apis-list.md).

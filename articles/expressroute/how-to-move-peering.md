@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Przenieś publicznej komunikacji równorzędnej się do komunikacji równorzędnej firmy Microsoft
 
@@ -50,7 +50,7 @@ Jeśli komunikacji równorzędnej firmy Microsoft nie został utworzony, należy
 
 Sprawdź, czy włączono komunikacji równorzędnej firmy Microsoft i anonsowany prefiksów publicznych znajdują się w stanie skonfigurowany.
 
-  * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)
+  * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
   * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md#getmsft)
 
@@ -73,7 +73,11 @@ Po zweryfikowaniu, że skonfigurowano komunikacji równorzędnej firmy Microsoft
   * [Usuń publicznej komunikacji równorzędnej platformy Azure przy użyciu portalu Azure](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Usuń publicznej komunikacji równorzędnej platformy Azure przy użyciu programu Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Usuń publicznej komunikacji równorzędnej platformy Azure przy użyciu interfejsu wiersza polecenia](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. Widok komunikacji równorzędnych
+  
+Można wyświetlić listę wszystkich obwody usługi ExpressRoute i komunikacji równorzędnych w portalu Azure. Aby uzyskać więcej informacji, zobacz [Microsoft widoku szczegółów komunikacji równorzędnej](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).

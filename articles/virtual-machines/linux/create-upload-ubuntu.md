@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2f4983f918eccd2ae1adb4ec2c88133465f47e07
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4c49cbefafe71646ba08dd049baf50ff04463fdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej systemu Ubuntu dla platformy Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Obrazy Ubuntu oficjalnego w chmurze
-Ubuntu teraz publikuje oficjalnego Azure wirtualne dyski twarde do pobrania na [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Jeśli musisz utworzyć własne specjalistyczne obraz Ubuntu na platformie Azure, zamiast niż wykonać poniższą procedurę ręcznego, zaleca się rozpoczynać się one znane pracy wirtualne dyski twarde i dostosowywać odpowiednio do potrzeb. Najnowsze wersje obrazu zawsze można znaleźć w następujących lokalizacjach:
+Ubuntu teraz publikuje oficjalnego Azure wirtualne dyski twarde do pobrania na [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Jeśli musisz utworzyć własne specjalistyczne obraz Ubuntu na platformie Azure, zamiast niż wykonać poniższą procedurę ręcznego, zaleca się rozpoczynać się one znane pracy wirtualne dyski twarde i dostosowywać odpowiednio do potrzeb. Najnowsze wersje obrazu zawsze można znaleźć w następujących lokalizacjach:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
@@ -40,11 +40,11 @@ W tym artykule przyjęto założenie, zainstalowano system operacyjny Ubuntu Lin
 * VHDX format jest nieobsługiwane w systemie Azure, tylko **stały VHD**.  Dysk można przekonwertować na format wirtualnego dysku twardego za pomocą Menedżera funkcji Hyper-V lub polecenia cmdlet convert-vhd.
 * Zalecane jest użycie standardowe partycje, a nie LVM (często domyślnie dla wielu instalacji), podczas instalowania systemu Linux. Pozwoli to uniknąć konfliktów nazw LVM sklonowany maszyn wirtualnych, szczególnie, jeśli dysk systemu operacyjnego kiedykolwiek musi być dołączony do innej maszyny Wirtualnej do rozwiązywania problemów. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) może być używany dla dysków z danymi, jeśli preferowane.
 * Nie należy konfigurować wymiany partycji na dysku systemu operacyjnego. Aby utworzyć plik wymiany na dysku zasobów można skonfigurować agenta systemu Linux.  Więcej informacji na ten temat można znaleźć w poniższych krokach.
-* Wszystkie wirtualne dyski twarde muszą mieć rozmiary, które są wielokrotności 1 MB.
+* Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1MB. Podczas konwersji z pierwotnych dysku VHD musi upewnij się, że rozmiar dysku pierwotnych jest wielokrotnością liczby 1MB przed konwersją. Zobacz [informacje o instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) Aby uzyskać więcej informacji.
 
 ## <a name="manual-steps"></a>Ręczne
 > [!NOTE]
-> Przed przystąpieniem do tworzenia własnego niestandardowego obrazu Ubuntu na platformie Azure, rozważ użycie obrazów wbudowanych i przetestowany z [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) zamiast tego.
+> Przed przystąpieniem do tworzenia własnego niestandardowego obrazu Ubuntu na platformie Azure, rozważ użycie obrazów wbudowanych i przetestowany z [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) zamiast tego.
 > 
 > 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Pytania dotyczące usługi Azure Backup
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące składników usługi Kopia zapasowa Azure. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Aby zadać pytanie dotyczące usługi Azure Backup, kliknij pozycję **Komentarze** (po prawej stronie). Komentarze są wyświetlane na dole tego artykułu. Aby komentować, musisz mieć konto Livefyre. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -132,8 +132,7 @@ W poniższej tabeli opisano sposób ustalania rozmiaru dla każdego źródła da
 | Microsoft Exchange |Suma wszystkich baz danych programu Exchange w serwerze Exchange, którego kopia zapasowa jest wykonywana |
 | Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, którego kopia zapasowa jest wykonywana |
 
-Do utworzenia kopii zapasowej maszyny Wirtualnej platformy Azure każda maszyna wirtualna może mieć maksymalnie 16 dysków z danymi z każdego dysku danych o rozmiarze 1024GB lub mniej. <br>
-Mamy [prywatnej wersji zapoznawczej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) do obsługi dysków maksymalnie 4 TB. 
+Do utworzenia kopii zapasowej maszyny Wirtualnej platformy Azure każda maszyna wirtualna może mieć maksymalnie 16 dysków z danymi z każdego dysku danych o rozmiarze do 4095GB lub mniej. <br>
 
 ## <a name="retention-policy-and-recovery-points"></a>Zasady przechowywania i punkty odzyskiwania
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Czy istnieje różnica między zasadami przechowywania w programie DPM i systemie Windows Server/kliencie systemu Windows (tj. w systemie Windows Server bez programu DPM)?<br/>

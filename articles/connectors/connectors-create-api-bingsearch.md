@@ -4,7 +4,7 @@ description: "Omówienie wyszukiwania usługi Bing łącznika z parametrami inte
 services: 
 suite: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e420c837f9635b2386ca3b52bef487864d1aa2c1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 6d8199d5e9232816a26df24d091f4b3caf8bc49a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>Rozpoczynanie pracy z łącznikiem wyszukiwania usługi Bing
 Podłącz do wyszukiwania usługi Bing wyszukiwania wiadomości, wyszukiwania wideo i innych. Wyszukiwania usługi Bing można: 
@@ -36,4 +36,3 @@ Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żad
 
 ## <a name="more-connectors"></a>Więcej łączników
 Wróć do [listy interfejsów API](apis-list.md).
-

@@ -2,24 +2,18 @@
 title: "Konfigurowanie zabezpieczeń bazy danych SQL Azure dla odzyskiwania po awarii | Dokumentacja firmy Microsoft"
 description: "Dowiedz się zagadnienia dotyczące konfigurowania i zarządzania nimi zabezpieczeń po Przywracanie bazy danych lub pracy awaryjnej na pomocniczym serwerze zabezpieczeń."
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 10/13/2016
 ms.author: sashan
-ms.openlocfilehash: 5bdcdba4956a12b54559b8accf822a4f41656045
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 758096692c83ae08c8ef2bce8ec67dd9bc6e878d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurowanie i zarządzanie nimi zabezpieczenia bazy danych SQL Azure geograficzne lub trybu failover 
 
@@ -96,7 +90,7 @@ Ostatnim krokiem jest przejdź do serwera docelowego lub serwerów i generować 
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać więcej informacji na temat zarządzania dostęp do bazy danych i logowania do, zobacz [zabezpieczeń bazy danych SQL: Zarządzanie zabezpieczeniami dostępu i nazwy logowania bazy danych](sql-database-manage-logins.md).
 * Aby uzyskać więcej informacji dotyczących użytkowników zawartej bazy danych, zobacz [zawarte bazy danych użytkowników — co Twojej bazy danych przenośne](https://msdn.microsoft.com/library/ff929188.aspx).
 * Aby uzyskać informacje o użyciu i skonfigurowaniu aktywna replikacja geograficzna, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analiza wskaźniki nastrojów klientów za pomocą bezpośrednich uczenie przy użyciu usługi Azure Machine Learning
 
@@ -37,7 +37,7 @@ Tego łącza do publicznego repozytorium GitHub:
 
 Rozwinięcie danych i mnożenie urządzeń przenośnych utworzono wiele możliwości klientom express ich uczucia i stanowisk niczego i wszystkie informacje w dowolnym momencie. Tej opinii lub "wskaźniki nastrojów klientów" często jest generowana za pośrednictwem społecznościowych kanałów w formie recenzji, rozmowy, udziały, lubi tweetów itp. Wskaźniki nastrojów klientów mogą być cenne dla firm, które chcą ulepszania produktów i usług, bardziej świadomych decyzji i lepiej podwyższyć ich marek.
 
-Można pobrać wartości z analizy wskaźniki nastrojów klientów, firmy musi mieć możliwość Moje przeważająca magazynów danych niestrukturalnych społecznościowych dla przydatnych wyników analiz. W tym przykładzie zostanie opracowywania modele uczenia bezpośrednich do wykonywania analizy wskaźniki nastrojów klientów przy użyciu AMLWorkbench recenzje filmów
+Można pobrać wartości z analizy wskaźniki nastrojów klientów, firmy musi mieć możliwość Moje przeważająca magazynów danych niestrukturalnych społecznościowych dla przydatnych wyników analiz. W tym przykładzie opracowywania modele uczenia bezpośrednich do wykonywania analizy wskaźniki nastrojów klientów przy użyciu AMLWorkbench recenzje filmów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -69,7 +69,7 @@ Kolejność Hands-on Labs przeprowadzenie rozwiązania wygląda następująco:
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | "SentimentExtraction.py" |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | "Operaionalization" |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | "Operaionalization" |
 
 ## <a name="conclusion"></a>Podsumowanie
 

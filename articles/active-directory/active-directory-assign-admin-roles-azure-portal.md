@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Przypisywanie ról administratorów w usłudze Azure Active Directory
 
@@ -61,9 +61,9 @@ Dostępne są następujące role administratora:
   >
   >
 
-* **Gość zapraszającej**: użytkownicy w tej roli mogą zarządzać użytkownika zaproszeń do skorzystania z usługi Azure Active Directory B2B gościa, gdy ustawienia użytkownika "Zaprosić elementy członkowskie" jest ustawiona na nie. Więcej informacji na temat współpracy B2B w [dotyczące usługi Azure AD B2B współpracy między firmami](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Nie ma inne uprawnienia.
+* **Gość zapraszającej**: użytkownicy w tej roli mogą zarządzać użytkownika zaproszeń do skorzystania z usługi Azure Active Directory B2B gościa, gdy ustawienia użytkownika "Zaprosić elementy członkowskie" jest ustawiona na nie. Więcej informacji na temat współpracy B2B w [współpracy dotyczące usługi Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Nie ma inne uprawnienia.
 
-* **Administrator ochrony informacji (wersja zapoznawcza)**: użytkownicy z tą rolą mają uprawnienia tylko w usłudze Azure Information Protection. Nie są przyznawane prawa użytkownika w Centrum ochrony tożsamości, Zarządzanie tożsamościami uprzywilejowanymi, Monitor Office 365 usługi kondycji lub Office 365 zabezpieczeń i Centrum zgodności. Ich konfigurowanie etykiety dla zasad usługi Azure Information Protection, Zarządzanie szablonami ochrony i aktywować ochrony.
+* **Administrator ochrony informacji**: użytkownicy z tą rolą mają uprawnienia tylko w usłudze Azure Information Protection. Nie są przyznawane prawa użytkownika w Centrum ochrony tożsamości, Zarządzanie tożsamościami uprzywilejowanymi, Monitor Office 365 usługi kondycji lub Office 365 zabezpieczeń i Centrum zgodności. Ich konfigurowanie etykiety dla zasad usługi Azure Information Protection, Zarządzanie szablonami ochrony i aktywować ochrony.
 
 * **Administrator usługi Intune**: użytkownicy z tą rolą uprawnień globalnych w ramach programu Microsoft Intune Online, gdy usługa jest obecny. Ponadto ta rola zawiera zdolność do zarządzania użytkownikami i urządzeniami, aby skojarzyć zasady, oraz tworzenie grup i zarządzanie nimi.
 
@@ -127,7 +127,7 @@ Dostępne są następujące role administratora:
 | --- | --- |
 | <p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Zmienianie haseł dla użytkowników i innych administratorów pomocy technicznej</p>|<p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Wyświetlanie raportów</p>|
 
-### <a name="information-protection-administrator-preview"></a>Administrator ochrony informacji (wersja zapoznawcza)
+### <a name="information-protection-administrator"></a>Administrator ochrona informacji
 W | Możliwość
 -------- | ---------
 Azure Information Protection | <li>Konfigurowanie ustawień i etykiet w zasadach globalne i zakresami<li>Konfigurowanie i Zarządzanie szablonami ochrony<li>Aktywować lub dezaktywować ochrona —

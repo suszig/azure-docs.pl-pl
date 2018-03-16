@@ -3,8 +3,8 @@ title: "Techniczne wymagania wstępne dotyczące tworzenia obrazu maszyny wirtua
 description: "Poznaj wymagania dotyczące tworzenia i wdrażania obrazu maszyny wirtualnej w portalu Azure Marketplace innym osobom do zakupu."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: cf1f061c28dd0c106823d34ad39aac5e577c8b41
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Techniczne wymagania wstępne dotyczące tworzenia obrazu maszyny wirtualnej dla portalu Azure Marketplace
 Przeczytaj dokładnie przed rozpoczęciem procesu i zrozumienie, dlaczego i w którym każdy krok jest wykonywane. Jak to możliwe, należy należy przygotować informacji o swojej firmie i innych danych, Pobierz niezbędne narzędzia i/lub tworzenia składników techniczne przed rozpoczęciem procesu tworzenia oferty. Te elementy powinno być wolne od przeglądania w tym artykule.  
@@ -29,7 +29,7 @@ Musisz mieć następujące elementy gotowe przed rozpoczęciem procesu:
 * W zależności od systemu operacyjnego przeznaczonych, zainstaluj [poleceń cmdlet programu Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) lub [Linux interfejsu wiersza polecenia narzędzia](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) z [Azure pobiera](https://azure.microsoft.com/downloads/) strony.
 * Instalowanie Eksploratora usługi Storage platformy Azure w witrynie CodePlex.
 * Pobierz i zainstaluj narzędzie Test certyfikacji dla certyfikowane Azure:
-  * [http://go.microsoft.com/fwlink/?LinkId=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Potrzebny jest komputer z systemem Windows uruchom narzędzie certyfikacji. Jeśli nie masz komputera z systemem Windows dostępne, można uruchomić narzędzie Maszynę wirtualną z systemem Windows na platformie Azure.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Potrzebny jest komputer z systemem Windows uruchom narzędzie certyfikacji. Jeśli nie masz komputera z systemem Windows dostępne, można uruchomić narzędzie Maszynę wirtualną z systemem Windows na platformie Azure.
 
 ## <a name="platforms-supported"></a>Obsługiwane platformy
 Można tworzyć maszyn wirtualnych w usłudze Azure w systemie Windows lub Linux. Niektóre elementy proces publikowania — takich jak tworzenie Azure zgodnego wirtualnego dysku twardego (VHD)--Użyj różnych narzędzi i kroki w zależności od systemu operacyjnego są przy użyciu:  

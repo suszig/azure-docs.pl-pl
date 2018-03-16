@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Samouczek: Integracji Azure Active Directory z usługi Microsoft Azure Active Directory rejestracji jednokrotnej dla JIRA
 
@@ -61,6 +61,7 @@ Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 *   Podstawowe JIRA i oprogramowania: 6.0 do 7.2.0
 *   Działu JIRA 3.0 do 3.2
+*   JIRA obsługuje również 5.2. Aby uzyskać więcej informacji, kliknij przycisk [Microsoft Azure Active Directory rejestracji jednokrotnej dla JIRA 5.2](./active-directory-saas-jira52microsoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Opis scenariusza
 W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
@@ -121,11 +122,11 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Microsoft Azure Active Directory rejestracji jednokrotnej JIRA domeny i adres URL pojedynczego logowania jednokrotnego informacji](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<domain:port>/`
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<domain:port>/`
 
-    d. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<domain:port>/plugins/servlet/saml/auth`
+    c. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE] 
     > Wartości te nie są prawdziwe. Rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania, należy zaktualizować te wartości. Port jest opcjonalny w przypadku, gdy jest nazwane adres URL. Te wartości są odbierane podczas konfigurowania Jira dodatek, który znajduje się w dalszej części tego samouczka.
@@ -140,7 +141,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     ![Konfigurowanie rejestracji jednokrotnej](.\media\active-directory-saas-msaadssojira-tutorial\endpointicon.png)
 
-    d. Kliknij przycisk Kopiuj, aby skopiować **dokument METADANYCH usług FEDERACYJNYCH** adresu url i wklej go do Notatnika.
+    c. Kliknij przycisk Kopiuj, aby skopiować **dokument METADANYCH usług FEDERACYJNYCH** adresu url i wklej go do Notatnika.
     
     ![Konfigurowanie rejestracji jednokrotnej](.\media\active-directory-saas-msaadssojira-tutorial\endpoint.png)
      
@@ -160,7 +161,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     ![Konfigurowanie rejestracji jednokrotnej](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. Pobierz dodatek z [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Ręcznie przekazać wtyczki, używając Microsoft **przekazać dodatek** menu.
+8. Pobierz dodatek z [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Ręcznie przekazać wtyczki, używając Microsoft **przekazać dodatek** menu. Pobieranie wtyczki nie jest objęta [Umowa serwisowa usługi Microsoft](https://www.microsoft.com/en-us/servicesagreement/).
 
     ![Konfigurowanie rejestracji jednokrotnej](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -179,7 +180,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Kopiuj **identyfikator, adres URL odpowiedzi i zaloguj się na adres URL** wartości i wklej je w **identyfikator, adres URL odpowiedzi i zaloguj się na adres URL** odpowiednio do pól tekstowych **Microsoft Azure Active Directory rejestracji jednokrotnej JIRA domeny i adresów URL** sekcji z portalu Azure.
 
-    d. W **nazwa przycisku logowania** wpisz nazwę przycisku przez organizację nowych użytkowników na ekranie logowania.
+    c. W **nazwa przycisku logowania** wpisz nazwę przycisku przez organizację nowych użytkowników na ekranie logowania.
 
     d. W **lokalizacje identyfikator użytkownika SAML** wybierz opcję **identyfikator użytkownika jest w elemencie NameIdentifier instrukcji podmiotu** lub **identyfikator użytkownika jest w elemencie atrybutu**.  Ten identyfikator ma być JIRA identyfikator użytkownika. Jeśli identyfikator użytkownika nie jest zgodny, następnie system uniemożliwi użytkownikom logować się. 
 
@@ -195,6 +196,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     h. Sprawdź **włączyć pojedynczego Wyloguj** chcesz wylogować się z usługi Azure AD, gdy użytkownik zaloguje z JIRA. 
 
     i. Kliknij przycisk **zapisać** przycisk, aby zapisać ustawienia.
+
+    > [!NOTE]
+    > Aby uzyskać więcej informacji na temat instalacji i rozwiązywania problemów można znaleźć [MS JIRA logowania jednokrotnego łącznika Admin przewodnik](ms-confluence-jira-plugin-adminguide.md) oraz istnieją również [— często zadawane pytania](ms-confluence-jira-plugin-faq.md) dla pomocy użytkownika
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -228,7 +232,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -260,7 +264,7 @@ Aby włączyć użytkowników usługi Azure AD zalogować się do serwera lokaln
 
     b. W **imię i nazwisko** pole tekstowe, pełna nazwa typu użytkownika, takich jak Simona Britta.
 
-    d. W **Username** tekstowym, wpisz adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
+    c. W **Username** tekstowym, wpisz adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
 
     d. W **hasło** tekstowym, wpisz hasło użytkownika.
 

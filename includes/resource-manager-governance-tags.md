@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/16/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 13aa40331849c775898913129f8048a06a1f8456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69c67f437d2f0b7bd6c1f5311eb5ba1d962d889a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 Stosowanie tagów do zasobów platformy Azure umożliwia ich logiczne zorganizowanie według kategorii. Każdy tag składa się z nazwy i wartości. Na przykład można zastosować nazwę „Środowisko” i wartość „Produkcyjne” do wszystkich zasobów w środowisku produkcyjnym.
 
@@ -24,4 +24,4 @@ Tagi mają następujące ograniczenia:
 * Nazwa tagu może zawierać maksymalnie 512 znaków, a wartość tagu jest ograniczona do 256 znaków. W przypadku kont magazynu nazwa tagu jest ograniczona do 128 znaków, a wartość tagu jest ograniczona do 256 znaków.
 * Tagi zastosowane do grupy zasobów nie są dziedziczone przez zasoby należące do tej grupy.
 * Nie można zastosować tagi do klasycznych zasobów, takich jak usługi w chmurze.
-* Następujące znaki nie są obsługiwane: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+* Nazwy tagów nie może zawierać następujących znaków: `<`, `>`, `%`, `&`, `\`, `?`, `/`

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
-ms.author: terrylan
-ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 229f83d4d74837e506c30a0fd8c704da2b7dc12a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integrowanie z integracją dzienników Azure alerty Centrum zabezpieczeń Azure
 Wiele operacji zabezpieczeń i odpowiedzi na zdarzenia zespołów zależne rozwiązania Security Information and Event Management (SIEM) jako punkt początkowy klasyfikowane i badanie alertów zabezpieczeń. W przypadku integracji dziennika Azure alerty Centrum zabezpieczeń Azure można zintegrować z rozwiązania SIEM.
@@ -79,7 +79,7 @@ Usługa integracji dzienników Azure zbiera dane telemetryczne z komputera, na k
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
 6. Skonfiguruj łącznik usługi przesyłania dalej pliku SIEM do odpowiedniego folderu. Procedura zależy od SIEM używasz.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej o Dzienniki aktywności platformy Azure i definicji właściwości, zobacz:
 
 * [Operacje inspekcji w usłudze Resource Manager](../azure-resource-manager/resource-group-audit.md)

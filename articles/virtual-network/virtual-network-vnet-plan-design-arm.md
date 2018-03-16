@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planowanie i projektowanie sieci wirtualnych Azure
 Tworzenie sieci wirtualnej do eksperymentów z jest dość proste, ale prawdopodobnie, wdrażania wielu sieci wirtualnych w czasie, aby obsługiwały produkcyjnym wymagania organizacji. Z pewnego planowania i projektowania będzie mógł wdrożyć sieci wirtualnych i połączyć zasoby, których potrzebujesz bardziej efektywnie. Jeśli nie masz doświadczenia z sieciami wirtualnymi, jest zalecane możesz [Dowiedz się więcej o sieci wirtualnych](virtual-networks-overview.md) i [wdrażanie](quick-create-portal.md) jeden przed kontynuowaniem.
@@ -248,7 +248,7 @@ Poniższe wymagania dotyczą kontrola dostępu:
 Na podstawie tych wymagań, można dodać użytkowników z sieci zespołu do wbudowanych **współautora sieci** roli w każdej subskrypcji; i utworzyć niestandardową rolę dla deweloperów aplikacji w każdej subskrypcji, zapewniając im prawa do dodawania maszyn wirtualnych do istniejących podsieci.
 
 ## <a name="next-steps"></a>Kolejne kroki
-* [Wdrażanie sieci wirtualnej](virtual-networks-create-vnet-arm-template-click.md) oparta na scenariuszu.
+* [Wdrażanie sieci wirtualnej](quick-create-portal.md).
 * Zrozumienie sposobu [równoważenia obciążenia](../load-balancer/load-balancer-overview.md) maszyny wirtualne IaaS i [Zarządzanie routingu w wielu regionach platformy Azure](../traffic-manager/traffic-manager-overview.md).
-* Dowiedz się więcej o [grupy NSG oraz sposób planowania i projektowania](virtual-networks-nsg.md) rozwiązania NSG.
+* Dowiedz się więcej o [sieciowej grupy zabezpieczeń](security-overview.md) rozwiązania NSG.
 * Dowiedz się więcej o sieci [między lokalizacjami oraz opcji łączności sieci wirtualnej](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

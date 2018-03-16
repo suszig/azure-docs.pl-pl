@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Podłącz urządzenie Pi malina do zdalnego wstępnie skonfigurowane rozwiązanie monitorowania (C)
 
@@ -78,7 +78,7 @@ Poniższe kroki pokazują, jak przygotować Twojej Pi malina do tworzenia aplika
     sudo make install
     ```
 
-## <a name="create-a-project"></a>Utwórz projekt
+## <a name="create-a-project"></a>Tworzenie projektu
 
 Wykonaj następujące czynności, za pomocą **ssh** połączenie z Pi malina:
 
@@ -102,7 +102,7 @@ Wykonaj następujące czynności, za pomocą **ssh** połączenie z Pi malina:
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]

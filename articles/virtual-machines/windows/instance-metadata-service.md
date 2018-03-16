@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 50a6004d6b52e48fe762a896f7ab1a523cee4f32
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa Azure wystąpienie metadanych
 
@@ -36,7 +36,7 @@ Usługa jest dostępna w ogólnie dostępne regiony platformy Azure. Nie wszystk
 
 Regiony                                        | Dostępność?                                 | Obsługiwane wersje
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Wszystkie ogólnie dostępna globalne regiony platformy Azure](https://azure.microsoft.com/regions/)     | Ogólnie dostępna   | 2017-04-02 2017-08-01, 2017-12-01(This version is not available in UK regions)
+[Wszystkie ogólnie dostępna globalne regiony platformy Azure](https://azure.microsoft.com/regions/)     | Ogólnie dostępna   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure dla instytucji rządowych](https://azure.microsoft.com/overview/clouds/government/)              | Ogólnie dostępna | 2017-04-02,2017-08-01
 [Chin Azure](https://www.azure.cn/)                                                           | Ogólnie dostępna | 2017-04-02,2017-08-01
 [Niemcy Azure](https://azure.microsoft.com/overview/clouds/germany/)                    | Ogólnie dostępna | 2017-04-02,2017-08-01
@@ -406,7 +406,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. Dlaczego otrzymuję błąd `500 Internal Server Error`?
    * Ponów żądanie w oparciu wykładniczego wycofywania systemu. Jeśli problem będzie się powtarzał skontaktuj się z pomocą techniczną platformy Azure.
 6. Gdzie udostępniać dodatkowe pytania/komentarze?
-   * Wyślij komentarze dotyczące http://feedback.azure.com.
+   * Wyślij komentarze http://feedback.azure.com.
 7. Czy to pomoże dla wystąpienia ustawić skali maszyny wirtualnej?
    * Tak, usługa metadanych jest dostępna dla wystąpień ustawić skali. 
 8. Jak uzyskać pomoc techniczną dla usługi?

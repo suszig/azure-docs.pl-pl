@@ -2,24 +2,18 @@
 title: "Wdrażanie usługi scalania podziału | Dokumentacja firmy Microsoft"
 description: "Użyj scalania podziału zbyt do przenoszenia danych między bazami danych podzielonej."
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sstein
+ms.openlocfilehash: ed5545df8d09192eeed21dd2ac379e255b049e30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Wdrażanie usługi z podziałem i scalaniem
 Narzędzia do scalania podziału umożliwia przenoszenie danych między podzielonej baz danych. Zobacz [przenoszenia danych między bazami danych w chmurze skalowalnych w poziomie](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -149,7 +143,7 @@ Jeśli swojej roli procesu roboczego nie przechodzi do trybu online, ale roli si
    ```
 
 * Upewnij się, że nazwa serwera nie zaczyna się od **https://**.
-* Upewnij się, że serwer bazy danych SQL Azure umożliwia usługom Azure się z nią połączyć. Aby to zrobić, otwórz https://manage.windowsazure.com, po lewej stronie kliknij pozycję "Baz danych" u góry kliknij pozycję "Serwery" i wybierz Twój serwer. Kliknij przycisk **Konfiguruj** u góry i upewnij się, że **usług Azure** ustawienie ma wartość "Yes". (Zobacz sekcja wymagania wstępne w górnej części tego artykułu).
+* Upewnij się, że serwer bazy danych SQL Azure umożliwia usługom Azure się z nią połączyć. Aby to zrobić, otwórz https://manage.windowsazure.com, po lewej stronie kliknij pozycję "Baz danych SQL", kliknij przycisk "Serwery" u góry, a następnie wybierz serwer. Kliknij przycisk **Konfiguruj** u góry i upewnij się, że **usług Azure** ustawienie ma wartość "Yes". (Zobacz sekcja wymagania wstępne w górnej części tego artykułu).
 
 ## <a name="test-the-service-deployment"></a>Testowanie wdrożenia usługi
 ### <a name="connect-with-a-web-browser"></a>Połącz przy użyciu przeglądarki sieci web

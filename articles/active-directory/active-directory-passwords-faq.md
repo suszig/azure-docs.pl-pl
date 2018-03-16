@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
 
@@ -40,7 +40,7 @@ Często zadawane pytania jest podzielony na następujące sekcje:
 
 * **Pytanie: czy Moi użytkownicy rejestrowanie własnych danych resetowania hasła?**
 
-  > **Odpowiedź:** tak. Tak długo, jak resetowania hasła jest włączona i są one licencjonowane, użytkowników można przejść do portalu rejestracji resetowania haseł (https://aka.ms/ssprsetup) do rejestrowania informacji o ich uwierzytelnianie. Użytkownicy mogą również zarejestrować za pomocą panelu dostępu (http://myapps.microsoft.com). Można zarejestrować za pomocą panelu dostępu, muszą wybrać obraz ich profilu, wybierz **profilu**, a następnie wybierz **zarejestrować do resetowania hasła** opcji.
+  > **Odpowiedź:** tak. Tak długo, jak resetowania hasła jest włączona i są one licencjonowane, użytkownicy mogą przejść do portalu rejestracji resetowania haseł (https://aka.ms/ssprsetup) zarejestrować swoje informacje o uwierzytelnianiu. Użytkownicy mogą rejestrować się również za pomocą panelu dostępu (http://myapps.microsoft.com). Można zarejestrować za pomocą panelu dostępu, muszą wybrać obraz ich profilu, wybierz **profilu**, a następnie wybierz **zarejestrować do resetowania hasła** opcji.
   >
   >
 * **Pytanie: czy włączyć hasła zresetowanie grupy i zdecydować włączyć ją dla wszystkich są moje użytkowników wymagane ponownie zarejestrować?**
@@ -269,7 +269,7 @@ Często zadawane pytania jest podzielony na następujące sekcje:
   >
 * **Pytanie: jakie typy kont zapisywania zwrotnego haseł działa dla?**
 
-  > **Odpowiedź:** skrót hasła i haseł działa zapisywania zwrotnego dla federacyjnych synchronizacji użytkowników.
+  > **Odpowiedź:** działania funkcji zapisywania zwrotnego haseł dla kont użytkowników, które są synchronizowane z lokalnej usługi Active Directory do usługi Azure AD, w tym federacyjnych, synchronizacji skrótów haseł i przekazywanego Autentication użytkowników.
   >
   >
 * **Pytanie: czy funkcji zapisywania zwrotnego haseł wymusić zasady haseł mojej domeny?**

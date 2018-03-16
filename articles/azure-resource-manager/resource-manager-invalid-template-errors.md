@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9626b3caaa7188a4e9a37f83d1fbf091951714f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Rozwiązywanie błędów dla szablonu jest nieprawidłowa
 
@@ -38,6 +38,8 @@ Komunikat o błędzie zależy od typu błędu.
 
 Ten błąd może wynikać z kilku różnych typów błędów. Wymagają one zazwyczaj strukturalnych lub składnia błąd w szablonie.
 
+<a id="syntax-error" />
+
 ## <a name="solution-1---syntax-error"></a>Rozwiązanie 1 — błąd składni
 
 Jeśli zostanie wyświetlony komunikat o błędzie wskazuje szablonu nie powiodło się sprawdzanie poprawności, mogą mieć problem składni w szablonie.
@@ -56,6 +58,8 @@ Ten błąd jest proste wyrażenia szablonu mogą być skomplikowanych. Na przyk�
 Jeśli nie podasz Składnia dopasowania szablon tworzy wartość, która różni się od masz zamiar.
 
 Po otrzymaniu tego typu błędu, należy dokładnie przejrzeć składni wyrażeń. Należy wziąć pod uwagę przy użyciu edytora JSON, takich jak [programu Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) lub [Visual Studio Code](resource-manager-vs-code.md), który może zostać wyświetlone ostrzeżenie dotyczące błędy składniowe.
+
+<a id="incorrect-segment-lengths" />
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Rozwiązanie 2 - niepoprawną długość
 
@@ -116,6 +120,8 @@ Pobieranie segmenty prawo można trudnych z typami Menedżera zasobów, które s
 }
 ```
 
+<a id="parameter-not-valid" />
+
 ## <a name="solution-3---parameter-is-not-valid"></a>Rozwiązanie 3 — parametr jest nieprawidłowy
 
 Jeśli należy podać wartość parametru, który nie jest jednym z dozwolonych wartości, pojawi się komunikat podobny do następującego błędu:
@@ -129,9 +135,13 @@ part of the allowed values
 
 Dokładnie sprawdź dozwolone wartości w szablonie i podaj podczas wdrażania. Aby uzyskać więcej informacji o wartości dozwolony parametrów, zobacz [sekcji parametrów szablonów usługi Azure Resource Manager](resource-manager-templates-parameters.md).
 
+<a id="too-many-resource-groups" />
+
 ## <a name="solution-4---too-many-target-resource-groups"></a>Rozwiązanie 4 - zbyt wiele grup zasobów obiektu docelowego
 
 Jeśli określono więcej niż pięć grup zasobów obiektu docelowego w jednym wdrożeniu, ten błąd jest wyświetlany. Należy wziąć pod uwagę konsolidowanie liczbę grup zasobów w danym wdrożeniu albo wdrażanie niektóre szablony jako oddzielnych wdrożeń. Aby uzyskać więcej informacji, zobacz [zasobów Azure wdrożyć więcej niż jedną subskrypcję lub grupy zasobów](resource-manager-cross-resource-group-deployment.md).
+
+<a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>Wykryto rozwiązania 5 - zależność cykliczną
 

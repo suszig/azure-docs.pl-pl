@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5f867140981649b73bf6d0bc13eca539c7dc2209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Wysoka wydajność obliczeniowe rozmiarów maszyn wirtualnych
 
@@ -29,12 +29,11 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>Z funkcją RDMA wystąpień
-Podzbiór wystąpień obliczeniowych (H16r, H16mr NC24r, A8 i A9) funkcji interfejsu sieciowego dla zdalnego pamięci bezpośredniego dostępu (do pamięci RDMA) łączności. Ten interfejs jest oprócz interfejsu standardowe sieć platformy Azure, dostępne dla innych rozmiarów maszyn wirtualnych. 
-  
-Ten interfejs umożliwia wystąpienia z funkcją RDMA do komunikacji za pośrednictwem sieci InfiniBand, działających z rozdzielczością stawki FDR H16r, H16mr i NC24r maszyn wirtualnych i szybkości QDR A8 i A9 maszyn wirtualnych. Tych funkcji RDMA może zwiększyć skalowalność i wydajność aplikacji komunikat interfejsu (Passing Interface) do uruchamiania Intel MPI 5.x tylko. Nowsze wersje (2017, 2018) Intel MPI biblioteki środowiska uruchomieniowego nie są zgodne ze sterownikami Azure RDMA.
 
-Wdrażanie maszyn wirtualnych z funkcją RDMA w tym samym zestawie dostępności (przy użyciu modelu wdrażania usługi Azure Resource Manager) lub samej usługi w chmurze (przy użyciu klasycznego modelu wdrażania). Postępuj zgodnie z dodatkowymi wymaganiami dotyczącymi maszyn wirtualnych systemu Linux z funkcją RDMA do uzyskania dostępu do sieci Azure RDMA.
+### <a name="mpi"></a>MPI 
+
+Obsługiwane są tylko wersje 5.x Intel MPI. Nowsze wersje (2017, 2018) Intel MPI biblioteki środowiska uruchomieniowego nie są zgodne z sterowniki RDMA systemu Linux platformy Azure.
+
 
 ### <a name="distributions"></a>Dystrybucje
  
@@ -50,7 +49,7 @@ Wdróż obliczeniowych maszyn wirtualnych z jednego z obrazów w portalu Azure M
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **Na podstawie centOS HPC** — na podstawie CentOS 7.3 HPC, na podstawie CentOS 7.1 HPC, na podstawie CentOS 6.8 HPC lub na podstawie CentOS HPC 6.5 (H-serii, jest zalecane w wersji 7.1 lub nowszej). Sterowniki RDMA i Intel MPI 5.1 są zainstalowane na maszynie Wirtualnej.  
+* **Na podstawie centOS HPC** — na podstawie CentOS HPC 6.5 lub nowszy (H-serii, jest zalecane w wersji 7.1 lub nowszej). Sterowniki RDMA i Intel MPI 5.1 są zainstalowane na maszynie Wirtualnej.  
  
   > [!NOTE]
   > Na obrazach na podstawie CentOS HPC aktualizacji jądra są wyłączone w **yum** pliku konfiguracji. To dlatego sterowniki Linux RDMA są dystrybuowane jako pakiet RPM, a aktualizacje sterowników może nie działać w przypadku jądra jest aktualizowany.
@@ -63,7 +62,8 @@ Dodatkowy system konfiguracji jest wymagany do uruchomienia zadań MPI na klastr
 ### <a name="network-topology-considerations"></a>Zagadnienia dotyczące topologii sieci
 * W przypadku komputerów z obsługą RDMA maszyn wirtualnych systemu Linux na platformie Azure Eth1 jest zarezerwowana dla ruchu sieciowego RDMA. Nie należy zmieniać ustawienia Eth1 lub wszelkie informacje zawarte w pliku konfiguracji odnoszące się do tej sieci. Eth0 jest zarezerwowana dla regularnych Azure ruchu sieciowego.
 
-* IP przez InfiniBand (IB) nie jest obsługiwana na platformie Azure. Tylko RDMA over IB jest obsługiwana.
+* Sieciowych RDMA na platformie Azure rezerwuje 172.16.0.0/16 przestrzeni adresowej. 
+
 
 ## <a name="using-hpc-pack"></a>Przy użyciu pakietu HPC
 [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), rozwiązania firmy Microsoft wolnego HPC klastra i zadania zarządzania, jest jedną z opcji można użyć wystąpienia obliczeniowych w systemie Linux. Najnowsze wersje Obsługa HPC Pack kilka dystrybucje systemu Linux na obliczeniowe węzłów wdrożone w maszynach wirtualnych platformy Azure, zarządzane przez system Windows Server węzła głównego. Węzły obliczeniowe z funkcją RDMA Linux uruchomiony MPI firmy Intel HPC Pack można zaplanować i uruchamiać aplikacje, które uzyskują dostęp do sieci RDMA MPI systemu Linux. Zobacz [wprowadzenie węzły obliczeniowe systemu Linux w klastrze HPC Pack na platformie Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).

@@ -3,7 +3,7 @@ title: "Jak rozwiązywać typowe problemy podczas tworzenia dysku VHD | Dokument
 description: "Odpowiedzi na często zadawane pytania dotyczące rozwiązywania problemów i problemy podczas tworzenia dysku VHD."
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
+author: msmbaldwin
 manager: 
 editor: 
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 65361ad5bd7c3311c428b64b8476ec8f2ea2d17b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Sposoby rozwiązywania typowych problemów napotykanych podczas tworzenia dysku VHD
 W tym artykule zapewnia pomoc w portalu Azure Marketplace wydawcy i/lub administratora współpracującego, który może zgłaszać problemy lub ma często zadawane pytania podczas publikowania lub zarządzania ich solution(s) maszyny wirtualnej.
@@ -50,7 +50,7 @@ W tym artykule zapewnia pomoc w portalu Azure Marketplace wydawcy i/lub administ
    Firma Microsoft nie obsługują tej funkcji jeszcze.
 9. Aplikacja 32-bitowych jest obsługiwane w portalu Azure Marketplace?
    
-   Zapoznaj się z łącze, aby uzyskać więcej informacji na temat zasad pomocy technicznej: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
+   Zapoznaj się łącze, aby uzyskać więcej informacji na temat zasad pomocy technicznej: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
 10. Za każdym razem próbuję Tworzenie obrazu na podstawie moich wirtualne dyski twarde, zgłaszany jest błąd ". Dysk VHD jest już zarejestrowany z repozytorium obrazów jako zasób"w programie PowerShell. Nie utworzono żadnego obrazu, przed nie może znaleźć żadnego obrazu o tej nazwie na platformie Azure. Jak rozwiązać ten problem?
     
     Zazwyczaj dzieje się tak, jeśli użytkownik zainicjowaniu obsługi maszyny Wirtualnej z tym dyskiem VHD i istnieje blokada na tym dysku VHD. Sprawdź, czy przydzielony z tym dyskiem VHD maszyna wirtualna nie istnieje. Jeśli błąd nadal będzie nadal występować, następnie należy podnieść biletu pomocy technicznej za pomocą tego łącza lub z publikowania portalu dotyczącej to (szczegółowe informacje są podane w odpowiedzi na pytania 11).

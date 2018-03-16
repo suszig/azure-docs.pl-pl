@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: a592dfbc6f19afe255cee1a8dfb48e3c96d7baf8
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 52771c8cf401bb60339182644cd8755637650140
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej systemu Linux w środowisku Oracle dla platformy Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -35,7 +35,7 @@ W tym artykule przyjęto założenie, zainstalowano system operacyjny Oracle Lin
 * Zalecane jest użycie standardowe partycje, a nie LVM (często domyślnie dla wielu instalacji), podczas instalowania systemu Linux. Pozwoli to uniknąć konfliktów nazw LVM sklonowany maszyn wirtualnych, szczególnie, jeśli dysk systemu operacyjnego kiedykolwiek musi być dołączony do innej maszyny Wirtualnej do rozwiązywania problemów. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) może być używany dla dysków z danymi, jeśli preferowane.
 * NUMA nie jest obsługiwana dla większych rozmiarów maszyn wirtualnych ze względu na błąd wersjach jądra systemu Linux poniżej 2.6.37. Ten problem ma wpływ przede wszystkim za pomocą nadrzędnego Red Hat 2.6.32 jądra. Ręczna instalacja agenta systemu Linux platformy Azure (agenta waagent) automatycznie spowoduje wyłączenie NUMA w konfiguracji CHODNIKÓW jądra systemu Linux. Więcej informacji na ten temat można znaleźć w poniższych krokach.
 * Nie należy konfigurować wymiany partycji na dysku systemu operacyjnego. Aby utworzyć plik wymiany na dysku zasobów można skonfigurować agenta systemu Linux.  Więcej informacji na ten temat można znaleźć w poniższych krokach.
-* Wszystkie wirtualne dyski twarde muszą mieć rozmiary, które są wielokrotności 1 MB.
+* Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1MB. Podczas konwersji z pierwotnych dysku VHD musi upewnij się, że rozmiar dysku pierwotnych jest wielokrotnością liczby 1MB przed konwersją. Zobacz [informacje o instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) Aby uzyskać więcej informacji.
 * Upewnij się, że `Addons` repozytorium jest włączona. Przeprowadź edycję pliku `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) lub `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) i zmień wiersz `enabled=0` do `enabled=1` w obszarze **[ol6_addons]** lub **[ol7_addons]** w tym pliku.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +

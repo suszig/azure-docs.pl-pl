@@ -3,8 +3,8 @@ title: "Testowanie ofertę szablon rozwiązania dla witryny Marketplace | Dokume
 description: "Zrozumienie, jak przetestować ofertę szablon rozwiązania dla portalu Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
-ms.author: hascipio; v-divte
-ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: e789d0996e72c935ed9d5f456f9868b73d5ef4ee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testowanie ofertę szablon rozwiązania tymczasowych
 Przemieszczania oznacza wdrażanie ofertę w prywatnej "piaskownicy", gdzie należy przetestować i sprawdzić jego działanie przed wypchnięciem go do produkcji. Oferta jest wyświetlany w przemieszczania analogiczny, jak na rzecz klienta, który został wdrożony go. Aby zostać przeniesiony do przemieszczania muszą być certyfikowane ofertę.
@@ -36,7 +36,7 @@ Wykonaj poniższe kroki, aby push Twojej oferty przemieszczania i przetestować 
    * Wykonaj test wydajności, a testy obciążenia.
    * Upewnij się, że topologii opiera się na najlepsze rozwiązania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli są zadowalające wyniki, a następnie można przejść do fazy publikowania końcowego oferta **krok 4**: [wdrażanie Twojej oferty w portalu Marketplace](marketplace-publishing-push-to-production.md). W przeciwnym razie zmiany w ramach Twojej oferty, a żądanie certyfikacji ponownie.
 
 > [!NOTE]

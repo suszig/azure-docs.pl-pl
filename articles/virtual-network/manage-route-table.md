@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Tworzenie, zmienianie lub usuwanie tabeli tras
 
@@ -30,7 +30,7 @@ Azure automatycznie kieruje ruchem między podsieciami Azure, sieci wirtualnych 
 Przed wykonaniem kroków w żadnej sekcji tego artykułu, należy wykonać następujące zadania:
 
 - Jeśli nie masz jeszcze konta platformy Azure, należy zarejestrować się w celu [bezpłatnego konta wersji próbnej](https://azure.microsoft.com/free).
-- Jeśli przy użyciu portalu, otwórz https://portal.azure.com i zaloguj się za pomocą konta platformy Azure.
+- Jeśli przy użyciu portalu, otwórz https://portal.azure.comi zaloguj się przy użyciu konta platformy Azure.
 - Jeśli za pomocą poleceń programu PowerShell do wykonywania zadań w tym artykule, albo Uruchom polecenia w [powłoki chmury Azure](https://shell.azure.com/powershell), lub przez uruchomienie programu PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Ten samouczek wymaga programu Azure PowerShell w wersji modułu 5.2.0 lub nowszym. Uruchom `Get-Module -ListAvailable AzureRM` można odnaleźć zainstalowanej wersji. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure.
 - Jeśli za pomocą poleceń Azure interfejsu wiersza polecenia (CLI), aby wykonać zadania w tym artykule, albo Uruchom polecenia w [powłoki chmury Azure](https://shell.azure.com/bash), lub za pomocą interfejsu wiersza polecenia z tego komputera. Ten samouczek wymaga wiersza polecenia platformy Azure w wersji 2.0.26 lub nowszej. Uruchom `az --version` można odnaleźć zainstalowanej wersji. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia Azure lokalnie, należy uruchomić `az login` można utworzyć połączenia z platformą Azure.
 
@@ -40,7 +40,7 @@ Istnieje limit liczby tabel tras, można utworzyć dla każdej lokalizacji platf
 
 1. W lewym górnym rogu portalu, wybierz **+ Utwórz zasób**.
 2. Wybierz **sieci**, a następnie wybierz pozycję **tabeli tras**.
-3. Wprowadź **nazwa** dla tabeli tras, wybierz użytkownika **subskrypcji**, Utwórz nową **grupy zasobów**, lub wybierz istniejącą grupę zasobów, wybierz pozycję **lokalizacji** , a następnie wybierz pozycję **Utwórz**. **Propagowania tras Wyłącz protokół BGP** opcja zapobiega o lokalnych trasach propagowanie do sieci wirtualnej platformy Azure za pomocą protokołu BGP. Jeśli w Twojej sieci wirtualnej nie jest podłączony do bramy sieci platformy Azure (sieci VPN lub ExpressRoute), pozostaw tę opcję *wyłączone*. 
+3. Wprowadź **nazwa** dla tabeli tras, wybierz użytkownika **subskrypcji**, Utwórz nową **grupy zasobów**, lub wybierz istniejącą grupę zasobów, wybierz pozycję **lokalizacji** , a następnie wybierz pozycję **Utwórz**. **Propagowania tras Wyłącz protokół BGP** opcja zapobiega o lokalnych trasach propagowanie za pośrednictwem protokołu BGP do interfejsów sieciowych w żadnej podsieci, która jest skojarzona tabela tras. Jeśli w Twojej sieci wirtualnej nie jest podłączony do bramy sieci platformy Azure (sieci VPN lub ExpressRoute), pozostaw tę opcję *wyłączone*.
 
 **Polecenia**
 

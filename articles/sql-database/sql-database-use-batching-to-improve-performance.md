@@ -2,24 +2,18 @@
 title: "Jak używać przetwarzanie wsadowe, aby zwiększyć wydajność aplikacji bazy danych SQL Azure"
 description: "Temat zawiera dowód tym przetwarzanie wsadowe operacji bazy danych znacznie imroves szybkości i skalowalność aplikacji bazy danych SQL Azure. Mimo że te techniki przetwarzanie wsadowe działać dla dowolnej bazy danych programu SQL Server, artykuł koncentruje się na platformie Azure."
 services: sql-database
-documentationcenter: na
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Jak używać przetwarzanie wsadowe, aby zwiększyć wydajność aplikacji bazy danych SQL
 Przetwarzanie wsadowe operacji do bazy danych SQL Azure w znacznie poprawia wydajność i skalowalność aplikacji. Aby zrozumieć korzyści, pierwsza część w tym artykule omówiono niektóre przykładowe wyniki testów, pozwalające porównać wsadów i sekwencyjny żądania do bazy danych SQL. W pozostałej części tego artykułu pokazuje techniki, scenariusze i zagadnienia dotyczące pomogą pomyślnie przetwarzanie wsadowe w aplikacjach platformy Azure.
@@ -617,6 +611,6 @@ Poniższa lista zawiera podsumowanie zaleceń przetwarzanie wsadowe omówione w 
 * Unikaj wykonywanie równoległe w partii, które pracują na pojedynczej tabeli w jednej bazie danych. Jeśli chcesz podzielić pojedyncza partia przez wiele wątków roboczych, należy uruchomić testy w celu ustalenia idealne liczba wątków. Po nieokreślone wartości progowej więcej wątków będzie obniżyć wydajność, a nie powinna ona być.
 * Należy wziąć pod uwagę buforowanie włączone rozmiaru i czasu sposób stosowania przetwarzania wsadowego dla scenariuszy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Ten artykuł koncentruje się na sposób projektowania baz danych i kodowania technik związanych z przetwarzanie wsadowe może poprawić Twojej aplikacji wydajności i skalowalności. Ale tylko jeden składnik w ogólnej strategii. Aby uzyskać więcej sposobów poprawy wydajności i skalowalności, zobacz [wytyczne dotyczące wydajności bazy danych SQL Azure dla pojedynczej bazy danych](sql-database-performance-guidance.md) i [zagadnienia dotyczące cen i wydajności dla elastycznej puli](sql-database-elastic-pool-guidance.md).
 

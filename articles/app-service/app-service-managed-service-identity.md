@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Jak używać Azure zarządzanych tożsamości usługi (publicznej wersji zapoznawczej) w aplikacji usługi i usługi Azure Functions
 
 > [!NOTE] 
 > Zarządzane tożsamości usługi dla usługi aplikacji i funkcji platformy Azure jest obecnie w przeglądzie.
 
-W tym temacie przedstawiono sposób utworzenia tożsamości zarządzanych aplikacji usługi aplikacji i usługi Azure Functions aplikacje i jak z niego korzystać, aby uzyskać dostęp do innych zasobów. Tożsamość usługi zarządzanej z usługi Azure Active Directory umożliwia aplikacji łatwo uzyskiwać dostęp do innych chronionych AAD zasoby, takie jak usługi Azure Key Vault. Tożsamość jest zarządzana przez platformę Azure i nie trzeba zapewniać ani obrócić żadnych kluczy tajnych. Więcej informacji o zarządzanych tożsamość usługi, zobacz [omówienie zarządzane tożsamość usługi](../active-directory/msi-overview.md).
+W tym temacie przedstawiono sposób utworzenia tożsamości zarządzanych aplikacji usługi aplikacji i usługi Azure Functions aplikacje i jak z niego korzystać, aby uzyskać dostęp do innych zasobów. Tożsamość usługi zarządzanej z usługi Azure Active Directory umożliwia aplikacji łatwo uzyskiwać dostęp do innych chronionych AAD zasoby, takie jak usługi Azure Key Vault. Tożsamość jest zarządzana przez platformę Azure i nie trzeba zapewniać ani obrócić żadnych kluczy tajnych. Więcej informacji o zarządzanych tożsamość usługi, zobacz [omówienie zarządzane tożsamość usługi](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Tworzenie aplikacji przy użyciu tożsamości
 
@@ -126,7 +126,7 @@ Gdzie `<TENANTID>` i `<PRINCIPALID>` są zamieniane na GUID. Właściwość iden
 Aplikacja może być uzyskiwać tokeny do innych zasobów chronionych przez usługi AAD, takich jak usługi Azure Key Vault jego tożsamość. Tokeny te stanowią aplikacji dostęp do zasobów i nie każdy użytkownik określonych aplikacji. 
 
 > [!IMPORTANT]
-> Może być konieczne skonfigurowanie zasobu docelowego, aby zezwolić na dostęp z poziomu aplikacji. Na przykład jeśli żądanie jest token do magazynu kluczy, musisz upewnij się, że dodano zasad dostępu, która obejmuje tożsamości aplikacji. W przeciwnym razie wywołaniami magazynu kluczy zostanie odrzucone, nawet jeśli zawierają one tokenu. Aby dowiedzieć się więcej o zasobach, które obsługuje tokenów tożsamości usługi zarządzane, zobacz [uwierzytelniania pomocy technicznej usługi Azure AD z usług Azure](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Może być konieczne skonfigurowanie zasobu docelowego, aby zezwolić na dostęp z poziomu aplikacji. Na przykład jeśli żądanie jest token do magazynu kluczy, musisz upewnij się, że dodano zasad dostępu, która obejmuje tożsamości aplikacji. W przeciwnym razie wywołaniami magazynu kluczy zostanie odrzucone, nawet jeśli zawierają one tokenu. Aby dowiedzieć się więcej o zasobach, które obsługuje tokenów tożsamości usługi zarządzane, zobacz [uwierzytelniania pomocy technicznej usługi Azure AD z usług Azure](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
 
 Brak prostego protokołu REST do uzyskania tokenu usługi aplikacji i usługi Azure Functions. W przypadku aplikacji .NET biblioteki Microsoft.Azure.Services.AppAuthentication udostępnia abstrakcję za pośrednictwem protokołu i obsługuje środowisko rozwoju lokalnego.
 

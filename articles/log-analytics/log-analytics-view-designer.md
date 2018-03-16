@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Tworzenie niestandardowych widoków przy użyciu projektanta widoków w analizy dzienników
 Przy użyciu narzędzia Projektant widoku w [Azure Log Analytics](log-analytics-overview.md), możesz utworzyć różne widoki niestandardowe w portalu Azure, które mogą pomóc w wizualizacji danych w obszarze roboczym analizy dzienników. Ten artykuł zawiera omówienie projektanta widoków i procedur tworzenia i edytowania widoków niestandardowych.
@@ -28,8 +28,6 @@ Aby uzyskać więcej informacji na temat Projektant widoków zobacz:
 * [Kafelek odwołanie](log-analytics-view-designer-tiles.md): zawiera przewodnik odwołanie do ustawienia dla każdego z dostępnych kafelków w niestandardowych widoków.
 * [Odwołanie do części wizualizacji](log-analytics-view-designer-parts.md): zawiera przewodnik odwołanie do ustawienia dla części wizualizacji, które są dostępne w niestandardowych widoków.
 
->[!NOTE]
-> Jeśli został uaktualniony do obszaru roboczego [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), zapytania we wszystkich widokach musi być napisana w [nowy język kwerendy](https://go.microsoft.com/fwlink/?linkid=856078). Wszystkie widoki, które zostały utworzone przed obszaru roboczego został uaktualniony są konwertowane automatycznie.
 
 ## <a name="concepts"></a>Pojęcia
 Widoki są wyświetlane na **omówienie** strony obszaru roboczego analizy dzienników w portalu Azure. Kafelki w każdym widoku niestandardowym są wyświetlane w kolejności alfabetycznej i zainstalowano Kafelki rozwiązań do tego samego obszaru roboczego.

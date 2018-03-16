@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -123,7 +123,7 @@ Usługi umożliwiające przeniesienie do nowej grupy zasobów i subskrypcji są:
 * Klastry HDInsight — zobacz [ograniczenia usługi HDInsight](#hdinsight-limitations)
 * Centra IoT Hub
 * Usługa Key Vault
-* Moduły równoważenia obciążenia
+* Moduły równoważenia obciążenia — zobacz [ograniczenia usługi równoważenia obciążenia](#lb-limitations)
 * Logic Apps
 * Usługa Machine Learning
 * Media Services
@@ -132,6 +132,7 @@ Usługi umożliwiające przeniesienie do nowej grupy zasobów i subskrypcji są:
 * Operational Insights
 * Operations Management
 * Power BI
+* Publiczny adres IP — Zobacz [ograniczenia publicznego adresu IP](#pip-limitations)
 * Pamięć podręczna Redis
 * Scheduler
 * Wyszukiwanie
@@ -161,8 +162,10 @@ Usługi, które aktualnie nie należy włączać przenoszenie zasobu to:
 * ExpressRoute
 * Włączono DevTest Labs — aby przejść do nowej grupy zasobów w tej samej subskrypcji, ale przenoszenia między subskrypcji nie jest włączona.
 * Dynamics LCS
+* Moduły równoważenia obciążenia — zobacz [ograniczenia usługi równoważenia obciążenia](#lb-limitations)
 * Aplikacje zarządzane
 * Zarządzane dysków, zobacz [ograniczenia maszyny wirtualne](#virtual-machines-limitations)
+* Publiczny adres IP — Zobacz [ograniczenia publicznego adresu IP](#pip-limitations)
 * Magazyn usług odzyskiwania — czy też nie przeniesienie zasobów obliczeniowych, sieci i magazynu skojarzone z magazynu usług odzyskiwania, zobacz [ograniczenia usług odzyskiwania](#recovery-services-limitations).
 * Bezpieczeństwo
 * Menedżer urządzeń StorSimple
@@ -320,6 +323,16 @@ Podczas przenoszenia klastra usługi HDInsight na nową subskrypcję, należy na
 
 Nie można przenieść wielu zasobów wyszukiwania w całości umieszczony w różnych regionach.
 W takim przypadku należy przenieść je oddzielnie.
+
+## <a name="lb-limitations"></a> Ograniczenia usługi równoważenia obciążenia
+
+Podstawowy SKU usługi równoważenia obciążenia, mogą zostać przeniesione.
+Nie można przenieść standardowy SKU usługi równoważenia obciążenia.
+
+## <a name="pip-limitations"></a> Publiczny ograniczenia adresu IP
+
+Podstawowe publicznego adresu IP SKU mogą zostać przeniesione.
+Nie można przenieść standardowe publicznego adresu IP jednostki SKU.
 
 ## <a name="use-portal"></a>Korzystanie z portalu
 

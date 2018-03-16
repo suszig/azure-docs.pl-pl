@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dewelopera usługi Azure funkcji JavaScript
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -271,7 +271,7 @@ W poniższej tabeli przedstawiono wersji środowiska Node.js używane przez każ
 | Funkcje wersji | Wersja Node.js | 
 |---|---|
 | 1.x | 6.11.2 (zablokowane przez środowisko uruchomieniowe) |
-| 2.x  |> = 8.4.0 z bieżącym LTS 8.9.4 zalecane. Ustaw wersję za pomocą WEBSITE_DEFAULT_NODE_VERSION [ustawienie aplikacji](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  |> = 8.4.0 z bieżącym LTS 8.9.4 zalecane. Ustaw wersję za pomocą WEBSITE_NODE_DEFAULT_VERSION [ustawienie aplikacji](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 Można wyświetlić bieżącą wersję środowiska uruchomieniowego używanej przez usługę Drukowanie `process.version` z dowolnej funkcji.
 

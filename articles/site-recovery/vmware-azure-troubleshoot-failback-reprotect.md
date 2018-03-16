@@ -1,6 +1,6 @@
 ---
 title: "Rozwiązywanie błędów podczas powrotu po awarii maszyn wirtualnych Azure do programu VMware lokalnych z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposoby rozwiązywania typowych problemów powrotu po awarii i ponowne włączenie ochrony podczas powrotu po awarii do programu VMware z platformy Azure, za pomocą usługi Azure Site Recovery."
+description: "W tym artykule opisano sposoby rozwiązywania typowych problemów powrotu po awarii i ponowne włączenie ochrony podczas powrotu po awarii do programu VMware z platformy Azure przy użyciu usługi Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -9,17 +9,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6dcecce78de3caaefb40cb3fe4853d5d550163b4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 480c3524ad4fb8a8c6ea02f09b8d27f254da9b08
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Rozwiązywanie problemów z powrotu po awarii z platformy Azure do programu VMware
 
-W tym artykule opisano sposób rozwiązywania problemów, które mogą wystąpić podczas nie zostanie ponownie Azure maszyn wirtualnych o lokalnej infrastrukturze firmy VMware po przejściu w tryb failover Azure przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md).
+W tym artykule opisano sposób rozwiązywania problemów, które mogą wystąpić podczas nie zostanie ponownie Azure maszyn wirtualnych o lokalnej infrastrukturze firmy VMware po w tryb failover na platformie Azure przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md).
 
-Powrót po awarii zasadniczo obejmuje dwa podstawowe kroki. Po przejściu w tryb failover należy Włącz ponownie ochronę maszyn wirtualnych platformy Azure do środowiska lokalnego, dzięki czemu rozpoczęciu replikowanie. Drugim krokiem jest do uruchamiania trybu failover z platformy Azure, aby powrót po awarii do lokacji lokalnej.
+Powrót po awarii zasadniczo obejmuje dwa podstawowe kroki. Dla pierwszego stopnia po przejściu w tryb failover, należy włączyć ją ponownie maszynach wirtualnych platformy Azure do środowiska lokalnego, aby rozpoczęciu replikowanie. Drugim krokiem jest do uruchamiania trybu failover z platformy Azure na powrót po awarii do lokacji lokalnej.
 
 ## <a name="troubleshoot-reprotection-errors"></a>Rozwiązywanie problemów z błędami zastosowania
 
@@ -31,32 +31,36 @@ Ta sekcja zawiera szczegóły typowe zastosowania błędów i rozwiązania ich.
 
 Ten błąd występuje, gdy:
 
-1. Maszyna wirtualna platformy Azure można nawiązać połączenia z lokalnego serwera konfiguracji. Maszyny Wirtualnej nie można odnaleźć i zarejestrowany na serwerze konfiguracji.
-2. Usługa InMage Scout aplikacji nie jest uruchomiony na maszynie Wirtualnej Azure po pracy awaryjnej. Usługa jest wymagana do komunikacji z lokalnego serwera konfiguracji.
+* Maszyna wirtualna platformy Azure można nawiązać połączenia z lokalnego serwera konfiguracji. Maszyny Wirtualnej nie można odnaleźć i zarejestrowany na serwerze konfiguracji.
+* Usługa aplikacji InMage Scout nie jest uruchomiony na maszynie Wirtualnej Azure po pracy awaryjnej. Usługa jest wymagana do komunikacji z lokalnego serwera konfiguracji.
 
 Aby rozwiązać ten problem:
 
-1. Sprawdź, czy sieć wirtualna Azure umożliwia maszyny Wirtualnej platformy Azure do komunikowania się z lokalnego serwera konfiguracji. Aby to zrobić, konfigurowanie sieci VPN lokacja lokacja w lokalnym centrum danych lub skonfiguruj połączenie ExpressRoute z prywatnej komunikacji równorzędnej w sieci wirtualnej maszyny wirtualnej Azure.
-2. Jeśli maszyna wirtualna może komunikować się z serwera konfiguracji lokalnej, następnie logowania się do maszyny Wirtualnej i sprawdź "Usługa aplikacji InMage Scout". Jeśli zobaczysz, że nie jest uruchomiona, uruchom usługę ręcznie, a następnie sprawdź, czy typ uruchomienia usługi jest ustawiony na automatyczny.
+* Sprawdź, czy sieć wirtualna Azure umożliwia maszyny Wirtualnej platformy Azure do komunikowania się z lokalnego serwera konfiguracji. Można skonfigurować sieci VPN lokacja lokacja w lokalnym centrum danych lub skonfigurować Azure ExpressRoute połączenia z prywatną komunikację równorzędną w sieci wirtualnej maszyny wirtualnej Azure.
+* Jeśli maszyna wirtualna może komunikować się z lokalnego serwera konfiguracji, zaloguj się do maszyny Wirtualnej. Następnie sprawdź, czy usługa aplikacji InMage Scout. Jeśli zobaczysz, że nie jest uruchomiona, uruchom usługę ręcznie. Sprawdź, czy typ uruchomienia usługi ma ustawioną wartość **automatyczne**.
 
 ### <a name="error-code-78052"></a>Kod błędu 78052
 
 **Nie można ukończyć włączania ochrony dla maszyny wirtualnej.**
 
-Może to nastąpić, jeśli istnieje już maszyna wirtualna o tej samej nazwie na głównym serwerze docelowym z którym powrotu po awarii ponownie.
+Ten problem może się zdarzyć, jeśli istnieje już maszyna wirtualna o tej samej nazwie na głównym serwerze docelowym z którym powrotu po awarii ponownie.
 
-Aby rozwiązać ten problem, wykonaj następujące czynności:
-1. Wybierz innego głównego serwera docelowego na innego hosta, dzięki czemu przełączonej utworzy komputera na inny host, gdzie nie powodują konfliktu nazw.
-2. Można również vMotion główny cel do innego hosta, na którym nie nastąpi kolizję nazw. Jeśli istniejącej maszyny Wirtualnej jest stray maszyny, należy ją zmienić, aby na tym samym hoście ESXi można utworzyć nowej maszyny Wirtualnej.
+Aby rozwiązać ten problem:
+
+* Wybierz innego głównego serwera docelowego na inny host, dzięki czemu przełączonej tworzy komputera na inny host, gdzie nie powodują kolizję nazw.
+* Można również Użyj vMotion można przenieść główny cel do innego hosta, gdzie kolizję nazw nie nastąpi. Jeśli istniejącej maszyny Wirtualnej jest stray maszyny, należy ją zmienić, aby na tym samym hoście ESXi można utworzyć nowej maszyny Wirtualnej.
+
 
 ### <a name="error-code-78093"></a>Kod błędu 78093
 
 **Maszyna wirtualna nie jest uruchomiona, w stanie zawieszone, lub jest niedostępny.**
 
-Włączyć ją ponownie nieudanej za pośrednictwem maszyny Wirtualnej, musi być uruchomiona maszyna wirtualna platformy Azure. Jest to, aby usługa mobilności rejestruje konfigurację serwera lokalnego i rozpocząć replikację komunikując się z serwerem przetwarzania. Jeśli komputer znajduje się w sieci nieprawidłowe lub nie jest uruchomiony (zawiesić lub zamknięcie), serwer konfiguracji nie można osiągnąć usługi mobilności na maszynie Wirtualnej, aby rozpocząć zastosowania.
+Aby rozwiązać ten problem:
 
-1. Ponowne uruchomienie maszyny Wirtualnej tak, aby umożliwić komunikację wstecz lokalnymi.
-2. Uruchom ponownie zadanie ponownej ochrony po uruchomieniu maszyny wirtualnej platformy Azure
+Włączyć ją ponownie przełączona w tryb failover maszyny Wirtualnej, musi być uruchomiona maszyny Wirtualnej Azure tak, aby uruchomić usługi mobilności rejestry z konfiguracji serwera lokalnego i umożliwia replikowanie komunikując się z serwerem przetwarzania. Jeśli komputer jest na nieprawidłowych sieci lub nie jest uruchomiona (zawiesił stanu lub zamykania w dół), serwer konfiguracji można nawiązać połączenia z usługą mobilności na maszynie Wirtualnej, aby rozpocząć przełączonej.
+
+* Ponowne uruchomienie maszyny Wirtualnej tak, aby umożliwić komunikację wstecz lokalnymi.
+* Po uruchomieniu maszyny wirtualnej platformy Azure, należy ponownie uruchomić zadanie ponownej ochrony.
 
 ### <a name="error-code-8061"></a>Kod błędu 8061
 
@@ -71,9 +75,11 @@ W tej sekcji opisano typowe błędy, które mogą wystąpić podczas powrotu po 
 
 ### <a name="error-code-8038"></a>Kod błędu 8038
 
-**Nie można wyświetlić na lokalnej maszynie wirtualnej z powodu błędu**
+**Nie można wyświetlić na lokalnej maszynie wirtualnej z powodu błędu.**
 
-Dzieje się tak, gdy lokalnej maszyny Wirtualnej jest włączane na hoście, który nie ma wystarczającej ilości pamięci udostępnione. Aby rozwiązać ten problem:
+Ten problem spowodowany lokalnej maszyny Wirtualnej jest włączane na hoście, który nie ma wystarczającej ilości pamięci udostępnione. 
 
-1. Udostępnij więcej pamięci na hoście ESXi.
-2. Ponadto można vMotion maszyny Wirtualnej do innego hosta ESXi, który ma wystarczającą ilość pamięci do rozruchu maszyny Wirtualnej.
+Aby rozwiązać ten problem:
+
+* Udostępnij więcej pamięci na hoście ESXi.
+* Ponadto umożliwia vMotion Przenieś maszynę Wirtualną do innego hosta ESXi, który ma wystarczającą ilość pamięci do rozruchu maszyny Wirtualnej.

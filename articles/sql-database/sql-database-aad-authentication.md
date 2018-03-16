@@ -3,17 +3,17 @@ title: "Azure Active Directory auth - SQL Azure (omówienie) | Dokumentacja firm
 description: "Więcej informacji na temat sposobu korzystania z usługi Azure Active Directory do uwierzytelniania przy użyciu bazy danych SQL, zarządzane wystąpienia i magazyn danych SQL"
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 9745fef33bf00e7249c1cb550c5164474bf5c3ee
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Użyj uwierzytelniania usługi Azure Active Directory do uwierzytelniania przy użyciu bazy danych SQL, zarządzane wystąpienia lub SQL Data Warehouse
 Uwierzytelnianie usługi Active Directory systemu Azure jest mechanizmu nawiązywania połączenia z bazą danych SQL Azure Microsoft i [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) przy użyciu tożsamości w usłudze Azure Active Directory (Azure AD). Przy użyciu uwierzytelniania usługi Azure AD mogą centralnie zarządzać tożsamości użytkowników bazy danych i innych usług firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie identyfikator udostępnia jedno miejsce do zarządzania użytkownikami bazy danych i upraszcza zarządzanie uprawnieniami. Następujące korzyści:

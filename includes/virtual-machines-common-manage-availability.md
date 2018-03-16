@@ -1,3 +1,19 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 1f4bd0d81d16997a9d627f918d77cb8e770a5b53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Omówienie ponownych rozruchów maszyn wirtualnych — konserwacja a przestój
 Istnieją trzy scenariusze, które mogą prowadzić do maszyny wirtualnej platformy Azure jest w pełni funkcjonalne: sprzęt nieplanowana konserwacja, nieoczekiwane przestoje i planowanej konserwacji.
 

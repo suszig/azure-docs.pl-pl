@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Omówienie usługi Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Najlepsze rozwiązania dotyczące używania usługi Azure Data Lake Store
 W tym artykule opisano najważniejsze wskazówki i informacje dotyczące pracy z usługi Azure Data Lake Store. Ten artykuł zawiera informacje dotyczące zabezpieczeń, wydajności, odporności i monitorowania usługi Data Lake Store. Przed usługi Data Lake Store pracę z danymi big naprawdę w usługach, takich jak usługa Azure HDInsight był zbyt złożony. Konieczne było współdzielenie danych między wiele kont magazynu obiektów Blob, aby petabajt magazynu i optymalnej wydajności, które rozwijają się może zostać osiągnięty. Z usługi Data Lake Store większość stałych limitów rozmiaru i wydajności zostaną usunięte. Jednak nadal istnieją pewne kwestie, które w tym artykule omówiono tak, aby uzyskać najlepszą wydajność dzięki usłudze Data Lake Store. 
 
 ## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
@@ -139,7 +139,7 @@ Jeśli usługi Data Lake Store wysyłania dziennika nie jest włączona, Azure H
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Gdy ta opcja jest ustawiona i węzły są ponownie uruchamiane, diagnostyka usługi Data Lake Store jest zapisywane do dzienników YARN w węzłach (/tmp/<user>/yarn.log), a ważne informacje, takie jak błędy lub ograniczenia przepustowości (kod błędu HTTP 429) mogą być monitorowane. Tych informacji można również monitorować OMS lub wszędzie tam, gdzie dzienniki są wysyłane do w [diagnostyki](data-lake-store-diagnostic-logs.md) bloku konta usługi Data Lake Store. Zalecane jest co najmniej włączenia funkcji dziennika po stronie klienta lub korzystanie z opcji z usługą Data Lake Store operacyjne widoczność i ułatwiają debugowanie wysyłania dziennika.
+Gdy właściwość jest ustawiona, i węzły są ponownie uruchamiane, diagnostyka usługi Data Lake Store jest zapisywane do dzienników YARN w węzłach (/tmp/<user>/yarn.log), a ważne informacje, takie jak błędy lub ograniczenia przepustowości (kod błędu HTTP 429) mogą być monitorowane. Tych informacji można również monitorować OMS lub wszędzie tam, gdzie dzienniki są wysyłane do w [diagnostyki](data-lake-store-diagnostic-logs.md) bloku konta usługi Data Lake Store. Zalecane jest co najmniej włączenia funkcji dziennika po stronie klienta lub korzystanie z opcji z usługą Data Lake Store operacyjne widoczność i ułatwiają debugowanie wysyłania dziennika.
 
 ### <a name="run-synthetic-transactions"></a>Uruchom transakcji syntetycznych 
 
@@ -155,7 +155,7 @@ W IoT obciążeń może być dużą ilość danych jest wyładowany w magazynie 
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Na przykład lądowanie dane telemetryczne dla aparatu samolotowy w Zjednoczone Królestwo może wyglądać następująco: 
+Na przykład lądowanie dane telemetryczne dla aparatu samolotowy w Zjednoczone Królestwo może wyglądać następującej strukturze: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Brak ważnych powód, aby umieścić Data na końcu tej struktury folderów. Je�
 
 ### <a name="batch-jobs-structure"></a>Struktura zadania wsadowego 
 
-Z wysokiego poziomu podejście często używane w przetwarzaniu wsadowym jest trafić danych w folderze "w". Następnie po przetworzeniu danych Umieść nowe dane do folderu "out" procesy podrzędne korzystać. Jest to widoczne czasami dla zadania, które wymagają przetworzenia dla poszczególnych plików i nie może wymagać masowego przetwarzania równoległego na dużych zestawów danych. Jak struktura IoT zalecanych struktury katalogów dobrej ma foldery poziomu nadrzędnego dla czynności takich jak regionu i kwestii (na przykład, organizacji, produktu/producent). To ułatwia zabezpieczanie danych w organizacji i lepsze zarządzanie danych w obciążeń. Ponadto należy wziąć pod uwagę daty i godziny w strukturze, aby umożliwić zapewnienia lepszej organizacji, filtrowane wyszukiwania, zabezpieczeń i automatyzacji do przetworzenia. Poziom szczegółowości dla struktury Data zależy od interwału, na którym dane są przekazywane lub przetwarzane, takich jak co godzinę, codziennie lub nawet co miesiąc. 
+Z wysokiego poziomu podejście często używane w przetwarzaniu wsadowym jest trafić danych w folderze "w". Następnie po przetworzeniu danych Umieść nowe dane do folderu "out" procesy podrzędne korzystać. Ta struktura katalogów jest widoczna czasami dla zadania, które wymagają przetworzenia dla poszczególnych plików i nie może wymagać masowego przetwarzania równoległego na dużych zestawów danych. Jak struktura IoT zalecanych struktury katalogów dobrej ma foldery poziomu nadrzędnego dla czynności takich jak regionu i kwestii (na przykład, organizacji, produktu/producent). Ta struktura ułatwia zabezpieczanie danych w organizacji i lepsze zarządzanie danych w obciążeń. Ponadto należy wziąć pod uwagę daty i godziny w strukturze, aby umożliwić zapewnienia lepszej organizacji, filtrowane wyszukiwania, zabezpieczeń i automatyzacji do przetworzenia. Poziom szczegółowości dla struktury Data zależy od interwału, na którym dane są przekazywane lub przetwarzane, takich jak co godzinę, codziennie lub nawet co miesiąc. 
 
 Czasami pliku przetwarzania zakończy się niepowodzeniem z powodu uszkodzenia danych lub nieoczekiwany format. W takich przypadkach struktura katalogów mogą korzystać z **/zły** folderu do przenoszenia plików do bardziej inspekcji. Zadanie wsadowe może również obsługiwać raportowania lub powiadomienia o tych *zły* pliki ręcznej interwencji. Należy wziąć pod uwagę następujące struktury szablonu: 
 
@@ -171,7 +171,7 @@ Czasami pliku przetwarzania zakończy się niepowodzeniem z powodu uszkodzenia d
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Na przykład marketingu firmy odbieranie od klientów w Ameryce Północnej codzienne wyodrębnia dane aktualizacji klienta może wyglądać następująco przed i po przetworzeniu: 
+Na przykład marketingu firmy odbiera codzienne wyodrębnia dane klienta aktualizacji z klientów w Ameryce Północnej. Może wyglądać podobnie jak poniższy fragment kodu przed i po przetworzeniu: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

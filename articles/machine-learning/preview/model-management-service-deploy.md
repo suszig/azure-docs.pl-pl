@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 9fbdb190e7c745000b358451c1a6e3058cb861fd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3d9446eaad4aaeb9de9600642d88a1f8179c4255
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Wdrażanie modelu uczenia maszynowego jako usługi sieci web
 
@@ -64,20 +64,20 @@ Następnie określ zmienne wejściowe, takie jak Spark dataframe, Pandas datafra
 
 ```python
 inputs = {"input_array": SampleDefinition(DataTypes.NUMPY, yourinputarray)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 W poniższym przykładzie użyto Spark dataframe:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.SPARK, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 W poniższym przykładzie użyto PANDAS dataframe:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 ### <a name="3-create-a-scorepy-file"></a>3. Utwórz plik score.py
@@ -136,7 +136,7 @@ az ml model register --model [path to model file] --name [model name]
 Następujące polecenie ułatwia tworzenie manifestu dla modelu
 
 ```
-az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]
+az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]
 ```
 Można dodać wcześniej zarejestrowanego modelu do manifestu za pomocą argumentu `--model-id` lub `-i` w powyższym poleceniu. Można określić wiele modeli z dodatkowymi -i argumentów.
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -23,7 +23,7 @@ Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych 
 Podczas komunikowania się z zespołem pomocy technicznej, ważne jest uwzględnienie numeru kompilacji aplikacji Workbench. W systemie Windows, można sprawdzić numer kompilacji, klikając **pomocy** menu i wybierz polecenie **Azure ML narzędzia Workbench**. Na macOS, możesz kliknąć **Azure ML Workbench** menu i wybierz polecenie **Azure ML narzędzia Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>MSDN Forum uczenia maszynowego
-Mamy Forum MSDN ogłaszania pytania. Zespół pracujący nad produktem aktywnie monitoruje forum. Forum adres URL jest [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+Mamy Forum MSDN ogłaszania pytania. Zespół pracujący nad produktem aktywnie monitoruje forum. Forum adres URL jest [ https://aka.ms/azureml-forum ](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Zbierz informacje diagnostyczne
 Czasami może być przydatne, jeśli można podać informacje diagnostyczne, podczas pytania o pomoc. Oto miejsca zamieszkania pliki dziennika:
@@ -99,10 +99,10 @@ Może już zainstalowano aktualizację. Jednak nadal wskazuje przypiętych skró
 
 ### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Zainstalowano Workbench za pomocą łącza "Zainstaluj Workbench uczenie Maszynowe Azure" na DSVM systemu Windows
 Niestety jest nie łatwe poprawkę na tym typie. Należy wykonać następujące kroki, aby usunąć zainstalowane usługi bits i Pobierz najnowszą wersję Instalatora do zainstalowania świeża Workbench: 
-   - Usuń folder`C:\Users\<Username>\AppData\Local\amlworkbench`
-   - Usuń skryptu`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Usuń folder `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - Usuń skryptu `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - Usunięcie skrótu z pulpitu, który uruchamia skrypt powyżej
-   - Pobierz https://aka.ms/azureml-wb-msi Instalatora i zainstaluj ponownie.
+   - Pobierz Instalatora https://aka.ms/azureml-wb-msi i ponowne zainstalowanie.
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Zablokowana na ekranie "Sprawdzanie konta eksperymenty" po zalogowaniu
 Po zalogowaniu aplikacji Workbench może zatrzymywane w pusty ekran z komunikatem "Sprawdzanie eksperymenty konto" kółkiem Obracająca przedstawiający. Aby rozwiązać ten problem, wykonaj następujące czynności:
@@ -185,7 +185,7 @@ Gdzie _username_ jest nazwa usługi Azure Machine Learning Workbench będzie uż
 
 Wiersz musi być umieszczony po #includedir "/ etc/sudoers.d", w przeciwnym razie mogą zostać zastąpione przez inną regułę.
 
-Jeśli masz bardziej złożonych konfiguracji sudo, może zajść potrzeba sudo na dokumentacji Ubuntu dostępna tutaj: https://help.ubuntu.com/community/Sudoers
+Jeśli masz bardziej złożonych konfiguracji sudo można sudo na dokumentacji Ubuntu dostępna tutaj: https://help.ubuntu.com/community/Sudoers
 
 Błąd powyżej również może się zdarzyć, jeśli nie używasz maszyny Wirtualnej systemu Linux Ubuntu na platformie Azure jako element docelowy wykonywania. Obsługiwany jest tylko maszynę Wirtualną z systemem Ubuntu Linux dla wykonania zdalnego. 
 
@@ -203,11 +203,14 @@ Można także dodać dysk danych i skonfigurować aparatem platformy Docker pod 
 Lub, można rozszerzyć dysk systemu operacyjnego, a nie masz dostępu do konfiguracji aparatu Docker. Oto [jak rozszerzyć dysk systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM

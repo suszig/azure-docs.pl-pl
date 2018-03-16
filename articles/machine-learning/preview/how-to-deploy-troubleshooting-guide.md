@@ -2,8 +2,8 @@
 title: "Przewodnik rozwiązywania problemów wdrożenia usługi Azure Machine Learning | Dokumentacja firmy Microsoft"
 description: "Podręcznik rozwiązywania problemów dotyczących wdrażania i tworzenia usługi"
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: AashishB
+ms.author: AashishB
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf372f17c3ded5c25a6ebde70b17b2c095a7169
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 614767840f8781c3c30c358dcf3ffc366aa3c0d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Rozwiązywanie problemów z wdrażania usługi i konfigurowanie środowiska
 Poniższe informacje mogą pomóc w określeniu przyczyny błędów, podczas konfigurowania środowiska zarządzania modelu.
@@ -87,7 +87,7 @@ Przykład Python:
 ```
 
 ## <a name="other-common-problems"></a>Inne typowe problemy
-- Jeśli instalacja pip uczenie maszynowe interfejsu wiersza polecenia azure zakończy się niepowodzeniem z powodu błędu `cannot find the path specified` na komputerze z systemem Windows, należy włączyć obsługę długich ścieżek. See https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
+- Jeśli instalacja pip uczenie maszynowe interfejsu wiersza polecenia azure zakończy się niepowodzeniem z powodu błędu `cannot find the path specified` na komputerze z systemem Windows, należy włączyć obsługę długich ścieżek. Zobacz https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Jeśli `env setup` polecenia nie powiodło się `LocationNotAvailableForResourceType`, prawdopodobnie używasz niewłaściwej lokalizacji (regionu) dla komputera materiałów szkoleniowych. Upewnij się, lokalizacja określony za pomocą `-l` parametr jest `eastus2`, `westcentralus`, lub `australiaeast`.
 - Jeśli `env setup` polecenia nie powiodło się `Resource quota limit exceeded`, upewnij się, że masz wystarczająco dużo rdzeni dostępne w Twojej subskrypcji i że zasoby nie są używane w górę w innych procesów.
 - Jeśli `env setup` polecenia nie powiodło się `Invalid environment name. Name must only contain lowercase alphanumeric characters`, upewnij się, że nazwa usługi nie zawiera wielkie litery, symbole lub podkreślenia (_) (jak w *my_environment*).

@@ -2,25 +2,19 @@
 title: Testowanie odzyskiwania po awarii bazy danych SQL | Dokumentacja firmy Microsoft
 description: "Dowiedz się, wskazówki i najlepsze rozwiązania dotyczące używania bazy danych SQL Azure, aby wykonać testowanie odzyskiwania po awarii."
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: b44a269c-fe2a-404f-b013-290030860bd1
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.date: 10/20/2016
-ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 10a3891c51d20a26b946847d47bb712d97fa3c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>Wykonywanie wyszczególniania odzyskiwania po awarii
 Zalecane jest okresowo wykonywać weryfikacji aplikacja jest gotowa do przepływu pracy odzyskiwania. Weryfikowanie zachowanie aplikacji oraz wpływ utraty danych i/lub przerw w działaniu obejmuje czy tryb failover jest dobrym rozwiązaniem engineering. Również jest wymagane przez większość standardy branżowe w ramach certyfikacji ciągłości biznesowej.

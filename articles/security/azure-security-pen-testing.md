@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2017
-ms.author: yurid
-ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 5f2a72d133218e72d1db86b787c998cc50269d3a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="pen-testing"></a>Testowanie pióra
 Jest jedną z korzyści wynikające ze stosowania Azure do testowania aplikacji i wdrażania, można szybko uzyskać środowisk utworzony.  Nie trzeba martwić tworzenia zapotrzebowania, pobierania, a "rozlania i układania" sprzętu lokalnymi.
@@ -31,7 +31,7 @@ Nie możemy pióra przetestować aplikację dla Ciebie, ale Rozumiemy będzie ma
 
 Co można zrobić w takiej sytuacji?
 
-Począwszy od 15 czerwca 2017 Microsoft nie wymaga już wstępne zatwierdzenie przeprowadzenie penetracji testy względem zasobów platformy Azure. Zachęcamy klientów, którzy chcą formalnie dokumentu nadchodzących penetracji testowania promujących zaangażowanie przed Microsoft Azure, aby wypełnić [formularza powiadomienia testowania penetracji usługi Azure](https://portal.msrc.microsoft.com/engage/pentest). Ten proces dotyczy tylko Microsoft Azure i nie ma zastosowania do inne usługi w chmurze firmy Microsoft. 
+Począwszy od 15 czerwca 2017 Microsoft nie wymaga już wstępne zatwierdzenie przeprowadzenie penetracji testy względem zasobów platformy Azure. Zachęcamy klientów, którzy chcą formalnie dokumentu nadchodzących penetracji testowania promujących zaangażowanie przed Microsoft Azure, aby wypełnić [formularza powiadomienia testowania penetracji usługi Azure](https://portal.msrc.microsoft.com/en-us/engage/pentest). Ten proces dotyczy tylko Microsoft Azure i nie ma zastosowania do inne usługi w chmurze firmy Microsoft. 
 
 >[!IMPORTANT] 
 >Podczas wysyłania powiadomień Microsoft pióra testowania czynności nie jest już wymagane klienci nadal muszą być zgodne z [Microsoft Cloud Unified penetracji testowania zasad zaangażowania](https://technet.microsoft.com/en-us/mt784683). 
@@ -44,6 +44,6 @@ Standardowych testów, które można wykonać obejmują:
 
 Jeden typ testu, który nie może wykonać jest dowolnego rodzaju [przeprowadzenie ataku typu "odmowa usługi" (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) ataku. Dotyczy to również inicjowanie sam atak DoS lub przy użyciu powiązanych testy, które może ustalić, pokazują lub symulować dowolnego typu atak DoS.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Czy chcesz rozpocząć pracę za pomocą pióra testowanie aplikacji hostowanej na platformie Microsoft Azure Jeśli tak, a następnie przejdź na za pośrednictwem do [omówienie testów penetracji](https://technet.microsoft.com/library/mt784683.aspx) (i kliknij przycisk Utwórz testowania żądania w dolnej części strony. 

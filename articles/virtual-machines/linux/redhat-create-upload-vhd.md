@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 9769b3968f841334aebdc4a371ecd59e64d5ebc2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2c48f95306ddce5d51100e869cc4ac80a4b55c20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej systemu Red Hat dla platformy Azure
 W tym artykule dowiesz się, jak przygotować maszyny wirtualnej Red Hat Enterprise Linux (RHEL) do użycia na platformie Azure. Wersje RHEL, które zostały omówione w tym artykule są 6.7 + i 7.1 +. Funkcje hypervisor w celu przygotowania, które zostały omówione w tym artykule są maszyny wirtualnej funkcji Hyper-V, na podstawie jądra (KVM) i VMware. Aby uzyskać więcej informacji o wymaganiach dotyczących kwalifikuje się do uczestnictwa w programie dostęp do chmury Red Hat, zobacz [Red Hat dostęp do chmury witryny sieci Web](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) i [systemem RHEL na platformie Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -38,7 +38,7 @@ W tej sekcji założono, że zostały już uzyskane z pliku ISO z witryny sieci 
 * Wymagana jest obsługa jądra służący do instalowania systemów plików uniwersalny Format dysku (UDF). Przy pierwszym uruchomieniu komputera na platformie Azure sformatowany UDF nośnika dołączonego do Gość przekazuje inicjowania obsługi konfiguracji maszyny wirtualnej systemu Linux. Agent systemu Linux platformy Azure musi mieć możliwość zainstalowania systemu plików funkcji zdefiniowanej przez użytkownika do odczytu konfiguracji i udostępnić maszynie wirtualnej.
 * Wersje starsze niż 2.6.37 jądra systemu Linux nie obsługują dostępu niejednolitego pamięci (NUMA) w ramach funkcji Hyper-V o dużym rozmiarze maszyny wirtualnej. Ten problem wpływa głównie na starszą dystrybucje, korzystających z nadrzędnego jądra Red Hat 2.6.32 zostało ustalone w 6.6 RHEL (jądra-2.6.32 504). Systemy systemem jądra niestandardowych, które są starsze niż 2.6.37 lub należy ustawić na podstawie RHEL jądra, które są starsze niż 2.6.32-504 `numa=off` rozruch parametru w wierszu polecenia jądra w grub.conf. Aby uzyskać więcej informacji, zobacz Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Nie należy konfigurować wymiany partycji na dysku systemu operacyjnego. Aby utworzyć plik wymiany na dysku zasobów można skonfigurować agenta systemu Linux.  Więcej informacji na ten temat można znaleźć w poniższych krokach.
-* Wszystkie wirtualne dyski twarde muszą mieć rozmiary, które są wielokrotności 1 MB.
+* Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1MB. Podczas konwersji z pierwotnych dysku VHD musi upewnij się, że rozmiar dysku pierwotnych jest wielokrotnością liczby 1MB przed konwersją. Więcej szczegółów można znaleźć w poniższych krokach. Zobacz też [informacje o instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) Aby uzyskać więcej informacji.
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Przygotowanie RHEL 6 maszyny wirtualnej z Menedżera funkcji Hyper-V
 
@@ -344,7 +344,7 @@ W tej sekcji założono, że zostały już uzyskane z pliku ISO z witryny sieci 
 19. Konwertuj obraz qcow2 na format wirtualnego dysku twardego.
 
 > [!NOTE]
-> Jest znaną usterką w wersjach qemu img > = 2.2.1, których wynikiem jest nieprawidłowo sformatowany dysk VHD. Problem został rozwiązany w wersji 2.6 QEMU. Zaleca się qemu-img 2.2.0 lub starszego, lub po zaktualizowaniu 2.6 lub nowszy. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Jest znaną usterką w wersjach qemu img > = 2.2.1, których wynikiem jest nieprawidłowo sformatowany dysk VHD. Problem został rozwiązany w wersji 2.6 QEMU. Zaleca się qemu-img 2.2.0 lub starszego, lub po zaktualizowaniu 2.6 lub nowszy. Odwołanie: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -493,7 +493,7 @@ W tej sekcji założono, że zostały już uzyskane z pliku ISO z witryny sieci 
 19. Konwertuj obraz qcow2 na format wirtualnego dysku twardego.
 
 > [!NOTE]
-> Jest znaną usterką w wersjach qemu img > = 2.2.1, których wynikiem jest nieprawidłowo sformatowany dysk VHD. Problem został rozwiązany w wersji 2.6 QEMU. Zaleca się qemu-img 2.2.0 lub starszego, lub po zaktualizowaniu 2.6 lub nowszy. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Jest znaną usterką w wersjach qemu img > = 2.2.1, których wynikiem jest nieprawidłowo sformatowany dysk VHD. Problem został rozwiązany w wersji 2.6 QEMU. Zaleca się qemu-img 2.2.0 lub starszego, lub po zaktualizowaniu 2.6 lub nowszy. Odwołanie: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -620,7 +620,7 @@ W tej sekcji założono, zainstalowano RHEL maszyny wirtualnej w środowisku pro
 15. Zamknij maszynę wirtualną i konwertowania pliku VMDK do pliku VHD.
 
 > [!NOTE]
-> Jest znaną usterką w wersjach qemu img > = 2.2.1, których wynikiem jest nieprawidłowo sformatowany dysk VHD. Problem został rozwiązany w wersji 2.6 QEMU. Zaleca się qemu-img 2.2.0 lub starszego, lub po zaktualizowaniu 2.6 lub nowszy. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Jest znaną usterką w wersjach qemu img > = 2.2.1, których wynikiem jest nieprawidłowo sformatowany dysk VHD. Problem został rozwiązany w wersji 2.6 QEMU. Zaleca się qemu-img 2.2.0 lub starszego, lub po zaktualizowaniu 2.6 lub nowszy. Odwołanie: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -734,7 +734,7 @@ W tej sekcji założono, zainstalowano RHEL maszyny wirtualnej w środowisku pro
 14. Zamknij maszynę wirtualną i konwertowania pliku VMDK do formatu wirtualnego dysku twardego.
 
 > [!NOTE]
-> Jest znaną usterką w wersjach qemu img > = 2.2.1, których wynikiem jest nieprawidłowo sformatowany dysk VHD. Problem został rozwiązany w wersji 2.6 QEMU. Zaleca się qemu-img 2.2.0 lub starszego, lub po zaktualizowaniu 2.6 lub nowszy. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Jest znaną usterką w wersjach qemu img > = 2.2.1, których wynikiem jest nieprawidłowo sformatowany dysk VHD. Problem został rozwiązany w wersji 2.6 QEMU. Zaleca się qemu-img 2.2.0 lub starszego, lub po zaktualizowaniu 2.6 lub nowszy. Odwołanie: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -894,7 +894,7 @@ W tej sekcji założono, zainstalowano RHEL maszyny wirtualnej w środowisku pro
 
     b.  Dołącz instalacji ISO na dysk DVD.
 
-    d.  Ustaw systemu BIOS z dysku CD.
+    c.  Ustaw systemu BIOS z dysku CD.
 
 5. Uruchamia maszynę wirtualną. Gdy pojawi się w podręczniku instalacji, naciśnij klawisz **kartę** do konfigurowania opcji rozruchu.
 

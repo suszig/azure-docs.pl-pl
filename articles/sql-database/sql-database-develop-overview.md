@@ -2,24 +2,19 @@
 title: "Omówienie tworzenia aplikacji korzystających z usługi SQL Database | Microsoft Docs"
 description: "Informacje o dostępnych bibliotekach łączności i najlepsze praktyki dotyczące aplikacji łączących się z usługą SQL Database."
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: genemi
-ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
+manager: craigg
+ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: 5948db9a52dc24d75f3fecc4ed166dd327061b37
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ec3569d37d399590b0c306a85f199221e7812253
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-application-development-overview"></a>Omówienie tworzenia aplikacji bazy danych SQL
 W tym artykule przedstawiono podstawowe zagadnienia, jakie powinien mieć na uwadze programista podczas pisania kodu nawiązującego połączenie z usługą Azure SQL Database.
@@ -74,5 +69,5 @@ Elastyczne skalowanie upraszcza proces skalowania w poziomie (i w).
 * [Routing zależnych danych](sql-database-elastic-scale-data-dependent-routing.md).
 * [Rozpoczynanie pracy z Podgląd elastycznego skalowania bazy danych Azure SQL](sql-database-elastic-scale-get-started.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Poznaj wszystkie [możliwości usługi SQL Database](sql-database-technical-overview.md).

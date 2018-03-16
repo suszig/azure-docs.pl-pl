@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Szyfrowanie usługi Azure Storage dla danych magazynowanych
 
@@ -62,17 +62,13 @@ Szyfrowanie usługi Magazyn A: jest domyślnie włączona w czasie tworzenia dow
 
 Odpowiedź: nie istnieje bez dodatkowych kosztów.
 
-**Pytanie: zarządzająca klucze szyfrowania?**
-
-Odpowiedź: Firma Microsoft zarządza kluczy.
-
 **Pytanie: czy można użyć własnych kluczy szyfrowania?**
 
-Odpowiedź: nie w tej chwili.
+Odpowiedź: tak, można użyć własnych kluczy szyfrowania. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Magazyn przy użyciu kluczy zarządzany przez klienta w usłudze Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Pytanie: czy czy można odwołać dostęp do kluczy szyfrowania?**
 
-Odpowiedź: nie w tej chwili. Firma Microsoft zarządza pełni kluczy.
+A. tak, jeśli użytkownik [używać kluczy szyfrowania](storage-service-encryption-customer-managed-keys.md) w usłudze Azure Key Vault.
 
 **Pytanie: jest domyślnie włączone szyfrowanie usługi magazynu podczas tworzenia konta magazynu?**
 

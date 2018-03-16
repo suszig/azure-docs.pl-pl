@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Praca z serwerów proxy Azure Functions
 
@@ -106,7 +106,7 @@ Na przykład adres URL zaplecza z *https://%ORDER_PROCESSING_HOST%/api/orders* b
 
 ## <a name="debugProxies"></a>Rozwiązywanie problemów z serwerów proxy
 
-Dodając flagi `"debug":true` do dowolnego serwera proxy w sieci `proxy.json` spowoduje włączenie rejestrowania debugowania. Dzienniki są przechowywane w `D:\home\LogFiles\Application\Proxies\DetailedTrace` i jest dostępny za pośrednictwem zaawansowanych narzędzi (kudu). Wszystkie odpowiedzi HTTP będzie również zawierać `Proxy-Trace-Location` nagłówka o adresie URL dostępu do pliku dziennika.
+Dodając flagi `"debug":true` do dowolnego serwera proxy w sieci `proxies.json` spowoduje włączenie rejestrowania debugowania. Dzienniki są przechowywane w `D:\home\LogFiles\Application\Proxies\DetailedTrace` i jest dostępny za pośrednictwem zaawansowanych narzędzi (kudu). Wszystkie odpowiedzi HTTP będzie również zawierać `Proxy-Trace-Location` nagłówka o adresie URL dostępu do pliku dziennika.
 
 Serwer proxy po stronie klienta można debugować przez dodanie `Proxy-Trace-Enabled` wartość nagłówka `true`. Spowoduje to również rejestrowania danych śledzenia w systemie plików i zwraca adres URL śledzenia jako nagłówka w odpowiedzi.
 
@@ -114,7 +114,7 @@ Serwer proxy po stronie klienta można debugować przez dodanie `Proxy-Trace-Ena
 
 Ze względów bezpieczeństwa możesz nie pozwala nikomu wywoływania usługi do generowania śledzenia. Nie będą oni mogli uzyskać dostępu do zawartości śledzenia bez poświadczeń logowania, ale generowania śledzenia wykorzystuje zasoby i ujawnia używasz funkcji serwerów proxy.
 
-Całkowicie wyłączyć śladów, dodając `"debug":false` do dowolnego określonego serwera proxy w sieci `proxy.json`.
+Całkowicie wyłączyć śladów, dodając `"debug":false` do dowolnego określonego serwera proxy w sieci `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 

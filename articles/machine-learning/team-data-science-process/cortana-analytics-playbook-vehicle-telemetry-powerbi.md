@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instrukcje instalacji pulpit nawigacyjny usługi Power BI Telemetrii analizy rozwiązania szablonu vehicle
 Tego łącza menu rozdziałów, w tym podręcznika dotyczącego: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-Rozwiązania analizy Telemetrii Vehicle ilustrację, jak przedstawicielstw samochodu handlowych, producentów samochodów i ubezpieczeń może korzystać z funkcji Cortana Intelligence. Uzyskaniem szczegółowych informacji w czasie rzeczywistym oraz predykcyjnej na kondycji vehicle zwiększają zwyczaje do poprawy obsługi klienta, badań i rozwoju i kampanii marketingowych. Te instrukcje krok po kroku pokazują, jak można skonfigurować raportów usługi Power BI i pulpitu nawigacyjnego po wdrożeniu rozwiązania w ramach subskrypcji. 
+Pokazy rozwiązania analizy Telemetrii Vehicle jak przedstawicielstw samochodu handlowych, producentów samochodów i ubezpieczeń mogą skorzystać z funkcji Cortana Intelligence. Mogą uzyskać szczegółowych informacji w czasie rzeczywistym oraz predykcyjnej na kondycji vehicle zwiększają zwyczaje do poprawy obsługi klienta, badań i rozwoju i kampanii marketingowych. Te szczegółowe instrukcje przedstawiają sposób konfigurowania raportów usługi Power BI i pulpitu nawigacyjnego po wdrożeniu rozwiązania w ramach subskrypcji. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Wdrażanie [analizy Telemetrii Vehicle](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) rozwiązania. 
@@ -42,7 +42,7 @@ W ramach szablon rozwiązania analizy Telemetrii Vehicle następujące usługi C
 * **Usługa Azure HDInsight** przekształcenia danych na dużą skalę.
 * **Fabryka danych Azure** obsługuje aranżacji, planowania, zarządzanie zasobami i monitorowania w potoku przetwarzania wsadowego.
 
-**Power BI** daje to rozwiązanie sformatowanego pulpitu nawigacyjnego w czasie rzeczywistym danych i wizualizacji analizy predykcyjnej. 
+**Power BI** daje to rozwiązanie sformatowanego pulpitu nawigacyjnego dla danych i wizualizacji analizy predykcyjnej. 
 
 Rozwiązanie używa dwóch różnych źródeł danych:
 
@@ -101,7 +101,7 @@ Trzy raporty w czasie rzeczywistym znajdują się w tym rozwiązaniu:
 * Pojazdów wymagających konserwacji
 * Vehicle statystyki kondycji
 
-Można skonfigurować wszystkich trzech raportów w czasie rzeczywistym, albo można wyłączyć po każdym etapie. Następnie można przejść do następnej sekcji na temat sposobu konfigurowania raportów partii. Firma Microsoft zaleca utworzenie wszystkich trzech raportów w celu wizualizacji pełny wgląd w czasie rzeczywistym ścieżki rozwiązania.  
+Można skonfigurować wszystkie trzy raporty, albo można wyłączyć po każdym etapie. Następnie można przejść do następnej sekcji na temat sposobu konfigurowania raportów partii. Firma Microsoft zaleca utworzenie wszystkich trzech raportów w celu wizualizacji pełny wgląd w czasie rzeczywistym ścieżki rozwiązania.  
 
 ### <a name="vehicles-in-operation-report"></a>Pojazdów w raporcie operacji
 1. Kliknij dwukrotnie **strona 1**i zmień jego nazwę **pojazdów w operacji**.
@@ -160,7 +160,7 @@ Można skonfigurować wszystkich trzech raportów w czasie rzeczywistym, albo mo
 
     ![Pulpit nawigacyjny z wizualizacjami](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-Pomyślnie skonfigurowano raportu w czasie rzeczywistym "Pojazdów w operacji". Można utworzyć dalej raport w czasie rzeczywistym, lub można zatrzymać w tym miejscu i konfigurowanie pulpitu nawigacyjnego. 
+Pomyślnie skonfigurowano raport "Pojazdów w operacji". Można utworzyć dalej raport w czasie rzeczywistym, lub można zatrzymać w tym miejscu i konfigurowanie pulpitu nawigacyjnego. 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>Raport o konieczności obsługi pojazdów
 
@@ -198,7 +198,7 @@ Pomyślnie skonfigurowano raportu w czasie rzeczywistym "Pojazdów w operacji". 
 
 6. Na **pola** karcie, przeciągnij **modelu** do **osi** obszaru. Przeciągnij **vin** do **wartość** obszaru. Następnie Sortuj wizualizacji przez **liczba vin**. Zmień wykres **tytuł** do **pojazdów wymagających obsługi przez model**. 
 
-7. Na **pola** ![pola](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) sekcji **wizualizacje** karcie, przeciągnij **vin** do **nasycenie kolorów**.
+7. Na **pola** ![pola obrazu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) sekcji **wizualizacje** karcie, przeciągnij **vin** do **nasycenie kolorów**.
 
     ![Nasycenie kolorów](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -268,7 +268,7 @@ Pomyślnie skonfigurowano raportu w czasie rzeczywistym "Pojazdów wymagających
 
     ![Kolumny i wartości wiersza](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4aa.png)
 
-12. Zmień wykres **tytuł** do **średnia szybkość, opona wykorzystania, aparat wydobycie ropy naftowej i temperatury aparat**.  
+12. Zmień wykres **tytuł** do **średnia szybkość, wykorzystania opona aparat wydobycie ropy naftowej i temperatury aparat**.  
 
     ![Tytuł liniowy i kolumnowy grupowany](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4bb.png)
 
@@ -298,13 +298,13 @@ Pomyślnie skonfigurowano raportu w czasie rzeczywistym "Pojazdów wymagających
 
     ![Typ agregacji](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-22. Zmień wykres **tytuł** do **średni aparat wydobycie ropy naftowej, opona prawdopodobieństwo wykorzystania, szybkość i konserwacja przez model**.
+22. Zmień wykres **tytuł** do **średni aparat wydobycie ropy naftowej, wykorzystania opona szybkość i prawdopodobieństwo obsługi przez model**.
 
     ![Obszar wykresu tytułu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
 23. Wybierz pusty obszar można dodać nowej wizualizacji.
 
-24. Na **wizualizacje** wybierz opcję **wykres punktowy** wizualizacji. Przeciągnij **modelu** do **szczegóły** i **legendy** obszarów. Przeciągnij **paliwa** do **osi X** obszaru. Zmień agregacji do **średni**. Przeciągnij **engineTemperature** do **osi Y** obszaru. Zmień agregacji do **średni**. Przeciągnij **vin** do **rozmiar** obszaru.
+24. Na **wizualizacje** wybierz opcję **wykres punktowy** wizualizacji. Przeciągnij **modelu** do **szczegóły** i **legendy** obszarów. Przeciągnij **paliwa** do **osi x** obszaru. Zmień agregacji do **średni**. Przeciągnij **engineTemperature** do **osi y** obszaru. Zmień agregacji do **średni**. Przeciągnij **vin** do **rozmiar** obszaru.
 
     ![Szczegółowe informacje, obszarów legendy, osi i rozmiaru](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
@@ -333,7 +333,7 @@ Pomyślnie utworzono w czasie rzeczywistym pulpitu nawigacyjnego. Kontynuując u
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Konfigurowanie usługi Power BI przetwarzania wsadowego z pulpitu nawigacyjnego
 > [!NOTE]
-> Trwa około dwie godziny (od pomyślnego ukończenia wdrożenia) dla potoku, aby zakończyć wykonywania i przetworzyć roku, przez które wygenerowanych danych przetwarzania wsadowego end-to-end. Poczekaj na zakończenie przetwarzania przed kontynuowaniem następujące kroki. 
+> Trwa około dwie godziny (od pomyślnego ukończenia wdrożenia) dla potoku, aby zakończyć wykonywania i przetworzyć roku, przez które wygenerowanych danych przetwarzania wsadowego end-to-end. Poczekaj na zakończenie przetwarzania przed rozpoczęciem pracy z następujących kroków:
 > 
 > 
 
@@ -359,7 +359,7 @@ Pomyślnie utworzono w czasie rzeczywistym pulpitu nawigacyjnego. Kontynuując u
 
 4. Zaktualizuj parametry połączenia serwera z serwerem Azure SQL, które uzyskano udostępnione jako część wdrożenia. Szukaj w instrukcji ręczne operacji w bazie danych Azure SQL:
 
-    * Serwer: somethingsrv.database.windows.net
+    * Server: somethingsrv.database.windows.net
     * Baza danych: connectedcar
     * Nazwa użytkownika: nazwa użytkownika
     * Hasło: Hasło programu SQL Server można zarządzać w portalu Azure.
@@ -384,7 +384,7 @@ Pomyślnie utworzono w czasie rzeczywistym pulpitu nawigacyjnego. Kontynuując u
 
 12. Wybierz **zamknąć** można zamknąć pliku Power BI Desktop.
 
-    ![Zamknij](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/14-close-powerbi-desktop.png)
+    ![Zamykanie](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/14-close-powerbi-desktop.png)
 
 13. Wybierz **zapisać** Aby zapisać zmiany. 
 

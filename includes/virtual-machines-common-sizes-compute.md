@@ -1,3 +1,19 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 9602e8d73e5aca650dd20da34a9aa675b508ada7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/16/2018
+---
 <!-- F-series, Fs-series* -->
 
 Obliczenia bazy danych zoptymalizowanych rozmiarów maszyn wirtualnych mają wysoki współczynnik pamięć Procesora i są odpowiednie dla serwerów sieci web średnia ruchu, urządzenia sieciowe, procesów wsadowych i serwerów aplikacji. Ten artykuł zawiera informacje o liczbie Vcpu, dyski danych i karty sieciowe, a także przepustowości przepływności i sieć magazynu dla każdego rozmiaru w tej metodzie grupowania.

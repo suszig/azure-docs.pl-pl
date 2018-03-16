@@ -2,27 +2,21 @@
 title: "Omówienie testów porównawczych bazy danych SQL Azure"
 description: "W tym temacie opisano wzorca bazy danych SQL Azure używana w pomiaru wydajności bazy danych SQL Azure."
 services: sql-database
-documentationcenter: na
 author: jan-eng
 manager: jhubbard
-editor: monicar
-ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: fb8a5f205ddc143dc47349829048f46f88963d05
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Omówienie testów porównawczych bazy danych SQL Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Microsoft Azure SQL Database oferuje trzy [warstw usług](sql-database-service-tiers.md) wiele poziomów wydajności. Każdy poziom wydajności udostępnia zwiększanie zasobów lub "power" przeznaczona do dostarczania coraz wyższej przepustowości.
 
 Jest ważne można było określić, jak zwiększa możliwości każdym poziomie wydajności przekłada się na wydajności zwiększona bazy danych. Aby zrobić to Microsoft opracowała testu wydajności bazy danych SQL Azure (ASDB). Testu porównawczego wykonuje podstawowe operacje, w przypadku wszystkich obciążeń OLTP. Firma Microsoft mierzenia przepływności uzyskuje baz danych uruchomionych w każdym poziomie wydajności.
@@ -106,7 +100,7 @@ W poniższej tabeli przedstawiono liczbę użytkowników, w rzeczywistości prze
 | Standard (S2) |50 |7.1 GB |
 | Premium (P1) |100 |14 GB |
 | Premium (P2) |200 |28 GB |
-| — Warstwa Premium (P6.) |800 |114 GB |
+| Premium (P6) |800 |114 GB |
 
 ## <a name="measurement-duration"></a>Czas trwania pomiaru.
 Nieprawidłowa uruchomienia testu porównawczego wymaga pomiaru stabilnego obowiązywania co najmniej jedną godzinę.
@@ -120,7 +114,7 @@ Kluczowe metryki w testu porównawczego jest przepływności i odpowiedzi.
 | Klasa usługi | Miara przepływności | Wymagania dotyczące czasu odpowiedzi |
 | --- | --- | --- |
 | Premium |Transakcje na sekundę |95. percentyl w sekundach 0,5 |
-| Standardowa |Transakcje na minutę |90-procentowy w sekundach 1.0 |
+| Standardowa (Standard) |Transakcje na minutę |90-procentowy w sekundach 1.0 |
 | Podstawowa |Transakcje na godzinę |80. percentyl w sekundach 2.0 |
 
 ## <a name="conclusion"></a>Podsumowanie

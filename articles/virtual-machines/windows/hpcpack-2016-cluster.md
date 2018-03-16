@@ -4,7 +4,7 @@ description: "Dowiedz się, jak wdrożyć klaster HPC Pack 2016 na platformie Az
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 12/15/2016
+ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: 88d1f4e29f38ba1a6bef57c2da43bee205575eee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Wdrożenie klastra HPC Pack 2016 na platformie Azure
 
-Wykonaj kroki opisane w tym artykule, aby wdrożyć [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) klastra w maszynach wirtualnych platformy Azure. HPC Pack jest bezpłatna rozwiązania HPC firmy Microsoft, oparty na technologii Microsoft Azure i Windows Server i obsługuje obciążeń szeroki zakres HPC.
+Wykonaj kroki opisane w tym artykule, aby wdrożyć [Microsoft HPC Pack 2016 Update 1](https://technet.microsoft.com/library/cc514029) klastra w maszynach wirtualnych platformy Azure. HPC Pack jest bezpłatna rozwiązania HPC firmy Microsoft, oparty na technologii Microsoft Azure i Windows Server i obsługuje obciążeń szeroki zakres HPC.
 
-Użyj jednej z [szablonów usługi Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) do wdrożenia klastra HPC Pack 2016. Można wybrać kilka opcji Topologia klastra z różnymi liczbami głównymi węzłami klastra i z albo systemem Linux lub Windows węzły obliczeniowe.
+Użyj jednej z [szablonów usługi Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) do wdrożenia klastra HPC Pack 2016. Masz kilka opcji Topologia klastra z różną liczbę i typy klastra węzły główne i węzły obliczeniowe.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ W klastrze Microsoft HPC Pack 2016 wymaga certyfikat wymiany informacji osobisty
 * Użycie klucza zawiera podpis cyfrowy i szyfrowanie klucza
 * Obejmuje ulepszonego użycia klucza uwierzytelniania serwera i uwierzytelnianie klienta
 
-Jeśli nie masz jeszcze certyfikatu, który spełnia te wymagania, należy zażądać certyfikatu od urzędu certyfikacji. Alternatywnie można użyć następujących poleceń, aby wygenerować certyfikat z podpisem własnym systemem operacyjnym, na którym uruchomiono polecenie i wyeksportuj certyfikat format PFX z kluczem prywatnym.
+Jeśli nie masz jeszcze certyfikatu, który spełnia te wymagania, należy zażądać certyfikatu od urzędu certyfikacji. Można również użyć następujących poleceń, aby wygenerować certyfikat z podpisem własnym systemem operacyjnym, na którym uruchomiono polecenie. Następnie należy wyeksportować certyfikat jako plik PFX chroniony hasłem z kluczem prywatnym.
 
 * **Dla systemu Windows 10 lub Windows Server 2016**, uruchom wbudowane **SelfSignedCertificate nowy** polecenia cmdlet programu PowerShell w następujący sposób:
 
@@ -52,11 +52,13 @@ Jeśli nie masz jeszcze certyfikatu, który spełnia te wymagania, należy zaż�
     New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
     ```
 
+Po utworzeniu certyfikatu w magazynie bieżącego użytkownika, użyj przystawki Certyfikaty można wyeksportować certyfikat jako plik PFX chroniony hasłem z kluczem prywatnym. Możesz też wyeksportować certyfikat przy użyciu [Pfxcertificate eksportu](/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps) polecenia cmdlet programu PowerShell.
+
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Przekaż certyfikat do magazynu kluczy Azure
 
-Przed wdrożeniem klastra HPC, Przekaż certyfikat do [usługi Azure key vault](../../key-vault/index.md) jako klucz tajny i rekord następujące informacje do użycia podczas wdrażania: **nazwę magazynu**, **magazynu Grupa zasobów**, **adres URL certyfikatu**, i **odcisk palca certyfikatu**.
+Przed wdrożeniem klastra HPC, Przekaż certyfikat PFX do [usługi Azure key vault](../../key-vault/index.md) jako klucz tajny i rekord następujące informacje do użycia podczas wdrażania: **nazwę magazynu**, **magazynu Grupa zasobów**, **adres URL certyfikatu**, i **odcisk palca certyfikatu**.
 
-Przykładowy skrypt programu PowerShell w celu przekazania certyfikatu jest zgodna. Aby uzyskać więcej informacji na temat przekazywania certyfikatu do usługi Azure key vault, zobacz [wprowadzenie do usługi Azure Key Vault](../../key-vault/key-vault-get-started.md).
+Przykładowy skrypt programu PowerShell, Przekaż certyfikat, utwórz magazyn kluczy i wygenerować wymaganych informacji jest zgodna. Aby uzyskać więcej informacji na temat przekazywania certyfikatu do usługi Azure key vault, zobacz [wprowadzenie do usługi Azure Key Vault](../../key-vault/key-vault-get-started.md).
 
 ```powershell
 #Give the following values
@@ -108,12 +110,11 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 ## <a name="supported-topologies"></a>Obsługiwane topologie
 
-Wybierz jedną z [szablonów usługi Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) do wdrożenia klastra HPC Pack 2016. Poniżej przedstawiono wysokiego poziomu architektury trzy obsługiwanych topologii klastrów. Topologie wysokiej dostępności obejmują wiele głównymi węzłami klastra.
+Wybierz jedną z [szablonów usługi Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) do wdrożenia klastra HPC Pack 2016. Poniżej przedstawiono trzy przykładowe topologie klastra architektury wysokiego poziomu. Topologie wysokiej dostępności obejmują wiele głównymi węzłami klastra.
 
 1. Klastra o wysokiej dostępności z domeną usługi Active Directory
 
     ![Klastra HA w domenie AD](./media/hpcpack-2016-cluster/haad.png)
-
 
 
 2. Wysoka dostępność klastra bez domeny usługi Active Directory
@@ -131,7 +132,7 @@ Aby utworzyć klaster, wybierz szablon, a następnie kliknij przycisk **wdrażan
 
 ### <a name="step-1-select-the-subscription-location-and-resource-group"></a>Krok 1: Wybierz subskrypcję, lokalizację i grupę zasobów
 
-**Subskrypcji** i **lokalizacji** musi być taka sama, określona po przekazaniu certyfikatu PFX (patrz wymagania wstępne). Firma Microsoft zaleca utworzenie **grupy zasobów** dla wdrożenia.
+**Subskrypcji** i **lokalizacji** musi być taka sama, określona po przekazaniu certyfikatu PFX (patrz wymagania wstępne). Zaleca się utworzenie innego **grupy zasobów** dla wdrożenia.
 
 ### <a name="step-2-specify-the-parameter-settings"></a>Krok 2: Określ ustawienia parametru
 
@@ -139,20 +140,22 @@ Wprowadź lub zmień wartości parametrów szablonu. Kliknij ikonę obok każdeg
 
 Określ wartości zanotowanych w wymaganiach wstępnych dotyczących następujących parametrów: **nazwę magazynu**, **grupy zasobów magazynu**, **adres URL certyfikatu**, i  **Odcisk palca certyfikatu**.
 
-### <a name="step-3-review-legal-terms-and-create"></a>Krok 3. Przejrzyj postanowienia prawne i utworzyć
-Kliknij przycisk **Przejrzyj postanowienia prawne** Aby przejrzeć postanowienia. Jeśli akceptujesz, kliknij przycisk **zakupu**, a następnie kliknij przycisk **Utwórz** do wdrożenia.
+### <a name="step-3-review-terms-and-create"></a>Krok 3. Przejrzyj postanowienia i utworzyć
+Zapoznaj się z warunkami skojarzony z szablonem. Jeśli akceptujesz, kliknij przycisk **zakupu** do wdrożenia.
+
+W zależności od topologii klastra wdrażania może potrwać 30 minut lub dłużej.
 
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 1. Po wdrożeniu klastra HPC Pack, przejdź do [portalu Azure](https://portal.azure.com). Kliknij przycisk **grup zasobów**i Znajdź grupę zasobów, w którym została wdrożona klastra. Można znaleźć węzła głównego maszyn wirtualnych.
 
     ![Głównymi węzłami klastra w portalu](./media/hpcpack-2016-cluster/clusterhns.png)
 
-2. Kliknij przycisk jednego węzła głównego (w klastrze wysokiej dostępności kliknij dowolny z węzłów głównych). W **Essentials**, można znaleźć publicznego adresu IP lub pełną nazwę DNS klastra.
+2. Kliknij przycisk jednego węzła głównego (w klastrze wysokiej dostępności kliknij dowolny z węzłów głównych). W **omówienie**, można znaleźć publicznego adresu IP lub pełną nazwę DNS klastra.
 
     ![Ustawienia połączenia klastra](./media/hpcpack-2016-cluster/clusterconnect.png)
 
-3. Kliknij przycisk **Connect** aby zalogować się do żadnego z węzłów głównych przy użyciu pulpitu zdalnego z nazwą użytkownika administratora. W przypadku klastra została wdrożona w domenie usługi Active Directory, nazwa użytkownika jest w formie <privateDomainName> \<adminUsername > (na przykład hpc.local\hpcadmin).
+3. Kliknij przycisk **Connect** aby zalogować się do żadnego z węzłów głównych przy użyciu pulpitu zdalnego z nazwą użytkownika administratora. W przypadku klastra została wdrożona w domenie usługi Active Directory, nazwa użytkownika jest w formie \<privateDomainName >\\\<adminUsername > (na przykład hpc.local\hpcadmin).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Przesyłanie zadań do klastra. Zobacz [przesyłania zadań HPC HPC Pack klastra w systemie Azure](hpcpack-cluster-submit-jobs.md) i [Zarządzanie klastra HPC Pack 2016 na platformie Azure przy użyciu usługi Azure Active Directory](hpcpack-cluster-active-directory.md).
 

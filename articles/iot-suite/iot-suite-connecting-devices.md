@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Podłącz urządzenie do zdalnego wstępnie skonfigurowane rozwiązanie monitorowania (system Windows)
 
@@ -95,7 +95,7 @@ Dodaj bibliotekę Parson JSON do **RMDevice** projektu i Dodaj wymagane `#includ
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -103,7 +103,7 @@ Dodaj bibliotekę Parson JSON do **RMDevice** projektu i Dodaj wymagane `#includ
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-## <a name="build-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
+## <a name="build-and-run-the-sample"></a>Kompilowanie i uruchamianie przykładu
 
 Dodaj kod, aby wywołać **zdalnego\_monitorowania\_Uruchom** działanie, a następnie skompilować i uruchomić aplikację dla urządzeń:
 
@@ -117,7 +117,7 @@ Dodaj kod, aby wywołać **zdalnego\_monitorowania\_Uruchom** działanie, a nast
     }
     ```
 
-1. Wybierz **kompilacji** , a następnie **Kompiluj rozwiązanie** do skompilowania aplikacji urządzenia. Ignoruj ostrzeżenia dotyczące **gmtime —** funkcji.
+1. Wybierz **kompilacji** , a następnie **Kompiluj rozwiązanie** do skompilowania aplikacji urządzenia.
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **RMDevice** projektu, wybierz **debugowania**, a następnie wybierz pozycję **Start nowe wystąpienie** do uruchomienia przykładu . W konsoli są wyświetlane komunikaty w postaci:
 

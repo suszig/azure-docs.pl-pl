@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>Połączenie sieciowe
 Ten artykuł zawiera informacje infrastruktury sieci stosu Azure, aby ułatwić wybór najlepiej integrowanie stosu Azure z istniejącym środowiskiem sieci. 
@@ -53,7 +53,9 @@ Infrastruktura sieci Azure stosu składa się z kilku sieci logiczne, które są
 ![Połączenia diagram i przełącznik sieci logicznej](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>Sieci BMC
-Ta sieć jest dedykowany do łączenia wszystkich kontrolerów zarządzania płytą główną (znanej także jako service procesory, na przykład iDRAC iLO, iBMC, itp.) do sieci zarządzania. Jeśli jest obecny, host cyklu życia sprzętu (HLH) znajduje się w tej sieci i może udostępnić OEM określone oprogramowanie do obsługi sprzętu i/lub monitorowania. 
+Ta sieć jest dedykowany do łączenia wszystkich kontrolerów zarządzania płytą główną (znanej także jako service procesory, na przykład iDRAC iLO, iBMC, itp.) do sieci zarządzania. Jeśli jest obecny, hosta cyklu życia sprzętu (HLH) znajduje się w tej sieci i może udostępniać określone oprogramowanie OEM konserwacji sprzętu lub monitorowania. 
+
+HLH hostuje również wdrożenia maszyny Wirtualnej (Menedżer DVM). Menedżer DVM jest używany podczas wdrażania usługi Azure stosu i zostanie usunięta po zakończeniu wdrożenia. Menedżer DVM wymaga dostępu do Internetu w scenariuszach wdrażania podłączonej do testowania, sprawdzanie poprawności i uzyskać dostęp przez kilka składników. Te składniki mogą być wewnątrz i poza siecią firmową; na przykład NTP, DNS i Azure. Aby uzyskać więcej informacji na temat wymagań dotyczących łączności, zobacz [NAT części Integracja z zaporą stosu Azure](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Sieć prywatna
 Ta prefiksie/24 254 hosta w sieci IP jest prywatna w regionie Azure stosu (nie zwiększa poza urządzeń przełącznika obramowania regionu Azure stosu) i jest podzielony na dwie podsieci:

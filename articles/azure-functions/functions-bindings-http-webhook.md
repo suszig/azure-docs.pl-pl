@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure powiązania HTTP funkcje i elementu webhook
 
@@ -30,6 +30,12 @@ Wyzwalacz HTTP można dostosować, aby odpowiadać na [elementów webhook](https
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="packages"></a>Pakiety
+
+Powiązania HTTP znajdują się w [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) pakietu NuGet. Kod źródłowy dla pakietu jest w [azure-zadań webjob sdk rozszerzenia](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) repozytorium GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Wyzwalacz
 
@@ -361,7 +367,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) zdefiniowanego w pakiecie NuGet atrybutu [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) atrybutu.
 
 Można ustawić autoryzacja poziomu i dopuszczalnych metod HTTP w parametrach konstruktora atrybut, a nie ma właściwości dla elementu webhook szablonu typu i trasy. Aby uzyskać więcej informacji o tych ustawieniach, zobacz [wyzwalacza - konfiguracji](#trigger---configuration). Oto `HttpTrigger` atrybutu w podpisie metody:
 
@@ -385,7 +391,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |---------|---------|----------------------|
 | **Typ** | Nie dotyczy| Wymagana — musi być ustawiona `httpTrigger`. |
 | **Kierunek** | Nie dotyczy| Wymagana — musi być ustawiona `in`. |
-| Nazwa | Nie dotyczy| Wymagana — nazwa zmiennej używane w kodzie funkcji żądania lub treści żądania. |
+| **Nazwa** | Nie dotyczy| Wymagana — nazwa zmiennej używane w kodzie funkcji żądania lub treści żądania. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Określa, jakie klucze, jeśli taki występuje, musi być obecny na żądanie, aby można było wywołać funkcję. Poziom dostępu może być jedną z następujących wartości: <ul><li><code>anonymous</code>&mdash;Brak klucza interfejsu API jest wymagana.</li><li><code>function</code>&mdash;Wymagany jest klucz interfejsu API właściwe dla funkcji. Jeśli nie zostanie podana jest wartość domyślna.</li><li><code>admin</code>&mdash;Klucz główny jest wymagany.</li></ul> Aby uzyskać więcej informacji, zobacz sekcję [klucze autoryzacji](#authorization-keys). |
 | **Metody** |**Metody** | Tablica metod HTTP, na które odpowiada funkcji. Jeśli nie zostanie określony, funkcja odpowiada na wszystkich metod HTTP. Zobacz [dostosować punkt końcowy http](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Określa szablon trasy, kontrolowanie, do której żądanie odpowiada funkcji adresów URL. Jeśli nie zostanie podana wartość domyślna to `<functionname>`. Aby uzyskać więcej informacji, zobacz [dostosować punkt końcowy http](#customize-the-http-endpoint). |
@@ -564,7 +570,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |---------|---------|
 | **Typ** |należy wybrać opcję `http`. |
 | **Kierunek** | należy wybrać opcję `out`. |
-|Nazwa | Nazwa zmiennej używane w kodzie funkcji dla odpowiedzi. |
+|**Nazwa** | Nazwa zmiennej używane w kodzie funkcji dla odpowiedzi. |
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
 

@@ -3,7 +3,7 @@ title: "Informacje o sposobie korzystania z łącznika usługi Twitter w aplikac
 description: "Omówienie łącznik Twitter z parametrami interfejsu API REST"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,23 +14,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: eb953ee7701d407b9b75a0699f53b9b64828a0e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Rozpoczynanie pracy z łącznikiem usługi Twitter
 Łącznik Twitter można:
 
 * Publikowanie tweetów i tweetów get
 * Dostęp do osi czasu, znajomych i adherentami
-* Wykonaj jedną z innych działań i wyzwalaczy opisanych poniżej  
+* Wykonaj jedną z innych działań i wyzwalaczy opisane w tym artykule
 
 Aby użyć [każdy łącznik](apis-list.md), należy najpierw utworzyć aplikację logiki. Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
 
-## <a name="connect-to-twitter"></a>Połączenia z serwisem Twitter
+## <a name="connect-to-twitter"></a>Łączenie z usługą Twitter
 Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenia* do usługi. A [połączenia](connectors-overview.md) udostępnia łączność między aplikacji logiki i innej usługi.  
 
 ### <a name="create-a-connection-to-twitter"></a>Utwórz połączenie z serwisem Twitter
@@ -41,7 +41,7 @@ Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy naj
 ## <a name="use-a-twitter-trigger"></a>Użyj wyzwalacz Twitter
 Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-W tym przykładzie, I opisano sposób użycia **po jest przesyłana z nowego tweet** wyzwalacza #Seattle i, jeśli znaleziono #Seattle zaktualizowany plik w Dropbox tekstem z tweet. W przykładzie przedsiębiorstwa można wyszukać nazwę swojej firmy i zaktualizować bazę danych SQL z tekstem z tweet.
+W tym przykładzie używamy **po jest przesyłana z nowego tweet** trigger, aby wyszukać #Seattle. I jeśli zostanie znaleziony #Seattle, zaktualizuj plik w skrzynki tekstem z tweet. W przykładzie przedsiębiorstwa można wyszukać nazwę swojej firmy i zaktualizować bazę danych SQL z tekstem z tweet.
 
 1. Wprowadź *twitter* w polu wyszukiwania w Projektancie aplikacji logiki wybiorą **Twitter — gdy nowy tweet jest przesyłana** wyzwalacza   
    ![Obraz wyzwalacza Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)  
@@ -51,12 +51,10 @@ W tym przykładzie, I opisano sposób użycia **po jest przesyłana z nowego twe
 W tym momencie aplikację logiki została skonfigurowana z wyzwalaczy, które rozpocznie się do wykonywania innych wyzwalacze i akcje w przepływie pracy. 
 
 > [!NOTE]
-> Dla aplikacji logiki działała musi ona zawierać przynajmniej jeden wyzwalacz i jedną akcję. Wykonaj kroki opisane w następnej sekcji, aby dodać akcję.  
-> 
-> 
+> Dla aplikacji logiki działała musi ona zawierać przynajmniej jeden wyzwalacz i jedną akcję. Wykonaj kroki w następnej sekcji, aby dodać akcję.
 
 ## <a name="add-a-condition"></a>Dodaj warunek
-Ponieważ tylko Dbamy o tweetów od użytkowników więcej niż 50 użytkowników, najpierw należy dodać warunek, który potwierdza liczbę adherentami do aplikacji logiki.  
+Tylko Dbamy o tweetów od użytkowników więcej niż 50 użytkowników. Tak warunek, który potwierdza liczba adherentami najpierw została dodana do aplikacji logiki.  
 
 1. Wybierz **+ nowy krok** Aby dodać akcję ma zostać podjęta po #Seattle znajduje się w nowej tweet  
    ![Obraz akcji Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
@@ -64,8 +62,7 @@ Ponieważ tylko Dbamy o tweetów od użytkowników więcej niż 50 użytkownikó
    ![Obraz warunku Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
    Spowoduje to otwarcie **warunku** kontrolki, w którym można sprawdzić warunków takich jak *jest równa*, *jest mniejsza niż*, *jest większa niż*, *zawiera*itp.  
    ![Warunek Twitter — obraz 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-3. Wybierz **wybierz wartość** formantu.  
-   W tym formancie można wybierać jedną lub więcej właściwości z poprzedniej akcji lub wyzwalaczy jako wartość, której warunek zostanie obliczone wartości PRAWDA lub FAŁSZ.
+3. Wybierz **wybierz wartość** formantu. W tym formancie można wybrać jedną lub więcej właściwości z poprzedniej akcji lub wyzwalaczy. Warunek wartość tej właściwości jest obliczane do wartości true lub false.
    ![Obraz warunku Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
 4. Wybierz **...**  rozwiń listę właściwości, dzięki czemu wszystkie właściwości, które są dostępne.        
    ![Stan obrazu 4 w usłudze Twitter](../../includes/media/connectors-create-api-twitter/condition-4.png)   
@@ -76,27 +73,27 @@ Ponieważ tylko Dbamy o tweetów od użytkowników więcej niż 50 użytkownikó
 7. Wybierz **jest większa niż** z listy operatorów.    
    ![Stan obrazu 7 w usłudze Twitter](../../includes/media/connectors-create-api-twitter/condition-7.png)   
 8. Wprowadź 50 jako argument *jest większa niż* operatora.  
-   Dodawany jest warunek. Zapisz swoją pracę przy użyciu **zapisać** łącze w menu powyżej.    
+   Dodawany jest warunek. Zapisz swoją pracę przy użyciu **zapisać** łącze w menu.    
    ![Stan obrazu 8 w usłudze Twitter](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Za pomocą akcji usługi Twitter
 Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
-Teraz, wyzwalacz został dodany, wykonaj następujące kroki, aby dodać akcję, która zostanie wysłany nowy tweet z zawartością tweetów znalezione przez wyzwalacz. Tylko tweetów od użytkowników więcej niż 50 adherentami zostaną opublikowane na potrzeby tego przewodnika.  
+Teraz, że istnieje wyzwalacz, Dodaj akcję, która zapisuje nowe tweet z zawartością tweetów znalezione przez wyzwalacz. W tym przewodniku tylko tweetów od użytkowników więcej niż 50 adherentami są publikowane.  
 
-W następnym kroku dodasz akcji Twitter, który zostanie wysłany tweet przy użyciu niektórych właściwości każdego tweet, która została opublikowana przez użytkownika, który ma więcej niż 50 adherentami.  
+W następnym kroku należy dodać akcję Twitter, która zapisuje tweet przy użyciu niektórych właściwości każdego tweet publikowanego przez użytkownika z więcej niż 50 adherentami.  
 
-1. Wybierz **Dodaj akcję**. Spowoduje to otwarcie formantu wyszukiwania, których można wyszukiwać innych działań i wyzwalaczy.  
+1. Wybierz **Dodaj akcję**. Ten krok powoduje otwarcie formantu wyszukiwania, których można wyszukiwać innych działań i wyzwalaczy.  
    ![Obraz warunku Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-2. Wprowadź *twitter* w polu wyszukiwania wybierz **Twitter — Opublikuj tweet** akcji. Spowoduje to otwarcie **Opublikuj tweet** kontroli, gdy zostanie wprowadź wszystkie szczegóły tweet ogłaszany.      
+2. Wprowadź *twitter* w polu wyszukiwania wybierz **Twitter — Opublikuj tweet** akcji. Ten krok powoduje otwarcie **Opublikuj tweet** kontroli, których wprowadź wszystkie szczegóły dla tweet ogłaszany.      
    ![Obraz akcji 1 do 5 w usłudze Twitter](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-3. Wybierz **Tweetować tekst** formantu. Widoczne są wszystkie dane wyjściowe z poprzedniego działania i jest wyzwalane w aplikacji logiki. Można wybrać dowolny z tych i używać ich jako część tekst tweet tweet nowe.     
+3. Wybierz **Tweetować tekst** formantu. Widoczne są wszystkie dane wyjściowe z poprzedniego działania i jest wyzwalane w aplikacji logiki. Można wybrać dowolny z tych danych wyjściowych i używać ich jako część tekst tweet tweet nowe.     
    ![Obraz akcji Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)   
 4. Wybierz **nazwy użytkownika**   
-5. Wprowadź *mówi:* w formancie tweet tekstu. W tym zaraz po nazwy użytkownika.  
+5. Natychmiast po nazwie użytkownika, wprowadź *mówi:* w formancie tweet tekstu.
 6. Wybierz *Tweetować tekstu*.       
    ![Obraz akcji Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
-7. Zapisz swoją pracę i publikowała tweet z hasztagiem #Seattle, aby aktywować przepływ pracy.  
+7. Aby aktywować przepływu pracy, należy zapisać pracę i publikowała tweet z hasztagiem #Seattle.
 
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
@@ -105,4 +102,3 @@ Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żad
 
 ## <a name="next-steps"></a>Kolejne kroki
 [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Przed rozpoczęciem pracy z usługi aplikacji Azure stosu
 
@@ -47,7 +47,7 @@ Przed wdrożeniem usługi Azure App Service na stosie Azure musi spełnić wymag
 
 ## <a name="high-availability"></a>Wysoka dostępność
 
-Z powodu wersji 1802 Azure stosu, w którym dodano obsługę domen błędów, nowe wdrożenia usługi Azure App Service na stosie Azure będą dystrybuowane między domenami usterek i zapewnienia odporności na uszkodzenia.  Aby uzyskać istniejące wdrożenia usługi Azure App Service na stosie Azure, które zostały wdrożone przed wydaniem 1802 aktualizacji, można znaleźć w dokumentacji (azure-stack-app-service-fault-domain-update.md), jak przeprowadzić ponowne równoważenie wdrożenia.
+Z powodu wersji 1802 Azure stosu, w którym dodano obsługę domen błędów, nowe wdrożenia usługi Azure App Service na stosie Azure będą dystrybuowane między domenami usterek i zapewnienia odporności na uszkodzenia.  Aby istniejące wdrożenia usługi Azure App Service na stosie Azure, które zostały wdrożone przed wydaniem 1802 aktualizacji, zobacz [dokumentacji](azure-stack-app-service-fault-domain-update.md) jak Równoważenie wdrożenia.
 
 Ponadto usługi Azure App Service na stosie Azure wysokiej dostępności, Wdróż wymaganego pliku serwer i wystąpienie programu SQL Server w konfiguracji o wysokiej dostępności. 
 

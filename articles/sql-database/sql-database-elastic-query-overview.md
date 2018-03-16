@@ -2,23 +2,18 @@
 title: "Omówienie zapytania elastycznej bazy danych SQL Azure | Dokumentacja firmy Microsoft"
 description: "Elastyczne zapytania umożliwia uruchomienie zapytania języka Transact-SQL, obejmującej wiele baz danych."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 6389702b1be5e52c7191e6e57d17b48289e800b2
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 76a8332b99639bacee994824b69624d7fd457a7f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Omówienie usługi Azure zapytania elastycznej bazy danych SQL (wersja zapoznawcza)
 Funkcja elastycznej zapytania (w wersji zapoznawczej) umożliwia uruchamianie zapytania języka Transact-SQL, obejmującej wiele baz danych w bazie danych SQL Azure. Umożliwia wykonywanie kwerend bazy danych między dostęp do tabel zdalnych, a także łączenie narzędzi firmy Microsoft i innych firm (Excel, usługi Power BI, Tableau, itp.), zapytanie między warstwami danych z wielu baz danych. Za pomocą tej funkcji, można skalować w poziomie zapytania do warstw dużej ilości danych w bazie danych SQL i wizualizacja wyników business intelligence (BI) raportów.
@@ -143,7 +138,7 @@ Elastyczne zapytania jest uwzględniony w koszt baz danych z bazy danych SQL Azu
 ## <a name="feedback"></a>Opinia
 Udostępnij opinii na temat korzystania z zapytaniami elastycznej z nami Livefyre poniżej, fora MSDN lub w witrynie Stackoverflow. Firma Microsoft interesuje wszelkiego rodzaju opinię na temat usługi (wady, niedociągnięcia luki funkcji).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Samouczek partycjonowania pionowego, zobacz [wprowadzenie do korzystania z bazy danych między kwerendy (partycjonowanie pionowe)](sql-database-elastic-query-getting-started-vertical.md).
 * Dla zapytań dotyczących danych pionowo podzielonym na partycje i składnię i przykład, zobacz [zapytań w pionie na partycje danych)](sql-database-elastic-query-vertical-partitioning.md)

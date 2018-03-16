@@ -2,27 +2,21 @@
 title: Zapytanie bazy danych Azure SQL podzielonej | Dokumentacja firmy Microsoft
 description: "Uruchamianie zapytań między odłamków za pomocą biblioteki klienta elastycznej bazy danych."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: torsteng
-ms.openlocfilehash: 33128357bd5b2bd744c5c1c3032f658ebe865d49
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 2712968f2929c48318e781fa846a8de525a0ef0c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-shard-querying"></a>Wiele niezależnych zapytań
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Z [narzędzi elastycznej bazy danych](sql-database-elastic-scale-introduction.md), można utworzyć bazy danych podzielonej rozwiązania. **Wiele niezależnych badania** służy do zadań, takich jak kolekcja/raportowania danych wymagających uruchomienia zapytania, który rozciąga się na kilka fragmentów. (Natomiast aby [routingu zależne od danych](sql-database-elastic-scale-data-dependent-routing.md), które wykonuje całą pracę na jednego niezależnego fragmentu.) 
 
 1. Pobierz **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) lub **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) przy użyciu **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), lub **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) metody. Zobacz  **[konstruowania ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)**  i  **[uzyskać RangeShardMap lub ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.

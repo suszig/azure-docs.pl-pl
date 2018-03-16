@@ -1,20 +1,20 @@
 ---
 title: Tworzenie serwera Jenkins na platformie Azure
 description: "Zainstaluj usługę Jenkins na maszynie wirtualnej z systemem Linux platformy Azure za pomocą szablonu rozwiązania Jenkins i utwórz przykładową aplikację Java."
-author: mlearned
-manager: douge
+author: tomarcher
+manager: rloutlaw
 ms.service: multiple
 ms.workload: web
-ms.devlang: java
+ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
-ms.author: mlearned
+ms.date: 03/12/2018
+ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 422d133841a380b1ef02e95245207c464089138d
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Tworzenie serwera Jenkins na maszynie wirtualnej z systemem Linux platformy Azure przy użyciu witryny Azure Portal
 
@@ -28,32 +28,13 @@ W tym przewodniku Szybki start pokazano, jak zainstalować usługę [Jenkins](ht
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Tworzenie maszyny wirtualnej z usługą Jenkins za pomocą szablonu rozwiązania
+Wpięć obsługuje model, w którym Wpięć delegatów serwera działa na co najmniej jeden Agent umożliwia jednej instalacji Wpięć do obsługi wielu projektów lub w celu zapewnienia różnych środowiskach potrzebne do kompilacji lub testów. Kroki opisane w tej sekcji przeprowadzają użytkownika przez proces instalowania i konfigurowania serwera Wpięć na platformie Azure.
 
-Otwórz [obraz usługi Jenkins z witryny Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) w przeglądarce internetowej i wybierz pozycję **POBIERZ TERAZ** po lewej stronie. Przejrzyj informacje o cenach i wybierz przycisk **Kontynuuj**, a następnie wybierz pozycję **Utwórz**, aby skonfigurować serwer Jenkins w witrynie Azure Portal. 
-   
-![Okno dialogowe witryny Azure Portal](./media/install-jenkins-solution-template/ap-create.png)
-
-Na karcie **Konfigurowanie ustawień podstawowych** wypełnij następujące pola:
-
-![Konfigurowanie ustawień podstawowych](./media/install-jenkins-solution-template/ap-basic.png)
-
-* W polu **Nazwa** użyj wartości **Jenkins**.
-* Wprowadź **nazwę użytkownika**. Nazwa użytkownika musi spełniać [konkretne wymagania](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-* Jako ustawienie **Typ uwierzytelniania** wybierz pozycję **Hasło** i wprowadź hasło. Hasło musi zawierać co najmniej jedną wielką literę, jedną cyfrę i jeden znak specjalny.
-* W polu **Grupa zasobów** użyj wartości **myJenkinsResourceGroup**.
-* Z listy rozwijanej **Lokalizacja** wybierz [region świadczenia usługi Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) **Wschodnie stany USA**.
-
-Wybierz przycisk **OK**, aby przejść do karty **Konfigurowanie opcji dodatkowych**. Wprowadź unikatową nazwę domeny do identyfikacji serwera Jenkins i wybierz przycisk **OK**.
-
-![Konfigurowanie opcji dodatkowych](./media/install-jenkins-solution-template/ap-addtional.png)  
-
- Po pomyślnej weryfikacji ponownie wybierz przycisk **OK** na karcie **Podsumowanie**. Na koniec wybierz pozycję **Zakup**, aby utworzyć maszynę wirtualną z usługą Jenkins. Gdy serwer będzie gotowy, otrzymasz powiadomienie w witrynie Azure Portal:   
-
-![Powiadomienie o tym, że usługa Jenkins jest gotowa](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
+[!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Nawiązywanie połączenia z usługą Jenkins
 
-Przejdź do maszyny wirtualnej (na przykład http://jenkins2517454.eastus.cloudapp.azure.com/) w przeglądarce internetowej. Konsola usługi Jenkins nie jest dostępna za pośrednictwem niezabezpieczonych połączeń HTTP, więc na stronie będą podane instrukcje, aby uzyskać dostęp do tej konsoli w sposób bezpieczny z komputera przy użyciu tunelu SSH.
+Przejdź do maszyny wirtualnej (na przykład http://jenkins2517454.eastus.cloudapp.azure.com/) w przeglądarce sieci web. Konsola usługi Jenkins nie jest dostępna za pośrednictwem niezabezpieczonych połączeń HTTP, więc na stronie będą podane instrukcje, aby uzyskać dostęp do tej konsoli w sposób bezpieczny z komputera przy użyciu tunelu SSH.
 
 ![Odblokowywanie usługi Jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

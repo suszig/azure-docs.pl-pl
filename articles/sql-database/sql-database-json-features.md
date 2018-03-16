@@ -2,24 +2,18 @@
 title: Funkcje JSON bazy danych SQL platformy Azure | Dokumentacja firmy Microsoft
 description: "Baza danych SQL Azure umożliwia analizy, zapytań i formatowanie danych w notacji języka JavaScript Object Notation (JSON)."
 services: sql-database
-documentationcenter: 
 author: jovanpop-msft
-manager: jhubbard
-editor: 
-ms.assetid: 55860105-2f5f-4b10-87a0-99faa32b5653
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: jovanpop
-ms.workload: On Demand
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 8877b0bb779501df003ce11d66d9625c2f99e9ce
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 353a1cc99f122c773f0a005a20f04391236ad913
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Wprowadzenie do korzystania z funkcji JSON w bazie danych SQL Azure
 Azure umożliwia bazy danych SQL, analizy i zapytania dane reprezentowane w notacji obiektu JavaScript [(JSON)](http://www.json.org/) sformatowanie i wyeksportuj dane relacyjne jako tekstu JSON.
@@ -28,7 +22,7 @@ JSON to format popularnych danych używane do wymiany danych w nowoczesnych witr
 
 Baza danych SQL Azure pozwala łatwo pracować z danych JSON i integrowania bazy danych z usługami nowoczesnych.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Baza danych SQL Azure udostępnia następujące funkcje do pracy z danymi JSON:
 
 ![Funkcje JSON](./media/sql-database-json-features/image_1.png)
@@ -196,7 +190,7 @@ END
 ```
 Kolekcja zamówień formatowane jako tablica JSON i podać jako parametr do procedury składowanej można analizować i wstawione do tabeli zamówienia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się, jak zintegrować JSON aplikacji, zapoznaj się z tymi zasobami:
 
 * [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)

@@ -3,23 +3,18 @@ title: "Konfiguracja zabezpieczeń scalania podziału | Dokumentacja firmy Micro
 description: "Konfigurowanie x409 certyfikaty szyfrowania w usłudze podziału/merge elastycznego skalowania."
 metakeywords: Elastic Database certificates security
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="split-merge-security-configuration"></a>Konfiguracja zabezpieczeń scalania podziału
 Do korzystania z usługi podziału/Merge, należy poprawnie skonfigurować zabezpieczeń. Usługa jest część funkcji elastycznego skalowania bazy danych SQL Azure firmy Microsoft. Aby uzyskać więcej informacji, zobacz [elastycznej podziału skali i scal samouczek usługi](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -36,7 +31,7 @@ Certyfikaty można uzyskać z publicznych urzędów certyfikacji (CA) lub [usłu
 Jeśli te opcje nie są dostępne, można wygenerować **certyfikaty z podpisem własnym**.
 
 ## <a name="tools-to-generate-certificates"></a>Narzędzia do generowania certyfikatów
-* [MakeCert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
+* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Aby uruchomić narzędzia
@@ -388,7 +383,7 @@ Wykonaj następujące kroki:
 1. Uruchom mmc.exe.
 2. Plik -> Dodaj/Usuń przystawkę...
 3. Wybierz **certyfikaty**.
-4. Kliknij pozycję **Dodaj**.
+4. Kliknij pozycję **Add** (Dodaj).
 5. Wybierz lokalizację magazynu certyfikatów.
 6. Kliknij przycisk **Zakończ**.
 7. Kliknij przycisk **OK**.

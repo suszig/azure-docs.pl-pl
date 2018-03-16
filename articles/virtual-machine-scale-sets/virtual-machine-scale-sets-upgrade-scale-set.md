@@ -15,30 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fcca912a8120a51d2f0a454ef0a6341cd5882015
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Zmodyfikuj zestaw skali maszyny wirtualnej
-W tym artykule opisano sposób modyfikowania istniejącego zestawu skali. Dotyczy to również sposób zmiany konfiguracji skali ustawić zmienić konfigurację aplikacji uruchomionych na skali zestawu, jak zarządzać dostępności i inne.
+W tym artykule opisano sposób modyfikowania istniejącego zestawu skalowania maszyny wirtualnej. Zadania obejmują jak zmienić konfigurację skali ustawić zmienić konfigurację aplikacji uruchomionych na skali zestawu, jak zarządzać dostępności i inne.
 
 ## <a name="fundamental-concepts"></a>podstawowe pojęcia
 
-### <a name="the-scale-set-model"></a>Modelu zestawu skali
+### <a name="scale-set-model"></a>Modelu zestawu skali
 
-Zestaw skali ma "skali zestaw model" przechwytujący *żądany* ustawiony stan skali jako całość. Aby odpytać modelu dla zestawu skalowania, można użyć:
+Zestaw skali ma modelu, który przechwytuje *żądany* ustawiony stan skali jako całość. Aby odpytać modelu dla zestawu skalowania, można użyć:
 
-Interfejs API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/get))
+* INTERFEJS API REST: 
 
-Środowiska PowerShell: `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (Aby uzyskać więcej informacji, zobacz [dokumentacji programu Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss))
+  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` 
+   
+  Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/get).
 
-Interfejs wiersza polecenia: `az vmss show -g {resourceGroupName} -n {vmSaleSetName}` (Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show))
+* Program PowerShell:
 
-Można również użyć [resources.azure.com](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) do badania modeli dla zestawu skalowania.
+  `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}`
+   
+  Aby uzyskać więcej informacji, zobacz [dokumentacji programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss).
 
-Dokładny opis dane wyjściowe zależy od opcji podane polecenia, ale poniżej przedstawiono niektóre przykładowe dane wyjściowe z poziomu interfejsu wiersza polecenia:
+* Azure CLI: 
+
+  `az vmss show -g {resourceGroupName} -n {vmSaleSetName}` 
+   
+  Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show).
+
+Można również użyć [Eksploratora zasobów Azure (wersja zapoznawcza)](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) do badania modeli dla zestawu skalowania.
+
+Dokładny opis dane wyjściowe zależy od opcji, które świadczą polecenia. Oto przykładowe dane wyjściowe z wiersza polecenia platformy Azure:
 
 ```
 $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
@@ -63,19 +75,31 @@ Jak widać, te właściwości są stosowane do skalowania, ustawić jako całoś
 
 
 
-### <a name="the-scale-set-instance-view"></a>Widok wystąpienia zestawu skali
+### <a name="scale-set-instance-view"></a>Widok wystąpienia zestawu skalowania
 
-Skalę, również ustawić się "skali zestaw wystąpienie programu wyświetlić" przechwytujący bieżącego *środowiska uruchomieniowego* ustawiony stan skali jako całość. Aby zbadać widok wystąpienia zestawu skali, można użyć:
+Widok wystąpienia, który przechwytuje bieżącego ma również zestaw skalowania *środowiska uruchomieniowego* ustawiony stan skali jako całość. Aby zbadać widok wystąpienia zestawu skali, można użyć:
 
-Interfejs API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview))
+* INTERFEJS API REST: 
 
-Środowiska PowerShell: `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceView` (Aby uzyskać więcej informacji, zobacz [dokumentacji programu Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss))
+  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version={apiVersion}` 
+   
+  Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview).
 
-Interfejs wiersza polecenia: `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName}` (Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view))
+* Program PowerShell: 
 
-Można również użyć [resources.azure.com](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) zbadać widok wystąpienia zestawu skali.
+  `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceView` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss).
 
-Dokładny opis dane wyjściowe zależy od opcji podane polecenia, ale poniżej przedstawiono przykładowe dane wyjściowe z poziomu interfejsu wiersza polecenia:
+* Azure CLI: 
+
+  `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName}` 
+   
+  Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view).
+
+Można również użyć [Eksploratora zasobów Azure (wersja zapoznawcza)](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) zbadać widok wystąpienia zestawu skali.
+
+Dokładny opis dane wyjściowe zależy od opcji, które świadczą polecenia. Oto przykładowe dane wyjściowe z wiersza polecenia platformy Azure:
 
 ```
 $ az vmss get-instance-view -g {resourceGroupName} -n {virtualMachineScaleSetName}
@@ -106,23 +130,35 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {virtualMachineScaleSetNam
 }
 ```
 
-Jak widać, właściwości te zapewniają ustawić Podsumowanie bieżącego stanu środowiska uruchomieniowego maszyn wirtualnych w skali, w tym zawiera stan rozszerzenia dotyczą zestaw skalowania (pominąć w przypadku skrócenia).
+Jak widać, właściwości te zapewniają Podsumowanie bieżącego stanu środowiska uruchomieniowego w zestawie skalowania maszyn wirtualnych. Podsumowanie zawiera stan rozszerzenia stosowane do skalowania, ustaw (pominięty w celu jego skrócenia).
 
 
 
-### <a name="the-scale-set-vm-model-view"></a>Widok modelu maszyny Wirtualnej zestawu skalowania
+### <a name="scale-set-vm-model-view"></a>Widok modelu maszyny Wirtualnej zestawu skalowania
 
 Podobnie jak zestaw skali ma widok modelu, każdej maszyny Wirtualnej w zestawie skalowania ma własną widok modelu. Aby zbadać widok modelu dla zestawu skalowania, można użyć:
 
-Interfejs API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get))
+* INTERFEJS API REST: 
 
-Środowiska PowerShell: `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` (Aby uzyskać więcej informacji, zobacz [dokumentacji programu Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
+  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}?api-version={apiVersion}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get).
 
-Interfejs wiersza polecenia: `az vmss show -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` (Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show))
+* Program PowerShell: 
 
-Można również użyć [resources.azure.com](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) dla maszyny Wirtualnej w zestawie skalowania kwerendy modelu.
+  `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm).
 
-Dokładny opis dane wyjściowe zależy od opcji podane polecenia, ale poniżej przedstawiono niektóre przykładowe dane wyjściowe z poziomu interfejsu wiersza polecenia:
+* Azure CLI: 
+
+  `az vmss show -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show).
+
+Można również użyć [Eksploratora zasobów Azure (wersja zapoznawcza)](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) dla maszyny Wirtualnej w zestawie skalowania kwerendy modelu.
+
+Dokładny opis dane wyjściowe zależy od opcji, które świadczą polecenia. Oto przykładowe dane wyjściowe z wiersza polecenia platformy Azure:
 
 ```
 $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
@@ -139,23 +175,35 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 }
 ```
 
-Jak widać, te właściwości opisano w konfiguracji maszyny Wirtualnej, nie konfiguracji skali ustawić jako całość. Na przykład modelu zestawu skali ma `overprovision` jako właściwość, a nie w modelu dla maszyny Wirtualnej w zestawie skalowania. Ta różnica wynika nadmiarowe Inicjowanie obsługi administracyjnej jest właściwością skali Ustaw jako całości, nie poszczególnych maszyn wirtualnych w zestawie skalowania (Aby uzyskać więcej informacji na temat nadmiarowe Inicjowanie obsługi administracyjnej, zobacz [tej dokumentacji](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning)).
+Jak widać, te właściwości opisano w konfiguracji maszyny Wirtualnej, nie konfiguracji skali ustawić jako całość. Na przykład modelu zestawu skali ma `overprovision` jako właściwość, należy ustawić modelu dla maszyny Wirtualnej w skali nie. Przyczyna ta różnica jest nadmiarowe Inicjowanie obsługi administracyjnej właściwość skali Ustaw jako całości, nie poszczególnych maszyn wirtualnych w zestawie skalowania. (Aby uzyskać więcej informacji na temat nadmiarowe Inicjowanie obsługi administracyjnej, zobacz [zagadnienia dotyczące zestawy skalowania projektowania](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning).)
 
 
 
-### <a name="the-scale-set-vm-instance-view"></a>Widok wystąpienia maszyny Wirtualnej zestawu skali
+### <a name="scale-set-vm-instance-view"></a>Widok wystąpienia maszyny Wirtualnej zestawu skalowania
 
 Podobnie jak zestaw skali ma widok wystąpienia każdej maszyny Wirtualnej w zestawie skalowania ma własną widok wystąpienia. Aby zbadać widok wystąpienia zestawu skali, można użyć:
 
-Interfejs API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/instanceView?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview))
+* INTERFEJS API REST: 
 
-Środowiska PowerShell: `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -InstanceView` (Aby uzyskać więcej informacji, zobacz [dokumentacji programu Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
+  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/instanceView?api-version={apiVersion}` 
+ 
+  Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview).
 
-Interfejs wiersza polecenia: `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` (Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view))
+* Program PowerShell: 
 
-Można również użyć [resources.azure.com](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) zbadać widok wystąpienia zestawu skali maszyny wirtualnej.
+  `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -InstanceView` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm).
 
-Dokładny opis dane wyjściowe zależy od opcji podane polecenia, ale poniżej przedstawiono niektóre przykładowe dane wyjściowe z poziomu interfejsu wiersza polecenia:
+* Azure CLI: 
+
+  `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view).
+
+Można również użyć [Eksploratora zasobów Azure (wersja zapoznawcza)](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) zbadać widok wystąpienia zestawu skali maszyny wirtualnej.
+
+Dokładny opis dane wyjściowe zależy od opcji, które świadczą polecenia. Oto przykładowe dane wyjściowe z wiersza polecenia platformy Azure:
 
 ```
 $ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}
@@ -209,59 +257,100 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instanc
 }
 ```
 
-Jak widać, te właściwości opisują bieżący stan środowiska uruchomieniowego samej maszyny Wirtualnej, tym wszystkie rozszerzenia dotyczą zestaw skalowania (pominąć w przypadku skrócenia).
+Jak widać, te właściwości opisują bieżący stan środowiska uruchomieniowego samej maszyny Wirtualnej. Stan obejmuje wszystkie rozszerzenia stosowane do skalowania, ustaw (pominięty w celu jego skrócenia).
 
 
 
 
-## <a name="how-to-update-global-scale-set-properties"></a>Jak zaktualizować skali globalnej Ustawianie właściwości
+## <a name="techniques-for-updating-global-scale-set-properties"></a>Techniki aktualizowanie skali globalnej Ustawianie właściwości
 
 Aby zaktualizować właściwości zestawu skali globalnej, należy zaktualizować właściwości w modelu zestawu skali. Można wykonać tej aktualizacji przy użyciu:
 
-Interfejs API REST: `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate))
+* INTERFEJS API REST: 
 
-Szablony Menedżera zasobów: Alternatywnie można wdrożyć szablonu usługi Resource Manager, aby zaktualizować właściwości zestawu skali globalnej przy użyciu właściwości z interfejsu API REST.
+  `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
-Środowiska PowerShell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` (Aby uzyskać więcej informacji, zobacz [dokumentacji programu Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss))
+  Można też wdrożyć szablonu usługi Azure Resource Manager przy użyciu właściwości z interfejsu API REST, aby zaktualizować właściwości zestawu skali globalnej.
 
-CLI. Aby zmodyfikować właściwości: `az vmss update --set {propertyPath}={value}`. Aby dodać obiekt do listy właściwości w zestawie skalowania: `az vmss update --add {propertyPath} {JSONObjectToAdd}`. Aby usunąć obiekt z listy właściwości w zestawie skalowania: `az vmss update --remove {propertyPath} {indexToRemove}`. (Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update)). Alternatywnie Jeśli wcześniej wdrożona skali ustawić za pomocą `az vmss create` polecenia, można uruchomić `az vmss create` polecenie ponownie, aby zaktualizować zestaw skali. Aby to zrobić, należy upewnić się, że wszystkie właściwości w `az vmss create` polecenia są takie same jak poprzednio, z wyjątkiem właściwości, którą chcesz zmodyfikować.
+* Program PowerShell: 
+
+  `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
+
+* Azure CLI:
+
+  * Aby zmodyfikować właściwości: `az vmss update --set {propertyPath}={value}` 
+  
+  * Aby dodać obiekt do listy właściwości w zestawie skali: `az vmss update --add {propertyPath} {JSONObjectToAdd}` 
+  
+  * Aby usunąć obiekt z listy właściwości w zestawie skali: `az vmss update --remove {propertyPath} {indexToRemove}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update). 
+  
+  Alternatywnie Jeśli wcześniej wdrożona skali skonfigurowane za pomocą `az vmss create` polecenia, można uruchomić `az vmss create` polecenie ponownie, aby zaktualizować zestawu skalowania. Aby to zrobić, upewnij się, że wszystkie właściwości w `az vmss create` polecenia są takie same jak poprzednio, z wyjątkiem właściwości, które chcesz zmodyfikować.
 
 
 
-Można również użyć [resources.azure.com](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) zaktualizować skali zestaw modelu.
+Można również użyć [Eksploratora zasobów Azure (wersja zapoznawcza)](https://resources.azure.com) lub [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) zaktualizować skali zestaw modelu.
 
-Po zaktualizowaniu modelu zestawu skali, nowa konfiguracja dotyczy wszelkie nowe maszyny wirtualne utworzone w zestawie skalowania. Jednak modeli dla istniejących maszyn wirtualnych w zestawie skalowania nadal należy doprowadzić instalując najnowsze ogólną skali zestaw modelu. W modelu dla każdej maszyny Wirtualnej jest właściwością logiczną o nazwie `latestModelApplied` wskazująca, czy maszyna wirtualna jest aktualny i najnowszych ogólną skali zestaw modelu (`true` oznacza, że maszyna wirtualna jest aktualny i najnowszego modelu).
-
-
+Po zaktualizowaniu modelu zestawu skali nowej konfiguracji dotyczy wszelkie nowe maszyny wirtualne utworzone w zestawie skalowania. Jednak modeli dla istniejących maszyn wirtualnych w zestawie skalowania musi nadal można przełączyć na bieżąco najnowsze ogólną skali zestaw modelu. W modelu dla każdej maszyny Wirtualnej o nazwie właściwości typu Boolean `latestModelApplied` wskazuje, czy maszyna wirtualna jest bieżąco najnowsze ogólną skali zestaw modelu. (Wartość `true` oznacza, że maszyna wirtualna jest aktualne najnowszego modelu.)
 
 
-## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Sposobu objęcia pomocą najnowszego modelu zestawu skali maszyny wirtualne
 
-Zestawy skalowania ma "zasad uaktualniania" określające, jak zostały podane aktualne z najnowszego modelu zestawu skali maszyny wirtualne. Są trzy tryby dla zasad uaktualniania:
 
-- Automatyczny: W tym trybie zestaw skalowania sprawia, że nie gwarantuje o zamówieniu trwa obniżył maszyn wirtualnych. Zestaw skali może wyłączyć wszystkie maszyny wirtualne w tym samym czasie. 
-- Wycofanie: W tym trybie zestaw skalowania wprowadza aktualizacji w partiach o czasie Wstrzymaj opcjonalne między partie.
-- Metoda ręczna: W tym trybie, podczas aktualizowania modelu zestawu skali, nic się nie dzieje do istniejących maszyn wirtualnych. Aby zaktualizować istniejące maszyny wirtualne, należy to robić "Ręczne uaktualnianie" każdej istniejącej maszyny Wirtualnej. Możliwość to ręczne uaktualnienie za pomocą:
+## <a name="techniques-for-bringing-vms-up-to-date-with-the-latest-scale-set-model"></a>Techniki za aktualny najnowszego modelu zestawu skali maszyny wirtualne
 
-Interfejs API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/manualupgrade?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/updateinstances))
+Zestawy skalowania ma *uaktualnienia zasad* określający, jak zostały podane na bieżąco z najnowszego modelu zestawu skali maszyny wirtualne. Są trzy tryby dla zasad uaktualniania:
 
-Środowiska PowerShell: `Update-AzureRmVmssInstance -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` (Aby uzyskać więcej informacji, zobacz [dokumentacji programu Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance))
+- **Automatyczne**: W tym trybie zestaw skalowania sprawia, że nie gwarantuje o zamówieniu maszyn wirtualnych, które są obniżył. Zestaw skali może wyłączyć wszystkie maszyny wirtualne w tym samym czasie. 
+- **Wycofanie**: W tym trybie zestaw skalowania zbiera i wydaje aktualizację w partiach z czasu wstrzymania opcjonalne między partie.
+- **Ręczne**: W tym trybie, podczas aktualizowania modelu zestawu skali, nic się nie dzieje do istniejących maszyn wirtualnych. Aby zaktualizować istniejące maszyny wirtualne, należy ręcznie uaktualnić każdej z nich. Możliwość to ręczne uaktualnienie za pomocą:
 
-Interfejs wiersza polecenia: `az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --instance-ids {instanceIds}` (Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update_instances)).
+  - INTERFEJS API REST: 
+  
+    `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/manualupgrade?api-version={apiVersion}` 
+    
+    Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/updateinstances).
 
-Można również użyć [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) celu Ręczne uaktualnianie na maszynie Wirtualnej w zestawie skalowania.
+  - Program PowerShell: 
+  
+    `Update-AzureRmVmssInstance -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` 
+    
+    Aby uzyskać więcej informacji, zobacz [dokumentacji programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+
+  - Azure CLI: 
+  
+    `az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --instance-ids {instanceIds}` 
+    
+    Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update_instances).
+
+  Można również użyć [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) należy ręcznie uaktualnić maszyny Wirtualnej w zestawie skalowania.
 
 >[!NOTE]
-> Klastrów sieci szkieletowej usług można używać tylko trybu automatycznego, ale aktualizacja przebiega inaczej. Aby uzyskać więcej informacji na aktualizacje sieci szkieletowej usług, zobacz [dokumentacji usługi sieć szkieletowa](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
+> Klastrów sieci szkieletowej usług Azure można używać tylko trybu automatycznego, ale aktualizacja różni się. Aby uzyskać więcej informacji o aktualizacjach usługi sieć szkieletowa usług, zobacz [dokumentacji usługi sieć szkieletowa](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
->[!NOTE]
-> Istnieje jeden typ modyfikacji właściwości zestawu skali globalnej, który nie jest zgodna z zasad uaktualniania. Są to zmiany skali ustawić profil systemu operacyjnego (na przykład nazwa użytkownika i hasło). Te właściwości można tylko zmienione w wersji interfejsu API 2017-12-01 lub nowszej. Te zmiany dotyczą tylko maszyny wirtualne utworzone po zmianie w skali modelu. Aby przenieść istniejące maszyny wirtualne, które są aktualne, należy to robić "odtworzenia z obrazu" każdej istniejącej maszyny wirtualnej. Możesz zrobić to odtworzenia z obrazu za pomocą:
+Jeden typ modyfikacji właściwości zestawu skali globalnej nie jest zgodna z zasad uaktualniania: zmiany w skali Ustaw profil systemu operacyjnego. (Przykłady są nazwa użytkownika i hasło). Te właściwości mogą być zmienione tylko w wersji interfejsu API 2017-12-01 lub nowszej. Te zmiany dotyczą tylko maszyny wirtualne utworzone po zmianie w skali modelu. Aby przenieść istniejące maszyny wirtualne na bieżąco, możesz odtworzyć każdej istniejącej maszyny Wirtualnej. Można odtworzyć z obrazu maszyny Wirtualnej za pomocą:
 
-Interfejs API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
+* INTERFEJS API REST: 
 
-Środowiska PowerShell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (Aby uzyskać więcej informacji, zobacz [dokumentacji programu Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
+  `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage).
 
-Interfejs wiersza polecenia: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage)).
+* Program PowerShell: 
+
+  `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm).
+
+* Azure CLI: 
+
+  `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` 
+  
+  Aby uzyskać więcej informacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage).
 
 Można również użyć [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads/) można odtworzyć z obrazu maszyny Wirtualnej w zestawie skalowania.
 
@@ -272,84 +361,92 @@ Można również użyć [zestawów SDK usługi Azure](https://azure.microsoft.co
 
 ### <a name="create-time-properties"></a>Właściwości czasu tworzenia
 
-Niektóre właściwości można ustawić tylko podczas tworzenia wstępnie skali zestawu. Te właściwości obejmują:
+Niektóre właściwości można ustawić tylko wtedy, gdy tworzysz początkowo zestaw skali. Te właściwości obejmują:
 
 - Strefy
 - Obraz odwołanie wydawcy
 - Oferta odwołanie do obrazu
 
-### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Właściwości, które można zmienić tylko na podstawie bieżącej wartości
+### <a name="properties-that-can-be-changed-based-on-the-current-value-only"></a>Właściwości, które można zmieniać w oparciu o tylko bieżącą wartość
 
-Niektóre właściwości mogą zmienić wyjątków w zależności od bieżącej wartości. Te właściwości obejmują:
+Niektóre właściwości można zmieniać, poza wyjątkami, w zależności od bieżącej wartości. Te właściwości obejmują:
 
-- singlePlacementGroup: Jeśli singlePlacementGroup ma wartość true, mogą zostać zmienione na wartość false. Jednak jeśli singlePlacementGroup ma wartość false, on **nie mogą** można zmodyfikować na wartość true.
-- podsieci: podsieci zestawu skali może być modyfikowany, tak długo, jak oryginalny podsieci i nową podsieć znajdują się w tej samej sieci wirtualnej.
+- `singlePlacementGroup`: Jeśli `singlePlacementGroup` ma wartość true, można zmodyfikować na wartość false. Jednak jeśli `singlePlacementGroup` ma wartość false, jego *nie* można zmodyfikować na wartość true.
+- `subnet`: Tak długo, jak oryginalny podsieci i nową podsieć znajdują się w tej samej sieci wirtualnej można zmodyfikować podsieci zestaw skali.
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Właściwości, które wymagają zmiany cofania alokacji
 
-Niektóre właściwości mogą można zmienić tylko niektóre wartości, jeśli w zestawie skalowania maszyn wirtualnych są alokację. Te właściwości obejmują:
+Niektóre właściwości można zmienić na określone wartości tylko wtedy, gdy w zestawie skalowania maszyn wirtualnych są alokację. Te właściwości obejmują:
 
-- Nazwa jednostki SKU: Jeśli nowej jednostki SKU maszyny Wirtualnej nie jest obsługiwana na sprzęcie skali zestaw jest aktualnie, musisz cofnąć maszyn wirtualnych w skali ustawiona przed zmodyfikowaniem nazwa jednostki sku. Aby uzyskać więcej informacji na zmianę rozmiaru maszyn wirtualnych, zobacz [to Azure wpis w blogu](https://azure.microsoft.com/blog/resize-virtual-machines/).
+- `sku name`: Nowe jednostki SKU maszyny Wirtualnej nie jest obsługiwana na sprzęcie, który zestaw skalowania jest obecnie włączona, należy cofnąć maszyn wirtualnych w skali ustawiona przed zmodyfikowaniem `sku name`. Aby uzyskać więcej informacji na zmianę rozmiaru maszyn wirtualnych, zobacz [to Azure wpis w blogu](https://azure.microsoft.com/blog/resize-virtual-machines/).
 
 
 ## <a name="vm-specific-updates"></a>Aktualizacje specyficzne dla maszyny Wirtualnej
 
-Pewne zmiany mogą być stosowane do określonych maszyn wirtualnych, zamiast właściwości zestawu skali globalnej. Obecnie tylko aktualizacji specyficzne dla maszyny Wirtualnej, która jest obsługiwana jest dołączanie/odłączanie dysków danych do/z maszyn wirtualnych w zestawie skalowania. Ta funkcja jest dostępna w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [dokumentację w wersji preview](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+Pewne zmiany można zastosować do określonej maszyn wirtualnych, zamiast właściwości zestawu skali globalnej. Obecnie tylko aktualizacji specyficzne dla maszyny Wirtualnej, która jest obsługiwana jest dołączanie/odłączanie dysków danych do/z maszyn wirtualnych w zestawie skalowania. Ta funkcja jest dostępna w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [dokumentację w wersji preview](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
-## <a name="scenarios-application-updates-os-updates-etc"></a>Scenariusze: Aktualizacji aplikacji, aktualizacje systemu operacyjnego itd.
+## <a name="scenarios"></a>Scenariusze
 
 ### <a name="application-updates"></a>Aktualizacje aplikacji
 
-Jeśli aplikacja jest wdrażana do skali ustawiana za pośrednictwem rozszerzenia, aktualizowania konfiguracji rozszerzenia powoduje, że aplikacja do aktualizacji zgodnie z zasadami uaktualnienia. Na przykład jeśli masz nową wersję skryptu do uruchomienia w rozszerzeniu niestandardowego skryptu, można zaktualizować właściwości fileUris, aby wskazywały nowy skrypt. W niektórych przypadkach, jednak możesz wymusić aktualizację, nawet jeśli jest bez zmian konfiguracji rozszerzenia (na przykład można zaktualizować skrypt bez zmieniania identyfikator URI skryptu). W takich przypadkach można zmodyfikować wartość forceUpdateTag, aby wymusić aktualizację. Platformy Azure nie ma możliwości interpretowania tej właściwości, aby zmienić jej wartość nie ma wpływu na sposób uruchamiania rozszerzenia. Po prostu modyfikowania jej wymusza rozszerzenia, aby ponownie uruchomić. Aby uzyskać więcej informacji o wartość forceUpdateTag, zobacz [dokumentacja interfejsu API REST dla rozszerzeń](https://docs.microsoft.com/rest/api/compute/virtualmachineextensions/createorupdate).
+Jeśli aplikacja jest wdrażana do skali ustawiana za pośrednictwem rozszerzenia, aktualizowania konfiguracji rozszerzenia powoduje, że aplikacja do zaktualizowania zgodnie z zasadami uaktualnienia. Na przykład, jeśli masz nową wersję skryptu do uruchomienia w rozszerzeniu niestandardowego skryptu, może zaktualizować `fileUris` właściwości, aby wskazywały nowy skrypt. 
 
-Jest również wspólne dla aplikacji można wdrożyć za pomocą niestandardowego obrazu. W tym scenariuszu zostało opisane w poniższej sekcji "Aktualizacje systemu operacyjnego"
+W niektórych przypadkach można wymusić aktualizację, nawet jeśli konfiguracji rozszerzenia jest bez zmian. (Na przykład możesz zaktualizować skrypt bez zmieniania identyfikator URI skryptu.) W takich przypadkach można modyfikować `forceUpdateTag` Aby wymusić aktualizację. Platformy Azure nie ma możliwości interpretowania tej właściwości, aby zmienić jej wartość nie ma wpływu na sposób uruchamiania rozszerzenia. Po prostu modyfikowania jej wymusza rozszerzenia, aby ponownie uruchomić. 
+
+Aby uzyskać więcej informacji na temat `forceUpdateTag`, zobacz [dokumentacja interfejsu API REST dla rozszerzeń](https://docs.microsoft.com/rest/api/compute/virtualmachineextensions/createorupdate).
+
+Jest również wspólne dla aplikacji można wdrożyć za pomocą niestandardowego obrazu. W tym scenariuszu zostało opisane w poniższej sekcji.
 
 ### <a name="os-updates"></a>Aktualizacje systemu operacyjnego
 
-Jeśli używasz platformy obrazów, można zaktualizować obraz, modyfikując elementu imageReference (więcej informacji w [dokumentacja interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Jeśli używasz platformy obrazów, można zaktualizować obrazy, modyfikując `imageReference`. Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 >[!NOTE]
-> Obrazy platformy jest często stosowanym rozwiązaniem określ "najnowszej" wersji odwołanie do obrazu. Oznacza to, że podczas skalowania zestaw utworzyć, skalowania w poziomie i odtworzenia z obrazu maszyny wirtualne są tworzone z najnowszej dostępnej wersji. Jednak go **nie** oznacza, że obraz systemu operacyjnego zostanie automatycznie zaktualizowana w czasie jako wydawane są nowe wersje obrazu. Jest to funkcja oddzielne, obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [dokumentacji automatycznych uaktualnień systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+> Obrazy platformy jest często stosowanym rozwiązaniem określ "najnowszej" wersji odwołanie do obrazu. Oznacza to, że po utworzeniu zestawy skalowania skalowanej i ponownie, maszyn wirtualnych są tworzone z najnowszej dostępnej wersji. Jednak go *nie* oznacza, że obraz systemu operacyjnego zostanie automatycznie zaktualizowana w czasie jako wydawane są nowe wersje obrazu. Jest to funkcja oddzielne, obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [uaktualnienia systemu operacyjnego automatyczne](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
 
-Jeśli używasz niestandardowych obrazów, można zaktualizować obraz, aktualizując identyfikator elementu imageReference (więcej informacji w [dokumentacja interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Jeśli używasz niestandardowych obrazów, można zaktualizować obrazy, aktualizując `imageReference` identyfikatora. Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="updating-the-os-image-for-your-scale-set"></a>Aktualizowanie obrazu systemu operacyjnego dla zestawu skalowania
+### <a name="update-the-os-image-for-your-scale-set"></a>Aktualizowanie obrazu systemu operacyjnego dla zestawu skalowania
 
-Załóżmy, że masz skali ustawić uruchomiona stara wersja Ubuntu LTS 16.04 i chcesz zaktualizować do nowszej wersji 16.04 LTS Ubuntu (na przykład wersja 16.04.201801090). Właściwość version odwołanie do obrazu nie jest częścią listy, więc można bezpośrednio zmodyfikować te właściwości przy użyciu następujących poleceń:
+Załóżmy, że masz skali ustawić uruchomiona stara wersja Ubuntu LTS 16.04. Chcesz zaktualizować do nowszej wersji 16.04 LTS Ubuntu (na przykład wersja 16.04.201801090). Właściwość version odwołanie do obrazu nie jest częścią listy, więc te właściwości można bezpośrednio modyfikować za pomocą tych poleceń:
 
-Środowiska PowerShell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -ImageReferenceVersion 16.04.201801090`
+* Program PowerShell: 
 
-INTERFEJS WIERSZA POLECENIA: `az vmss update -g {resourceGroupName} -n {vmScaleSetName} --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090`
+  `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -ImageReferenceVersion 16.04.201801090`
+
+* Azure CLI: 
+
+  `az vmss update -g {resourceGroupName} -n {vmScaleSetName} --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090`
 
 
-### <a name="updating-the-load-balancer-for-your-scale-set"></a>Aktualizowanie usługi równoważenia obciążenia dla zestawu skalowania
+### <a name="update-the-load-balancer-for-your-scale-set"></a>Aktualizacja usługi równoważenia obciążenia dla zestawu skalowania
 
-Załóżmy, że masz skali ustawić usługi równoważenia obciążenia Azure i chcesz zastąpić modułu równoważenia obciążenia Azure z bramy aplikacji Azure. Obciążenia równoważenia i aplikacji bramy właściwości zestawu skali są częścią listy, dzięki czemu można używać polecenia usuwania i dodawanie elementów listy zamiast bezpośrednie modyfikowanie właściwości:
+Załóżmy, że masz skali ustawić usługi równoważenia obciążenia Azure i mają zostać zamienione usługi równoważenia obciążenia z bramy aplikacji Azure. Obciążenia równoważenia i aplikacji bramy właściwości zestawu skali są częścią listy. Tak można użyć polecenia usuwania i dodawanie elementów listy zamiast bezpośrednie modyfikowanie właściwości.
 
-Środowiska PowerShell: 
+Program PowerShell:
 ```
-# get the current model of the scale set and store it in a local powershell object named $vmss
+# Get the current model of the scale set and store it in a local PowerShell object named $vmss
 > $vmss=Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName}
 
-# create a local powershell object for the new desired IP configuration, which includes the referencerence to the application gateway
+# Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
 > $ipconf = New-AzureRmVmssIPConfig myNic -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
 
-# replace the existing IP configuration in the local powershell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+# Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure load balancer) with the new IP configuration
 > $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
 
-# Update the model of the scale set with the new configuration in the local powershell object
+# Update the model of the scale set with the new configuration in the local PowerShell object
 > Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName} -virtualMachineScaleSet $vmss
 
 ```
 
-INTERFEJS WIERSZA POLECENIA: 
+Azure CLI:
 ```
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0 # remove the load balancer backend pool from the scale set model
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0 # remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}' # add the application gateway backend pool to the scale set model
+az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0 # Remove the load balancer back-end pool from the scale set model
+az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0 # Remove the load balancer back-end pool from the scale set model; only necessary if you have NAT pools configured on the scale set
+az vmss update -g {resourceGroupName} -n {vmScaleSetName} --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}' # Add the application gateway back-end pool to the scale set model
 ```
 
 >[!NOTE]
-> Tych poleceniach założono, że w zestawie skali jest tylko jeden IP konfiguracji i obciążenia modułu równoważenia. Jeśli dostępnych jest wiele, może być konieczne użycie indeksu listy, innego niż 0.
+> Tych poleceniach założono, że w zestawie skali jest tylko jeden IP konfiguracji i obciążenia modułu równoważenia. Dostępnych jest wiele, konieczne może użyć indeks listy innych niż 0.

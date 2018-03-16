@@ -3,7 +3,7 @@ title: "Korzystanie z łącznika zapas czasu w aplikacjach logiki platformy Azur
 description: "Nawiązać zapas czasu w aplikacjach logiki"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Rozpoczynanie pracy z Slack łącznika
-Slack jest narzędziem do komunikacji zespołowej, które łączy całą komunikację zespołową w jednym miejscu. Umożliwia natychmiastowe wyszukiwanie i dostęp do komunikacji z dowolnego miejsca. 
+Zapas czasu to narzędzie komunikacji zespołu, która łączy komunikacji zespołu w jednym umieszczają, natychmiast można wyszukiwać i dostępne, wszędzie tam, gdzie możesz przejść. 
 
 Rozpoczynanie pracy przez tworzenie aplikacji logiki teraz; zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -33,7 +33,7 @@ Do korzystania z łącznika Slack, należy najpierw utworzyć **połączenia** n
 | --- | --- | --- |
 | Token |Yes |Podaj poświadczenia usługi Slack |
 
-Wykonaj następujące kroki, aby zalogować się do zapas czasu i zakończyć konfigurację Slack **połączenia** w aplikacji logiki:
+Zaloguj się do zapas czasu, wykonując następujące kroki i zakończyć konfigurację Slack **połączenia** w aplikacji logiki:
 
 1. Wybierz **cyklu**
 2. Wybierz **częstotliwość** , a następnie wprowadź **interwał**
@@ -45,11 +45,11 @@ Wykonaj następujące kroki, aby zalogować się do zapas czasu i zakończyć ko
    ![Skonfiguruj zapas czasu][2]
 7. Podaj poświadczenia Slack logować się do autoryzowania aplikacji    
    ![Skonfiguruj zapas czasu][3]  
-8. Możesz zostanie przekierowany do dziennika w organizacji na stronie. **Autoryzowanie** zapas czasu wchodzić w interakcje z aplikacji logiki:      
+8. Użytkownik zostanie przekierowany do stronę logowania Twojej organizacji. **Autoryzowanie** zapas czasu wchodzić w interakcje z aplikacji logiki:      
    ![Skonfiguruj zapas czasu][5] 
-9. Po zakończeniu autoryzacji użytkownik będzie przekierowany do aplikacji logiki do ukończenia jej przez skonfigurowanie **Slack — pobranie wszystkich wiadomości** sekcji. Dodawanie innych wyzwalacze i akcje, które są potrzebne.  
+9. Po zakończeniu autoryzacji są przekierowywane do aplikacji logiki do ukończenia jej przez skonfigurowanie **Slack — pobranie wszystkich wiadomości** sekcji. Dodawanie innych wyzwalacze i akcje, które są potrzebne.  
    ![Skonfiguruj zapas czasu][6]
-10. Zapisz swoją pracę, wybierając **zapisać** na pasku menu powyżej.
+10. Zapisz swoją pracę, wybierając **zapisać** menu (w kierunku do góry).
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 

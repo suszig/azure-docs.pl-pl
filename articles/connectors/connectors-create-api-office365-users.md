@@ -3,7 +3,7 @@ title: "Dodaj użytkowników usługi Office 365 łącznika w aplikacjach logiki 
 description: "Omówienie łącznika użytkowników usługi Office 365 z parametrami interfejsu API REST"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Rozpoczynanie pracy z łącznikiem użytkowników usługi Office 365
 Podłącz do użytkowników usługi Office 365 można pobrać profilów, Wyszukaj użytkowników i inne. Użytkowników usługi Office 365 możesz:
@@ -36,7 +36,7 @@ Po dodaniu tego łącznika do aplikacji logiki, należy zalogować się do konta
 > 
 > 
 
-Po utworzeniu połączenie, wprowadź właściwości użytkowników usługi Office 365, takich jak identyfikator użytkownika. **Dokumentacji interfejsu API REST** w tym temacie opisano te właściwości.
+Po utworzeniu połączenie, wprowadź właściwości użytkowników usługi Office 365, takich jak identyfikator użytkownika. **Dokumentacji interfejsu API REST** w tym artykule opisano te właściwości.
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 

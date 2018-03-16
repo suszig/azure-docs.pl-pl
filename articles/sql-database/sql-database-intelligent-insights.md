@@ -2,24 +2,19 @@
 title: "Monitorowanie użycia bazy danych za pomocą inteligentnego szczegółowych informacji — usługi Azure SQL Database | Dokumentacja firmy Microsoft"
 description: "Azure Insights inteligentnego bazy danych SQL używa wbudowane narzędzie analizy do stale monitorowanie użycia bazy danych za pośrednictwem sztucznego analizy i wykrywania destrukcyjne zdarzenia, które powodują pogorszenie wydajności."
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8654c35bb9c6e46a47f52dee6ab7969f996b42f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="intelligent-insights"></a>Wyniki analizy
 
@@ -172,7 +167,7 @@ Dziennik Insights inteligentnego generuje liczba błędnych żądań. Wskazuje, 
 
 Jeśli monitorowana wyjątki krytyczne cross bezwzględną progów zarządzane przez system, inteligentnego wglądu jest generowany ze szczegółami wyjątek krytyczny.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak [bazy danych SQL Rozwiązywanie problemów z wydajnością z informacjami dotyczącymi inteligentnego](sql-database-intelligent-insights-troubleshoot-performance.md).
 * Użyj [dziennika diagnostyki wydajności bazy danych SQL inteligentnego Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 * Dowiedz się, jak [monitorować bazy danych SQL za pomocą analizy SQL](../log-analytics/log-analytics-azure-sql.md).

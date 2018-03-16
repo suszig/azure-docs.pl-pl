@@ -4,7 +4,7 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Samouczek: Integracji Azure Active Directory z przeglądem wyczyść
 
@@ -108,9 +108,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Wyczyść domeny przeglądu i adresów URL jednym informacje logowania jednokrotnego](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<customer name>.clearreview.com/sso/metadata`
+    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<customer>.clearreview.com/sso/acs/`
+    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<customer name>.clearreview.com/sso/acs/`
 
 4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL** i wykonać następujący krok, jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
 
@@ -119,31 +119,36 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej wyczyść przeglądu](https://clearreview.com/contact/) uzyskać te wartości.
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania, identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej wyczyść przeglądu](https://clearreview.com/contact/) uzyskać te wartości.
 
-5. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+5. Wyczyść aplikacji przejrzyj oczekiwać, że wartość identyfikatora unikatowego użytkownika oświadczenia identyfikatora nazwy. Należy zmapować wartość identyfikatora użytkownika do **user.mail**.
+
+    ![W sekcji atrybutu](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Łącze pobierania certyfikatu](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Kliknij przycisk **zapisać** przycisku.
+7. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. Na **wyczyść Przejrzyj konfigurację** , kliknij przycisk **skonfigurować wyczyść przeglądu** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+8. Na **wyczyść Przejrzyj konfigurację** , kliknij przycisk **skonfigurować wyczyść przeglądu** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Wyczyść Przejrzyj konfigurację](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Skonfigurować logowanie jednokrotne w **wyczyść przeglądu** po stronie Otwórz **wyczyść przeglądu** portalu przy użyciu poświadczeń administratora.
+9. Skonfigurować logowanie jednokrotne w **wyczyść przeglądu** po stronie Otwórz **wyczyść przeglądu** portalu przy użyciu poświadczeń administratora.
 
-9. Wybierz **Admin** z lewym pasku nawigacyjnym.
+10. Wybierz **Admin** z lewym pasku nawigacyjnym.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. Wybierz **zmiany** w dolnej części strony.
+11. Wybierz **zmiany** w dolnej części strony.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. Wykonaj następujące kroki **ustawień rejestracji jednokrotnej** strony
+12. Wykonaj następujące kroki **ustawień rejestracji jednokrotnej** strony
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     d. Otwórz pobranego certyfikatu w programie Notatnik i Wklej zawartość **certyfikatu X.509** pola tekstowego.   
 
-12. Kliknij pozycję **Zapisz**.
+13. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -233,7 +238,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 Po kliknięciu kafelka przeglądu wyczyść w panelu dostępu należy należy pobrać automatycznie zalogowane do aplikacji wyczyść przeglądu.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
@@ -253,4 +258,3 @@ Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie d
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

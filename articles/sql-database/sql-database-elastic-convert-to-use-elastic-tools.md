@@ -2,29 +2,23 @@
 title: "Migrowanie istniejących baz danych do skalowania w poziomie | Dokumentacja firmy Microsoft"
 description: "Konwertuj podzielonej baz danych za pomocą narzędzi elastycznej bazy danych przez utworzenie niezależnego fragmentu menedżera map"
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: d82994f3ab925fa3ace0d0dbe1631a01dd1df586
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrowanie istniejących baz danych do skalowania w poziomie
 Łatwe zarządzanie istniejących skalowalnych w poziomie podzielonej baz danych za pomocą narzędzi bazy danych usługi Azure SQL Database (takich jak [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md)). Najpierw przekonwertuj istniejącego zestawu baz danych do użycia [menedżera map niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md). 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Aby przeprowadzić migrację z istniejącej bazy danych podzielonej: 
 
 1. Przygotowanie [bazy danych Menedżera mapy niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md).
@@ -153,14 +147,14 @@ Informacje o istniejących odłamków i mapowania skojarzonych z nimi mogą być
 ## <a name="summary"></a>Podsumowanie
 Po zakończeniu instalacji można rozpocząć korzystanie z biblioteki klienta elastycznej bazy danych. Można również użyć [routingu zależne od danych](sql-database-elastic-scale-data-dependent-routing.md) i [zapytania wielu niezależnych](sql-database-elastic-scale-multishard-querying.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Pobierz skrypty programu PowerShell z [bazy danych elastyczne bazy danych SQL Azure narzędzi skryptów](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Narzędzia są również w witrynie GitHub: [Azure/elastyczna db-tools](https://github.com/Azure/elastic-db-tools).
 
 Użyj narzędzia do scalania podziału do przenoszenia danych z modelu wielodostępnym lub do pojedynczej dzierżawy modelu. Zobacz [narzędzia do scalania podziału](sql-database-elastic-scale-get-started.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikacjach baz danych typu oprogramowanie jako usługa (SaaS), zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
 
 ## <a name="questions-and-feature-requests"></a>Pytania i żądania funkcji

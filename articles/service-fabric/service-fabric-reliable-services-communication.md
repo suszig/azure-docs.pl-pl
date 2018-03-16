@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać komunikacji niezawodnej usługi interfejsów API
 Azure Service Fabric jako platformę jest całkowicie niezależny o komunikacji między usługami. Wszystkie protokoły i stosy są dopuszczalne, z UDP HTTP. To dewelopera usługi, aby wybrać komunikowania usług. Struktura aplikacji niezawodne usługi zawiera komunikacji wbudowanej stosach, a także interfejsów API, który można wykorzystać do tworzenia składników niestandardowych komunikacji.
@@ -54,7 +54,7 @@ Następnie można dodać implementacji odbiornik komunikacji, przywracając jego
 Dla usługi bezstanowej:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -85,7 +85,7 @@ Dla stanowych usług:
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -196,7 +196,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Usługa Service Fabric realizuje interfejsów API, która pozwala klientów i innych usług, a następnie poprosić dla tego adresu według nazwy usługi. Jest to ważne, ponieważ adres usługi nie jest statyczne. Usługi są przenoszone w klastrze do celów dostępności i równoważenia zasobów. Jest to mechanizm, który zezwala klientom na rozpoznawanie adresu nasłuchiwania dla usługi.
 
 > [!NOTE]
-> Aby uzyskać pełny przewodnik sposobu pisania odbiornik komunikacji, zobacz [usług interfejsu API sieci Web sieci szkieletowej usług za pomocą hostingu samodzielnego OWIN](service-fabric-reliable-services-communication-webapi.md) dla C#, natomiast dla języka Java można napisać własny implementację serwera HTTP, zobacz EchoServer aplikacji przykład: w https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Aby uzyskać pełny przewodnik sposobu pisania odbiornik komunikacji, zobacz [usług interfejsu API sieci Web sieci szkieletowej usług za pomocą hostingu samodzielnego OWIN](service-fabric-reliable-services-communication-webapi.md) dla C#, natomiast dla języka Java można napisać własny implementację serwera HTTP, zobacz EchoServer aplikacji przykład na https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
@@ -275,7 +275,7 @@ Biblioteka fabryki komunikacji zawiera typowe wzorzec ponownych prób obsługi b
 Komunikacja klienta po prostu otrzymuje adres i używa go do łączenia się z usługą. Klient może używać dowolnego protokołu chce.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 

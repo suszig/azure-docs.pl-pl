@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: bwren
 ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Opis wyszukiwania dziennika analizy dzienników
 
@@ -27,11 +27,11 @@ Wymagane jest wyszukiwania dziennika, aby pobrać wszystkie dane z analizy dzien
 
 Różne sposoby, który będzie używany dziennik wyszukiwania w analizy dzienników są następujące:
 
-- **Portale.** W repozytorium w portalu Azure można wykonać analizy interakcyjnej danych lub [portal analityka zaawansowane](https://go.microsoft.com/fwlink/?linkid=856587).  Dzięki temu można edytować zapytania i Analizuj wyniki w różnych formatach i wizualizacji.  Większość zapytań, które możesz utworzyć zostanie uruchomiony w jednym z portali i następnie skopiowana po zweryfikowaniu, że działa zgodnie z oczekiwaniami.
+- **Portals.** W repozytorium w portalu Azure można wykonać analizy interakcyjnej danych lub [portal analityka zaawansowane](https://go.microsoft.com/fwlink/?linkid=856587).  Dzięki temu można edytować zapytania i Analizuj wyniki w różnych formatach i wizualizacji.  Większość zapytań, które możesz utworzyć zostanie uruchomiony w jednym z portali i następnie skopiowana po zweryfikowaniu, że działa zgodnie z oczekiwaniami.
 - **Reguły alertów.** [Reguły alertów](log-analytics-alerts.md) aktywne identyfikowanie problemów z danych w obszarze roboczym.  Każdej reguły alertu jest oparta na wyszukiwania dziennika, który jest automatycznie uruchamiany w regularnych odstępach czasu.  Wyniki są sprawdzana w celu określenia, czy można utworzyć alertu.
 - **Widoki.**  Możesz utworzyć wizualizacje danych do uwzględnienia w pulpity nawigacyjne użytkownika z [Widok projektanta](log-analytics-view-designer.md).  Wyszukiwanie dziennika zawierają dane używane przez [Kafelki](log-analytics-view-designer-tiles.md) i [części wizualizacji](log-analytics-view-designer-parts.md) w każdym widoku.  Możesz można przejść z części wizualizacji do strony wyszukiwania dziennika podczas dalszej analizy danych.
 - **Eksportowanie.**  Podczas eksportowania danych z obszaru roboczego analizy dzienników do programu Excel lub [usługi Power BI](log-analytics-powerbi.md), tworzenie wyszukiwania dziennika do definiowania danych do wyeksportowania.
-- **Środowiska PowerShell.** Należy uruchomić skrypt programu PowerShell z wiersza polecenia lub element runbook usługi Automatyzacja Azure, która używa [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) do pobierania danych z analizy dzienników.  To polecenie cmdlet wymaga zapytań w celu określenia danych do pobrania.
+- **PowerShell.** Należy uruchomić skrypt programu PowerShell z wiersza polecenia lub element runbook usługi Automatyzacja Azure, która używa [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) do pobierania danych z analizy dzienników.  To polecenie cmdlet wymaga zapytań w celu określenia danych do pobrania.
 - **Interfejs API analizy dziennika.**  [Analizy dzienników logowania interfejsu API search](log-analytics-log-search-api.md) umożliwia dowolnego klienta interfejsu API REST do pobierania danych z obszaru roboczego.  Żądanie interfejsu API zawiera zapytanie, które jest wykonywane na analizy dzienników do określenia danych do pobrania.
 
 ![Dziennik wyszukiwania](media/log-analytics-log-search-new/log-search-overview.png)
@@ -81,7 +81,7 @@ Możesz także zbadać danych między obszarami roboczymi analizy dzienników w 
 
 Pełna dokumentacja języka zapytań usługi Analiza dzienników Azure tym samouczki i materiały referencyjne dotyczące języka, zobacz [dokumentację dotyczącą języka zapytań usługi Analiza dzienników Azure](https://docs.loganalytics.io/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [portali, które umożliwiają tworzenie i edytowanie dziennika wyszukiwania](log-analytics-log-search-portals.md).
 - Zapoznaj się z [Samouczek o pisaniu zapytań](log-analytics-tutorial-viewdata.md) przy użyciu nowego języka zapytań.

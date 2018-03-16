@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Zainstaluj serwer główny cel systemu Linux
 Po przejścia w tryb failover maszyn wirtualnych na platformie Azure, możesz w trybie wstecz maszyn wirtualnych do lokacji lokalnej. Aby wykonaj powrót po awarii, musisz Włącz ponownie ochronę maszyny wirtualnej z platformy Azure do lokacji lokalnej. W przypadku tego procesu należy lokalny główny serwer docelowy do odbierania ruchu. 
@@ -41,7 +41,7 @@ Opublikuj komentarze lub pytania na końcu tego artykułu lub na [Forum usług o
 
 Tworzenie głównego celu zgodnie z wytycznymi następujące zmiany rozmiaru:
 - **Pamięć RAM**: 6 GB lub więcej
-- **Rozmiar dysku systemu operacyjnego**: 100 GB lub więcej (zainstalować CentOS6.6)
+- **Rozmiar dysku systemu operacyjnego**: 100 GB lub więcej (zainstalowania systemu operacyjnego)
 - **Dodatkowy dysk rozmiar dysku przechowywania**: 1 TB
 - **Rdzenie Procesora**: rdzenie 4 lub więcej
 
@@ -112,24 +112,31 @@ Zachowaj ISO Ubuntu 16.04.2 minimalnego 64-bitowe w stacji dysków DVD i uruchom
 
 1.  Wybierz **tak** Aby zapisać zmiany na dysku, a następnie wybierz **Enter**.
 
-1.  Przy wyborze Konfiguracja serwera proxy, zaznacz opcję domyślną, wybierz **Kontynuuj**, a następnie wybierz **Enter**.
+    ![Wybierz opcję domyślną](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Wybierz opcję domyślną](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  Przy wyborze Konfiguracja serwera proxy, zaznacz opcję domyślną, wybierz **Kontynuuj**, a następnie wybierz **Enter**.
+     
+     ![Wybierz sposób zarządzania uaktualnień](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Wybierz **nie aktualizacje automatyczne** opcji w zaznaczeniu uaktualnień w systemie zarządzania, a następnie wybierz **Enter**.
 
-     ![Wybierz sposób zarządzania uaktualnień](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Wybierz sposób zarządzania uaktualnień](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Azure Site Recovery główny serwer docelowy wymaga bardzo określonej wersji Ubuntu, dlatego należy upewnić się, że jądra, które aktualizacje są wyłączone dla maszyny wirtualnej. Jeśli są one włączone regularne uaktualnienia spowodować główny serwer docelowy do nieprawidłowego działania. Upewnij się, że wybrano **nie aktualizacje automatyczne** opcji.
 
 1.  Wybierz opcje domyślne. Jeśli chcesz openSSH dla połączenia SSH, wybierz opcję **OpenSSH serwera** opcji, a następnie wybierz **Kontynuuj**.
 
-    ![Wybierz oprogramowanie](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Wybierz oprogramowanie](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. Selction instalowania moduł ładujący rozruchu CHODNIKÓW, wybierz **tak**, a następnie wybierz **Enter**.
+     
+    ![Instalator rozruchu CHODNIKÓW](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Wybierz odpowiednie urządzenie do instalacji moduł ładujący rozruchu (najlepiej **/dev/sda**), a następnie wybierz **Enter**.
+     
+    ![Wybierz odpowiednie urządzenie.](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Wybierz **Kontynuuj**, a następnie wybierz **Enter** do zakończenia instalacji.
 
@@ -154,7 +161,7 @@ Aby uzyskać identyfikator dla każdego dysku twardego SCSI na maszynie wirtualn
 
 4. W okienku po lewej stronie wybierz **zaawansowane** > **ogólne**, a następnie wybierz **parametry konfiguracji** przycisk w prawej dolnej części ekranu.
 
-    ![Karta Opcje](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Parametr konfiguracji otwarte](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     **Parametry konfiguracji** opcja jest niedostępna, gdy komputer jest uruchomiony. Aby uaktywnić na tej karcie, zamknij maszynę wirtualną.
 
@@ -168,7 +175,7 @@ Aby uzyskać identyfikator dla każdego dysku twardego SCSI na maszynie wirtualn
 
     - W kolumnie Nazwa Dodaj **dysku. EnableUUID**, a następnie ustaw wartość **TRUE**.
 
-    ![Sprawdzanie Określa, czy na dysku. EnableUUID już istnieje.](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Sprawdzanie Określa, czy na dysku. EnableUUID już istnieje.](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Wyłącz uaktualnienia jądra
 
@@ -244,7 +251,7 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Tworzenie system plików na dysku](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Tworzenie system plików na dysku](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Po utworzeniu systemu plików, należy zainstalować dysk przechowywania.
 
@@ -252,7 +259,6 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![Instalowanie dysku przechowywania](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Utwórz **fstab** wejścia, należy zainstalować dysk przechowywania, przy każdym uruchomieniu systemu.
     

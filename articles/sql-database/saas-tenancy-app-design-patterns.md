@@ -3,24 +3,18 @@ title: "Wzorce SaaS wielodostępne — baza danych SQL Azure | Dokumentacja firm
 description: "Więcej informacji na temat wymagań i wspólne dane wzorce architektura wielodostępnej oprogramowania jako usługa (SaaS) aplikacje baz danych, które są uruchamiane w środowisku chmury Azure."
 keywords: "samouczek usługi sql database"
 services: sql-database
-documentationcenter: 
 author: billgib
 manager: craigg
-editor: MightyPen,srinia
-ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ac4eceb2265850b18682b38141f24b18ca0f9b4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Wielodostępne SaaS bazy danych dzierżawców wzorców
 
@@ -177,8 +171,8 @@ W poniższej tabeli przedstawiono różnice między modelami główny dzierżawy
 
 | Miary | Aplikacja autonomiczna | Bazy danych dla dzierżawcy | Podzielonej wieloma dzierżawcami |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Skalowanie | Medium<br />1 100s | Bardzo wysokie<br />1 100,000s | Nieograniczona liczba<br />1 1,000,000s |
-| Izolacji dzierżawców | Bardzo wysokie | Wysoka | Niski; z wyjątkiem dowolnej dzierżawy pojedyncze (która jest tylko do bazy danych MT). |
+| Skalowanie | Medium<br />1 100s | Bardzo wysoka<br />1 100,000s | Nieograniczona liczba<br />1 1,000,000s |
+| Izolacji dzierżawców | Bardzo wysoka | Wysoka | Niski; z wyjątkiem dowolnej dzierżawy pojedyncze (która jest tylko do bazy danych MT). |
 | Koszt bazy danych dla każdego dzierżawcy | Wysoki; rozmiar jest szczytów. | Niski; pule używane. | Najniższa, w przypadku małych dzierżaw w MT bazami danych. |
 | Monitorowanie wydajności i zarządzanie | Dla dzierżawcy tylko | Agregacja + na dzierżawy | Agregacja; Mimo że jest na dzierżawy tylko dla pojedynczych wystąpień. |
 | Programowanie złożoności | Małe | Małe | Średnia liczba godzin; z powodu dzielenia na fragmenty. |

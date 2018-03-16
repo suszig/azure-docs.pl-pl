@@ -2,24 +2,18 @@
 title: Skalowania bazy danych Azure SQL | Dokumentacja firmy Microsoft
 description: "Jak używać ShardMapManager, biblioteki klienta elastycznej bazy danych"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: fe4c8b7b2a9d199c85faf11fcd35382d586fc009
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: sstein
+ms.openlocfilehash: beddb3d9ac4a8c1ec5bd034c959c6b734c5b4403
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skalowanie w poziomie baz danych przy użyciu Menedżera mapy niezależnego fragmentu
 Aby łatwe skalowanie bazy danych SQL Azure, użyj Menedżera map niezależnego fragmentu. Menedżer mapy niezależnego fragmentu jest specjalne bazy danych, która przechowuje Mapowanie globalne informacje o wszystkich odłamków (bazy danych) w zestawie niezależnego fragmentu. Metadane umożliwia aplikacji do nawiązania połączenia z poprawną bazą danych na podstawie wartości z **klucza dzielenia na fragmenty**. Ponadto każdy identyfikator niezależnego fragmentu w zestawie zawiera map, które śledzą dane lokalne niezależnego fragmentu (nazywane **shardlets**). 
@@ -53,11 +47,11 @@ Elastyczne skalowanie obsługuje następujące typy jako klucze dzielenia na fra
 
 | .NET | Java |
 | --- | --- |
-| Liczba całkowita |Liczba całkowita |
+| integer |integer |
 | długa |długa |
 | Identyfikator GUID |Identyfikator UUID |
-| Byte]  |Byte] |
-| Data i godzina | sygnatura czasowa |
+| byte[]  |byte[] |
+| datetime | sygnatura czasowa |
 | Zakres czasu | Czas trwania|
 | Datetimeoffset |offsetdatetime |
 

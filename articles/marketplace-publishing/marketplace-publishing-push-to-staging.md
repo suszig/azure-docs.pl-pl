@@ -3,8 +3,8 @@ title: "Przygotowanie i testowania ofertę do wdrożenia w portalu Azure Marketp
 description: "Szczegółowe instrukcje na udostępnienie marketingu zawartości, skonfigurowanie planów cenowych i testowania ofertę przed wdrożeniem w portalu Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Dokończ tworzenie oferty z zawartością marketing
 W tym kroku procesu publikowania należy podać niektórych zawartości marketing i szczegółowe informacje o ofercie i/lub jednostki SKU w portalu Azure Marketplace. Na przykład zapewni opis produktu, logo firmy, plany cen, szczegółowe informacje o planach i inne informacje niezbędne do dystrybuowania oferty i/lub jednostki SKU do tymczasowego. Te informacje są używane jako marketing zawartość w portalu Azure. Rozpocznie się tym procesem w [portal publikowania][link-pubportal].
@@ -26,7 +26,7 @@ W tym kroku procesu publikowania należy podać niektórych zawartości marketin
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Krok 1: Podaj marketingu zawartości witryny Marketplace
 **Język angielski jest ustawieniem domyślnym i tylko obsługiwanego języka.** Upewnij się, że wszystkie informacje w polach jest w języku angielskim. Wszystkie informacje można edytować w dowolnym momencie przed wypchnięciem do wdrażania przejściowego.
 
-1. Przejdź do portalu publikowania [https://publish.windowsazure.com](https://publish.windowsazure.com).
+1. Przejdź do portalu publikowania [ https://publish.windowsazure.com ](https://publish.windowsazure.com).
 2. W menu po lewej stronie kliknij **Marketing** kartę.
 3. W okienku głównym kliknij **języka angielskiego (US)** przycisku.
    
@@ -139,8 +139,8 @@ W przypadku ofert maszyny wirtualnej gdy oferta/jednostka SKU jest wyświetlany 
 
 |  | Tylko podstawowy | Tylko zużycie | Podstawa + zużycie |
 | --- | --- | --- | --- |
-| Obraz maszyny wirtualnej |Nie |Tak |Nie |
-| Usługa Developer |Tak |Tak |Tak |
+| Obraz maszyny wirtualnej |Nie |Yes |Nie |
+| Usługa Developer |Yes |Yes |Yes |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Ustaw cenach maszyny Wirtualnej
 Obecnie maszyny wirtualne zostały następujące **3 typów modeli rozliczeń:**
@@ -230,7 +230,7 @@ Plany może być dowolną kombinacją base + użycia, gdzie podstawowy jest mies
 | Brązową Plus |Okres płatną () Bezpłatna wersja próbna wygasła): miesięcznie 10 $ + $ 0,05/meter01 |Podstawowe funkcje i limit przydziału wynoszący 10 000 funkcji X.  Gdy jest używana funkcja X przydziału, klient może Zapłać za Użyj za pośrednictwem meter01. |Można migrować do planów Silver oraz i Gold |
 | Srebrny |0,15 USD/meter01 |Klienta można zwrócić na użycie za pomocą meter01, czyli funkcji X. |Można migrować do planów brązowa i Gold |
 | Srebrny Plus |20 USD miesięcznie + 0,15 USD/meter01 0,01 $/ meter02 |Podstawowe funkcje i limit przydziału wynoszący 10 000 funkcji X i 100 funkcji Y.  Po przydziału funkcji X klienta można zwrócić na użycie za pośrednictwem meter01.  Gdy jest używana funkcja Y limit przydziału, klienta można należy zwrócić na użycie za pośrednictwem meter02. |Można migrować do planów brązowa oraz i Gold |
-| Gold |1000 USD miesięcznie |Limit przydziału wynoszący 10 000 funkcji 1000 funkcji Y, X i nieograniczone funkcji Z. |Można migrować do wszystkich planów, z wyjątkiem w warstwie bezpłatna |
+| Złoty |1000 USD miesięcznie |Limit przydziału wynoszący 10 000 funkcji 1000 funkcji Y, X i nieograniczone funkcji Z. |Można migrować do wszystkich planów, z wyjątkiem w warstwie bezpłatna |
 
 ## <a name="step-3-provide-support-information"></a>Krok 3: Zapewniają obsługę informacji
 Szczegóły dotyczące kontaktu służą do wewnętrznej komunikacji między partnerami i Microsoft tylko. Adres URL pomocy technicznej będzie dostępne dla klientów końcowych.
@@ -270,13 +270,13 @@ Poniżej znajduje się szczegółowy widok wykorzystania zapewniają informacje 
 
 *Szczegóły opis oferty w portalu Azure*
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, gdy jest ładowany zawartości witryny Marketplace, umożliwia przejście z testowaniem ofertę tymczasowych. Jednak należy wybrać typ oferty odpowiednie z listy poniżej, jak kroki zależą od typu oferty.
 
 * [Testowanie ofertę maszyny Wirtualnej w przemieszczania](marketplace-publishing-vm-image-test-in-staging.md)
 * [Testowanie ofertę szablon rozwiązania tymczasowych](marketplace-publishing-solution-template-test-in-staging.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg

@@ -2,24 +2,18 @@
 title: "Wprowadzenie do narzędzi elastycznej bazy danych - Azure | Dokumentacja firmy Microsoft"
 description: "Podstawowe informacje dotyczące funkcji narzędzi elastycznej bazy danych, bazy danych SQL Azure, w tym przykładowej łatwe do uruchomienia aplikacji."
 services: sql-database
-documentationcenter: 
-manager: jstrauss
+manager: craigg
 author: anumjs
-editor: CarlRabeler
-ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: anjangsh
-ms.openlocfilehash: 615e5b0bf299a844ea2d37476fc704c48e17b363
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 28ff3f6eee2316a078badcf29e6780f3844f3a54
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Wprowadzenie do narzędzi elastycznej bazy danych
 Ten dokument stanowi wprowadzenie do obsługi projektanta [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md) pomagając Uruchom przykładową aplikację. Przykładowa aplikacja tworzy prostą aplikację podzielonej i Eksploruje kluczowych możliwości funkcji narzędzi elastycznej bazy danych, bazy danych SQL Azure. Dotyczy on przypadki użycia [zarządzania mapy niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md), [routingu zależne od danych](sql-database-elastic-scale-data-dependent-routing.md), i [zapytań wielu niezależnych](sql-database-elastic-scale-multishard-querying.md). Biblioteka klienta jest dostępna dla platformy .NET, a także Java. 
@@ -53,7 +47,7 @@ Aby skompilować pliki JAR i wprowadzenie przykładowy projekt, wykonaj następu
     
 5. Aby dowiedzieć się więcej o możliwościach biblioteki klienta, wypróbować różne opcje. Możesz także do eksplorowania kodu, aby dowiedzieć się więcej o implementacji aplikacji przykładowej.
 
-    ![Postęp java][5]
+    ![Progress-java][5]
     
 Gratulacje! Pomyślnie skompilowane i uruchamianie pierwszej aplikacji podzielonej przy użyciu narzędzi elastycznej bazy danych w bazie danych SQL Azure. Do połączenia z bazą danych SQL i szybko wyświetlić na odłamków, utworzone próbki, należy użyć programu Visual Studio lub SQL Server Management Studio. Można zauważyć nowe przykładowe niezależnego fragmentu bazy danych i niezależnego fragmentu bazy danych Menedżera mapy, która utworzyła próbki. 
 
@@ -117,7 +111,7 @@ Na przykład przykładowa aplikacja tworzy nowe bazy danych. Koszt tej możliwo�
 
 Aby uzyskać informacje o cenach, zobacz [bazy danych SQL, szczegóły cennika](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat narzędzi elastycznej bazy danych zobacz następujące artykuły:
 
 * Przykłady kodu: 

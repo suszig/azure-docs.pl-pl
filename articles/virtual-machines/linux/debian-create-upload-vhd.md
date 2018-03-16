@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 7802ac701dfb865186beac3889ea2a5b4d0c4770
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9b32b298f141e9ee54b4c42d3ee9c15174daf8b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Przygotowywanie wirtualnego dysku twardego systemu Debian dla platformy Azure
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -30,7 +30,7 @@ W tej sekcji założono zainstalowano system operacyjny Debian Linux z pliku ISO
 * Nowszy format VHDX nie jest obsługiwane na platformie Azure. Dysk można przekonwertować na format wirtualnego dysku twardego za pomocą Menedżera funkcji Hyper-V lub **convert-vhd** polecenia cmdlet.
 * Zalecane jest użycie standardowe partycje, a nie LVM (często domyślnie dla wielu instalacji), podczas instalowania systemu Linux. Pozwoli to uniknąć konfliktów nazw LVM sklonowany maszyn wirtualnych, szczególnie, jeśli dysk systemu operacyjnego kiedykolwiek musi być dołączony do innej maszyny Wirtualnej do rozwiązywania problemów. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) może być używany dla dysków z danymi, jeśli preferowane.
 * Nie należy konfigurować wymiany partycji na dysku systemu operacyjnego. Aby utworzyć plik wymiany na dysku zasobów można skonfigurować agenta systemu Linux platformy Azure. Więcej informacji na ten temat można znaleźć w poniższych krokach.
-* Wszystkie wirtualne dyski twarde muszą mieć rozmiary, które są wielokrotności 1 MB.
+* Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1MB. Podczas konwersji z pierwotnych dysku VHD musi upewnij się, że rozmiar dysku pierwotnych jest wielokrotnością liczby 1MB przed konwersją. Zobacz [informacje o instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) Aby uzyskać więcej informacji.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Użyj zarządzania Azure, aby utworzyć wirtualne dyski twarde Debian
 Brak dostępnych narzędzi do generowania Debian wirtualne dyski twarde dla platformy Azure, takich jak [azure — zarządzanie](https://github.com/credativ/azure-manage) skrypty z [credativ](http://www.credativ.com/). Jest to zalecane podejście i tworzenie obrazu od początku. Na przykład, aby utworzyć Debian VHD 8, uruchom następujące polecenia, aby pobrać azure w zarządzaniu (i zależności) i uruchom skrypt azure_build_image:

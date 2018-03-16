@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 290e600b7be4a6f9fb57afa50bb771e42e6a0624
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Wizualizuj dane interakcyjne zapytań Hive z usługi Microsoft Power BI przy użyciu zapytania bezpośredniego w usłudze Azure HDInsight
 
@@ -28,7 +28,7 @@ Dowiedz się, jak Microsoft Power BI nawiązać połączenia z klastrów Azure H
 
 ![HDInsight Power BI raportu mapy](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-Jak nawiązać połączenie Hive za pośrednictwem sterownika ODBC, zobacz [wizualizacji Hive danych za pomocą usługi Microsoft Power BI przy użyciu interfejsu ODBC w usłudze Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+Można wykorzystać [sterownika ODBC programu Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) do zaimportowania za pośrednictwem łącznika ODBC ogólnego w programie Power BI Desktop. Jednak nie zaleca dla obciążeń BI nieinterakcyjnym charakter aparatu zapytań Hive. [Łącznik zapytania interakcyjne HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) i [łącznika Spark w usłudze HDInsight](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) są lepsze możliwości ich wydajność.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego artykułu, musi mieć następujące elementy:

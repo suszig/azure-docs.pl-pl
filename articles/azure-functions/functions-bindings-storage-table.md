@@ -15,17 +15,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8c028bd20518a07a5fb35e36d0819c001eb2a7d5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure tabeli powiązania magazynu dla usługi Azure Functions
 
 W tym artykule opisano sposób pracy z magazynu tabel Azure powiązania usługi Azure Functions. Azure Functions obsługuje wejściowa i wyjściowa powiązania dla magazynu tabel Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakiety
+
+Powiązania magazynu tabeli znajdują się w [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pakietu NuGet. Kod źródłowy dla pakietu jest w [zestaw sdk zadań webjob azure](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) repozytorium GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="input"></a>Dane wejściowe
 
@@ -288,7 +294,7 @@ module.exports = function (context, myQueueItem) {
  
 W [bibliotek klas C#](functions-dotnet-class-library.md), umożliwia skonfigurowanie powiązania wejściowego tabeli następujące atrybuty:
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
 
   Konstruktor atrybutu ma nazwę tabeli klucza partycji i klucz wiersza. Może służyć parametrem out lub wartości zwracanej funkcji, jak pokazano w poniższym przykładzie:
 
@@ -318,7 +324,7 @@ W [bibliotek klas C#](functions-dotnet-class-library.md), umożliwia skonfigurow
 
   Pełny przykład, zobacz [Input - C# przykład](#input---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Udostępnia innym sposobem określania konta magazynu do użycia. Konstruktor przyjmuje nazwę ustawienia aplikacji, która zawiera parametry połączenia magazynu. Ten atrybut można stosować na poziomie klasy parametrów, metody lub. W poniższym przykładzie przedstawiono poziom klasy i metody:
 
@@ -567,7 +573,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
 
-W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
 
 Konstruktor atrybutu ma nazwy tabeli. Mogą być używane na `out` parametrów lub wartości zwracanej funkcji, jak pokazano w poniższym przykładzie:
 
@@ -625,7 +631,7 @@ Magazyn tabel danych wyjściowych powiązanie obsługuje następujące scenarius
 
 * **Wpisz jeden lub więcej wierszy w C# lub języka C#**
 
-  W języku C# i skryptu C#, dostęp do jednostki tabeli danych wyjściowych przy użyciu parametru metody `ICollector<T> paramName` lub `ICollectorAsync<T> paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T` Określa schemat jednostek, które chcesz dodać. Zazwyczaj `T` pochodzi z `TableEntity` lub implementuje `ITableEntity`, ale nie ma. Klucz partycji i wiersza wartości w klucza *function.json* lub `Table` konstruktora atrybutów nie są używane w tym scenariuszu.
+  W języku C# i skryptu C#, dostęp do jednostki tabeli danych wyjściowych przy użyciu parametru metody `ICollector<T> paramName` lub `IAsyncCollector<T> paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. `T` Określa schemat jednostek, które chcesz dodać. Zazwyczaj `T` pochodzi z `TableEntity` lub implementuje `ITableEntity`, ale nie ma. Klucz partycji i wiersza wartości w klucza *function.json* lub `Table` konstruktora atrybutów nie są używane w tym scenariuszu.
 
   Alternatywą jest użycie `CloudTable paramName` parametru metody, aby zapisać go do tabeli przy użyciu zestawu SDK usługi Magazyn Azure.
 
