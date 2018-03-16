@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure Media Services API z POZOSTAŁĄ dostęp za pomocą uwierzytelniania usługi Azure AD
 
@@ -59,10 +59,10 @@ Aby uzyskać dostęp do interfejsu API usług Media Services, które należy zeb
 
 |Ustawienie|Przykład|Opis|
 |---|-------|-----|
-|Domena dzierżawy usługi Azure Active Directory|Microsoft.onmicrosoft.com|Azure AD jako punktu końcowego Secure Token Service (STS) jest tworzony w następującym formacie: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Usługa Azure AD wystawia token JWT, aby uzyskać dostęp do zasobów (token dostępu).|
-|Punkt końcowy interfejsu API REST|https://amshelloworld.restv2.westus.Media.Azure.NET/API/|To jest punkt końcowy, z których wszystkie API REST usługi Media w aplikacji wywołań.|
+|Domena dzierżawy usługi Azure Active Directory|microsoft.onmicrosoft.com|Azure AD jako punktu końcowego Secure Token Service (STS) jest tworzony w następującym formacie: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Usługa Azure AD wystawia token JWT, aby uzyskać dostęp do zasobów (token dostępu).|
+|Punkt końcowy interfejsu API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|To jest punkt końcowy, z których wszystkie API REST usługi Media w aplikacji wywołań.|
 |Identyfikator klienta (identyfikator aplikacji)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Identyfikatora aplikacji (klienta) w usłudze Azure AD Identyfikator klienta jest wymagana do uzyskania tokenu dostępu. |
-|Klucz tajny klienta|mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD kluczy aplikacji (klucz tajny klienta). Klucz tajny klienta jest wymagana do uzyskania tokenu dostępu.|
+|Klucz tajny klienta|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD kluczy aplikacji (klucz tajny klienta). Klucz tajny klienta jest wymagana do uzyskania tokenu dostępu.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Pobierz informacje uwierzytelniania usługi AAD w portalu Azure
 
@@ -123,7 +123,7 @@ W tej sekcji przedstawiono sposób użycia **Postman** do wykonania interfejsu A
 2. Wybierz pozycję **POST**.
 3. Wprowadź adres URL, który zawiera nazwę dzierżawy w następującym formacie: Nazwa dzierżawy powinna kończyć się **. onmicrosoft.com** i adres URL powinien kończyć się **tokenuoauth2/**: 
 
-    https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
 4. Wybierz **nagłówki** kartę.
 5. Wprowadź **nagłówki** informacji za pomocą "Klucz/wartość" siatka danych. 
@@ -159,7 +159,7 @@ W tej sekcji przedstawiono sposób uzyskiwania dostępu do **zasoby** przy użyc
 
 1. Otwórz **Postman**.
 2. Wybierz pozycję **GET**.
-3. Wklej punkt końcowy interfejsu API REST (na przykład https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Wklej (na przykład punkt końcowy interfejsu API REST https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Wybierz **autoryzacji** kartę. 
 5. Wybierz **tokenu elementu nośnego**.
 6. Wklej token, który został utworzony w poprzedniej sekcji.

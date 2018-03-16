@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Jak uwierzytelniać użytkowników sieci Web za pomocą usługi kontroli dostępu na platformie Azure przy użyciu programu Eclipse
 W tym przewodniku opisano sposób korzystania z usługi kontroli dostępu (ACS) platformy Azure, w ramach zestawu narzędzi platformy Azure dla programu Eclipse. Aby uzyskać więcej informacji dotyczących usług ACS, zobacz [następne kroki](#next_steps) sekcji.
@@ -205,7 +205,7 @@ W **integracji strony logowania: aplikacji sieci Web Azure** strony, adres URL n
 4. Kliknij przycisk **Zakończ**.
 5. Kliknij przycisk **uruchamianie w emulatorze Azure** przycisku.
 6. Po uruchomieniu aplikacji sieci web Java w emulatorze obliczeń, zamknij wszystkie wystąpienia przeglądarki (tak, aby wszystkie bieżące sesje przeglądarki nie zakłóca test logowania ACS).
-7. Uruchom aplikację, otwierając <adresem http://localhost: 8080/MyACSHelloWorld/> w przeglądarce (lub <https://localhost:8080/MyACSHelloWorld/> , gdy zaznaczono **połączenia wymagają protokołu HTTPS** ). Powinien być wyświetlany monit o logowania usługi Windows Live ID, a następnie użytkownik należy podjąć w celu zwrotny adres URL określony dla jednostki uzależnionej strony aplikacji.
+7. Uruchom aplikację, otwierając <http://localhost:8080/MyACSHelloWorld/> w przeglądarce (lub <https://localhost:8080/MyACSHelloWorld/> , gdy zaznaczono **połączeń HTTPS wymagają**). Powinien być wyświetlany monit o logowania usługi Windows Live ID, a następnie użytkownik należy podjąć w celu zwrotny adres URL określony dla jednostki uzależnionej strony aplikacji.
 8. Po zakończeniu przeglądania aplikacji, kliknij przycisk **zresetować emulatora usługi Azure** przycisku.
 
 ## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
@@ -244,7 +244,7 @@ Ponadto, w tym przykładzie używany **osadzić certyfikatu w pliku WAR** opcji.
 
 1. W ramach **zabezpieczeń** sekcji **filtr usługi kontroli dostępu platformy Azure** okno dialogowe, typ **${env. JAVA_HOME}/MyCert.cer** i usuń zaznaczenie pola wyboru **osadzić certyfikatu w pliku WAR**. (Dostosuj mycert.cer, jeśli różni się nazwy pliku certyfikatu). Kliknij przycisk **Zakończ** aby zamknąć okno dialogowe.
 2. Skopiuj certyfikat jako składnik we wdrożeniu: W Eksploratorze projektu w środowisku Eclipse, rozwiń węzeł **MyAzureACSProject**, kliknij prawym przyciskiem myszy **WorkerRole1**, kliknij przycisk **właściwości**, Rozwiń węzeł **roli Azure**i kliknij przycisk **składniki**.
-3. Kliknij pozycję **Dodaj**.
+3. Kliknij pozycję **Add** (Dodaj).
 4. W ramach **Dodaj składnik** okna dialogowego:
    
    1. W **importu** sekcji:

@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Uruchamianie planisty wdrożenia usługi Azure Site Recovery dla oprogramowania VMware na platformie Azure
 Ten artykuł to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Tryby uruchamiania planisty wdrożenia
-Narzędzie wiersza polecenia (ASRDeploymentPlanner.exe) można uruchomić w dowolnym z czterech następujących trybów: 
+Narzędzie wiersza polecenia (ASRDeploymentPlanner.exe) można uruchomić w dowolnym z czterech następujących trybów:
 
 1.  [Profilowanie](#profile-vmware-vms)
 2.  [Generowanie raportu](#generate-report)
@@ -49,8 +49,8 @@ Najpierw musisz utworzyć listę maszyn wirtualnych, które chcesz profilować. 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. Może być konieczne uruchomienie poniższego polecenia, jeśli element Connect-VIServer nie został rozpoznany jako nazwa polecenia cmdlet.
- 
-            Add-PSSnapin VMware.VimAutomation.Core 
+
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. Aby pobrać wszystkie nazwy maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi i zapisać listę w pliku TXT, uruchom dwa poniższe polecenia.
 Zamień wartości &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo; i &lsaquo;outputfile.txt&rsaquo; na własne wartości.
@@ -101,7 +101,7 @@ Domyślnie narzędzie jest skonfigurowane na potrzeby profilowania i generowania
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Aby przeprowadzić profilowanie, powiedzmy, 1500 maszyn wirtualnych przy ustawieniach domyślnych, utwórz dwa pliki VMList.txt. Jeden zawierający listę 1000 maszyn wirtualnych i drugi zawierający listę 500 maszyn wirtualnych. Uruchom dwa wystąpienia narzędzia Planista wdrażania usługi ASR: jedno z plikiem VMList1.txt, a drugie z plikiem VMList2.txt. Do przechowywania danych profilowanych maszyn wirtualnych z obu plików VMList możesz używać tej samej ścieżki katalogu. 
+Aby przeprowadzić profilowanie, powiedzmy, 1500 maszyn wirtualnych przy ustawieniach domyślnych, utwórz dwa pliki VMList.txt. Jeden zawierający listę 1000 maszyn wirtualnych i drugi zawierający listę 500 maszyn wirtualnych. Uruchom dwa wystąpienia narzędzia Planista wdrażania usługi ASR: jedno z plikiem VMList1.txt, a drugie z plikiem VMList2.txt. Do przechowywania danych profilowanych maszyn wirtualnych z obu plików VMList możesz używać tej samej ścieżki katalogu.
 
 Zauważyliśmy, że w zależności od konfiguracji sprzętu, a szczególnie rozmiaru pamięci RAM serwera, z którego jest uruchamiane narzędzie do generowania raportu, operacja może zakończyć się niepowodzeniem z powodu zbyt małej ilości pamięci. Jeśli masz dobry sprzęt, możesz zwiększyć wartość klucza MaxVMsSupported.  
 
@@ -293,4 +293,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>Następne kroki
 * [Analizowanie wygenerowanego raportu](site-recovery-vmware-deployment-planner-analyze-report.md).
-

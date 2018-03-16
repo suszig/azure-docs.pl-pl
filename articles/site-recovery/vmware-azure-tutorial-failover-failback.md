@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Przechodzenie do trybu failover i powrót po awarii maszyn wirtualnych VMware i fizycznych serwerów replikowanych na platformie Azure
 
@@ -48,7 +48,7 @@ Przełączanie do trybu failover i powrót po awarii odbywa się w czterech etap
 
 ## <a name="verify-vm-properties"></a>Sprawdzanie właściwości maszyn wirtualnych
 
-Sprawdź właściwości maszyny wirtualnej i upewnij się, że maszyna wirtualna spełnia [wymagania platformy Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Sprawdź właściwości maszyny wirtualnej i upewnij się, że maszyna wirtualna spełnia [wymagania platformy Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. W obszarze **Chronione elementy** kliknij kolejno pozycje **Zreplikowane elementy** > Maszyna wirtualna.
 
@@ -88,7 +88,7 @@ Serwer przetwarzania otrzymuje dane z maszyny wirtualnej Azure i wysyła je do l
 
 - Jeśli masz połączenie Azure ExpressRoute, możesz użyć do celów testowych lokalnego serwera przetwarzania, który jest automatycznie instalowany na serwerze konfiguracji.
 - Jeśli masz połączenie VPN lub jeśli przeprowadzasz powrót po awarii w środowisku produkcyjnym, musisz na potrzeby powrotu po awarii skonfigurować maszynę wirtualną Azure jako serwer przetwarzania na platformie Azure.
-- Aby skonfigurować serwer przetwarzania na platformie Azure, postępuj według instrukcji opisanych w [tym artykule](site-recovery-vmware-setup-azure-ps-resource-manager.md).
+- Aby skonfigurować serwer przetwarzania na platformie Azure, postępuj według instrukcji opisanych w [tym artykule](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Konfigurowanie głównego serwera docelowego
 

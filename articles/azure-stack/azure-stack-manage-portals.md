@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Korzystanie z portalu administratora w stosie Azure
 
@@ -35,7 +35,7 @@ Aby uzyskać dostęp do portalu administratora, przejdź do adresu URL portalu i
 | Środowisko | Adres URL portalu administratora |   
 | -- | -- | 
 | Zestaw deweloperski| https://adminportal.local.azurestack.external  |
-| Systemy zintegrowane | https://adminportal. &lt; *region*&gt;.&lt; *FQDN*&gt; | 
+| Systemy zintegrowane | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
  ![Portal administratora](media/azure-stack-manage-portals/image1.png)
@@ -79,6 +79,6 @@ Jeśli kliknij ikonę Pomoc i obsługa techniczna (znak zapytania) w prawym gór
 - Jeśli używasz zintegrowanego systemu, Akcja ta otwiera witrynę, której można bezpośrednio otworzyć bilet pomocy technicznej z usług obsługi klienta firmy Microsoft (CSS). Zapoznaj się z sekcją "Where uzyskać pomoc techniczną" [podstawy administracji stosu Azure](azure-stack-manage-basics.md) zrozumienie, kiedy należy przejść za pomocą techniczną firmy Microsoft lub działem pomocy technicznej dostawcy sprzętu producenta sprzętu (OEM).
 - Jeśli używasz zestaw deweloperski, ta akcja powoduje otwarcie witryny fora stosu Azure bezpośrednio. Fora te są regularnie monitorowane. Ponieważ zestaw deweloperski środowiska do oceny, nie jest oficjalną obsługiwane oferowane przez firmy Microsoft CSS.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zarządzanie regionu Azure stosu](azure-stack-region-management.md)

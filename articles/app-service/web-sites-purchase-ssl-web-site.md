@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Kup i skonfiguruj certyfikat SSL dla usługi Azure App Service
 
@@ -159,7 +159,7 @@ Wybierz tę opcję tylko w przypadku [domeny usługi App Service zakupionym z pl
 
 1. Zawartość tego pliku powinna być dokładną nazwę domeny weryfikacji tokenu. (Możesz skopiować token na stronie Stan weryfikacji domeny)
 
-1. Przekazywanie tego pliku w katalogu głównym serwera sieci web hosting domeny`/.well-known/pki-validation/starfield.html`
+1. Przekazywanie tego pliku w katalogu głównym serwera sieci web hosting domeny `/.well-known/pki-validation/starfield.html`
 
 1. Kliknij przycisk **Odśwież** można zaktualizować stanu certyfikatu po zakończeniu weryfikacji. Może upłynąć kilka minut, aż weryfikacji.
 

@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Zainstalować i używać Hue w klastrach HDInsight Hadoop
 
@@ -42,13 +42,13 @@ HUE to zestaw aplikacji sieci Web umożliwiający interakcję z klastrem usługi
 > [!WARNING]
 > Składniki dostarczony z klastrem usługi HDInsight są w pełni obsługiwane, a Microsoft Support pomoże w celu odizolowania i rozwiązać problemy związane z tych składników.
 >
-> Niestandardowe składniki otrzymywanie pomocy uzasadnione ekonomicznie ułatwiające aby dalej rozwiązywać ten problem. Może to spowodować w rozwiązaniu problemu lub monitem o Uwzględnij dostępnych kanałów dla technologiach typu open source wykryto głębokie doświadczenia z tej technologii. Na przykład istnieje wiele witryn społeczności, które mogą być używane, takie jak: [forum MSDN dla usługi HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Projekty Apache mieć witryny projektu na [http://apache.org](http://apache.org), na przykład: [Hadoop](http://hadoop.apache.org/).
+> Niestandardowe składniki otrzymywanie pomocy uzasadnione ekonomicznie ułatwiające aby dalej rozwiązywać ten problem. Może to spowodować w rozwiązaniu problemu lub monitem o Uwzględnij dostępnych kanałów dla technologiach typu open source wykryto głębokie doświadczenia z tej technologii. Na przykład istnieje wiele witryn społeczności, które mogą być używane, takie jak: [forum MSDN dla usługi HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Projekty Apache mieć witryny projektu na [ http://apache.org ](http://apache.org), na przykład: [Hadoop](http://hadoop.apache.org/).
 >
 >
 
 ## <a name="install-hue-using-script-actions"></a>Instalowanie aplikacji Hue za pomocą akcji skryptu
 
-Skrypt instalowanie aplikacji Hue w klastrze usługi HDInsight opartej na systemie Linux jest dostępna w https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Ten skrypt umożliwia instalowanie aplikacji Hue w klastrach z obiektów blob magazynu Azure (WASB) lub usługi Azure Data Lake Store jako domyślnego magazynu.
+Skrypt instalowanie aplikacji Hue w klastrze usługi HDInsight opartej na systemie Linux jest dostępna na https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Ten skrypt umożliwia instalowanie aplikacji Hue w klastrach z obiektów blob magazynu Azure (WASB) lub usługi Azure Data Lake Store jako domyślnego magazynu.
 
 Ta sekcja zawiera instrukcje dotyczące sposobu użycia skryptu w przypadku inicjowania obsługi klastra przy użyciu portalu Azure.
 
@@ -68,7 +68,7 @@ Ta sekcja zawiera instrukcje dotyczące sposobu użycia skryptu w przypadku inic
     ![Podaj parametry akcji skryptu dla Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "Podaj parametry akcji skryptu dla Hue")
 
    * **Nazwa**: Wprowadź przyjazną nazwę dla akcji skryptu.
-   * **Identyfikator URI skryptu**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **IDENTYFIKATOR URI SKRYPTU**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: Zaznaczenie tego pola wyboru
    * **Proces ROBOCZY**: to pole pozostanie puste.
    * **DOZORCY**: to pole pozostanie puste.
@@ -146,7 +146,7 @@ Tunelowanie SSH jest jedynym sposobem na dostęp do aplikacji Hue w klastrze po 
    Jest to spowodowane znanym problemem. Jako obejście należy zmodyfikować Ambari, tak aby active Resource Manager również działa na headnode podstawowego.
 5. HUE rozumie WebHDFS, podczas gdy klastry usługi HDInsight przy użyciu usługi Azure Storage `wasb://`. Tak niestandardowego skryptu używany z akcji skryptu instaluje WebWasb, który jest zgodny z WebHDFS usługi do rozmowy WASB. Tak, mimo że portalu Hue mówi systemu plików HDFS w miejscach (takich jak, gdy mysz przesuwa się nad **przeglądarka plików**), powinny być rozumiane jako WASB.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zainstaluj Giraph w klastrach HDInsight](hdinsight-hadoop-giraph-install-linux.md). Dostosowywanie klastra należy zainstalować Giraph w klastrach HDInsight Hadoop. Giraph umożliwia wykonywanie przetwarzania wykresu przy użyciu platformy Hadoop i może służyć z usługą Azure HDInsight.
 * [Zainstaluj Solr w klastrach HDInsight](hdinsight-hadoop-solr-install-linux.md). Dostosowywanie klastra należy zainstalować Solr w klastrach HDInsight Hadoop. Solr umożliwia wykonywanie operacji wyszukiwania zaawansowanego w przechowywanych danych.
 * [Zainstalować język R w klastrach HDInsight](hdinsight-hadoop-r-scripts-linux.md). Dostosowywanie klastra należy zainstalować R w klastrach HDInsight Hadoop. R jest open source języka i środowiska do statystycznego przetwarzania danych. Zapewnia on setki wbudowanych funkcji statystycznych i własnej język programowania, łączącą aspekty funkcjonalne i zorientowanym obiektowo programowania. Umożliwia także rozbudowane funkcje graficzne.

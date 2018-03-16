@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Przy użyciu portalu Azure stosu
 
@@ -31,7 +31,7 @@ Jako klient korzystający z usług Azure stosu za pomocą portalu Azure stosu do
 Operatorem stosu Azure (dostawcy usług lub administrator w organizacji), może powiadamiać o poprawny adres URL do dostępu do portalu. 
 
 - Zintegrowany system adres URL zmienia się na podstawie od regionu i nazwy domen zewnętrznych z operatorem i będzie w format https://portal. &lt; *region*&gt;.&lt; *FQDN*&gt;.
-- Jeśli używasz usługi Azure stosu Development Kit portalu adres jest https://portal.local.azurestack.external.
+- Jeśli używasz usługi Azure stosu Development Kit adres portalu jest https://portal.local.azurestack.external.
 
 ![Zrzut ekranu przedstawiający portal użytkowników usługi Azure stosu](media/azure-stack-use-portal/UserPortal.png)
 
@@ -70,6 +70,6 @@ Jeśli potrzebujesz dodatkowej pomocy, skontaktuj się z dostawcą organizacji l
 
 Jeśli używasz usługi Azure stosu Development Kit [forum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) jest jedyną metodą pomocy technicznej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Kluczowe zagadnienia dotyczące: za pomocą usług lub tworzenia aplikacji dla platformy Azure stosu](azure-stack-considerations.md)

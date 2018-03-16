@@ -18,10 +18,10 @@ ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplikacje, uprawnienia i zgody w usłudze Azure Active Directory
 W ramach usługi Azure Active Directory można dodać aplikacje do katalogu.  Aplikacje mogą się różnić w zależności od typu.  Aby wyświetlić aplikacje w portalu, wybierz katalog, a następnie wybierz aplikacje.

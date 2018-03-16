@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Wdrażanie urządzenia StorSimple w chmurze oraz zarządzanie nim na platformie Azure (aktualizacja Update 3 i nowsze)
 
@@ -78,7 +78,7 @@ Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji u
 Przed aprowizowaniem urządzenia w chmurze wykonaj następujące czynności przygotowawcze w środowisku platformy Azure:
 
 * Upewnij się, że masz urządzenie fizyczne StorSimple z serii 8000 (model 8100 lub 8600) wdrożone i działające w centrum danych. Zarejestruj to urządzenie za pomocą tej samej usługi Menedżera urządzeń StorSimple, dla której zamierzasz utworzyć urządzenie StorSimple w chmurze.
-* [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) dla urządzenia w chmurze. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Regiony świadczenia usługi Premium Storage to regiony, które odpowiadają wierszowi usługi Disk Storage na liście [usług platformy Azure według regionów](https://azure.microsoft.com/regions/services/).
+* [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) dla urządzenia w chmurze. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Regiony świadczenia usługi Premium Storage to regiony, które odpowiadają wierszowi usługi Disk Storage na liście [usług platformy Azure według regionów](https://azure.microsoft.com/regions/services/).
 * Zalecamy używanie domyślnego serwera DNS udostępnionego na platformie Azure zamiast określania nazwy własnego serwera DNS. Jeśli nazwa serwera DNS jest nieprawidłowa lub jeśli serwer DNS nie jest w stanie poprawnie rozpoznać adresów IP, tworzenie urządzenia w chmurze kończy się niepowodzeniem.
 * Sieci typu punkt do lokacji i lokacja do lokacji są opcjonalne. W razie potrzeby można skonfigurować te opcje dla bardziej zaawansowanych scenariuszy.
 * Można utworzyć [maszyny wirtualne Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (serwery hosta) w sieci wirtualnej, która może korzystać z woluminów udostępnionych przez urządzenie w chmurze. Serwery te muszą spełniać następujące wymagania:

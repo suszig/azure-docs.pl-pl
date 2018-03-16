@@ -16,10 +16,10 @@ ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Zaloguj się przy użyciu telefonu, nie pamiętasz hasła
 
@@ -87,7 +87,7 @@ Dla komputera zaleca się logowanie się przy użyciu usługi Windows Hello w sy
 ### <a name="can-i-sign-in-with-my-windows-phone"></a>Można zalogować się przy użyciu mojej Windows Phone?  
 W tej chwili nie opracowywana tę funkcję dla Microsoft Authenticator na Windows Phone. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli nie zostały pobrane aplikacji Authenticator firmy Microsoft, należy go wyewidencjonować. Aplikacja jest dostępna dla [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), i logowania telefonu jest dostępny w aplikacji Microsoft Authenticator dla [Android](http://go.microsoft.com/fwlink/?Linkid=825072) i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Jeśli masz pytania dotyczące aplikacji ogólnie rzecz biorąc, Przyjrzyjmy się [uwierzytelniania firmy Microsoft — często zadawane pytania](microsoft-authenticator-app-faq.md)

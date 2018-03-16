@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
 ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Włącz wielodostępność stosu Azure
 
@@ -89,7 +89,7 @@ Register-AzSWithMyDirectoryTenant `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>Bezpośrednie użytkownikom na logowanie
-Teraz, możesz i Joanna zostały wykonane kroki do katalogu dołączyć Joanna, Joanna przekierować użytkowników Fabrikam do logowania.  Firma Fabrikam (to znaczy, że użytkownicy z sufiksem fabrikam.onmicrosoft.com) logowania, przechodząc na stronę https://portal.local.azurestack.external.  
+Teraz, możesz i Joanna zostały wykonane kroki do katalogu dołączyć Joanna, Joanna przekierować użytkowników Fabrikam do logowania.  Firma Fabrikam (to znaczy, że użytkownicy z sufiksem fabrikam.onmicrosoft.com) logowania po przejściu na stronę https://portal.local.azurestack.external.  
 
 Joanna kieruje żadnego [obce podmioty](../active-directory/active-directory-understanding-resource-access.md) w katalogu firmy Fabrikam (to znaczy użytkowników w katalogu firmy Fabrikam bez sufiks fabrikam.onmicrosoft.com) zalogowanie się przy użyciu https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Jeśli nie należy używać tego adresu URL, są wysyłane do ich domyślny katalog (Fabrikam) i komunikat o błędzie z informacją, że nie zgodził ich administratora.
 

@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
 ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Dodaj logowanie z firmy Microsoft do aplikacji sieci web platformy ASP.NET
@@ -66,14 +66,14 @@ W tej sekcji przedstawiono kroki, aby zainstalować i skonfigurować potoku uwie
 > Preferowane jest zamiast tego Pobierz ten przykładowy projekt programu Visual Studio? [Pobieranie projektu](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip) i przejść [kroku konfiguracji](#configure-your-webconfig-and-register-an-application) skonfigurować przykładowy kod przed wykonaniem.
 
 ## <a name="create-your-aspnet-project"></a>Tworzenie projektu platformy ASP.NET
-1. W programie Visual Studio:`File` > `New` > `Project`<br/>
+1. W programie Visual Studio: `File` > `New` > `Project`<br/>
 2. W obszarze *Visual C# \Web*, wybierz pozycję `ASP.NET Web Application (.NET Framework)`.
 3. Nazwa aplikacji, a następnie kliknij przycisk *OK*
 4. Wybierz `Empty` , a następnie zaznacz pole wyboru, aby dodać `MVC` odwołań
 
 ## <a name="add-authentication-components"></a>Dodaj składniki uwierzytelniania
 
-1. W programie Visual Studio:`Tools` > `Nuget Package Manager` > `Package Manager Console`
+1. W programie Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Dodaj *pakietów NuGet oprogramowanie pośredniczące OWIN* wpisując następujące polecenie w oknie konsoli Menedżera pakietów:
 
     ```powershell
@@ -92,8 +92,8 @@ Poniższe kroki są używane do tworzenia oprogramowania pośredniczącego OWIN 
 
 > [!TIP]
 > Jeśli projekt nie ma `Startup.cs` pliku w folderze głównym:<br/>
-> 1. Kliknij prawym przyciskiem myszy w folderze głównym projektu: >`Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Nadaj jej nazwę`Startup.cs`<br/>
+> 1. Kliknij prawym przyciskiem myszy w folderze głównym projektu: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Nadaj jej nazwę `Startup.cs`<br/>
 >
 >> Upewnij się, że jest wybrana klasa, klasę początkową OWIN i nie C# klasa standardowa. To potwierdzić, sprawdzając występowanie `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` powyżej przestrzeni nazw.
 
@@ -119,7 +119,7 @@ Poniższe kroki są używane do tworzenia oprogramowania pośredniczącego OWIN 
 
 W tym kroku przedstawiono sposób tworzenia nowego kontrolera do udostępnienia metody logowania i wylogowywania.
 
-1.  Kliknij prawym przyciskiem myszy `Controllers` i wybierz polecenie`Add` > `Controller`
+1.  Kliknij prawym przyciskiem myszy `Controllers` i wybierz polecenie `Add` > `Controller`
 2.  Wybierz pozycję `MVC (.NET version) Controller – Empty`.
 3.  Kliknij przycisk *Dodaj*
 4.  Nadaj mu nazwę `HomeController` i kliknij przycisk *Dodaj*
@@ -135,7 +135,7 @@ W tym kroku przedstawiono sposób tworzenia nowego kontrolera do udostępnienia 
 
 W programie Visual Studio Utwórz nowy widok, aby dodać przycisk Zarejestruj i wyświetlić informacje o użytkowniku po uwierzytelnieniu:
 
-1.  Kliknij prawym przyciskiem myszy `Views\Home` i wybierz polecenie`Add View`
+1.  Kliknij prawym przyciskiem myszy `Views\Home` i wybierz polecenie `Add View`
 2.  Nadaj jej nazwę `Index`.
 3.  Dodaj poniższy kod HTML, który zawiera przycisk Zarejestruj, do pliku:
 
@@ -149,10 +149,10 @@ W programie Visual Studio Utwórz nowy widok, aby dodać przycisk Zarejestruj i 
 ## <a name="display-users-claims-by-adding-a-controller"></a>Wyświetl oświadczeń użytkownika przez dodawanie kontrolera
 Ten kontroler pokazuje zastosowań `[Authorize]` atrybut do ochrony kontrolera. Ten atrybut ogranicza dostęp do kontrolera, zezwalając tylko użytkownicy uwierzytelnieni. Poniższy kod umożliwia użycie atrybutu do wyświetlenia w ramach logowania w oświadczeń użytkowników, które zostały pobrane.
 
-1.  Kliknij prawym przyciskiem myszy `Controllers` folderu:`Add` > `Controller`
+1.  Kliknij prawym przyciskiem myszy `Controllers` folderu: `Add` > `Controller`
 2.  Wybierz pozycję `MVC {version} Controller – Empty`.
 3.  Kliknij przycisk *Dodaj*
-4.  Nadaj jej nazwę`ClaimsController`
+4.  Nadaj jej nazwę `ClaimsController`
 5.  Zastąp kod klasy kontrolera następującym kodem — spowoduje to dodanie `[Authorize]` do klasy atrybutu:
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
@@ -166,7 +166,7 @@ Ten kontroler pokazuje zastosowań `[Authorize]` atrybut do ochrony kontrolera. 
 
 W programie Visual Studio Utwórz nowy widok, aby wyświetlić oświadczeń użytkownika na stronie sieci web:
 
-1.  Kliknij prawym przyciskiem myszy `Views\Claims` folderu oraz:`Add View`
+1.  Kliknij prawym przyciskiem myszy `Views\Claims` folderu oraz: `Add View`
 2.  Nadaj jej nazwę `Index`.
 3.  Dodaj poniższy kod HTML do pliku:
 
@@ -186,7 +186,7 @@ W programie Visual Studio Utwórz nowy widok, aby wyświetlić oświadczeń uży
     <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
     ```
 2. W Eksploratorze rozwiązań wybierz projekt i przyjrzyj się <i>właściwości</i> okna (Jeśli nie widzisz okna właściwości, naciśnij klawisz F4)
-3. Zmiany, aby włączyć protokół SSL<code>True</code>
+3. Zmiany, aby włączyć protokół SSL <code>True</code>
 4. Skopiuj adres URL protokołu SSL projektu do Schowka:<br/><br/>![Właściwości projektu](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
 5. W <code>web.config</code>, Zastąp <code>Enter_the_Redirect_URL_here</code> z adresem URL protokołu SSL projektu 
 
@@ -213,8 +213,8 @@ Można skonfigurować aplikacji umożliwia tylko w przypadku użytkowników, kt�
 Wykonaj następujące kroki, aby zaakceptować logowania kont służbowych z firmy lub organizacji, która ma być zintegrowane z usługą Azure Active Directory. To jest typowym scenariuszem dla *aplikacji SaaS*:
 
 1. Wróć do [portalu Microsoft Azure - rejestracji aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) i zlokalizować aplikacji został zarejestrowany
-2. W obszarze `All Settings` wybierz`Properties`
-3. Zmień `Multi-tenanted` właściwości `Yes` i kliknij przycisk`Save`
+2. W obszarze `All Settings` wybierz `Properties`
+3. Zmień `Multi-tenanted` właściwości `Yes` i kliknij przycisk `Save`
 
 Aby uzyskać więcej informacji na temat tego ustawienia i pojęcia aplikacje wielodostępne, zobacz [w tym artykule](../active-directory-devhowto-multi-tenant-overview.md "omówienie wielodostępnej").
 
@@ -271,7 +271,7 @@ Wybierz, aby zobaczyć oświadczenia użytkownika. Ta akcja prowadzi do kontrole
 |---|---|---|
 | Name (Nazwa) | {Pełna nazwa użytkownika} | Użytkownik miał na imię i nazwisko
 |Nazwa użytkownika | <span>user@domain.com</span>| Nazwa użytkownika używana do identyfikacji zalogowanego użytkownika
-| Temat| {Podmiotu}|Ciąg do unikatowego identyfikowania logowania użytkownika sieci web|
+| Temat| {Subject}|Ciąg do unikatowego identyfikowania logowania użytkownika sieci web|
 | Identyfikator dzierżawy| {Guid}| A *guid* jednoznacznie reprezentujący użytkownika usługi Azure Active Directory organizacji.|
 
 Ponadto zobaczysz tabeli, w tym wszystkie oświadczenia użytkownika dołączana do uwierzytelniania żądań. Lista wszystkich oświadczeń w Token Identyfikatora i ich wyjaśnienia, zobacz [artykułu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "listy oświadczenia w tokenie identyfikator").

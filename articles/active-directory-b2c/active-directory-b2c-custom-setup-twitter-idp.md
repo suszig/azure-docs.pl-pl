@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Usługa Azure Active Directory B2C: Dodawanie usługi Twitter jako dostawca tożsamości OAuth1 za pomocą zasad niestandardowych
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -39,9 +39,9 @@ Aby użyć usługi Twitter jako dostawca tożsamości w usłudze Azure Active Di
  
     a. Typ **nazwa** i **opis** dla nowej aplikacji. 
 
-    b. W **witryny sieci Web** Wklej **https://login.microsoftonline.com**. 
+    b. W **witryny sieci Web** Wklej  **https://login.microsoftonline.com** . 
 
-    c. W **wywołania zwrotnego adresu URL** Wklej **https://login.microsoftonline.com/te/ {tenant}.onmicrosoft.com/oauth2/authresp**. Zastąp {*dzierżawy*} nazwą Twojej dzierżawy (na przykład contosob2c.onmicrosoft.com). Upewnij się, że używasz schematu HTTPS. 
+    c. W **wywołania zwrotnego adresu URL** Wklej  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Zastąp {*dzierżawy*} nazwą Twojej dzierżawy (na przykład contosob2c.onmicrosoft.com). Upewnij się, że używasz schematu HTTPS. 
 
     d. W dolnej części strony, przeczytaj i zaakceptuj postanowienia, a następnie wybierz **tworzenie aplikacji Twitter**.
 
