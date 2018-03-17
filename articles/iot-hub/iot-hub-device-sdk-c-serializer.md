@@ -3,7 +3,7 @@ title: "Azure urządzenia IoT zestawu SDK dla języka C - serializator | Dokumen
 description: "Jak używać biblioteki serializator na urządzeniu Azure IoT SDK dla języka C do tworzenia aplikacji urządzenia, które komunikują się z Centrum IoT."
 services: iot-hub
 documentationcenter: 
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: 
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: obloch
-ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT urządzenia zestawu SDK dla języka C — więcej informacji na temat serializator
 [Najpierw artykuł](iot-hub-device-sdk-c-intro.md) w tej serii wprowadzone **urządzenia Azure IoT SDK dla języka C**. Kolejnym artykule podano bardziej szczegółowy opis [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). W tym artykule zakończeniu pokrycia zestawu SDK, zapewniając bardziej szczegółowy opis pozostałych składników: **serializator** biblioteki.
@@ -71,14 +71,14 @@ Następujące typy danych są obsługiwane w modelach utworzone za pomocą **ser
 | Float |Liczba zmiennoprzecinkowa pojedynczej precyzji |
 | długa |długich liczb całkowitych |
 | int8\_t |8-bitową liczbą całkowitą |
-| Int16\_t |16-bitową liczbę całkowitą |
-| Int32\_t |32-bitowa liczba całkowita |
+| int16\_t |16-bitową liczbę całkowitą |
+| int32\_t |32-bitowa liczba całkowita |
 | Int64\_t |64-bitowa liczba całkowita |
-| wartość logiczna |Wartość logiczna |
+| bool |wartość logiczna |
 | ASCII\_char\_ptr |Ciąg ASCII |
 | EDM\_DATA\_CZASU\_PRZESUNIĘCIA |Przesunięcie czasu daty |
-| EDM\_IDENTYFIKATOR GUID |IDENTYFIKATOR GUID |
-| EDM\_BINARNE |Binarne |
+| EDM\_IDENTYFIKATOR GUID |GUID |
+| EDM\_BINARY |Binarne |
 | DEKLAROWANIE\_— STRUKTURA |Typ danych złożonych |
 
 Zacznijmy od ostatniego typu danych. **DECLARE\_struktury** można zdefiniować złożone typy danych, które są grupami innych typów pierwotnych. Te grupy umożliwiają definiowanie modelu, który wygląda następująco:
@@ -368,7 +368,7 @@ Może się odgadnąć, czy wynik ten kod jest czy dwóch danych zdarzenia są wy
 
 {"Temperatury": 75},
 
-{"Wilgotności": 45}
+{"Humidity":45}
 
 ]
 
@@ -662,7 +662,7 @@ serializer_deinit();
 
 W przeciwnym razie wszystkie inne funkcje wymienione powyżej działać w identyczny **serializator** biblioteki tak jak w **IoTHubClient** biblioteki. Aby uzyskać więcej informacji o tych tematów, zobacz [poprzednim artykule](iot-hub-device-sdk-c-iothubclient.md) w tej serii.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule opisano szczegółowo unikatowe aspekty **serializator** zawartych w bibliotece **urządzenia Azure IoT SDK dla języka C**. Z informacjami pod warunkiem, że powinien dysponować dobrą znajomością używania modeli do wysyłania zdarzeń i odbieranie komunikatów z Centrum IoT.
 
 Teraz również serii trzech części o tworzeniu aplikacji za pomocą **urządzenia Azure IoT SDK dla języka C**. Powinno to być wystarczających informacji do nie tylko ułatwiające rozpoczęcie pracy, ale umożliwiają dokładne zrozumienie działania interfejsów API. Aby uzyskać dodatkowe informacje istnieje kilka przykładów w zestawie SDK nie pasuje do tutaj. W przeciwnym razie [dokumentacji zestawu SDK](https://github.com/Azure/azure-iot-sdk-c) jest dobrym zasobów, aby uzyskać dodatkowe informacje.
@@ -671,7 +671,7 @@ Aby dowiedzieć się więcej o tworzeniu aplikacji Centrum IoT, zobacz [Azure Io
 
 Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
-* [Wdrażanie urządzenia brzegowe AI krawędzi IoT Azure][lnk-iotedge]
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

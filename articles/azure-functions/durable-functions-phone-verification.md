@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Człowieka w funkcje trwałe — przykład weryfikacji telefonu
 
@@ -33,23 +33,15 @@ W tym przykładzie implementuje system weryfikacji na podstawie SMS telefonu. Te
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
-Weryfikacja telefonu umożliwia Sprawdź, czy użytkownicy końcowi aplikacji nie są nadawcy i czy są one kto mówią, że są one. Uwierzytelnianie wieloskładnikowe jest typowe przypadek użycia ochrony przed hakerami kont użytkowników. Problem z wdrożeniem weryfikację telefoniczną jest wymaganie **stanowe interakcji** z człowieka. Użytkownik końcowy jest zwykle zapewniany kodu (np. numer 4-cyfrowego) i musi odpowiadać **w rozsądnym czasie**.
+Weryfikacja telefonu umożliwia Sprawdź, czy użytkownicy końcowi aplikacji nie są nadawcy i czy są one kto mówią, że są one. Uwierzytelnianie wieloskładnikowe jest typowe przypadek użycia ochrony przed hakerami kont użytkowników. Problem z wdrożeniem weryfikację telefoniczną jest wymaganie **stanowe interakcji** z człowieka. Użytkownik końcowy jest zwykle zapewniany kodu (na przykład numer 4-cyfrowego) i musi odpowiadać **w rozsądnym czasie**.
 
-Zwykłe usługi Azure Functions bezstanowej (jak to wiele innych chmury punktach końcowych na innych platformach), tego rodzaju interakcje będzie obejmować jawnie Zarządzanie zewnętrznie w bazie danych lub niektóre inne trwałego magazynu stanów. Ponadto interakcja muszą być dzielone na wiele funkcji, które mogą być jednocześnie w skoordynowany sposób. Na przykład należy co najmniej jedna funkcja podejmowania decyzji na kod, gdzieś wprowadzeniem trwałych i wysłanie ich do telefonu użytkownika. Ponadto należy co najmniej jedną funkcję otrzymują odpowiedź od użytkownika i w jakiś sposób mapowania go z powrotem na oryginalny wywołanie funkcji w celu przeprowadzenia weryfikacji kodu. Limit czasu jest również istotnym elementem do zapewnienia bezpieczeństwa. To może pobrać dosyć złożona bardzo szybko.
+Zwykłe usługi Azure Functions bezstanowej (jak to wiele innych chmury punktach końcowych na innych platformach), tego rodzaju interakcje obejmują zarządzanie jawnie zewnętrznie w bazie danych lub niektóre inne trwałego magazynu stanów. Ponadto interakcja muszą być dzielone na wiele funkcji, które mogą być jednocześnie w skoordynowany sposób. Na przykład należy co najmniej jedna funkcja podejmowania decyzji na kod, gdzieś wprowadzeniem trwałych i wysłanie ich do telefonu użytkownika. Ponadto należy co najmniej jedną funkcję otrzymują odpowiedź od użytkownika i w jakiś sposób mapowania go z powrotem na oryginalny wywołanie funkcji w celu przeprowadzenia weryfikacji kodu. Limit czasu jest również istotnym elementem do zapewnienia bezpieczeństwa. To może szybko dość złożone.
 
-Złożoność tego scenariusza jest znacznie ograniczone podczas korzystania z funkcji trwałe. Jak pokażemy w tym przykładzie funkcji programu orchestrator mogą zarządzać stanowe interakcji bardzo łatwo i bez obejmującego wszystkie magazyny danych zewnętrznych. Ponieważ funkcje programu orchestrator są *trwałe*, przepływy interactive także są wysoce niezawodne.
+Złożoność tego scenariusza jest znacznie ograniczone podczas korzystania z funkcji trwałe. Jak pokażemy w tym przykładzie funkcji programu orchestrator mogą zarządzać stanowe interakcji łatwo i bez obejmującego wszystkie magazyny danych zewnętrznych. Ponieważ funkcje programu orchestrator są *trwałe*, przepływy interactive także są wysoce niezawodne.
 
 ## <a name="configuring-twilio-integration"></a>Konfigurowanie integracji usługi Twilio
 
-W tym przykładzie polega na użyciu [usługi Twilio](https://www.twilio.com/) usługi do wysyłania wiadomości SMS na telefon komórkowy. Środowisko Azure Functions ma już obsługę usługi Twilio za pośrednictwem [powiązania usługi Twilio](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), a próbki korzysta z tej funkcji.
-
-Najpierw potrzebne jest konto usługi Twilio. Możesz ją utworzyć bezpłatne w https://www.twilio.com/try-twilio. Po utworzeniu konta Dodaj następujące trzy **ustawień aplikacji** do funkcji aplikacji.
-
-| Nazwa ustawienia aplikacji | Opis wartości |
-| - | - |
-| **TwilioAccountSid**  | Identyfikator SID dla konta usługi Twilio |
-| **TwilioAuthToken**   | Token uwierzytelniania dla konta usługi Twilio |
-| **TwilioPhoneNumber** | Numer telefonu skojarzony z Twoim kontem usługi Twilio. To jest używany do wysyłania wiadomości SMS. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>Funkcje
 
@@ -77,7 +69,7 @@ Po rozpoczęciu tej funkcji orchestrator wykonuje następujące czynności:
 3. Tworzy trwałe czasomierza tego wyzwalaczy 90 sekund od bieżącego czasu.
 4. Równolegle z czasomierzem czeka na **SmsChallengeResponse** zdarzeń od użytkownika.
 
-Użytkownik otrzymuje wiadomość SMS z kodem czterocyfrowej. Mają one 90 sekund do odesłania do wystąpienia funkcji programu orchestrator do ukończenia procesu weryfikacji tego samego 4-cyfrowy kod. Jeśli przesyłają nieprawidłowy kod otrzymują dodatkowe trzy próbuje pobrać go w prawo (w tym samym oknie drugi 90).
+Użytkownik otrzymuje wiadomość SMS z 4 cyfrowy kod. Mają one 90 sekund do odesłania do wystąpienia funkcji programu orchestrator do ukończenia procesu weryfikacji tego samego 4-cyfrowy kod. Jeśli przesyłają nieprawidłowy kod otrzymują dodatkowe trzy próbuje pobrać go w prawo (w tym samym oknie 90 sekund).
 
 > [!NOTE]
 > Nie może być widocznych w pierwszej, ale ta orchestrator funkcja jest całkowicie deterministyczna. Jest to spowodowane `CurrentUtcDateTime` właściwość jest używana do obliczania czasu wygaśnięcia czasomierza, a ta właściwość zwraca tę samą wartość w każdej Odtwarzaj na tym etapie w kodzie programu orchestrator. Jest to ważne upewnić się, że takie same `winner` wyniki z każdego powtarzane wywołania `Task.WhenAny`.
@@ -97,9 +89,9 @@ A Oto kod, który generuje kod testu 4-cyfrowego i wysyła wiadomość SMS:
 
 To **E4_SendSmsChallenge** funkcja pobiera wywołana tylko raz, nawet jeśli wystąpiła awaria procesu lub pobiera odtwarzany. Jest to dobry, ponieważ nie chcesz, aby użytkownik końcowy pobierania wielu wiadomości SMS. `challengeCode` Zwrócić wartość automatycznie jest trwały, więc funkcja orchestrator zawsze wie, co to jest prawidłowy kod.
 
-## <a name="run-the-sample"></a>Uruchom próbki
+## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-Używanie funkcji wyzwalanej przez HTTP wchodzących w skład próby, można uruchomić orchestration wysyłając następujące żądania HTTP POST.
+Używanie funkcji wyzwalanej przez HTTP wchodzących w skład próby, możesz uruchomić orchestration wysyłania następujące żądania HTTP POST:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification
@@ -158,7 +150,7 @@ Oto aranżacji jako pojedynczy plik C# w projektu programu Visual Studio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przykładzie wykazała niektóre z zaawansowanych możliwości funkcji trwałe, szczególnie `WaitForExternalEvent` i `CreateTimer`. W tym samouczku jak te można łączyć z `Task.WaitAny` wdrożenia systemu niezawodnej limitu czasu, co przydaje się często do interakcji z rzeczywistą osób. Możesz można dowiedzieć się więcej o sposobie używania funkcji trwałe odczytując szereg artykuły, które zawierają szczegółowe informacje dotyczące określonych tematów.
 

@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7892c74f03647e289ed96055fb9db5c2f08f0234
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 59ee56e225623295dd63bf5ae303bfe1aa8e95cf
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migracja bazy danych programu SQL Server z bazą danych SQL Azure
 
@@ -33,7 +33,7 @@ W obu przypadkach należy się upewnić, że baza danych jest zgodny z bazy dany
 
  Ta metoda umożliwia migrację jedną lub puli bazy danych, jeśli można pozwolić sobie przestój lub nowszym migracji są przeprowadzania migracji testu produkcyjnej bazy danych. Samouczek, zobacz [Migrowanie bazy danych programu SQL Server](sql-database-migrate-your-sql-server-database.md).
 
-Poniższa lista zawiera ogólny przepływ pracy migracji bazy danych programu SQL Server jedną lub puli bazy danych przy użyciu tej metody. W przypadku migracji do wystąpienia zarządzane zobacz [migracji do wystąpienia zarządzane](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+Poniższa lista zawiera ogólny przepływ pracy migracji bazy danych programu SQL Server jedną lub puli bazy danych przy użyciu tej metody. W przypadku migracji do wystąpienia zarządzane zobacz [migracji do wystąpienia zarządzane](sql-database-managed-instance-migrate.md).
 
   ![Diagram migracji VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 

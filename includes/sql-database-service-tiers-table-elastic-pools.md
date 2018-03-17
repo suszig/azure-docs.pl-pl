@@ -84,9 +84,10 @@ sql-database-elastic-pool.md
 | Maksymalny rozmiar magazynu na bazę danych (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
+
 > [!IMPORTANT]
 > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Aby uzyskać więcej informacji, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/). Wielkość magazynu jest większa niż ilość miejsca w magazynie uwzględnione są w wersji zapoznawczej i zastosowania dodatkowych kosztów. Aby uzyskać więcej informacji, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* W warstwie Premium więcej niż 1 TB pamięci masowej jest obecnie dostępna w następujących regionach: Kanada centralnej, Kanada Wschodnia Francja centralnej, Niemcy centralnej, Japonia Wschodnia, Korea centralnej, południowo-środkowe stany, Południowej Azja Wschodnia, nam East2, zachodnie stany USA, Virginia nam wersji dla instytucji rządowych i zachodnie Europa. 
+> \* W warstwie Premium ponad 1 TB miejsca do magazynowania jest obecnie dostępny w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada Środkowa, Kanada Wschodnia, Środkowe stany USA, Francja Środkowa, Niemcy Środkowe, Japonia Wschodnia, Japonia Zachodnia, Korea Środkowa, Północno-środkowe stany USA, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia i Europa Zachodnia. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 >
 

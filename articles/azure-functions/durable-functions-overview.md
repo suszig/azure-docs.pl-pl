@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Omówienie funkcji trwałe (wersja zapoznawcza)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametr ma wartość z zakresu od `orchestrationClient` output powiązania, który jest częścią rozszerzenie funkcji trwałe. Go udostępnia metody rozruchu, wysyłania zdarzeń, przerywanie i wykonywania zapytania dotyczącego orchestrator do nowego lub istniejącego wystąpienia funkcji. W powyższym przykładzie HTTP wyzwalane — funkcja przyjmuje `functionName` wartość z przychodzącego adresu URL i przekazuje, które do wartości [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Ten interfejs API powiązanie zwraca odpowiedź, która zawiera `Location` nagłówka i dodatkowe informacje o wystąpieniu, które później mogą być używane do wyszukiwania Konfigurowanie stan wystąpienia uruchomiony lub przerwać jego działanie.
 
-## <a name="pattern-4-stateful-singletons"></a>Wzorzec #4: Stanowe pojedynczych
+## <a name="pattern-4-monitoring"></a>Wzorzec #4: monitorowania
 
-Większość funkcji jawne rozpoczęcia i zakończenia i nie bezpośrednio współdziałać ze źródeł zewnętrznych zdarzeń. Orchestrations obsługuje jednak [stanowe singleton](durable-functions-singletons.md) wzorca, który pozwala na zachowanie, takich jak niezawodnej [podmiotów](https://en.wikipedia.org/wiki/Actor_model) w przetwarzania rozproszonego.
+Wzorzec monitor odwołuje się do elastycznych *cyklicznego* procesu w przepływie pracy — na przykład sondowania, dopóki nie zostaną spełnione określone warunki. Regularne wyzwalacza czasomierza można rozwiązać Prosty scenariusz, takie jak zadanie oczyszczania okresowe, ale jej interwał jest statyczna i zarządzanie okresy istnienia wystąpienia staje się złożonych. Trwałe funkcji umożliwia elastyczne cyklu interwałów, zarządzanie okresem istnienia zadań i możliwość tworzenia monitor wielu procesów z jednym aranżacji.
 
-Na poniższym diagramie przedstawiono funkcję, która działa w pętli nieskończonej podczas przetwarzania zdarzeń odebranych ze źródeł zewnętrznych.
+Przykład czy wycofywania wcześniejszych scenariusz HTTP API asynchronicznego. Zamiast udostępnianie punktu końcowego dla zewnętrznych klienta do monitorowania długotrwałej operacji, monitor długotrwałe zużywa zewnętrznego punktu końcowego, oczekiwanie na niektóre zmiany stanu.
 
-![Diagram singleton stanowe](media/durable-functions-overview/stateful-singleton.png)
+![Diagram monitora](media/durable-functions-overview/monitor.png)
 
-Chociaż funkcje trwałe nie jest implementacją modelu aktora, funkcje programu orchestrator ma wiele cech środowiska wykonawczego. Na przykład są one stateful (prawdopodobnie nieskończone) długotrwałe, niezawodnych, jednowątkowych przezroczysty lokalizacji i globalnie adresowanego. Sprawia to, że funkcje programu orchestrator przydatne w przypadku "aktora"-scenariuszy, takich jak.
-
-Funkcje zwykłej są bezstanowe i dlatego nie nadaje się do implementacji wzorca singleton stanowych. Jednak funkcje trwałe rozszerzenie sprawia, że wzorzec singleton stanowe stosunkowo prosta do wdrożenia. Następujący kod jest prosty orchestrator funkcję, która implementuje licznika.
+Przy użyciu funkcji trwałe, wiele monitorów, które obserwować dowolnego punkty końcowe można tworzyć w zaledwie kilku wierszach kodu. Monitory można zakończenie wykonywania, gdy niektóre warunek jest spełniony lub być został przerwany przez [DurableOrchestrationClient](durable-functions-instance-management.md), oraz ich interwału oczekiwania można zmienić na podstawie pod warunkiem, niektóre (tj. wykładniczego wycofywania.) Poniższy kod implementuje podstawowe monitora.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-Ten kod jest, co może być opisane jako "aranżacji eternal" &mdash; oznacza to taki, który rozpoczyna się i nigdy nie kończy się. Go wykonuje następujące czynności:
-
-* Rozpoczyna się od wartości wejściowej w `counterState`.
-* Czeka na nieograniczony czas dla komunikatu o nazwie `operation`.
-* Wykonuje logikę można zaktualizować stanu lokalnego.
-* "Ponowne uruchomienie" się przez wywołanie metody `ctx.ContinueAsNew`.
-* Ponownie oczekujące na nieograniczony czas dla następnej operacji.
+Po odebraniu żądania nowego wystąpienia orchestration jest tworzona dla danego identyfikatora zadania. Wystąpienie sonduje stan, dopóki spełniony jest warunek i pętla zostanie zakończone. Trwałe czasomierza służy do kontrolowania interwału sondowania. Następnie można wykonać dalszej pracy lub orchestration można zakończyć. Gdy `ctx.CurrentUtcDateTime` przekracza `expiryTime`, zakończenia monitora.
 
 ## <a name="pattern-5-human-interaction"></a>Wzorzec #5: Człowieka
 
@@ -229,7 +228,7 @@ Trwałe czasomierz jest tworzony przez wywołanie metody `ctx.CreateTimer`. W pr
 
 ## <a name="the-technology"></a>Technologia
 
-W tle rozszerzenie funkcji trwałe jest oparty na [trwałe Framework zadań](https://github.com/Azure/durabletask), biblioteki typu open source, w witrynie GitHub tworzenia orchestrations trwałe zadań. Znacznie podobnie jak jak usługi Azure Functions jest niekorzystającą rozwoju zadań Webjob Azure, trwałe funkcji jest niekorzystającą rozwoju trwałe Framework zadań. Trwałe Framework zadania umożliwia silnie w obrębie firmy Microsoft i poza również zautomatyzować procesy o krytycznym znaczeniu. Jest fizyczną Dopasuj niekorzystającą środowiska usługi Azure Functions.
+W tle rozszerzenie funkcji trwałe jest oparty na [trwałe Framework zadań](https://github.com/Azure/durabletask), biblioteki open source, w witrynie GitHub tworzenia orchestrations trwałe zadań. Znacznie podobnie jak jak usługi Azure Functions jest niekorzystającą rozwoju zadań Webjob Azure, trwałe funkcji jest niekorzystającą rozwoju trwałe Framework zadań. Trwałe Framework zadania umożliwia silnie w obrębie firmy Microsoft i poza również zautomatyzować procesy o krytycznym znaczeniu. Jest fizyczną Dopasuj niekorzystającą środowiska usługi Azure Functions.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Źródłem zdarzenia, punkty kontrolne i powtórzeń
 

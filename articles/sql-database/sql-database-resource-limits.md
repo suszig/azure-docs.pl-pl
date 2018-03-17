@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 6e6aaeea0375e92d7913e47c6b929a469ceb5c94
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ba192b6dba68f01af796a1099b064d6ec0bd3f1b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limitom zasobów bazy danych SQL Azure
 
@@ -58,7 +58,7 @@ Czas trwania całego procesu skalowania w górę zależy zarówno od rozmiaru, j
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Pojedyncza baza danych: ograniczenia P11 i P15, gdy maksymalny rozmiar większy niż 1 TB
 
-Maksymalny rozmiar większy niż 1 TB P11 i P15 z replikacją bazy danych jest obsługiwane w następujących regionach: East2 nam, zachodnie stany USA, Virginia nam wersji dla instytucji rządowych, Europa Zachodnia, Niemcy centralnej, Południowej, Azja Wschodnia, Japonia Wschodnia, Kanada centralnej i Kanada Wschodnia. Następujące zagadnienia i ograniczenia dotyczą P11 i P15 z replikacją baz danych o maksymalnym rozmiarze większa niż 1 TB:
+Maksymalny rozmiar większy niż 1 TB P11 i P15 z replikacją bazy danych jest obsługiwane w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada centralnej, Kanada Wschodnia, środkowe stany USA, Francja centralnej, Niemcy centralnej, Japonia Wschodnia, Japonia Zachodnia, centralnej Korei Północna środkowe stany USA, Europa Północna, Południowej środkowe stany USA, południowo Azja Wschodnia, Wielka Brytania Południowa, Wielka Brytania Zachodnia, East2 USA, zachodnie stany USA, Virginia wersji dla instytucji rządowych USA i Europa Zachodnia. Następujące zagadnienia i ograniczenia dotyczą P11 i P15 z replikacją baz danych o maksymalnym rozmiarze większa niż 1 TB:
 
 - Jeśli wybierzesz maksymalny rozmiar większy niż 1 TB, podczas tworzenia bazy danych (przy użyciu wartość 4 TB lub 4096 GB), polecenia create kończy się niepowodzeniem z powodu błędu w przypadku bazy danych jest obsługiwana w nieobsługiwany region.
 - Dla istniejących P11 P15 z replikacją baz danych i znajduje się w jednym z obsługiwanych regionów, możesz zwiększyć maksymalną magazynu poza 1 TB w przyrostach 256 GB do 4 TB. Aby sprawdzić, czy większy rozmiar jest obsługiwana w danym regionie, użyj [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) funkcji lub Sprawdź rozmiar bazy danych w portalu Azure. Uaktualnianie istniejącego P11 lub P15 z replikacją bazy danych można wykonać tylko przez głównego identyfikatora logowania poziomu serwera lub członków dbmanager: roli bazy danych. 

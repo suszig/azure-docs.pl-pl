@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Omówienie metryk w Microsoft Azure
 W tym artykule opisano metryki są platformie Microsoft Azure, ich zalety oraz sposób rozpocząć korzystanie z nich.  
@@ -63,7 +63,7 @@ Możesz również:
 Poniżej znajduje się Przewodnik szybkiego tworzenia metryki wykresu przy użyciu portalu Azure.
 
 ### <a name="to-view-metrics-after-creating-a-resource"></a>Aby wyświetlić metryk po utworzeniu zasobu
-1. Otwórz Azure portal.
+1. Otwórz witrynę Azure Portal.
 2. Tworzenie witryny sieci Web platformy Azure App Service.
 3. Po utworzeniu witryny sieci Web, przejdź do **omówienie** bloku witryny sieci Web.
 4. Możesz wyświetlić nowe metryki jako **monitorowanie** kafelka. Następnie możesz edytować kafelka i wybrać więcej metryki.
@@ -71,7 +71,7 @@ Poniżej znajduje się Przewodnik szybkiego tworzenia metryki wykresu przy użyc
    ![Metryki dla zasobu w monitorze Azure](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### <a name="to-access-all-metrics-in-a-single-place"></a>Aby dostęp do wszystkich metryki w jednym miejscu
-1. Otwórz Azure portal.
+1. Otwórz witrynę Azure Portal.
 2. Przejdź do nowego **Monitor** kartę, wybierz a następnie **metryki** opcji podrzędne.
 3. Wybierz subskrypcję, grupy zasobów, a nazwa zasobu z listy rozwijanej.
 4. Wyświetl listę dostępne metryki. Następnie wybierz metrykę interesuje i wykreślenia go.
@@ -116,7 +116,7 @@ Metryki alertów: można następnie powiadomienie za pośrednictwem poczty e-mai
 
  ![Metryki i reguły alertów w monitorze Azure](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Alerty czasu rzeczywistego (wersja zapoznawcza) w pobliżu: one mieć możliwość monitorowania wielu metryki i progi dla zasobu i powiadamiać użytkowników za pomocą [grupy akcji](/monitoring-action-groups.md). Więcej informacji o Leran [niemal metryki czasu rzeczywistego alerty tutaj](https://aka.ms/azuremonitor/near-real-time-alerts).
+Alerty czasu rzeczywistego (wersja zapoznawcza) w pobliżu: one mieć możliwość monitorowania wielu metryki i progi dla zasobu i powiadamiać użytkowników za pomocą [grupy akcji](/monitoring-action-groups.md). Dowiedz się więcej o [niemal metryki czasu rzeczywistego alerty tutaj](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Funkcja automatycznego skalowania Azure zasobów
@@ -127,7 +127,7 @@ Niektórych zasobów platformy Azure obsługuje skalowanie out lub w wielu wyst�
 ## <a name="learn-about-supported-services-and-metrics"></a>Więcej informacji na temat obsługiwanych usług i metryki
 Można wyświetlić szczegółową listę obsługiwanych usług i ich metryk [Azure Monitor metryki — obsługiwanych metryki na typ zasobu](monitoring-supported-metrics.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zapoznaj się łącza w tym artykule. Ponadto więcej informacji na temat:  
 
 * [Typowe metryki skalowania automatycznego](insights-autoscale-common-metrics.md)

@@ -3,8 +3,9 @@ title: "Użyj Azure Machine Learning parametry usługi sieci Web | Dokumentacja 
 description: "Jak używać parametry usługi sieci Web Azure Machine Learning, aby zmodyfikować zachowanie modelu podczas uzyskiwania dostępu do usługi sieci web."
 services: machine-learning
 documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 715ea008b84c1a503661394da14e8af167327941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b35b8160c777c8598a30e2d775d997e06438f0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Używanie parametrów usługi sieci Web Azure Machine Learning
 Usługi sieci web Azure Machine Learning jest tworzony przez publikowanie eksperymentu, która zawiera moduły można skonfigurować parametrów. W niektórych przypadkach możesz zmienić to zachowanie modułu jest uruchomiona usługa sieci web. *Parametry usługi sieci Web* umożliwiają wykonywanie tego zadania. 
@@ -53,7 +53,7 @@ Na przykład załóżmy, że mamy doświadczenia z [eksportowanie danych] [ writ
    * W obszarze **Określ typ uwierzytelniania**, wybierz "Konto".
    * Wprowadź informacje o koncie magazynu obiektów blob platformy Azure. 
      <p />
-3.Kliknij ikonę z prawej strony **ścieżki do obiektu blob, począwszy od parametru kontenera**. Wygląda następująco:
+3. Kliknij ikonę z prawej strony **ścieżki do obiektu blob, począwszy od parametru kontenera**. Wygląda następująco:
    
    ![Ikona parametr usługi sieci Web][icon]
    

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Wybór między usługami Azure, których dostarczania komunikatów
 
@@ -30,18 +30,22 @@ Jest to ważna różnica zauważyć między usług dostarczających zdarzenia i 
 
 ### <a name="event"></a>Wydarzenie
 
-Zdarzenie jest lekki powiadomienie z informacją o akcji lub zmiana stanu. Dane zdarzenia zawiera informacje o co się stało, ale nie ma danych, który wywołał zdarzenie. Na przykład zdarzenia powiadamia subskrybentów plik utworzono. Może on zawierać ogólne informacje o pliku, ale nie zawiera w samym pliku. Ogólnie rzecz biorąc zdarzenia wyzwolenia procedury obsługi zdarzeń do działania w czasie rzeczywistym.
+Zdarzenie jest lekki powiadomienie z informacją o warunku lub zmiany stanu. Wydawca zdarzeń ma nie oczekiwania dotyczące sposobu obsługi zdarzenia. Konsument zdarzenia decyduje o tym, co należy zrobić powiadomienia. Zdarzenia mogą być odrębne jednostki lub częścią serii.
+
+Zdarzenia odrębny raport zmiana stanu i można wykonać akcję. Do wykonania następnego kroku, użytkownik musi znać tylko że coś się stało. Dane zdarzenia zawiera informacje o co się stało, ale nie ma danych, który wywołał zdarzenie. Na przykład zdarzenia powiadamia użytkowników czy plik został utworzony. Może on zawierać ogólne informacje o pliku, ale nie zawiera w samym pliku. Zdarzenia odrębny idealnie nadają się do niekorzystającą rozwiązania, które musi przebiegać proces skalowania.
+
+Zdarzenia serii raport warunek i są załadowanych. Zdarzenia są uporządkowane czasu i powiązanych. Konsument musi Sekwencyjna serie zdarzeń do analizowania, co się stało.
 
 ### <a name="message"></a>Komunikat
 
-Komunikat jest nieprzetworzone dane utworzone przez usługę mają być używane lub przechowywane w innym miejscu. Komunikat zawiera dane, która wyzwoliła potok wiadomości. Ten komunikat może być nic handlu elektronicznego celu telemetrii użytkownika. W odróżnieniu od powiadomienie o zdarzeniu wydawcy komunikat może spodziewać się odpowiedzi. Na przykład komunikat zawiera dane pierwotne, ale oczekuje następnej części systemu, aby utworzyć plik z tych danych.
+Komunikat jest nieprzetworzone dane utworzone przez usługę mają być używane lub przechowywane w innym miejscu. Komunikat zawiera dane, która wyzwoliła potok wiadomości. Wydawca wiadomości ma oczekiwanie temat klienta obsługi wiadomości. Kontrakt istnieje między partnerami. Na przykład wydawcy wysyła wiadomość z danych pierwotnych i oczekuje konsumenta, aby utworzyć plik z tych danych i wysyłać odpowiedzi, gdy praca jest wykonywana.
 
 ## <a name="comparison-of-services"></a>Porównanie usług
 
 | Usługa | Przeznaczenie | Typ | Kiedy stosować |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reaktywne programowania | Rozkład zdarzeń | Reagowanie na zmiany stanu |
-| Event Hubs | Dane big data potoku | Zdarzenie przesyłania strumieniowego | Dane telemetryczne i przesyłanie strumieniowe danych rozproszonych |
+| Event Grid | Reaktywne programowania | Rozkład zdarzeń (odrębny) | Reagowanie na zmiany stanu |
+| Event Hubs | Dane big data potoku | Zdarzenie przesyłania strumieniowego (seria) | Dane telemetryczne i przesyłanie strumieniowe danych rozproszonych |
 | Service Bus | Enterprise wysokiej wartości do obsługi komunikatów | Komunikat | Kolejność przetwarzania i transakcji finansowych |
 
 ### <a name="event-grid"></a>Event Grid

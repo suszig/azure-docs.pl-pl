@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Usługa Azure Active Directory B2C: Konfigurowanie dostosowywania interfejsu użytkownika w zasadach niestandardowych
 
@@ -106,19 +106,19 @@ Konfigurowanie magazynu obiektów Blob do udostępniania zasobów między źród
 >Czy chcesz wypróbować dostosowywanie funkcji interfejsu użytkownika za pomocą naszej próbki kodu HTML i CSS zawartości? Przygotowaliśmy [Narzędzie Pomocnik proste](active-directory-b2c-reference-ui-customization-helper-tool.md) który przekazuje i konfiguruje zawartość przykładowej na koncie magazynu obiektów Blob. Jeśli używasz narzędzia, przejdź do [zmodyfikować zasady niestandardowe rejestracji i logowania](#modify-your-sign-up-or-sign-in-custom-policy).
 
 1. Na **magazynu** bloku, w obszarze **ustawienia**, otwórz **CORS**.
-2. Kliknij pozycję **Dodaj**.
+2. Kliknij pozycję **Add** (Dodaj).
 3. Aby uzyskać **dozwolone źródła**, wpisz znak gwiazdki (\*).
 4. W **dozwolonych zleceń** listy rozwijanej, wybierz **UZYSKAĆ** i **opcje**.
 5. Aby uzyskać **dozwolone nagłówki**, wpisz znak gwiazdki (\*).
 6. Aby uzyskać **widoczne nagłówki**, wpisz znak gwiazdki (\*).
 7. Aby uzyskać **maksymalny wiek (w sekundach)**, typ **200**.
-8. Kliknij pozycję **Dodaj**.
+8. Kliknij pozycję **Add** (Dodaj).
 
 ## <a name="test-cors"></a>Test CORS
 
 Sprawdź, czy wszystko jest gotowe, wykonując następujące czynności:
 
-1. Przejdź do [cors.org testu](http://test-cors.org/) witryny sieci Web, a następnie wklej adres URL w **zdalnego adresu URL** pole.
+1. Przejdź do [www.test-cors.org](http://www.test-cors.org/) witryny sieci Web, a następnie wklej adres URL w **zdalnego adresu URL** pole.
 2. Kliknij przycisk **wysłać żądania**.  
     Jeśli wystąpi błąd, upewnij się, że Twoje [ustawień specyfikacji CORS](#configure-cors) są poprawne. Może być również konieczne Wyczyść pamięć podręczną przeglądarki lub otworzyć sesji przeglądania w trybie prywatnym, naciskając klawisze Ctrl + Shift + P.
 
@@ -149,7 +149,7 @@ Najwyższego poziomu  *\<TrustFrameworkPolicy\>*  tagu, należy odnaleźć  *\<B
 2. Wybierz zasady niestandardowe przekazywane i kliknij przycisk **Uruchom teraz** przycisku.
 3. Należy zalogowanie przy użyciu adresu e-mail.
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Informacje ogólne
 
 Przykładowe szablonów można znaleźć do dostosowania interfejsu użytkownika w tym miejscu:
 
@@ -161,27 +161,27 @@ Folder sample_templates/wingtip zawiera następujące pliki HTML:
 
 | Szablon HTML5 | Opis |
 |----------------|-------------|
-| *phonefactor.HTML* | Użyj tego pliku jako szablonu dla strony uwierzytelniania wieloskładnikowego. |
-| *ResetPassword.HTML* | Użyj tego pliku jako szablonu dla nie pamiętasz hasła strony. |
-| *selfasserted.HTML* | Użyj tego pliku jako szablonu dla kont społecznościowych stronę tworzenia konta, stronę tworzenia konta lokalnego konta lub stronę logowania konta lokalnego. |
-| *Unified.HTML* | Użyj tego pliku jako szablonu ujednoliconego strony rejestracji lub logowania. |
-| *updateprofile.HTML* | Użyj tego pliku jako szablonu strony aktualizacji profilu. |
+| *phonefactor.html* | Użyj tego pliku jako szablonu dla strony uwierzytelniania wieloskładnikowego. |
+| *resetpassword.html* | Użyj tego pliku jako szablonu dla nie pamiętasz hasła strony. |
+| *selfasserted.html* | Użyj tego pliku jako szablonu dla kont społecznościowych stronę tworzenia konta, stronę tworzenia konta lokalnego konta lub stronę logowania konta lokalnego. |
+| *unified.html* | Użyj tego pliku jako szablonu ujednoliconego strony rejestracji lub logowania. |
+| *updateprofile.html* | Użyj tego pliku jako szablonu strony aktualizacji profilu. |
 
 W [zmodyfikować sekcji rejestracji i logowania zasady niestandardowe](#modify-your-sign-up-or-sign-in-custom-policy), skonfigurowany zawartości definicji `api.idpselections`. Pełny zestaw zawartości identyfikatorów definicji, które są rozpoznawane w ramach obsługi tożsamości usługi Azure AD B2C i ich opisy znajdują się w poniższej tabeli:
 
 | Identyfikator definicji zawartości | Opis | 
 |-----------------------|-------------|
-| *API.error* | **Strona błędu**. Ta strona jest wyświetlana po napotkaniu wyjątku lub wystąpił błąd. |
+| *api.error* | **Strona błędu**. Ta strona jest wyświetlana po napotkaniu wyjątku lub wystąpił błąd. |
 | *API.idpselections* | **Strona wyboru dostawcy tożsamości**. Ta strona zawiera listę dostawców tożsamości, które użytkownik może wybrać podczas logowania. Te opcje są enterprise dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook i Google + lub kont lokalnych. |
 | *API.idpselections.Signup* | **Wybór dostawcy tożsamości dla rejestracji**. Ta strona zawiera listę dostawców tożsamości, które użytkownik może wybrać podczas tworzenia konta. Te opcje są enterprise dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook i Google + lub kont lokalnych. |
-| *API.localaccountpasswordreset* | **Nie pamiętasz hasła strony**. Ta strona zawiera formularz, który użytkownik należy wykonać, aby zainicjować resetowania hasła.  |
-| *API.localaccountsignin* | **Strona logowania konta lokalnego**. Ta strona zawiera formularz logowania dla logowania przy użyciu konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać pola do wprowadzania tekstu, a w polu wprowadzania hasła. |
-| *API.localaccountsignup* | **Stronę tworzenia konta lokalnego konta**. Ta strona zawiera formularz zapisów do skorzystania z konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać różne kontrolki wejściowe, takich jak pola do wprowadzania tekstu, pole wprowadzania hasła przycisk radiowy, jednokrotnym zaznaczeniem pola listy rozwijanej i pól wyboru wielokrotnego wyboru. |
-| *API.phonefactor* | **Strona uwierzytelniania wieloskładnikowego**. Na tej stronie użytkownicy mogą sprawdzić swoje numery telefonów (przy użyciu tekstowych lub głosowych) podczas tworzenia konta lub logowania. |
-| *API.selfasserted* | **Strony rejestracji społecznościowych konta**. Ta strona zawiera wypełnieniu formularza, który użytkownicy muszą wykonać podczas logowania przy użyciu istniejącego konta od dostawcy tożsamości społecznościowych, takich jak Facebook lub Google +. Ta strona jest podobny do poprzedniego konta społecznościowych stronę tworzenia konta, z wyjątkiem pól wprowadzania hasła. |
-| *API.selfasserted.profileupdate* | **Strona aktualizacji profilu**. Ta strona zawiera formularz, który użytkownicy mogą używać do aktualizacji profilu. Ta strona jest podobna do strony rejestracji społecznościowych konto, z wyjątkiem pól wprowadzania hasła. |
-| *API.signuporsignin* | **Ujednolicone stronę tworzenia konta lub logowania**. Ta strona obsługuje zarówno rejestracji i logowania użytkowników, którzy można używać w organizacji dostawcy tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook lub Google + lub kont lokalnych.  |
+| *api.localaccountpasswordreset* | **Nie pamiętasz hasła strony**. Ta strona zawiera formularz, który użytkownik należy wykonać, aby zainicjować resetowania hasła.  |
+| *api.localaccountsignin* | **Strona logowania konta lokalnego**. Ta strona zawiera formularz logowania dla logowania przy użyciu konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać pola do wprowadzania tekstu, a w polu wprowadzania hasła. |
+| *api.localaccountsignup* | **Stronę tworzenia konta lokalnego konta**. Ta strona zawiera formularz zapisów do skorzystania z konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać różne kontrolki wejściowe, takich jak pola do wprowadzania tekstu, pole wprowadzania hasła przycisk radiowy, jednokrotnym zaznaczeniem pola listy rozwijanej i pól wyboru wielokrotnego wyboru. |
+| *api.phonefactor* | **Strona uwierzytelniania wieloskładnikowego**. Na tej stronie użytkownicy mogą sprawdzić swoje numery telefonów (przy użyciu tekstowych lub głosowych) podczas tworzenia konta lub logowania. |
+| *api.selfasserted* | **Strony rejestracji społecznościowych konta**. Ta strona zawiera wypełnieniu formularza, który użytkownicy muszą wykonać podczas logowania przy użyciu istniejącego konta od dostawcy tożsamości społecznościowych, takich jak Facebook lub Google +. Ta strona jest podobny do poprzedniego konta społecznościowych stronę tworzenia konta, z wyjątkiem pól wprowadzania hasła. |
+| *api.selfasserted.profileupdate* | **Strona aktualizacji profilu**. Ta strona zawiera formularz, który użytkownicy mogą używać do aktualizacji profilu. Ta strona jest podobna do strony rejestracji społecznościowych konto, z wyjątkiem pól wprowadzania hasła. |
+| *api.signuporsignin* | **Ujednolicone stronę tworzenia konta lub logowania**. Ta strona obsługuje zarówno rejestracji i logowania użytkowników, którzy można używać w organizacji dostawcy tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook lub Google + lub kont lokalnych.  |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać dodatkowe informacje na temat elementy interfejsu użytkownika, które można dostosowywać, zobacz [Podręcznik do dostosowania interfejsu użytkownika dla zasad wbudowany](active-directory-b2c-reference-ui-customization.md).

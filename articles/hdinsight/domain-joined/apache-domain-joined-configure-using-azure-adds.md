@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurowanie klastrów HDInsight przyłączonych do domeny za pomocą usług domenowych Azure Active Directory
 
@@ -56,6 +56,9 @@ Podczas tworzenia klastra usługi HDInsight przyłączonych do domeny, należy p
 - **Jednostka organizacyjna**: nazwę wyróżniającą jednostki Organizacyjnej, do którego chcesz używać z klastrem usługi HDInsight. Na przykład: OU = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Jeśli nie istnieje tej jednostki Organizacyjnej, klaster usługi HDInsight podejmuje próbę utworzenia tej jednostki Organizacyjnej. 
 - **Adres URL LDAPS**: na przykład ldaps://contoso.onmicrosoft.com:636
 - **Grupy użytkowników dostępu**: grupy zabezpieczeń użytkowników, którzy mają być synchronizowane z klastrem. Na przykład HiveUsers. Jeśli chcesz określić wiele grup użytkowników, oddziel je przecinkami ','.
+ 
+> [!NOTE]
+> Ponieważ Apache Zeppelin użyta zostanie nazwa domeny do uwierzytelniania konta usługi administracyjnej, konto usługi musi mieć taką samą nazwę domeny, jak jego sufiks nazwy UPN Zeppelin Apache działać prawidłowo.
  
 Poniższy zrzut ekranu przedstawia konfiguracje w portalu Azure:
 

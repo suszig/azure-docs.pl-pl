@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 3ac0c87ca41315eb3b63ddfab2736f68bac8dbee
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metryki bazy danych SQL Azure i rejestrowanie danych diagnostycznych 
 Baza danych SQL Azure może emitować metryki i informacji diagnostycznych dzienników łatwiejsze monitorowania. Usługę SQL Database można skonfigurować do przechowywania danych dotyczących użycia zasobów, pracowników i sesji oraz połączeń z jednym z następujących zasobów platformy Azure:
@@ -47,8 +47,8 @@ Można udostępnić nowych zasobów platformy Azure lub wybierz istniejący zas�
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): zawiera informacje o statystyki czasu wykonywania zapytania, takie jak czas trwania użycia i zapytanie Procesora.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): zawiera informacje dotyczące statystyk oczekiwania zapytania informuje zapytań oczekiwanie na, takie jak procesor CPU, LOG oraz blokowanie.
 - [Błędy](sql-database-metrics-diag-logging.md#errors-dataset): zawiera informacje o błędach SQL, które wystąpiły w tej bazie danych.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): zawiera informacje o ile czasu bazy danych podczas oczekiwania na oczekiwania różnych typów.
-- [Limity czasu](sql-database-metrics-diag-logging.md#timeouts-dataset): zawiera informacje dotyczące limitów czasu, który wystąpił w bazie danych.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): zawiera informacje o ile czasu bazy danych podczas oczekiwania na oczekiwania różnych typów.
+- [Limity czasu](sql-database-metrics-diag-logging.md#time-outs-dataset): zawiera informacje dotyczące limitów czasu, który wystąpił w bazie danych.
 - [Blokowanie](sql-database-metrics-diag-logging.md#blockings-dataset): zawiera informacje o blokowaniu zdarzenia, które wystąpiły w bazie danych.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): zawiera inteligentnego szczegółowych informacji. [Dowiedz się więcej o inteligentnego Insights](sql-database-intelligent-insights.md).
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: d7eb31a8a6f95383d88b020a6f79eb66f258993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 02a34111fbab62884c9ecbfc084a55d21d775182
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure powiązania usługi Service Bus dla usługi Azure Functions
 
@@ -461,7 +461,6 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje kolejka lub temat w kodzie funkcji. Wartość "$return" odwołują się do wartości zwracane funkcji. | 
 |**queueName**|**QueueName**|Nazwa kolejki.  Ustawiona tylko wtedy, gdy wysyłanie wiadomości w kolejce, nie dla tematu.
 |**TopicName**|**TopicName**|Nazwa tematu do monitorowania. Ustawiona tylko wtedy, gdy wysyłanie wiadomości tematu, nie dla kolejki.|
-|**Nazwa subskrypcji**|**Nazwa subskrypcji**|Nazwa subskrypcji do monitorowania. Ustawiona tylko wtedy, gdy wysyłanie wiadomości tematu, nie dla kolejki.|
 |**Połączenia**|**Połączenia**|Nazwa ustawienia aplikacji, która zawiera parametry połączenia magistrali usługi do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy. Na przykład jeśli ustawisz `connection` do "MyServiceBus" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyServiceBus." Jeśli opuścisz `connection` pusta, domyślny ciąg połączenia usługi Service Bus używa funkcji środowiska uruchomieniowego w ustawieniu aplikacji o nazwie "AzureWebJobsServiceBus".<br><br>Aby uzyskać ciąg połączenia, wykonaj kroki opisane w [uzyskać poświadczenia zarządzania](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Parametry połączenia muszą mieć dla przestrzeni nazw usługi Service Bus, nie są ograniczone do określonych kolejka lub temat.|
 |**accessRights**|**Dostęp**|Prawa dostępu do ciągu połączenia. Dostępne wartości to `manage` i `listen`. Wartość domyślna to `manage`, co oznacza, że `connection` ma **Zarządzaj** uprawnienia. Jeśli używasz parametry połączenia, które nie ma **Zarządzaj** zestawu uprawnień, `accessRights` "nasłuchiwanie". W przeciwnym razie środowiska uruchomieniowego może się nie powieść próba wykonania tej operacji, które wymagają funkcji zarządzania prawami. W wersji usługi Azure Functions 2.x, ta właściwość nie jest dostępna, ponieważ nie obsługuje najnowszej wersji zestawu SDK usługi Magazyn zarządzania operacjami.|
 

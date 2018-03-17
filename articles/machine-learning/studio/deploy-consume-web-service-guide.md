@@ -3,8 +3,8 @@ title: "Usługi sieci Web uczenie Azure maszyny: Wdrażanie i zużycia | Dokumen
 description: "Zasoby umożliwiające wdrażanie i korzystanie z usług sieci web."
 services: machine-learning
 documentationcenter: 
-author: garyericson
-manager: raymondl
+author: aashishb
+manager: hjerez
 editor: 
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 88a61467a79a424670d49e662315cab59ab52d13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: aashishb
+ms.openlocfilehash: 7eecfe4a80499fbba0533f0d410dd920db61e62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Usługi sieci Web Azure Machine Learning: wdrażanie i korzystanie
 Azure Machine Learning umożliwia wdrażanie przepływów pracy i modele jako usługi sieci web usługi machine learning. Wywoływanie modeli uczenia maszynowego z aplikacji przez Internet w celu prognoz w czasie rzeczywistym lub w trybie wsadowym można następnie te usługi sieci web. Ponieważ usługi sieci web RESTful, można ich wywołać z różnych języków programowania i platform, takich jak .NET i Java i z aplikacji, takich jak program Excel.
@@ -49,7 +49,7 @@ Dostawcy zasobów usługi Azure Machine Learning dla usług sieci web umożliwia
 ### <a name="with-powershell-cmdlets"></a>Polecenia cmdlet programu PowerShell
 Dostawca zasobów usługi Azure Machine Learning dla usług sieci web umożliwia wdrażanie i zarządzanie usługami sieci web przy użyciu poleceń cmdlet programu PowerShell.
 
-Aby używać poleceń cmdlet, należy najpierw zalogować się do konta z platformy Azure w środowisku PowerShell przy użyciu [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) polecenia cmdlet. Jeśli znasz sposób wywoływania polecenia programu PowerShell, które są oparte na Resource Manager, zobacz temat [przy użyciu programu Azure PowerShell z usługą Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account).
+Aby używać poleceń cmdlet, należy najpierw zalogować się do konta z platformy Azure w środowisku PowerShell przy użyciu [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) polecenia cmdlet. Jeśli znasz sposób wywoływania polecenia programu PowerShell, które są oparte na Resource Manager, zobacz temat [przy użyciu programu Azure PowerShell z usługą Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
 Aby wyeksportować predykcyjnej eksperymentu, należy użyć [ten przykładowy kod](https://github.com/ritwik20/AzureML-WebServices). Po utworzeniu pliku .exe z kodu można wpisać:
 

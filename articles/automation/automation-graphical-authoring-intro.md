@@ -1,24 +1,20 @@
 ---
-title: Tworzenia graficznego w automatyzacji Azure | Dokumentacja firmy Microsoft
+title: "Graficzny tworzenia w programie usługi Automatyzacja Azure"
 description: "Tworzenia graficznego służy do tworzenia elementów runbook automatyzacji Azure bez Praca z kodem. Ten artykuł zawiera wprowadzenie do tworzenia graficznego i wszelkie informacje potrzebne do uruchomienia tworzenia graficznego elementu runbook."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/14/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 34f896619e8fe02b0a88a8bbf52b9342a72bfd9a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bdb92378a72789918f40494bebb5faf68e64c84
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Graficzny tworzenia w programie usługi Automatyzacja Azure
 ## <a name="introduction"></a>Wprowadzenie

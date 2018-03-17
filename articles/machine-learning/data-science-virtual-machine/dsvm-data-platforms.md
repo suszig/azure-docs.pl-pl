@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma;
+ms.openlocfilehash: 921ccf67e5e0320e742066186b7929643536424f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-platforms"></a>Platformy danych
 
@@ -35,7 +35,7 @@ Poniżej zostały wymienione narzędzia platformy danych obsługiwane w DSVM.
 | DSVM obsługiwane wersje      | Windows      |
 | Typowe zastosowania      | Szybkie opracowywanie lokalnie z mniejszym zestawu danych <br/> Uruchom R w bazie danych   |
 | Łącza do próbek      |    Próbki tego zestawu danych z nowego Jorku jest ładowany do bazy danych SQL `nyctaxi`. <br/> Przykładowe Jupyter przedstawiający Microsoft R i analiza w bazie danych można znaleźć w folderze:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| Pokrewne narzędzia na DSVM       | SQL Server Management Studio <br/> Sterowniki ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Przechodzenie do szczegółów      |
+| Pokrewne narzędzia na DSVM       | SQL Server Management Studio <br/> Sterowniki ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |
 
 > [!NOTE]
 > Edycja dewelopera programu SQL Server 2016 służy tylko do prac deweloperskich i celów testowych. Potrzebujesz licencji lub jednej z maszyn wirtualnych serwera SQL go uruchomić w środowisku produkcyjnym. 
@@ -70,7 +70,7 @@ Serwer SQL jest zainstalowany w sposób standardowy. Można je znaleźć w `C:\P
 | DSVM obsługiwane wersje      | Linux <br /> Systemu Windows (eksperymentalne)      |
 | Typowe zastosowania      | * Szybkiego opracowywania aplikacji Spark/PySpark lokalnie z mniejszym zestawu danych lub nowszym należy ją wdrożyć na dużych klastry Spark, takich jak Azure HDInsight<br/> * Testów Microsoft R Server Spark kontekstu <br />* Użyj typu open source SparkML lub firmy Microsoft [MMLSpark](https://github.com/Azure/mmlspark) biblioteki, aby tworzyć aplikacje ML  |
 | Łącza do próbek      |    Przykład Jupyter: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Serwer R firmy Microsoft (Spark kontekst): /dsvm/samples/MRS/MRSSparkContextSample.R |
-| Pokrewne narzędzia na DSVM       | PySpark, Scala<br/>Jupyter (jądra Spark/PySpark)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Przechodzenie do szczegółów      |
+| Pokrewne narzędzia na DSVM       | PySpark, Scala<br/>Jupyter (jądra Spark/PySpark)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Drill      |
 
 ### <a name="how-to-use-it"></a>Jak z niego korzystać
 Możesz uruchamiać Spark, przesyłania zadań Spark w wierszu polecenia z `spark-submit` lub `pyspark` poleceń. Tworząc nowy notes o jądrze Spark można również utworzyć notesu Jupyter. 
@@ -100,7 +100,7 @@ Można zatrzymać usługi Hadoop usług związanych z, jeśli nie muszą, urucha
 |Platforma|Zainstaluj lokalizacji ($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
-|Linux   | /dsvm/Tools/Spark-X.X.X-bin-hadoopX.X|
+|Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
 Biblioteki, aby uzyskać dostęp do danych z obiektów Blob platformy Azure lub usługi Azure Data Lake magazyn (ADLS) i korzystanie z bibliotek usługi machine learning MMLSpark firmy Microsoft są wstępnie zainstalowane w SPARK_HOME $/ słoików. Te słoików są ładowane automatycznie podczas uruchamiania Spark. Domyślnie Spark używa danych na dysku lokalnym. Aby wystąpienia Spark na DSVM uzyskują dostęp do danych przechowywanych na obiektów blob platformy Azure lub ADLS należy utworzyć skonfigurować `core-site.xml` plik na podstawie szablonu w $SPARK_HOME/conf/core-site.xml.template (gdzie symboli zastępczych dla obiekt Blob i ADLS konfiguracje) za pomocą odpowiednich poświadczeń do obiektów blob platformy Azure i usługi Azure Data Lake Storage. Możesz znaleźć szczegółowe kroki dotyczące tworzenia poświadczeń usługi ADLS [tutaj](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Po wprowadzeniu poświadczeń dla obiektów blob platformy Azure lub ADLS w pliku core-site.xml można odwoływać się do danych przechowywanych w tych źródeł z Prefiks URI wasb: / / lub adl: / /. 

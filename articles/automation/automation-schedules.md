@@ -1,24 +1,18 @@
 ---
-title: "Harmonogramów w usłudze Automatyzacja Azure | Dokumentacja firmy Microsoft"
+title: "Harmonogramów w usłudze Automatyzacja Azure"
 description: "Harmonogramy automatyzacji służą do planowania elementów runbook automatyzacji Azure do automatycznego uruchamiania. Opisuje sposób tworzenia i zarządzania nimi harmonogramu w, dzięki czemu może automatycznie uruchomić element runbook o określonej godzinie lub zgodnie z harmonogramem cyklicznym."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+manager: carmonm
+ms.openlocfilehash: ae7378c6d0f85e71c9522a6678adcb1f2e4b01f1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Planowanie elementu Runbook w usłudze Azure Automation
 Aby zaplanować elementu runbook automatyzacji Azure można uruchomić w określonym czasie, łącze do co najmniej jeden harmonogram. Harmonogram można skonfigurować do uruchamiania raz lub pojawiał co godzinę lub codziennie harmonogramu dla elementów runbook w portalu Azure. Można również zaplanować je na co tydzień, co miesiąc, określone dni tygodnia lub dni miesiąca lub określony dzień miesiąca.  Element runbook może odnosić się do wielu harmonogramów i harmonogram może mieć wielu elementów runbook z nim połączone.
@@ -35,20 +29,20 @@ Polecenia cmdlet w poniższej tabeli służą do tworzenia i zarządzania nimi h
 |:--- |:--- |
 | **Polecenia cmdlet Menedżera zasobów systemu Azure** | |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Pobiera harmonogram. |
-| [Nowe AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Tworzy nowy harmonogram. |
-| [Usuń AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Usuwa harmonogram. |
-| [Zestaw AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Ustawia właściwości istniejącego harmonogramu. |
+| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Tworzy nowy harmonogram. |
+| [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Usuwa harmonogram. |
+| [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Ustawia właściwości istniejącego harmonogramu. |
 | [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/set-azurermautomationscheduledrunbook) |Pobiera zaplanowanego elementach runbook. |
-| [Rejestr AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Kojarzy elementu runbook z harmonogramem. |
-| [Wyrejestruj AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Dissociates elementu runbook z harmonogramem. |
+| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Kojarzy elementu runbook z harmonogramem. |
+| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Dissociates elementu runbook z harmonogramem. |
 | **Polecenia cmdlet do zarządzania usługi Azure** | |
 | [Get-AzureAutomationSchedule](/powershell/module/azure/get-azureautomationschedule?view=azuresmps-3.7.0) |Pobiera harmonogram. |
-| [Nowe AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) |Tworzy nowy harmonogram. |
-| [Usuń AzureAutomationSchedule](/powershell/module/azure/remove-azureautomationschedule?view=azuresmps-3.7.0) |Usuwa harmonogram. |
-| [Zestaw AzureAutomationSchedule](/powershell/module/azure/set-azureautomationschedule?view=azuresmps-3.7.0) |Ustawia właściwości istniejącego harmonogramu. |
+| [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) |Tworzy nowy harmonogram. |
+| [Remove-AzureAutomationSchedule](/powershell/module/azure/remove-azureautomationschedule?view=azuresmps-3.7.0) |Usuwa harmonogram. |
+| [Set-AzureAutomationSchedule](/powershell/module/azure/set-azureautomationschedule?view=azuresmps-3.7.0) |Ustawia właściwości istniejącego harmonogramu. |
 | [Get-AzureAutomationScheduledRunbook](/powershell/module/azure/get-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Pobiera zaplanowanego elementach runbook. |
-| [Rejestr AzureAutomationScheduledRunbook](/powershell/module/azure/register-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Kojarzy elementu runbook z harmonogramem. |
-| [Wyrejestruj AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Dissociates elementu runbook z harmonogramem. |
+| [Register-AzureAutomationScheduledRunbook](/powershell/module/azure/register-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Kojarzy elementu runbook z harmonogramem. |
+| [Unregister-AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Dissociates elementu runbook z harmonogramem. |
 
 ## <a name="creating-a-schedule"></a>Tworzenie harmonogramu
 Można utworzyć nowy harmonogram dla elementów runbook w portalu Azure lub programu Windows PowerShell. Istnieje również możliwość utworzenia nowego harmonogramu w przypadku powiązania elementu runbook z harmonogramem przy użyciu portalu Azure classic lub Azure.

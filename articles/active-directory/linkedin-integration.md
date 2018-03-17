@@ -1,6 +1,6 @@
 ---
-title: "Włącz lub wyłącz LinkedIn integracji aplikacji pakietu Office w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak włączyć lub wyłączyć integrację LinkedIn dla aplikacji firmy Microsoft w usłudze Azure Active Directory"
+title: "Włącz połączenia LinkedIn dla usług w usłudze Azure Active Directory i aplikacji firmy Microsoft | Dokumentacja firmy Microsoft"
+description: "Wyjaśniono, jak włączyć lub wyłączyć LinkedIn konto połączenia dla aplikacji firmy Microsoft w usłudze Azure Active Directory"
 services: active-directory
 author: curtand
 manager: mtillman
@@ -9,40 +9,51 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="linkedin-integration-for-office-applications"></a>Integracja LinkedIn aplikacji pakietu Office
-W tym artykule wyjaśniono, jak ograniczyć użytkowników, do których LinkedIn integracji znajduje się w usłudze Azure Active Directory (Azure AD). Integracja LinkedIn jest domyślnie włączona, gdy jest ona dodawana do dzierżawy, który umożliwia użytkownikom uzyskiwanie dostępu do danych publicznych LinkedIn w niektóre z aplikacji firmy Microsoft. Każdy użytkownik niezależnie można łączyć swoje konta firmowego lub szkolnego konta LinkedIn.
+# <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>LinkedIn konto połączenia dla usług i aplikacji firmy Microsoft
+W tym artykule możesz dowiedzieć się, jak do zarządzania połączeniami konta LinkedIn dla dzierżawy w Centrum administracyjnym usługi Azure Active Directory (Azure AD). 
 
 > [!IMPORTANT]
-> Integracja LinkedIn nie jest wdrażana na wszystkich dzierżaw usługi Azure AD w tym samym czasie. Po jego jest wdrażana z dzierżawą platformy Azure, LinkedIn integracji jest domyślnie włączona. Integracja LinkedIn jest niedostępna dla lokalnych przejdź, suwerenne i dzierżawcy dla instytucji rządowych. Dla aktualnego widoku wdrożenia informacji, zobacz [Office 365 plan](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) strony.
+> Funkcja połączenia konta LinkedIn jest obecnie trwa wprowadzanie do dzierżaw usługi Azure AD. Gdy jest wycofywany dla Twojej dzierżawy, jest włączona domyślnie. Nie jest dostępna dla klientów dla instytucji rządowych Stanów Zjednoczonych i organizacji z usługą Exchange Online skrzynek pocztowych hostowanych w Australii, Kanada, Chiny, Francja, Niemczech, Indie, Korea Południowa, Zjednoczone Królestwo, Japonii i Republika Południowej Afryki. Obsługa tych lokalizacji skrzynki pocztowej będzie dostępna wkrótce.  Dla aktualnego widoku wdrożenia informacji, zobacz [Office 365 plan](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) strony.
 
-## <a name="linkedin-integration-from-the-user-perspective"></a>Integracja LinkedIn z punktu widzenia użytkownika
-Łącząc ich konta LinkedIn z pracą lub konta służbowego, użytkownicy w Twojej organizacji [pozwalają LinkedIn danych](https://www.linkedin.com/help/linkedin/answer/84077) do użycia w aplikacji firmy Microsoft i usług, które oferuje organizacji. [Użytkownicy mogą odłączyć kont](https://www.linkedin.com/help/linkedin/answer/85097), które powoduje usunięcie uprawnienie LinkedIn udostępniania danych firmy Microsoft. Integracja LinkedIn używa publicznie dostępnych informacji profil LinkedIn. [Użytkownicy mogą kontrolować sposób wyświetlania swój własny profil LinkedIn](https://www.linkedin.com/help/linkedin/answer/83) przy użyciu ustawień prywatności LinkedIn, w tym profilu można wyświetlić w aplikacji firmy Microsoft.
+## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Wygląd LinkedIn konto połączenia dla użytkownika
+Połączenia konta LinkedIn umożliwiają użytkownikom informacje publiczne LinkedIn profil w ramach niektóre aplikacje firmy Microsoft. Użytkownicy w Twojej dzierżawie można połączyć z siecią firmową LinkedIn i firmy Microsoft lub szkolnego konta, aby wyświetlić dodatkowe informacje o profilu LinkedIn. Aby uzyskać więcej informacji, zobacz [LinkedIn informacji i funkcji w usługach i aplikacji firmy Microsoft](https://go.microsoft.com/fwlink/?linkid=850740).
+
+Gdy użytkownicy w Twojej organizacji połączyć pracy LinkedIn i firmy Microsoft lub służbowych, mają dwie opcje: 
+* Nadawanie uprawnień do udostępniania danych między oba konta. Oznacza to, że dają one uprawnienie do swojego konta LinkedIn udostępniania danych służbowym Microsoft lub konta służbowego, a także ich Microsoft konto służbowe do udostępnienia danych do swojego konta LinkedIn. Dane, które są udostępniane LinkedIn pozostawia usług online. 
+* Zezwolić na udostępnianie danych tylko z konta LinkedIn z pracą firmy Microsoft i konto służbowe
+
+Aby uzyskać więcej informacji o danych, które są współużytkowane przez użytkowników LinkedIn i Microsoft pracy lub szkołą kont, zobacz [LinkedIn w aplikacjach firmy Microsoft w miejscu pracy lub nauki](https://www.linkedin.com/help/linkedin/answer/84077). 
+* [Użytkownicy mogą odłączyć kont](https://www.linkedin.com/help/linkedin/answer/85097) i usunięcie danych uprawnienia udostępniania w dowolnym momencie. 
+* [Użytkownicy mogą kontrolować sposób wyświetlania swój własny profil LinkedIn](https://www.linkedin.com/help/linkedin/answer/83), łącznie z tego, czy można wyświetlić swój profil w aplikacjach firmy Microsoft.
 
 ## <a name="privacy-considerations"></a>Zagadnienia dotyczące ochrony prywatności
-Włączanie integracji LinkedIn w usłudze Azure AD umożliwia aplikacji firmy Microsoft i usługi, aby uzyskać dostęp do pewnych informacji LinkedIn użytkowników. Odczyt [zasady zachowania poufności informacji firmy Microsoft](https://privacy.microsoft.com/privacystatement/) dowiedzieć się więcej o zagadnienia dotyczące ochrony prywatności podczas włączania integracji LinkedIn w usłudze Azure AD. 
+Włączenie LinkedIn połączenia konta umożliwia aplikacji firmy Microsoft i usługi, aby uzyskać dostęp do pewnych informacji LinkedIn użytkowników. Odczyt [zasady zachowania poufności informacji firmy Microsoft](https://privacy.microsoft.com/privacystatement/) dowiedzieć się więcej o zagadnienia dotyczące ochrony prywatności podczas włączania LinkedIn połączenia konta w usłudze Azure AD. 
 
-## <a name="manage-linkedin-integration"></a>Zarządzanie LinkedIn integracji
-LinkedIn integracji dla przedsiębiorstw, które jest domyślnie włączona w usłudze Azure AD. Włączanie integracji LinkedIn zezwala wszystkim użytkownikom w organizacji do używania funkcji LinkedIn w ramach usług firmy Microsoft, takich jak wyświetlanie LinkedIn profilów w programie Outlook. Wyłączenie integracji LinkedIn usuwa funkcje LinkedIn z usług i aplikacji firmy Microsoft i zatrzymuje danych udostępnianie między LinkedIn i organizacji za pomocą usług firmy Microsoft.
+## <a name="manage-linkedin-account-connections"></a>Zarządzanie połączeniami konta LinkedIn
+Funkcja połączenia konta LinkedIn jest domyślnie całego dzierżawy. Można wyłączyć LinkedIn konto połączenia dla całego dzierżawy lub włączyć LinkedIn konto połączenia dla wybranych użytkowników w dzierżawie. 
 
-### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Włącz lub wyłącz integrację LinkedIn dla Twojej organizacji w portalu Azure
+### <a name="enable-or-disable-linkedin-account-connection-for-your-tenant-in-the-azure-portal"></a>Włącz lub wyłącz LinkedIn konto połączenia dla dzierżawy w portalu Azure
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com/) przy użyciu konta, które jest administratorem globalnym dla dzierżawy usługi Azure AD.
 2. Wybierz **użytkowników**.
 3. Na **użytkowników** bloku, wybierz opcję **ustawienia użytkownika**.
-4. W obszarze **integracji LinkedIn**, wybierz pozycję **tak** lub **nr** Aby włączyć lub wyłączyć integrację LinkedIn.
-   ![Włączanie integracji LinkedIn](./media/linkedin-integration/LinkedIn-integration.PNG)
+4. W obszarze **LinkedIn konta połączenia**:
+  * Wybierz **tak** umożliwiających LinkedIn połączenia konta dla wszystkich użytkowników w dzierżawie
+  * Wybierz **wybrane** umożliwiające LinkedIn konta połączenia tylko wybrane dzierżawcy użytkowników
+  * Wybierz **nr** Aby wyłączyć LinkedIn połączenia konta dla wszystkich użytkowników ![LinkedIn włączanie konta połączenia](./media/linkedin-integration/LinkedIn-integration.png)
+5. Zapisz ustawienia, gdy wszystko będzie gotowe, wybierając **zapisać**.
 
-### <a name="enable-or-disable-linkedin-integration-for-your-organizations-office-2016-apps-using-group-policy"></a>Włącz lub wyłącz integrację LinkedIn dla aplikacji pakietu Office 2016 w organizacji za pomocą zasad grupy
+### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Włącz lub wyłącz LinkedIn konta połączenia w przypadku aplikacji pakietu Office 2016 w organizacji za pomocą zasad grupy
 
 1. Pobierz [plików szablonów administracyjnych pakietu Office 2016 (ADMX/ŚILS)](https://www.microsoft.com/download/details.aspx?id=49030)
 2. Wyodrębnij **ADMX** pliki i skopiuj je do Twojej **centralnym repozytorium**.
@@ -60,6 +71,6 @@ Zasady grupy dotyczy tylko pakiet Office 2016 aplikacji na komputerze lokalnym. 
 * [Centrum pomocy LinkedIn](https://www.linkedin.com/help/linkedin)
 
 ## <a name="next-steps"></a>Kolejne kroki
-Aby zobaczyć bieżące ustawienia integracji LinkedIn w portalu Azure, użyj następującego łącza:
+Aby wyświetlić bieżących połączeń konta LinkedIn ustawienie w portalu Azure, użyj następującego łącza:
 
-[Konfigurowanie integracji LinkedIn](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 
+[Konfigurowanie połączeń konta LinkedIn](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

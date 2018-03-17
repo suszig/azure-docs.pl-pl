@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>Monitorowanie rozwiązań sieci 
 
@@ -33,6 +33,8 @@ Monitor wydajności sieci (NPM) to zestaw funkcji, z których każdy jest przezn
 * Wiele centrów danych oraz biura oddziałów
 * Misji wielowarstwowe aplikacje/micro-obsługi usług krytycznych
 * Lokalizacji użytkownika i aplikacji sieci web (HTTP/HTTPs) 
+
+Monitor wydajności, ExpressRoute Monitor i Monitor punktu końcowego usługi monitorowania możliwości w ramach programu NPM i są opisane poniżej.
 
 ## <a name="performance-monitor"></a>Monitorowanie wydajności
 
@@ -84,13 +86,14 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 * [wpis w blogu](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Analiza ruchu
-Analiza ruchu jest rozwiązania opartego na chmurze, która zapewnia wgląd w działania użytkowników i aplikacji w sieciach w chmurze. Przepływ NSG dzienniki są analizowane zapewniające wgląd w informacje:
+Analiza ruchu jest oparta na chmurze rozwiązaniem, które zapewnia wgląd w działania użytkowników i aplikacji w sieciach w chmurze. Przepływ NSG dzienniki są analizowane zapewniające wgląd w informacje:
 
-* Ruch przepływa między sieci platformy Azure i Internet, regionów chmury publicznej, sieci wirtualnych i podsieci
+* Ruch w sieci platformy Azure i Internet, regionów chmury publicznej, sieci wirtualnych i podsieci
 * Aplikacje i protokołów w sieci, bez konieczności ataki penetratorów lub dedykowanych przepływu modułu zbierającego urządzenia
 * Górny talkers chatty aplikacji konwersacje maszyny Wirtualnej w chmurze, ruch punkty aktywne
 * Źródła i miejsc docelowych ruchu między sieciami wirtualnymi, między relacje między usługi o krytycznym znaczeniu dla firmy i aplikacji
 * Zabezpieczenia — szkodliwy ruch, porty Otwórz internetowych, aplikacji lub maszyn wirtualnych próby dostępu do Internetu...
+* Wykorzystanie pojemności — pomaga wyeliminować problemy przerostu lub niedostateczne wykorzystanie zasobów przez monitorowanie trendów użycia bram sieci VPN i innych usług
 
 Analiza ruchu wyposaża można wykonać informacje, czy pomaga monitorować aktywność sieci organizacji, bezpiecznych aplikacji i danych, optymalizowanie obciążenia i pozostać zgodne.
 
@@ -100,7 +103,7 @@ Linki pokrewne:
 * [Wpis w blogu](https://aka.ms/trafficanalytics), [dokumentacji](https://aka.ms/trafficanalyticsdocs), [— często zadawane pytania](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## <a name="dns-analytics"></a>Analiza DNS
-Utworzony dla administratorów DNS, to rozwiązanie gromadzi, analizuje i skorelowany dzienniki DNS, aby zapewnić ochronę, działania i wydajności powiązane szczegółowych informacji.  Niektóre funkcje są:
+Utworzony dla administratorów DNS, to rozwiązanie gromadzi, analizuje i skorelowany dzienniki DNS zapewnienie bezpieczeństwa, operacje i związanych z wydajnością szczegółowych informacji.  Niektóre funkcje są:
 
 * Identyfikacja klientów, którzy rozwiązywania złośliwego domen
 * Identyfikacja starych rekordów

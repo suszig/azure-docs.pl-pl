@@ -3,8 +3,9 @@ title: "Usługi sieci web klasycznego retrain | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak programowo retrain modelu i usługi sieci web, aby użyć nowo uczonego modelu w usłudze Azure Machine Learning aktualizacji."
 services: machine-learning
 documentationcenter: 
-author: garyericson
-manager: raymondlaghaeian
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7adc5995b830d049c8dd6412415bd5987e60fe08
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Ponowne szkolenie klasycznej usługi internetowej
 Usługa sieci Web predykcyjnych, wdrożone jest domyślnego punktu końcowego oceniania. Domyślne punkty końcowe są utrzymywane w synchronizacji z oryginalnego szkolenia i oceniania eksperymentów, a w związku z tym nie można zamienić trenowanego modelu dla domyślnego punktu końcowego. Aby ponownie ucz usługi sieci web, należy dodać nowy punkt końcowy usługi sieci web. 
@@ -68,7 +68,7 @@ Aby pobrać ścieżki adresu URL:
 2. Kliknij łącze aktualizacji zasobów.
 3. Skopiuj adres URL żądania PATCH POST. Na przykład:
    
-     PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     ADRES URL POPRAWKI: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Można teraz używać trenowanego modelu można zaktualizować punktu końcowego oceniania utworzonego wcześniej.
 

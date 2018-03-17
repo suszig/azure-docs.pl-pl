@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8384d17405653a29207cdfa4f6143504d0db2022
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: ea8b5db946d6b35ea4583d9170ec36e5f95e16cd
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Pojedyncze orchestrators w funkcji trwałe (funkcje platformy Azure)
 
@@ -61,10 +61,7 @@ Domyślnie wystąpienie, które identyfikatory są losowo wygenerowane identyfik
 
 Szczegóły implementacji funkcji programu orchestrator nie faktycznie znaczenia. Może to być funkcja regularne orchestrator momencie rozpoczęcia i zakończenia lub może być taki, który działa w nieskończoność (to znaczy [Eternal aranżacji](durable-functions-eternal-orchestrations.md)). Istotne jest tylko kiedykolwiek jednego działania w czasie wystąpienia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się, jak wywołać orchestrations podrzędne](durable-functions-sub-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Uruchom jako pojedyncza próbki](durable-functions-counter.md)

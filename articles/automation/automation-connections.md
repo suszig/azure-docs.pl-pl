@@ -1,24 +1,20 @@
 ---
-title: "Trwałe połączenie z usługi Automatyzacja Azure | Dokumentacja firmy Microsoft"
+title: "Trwałe połączenie z usługi Automatyzacja Azure"
 description: "Trwałe połączenie z usługi Automatyzacja Azure zawiera informacje wymagane do połączenia z zewnętrznej usługi lub aplikacji z elementu runbook lub konfiguracji DSC. W tym artykule szczegółowo opisano połączenia i jak pracować z nimi w tworzeniu zarówno tekstową i graficznego."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/13/2017
-ms.author: magoedte; bwren
-ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 547ec5a7de7a58e591a2ea44b8e54804ca41974c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Trwałe połączenie z usługi Automatyzacja Azure
 
@@ -26,8 +22,8 @@ Zasób połączenia usługi Automatyzacja zawiera informacje wymagane do połąc
 
 Podczas tworzenia połączenia, należy określić *typ połączenia*. Typ połączenia to szablon, który definiuje zestaw właściwości. Połączenie definiuje wartości dla każdej właściwości w jego typie połączenia. Typy połączeń są dodawane do usługi Automatyzacja Azure w modułach integracji lub utworzone za pomocą [interfejsu API usługi Automatyzacja Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx) Jeśli modułu integracji zawiera typ połączenia i jest importowany do Twojego konta automatyzacji. W przeciwnym razie należy utworzyć plik metadanych, aby określić typ połączenia usługi Automatyzacja.  Aby uzyskać dodatkowe informacje dotyczące tego, zobacz [moduły integracji](automation-integration-modules.md).  
 
->[!NOTE] 
->Bezpiecznych zasobów w automatyzacji Azure obejmują poświadczeń, certyfikatów, połączeń i szyfrowane zmienne. Te zasoby są szyfrowane i przechowywane w automatyzacji Azure za pomocą Unikatowy klucz, który jest generowany dla każdego konta automatyzacji. Ten klucz jest zaszyfrowany za pomocą certyfikatu głównego i przechowywane w automatyzacji Azure. Przed zapisaniem zabezpieczonym zasobem, klucza dla konta automatyzacji zostaną odszyfrowane przy użyciu certyfikatu głównego, a następnie używany do szyfrowania elementu zawartości.
+>[!NOTE]
+>Bezpiecznych zasobów w automatyzacji Azure obejmują poświadczeń, certyfikatów, połączeń i szyfrowane zmienne. Te zasoby są szyfrowane i przechowywane w automatyzacji Azure za pomocą Unikatowy klucz, który jest generowany dla każdego konta automatyzacji. Ten klucz jest przechowywany w magazynie kluczy. Przed zapisaniem zabezpieczonym zasobem, klucz jest załadowany z magazynu kluczy i następnie używany do szyfrowania elementu zawartości.
 
 ## <a name="windows-powershell-cmdlets"></a>Polecenia cmdlet programu Windows PowerShell
 
@@ -36,9 +32,9 @@ Polecenia cmdlet w poniższej tabeli służą do tworzenia i zarządzania połą
 |Polecenie cmdlet|Opis|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Pobiera połączenie. Zawiera tabelę wyznaczania wartości skrótu z wartościami pól połączeń.|
-|[Nowe AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Tworzy nowe połączenie.|
-|[Usuń AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Usuń istniejące połączenie.|
-|[Zestaw AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Ustawia wartość określonego pola dla istniejącego połączenia.|
+|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Tworzy nowe połączenie.|
+|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Usuń istniejące połączenie.|
+|[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Ustawia wartość określonego pola dla istniejącego połączenia.|
 
 ## <a name="activities"></a>Działania
 

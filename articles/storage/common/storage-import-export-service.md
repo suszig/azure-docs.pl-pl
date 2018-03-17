@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 2b53dc5eeb2e5f25a0714af778ef3db1d5a79dc1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
 W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
@@ -47,7 +47,7 @@ Wykonaj następujące czynności w przypadku danych na dysku do zaimportowania d
     |/j:     |Nazwa pliku dziennika z rozszerzeniem .jrn. Plik dziennika jest generowany na dysk. Zaleca się użycie numeru seryjnego dysku jako nazwa pliku dziennika.         |
     |/SK:     |Klucz konta magazynu Azure.         |
     |/t:     |Litera dysku do wysłania. Na przykład dysk `D`.         |
-    |/bk:     |Klucza funkcji BitLocker dla dysku.         |
+    |/bk:     |Klucza funkcji BitLocker dla dysku. Jego numerycznym hasłem z danych wyjściowych ` manage-bde -protectors -get D: `      |
     |/srcdir:     |Litera dysku do wysłania następuje `:\`. Na przykład `D:\`.         |
     |/dstdir:     |Nazwa kontenera docelowego w usłudze Azure Storage         |
     |/skipwrite:     |Opcję określającą, że nie istnieje żadne nowe dane wymagane do skopiowania i istniejące dane na dysku jest przygotowany         |

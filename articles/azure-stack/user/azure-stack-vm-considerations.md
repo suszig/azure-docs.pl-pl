@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Zagadnienia dotyczące maszyn wirtualnych Azure stosu
 
@@ -37,7 +37,7 @@ Maszyny wirtualne są na żądanie, skalowalnych zasobów obliczeniowych oferowa
 | Sieć maszyny wirtualnej | Publiczne adresy IP przypisane do dzierżawy maszyny wirtualnej są dostępne za pośrednictwem Internetu.<br><br><br>Maszyny wirtualne platformy Azure ma stały nazwy DNS | Publiczne adresy IP przypisane do maszyny wirtualnej dzierżawcy są dostępne tylko w środowisku Azure stosu Development Kit. Użytkownik musi mieć dostęp do zestaw deweloperski stosu Azure za pośrednictwem [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) lub [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) nawiązać połączenia z maszyny wirtualnej, która jest tworzona w stosie Azure.<br><br>Maszyny wirtualne utworzone w ramach określonego wystąpienia stosu Azure mają nazw DNS na podstawie wartości, który został skonfigurowany przez administratora chmury. |
 | Magazyn maszyny wirtualnej | Obsługuje [dyskach zarządzanych.](../../virtual-machines/windows/managed-disks-overview.md) | Dyski zarządzane nie są jeszcze obsługiwane w stosie Azure. |
 | Wersje interfejsu API | Platforma Azure ma zawsze najnowsze wersje interfejsu API dla wszystkich funkcji maszyny wirtualnej. | Stos Azure obsługuje określonych usług platformy Azure i określonych wersji interfejsu API dla tych usług. Aby wyświetlić listę obsługiwanych wersji interfejsu API, zobacz [wersji interfejsu API](#api-versions) sekcji tego artykułu. |
-|Zestawy dostępności maszyny wirtualnej|Wiele domen błędów (2 lub 3 dla regionu)<br>Wiele domen aktualizacji<br>Obsługa dysku zarządzanego|Domena awarii jednego<br>Jedna aktualizacja domeny<br>Brak obsługi dysków zarządzanych|
+|Zestawy dostępności maszyny wirtualnej|Wiele domen błędów (2 lub 3 dla regionu)<br>Wiele domen aktualizacji<br>Obsługa dysku zarządzanego|Wiele domen błędów (2 lub 3 dla regionu)<br>Wiele domen aktualizacji (maksymalnie 20)<br>Brak obsługi dysków zarządzanych|
 |Zestawy skalowania maszyn wirtualnych|Obsługiwane automatycznego skalowania|Automatycznego skalowania nie jest obsługiwane.<br>Dodaj więcej wystąpień do skali ustawić za pomocą portalu, szablony usługi Resource Manager lub programu PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych

@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 759dac681592d0e5951e09638533b93c6348d899
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Wskazówki: Włączanie dane telemetryczne dla programu Microsoft Dynamics CRM Online przy użyciu usługi Application Insights
 W tym artykule przedstawiono sposób pobierać dane telemetryczne [Microsoft Dynamics CRM Online](https://www.dynamics.com/) przy użyciu [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Zostanie omówiony Zakończ proces dodawania skryptów usługi Application Insights do aplikacji, przechwytywania danych i wizualizacji danych.
@@ -33,12 +33,12 @@ Do monitorowania aplikacji, należy dodać zestaw SDK usługi Application Insigh
 ### <a name="create-an-application-insights-resource-in-azure"></a>Tworzenie zasobu usługi Application Insights na platformie Azure
 1. Pobierz [konta na platformie Microsoft Azure](http://azure.com/pricing). 
 2. Zaloguj się do [portalu Azure](https://portal.azure.com) i Dodaj nowy zasób usługi Application Insights. Jest to, gdzie opracowywania i wyświetlania danych.
-   
+
     ![Kliknij pozycję +, usług deweloperskich, usługi Application Insights.](./media/app-insights-sample-mscrm/01.png)
-   
+
     Wybierz ASP.NET jako typ aplikacji.
 3. Otwórz stronę wprowadzenie i otworzyć "Monitor i diagnozowanie po stronie klienta".
-   
+
     ![Fragment kodu dotyczący wstawiania na stronie sieci web](./media/app-insights-sample-mscrm/03.png)
 
 **Nie zamykaj strony kodowej** przy wykonywaniu do następnego kroku w innym oknie przeglądarki. Będziesz potrzebować kod wkrótce. 
@@ -46,41 +46,38 @@ Do monitorowania aplikacji, należy dodać zestaw SDK usługi Application Insigh
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Utwórz zasób sieci web JavaScript w programie Microsoft Dynamics CRM
 1. Otwórz wystąpienie CRM Online, a logowanie z uprawnieniami administratora.
 2. Otwórz aplikację Microsoft Dynamics CRM ustawienia, dostosowania, dostosowywanie systemu
-   
-    ![Ustawienia programu Microsoft Dynamics CRM](./media/app-insights-sample-mscrm/04.png)
-   
-    ![Ustawienia > dostosowania](./media/app-insights-sample-mscrm/05.png)
 
-    ![Dostosowywanie opcji systemu](./media/app-insights-sample-mscrm/06.png)
+    ![Ustawienia programu Microsoft Dynamics CRM](./media/app-insights-sample-mscrm/00001.png)
+
+    ![Ustawienia > dostosowania](./media/app-insights-sample-mscrm/00002.png)
 
 1. Utwórz zasób języka JavaScript.
-   
+
     ![Okno dialogowe nowego zasobu sieci Web](./media/app-insights-sample-mscrm/07.png)
-   
+
     Nadaj mu nazwę, wybierz opcję **skryptu (JScript)** , a następnie otwórz Edytor tekstu.
-   
-    ![Otwórz Edytor tekstu](./media/app-insights-sample-mscrm/08.png)
-2. Skopiuj kod z usługi Application Insights. Podczas kopiowania upewnij się, że zignorowanie tagów skryptu. Zapoznaj się poniżej zrzut ekranu:
-   
-    ![Ustaw klucz Instrumentacji](./media/app-insights-sample-mscrm/09.png)
-   
+
+    ![Otwórz Edytor tekstu](./media/app-insights-sample-mscrm/00004.png)
+2. Skopiuj kod z usługi Application Insights. Podczas kopiowania, upewnij się, że zignorowanie tagów skryptu. Zapoznaj się poniżej zrzut ekranu:
+
+    ![Ustaw klucz Instrumentacji](./media/app-insights-sample-mscrm/00005.png)
+
     Kod zawiera klucz instrumentacji, który identyfikuje z zasobu usługi Application insights.
 3. Zapisz i opublikuj.
-   
-    ![Zapisz i opublikuj](./media/app-insights-sample-mscrm/10.png)
+
+    ![Zapisz i opublikuj](./media/app-insights-sample-mscrm/00006.png)
 
 ### <a name="instrument-forms"></a>Formularze dokumentu
 1. W programie Microsoft CRM Online Otwórz formularz konta
-   
-    ![Formularz konta](./media/app-insights-sample-mscrm/11.png)
+
+    ![Formularz konta](./media/app-insights-sample-mscrm/00007.png)
 2. Otwórz formularz właściwości
-   
-    ![Właściwości formularza](./media/app-insights-sample-mscrm/12.png)
+
+    ![Właściwości formularza](./media/app-insights-sample-mscrm/00008.png)
 3. Dodaj zasób sieci web JavaScript, który został utworzony
-   
+
     ![Dodawanie menu](./media/app-insights-sample-mscrm/13.png)
-   
-    ![Dodaj zasób sieci web](./media/app-insights-sample-mscrm/14.png)
+
 4. Zapisz i opublikuj swoje dostosowania formularza.
 
 ## <a name="metrics-captured"></a>Metryki przechwycić

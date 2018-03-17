@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizowanie zasobów z grupami zarządzania Azure 
 
-Jeśli masz wiele subskrypcji, można je zorganizować w o nazwie "grupy zarządzania" kontenery ułatwiające zarządzanie dostępu, zasad i zgodności wszystkich subskrypcji. Grupy zarządzania zapewniają na dużą skalę, niezależnie od tego, jakiego rodzaju subskrypcji może być zarządzania korporacyjnej.  
+Jeśli Twoja organizacja ma wiele subskrypcji, może być konieczne sposobem wydajnie zarządzać dostępem, zasad i zgodności dla tych subskrypcji. Azure grup zarządzania zapewnia poziom zakresu powyżej subskrypcji. Zorganizować subskrypcje w kontenerach o nazwie "grupy zarządzania", a Twoje warunki ładu do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie odziedziczą warunki stosowane do grupy zarządzania. Grupy zarządzania zapewniają na dużą skalę, niezależnie od tego, jakiego rodzaju subskrypcji może być zarządzania korporacyjnej.
 
 Funkcja grupy zarządzania jest dostępna w publicznej wersji zapoznawczej. Aby rozpocząć korzystanie z zarządzania grupy, zaloguj się do [portalu Azure](https://portal.azure.com) i wyszukaj **grup zarządzania** w **wszystkie usługi** sekcji. 
 

@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5e0d0166377f80c1f43782156fa735915cbc31f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Baza danych SQL wysokiej dostępności i platformy Azure
 Od chwili rozpoczęcia oferty PaaS bazy danych SQL Azure firma Microsoft wprowadziła Obietnica jej klientów, które wysokiej dostępności (HA) korzysta z wbudowanej w usługi i klientów nie są wymagane do działania, Dodaj logikę specjalnych lub podejmować decyzje dotyczące wysokiej dostępności. Firma Microsoft udostępnia pełną kontrolę nad HA system konfiguracji i obsłudze, zaoferować klientom umowy dotyczącej poziomu usług. HA umowy SLA stosuje się do bazy danych SQL w regionie i nie zapewnia ochrony w przypadku niepowodzenia obszar całkowity, który jest wystąpiły z przyczyn będących poza kontrolą firmy Microsoft (na przykład klęski żywiołowej, plik war, czynności terroryzmu, zamieszek, akcji dla instytucji rządowych, lub sieci lub na urządzeniu niepowodzenie zewnętrznych w centrach danych firmy Microsoft, w tym klientów w lokacjach lub między lokacjami klienta i centrum danych firmy Microsoft).
@@ -52,7 +52,7 @@ Rozwiązania wysokiej dostępności w bazie danych SQL jest oparty na [Always ON
 
 W tej konfiguracji każda baza danych jest przełączony w tryb online przez usługę zarządzania (MS) w kręgu formantu. Jedna replika podstawowa i co najmniej dwóch replik pomocniczych (zestawu kworum) znajdują się w pierścień dzierżawy obejmującej trzech niezależnych fizycznych podsystemami w tym samym centrum danych. Wszystkie odczyty i zapisy są wysyłane przez bramę (GW) do repliki podstawowej i zapisy asynchroniczne są replikowane w replikach pomocniczych. Baza danych SQL wykorzystuje schemat zatwierdzania na podstawie kworum, gdy dane są zapisywane do serwera podstawowego i co najmniej jedna replika pomocnicza przed zatwierdzeniem transakcji.
 
-[Sieci szkieletowej usług](/service-fabric/service-fabric-overview.md) pracy awaryjnej systemu automatycznie odtwarza repliki, ponieważ awarii węzłów i przechowuje członkostwa zestawu kworum węzłów odbiegać i Dołącz do systemu. Planowana konserwacja jest dokładnie skoordynowany sposób, aby zapobiec zestawu kworum mniejszego niż liczba minimalna repliki (zwykle 2). Ten model działa dobrze w przypadku baz danych Premium, ale wymaga nadmiarowości zarówno do obliczeń, jak i magazynów składników i powoduje wyższe koszty.
+[Sieci szkieletowej usług](../service-fabric/service-fabric-overview.md) pracy awaryjnej systemu automatycznie odtwarza repliki, ponieważ awarii węzłów i przechowuje członkostwa zestawu kworum węzłów odbiegać i Dołącz do systemu. Planowana konserwacja jest dokładnie skoordynowany sposób, aby zapobiec zestawu kworum mniejszego niż liczba minimalna repliki (zwykle 2). Ten model działa dobrze w przypadku baz danych Premium, ale wymaga nadmiarowości zarówno do obliczeń, jak i magazynów składników i powoduje wyższe koszty.
 
 ## <a name="remote-storage-configuration"></a>Konfiguracja magazynu zdalnego
 

@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Najlepsze rozwiązania w zakresie tablicy wirtualnego StorSimple
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Microsoft Azure StorSimple wirtualnego tablicy to rozwiązanie zintegrowanego magazynu zarządzanego zadań magazynu między lokalnymi urządzenia wirtualnego działający w funkcji hypervisor i magazynu w chmurze Microsoft Azure. Tablica wirtualne StorSimple jest to alternatywa wydajne i ekonomiczne do tablicy fizycznej serii 8000. Wirtualny tablicy można uruchomić w istniejącej infrastrukturze funkcji hypervisor, obsługuje zarówno iSCSI i protokoły SMB i dobrze nadaje się do scenariuszach dotyczących biura zdalnego/oddział. Aby uzyskać więcej informacji na temat rozwiązań StorSimple, przejdź do [Przegląd usługi Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
 W tym artykule omówiono najlepsze rozwiązania zaimplementowana podczas początkowej konfiguracji, wdrażania i zarządzania tablicy wirtualne StorSimple. Następujące najlepsze rozwiązania zamieszczono wytyczne zweryfikowanych Konfiguracja i zarządzanie macierzy wirtualnego. W tym artykule jest przeznaczona do administratorów IT, którzy wdrażania i zarządzania nimi wirtualnego tablic w swoich centrach danych.
@@ -38,7 +38,7 @@ Podczas inicjowania obsługi administracyjnej wirtualnego tablicy, należy zaimp
 
 |  | Funkcja Hyper-V | VMware |
 | --- | --- | --- |
-| **Typ maszyny wirtualnej** |**Generacja 2** maszyny Wirtualnej do użytku z systemem Windows Server 2012 lub nowszym i *vhdx* obrazu. <br></br> **Generacja 1** maszyny Wirtualnej do użytku z systemem Windows Server 2008 lub nowszym i *VHD* obrazu. |Użyj maszyn wirtualnych w wersji 8-11, jeśli korzystasz z *.vmdk* obrazu. |
+| **Typ maszyny wirtualnej** |**Generacja 2** maszyny Wirtualnej do użytku z systemem Windows Server 2012 lub nowszym i *vhdx* obrazu. <br></br> **Generacja 1** maszyny Wirtualnej do użytku z systemem Windows Server 2008 lub nowszym i *VHD* obrazu. |Maszyny wirtualnej wersji 8 używając *.vmdk* obrazu. |
 | **Typ pamięci** |Należy skonfigurować jako **pamięci statycznej**. <br></br> Nie używaj **pamięci dynamicznej** opcji. | |
 | **Typ dysku danych** |Ustanowić jako **dynamicznie powiększających się**.<br></br> **Stały rozmiar** zajmuje dużo czasu. <br></br> Nie używaj **różnicowych** opcji. |Użyj **elastycznej udostępniania** opcji. |
 | **Modyfikowanie dysku danych** |Rozszerzenie lub zmniejszanie jest niedozwolone. Próba powoduje utratę danych lokalnych na urządzeniu. |Rozszerzenie lub zmniejszanie jest niedozwolone. Próba powoduje utratę danych lokalnych na urządzeniu. |
@@ -116,7 +116,7 @@ Dlatego zaleca się, że możesz:
 * Upewnij się, jest tablica wirtualnego w jego własnej jednostce organizacyjnej (OU) usługi Active Directory.
 * Upewnij się, że żadne obiekty zasad grupy (GPO) są stosowane do wirtualnego macierzy. Możesz zablokować dziedziczenia, aby upewnić się, że wirtualny tablicy (węzła podrzędnego) nie automatycznie dziedziczy obiektów zasad grupy z obiektu nadrzędnego. Aby uzyskać więcej informacji, przejdź do [zablokować dziedziczenie](https://technet.microsoft.com/library/cc731076.aspx).
 
-### <a name="networking"></a>Sieć
+### <a name="networking"></a>Networking
 W konfiguracji sieci wirtualnej tablica odbywa się za pośrednictwem lokalnego interfejsu użytkownika sieci web. Interfejs sieci wirtualnej jest włączona za pomocą funkcji hypervisor, w którym zostanie zainicjowana wirtualnego tablicy. Użyj [ustawienia sieciowe](storsimple-virtual-array-deploy3-fs-setup.md) strony, aby skonfigurować adres IP interfejsu sieci wirtualnej, podsieci i bramy.  Można również skonfigurować podstawowego i pomocniczego serwera DNS, ustawienia czasu i opcjonalne ustawienia serwera proxy dla danego urządzenia. W większości konfiguracji sieci jest jednorazowej konfiguracji. Przegląd [StorSimple wymagań sieciowych](storsimple-ova-system-requirements.md#networking-requirements) przed wdrożeniem wirtualnego tablicy.
 
 W przypadku wdrażania wirtualnego tablica, firma Microsoft zaleca, należy stosować następujące najlepsze rozwiązania:
@@ -236,7 +236,7 @@ Podczas wykonywania błędu za pośrednictwem wirtualnej tablica, pamiętać o n
   * Wystąpił błąd podczas procesu rzeczywistej pracy awaryjnej. W takim przypadku urządzenia docelowego jest oznaczony jako bezużyteczne. Należy udostępnić i skonfigurować innej docelowej tablicy wirtualnej i użyj jej w trybie failover.
   * Tryb failover zostało ukończone, po czym usunięto urządzenia źródłowego, ale urządzenie docelowe ma problemy i nie można uzyskać dostępu do żadnych danych. Dane są nadal bezpieczne w chmurze i można łatwo pobrać tworzenia innej tablicy wirtualnego, a następnie użyć go jako urządzenie docelowe do odzyskiwania po awarii.
 
-### <a name="deactivate"></a>Dezaktywowanie
+### <a name="deactivate"></a>Dezaktywuj
 Po dezaktywowaniu tablicą wirtualne StorSimple jest sever połączenia między urządzeniem i odpowiedniej usługi Menedżer StorSimple. Dezaktywacja jest **stałe** operacji i nie można cofnąć. Dezaktywowane urządzenia nie można zarejestrować w usłudze Menedżer StorSimple ponownie. Aby uzyskać więcej informacji, przejdź do [zdezaktywować i usunąć tablica wirtualnego StorSimple](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Podczas dezaktywacji tablica wirtualnego należy pamiętać o następujących rozwiązań:
@@ -282,6 +282,6 @@ Wiele tablic wirtualny może być konieczne można wdrożyć do konta w celu ros
 * W przypadku wdrażania wielu wirtualnych tablic, zaleca się z równoważeniem obciążenia perspektywy, rozpowszechniają tablicy innej funkcji hypervisor hostów.
 * Wiele wirtualnych tablic (jeśli jest skonfigurowany jako serwer plików lub serwera iSCSI) można wdrożyć w Namespace rozproszonego systemu plików. Aby uzyskać szczegółowy opis kroków, przejdź do [rozproszonych pliku systemu Namespace rozwiązania z Podręcznik wdrażania magazynu chmury hybrydowej](https://www.microsoft.com/download/details.aspx?id=45507). Obecnie rozproszonej replikacji systemu plików nie jest zalecane do użycia z wirtualnych tablicy. 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Dowiedz się, jak [administrowania tablica wirtualnego StorSimple](storsimple-virtual-array-manager-service-administration.md) za pośrednictwem usługi Menedżer StorSimple.
 

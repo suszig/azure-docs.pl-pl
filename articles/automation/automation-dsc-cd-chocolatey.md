@@ -1,24 +1,20 @@
 ---
-title: "Ciągłe wdrażanie usługi Konfiguracja DSC usługi Automatyzacja Azure z Chocolatey | Dokumentacja firmy Microsoft"
+title: "Ciągłe wdrażanie usługi Konfiguracja DSC usługi Automatyzacja Azure z Chocolatey"
 description: "DevOps ciągłe wdrażanie przy użyciu usługi Konfiguracja DSC automatyzacji Azure i Menedżer pakietów Chocolatey.  Przykład pełny szablon JSON ARM i źródła programu PowerShell."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
-ms.date: 10/29/2016
-ms.author: golive
-ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Przykład użycia: Ciągłe wdrażanie maszyn wirtualnych przy użyciu usługi Konfiguracja DSC automatyzacji i Chocolatey
 W świecie DevOps istnieje wiele narzędzi do pomagać w różnych punktach w potoku ciągłej integracji.  Konfiguracji usługi Azure Automation pożądanej stanu (DSC) to powitalnej oprócz nowe opcje, które zespoły opracowywania oprogramowania można wdrożyć.  W tym artykule przedstawiono ustawienia zapasowej ciągłego wdrażania (CD) na komputerze z systemem Windows.  Metoda zawierać dowolną liczbę komputerów z systemem Windows zgodnie z potrzebami w roli (na przykład witryną sieci web), a następnie do również dodatkowych ról można z łatwością rozszerzyć.
@@ -77,7 +73,7 @@ Lub jest metoda ręczna.  Struktura folderów modułu integracji programu PowerS
 
 * Zainstaluj moduł, który należy na stacji roboczej w następujący sposób:
   * Zainstaluj [Windows Management Framework v5](http://aka.ms/wmf5latest) (nie wymagane dla systemu Windows 10)
-  * `Install-Module –Name MODULE-NAME`< — grabs modułu z galerii programu PowerShell 
+  * `Install-Module –Name MODULE-NAME`    < — grabs modułu z galerii programu PowerShell 
 * Skopiuj folder modułu z `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` do folderu tymczasowego 
 * Usuń z folderu głównego przykłady i dokumentacja 
 * ZIP głównego folderu nazewnictwa pliku ZIP, dokładnie tak samo jak folder 
@@ -172,7 +168,7 @@ Oczywiście po zaktualizowaniu pakietu na maszynie Wirtualnej, który znajduje s
 
 Pełne źródło w tym przykładzie użycie znajduje się w [tego projektu programu Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) w witrynie GitHub.
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 * [Przegląd usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-overview.md)
 * [Polecenia cmdlet systemu Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Dołączania komputerów do zarządzania przez Konfiguracja DSC automatyzacji Azure](automation-dsc-onboarding.md)

@@ -1,24 +1,18 @@
 ---
-title: "Automatyzacja wdrażania maszyny Wirtualnej w ramach usług Amazon Web Services | Dokumentacja firmy Microsoft"
+title: "Automatyzacja wdrażania maszyny Wirtualnej w ramach usług Amazon Web Services"
 description: "W tym artykule przedstawiono sposób użycia usługi Automatyzacja Azure można zautomatyzować tworzenie maszyny wirtualnej usługi sieci Web firmy Amazon"
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/29/2017
-ms.author: tiandert; bwren
-ms.openlocfilehash: ba86789a9571c4b09a0224e6c41497f091968ef8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 371510bf335bda2e2475e6ba3f5f74ee2117d9a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Scenariusz automatyzacji Azure - świadczenia usług AWS maszyny wirtualnej
 W tym artykule dowiesz się, jak można wykorzystać Automatyzacja Azure, aby udostępnić maszynie wirtualnej w ramach subskrypcji usługi sieci Web firmy Amazon (AWS) i nadaj tej maszyny Wirtualnej określonej nazwy — czyli usług AWS jako "znakowanie" maszyny Wirtualnej.

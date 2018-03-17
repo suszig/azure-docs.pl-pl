@@ -1,24 +1,18 @@
 ---
-title: Wykonanie elementu Runbook automatyzacji Azure | Dokumentacja firmy Microsoft
+title: Wykonanie elementu Runbook automatyzacji Azure
 description: "W tym artykule opisano szczegółowe informacje o przetwarzaniu elementu runbook automatyzacji Azure."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/15/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+manager: carmonm
+ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonanie elementu Runbook automatyzacji Azure
 Po uruchomieniu elementu runbook w automatyzacji Azure tworzone jest zadanie. Zadanie jest pojedynczym wystąpieniem wykonania elementu runbook. Pracownik usługi Automatyzacja Azure jest przypisany do każdego zadania. Pracownicy są współużytkowane przez wiele kont platformy Azure, są odizolowane od siebie zadań z różnych kont automatyzacji. Możesz nie mieć kontroli za pośrednictwem których procesu roboczego obsługującym żądanie dla zadania. Pojedynczy element runbook może mieć wiele zadań została uruchomiona w tym samym czasie.  Może być ponownie używane środowiska wykonania zadań z tego samego konta automatyzacji. Podczas wyświetlania listy elementów runbook w portalu Azure, wyświetla stan wszystkich zadań, które zostały uruchomione dla każdego elementu runbook. Aby śledzić stan każdego z nich, można wyświetlić listę zadań dla każdego elementu runbook. Opis stany różne zadania [stany zadania](#job-statuses).
@@ -38,15 +32,15 @@ W poniższej tabeli opisano różne stany, które są możliwe w dla zadania.
 
 | Stan | Opis |
 |:--- |:--- |
-| Ukończony |Zadanie zostało ukończone pomyślnie. |
+| Ukończone |Zadanie zostało ukończone pomyślnie. |
 | Niepowodzenie |Dla [graficzny i przepływ pracy programu PowerShell elementów runbook](automation-runbook-types.md), element runbook kompilacja nie powiodła się.  Aby uzyskać [elementów runbook skrypt programu PowerShell](automation-runbook-types.md), nie można uruchomić elementu runbook lub zadania wystąpił wyjątek. |
 | Nie powiodło się, oczekiwania dla zasobów |Zadanie nie powiodło się, ponieważ osiągnął [odpowiedni udział](#fair-share) ograniczyć trzy razy i z tego samego punktu kontrolnego lub od początku elementu runbook każdej godzina rozpoczęcia. |
 | W kolejce |Zadanie oczekuje dla zasobów procesu roboczego automatyzacji dostępny, aby można było go uruchomić. |
 | Uruchamianie |Zadanie zostało przypisane do procesu roboczego, a system jest w trakcie jego uruchomienie. |
 | Wznawianie |System jest w trakcie wznawiania zadania po został wstrzymany. |
-| Uruchomione |Zadanie zostało uruchomione. |
+| Działanie |Zadanie zostało uruchomione. |
 | Uruchomiona, oczekiwania dla zasobów |Zadanie zostało zwolnione, ponieważ osiągnął [odpowiedni udział](#fair-share) limit. Jest wznawiana wkrótce z ostatniego punktu kontrolnego. |
-| Zatrzymane |Zadanie zostało zatrzymane przez użytkownika przed jej ukończeniem. |
+| Zatrzymano |Zadanie zostało zatrzymane przez użytkownika przed jej ukończeniem. |
 | Zatrzymywanie |System jest w trakcie zatrzymywania zadania. |
 | Wstrzymano |Zadanie zostało zawieszone przez użytkownika przez system lub za pomocą polecenia w elemencie runbook. Zawieszone zadanie można uruchomić ponownie i wznowić z ostatniego punktu kontrolnego lub od początku elementu runbook, jeśli nie ma on punkty kontrolne. Element runbook zostanie zawieszony przez system tylko, po wystąpieniu wyjątku. Domyślnie jest równa ErrorActionPreference **Kontynuuj**, co oznacza, że zadanie będzie uruchomione w przypadku wystąpienia błędu. Jeśli ustawiono tę zmienną preferencji **zatrzymać**, a następnie wstrzymuje zadanie w przypadku wystąpienia błędu.  Dotyczy [graficzny i przepływ pracy programu PowerShell elementów runbook](automation-runbook-types.md) tylko. |
 | Wstrzymywanie |System próbuje zawiesić zadanie na żądanie użytkownika. Element runbook musi dotrzeć do swojego następnego punktu kontrolnego, zanim może zostać zawieszone. Jeśli przekazany już ostatni punkt kontrolny, a następnie jego zakończenie przed może zostać zawieszone.  Dotyczy [graficzny i przepływ pracy programu PowerShell elementów runbook](automation-runbook-types.md) tylko. |
@@ -96,6 +90,6 @@ Jeśli element runbook ma punktów kontrolnych lub zadanie nie osiągnęła pier
 
 Podczas tworzenia elementu runbook, należy upewnić się, że czas do uruchomienia żadnych działań między dwoma punktami kontrolnymi nie przekracza trzy godziny. Należy dodać punkty kontrolne do elementu runbook, aby upewnić się, że nie osiągnięciu tego limitu trzy godziny lub podzielić long długotrwałych operacji. Na przykład element runbook może wykonywać indeksowanie na duże bazy danych SQL. Jeśli operacja jednego nie zostanie ukończone przed upływem limitu odpowiedni udział, zadania są zwolnione i ponownego uruchomienia od początku. W takim przypadku należy podzielić operacji indeksowanie w wielu kroków, takich jak indeksowanie jedna tabela w czasie i następnie Wstaw punkt kontrolny po zakończeniu każdej operacji, dzięki czemu można wznowić zadanie, po ostatniej operacji, aby zakończyć.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej na temat różnych metod, które mogą służyć do uruchamiania elementu runbook automatyzacji Azure, zobacz [uruchamianie elementu runbook automatyzacji Azure](automation-starting-a-runbook.md)
 

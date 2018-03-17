@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Wdrażanie tablicy wirtualnego StorSimple - Provision w środowisku programu VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Ten samouczek zawiera opis sposobu udostępniania i Połącz z tablicą wirtualnego StorSimple na komputerze hosta z systemem VMware ESXi 5.0, 5.5 lub 6.0. Ten artykuł dotyczy wdrożenia tablice wirtualnego StorSimple w portalu Azure i w chmurze Microsoft Azure dla instytucji rządowych.
 
 Potrzebne są uprawnienia administratora, aby udostępnić i nawiązać połączenia z urządzeniem wirtualnym. Inicjowania obsługi administracyjnej i początkowej instalacji może zająć około 10 minut, aby zakończyć.
@@ -127,7 +127,7 @@ Wykonaj poniższe kroki, aby udostępnić w funkcji hypervisor, Twoje urządzeni
 17. Na **magazynu** wybierz magazyn danych chcesz użyć do udostępnienia maszyny Wirtualnej.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. Na **wersją maszyny wirtualnej** wybierz pozycję **wersją maszyny wirtualnej: 8**. 8-11 są wszystkie obsługiwane wersje.
+18. Na **wersją maszyny wirtualnej** wybierz pozycję **wersją maszyny wirtualnej: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. Na **systemu operacyjnego gościa** wybierz pozycję **systemu operacyjnego gościa** jako **Windows**. Aby uzyskać **wersji**, z listy rozwijanej wybierz **Microsoft Windows Server 2012 (64-bitowy)**.
@@ -157,7 +157,7 @@ Wykonaj poniższe kroki, aby udostępnić w funkcji hypervisor, Twoje urządzeni
 27. Na **gotowe do wykonania** Przejrzyj wszystkie ustawienia skojarzone z nowej maszyny wirtualnej. Sprawdź **edytować ustawienia maszyny wirtualnej przed ukończeniem**. Kliknij przycisk **kontynuować**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Na **właściwości maszyny wirtualnej** strony w **sprzętu** zlokalizuj urządzeń sprzętowych. Wybierz **nowy dysk twardy**. Kliknij pozycję **Dodaj**.
+28. Na **właściwości maszyny wirtualnej** strony w **sprzętu** zlokalizuj urządzeń sprzętowych. Wybierz **nowy dysk twardy**. Kliknij pozycję **Add** (Dodaj).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
 29. Zostanie wyświetlony **dodawania sprzętu** okna. Na **typu urządzenia** w obszarze **wybierz typ urządzenia, które chcesz dodać**, wybierz pozycję **dysku twardego**i kliknij przycisk **dalej**.
@@ -243,6 +243,6 @@ Inny błąd czoła podczas początkowej konfiguracji przy użyciu lokalnego inte
 * Uruchamianie testów diagnostycznych do [Rozwiązywanie problemów z instalacją interfejsu użytkownika sieci web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 * [Generowanie pakietu dziennika i wyświetlanie plików dziennika](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Konfigurowanie tablica wirtualnego StorSimple jako serwer plików](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Konfigurowanie tablica wirtualnego StorSimple iSCSI na serwerze](storsimple-virtual-array-deploy3-iscsi-setup.md)
