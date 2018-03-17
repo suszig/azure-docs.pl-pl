@@ -57,10 +57,12 @@ Oto niektóre z funkcji Premium Storage:
 
     Konto magazynu premium obsługuje tylko lokalnie nadmiarowego magazynu jako opcję replikacji. Magazyn lokalnie nadmiarowy przechowuje trzy kopie danych w pojedynczym regionie. Regionalnej awarii, musisz należy wykonać kopię zapasową dysków maszyny Wirtualnej w innym regionie przy użyciu [kopia zapasowa Azure](../articles/backup/backup-introduction-to-azure-backup.md). Możesz również użyć konta magazynu geograficznie nadmiarowego (GRS) jako magazynu kopii zapasowych. 
 
-    Azure używa konta magazynu jako kontener dla niezarządzanego dysków. Podczas tworzenia Azure serii DS, DSv2 serii GS-series lub serii Fs maszynę Wirtualną za pomocą dysków niezarządzane, a wybierz konto magazynu premium, systemu operacyjnego i dyski danych są przechowywane na tym koncie magazynu.
+    Azure używa konta magazynu jako kontener dla niezarządzanego dysków. Podczas tworzenia maszyny Wirtualnej platformy Azure obsługuje magazyn w warstwie Premium z dyskami niezarządzane, a następnie wybierz konto magazynu w warstwie premium, systemu operacyjnego i dyski danych są przechowywane na tym koncie magazynu.
 
 ## <a name="supported-vms"></a>Obsługiwane maszyny wirtualne
-Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series, Ls serii Fs serii i B serii maszyn wirtualnych. Z tych typów maszyny Wirtualnej służy dyski magazynu standard i premium. Nie można używać dysków premium magazynu serii maszyn wirtualnych, które nie są Premium zgodnych z magazynu.
+
+Magazyn w warstwie Premium obsługuje B-series, serii DS, DSv2-series, DSv3 serii GS-series, Ls serii M serii i Fs serii maszyn wirtualnych. Z tych typów maszyny Wirtualnej służy dyski magazynu standard i premium. Nie można używać dysków premium magazynu serii maszyn wirtualnych, które nie są Premium zgodnych z magazynu.
+
 
 Aby uzyskać informacje o typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Windows, zobacz [Windows VM sizes (Rozmiary maszyn wirtualnych z systemem Windows)](../articles/virtual-machines/windows/sizes.md). Aby uzyskać informacje o typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Linux, zobacz [Linux VM sizes (Rozmiary maszyn wirtualnych z systemem Linux)](../articles/virtual-machines/linux/sizes.md).
 
