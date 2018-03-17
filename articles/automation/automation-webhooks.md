@@ -1,24 +1,18 @@
 ---
-title: "Uruchamianie elementu runbook usługi Automatyzacja Azure z elementu webhook | Dokumentacja firmy Microsoft"
+title: "Uruchamianie elementu runbook usługi Automatyzacja Azure z elementu webhook"
 description: "Element webhook, która umożliwia klientowi uruchomienia elementu runbook automatyzacji Azure z wywołania HTTP.  W tym artykule opisano sposób tworzenia elementu webhook i wywoływanie jednego uruchomienia elementu runbook."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: b3e8e489ef4b79a89facb2395543743c427b0310
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Uruchamianie elementu runbook usługi Automatyzacja Azure z elementu webhook
 A *webhook* umożliwia uruchomienie określonego elementu runbook automatyzacji Azure za pomocą pojedynczego żądania HTTP. Dzięki temu usług zewnętrznych, takich jak Visual Studio Team Services, GitHub, analizy dzienników Microsoft Operations Management Suite lub niestandardowych aplikacji do uruchamiania elementów runbook bez wdrażania pełnego rozwiązania przy użyciu interfejsu API usługi Automatyzacja Azure.  
@@ -67,7 +61,7 @@ Powyżej elementu runbook, jeśli masz następujące właściwości dla parametr
 
 Następnie przejdzie następującą wartość JSON w Interfejsie użytkownika dla parametru WebhookData:  
 
-* {"WebhookName": "MyWebhook", "RequestHeader": {"Od": "Użytkownik testowy"}, "RequestBody": "[\"VM1\",\"maszyny VM2\"]"}
+* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"[\"VM1\",\"VM2\"]"}
 
 ![Uruchom parametr WebhookData z interfejsu użytkownika](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
@@ -104,7 +98,7 @@ Klient zostanie wyświetlony jeden z następujących kody powrotu z żądania PO
 
 | Kod | Tekst | Opis |
 |:--- |:--- |:--- |
-| 202 |Zaakceptowane |Żądanie zostało zaakceptowane, a element runbook został pomyślnie w kolejce. |
+| 202 |Zaakceptowany |Żądanie zostało zaakceptowane, a element runbook został pomyślnie w kolejce. |
 | 400 |Nieprawidłowe żądanie |Nie zaakceptowano żądanie dla jednego z następujących powodów. <ul> <li>Element webhook wygasł.</li> <li>Elementu webhook jest wyłączona.</li> <li>Token w adresie URL jest nieprawidłowy.</li>  </ul> |
 | 404 |Nie znaleziono |Nie zaakceptowano żądanie dla jednego z następujących powodów. <ul> <li>Nie można odnaleźć elementu webhook.</li> <li>Nie znaleziono elementu runbook.</li> <li>Nie można odnaleźć konta.</li>  </ul> |
 | 500 |Wewnętrzny błąd serwera |Adres URL jest prawidłowy, ale wystąpił błąd.  Prześlij żądanie. |

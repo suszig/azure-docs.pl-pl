@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: a6e1b6230742c1c2f065418110f76932306a9588
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Utwórz i Zarządzaj serwerami bazy danych SQL Azure i baz danych
 
@@ -21,7 +21,7 @@ Baza danych SQL oferuje trzy typy baz danych:
 
 - Pojedyncza baza danych utworzona w ciągu [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) ze zdefiniowanym zestawem [zasobów obliczeniowych i magazynu dla różnych obciążeń](sql-database-service-tiers.md). Baza danych Azure SQL jest skojarzony z serwera logicznego bazy danych SQL Azure, który jest tworzony w określonym regionie Azure.
 - Baza danych utworzona w ramach [puli baz danych](sql-database-elastic-pool.md) w [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) ze zdefiniowanym zestawem [zasobów obliczeniowych i magazynu dla różnych obciążeń](sql-database-service-tiers.md) , które są współdzielona przez wszystkie bazy danych w puli. Baza danych Azure SQL jest skojarzony z serwera logicznego bazy danych SQL Azure, który jest tworzony w określonym regionie Azure.
-- [Wystąpienia programu SQL server](sql-database-managed-instance.md) utworzone w ramach [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) ze zdefiniowanym zestawem zasobów obliczeniowych i magazynu dla wszystkich baz danych w tym wystąpieniu serwera. Zarządzane wystąpienie zawiera systemowych i użytkownika bazy danych. Zarządzane wystąpienia zaprojektowana w celu umożliwienia bazy danych przyrostu i shift do w pełni zarządzane rozwiązanie typu PaaS, bez zmiany projektu aplikacji. Zarządzane wystąpienia zapewnia wysoką zgodność z modelem programowania lokalnego programu SQL Server i obsługuje dużych większość funkcji programu SQL Server i towarzyszące narzędzi i usług.  
+- [Wystąpienia programu SQL server](sql-database-managed-instance.md) (zarządzane) tworzone wystąpienie w ramach [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) ze zdefiniowanym zestawem zasobów obliczeniowych i magazynu dla wszystkich baz danych w tym wystąpieniu serwera. Zarządzane wystąpienie zawiera systemowych i użytkownika bazy danych. Zarządzane wystąpienia zaprojektowana w celu umożliwienia bazy danych przyrostu i shift do w pełni zarządzane rozwiązanie typu PaaS, bez zmiany projektu aplikacji. Zarządzane wystąpienia zapewnia wysoką zgodność z modelem programowania lokalnego programu SQL Server i obsługuje dużych większość funkcji programu SQL Server i towarzyszące narzędzi i usług.  
 
 Baza danych SQL Azure Microsoft obsługuje danych tabelarycznych (TDS) protokół klienta wersja strumienia 7.3 lub nowszym i zezwala na tylko zaszyfrowanego połączenia TCP/IP.
 
@@ -140,7 +140,7 @@ Tworzenie i zarządzanie nimi Azure SQL server, baz danych i zapory z [interfejs
 |[az group create](/cli/azure/group#az_group_create)|Tworzy grupę zasobów|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Tworzy serwer|
 |[Lista serwerów sql az](/cli/azure/sql/server#az_sql_server_list)|Wyświetla serwery|
-|[Serwer sql az listy użycia](/cli/azure/sql/server#az_sql_server_list-usages)|Zwraca użycia serwera|
+|[Serwer sql az listy użycia](/cli/azure/sql/server#az_sql_server_list_usages)|Zwraca użycia serwera|
 |[Pokaż serwera sql az](/cli/azure/sql/server#az_sql_server_show)|Pobiera serwera|
 |[Aktualizacja programu sql server az](/cli/azure/sql/server#az_sql_server_update)|Serwer aktualizacji|
 |[Usuń serwer sql az](/cli/azure/sql/server#az_sql_server_delete)|Usuwa serwer|
@@ -196,7 +196,6 @@ Tworzenie i zarządzanie nimi Azure SQL server, baz danych i zapór, użyj te ż
 |[Serwery — listy](/rest/api/sql/servers/list)|Zwraca listę serwerów.|
 |[Serwery — Lista według grupy zasobów](/rest/api/sql/servers/listbyresourcegroup)|Zwraca listę serwerów w grupie zasobów.|
 |[Serwery — aktualizacja](/rest/api/sql/servers/update)|Aktualizuje istniejący serwer.|
-|[Serwery - Sql](/rest/api/sql/servers%20-%20sql)|Określa, czy można utworzyć zasobu o określonej nazwie.|
 |[Bazy danych — Tworzenie lub aktualizowanie](/rest/api/sql/databases/createorupdate)|Tworzy nową bazę danych lub aktualizuje istniejącą bazę danych.|
 |[Bazy danych - Get](/rest/api/sql/databases/get)|Pobiera bazy danych.|
 |[Bazy danych — uzyskać za pomocą puli elastycznej](/rest/api/sql/databases/getbyelasticpool)|Pobiera bazy danych w puli elastycznej.|

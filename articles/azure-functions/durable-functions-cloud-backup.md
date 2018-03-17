@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-wyjściowego/fan-w scenariuszu w funkcjach trwałe — przykład kopii zapasowej chmury
 
@@ -97,7 +97,7 @@ Implementacja ładuje plik z dysku i asynchronicznie prześle strumieniowo zawar
 > [!NOTE]
 > To jest przykład doskonałe przenoszenia operacji We/Wy do `activityTrigger` funkcji. Nie tylko mogą pracy być rozproszone na wielu różnych maszyn wirtualnych, ale można również uzyskać korzyści wynikające z użycia punktów kontrolnych postęp. Jeśli proces hosta pobiera zakończone jakiejkolwiek przyczyny, wiadomo, przekazywania, które zostały już wykonane.
 
-## <a name="run-the-sample"></a>Uruchom próbki
+## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
 Orchestration można uruchomić poprzez wysłanie następujące żądania HTTP POST.
 
@@ -156,9 +156,9 @@ Oto aranżacji jako pojedynczy plik C# w projektu programu Visual Studio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Ten przykład pokazuje, jak implementują wzorzec fan-wyjściowego/fan-w. Następna próbka pokazuje, jak wdrożyć [stanowe singleton](durable-functions-singletons.md) wzorca w [eternal aranżacji](durable-functions-eternal-orchestrations.md).
+Ten przykład pokazuje, jak implementują wzorzec fan-wyjściowego/fan-w. Następna próbka pokazuje, jak wdrożyć przy użyciu wzorca monitor [trwałe czasomierze](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Uruchom przykładowe singleton stanowe](durable-functions-counter.md)
+> [Uruchom monitor próbki](durable-functions-monitor.md)

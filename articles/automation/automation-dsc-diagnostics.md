@@ -1,25 +1,22 @@
 ---
-title: "Przesyła dane raportowania z analizą dzienników OMS Konfiguracja DSC automatyzacji Azure | Dokumentacja firmy Microsoft"
-description: "W tym artykule przedstawiono sposób wysyłania żądanego stanu konfiguracji (DSC) dane raportowania Microsoft analizy dzienników pakiet zarządzania Operations dostarczać szczegółowe informacje o dodatkowych i zarządzania."
+title: "Przekazuj Konfiguracja DSC automatyzacji Azure raportowania danych do analizy dzienników"
+description: "W tym artykule przedstawiono sposób wysyłania żądanego stanu konfiguracji (DSC) raportowania danych do analizy dzienników dostarczać dodatkowe szczegółowe dane i zarządzania."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Przesyła dane raportowania z analizą dzienników OMS Konfiguracja DSC automatyzacji Azure
+# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Przekazywanie danych raportów DSC usługi Azure Automation do usługi OMS Log Analytics
 
 Automatyzacja może wysyłać dane stanu węzła DSC do obszaru roboczego analizy dzienników programu Microsoft Operations Management Suite (OMS).  
 Stan zgodności jest widoczny w portalu Azure lub programu PowerShell, dla węzłów i dla poszczególnych zasobów DSC w konfiguracji węzła. Analiza dzienników można:
@@ -81,7 +78,7 @@ Po skonfigurowaniu integracji z analizy dzienników dla danych usługi Konfigura
 Kliknij przycisk każdej operacji na liście, aby wyświetlić dane dla tej operacji.
 
 Możesz również wyświetlić dzienniki, wyszukując [w module analiz dziennika. Zobacz [wyszukiwanie danych przy użyciu dziennika wyszukiwania](../log-analytics/log-analytics-log-searches.md).
-Wpisz poniższe zapytanie w celu znalezienia dzienników DSC:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
+Wpisz poniższe zapytanie w celu znalezienia dzienników DSC: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
 
 Można również ograniczyć zapytanie według nazwy operacji. Na przykład: "typ = AzureDiagnostics ResourceProvider ="MICROSOFT. Kategoria AUTOMATYZACJI"="DscNodeStatus"OperationName ="DscNodeStatusData"
 
@@ -92,7 +89,7 @@ Jeden z naszych żądań najwyższym odbiorcy jest możliwość wysyłania wiado
 Aby utworzyć regułę alertu, rozpoczyna się od utworzenia dziennika wyszukiwanie rekordów raportu DSC, które powinny wywoływać alert.  Kliknij przycisk **Alert** przycisk, aby utworzyć i skonfigurować regułę alertu.
 
 1. Na stronie Przegląd analizy dziennika kliknij **wyszukiwania dziennika**.
-1. Utwórz kwerendę wyszukiwania dziennika dla alertu przez wpisanie następującego wyszukiwania w polu kwerendy:`Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
+1. Utwórz kwerendę wyszukiwania dziennika dla alertu przez wpisanie następującego wyszukiwania w polu kwerendy:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Jeśli zdefiniowano dzienniki z więcej niż jednego konta automatyzacji lub subskrypcji do swojego obszaru roboczego, można grupować alerty subskrypcji i konto automatyzacji.  
   Nazwa konta automatyzacji mogą pochodzić z pola zasobów do wyszukiwania DscNodeStatusData.  
@@ -104,7 +101,7 @@ Jedną z zalet przy użyciu analizy dzienników jest, że można wyszukiwać spr
 Aby znaleźć wszystkie wystąpienia usługi Konfiguracja DSC zasobów, których nie powiodła się.
 
 1. Na stronie Przegląd analizy dziennika kliknij **wyszukiwania dziennika**.
-1. Utwórz kwerendę wyszukiwania dziennika dla alertu przez wpisanie następującego wyszukiwania w polu kwerendy:`Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
+1. Utwórz kwerendę wyszukiwania dziennika dla alertu przez wpisanie następującego wyszukiwania w polu kwerendy:  `Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
 
 ### <a name="view-historical-dsc-node-status"></a>Wyświetl historyczne stan węzła DSC
 
@@ -142,7 +139,7 @@ Diagnostyka usługi Automatyzacja Azure tworzy dwie kategorie rekordów w analiz
 | ReportEndTime_t |Data i godzina zakończenia raportu. |
 | NumberOfResources_d |W konfiguracji zastosowany do węzła o nazwie liczba zasobów usługi Konfiguracja DSC. |
 | SourceSystem | Jak analizy dzienników zbierane dane. Zawsze *Azure* diagnostyki Azure. |
-| Identyfikator zasobu |Określa konto usługi Automatyzacja Azure. |
+| ResourceId |Określa konto usługi Automatyzacja Azure. |
 | ResultDescription | Opis dla tej operacji. |
 | SubscriptionId | Subskrypcja platformy Azure identyfikatora (GUID) dla konta automatyzacji. |
 | ResourceGroup | Nazwa grupy zasobów dla konta automatyzacji. |
@@ -173,7 +170,7 @@ Diagnostyka usługi Automatyzacja Azure tworzy dwie kategorie rekordów w analiz
 | ErrorMessage_s |Komunikat o błędzie, jeśli zasób nie powiodło się. |
 | DscResourceDuration_d |Czas w sekundach, którzy uruchomili zasobów usługi Konfiguracja DSC. |
 | SourceSystem | Jak analizy dzienników zbierane dane. Zawsze *Azure* diagnostyki Azure. |
-| Identyfikator zasobu |Określa konto usługi Automatyzacja Azure. |
+| ResourceId |Określa konto usługi Automatyzacja Azure. |
 | ResultDescription | Opis dla tej operacji. |
 | SubscriptionId | Subskrypcja platformy Azure identyfikatora (GUID) dla konta automatyzacji. |
 | ResourceGroup | Nazwa grupy zasobów dla konta automatyzacji. |
@@ -190,7 +187,7 @@ Wysyła dane usługi Konfiguracja DSC automatyzacji do analizy dzienników, moż
 
 Analiza dzienników zapewnia lepszą widoczność operacyjnej do danych usługi Konfiguracja DSC automatyzacji i może ułatwić szybciej adres zdarzenia.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej na temat sposobu konstruowania różne zapytania i przejrzyj dzienniki usługi Konfiguracja DSC automatyzacji z analizy dzienników, zobacz [Zaloguj wyszukiwania analizy dzienników](../log-analytics/log-analytics-log-searches.md)
 * Aby dowiedzieć się więcej o korzystaniu z usługi Konfiguracja DSC automatyzacji Azure, zobacz [wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-getting-started.md)

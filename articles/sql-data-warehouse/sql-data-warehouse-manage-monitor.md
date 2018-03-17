@@ -6,23 +6,22 @@ documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
 editor: 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e25a1f8d807fa317e8ce246fd49de034182af96
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
-W tym artykule opisano sposób użycia dynamicznych widoków zarządzania (widoków DMV) do monitorowania obciążenia i zbadaj wykonywania zapytania w usłudze Azure SQL Data Warehouse.
+W tym artykule opisano sposób użycia dynamicznych widoków zarządzania (widoków DMV) do monitorowania obciążenia. W tym badanie wykonywania zapytania w usłudze Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Uprawnienia
 Aby odpytać widoków DMV w tym artykule, wymagane jest uprawnienie do stanu bazy danych WIDOKU lub FORMANTU. Zazwyczaj udzielającym stan bazy danych w WIDOKU jest preferowany uprawnień, ponieważ jest bardziej restrykcyjne.
@@ -72,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 Z poprzednim wyników zapytania **należy pamiętać, identyfikator żądania** zapytania, które chcesz zbadać.
 
-Zapytania w programie **zawieszone** stanu jest umieszczany w kolejce z powodu ograniczeń współbieżności. Te zapytania są również wyświetlane w zapytaniu czeka sys.dm_pdw_waits z typem UserConcurrencyResourceType. Zobacz [zarządzania współbieżności i obciążenia] [ Concurrency and workload management] uzyskać więcej informacji dotyczących ograniczeń współbieżności. Zapytania można również poczekać z innych powodów, takich jak uzyskać blokady obiektu.  Jeśli zapytanie oczekuje dla zasobu, zobacz [badanie zapytania oczekiwania na zasoby] [ Investigating queries waiting for resources] dalsze w dół w tym artykule.
+Zapytania w programie **zawieszone** stanu jest umieszczany w kolejce z powodu ograniczeń współbieżności. Te zapytania są również wyświetlane w zapytaniu czeka sys.dm_pdw_waits z typem UserConcurrencyResourceType. Uzyskać informacji na temat limitów współbieżności, zobacz [warstwy wydajności](performance-tiers.md) lub [klasy zasobów do zarządzania obciążenia](resource-classes-for-workload-management.md). Zapytania można również poczekać z innych powodów, takich jak uzyskać blokady obiektu.  Jeśli zapytanie oczekuje dla zasobu, zobacz [badanie zapytania oczekiwania na zasoby] [ Investigating queries waiting for resources] dalsze w dół w tym artykule.
 
 Aby ułatwić wyszukiwanie zapytania w tabeli sys.dm_pdw_exec_requests, należy użyć [etykiety] [ LABEL] można przypisać do zapytania, które można przeszukiwać w widoku sys.dm_pdw_exec_requests komentarz.
 
@@ -135,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Sprawdź *total_elapsed_time* kolumny, aby zobaczyć, jeśli określonym dystrybucyjne trwa znacznie dłużej niż innych do przenoszenia danych.
-* Długotrwałe dystrybucji, sprawdź *rows_processed* kolumnę, aby sprawdzić, czy liczba wierszy jest przenoszony z tą dystrybucją jest znacznie większe niż inne. Jeśli tak, może to oznaczać pochylenia danych podstawowych.
+* Długotrwałe dystrybucji, sprawdź *rows_processed* kolumnę, aby sprawdzić, czy liczba wierszy jest przenoszony z tą dystrybucją jest znacznie większe niż inne. Jeśli tak, to wyszukiwanie może wskazywać pochylenia danych podstawowych.
 
 Jeśli zapytanie jest uruchomiona, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] można pobrać planu szacowany programu SQL Server z pamięci podręcznej planu programu SQL Server dla aktualnie uruchomionych kroku SQL w ramach określonego dystrybucji.
 
@@ -176,7 +175,7 @@ Jeśli zapytanie jest aktywnie oczekiwania na zasoby z innego zapytania, a nast�
 ## <a name="monitor-tempdb"></a>Monitor tempdb
 Tempdb wysokie wykorzystanie można przyczynę niską wydajnością i poza problemy z pamięcią. Należy rozważyć skalowania magazynu danych, jeśli okaże się osiągnięcia limitów jego podczas wykonywania kwerendy w bazie danych tempdb. Poniżej opisano sposób identyfikacji użycia bazy danych tempdb na zapytanie w każdym węźle. 
 
-Utwórz następujący widok do skojarzenia identyfikator odpowiedniego węzła sys.dm_pdw_sql_requests. Pozwoli to korzystać z innych przekazujące widoków DMV i Dołącz do tych tabel z sys.dm_pdw_sql_requests.
+Utwórz następujący widok do skojarzenia identyfikator odpowiedniego węzła sys.dm_pdw_sql_requests. Identyfikator węzła o umożliwi do używania innych przekazujące widoków DMV i Dołącz do tych tabel z sys.dm_pdw_sql_requests.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -200,7 +199,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-Uruchom następującą kwerendę, aby monitorować tempdb:
+Aby monitorować bazy danych tempdb, uruchom następujące zapytanie:
 
 ```sql
 -- Monitor tempdb
@@ -258,7 +257,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Rozmiar dziennika transakcji monitora
-Następujące zapytanie zwraca rozmiar dziennika transakcji na poszczególnych dystrybucji. Jeśli jeden z plików dziennika wkrótce osiągnie 160GB, należy rozważyć skalowaniu wystąpienia lub ograniczenie rozmiar transakcji. 
+Następujące zapytanie zwraca rozmiar dziennika transakcji na poszczególnych dystrybucji. Jeśli jeden z plików dziennika wkrótce osiągnie 160 GB, należy rozważyć skalowaniu wystąpienia lub ograniczenie rozmiar transakcji. 
 ```sql
 -- Transaction log size
 SELECT
@@ -284,8 +283,8 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>Kolejne kroki
-Zobacz [widoków systemowych] [ System views] Aby uzyskać więcej informacji na temat widoków DMV.
-Zobacz [najlepsze rozwiązania w zakresie usługi SQL Data Warehouse] [ SQL Data Warehouse best practices] Aby uzyskać więcej informacji na temat najlepszych rozwiązań
+Aby uzyskać więcej informacji na temat widoków DMV, zobacz [widoków systemowych][System views].
+
 
 <!--Image references-->
 
@@ -294,7 +293,6 @@ Zobacz [najlepsze rozwiązania w zakresie usługi SQL Data Warehouse] [ SQL Data
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

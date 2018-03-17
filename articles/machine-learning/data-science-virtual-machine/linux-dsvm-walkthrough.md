@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Połączenie analiz danych z danych nauki maszyny wirtualnej systemu Linux na platformie Azure
 W tym przewodniku przedstawiono sposób wykonywania kilka typowych zadań nauki danych z maszyny Wirtualnej systemu Linux danych nauki. Linux danych nauki maszyny wirtualnej (DSVM) jest obrazu maszyny wirtualnej na platformie Azure, który jest wstępnie zainstalowane z kolekcją narzędzi powszechnie używany do analizy danych i uczenia maszynowego. Składniki oprogramowania są wyszczególnione w [Aprowizowanie maszyny wirtualnej systemu Linux danych nauki](linux-dsvm-intro.md) tematu. Obraz maszyny Wirtualnej ułatwia rozpoczęcie pracy podczas nauki danych (w minutach), bez konieczności instalowania i konfigurowania poszczególnych narzędzi pojedynczo. Można łatwo skalowanie w górę maszynę Wirtualną, jeśli to konieczne i zatrzymaj ją nieużywane. Dlatego ten zasób jest zarówno elastyczne i ekonomiczne.
@@ -78,7 +78,7 @@ Aby uzyskać kopię przykłady kodu, używany w tym przewodniku, klonowanie **Az
 Otwórz okno terminala i rozpocznij nową sesję R z konsolą interakcyjne R.
 
 > [!NOTE]
-> Umożliwia także programu RStudio dla poniższych procedur. Do zainstalowania programu RStudio, wykonanie tego polecenia w terminalu:`./Desktop/DSVM\ tools/installRStudio.sh`
+> Umożliwia także programu RStudio dla poniższych procedur. Do zainstalowania programu RStudio, wykonanie tego polecenia w terminalu: `./Desktop/DSVM\ tools/installRStudio.sh`
 >
 >
 
@@ -527,7 +527,7 @@ I zapytania przy użyciu narzędzia sqlcmd:
 
 Można także zbadać z Squirrel SQL. Należy wykonać podobne kroki w przypadku PostgreSQL sterownik JDBC serwera MSSQL firmy Microsoft, za pomocą której można znaleźć w ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Omówienie tematów, które umożliwia przeprowadzenie zadań wchodzące w skład procesu nauki danych na platformie Azure, zobacz [proces nauki danych zespołu](http://aka.ms/datascienceprocess).
 
 Opis innych end-to-end wskazówki, które pokazują czynności w procesie nauki zespołu danych dla konkretnych scenariuszy, zobacz [wskazówki dotyczące procesu nauki danych zespołu](../team-data-science-process/walkthroughs.md). Wskazówki dotyczące przedstawiono również sposób łączenia chmurze i lokalnych narzędzi i usług w przepływie pracy lub potoku, aby utworzyć aplikację inteligentnego.

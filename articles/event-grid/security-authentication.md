@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Zdarzenie siatki zabezpieczeń i uwierzytelniania 
 
@@ -24,9 +24,9 @@ Azure siatki zdarzeń ma trzy typy uwierzytelniania:
 
 ## <a name="webhook-event-delivery"></a>Dostarczania zdarzeń elementu WebHook
 
-Element Webhook ma jeden wiele sposobów, aby odbierać zdarzenia w czasie rzeczywistym z siatki zdarzeń platformy Azure. Za każdym razem, gdy jest gotowe do dostarczenia nowego zdarzenia, elementu Webhook siatki zdarzeń wysyła żądanie HTTP do skonfigurowanego punktu końcowego HTTP ze zdarzeniem w treści.
+Element Webhook ma jedną z wielu metod odbieranie zdarzeń z siatki zdarzeń Azure. Gdy jest to nowe zdarzenie jest gotowy, Webhook siatki zdarzeń wysyła żądanie HTTP do skonfigurowanego punktu końcowego HTTP ze zdarzeniem w treści.
 
-Po zarejestrowaniu własny punkt końcowy elementu WebHook siatki zdarzeń wysyła możesz żądania POST z kodem poprawności w celu potwierdzenia własność punktu końcowego. Twoja aplikacja powinna odpowiadać za wstecz wyświetlania kodu walidacji. Siatka zdarzeń nie dostarcza zdarzeń do elementu WebHook punktów końcowych, które nie przeszły sprawdzanie poprawności.
+Po zarejestrowaniu własny punkt końcowy elementu WebHook siatki zdarzeń wysyła możesz żądania POST z kodem poprawności potwierdzenie posiadania punktu końcowego. Twoja aplikacja powinna odpowiadać za wstecz wyświetlania kodu walidacji. Zdarzenie siatki nie dostarczyć zdarzeń do elementu WebHook punktów końcowych, które nie zostały przekazane sprawdzania poprawności.
 
 ### <a name="validation-details"></a>Szczegóły weryfikacji
 
@@ -34,6 +34,7 @@ Po zarejestrowaniu własny punkt końcowy elementu WebHook siatki zdarzeń wysy�
 * Zdarzenie zawiera wartość nagłówka "SubscriptionValidation Æg zdarzeń typu:".
 * Treści zdarzenia ma ten sam schemat jako inne zdarzenia, zdarzenia siatki.
 * Dane zdarzenia zawiera właściwość "validationCode" z ciągiem losowo wygenerowany. Na przykład "validationCode: acb13...".
+* Tablica zawiera tylko zdarzenia sprawdzania poprawności. Inne zdarzenia są wysyłane w oddzielne żądanie po odsyłania kodu walidacji.
 
 Przykład SubscriptionValidationEvent przedstawiono w poniższym przykładzie:
 
@@ -52,7 +53,7 @@ Przykład SubscriptionValidationEvent przedstawiono w poniższym przykładzie:
 }]
 ```
 
-Aby zweryfikować własność punktu końcowego, odsyłania kodu walidacji we właściwości validationResponse, jak pokazano w poniższym przykładzie:
+Aby potwierdzić własność punktu końcowego, odsyłania kodu walidacji we właściwości validationResponse, jak pokazano w poniższym przykładzie:
 
 ```json
 {
@@ -69,7 +70,7 @@ Na koniec jest należy pamiętać, że siatki zdarzeń Azure obsługuje tylko pu
 
 ## <a name="event-subscription"></a>Subskrypcja zdarzeń
 
-Aby subskrybować zdarzenia, musisz mieć **Microsoft.EventGrid/EventSubscriptions/Write** uprawnienia wymaganego zasobu. To uprawnienie jest konieczne, ponieważ pisania nową subskrypcję w zakresie zasobów. Wymagany zasób różni się w zależności od tego, czy są subskrybowanie tematu system lub niestandardowego tematu. Oba typy są opisane w tej sekcji.
+Aby subskrybować zdarzenia, musisz mieć **Microsoft.EventGrid/EventSubscriptions/Write** uprawnienia wymaganego zasobu. To uprawnienie jest konieczne, ponieważ pisania nową subskrypcję w zakresie zasobów. Wymagany zasób różni się w zależności od tego, czy jest subskrybowanie tematu system lub niestandardowego tematu. Oba typy są opisane w tej sekcji.
 
 ### <a name="system-topics-azure-service-publishers"></a>Tematy systemu (usługa Azure wydawców)
 
@@ -79,7 +80,7 @@ Na przykład, aby subskrybować zdarzenia na konto magazynu o nazwie **myacct**,
 
 ### <a name="custom-topics"></a>Niestandardowe — tematy
 
-Tematy niestandardowe należy uprawnienia do zapisu w nowej subskrypcji zdarzeń w zakresie tematu zdarzeń siatki. Format zasobu jest: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Tematy niestandardowe należy uprawnienia do zapisu w nowej subskrypcji zdarzeń w zakresie temat siatki zdarzenia. Format zasobu jest: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 Na przykład, aby zasubskrybować niestandardowego tematu o nazwie **mytopic**, musisz mieć uprawnienia Microsoft.EventGrid/EventSubscriptions/Write na: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Tokeny sygnatury dostępu Współdzielonego dla zdarzeń siatki obejmują zasobu czas wygaśnięcia i sygnaturę. Format tokenu sygnatury dostępu Współdzielonego: `r={resource}&e={expiration}&s={signature}`.
 
-Zasób jest ścieżką tematu, do którego są wysyłane zdarzenia. Na przykład ścieżka prawidłowego zasobu to: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+Zasób jest ścieżkę na temat siatki zdarzenia, do którego jest wysyłana zdarzenia. Na przykład ścieżka prawidłowego zasobu to: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Podpis jest generowanie z klucza.
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Kontrola dostępu administracyjnego
 
-Azure siatki zdarzeń umożliwia kontrolę dostępu do różnych użytkowników w różnych operacji zarządzania, takich jak listy zdarzeń subskrypcji, tworzenie nowych i generowania kluczy. Siatka zdarzeń korzysta z platformy Azure na podstawie ról dostępu Sprawdź (RBAC).
+Azure siatki zdarzeń umożliwia kontrolę dostępu do różnych użytkowników w różnych operacji zarządzania, takich jak listy zdarzeń subskrypcji, tworzenie nowych i generowania kluczy. Siatka zdarzeń używa platformy Azure na podstawie ról dostępu Sprawdź (RBAC).
 
 ### <a name="operation-types"></a>Typy operacji
 

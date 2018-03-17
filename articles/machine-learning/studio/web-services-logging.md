@@ -3,8 +3,9 @@ title: "Rejestrowanie dla usługi sieci web usługi Machine Learning | Dokumenta
 description: "Dowiedz się, jak włączyć rejestrowanie dla usługi sieci web usługi Machine Learning. Rejestrowanie udostępnia dodatkowe informacje ułatwiające rozwiązywanie problemów z interfejsów API."
 services: machine-learning
 documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Włączanie rejestrowania usług sieci Web Machine Learning
 Ten dokument zawiera informacje o możliwości rejestrowania usług sieci web Machine Learning. Rejestrowanie udostępnia dodatkowe informacje, poza tylko numer błędu i wiadomości, które ułatwiają rozwiązywanie problemów z wywołaniami interfejsy API Machine Learning.  
@@ -27,7 +27,7 @@ Ten dokument zawiera informacje o możliwości rejestrowania usług sieci web Ma
 
 Włączanie rejestrowania z [usługi sieci Web systemu Azure Machine Learning](https://services.azureml.net) portalu. 
 
-1. Zaloguj się do portalu usługi sieci Web systemu Azure Machine Learning pod adresem [https://services.azureml.net](https://services.azureml.net). Usługi sieci web klasycznego, można także uzyskać portalu, klikając **nowego środowiska usług sieci Web** na stronie usługi sieci Web usługi Machine Learning w usłudze Machine Learning Studio.
+1. Zaloguj się do portalu usługi sieci Web systemu Azure Machine Learning pod adresem [ https://services.azureml.net ](https://services.azureml.net). Usługi sieci web klasycznego, można także uzyskać portalu, klikając **nowego środowiska usług sieci Web** na stronie usługi sieci Web usługi Machine Learning w usłudze Machine Learning Studio.
 
    ![Nowe łącze środowisko usługi sieci Web](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -82,7 +82,7 @@ Nazwa każdego obiektu blob ma prefiks następującą postać:
 
 Gdzie _typ dziennika_ jest jednym z następujących wartości:  
 
-* Wsadowe  
+* partia  
 * wynik/żądań  
 * wynik/init  
 

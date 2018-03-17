@@ -2,18 +2,19 @@
 title: "Punktów końcowych usługi sieci wirtualnej i zasady usługi Azure SQL Database | Dokumentacja firmy Microsoft"
 description: "Oznacz podsieci jako punkt końcowy usługi sieci wirtualnej. Następnie punktu końcowego, co sieć wirtualna reguł do listy ACL bazy danych SQL Azure. Bazy danych SQL można następnie akceptuje komunikację z wszystkich maszyn wirtualnych i inne węzły w podsieci."
 services: sql-database
+ms.service: sql-database
 author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 61f3112d684e0b1ec1d331f063f7930b3dc64d0c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Użyj punktów końcowych usługi sieci wirtualnej i reguł bazy danych SQL Azure
 
@@ -229,6 +230,12 @@ W tej części przedstawiono, jak używasz [portalu Azure] [ http-azure-portal-l
 
 Skrypt programu PowerShell, można również tworzyć reguły sieci wirtualnej. Polecenia cmdlet ważnych **AzureRmSqlServerVirtualNetworkRule nowy**. W przypadku pytań, zobacz [PowerShell, aby utworzyć regułę i punkt końcowy usługi sieci wirtualnej dla bazy danych SQL Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
+#### <a name="rest-api-alternative"></a>Zamiast interfejsu API REST
+
+Wewnętrznie poleceń cmdlet programu PowerShell dla sieci wirtualnej SQL akcji wywołania interfejsów API REST. Interfejsy API REST można wywołać bezpośrednio.
+
+- [Zasady sieci wirtualnej: operacje][rest-api-virtual-network-rules-operations-862r]
+
 #### <a name="prerequisites"></a>Wymagania wstępne
 
 Podsieć, która jest oznakowany z określonym punktem końcowym usługi sieci wirtualnej musi mieć już *nazwy typu* istotne dla bazy danych SQL Azure.
@@ -288,6 +295,8 @@ Funkcja reguły sieci wirtualnej dla bazy danych SQL Azure stały się dostępne
 ## <a name="next-steps"></a>Kolejne kroki
 
 - [Utwórz punkt końcowy usługi sieci wirtualnej, a następnie reguły sieci wirtualnej dla bazy danych SQL Azure za pomocą programu PowerShell.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Zasady sieci wirtualnej: Operacje] [ rest-api-virtual-network-rules-operations-862r] z interfejsów API REST
+
 
 
 <!-- Link references, to images. -->
@@ -328,6 +337,7 @@ Funkcja reguły sieci wirtualnej dla bazy danych SQL Azure stały się dostępne
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

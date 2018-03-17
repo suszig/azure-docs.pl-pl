@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Kontener grupy wystąpień kontenera platformy Azure
 
@@ -23,13 +23,14 @@ Zasób najwyższego poziomu w wystąpień kontenera Azure jest *grupy konteneró
 
 Grupy kontenerów jest kolekcją kontenerów, które są planowane na tym samym komputerze-hoście. Kontenery w grupie kontenera udostępniania cykl, sieci lokalnej i woluminy magazynu. Jest on podobny do koncepcji *pod* w [Kubernetes] [ kubernetes-pod] i [DC/OS][dcos-pod].
 
-Na poniższym diagramie przedstawiono przykład grupy kontenera, który zawiera wiele kontenerów.
+Na poniższym diagramie przedstawiono przykład grupy kontenera, który zawiera wiele kontenerów:
 
 ![Diagram grupy kontenera][container-groups-example]
 
 Ten przykład grupy kontenerów:
 
 * Zaplanowano na komputerze hosta.
+* Jest przypisana etykieta nazwy DNS.
 * Przedstawia jeden publiczny adres IP, z jedną dostępnego portu.
 * Składa się z dwóch kontenerów. Jeden kontener nasłuchuje na porcie 80, podczas innych wykrywa port 5000.
 * Zawiera dwie udziały plików platformy Azure jako instalacji woluminu i każdego kontenera instaluje jednej akcji lokalnie.
@@ -51,7 +52,7 @@ Można określić zewnętrzne woluminów należy zainstalować w grupie kontener
 
 ## <a name="common-scenarios"></a>Typowe scenariusze
 
-Kontener wielu grupy są przydatne w sytuacjach, w miejsce podział pojedyncze zadanie funkcjonalności do niewielkiej liczby kontener obrazów, które mogą być dostarczane przez różnych zespołów i mieć zasobów oddzielne wymagania.
+Kontener wielu grupy są przydatne w sytuacjach, w którym chcesz podzielić pojedyncze zadanie funkcjonalności na niewielką liczbę obrazów kontenera. Te obrazy następnie mogą być dostarczane przez różnych zespołów i mają wymagania oddzielnych zasobów.
 
 Przykład użycia mogą obejmować:
 

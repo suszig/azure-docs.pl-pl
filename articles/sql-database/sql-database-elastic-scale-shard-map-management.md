@@ -7,20 +7,20 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 03/16/2018
 ms.author: sstein
-ms.openlocfilehash: beddb3d9ac4a8c1ec5bd034c959c6b734c5b4403
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cf8d4427cddbe6368ac265fe9ecc0f408f7fb1fb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skalowanie w poziomie baz danych przy użyciu Menedżera mapy niezależnego fragmentu
 Aby łatwe skalowanie bazy danych SQL Azure, użyj Menedżera map niezależnego fragmentu. Menedżer mapy niezależnego fragmentu jest specjalne bazy danych, która przechowuje Mapowanie globalne informacje o wszystkich odłamków (bazy danych) w zestawie niezależnego fragmentu. Metadane umożliwia aplikacji do nawiązania połączenia z poprawną bazą danych na podstawie wartości z **klucza dzielenia na fragmenty**. Ponadto każdy identyfikator niezależnego fragmentu w zestawie zawiera map, które śledzą dane lokalne niezależnego fragmentu (nazywane **shardlets**). 
 
 ![Identyfikator niezależnego fragmentu mapy zarządzania](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Zrozumienie, jak te mapowania są konstruowane jest niezbędne do zarządzania mapy niezależnego fragmentu. Jest to realizowane przy użyciu klasy ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)), liczba znalezionych w [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md) do zarządzania mapy niezależnego fragmentu.  
+Zrozumienie, jak te mapowania są konstruowane jest niezbędne do zarządzania mapy niezależnego fragmentu. Jest to realizowane przy użyciu klasy ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), liczba znalezionych w [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md) do zarządzania mapy niezależnego fragmentu.  
 
 ## <a name="shard-maps-and-shard-mappings"></a>Mapy niezależnego fragmentu i niezależnego fragmentu mapowania
 Dla każdego niezależnego fragmentu należy wybrać typ mapy niezależnego fragmentu, aby utworzyć. Wybór zależy od architektury bazy danych: 
@@ -96,7 +96,7 @@ A **ShardMapManager** obiekt jest tworzony przy użyciu fabryki ([Java](/java/ap
 
 **Uwaga:** **ShardMapManager** były tworzone tylko raz dla domeny aplikacji w kodzie inicjowania aplikacji. Tworzenie wystąpień dodatkowe ShardMapManager w tej samej domenie aplikacji powoduje znacznie większą ilość pamięci i użycie procesora CPU przez aplikację. A **ShardMapManager** może zawierać dowolną liczbę niezależnych mapy. Mapa jednego niezależnego fragmentu może być wystarczające dla wielu aplikacji, istnieją momenty, gdy różne zestawy baz danych są używane do innego schematu lub do celów unikatowe; w takich przypadkach może być preferowana wielu map niezależnego fragmentu. 
 
-W tym kodzie aplikacja próbuje otworzyć istniejące **ShardMapManager** z TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)) metody.  Jeśli obiekty reprezentujące Global **ShardMapManager** (GSM) nie zostały jeszcze istnieje w bazie danych, Biblioteka klienta tworzy je tam przy użyciu CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) metody.
+W tym kodzie aplikacja próbuje otworzyć istniejące **ShardMapManager** z TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) metody. Jeśli obiekty reprezentujące Global **ShardMapManager** (GSM) nie zostały jeszcze istnieje w bazie danych, Biblioteka klienta tworzy je tam przy użyciu CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) metody.
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.

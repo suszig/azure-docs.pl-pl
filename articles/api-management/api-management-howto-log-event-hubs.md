@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Jak mają być rejestrowane zdarzenia do usługi Azure Event Hubs w usłudze Azure API Management
 Azure Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Usługa Event Hubs działa jako "drzwi wejściowe" dla potoku zdarzeń, a po pobraniu danych do Centrum zdarzeń, można je przekształcać i przechowywane za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub kart przetwarzania wsadowego i magazynowania. Usługa Event Hubs oddziela wytwarzanie strumienia zdarzeń od użycia tych zdarzeń, dzięki czemu odbiorcy zdarzeń mogą uzyskiwać dostęp do zdarzeń zgodnie z własnym harmonogramem.
@@ -36,7 +36,7 @@ Zarządzanie interfejsami API rejestratorów są skonfigurowane przy użyciu [in
 
 Aby utworzyć rejestrator, należy żądanie HTTP PUT, korzystając z poniższego szablonu adresu URL:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Zastąp `{your service}` nazwą wystąpienia usługi Zarządzanie interfejsami API.
 * Zastąp `{new logger name}` z żądaną nazwą dla Twojego nowego rejestratora. Ta nazwa jest odwołanie podczas konfigurowania [dziennika do Centrum eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) zasad
@@ -51,7 +51,7 @@ Określ treści żądania przy użyciu następującego szablonu:
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -60,9 +60,9 @@ Określ treści żądania przy użyciu następującego szablonu:
 }
 ```
 
-* `loggertype`należy wybrać opcję `AzureEventHub`.
-* `description`zapewnia opcjonalny opis rejestratora i w razie potrzeby może być ciągiem o zerowej długości.
-* `credentials`zawiera `name` i `connectionString` Azure Centrum zdarzeń.
+* `loggerType` należy wybrać opcję `AzureEventHub`.
+* `description` zapewnia opcjonalny opis rejestratora i w razie potrzeby może być ciągiem o zerowej długości.
+* `credentials` zawiera `name` i `connectionString` Azure Centrum zdarzeń.
 
 Po dokonaniu żądania, jeśli rejestrator jest tworzony kod stanu `201 Created` jest zwracany.
 

@@ -2,19 +2,20 @@
 title: "Dowiedz się, jak dołączyć rozwiązań zarządzania aktualizacjami, śledzenia zmian i spisu w usłudze Automatyzacja Azure"
 description: "Dowiedz się, jak można dołączyć wirtualnej Azure maszyny z rozwiązań zarządzania aktualizacjami, śledzenia zmian i magazynu, które są częścią usługi Automatyzacja Azure"
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.topic: article
-ms.service: automation
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 670a0c2a11ebfe09406233ab4b454b2e9c2ba0e0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.custom: mvc
+ms.openlocfilehash: 65bf0d98da8111e986d5dbdfd58f1692d40ee286
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Dołączyć rozwiązań do zarządzania aktualizacjami, śledzenia zmian i magazynu
 
@@ -22,23 +23,23 @@ Automatyzacja Azure zapewnia rozwiązania do zarządzania aktualizacjami zabezpi
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Zaloguj się do platformy Azure pod adresem https://portal.azure.com
+Logowanie do platformy Azure w https://portal.azure.com
 
-## <a name="enable-solutions"></a>Włącz rozwiązania
+## <a name="enable-solutions"></a>Włączanie rozwiązań
 
 Przejdź do swojego konta automatyzacji i wybierz opcję **spisu** lub **śledzenie zmian** w obszarze **zarządzania konfiguracją**.
 
-Wybierz obszar roboczy analizy dzienników i konto usługi Automatyzacja i kliknij **włączyć** umożliwiające rozwiązanie. Rozwiązanie trwa do 15 minut, aby włączyć.
+Wybierz obszar roboczy analizy dzienników i konto usługi Automatyzacja i kliknij **włączyć** umożliwiające rozwiązanie. Włączanie rozwiązania może trwać do 15 minut.
 
 ![Zintegrowanego rozwiązania magazynu](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Śledzenie zmian i spisu rozwiązanie zapewnia możliwość [śledzenia zmian](automation-vm-change-tracking.md) i [spisu](automation-vm-inventory.md) na maszynach wirtualnych. W tym kroku należy włączyć rozwiązania na maszynie wirtualnej.
+Rozwiązanie Change Tracking and Inventory umożliwia [śledzenie zmian](automation-vm-change-tracking.md) i tworzenie [spisu](automation-vm-inventory.md) na maszynach wirtualnych. W tym kroku włączysz rozwiązanie na maszynie wirtualnej.
 
-Po zakończeniu śledzenia i spisu rozwiązania dołączania powiadomienia o zmianie, kliknij **zarządzania aktualizacjami** w obszarze **zarządzania konfiguracją**.
+Po zakończeniu powiadomienia o dołączeniu rozwiązania do śledzenia zmian i spisu kliknij pozycję **Update Management** w obszarze **ZARZĄDZANIE KONFIGURACJĄ**.
 
-Rozwiązanie do zarządzania aktualizacji umożliwia zarządzanie aktualizacje i poprawki dla maszyn wirtualnych systemu Windows Azure. Można ocenić stan dostępne aktualizacje, harmonogram instalacji wymaganych aktualizacji i przegląd wyników wdrożenia Sprawdź aktualizacje zostały pomyślnie zastosowane do maszyny Wirtualnej. Ta akcja włączone rozwiązania dla maszyny Wirtualnej.
+Rozwiązanie Update Management umożliwia zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych z systemem Windows platformy Azure. Można ocenić stan dostępnych aktualizacji, zaplanować instalację wymaganych aktualizacji i przejrzeć wyniki wdrażania, aby sprawdzić, czy aktualizacje zostały zastosowane pomyślnie do maszyny wirtualnej. Ta akcja włączone rozwiązania dla maszyny Wirtualnej.
 
-Wybierz **zarządzanie aktualizacjami** w obszarze **zarządzania AKTUALIZACJAMI**. Obszar roboczy analizy dzienników, które zostały wybrane jest tym samym obszarze roboczym w poprzednim kroku. Kliknij przycisk **włączyć** dołączyć rozwiązania do zarządzania aktualizacji. Rozwiązanie trwa do 15 minut, aby włączyć.
+Wybierz **zarządzanie aktualizacjami** w obszarze **zarządzania AKTUALIZACJAMI**. Wybrany obszar roboczy usługi Log Analytics jest tym samym obszarem roboczym, który był używany w poprzednim kroku. Kliknij przycisk **Włącz**, aby dołączyć rozwiązanie Update management. Włączanie rozwiązania może trwać do 15 minut.
 
 ![Rozwiązanie dołączenia aktualizacji](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 

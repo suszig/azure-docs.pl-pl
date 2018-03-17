@@ -6,20 +6,19 @@ documentationcenter: NA
 author: barbkess
 manager: jhubbard
 editor: 
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 11/10/2017
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Jednostki magazynu danych (dwu) i zasobów obliczeniowych jednostki magazynu danych (cDWUs)
 Zawiera opis jednostki magazynu danych (dwu) oraz obliczeniowe jednostki magazynu danych (cDWUS) dla usługi Azure SQL Data Warehouse. Obejmują zalecenia dotyczące wybierania idealne numer jednostki magazynu danych oraz sposobu zmiany ich liczba. 
@@ -179,7 +178,7 @@ Po zainicjowaniu operacji skalowania systemu najpierw rozłącza wszystkie otwar
 - Dla operacji skalowania w górę, system postanowienia dodatkowy obliczeniowe i następnie reattaches do warstwy magazynu. 
 - Dla operacji dół, niepotrzebnych węzłów z magazynu i przyłączając ponownie do pozostałych węzłów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, aby ułatwić zrozumienie pojęcia niektóre dodatkowe wydajności:
 
 * [Zarządzanie obciążenia i współbieżność][Workload and concurrency management]
@@ -201,7 +200,7 @@ Zobacz następujące artykuły, aby ułatwić zrozumienie pojęcia niektóre dod
 [Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
 [Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload and concurrency management]: ./resource-classes-for-workload-management.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexing]: ./sql-data-warehouse-tables-index.md

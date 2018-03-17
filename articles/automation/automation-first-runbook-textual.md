@@ -1,25 +1,21 @@
 ---
-title: "Mój pierwszy element Runbook przepływu pracy programu PowerShell w usłudze Azure Automation | Microsoft Docs"
+title: "Moje pierwszy element runbook przepływu pracy programu PowerShell w usłudze Automatyzacja Azure"
 description: "Samouczek, który przeprowadzi Cię przez procesy tworzenia, testowania i publikowania prostego tekstowego elementu Runbook przy użyciu przepływu programu PowerShell."
-services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
 keywords: "przepływ pracy programu powershell, przykłady przepływu pracy programu powershell, program powershell przepływu pracy"
-ms.assetid: 0002d7f7-e2b5-46e3-b5eb-4596b84fd526
+services: automation
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 62cb96075deed6c252ae44c8a000e820cb691a90
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 61191e78ebd2f0d7a960dfb0c74a1d8260331212
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mój pierwszy element Runbook przepływu pracy programu PowerShell
 

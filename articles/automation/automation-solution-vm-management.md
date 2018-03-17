@@ -1,24 +1,18 @@
 ---
-title: "Maszyny wirtualne uruchamiania i zatrzymywania podczas rozwiązania poza godzinami szczytu (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "Maszyny wirtualne uruchamiania i zatrzymywania podczas rozwiązania poza godzinami szczytu (wersja zapoznawcza)"
 description: "To rozwiązanie do zarządzania maszyna wirtualna uruchamia i zatrzymuje maszynach wirtualnych Azure Resource Manager zgodnie z harmonogramem i aktywnie monitoruje z analizy dzienników."
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Maszyny wirtualne uruchamiania i zatrzymywania podczas rozwiązania poza godzinami szczytu (wersja zapoznawcza) w usłudze Automatyzacja Azure
 
@@ -129,7 +123,7 @@ Nie należy włączać wszystkie harmonogramy, ponieważ może to powodować nak
 
 Wykonaj poniższe kroki, aby dodać uruchamiania/zatrzymywania maszyn wirtualnych podczas rozwiązania poza godzinami szczytu na koncie automatyzacji, a następnie skonfiguruj zmienne, aby dostosować rozwiązania.
 
-1. W portalu Azure kliknij **Utwórz zasób**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. W witrynie Azure Portal kliknij pozycję **Utwórz zasób**.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. W okienku Marketplace wpisz słowo kluczowe, taką jak **Start** lub **uruchamiania i zatrzymywania**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Alternatywnie można wpisz słowa kluczowe co najmniej jeden z pełną nazwę rozwiązania i naciśnij klawisz Enter.  Wybierz **uruchamiania/zatrzymywania maszyn wirtualnych w godzinach [Podgląd]** w wynikach wyszukiwania.  
 3. W **uruchamiania/zatrzymywania maszyn wirtualnych w godzinach [Podgląd]** okienko dla wybranego rozwiązania, sprawdź informacje, a następnie kliknij przycisk **Utwórz**.  
 4. **Dodaj rozwiązanie** pojawi się okienko. Monit o skonfigurowanie rozwiązania, przed zaimportowaniem go w ramach subskrypcji automatyzacji.<br><br> ![Zarządzanie maszynami wirtualnymi — blok Dodawanie rozwiązania](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
@@ -296,7 +290,7 @@ Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów dzi
 
 Zapytanie | Opis|
 ----------|----------|
-Znajdź zadania dla elementu runbook ScheduledStartStop_Parent, które zakończyły się pomyślnie | Wyszukiwanie kategorii == "JobLogs" &#124; gdzie (RunbookName_s == "ScheduledStartStop_Parent") &#124; gdzie (ResultType == "Ukończone") &#124; Podsumuj AggregatedValue = count() ResultType, bin (TimeGenerated, 1h) &#124; Sortuj według TimeGenerated desc|
+Znajdź zadania dla elementu runbook ScheduledStartStop_Parent, które zakończyły się pomyślnie | Wyszukiwanie kategorii == "JobLogs" &#124; gdzie (RunbookName_s == "ScheduledStartStop_Parent") &#124; gdzie (ResultType == "Completed") &#124; Podsumuj AggregatedValue = count() przez ResultType, bin (TimeGenerated, 1 godz.) &#124; Sortuj według TimeGenerated desc|
 Znajdź zadania dla elementu runbook SequencedStartStop_Parent, które zakończyły się pomyślnie | search Category == "JobLogs" &#124; where ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc
 
 ## <a name="removing-the-solution"></a>Usuwanie rozwiązania

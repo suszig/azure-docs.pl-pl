@@ -6,40 +6,39 @@ documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
 editor: 
-ms.assetid: 6f326f26-8a54-49df-a482-9c96a58db371
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: t-sql
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 607c169e3d9e8aa741084392439da383f46cfe0c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="optimizing-transactions-for-sql-data-warehouse"></a>Optymalizacja transakcji dla magazynu danych SQL
 W tym artykule wyjaśniono, jak zoptymalizować wydajność kodu transakcyjnego przy jednoczesnym zmniejszeniu ryzyka dla długich wycofań.
 
 ## <a name="transactions-and-logging"></a>Rejestrowanie i transakcji
-Transakcje są ważne składnika aparacie relacyjnej bazy danych. Usługa SQL Data Warehouse używa transakcji podczas modyfikacji danych. Te transakcje można jawnych ani niejawnych. Pojedynczy `INSERT`, `UPDATE` i `DELETE` instrukcje są wszystkie przykłady w transakcji niejawnej. Jawnych transakcji są zapisywane bezpośrednio przez dewelopera przy użyciu `BEGIN TRAN`, `COMMIT TRAN` lub `ROLLBACK TRAN` i są zwykle używane, jeśli wiele instrukcji modyfikacji muszą być powiązane razem w jednym Atomowej jednostki. 
+Transakcje są ważne składnika aparacie relacyjnej bazy danych. Usługa SQL Data Warehouse używa transakcji podczas modyfikacji danych. Te transakcje można jawnych ani niejawnych. Pojedynczy `INSERT`, `UPDATE`, i `DELETE` instrukcje są wszystkie przykłady w transakcji niejawnej. Użyj jawnych transakcji `BEGIN TRAN`, `COMMIT TRAN`, lub `ROLLBACK TRAN`. Jawne transakcje są zwykle używane, jeśli wiele instrukcji modyfikacji muszą być powiązane razem w jednym Atomowej jednostki. 
 
 Usługa Azure SQL Data Warehouse zatwierdza zmiany w bazie danych przy użyciu dzienników transakcji. Rozkład każdy ma własny dziennik transakcji. Zapisy dziennika transakcji są automatyczne. Nie jest wymagana żadna konfiguracja. Jednak podczas tego procesu gwarantuje zapisu on wprowadzić obciążenia w systemie. Pisanie kodu transakcyjnie wydajne, można zminimalizować wpływ ten. Transakcyjnie efektywne zasadniczo mieszczą się na dwie kategorie.
 
-* Korzystaj z konstrukcji minimalne rejestrowanie, jeśli jest to możliwe
+* Minimalne rejestrowanie użycia konstrukcji, jeśli to możliwe
 * Przetwarzania danych przy użyciu zakres partie, aby uniknąć pojedynczej długotrwałej transakcji
 * Przyjmuje partycji przełączania wzorca dla dużych modyfikacje w danej partycji
 
 ## <a name="minimal-vs-full-logging"></a>Minimalny a pełne rejestrowanie
-W przeciwieństwie do pełni zarejestrowanych operacji, które korzystania z dziennika transakcji do śledzenia każdej zmiany wiersza, minimalny zestaw zarejestrowanych operacji zachować informacje o zakresie alokacji i tylko zmiany metadanych. W związku z tym minimalne rejestrowanie obejmuje tylko informacje wymagane do wycofania transakcji w przypadku awarii lub jawne żądanie logowania (`ROLLBACK TRAN`). Jak znacznie mniej informacje są śledzone w dzienniku transakcji, minimalny zestaw zarejestrowanych operacji działa lepiej niż podobnie rozmiarze pełni zarejestrowanych operacji. Ponadto ponieważ zapisy mniejszą liczbę przejść dziennika transakcji, generowany jest znacznie mniejszą ilość danych dziennika, i dlatego jest efektywne więcej operacji We/Wy.
+W przeciwieństwie do pełni zarejestrowanych operacji, które korzystania z dziennika transakcji do śledzenia każdej zmiany wiersza, minimalny zestaw zarejestrowanych operacji zachować informacje o zakresie alokacji i tylko zmiany metadanych. W związku z tym minimalne rejestrowanie obejmuje tylko informacje wymagane można wycofać transakcji po awarii lub dla jawnego żądania rejestrowania (`ROLLBACK TRAN`). Jak znacznie mniej informacje są śledzone w dzienniku transakcji, minimalny zestaw zarejestrowanych operacji działa lepiej niż podobnie rozmiarze pełni zarejestrowanych operacji. Ponadto ponieważ zapisy mniejszą liczbę przejść dziennika transakcji, generowany jest znacznie mniejszą ilość danych dziennika, i dlatego jest efektywne więcej operacji We/Wy.
 
 Limity bezpieczeństwa transakcji dotyczą tylko pełni zarejestrowanych operacji.
 
 > [!NOTE]
-> Minimalny zestaw zarejestrowanych operacji mogą uczestniczyć w jawnych transakcji. Jak są śledzone wszystkie zmiany w strukturach alokacji, jest to możliwe wycofać migrację zarejestrowanych operacji. Ważne jest, aby zrozumieć, że zmiana jest rejestrowane "minimalnie" nie jest które nie zostały zarejestrowane.
+> Minimalny zestaw zarejestrowanych operacji mogą uczestniczyć w jawnych transakcji. Jak są śledzone wszystkie zmiany w strukturach alokacji, jest to możliwe wycofać migrację zarejestrowanych operacji. 
 > 
 > 
 
@@ -67,7 +66,7 @@ Stanie są rejestrowane są następujące operacje:
 > 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Minimalne rejestrowanie z ładowanie zbiorcze
-`CTAS`i `INSERT...SELECT` zarówno zbiorcze operacje obciążenia. Jednak zarówno wpływało definicji tabeli docelowej i zależą od scenariusza obciążenia. Poniżej znajduje się tabela, która wyjaśnia, jeśli operacji zbiorczej zostanie całkowicie lub minimalny zarejestrowane:  
+`CTAS` i `INSERT...SELECT` zarówno zbiorcze operacje obciążenia. Jednak zarówno wpływało definicji tabeli docelowej i zależą od scenariusza obciążenia. W poniższej tabeli opisano, gdy operacje zbiorcze są całkowicie lub co najmniej rejestrowane:  
 
 | Podstawowy indeks | Scenariusz obciążenia | Tryb rejestrowania |
 | --- | --- | --- |
@@ -88,7 +87,7 @@ Warto zauważyć, że żadnych zapisów w celu aktualizacji dodatkowej lub niekl
 Ładowanie danych do niepustej tabeli z indeksem klastrowanym często może zawierać mieszaninę pełni zarejestrowane i zarejestrowane minimalny zestaw wierszy. Indeks klastrowany jest drzewo zrównoważony (b drzewa) stron. Jeśli strona zapisywana już zawiera wiersze z innej transakcji, następnie zapisuje te będą pełni rejestrowane. Jednak jeśli strona jest pusta następnie zapisu na tej stronie będą minimalny rejestrowane.
 
 ## <a name="optimizing-deletes"></a>Optymalizacja usuwa
-`DELETE`jest całkowicie zarejestrowanych operacji.  Jeśli musisz usunąć dużej ilości danych w tabeli lub partycję, często dobrym rozwiązaniem `SELECT` dane chcesz zachować, które mogą być uruchamiane jako minimalny zestaw zarejestrowanych operacji.  W tym celu utwórz nową tabelę z [CTAS][CTAS].  Po utworzeniu, użyj [zmienić] [ RENAME] wymienić starego tabeli z nowo utworzonej tabeli.
+`DELETE` jest całkowicie zarejestrowanych operacji.  Jeśli musisz usunąć dużej ilości danych w tabeli lub partycję, często dobrym rozwiązaniem `SELECT` dane chcesz zachować, które mogą być uruchamiane jako minimalny zestaw zarejestrowanych operacji.  Aby wybrać dane, Utwórz nową tabelę z [CTAS][CTAS].  Po utworzeniu, użyj [zmienić] [ RENAME] wymienić starego tabeli z nowo utworzonej tabeli.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -119,7 +118,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Optymalizacja aktualizacji
-`UPDATE`jest całkowicie zarejestrowanych operacji.  Jeśli musisz zaktualizować dużą liczbę wierszy w tabeli lub partycję często jest znacznie bardziej wydajne używać minimalny zestaw zarejestrowanych operacji, takich jak [CTAS] [ CTAS] Aby to zrobić.
+`UPDATE` jest całkowicie zarejestrowanych operacji.  Jeśli musisz zaktualizować dużą liczbę wierszy w tabeli lub partycję, często może być znacznie bardziej wydajne używać minimalny zestaw zarejestrowanych operacji, takich jak [CTAS] [ CTAS] Aby to zrobić.
 
 W przykładzie poniżej tabeli pełnej aktualizacji został przekonwertowany na `CTAS` , dzięki czemu możliwe jest minimalnym rejestrowania.
 
@@ -180,12 +179,12 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Ponowne tworzenie dużych tabel mogą korzystać z funkcji zarządzania obciążenie SQL Data Warehouse. Dla więcej szczegółowych informacji można znaleźć w sekcji zarządzania obciążenia [współbieżności] [ concurrency] artykułu.
+> Ponowne tworzenie dużych tabel mogą korzystać z funkcji zarządzania obciążenie SQL Data Warehouse. Aby uzyskać więcej informacji, zobacz [klasy zasobów do zarządzania obciążenia](resource-classes-for-workload-management.md).
 > 
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Optymalizacja przełączania partycji
-W przypadku zastosowania zmian dużą skalę w [tabeli partycji][table partition], partycji przełączania wzorca tworzy wiele znaczeniu. Jeśli modyfikacji danych jest znacząca i obejmuje wiele partycji, następnie po prostu Iterowanie po partycje osiąga ten sam rezultat.
+Jeśli muszą ponosić na dużą skalę modyfikacji wewnątrz [tabeli partycji][table partition], następnie partycję przełączania wzorca ma sens. Jeśli modyfikacji danych jest znacząca i obejmuje wiele partycji, następnie Iterowanie po partycje osiąga ten sam rezultat.
 
 Czynności do wykonania przełącznik partycji są następujące:
 
@@ -195,7 +194,7 @@ Czynności do wykonania przełącznik partycji są następujące:
 4. Przełączanie w nowych danych
 5. Czyszczenie danych
 
-Jednak aby ułatwić identyfikację partycje do przełącznika najpierw musimy kompilacji procedury pomocnika, takie jak poniżej. 
+Jednak aby ułatwić identyfikację partycje do przełącznika, należy utworzyć procedurę pomocnika.  
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
@@ -241,9 +240,9 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-Ta procedura maksymalizuje ponownego użycia kodu i przechowuje przełączania przykład mniejszych partycji.
+Ta procedura maksymalizuje ponowne użycie kodu i przechowuje przełączania przykład mniejszych partycji.
 
-Poniższy kod pokazuje pięć kroków wymienionych powyżej, aby osiągnąć pełną partycji przełączania procedury.
+Poniższy kod przedstawia kroki wspomniano powyżej, aby osiągnąć pełną partycji przełączania procedury.
 
 ```sql
 --Create a partitioned aligned empty table to switch out the data 
@@ -349,7 +348,7 @@ DROP TABLE #ptn_data
 ## <a name="minimize-logging-with-small-batches"></a>Minimalizowanie rejestrowanie z małych partii
 Dla operacji modyfikacji dużej ilości danych na jego może być uzasadniona do dzielenia operacji na fragmenty lub partie, aby ustawić zakres jednostka pracy.
 
-Poniżej znajduje się przykład pracy. Rozmiar partii ustawiono trivial numer aby wyróżnić techniki. W rzeczywistości rozmiar partii jest znacznie większe. 
+Następujący kod jest przykładem pracy. Rozmiar partii ustawiono trivial numer aby wyróżnić techniki. W rzeczywistości rozmiar partii jest znacznie większe. 
 
 ```sql
 SET NO_COUNT ON;
@@ -408,19 +407,19 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Wstrzymywanie i skalowanie wskazówki
-Usługa Azure SQL Data Warehouse pozwala wstrzymać, wznowić i skalowanie magazynu danych na żądanie. Po wstrzymaniu lub skalować magazyn danych SQL ważne jest, aby zrozumieć wszystkich transakcji locie kończą natychmiast; co spowoduje cofnięcie transakcji otwartych. Jeśli obciążenie wystawił długo uruchomione i nieukończone modyfikacji danych przed operację wstrzymywania lub skalę, następnie tej pracy należy można cofnąć. Może to mieć wpływ na czas wymagany do wstrzymania lub skalowania bazy danych magazynu danych SQL Azure. 
+Usługa Azure SQL Data Warehouse pozwala [wstrzymać, wznowić i skalowanie](sql-data-warehouse-manage-compute-overview.md) magazynu danych na żądanie. Po wstrzymaniu lub skalować magazyn danych SQL, ważne jest, aby zrozumieć wszystkich transakcji locie kończą natychmiast; co spowoduje cofnięcie transakcji otwartych. Jeśli obciążenie wystawił długo uruchomione i nieukończone modyfikacji danych przed operację wstrzymywania lub skalę, następnie tej pracy należy można cofnąć. Cofnięcie tej może mieć wpływ na czas wymagany do wstrzymania lub skalowania bazy danych magazynu danych SQL Azure. 
 
 > [!IMPORTANT]
 > Zarówno `UPDATE` i `DELETE` są całkowicie zarejestrowanych operacji i dlatego te Cofnij/ponów operacji może potrwać znacznie dłużej, niż równoważne rejestrowane operacji. 
 > 
 > 
 
-Najlepszym scenariuszu jest umożliwienie w transakcji modyfikacji dane transmitowane ukończone przed wstrzymaniem lub skalowania SQL Data Warehouse. Jednak to może nie zawsze być praktyczne. Aby ograniczyć ryzyko długi wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
+Najlepszym scenariuszu jest umożliwienie w transakcji modyfikacji dane transmitowane ukończone przed wstrzymaniem lub skalowania SQL Data Warehouse. Jednak ten scenariusz może nie zawsze być praktyczne. Aby ograniczyć ryzyko długi wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
 
-* Napisz ponownie przy użyciu długotrwałe operacje [CTAS][CTAS]
-* Operacja podziału na fragmenty o różnych; korzysta z podzbioru wierszy
+* Napisz ponownie długotrwałe operacje przy użyciu [CTAS][CTAS]
+* Podziel operacji na fragmenty; korzysta z podzbioru wierszy
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz [transakcje w usłudze SQL Data Warehouse] [ Transactions in SQL Data Warehouse] Aby dowiedzieć się więcej o poziomie izolacji i limity transakcyjnych.  Omówienie innych najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
@@ -428,7 +427,6 @@ Zobacz [transakcje w usłudze SQL Data Warehouse] [ Transactions in SQL Data War
 <!--Article references-->
 [Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
 [table partition]: ./sql-data-warehouse-tables-partition.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

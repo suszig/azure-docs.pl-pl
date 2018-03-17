@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Zarządzanie współbieżności i obciążenia w usłudze SQL Data Warehouse
 Zapewnienie przewidywalnej wydajności na dużą skalę, Magazyn danych SQL Microsoft Azure pomaga kontrolować poziomy współbieżności i alokacji zasobów pamięci i procesora CPU priorytetyzacji. W tym artykule przedstawiono podstawowe pojęcia współbieżności i obciążenia zarządzania informacjami o tym, jak obie funkcje zostały wdrożone i sposób ich kontroli w magazynie danych. Zarządzania obciążenie SQL Data Warehouse ma na celu ułatwienia obsługi środowisk przez wielu użytkowników. Nie jest przeznaczony dla wielu dzierżawców obciążeń.
@@ -224,9 +224,9 @@ W tym miejscu jest celem tej procedury składowanej:
 #### <a name="usage-example"></a>Przykład użycia:
 Składnia:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Należy podać parametr o wartości NULL do wyodrębnienia bieżącej wartości DWU z bazy danych magazynu danych lub podaj wszystkie obsługiwane DWU w postaci "DW100"
-2. @SCHEMA_NAME:Podaj nazwę schematu tabeli
-3. @TABLE_NAME:Podaj nazwę tabeli odsetek
+1. @DWU: Należy podać parametr o wartości NULL do wyodrębnienia bieżącej wartości DWU z bazy danych magazynu danych lub podaj wszystkie obsługiwane DWU w postaci "DW100"
+2. @SCHEMA_NAME: Podaj nazwę schematu tabeli
+3. @TABLE_NAME: Podaj nazwę tabeli odsetek
 
 Przykłady wykonywania tej procedury przechowywanej:  
 ```sql  
@@ -573,7 +573,7 @@ W poniższej tabeli przedstawiono znaczenie mapowania dla każdej grupy obciąż
 Z **alokacja i użycie gniazd współbieżności** wykresu, można sprawdzić, czy DW500 używa 1, 4, 8 i współbieżność 16 miejsc dla smallrc, mediumrc largerc i xlargerc, odpowiednio. Te wartości można wyszukiwać, na wykresie można znaleźć znaczenie dla każdej klasy zasobów.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapowanie DW500 klasy zasobu znaczenia
-| Klasa zasobów | Grupy obciążenia | Używać miejsc współbieżności | MB / dystrybucji | Znaczenie |
+| Klasa zasobów | Grupy obciążenia | Używać miejsc współbieżności | MB / dystrybucji | Ważność |
 |:--- |:--- |:---:|:---:|:--- |
 | smallrc |SloDWGroupC00 |1 |100 |Medium |
 | mediumrc |SloDWGroupC02 |4 |400 |Medium |
@@ -643,7 +643,7 @@ Aby przywołują, następujące instrukcje honorować klasy zasobu:
 
 * WYBIERZ OPCJĘ WSTAWIANIA
 * AKTUALIZACJA
-* USUŃ
+* DELETE
 * Wybierz (podczas wykonywania zapytania tabele użytkownika)
 * ALTER INDEX REBUILD
 * ALTER INDEX REORGANIZE
@@ -673,7 +673,7 @@ Poniższe instrukcje, nie uznają klasy zasobu:
 * WSTAW WARTOŚCI
 * Wybierz z widoków systemowych i widoków DMV
 * WYJAŚNIĆ
-* POLECENIE DBCC
+* DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
@@ -682,7 +682,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-##  <a name="changing-user-resource-class-example"></a>Zmiany w przykładzie klasa zasobów użytkownika
+##  <a name="changing-user-resource-class-example"></a> Zmiany w przykładzie klasa zasobów użytkownika
 1. **Utworzyć danych logowania:** otworzyć połączenia z **wzorca** bazy danych programu SQL Server obsługującego bazę danych magazynu danych SQL i wykonaj następujące polecenia.
    
     ```sql
@@ -699,7 +699,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```sql
     CREATE USER newperson FOR LOGIN newperson;
     ```
-3. **Udzielanie uprawnień:** przyznaje w poniższym przykładzie `CONTROL` na **SQL Data Warehouse** bazy danych. `CONTROL`w bazie danych poziom jest odpowiednikiem db_owner w programie SQL Server.
+3. **Udzielanie uprawnień:** przyznaje w poniższym przykładzie `CONTROL` na **SQL Data Warehouse** bazy danych. `CONTROL` w bazie danych poziom jest odpowiednikiem db_owner w programie SQL Server.
    
     ```sql
     GRANT CONTROL ON DATABASE::MySQLDW to newperson;
@@ -827,7 +827,7 @@ SELECT    w.[pdw_node_id]
 FROM    sys.dm_pdw_wait_stats w;
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji o zarządzaniu bazy danych użytkowników i zabezpieczeń, zobacz [Zabezpieczanie bazy danych w usłudze SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Aby uzyskać więcej informacji na temat sposobu większe grupy zasobów może zwiększyć jakość indeksu klastrowanego magazynu kolumn, zobacz [ponowne tworzenie indeksów do poprawy jakości segmentu].
 
 <!--Image references-->

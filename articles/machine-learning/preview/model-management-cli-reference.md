@@ -2,8 +2,8 @@
 title: "Odwołanie do interfejsu wiersza polecenia Azure Machine Learning Model zarządzania | Dokumentacja firmy Microsoft"
 description: "Dokumentacja interfejsu wiersza polecenia Azure Machine Learning Model zarządzania."
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 27361c5b92a8748a026d457875fadfc1f3529076
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Odwołanie do modelu administracyjnego interfejsu wiersza polecenia
 
@@ -40,7 +40,7 @@ Konto zarządzania model jest wymagany do korzystania z usług, które umożliwi
 
 **Utwórz konto zarządzania modelu**
 
-Utwórz konto zarządzania modelu przy użyciu następującego polecenia. To konto będzie używane dla rozliczeń.
+Utwórz konto zarządzania modelu rozliczeń za pomocą następującego polecenia:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -76,7 +76,7 @@ Dostępne są dwie opcje wdrożenia: *lokalnego* i *klastra*. Ustawienie `--clus
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Komputer Azure uczenia środowisko z konta magazynu, ACR rejestru i utworzono w ramach subskrypcji usługi App Insights jest inicjowana. Domyślnie środowisko jest inicjowany dla lokalnych tylko w przypadku wdrożeń (nie ACS) Jeśli flaga nie zostanie określony. Jeśli potrzebujesz można skalować usługi, określ `--cluster` (lub `-c`) flagę, aby utworzyć klaster usług ACS.
+To polecenie inicjuje komputerze Azure uczenia środowisko z konta magazynu, ACR rejestru i utworzono w ramach subskrypcji usługi App Insights. Domyślnie środowisko jest inicjowany dla lokalnych tylko w przypadku wdrożeń (nie ACS) Jeśli flaga nie zostanie określony. Jeśli potrzebujesz można skalować usługi, określ `--cluster` (lub `-c`) flagę, aby utworzyć klaster usług ACS.
 
 Szczegóły polecenia:
 
@@ -89,12 +89,12 @@ Szczegóły polecenia:
     --cluster -c                   : Flag to provision ACS cluster. Off by default; specify this to force an ACS cluster deployment.
     --key-pem                      : Path to .pem file with certificate key.
     --master-count -m              : Number of master nodes to provision in the ACS cluster. Acceptable values: 1, 3, 5. Default: 1.
-    --resource-group -g            : Resource group in which to create compute resource. Will be created if it does not exist.
-                                     If not provided, resource group will be created with 'rg' appended to 'name.'.
+    --resource-group -g            : Resource group in which to create compute resource. Is created if it does not exist.
+                                     If not provided, resource group is created with 'rg' appended to 'name.'.
     --service-principal-app-id -a  : App ID of service principal to use for configuring ML compute.
     --service-principal-password -p: Password associated with service principal.
     --storage -s                   : ARM ID of storage account to associate with this environment.
-    --yes -y                       : Flag to answer 'yes' to any prompts. Command will fail if user is not logged in.
+    --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
 Argumenty globalne
 ```
@@ -143,7 +143,7 @@ Argumenty globalne
 
 **Tworzenie manifestu**
 
-Tworzy plik manifestu dla modelu. 
+Poniższe polecenie tworzy plik manifestu dla modelu. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -289,7 +289,7 @@ Argumenty globalne
 
 Należy zwrócić uwagę na `-d` flagę dołączanie zależności: w przypadku przekazania nazwę katalogu, który nie jest już powiązane (zip, tar itp.), ten katalog jest automatycznie pobiera tar'ed i jest przekazywany wraz, a następnie automatycznie oddzielona po drugiej stronie. 
 
-W przypadku przekazania w katalogu, który jest już powiązane nasz traktować go jako plik i przekaż go wzdłuż, ponieważ jest. Nie będzie wydzielonego automatycznie; Oczekiwano obsługi, który w kodzie.
+W przypadku przekazania w katalogu, który jest już powiązane, katalog jest traktowany jako plik i przekazywane jest. Nieograniczony jest automatycznie; Oczekiwano obsługi, który w kodzie.
 
 **Pobierz szczegóły usługi**
 

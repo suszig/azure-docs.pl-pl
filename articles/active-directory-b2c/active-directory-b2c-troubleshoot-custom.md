@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Zbierania dzienników
 
@@ -52,16 +52,16 @@ Usługa Azure AD B2C obsługuje funkcję wysyłania danych do usługi Applicatio
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Jeśli nie istnieje już, Dodaj węzeł podrzędny `<UserJourneyBehaviors>` do `<RelyingParty>` węzła. Znajdować się natychmiast po`<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
+1. Jeśli nie istnieje już, Dodaj węzeł podrzędny `<UserJourneyBehaviors>` do `<RelyingParty>` węzła. Znajdować się natychmiast po `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Dodaj następujący węzeł jako element podrzędny `<UserJourneyBehaviors>` elementu. Upewnij się zastąpić `{Your Application Insights Key}` z **klucza Instrumentacji** uzyskane z usługi Application Insights w poprzedniej sekcji.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
   ```
 
-  * `DeveloperMode="true"`Określa, że ApplicationInsights w celu przyspieszenia telemetrii za pośrednictwem potoku przetwarzania dobry do tworzenia aplikacji, ale ograniczonego w dużej ilości.
-  * `ClientEnabled="true"`wysyła ApplicationInsights skryptu po stronie klienta do śledzenia błędy po stronie klienta i widoku strony (nie wymagane).
-  * `ServerEnabled="true"`wysyła istniejących JSON UserJourneyRecorder jako zdarzenie niestandardowe do usługi Application Insights.
+  * `DeveloperMode="true"` Określa, że ApplicationInsights w celu przyspieszenia telemetrii za pośrednictwem potoku przetwarzania dobry do tworzenia aplikacji, ale ograniczonego w dużej ilości.
+  * `ClientEnabled="true"` wysyła ApplicationInsights skryptu po stronie klienta do śledzenia błędy po stronie klienta i widoku strony (nie wymagane).
+  * `ServerEnabled="true"` wysyła istniejących JSON UserJourneyRecorder jako zdarzenie niestandardowe do usługi Application Insights.
 Przykład:
 
   ```XML
@@ -105,6 +105,8 @@ Dowiedz się więcej o narzędziu Analytics [tutaj](https://docs.microsoft.com/a
 
 >[!NOTE]
 >Społeczność opracowała podglądu przebieg użytkownika, aby pomóc deweloperom w tożsamości.  Nie jest obsługiwane przez firmę Microsoft i staje się dostępna wyłącznie jako — jest.  Odczytuje z wystąpieniem usługi Application Insights i udostępnia widok struktury także użytkownika przebieg zdarzenia.  Uzyskanie kodu źródłowego i wdrożyć ją w własne rozwiązania.
+
+Wersja przeglądarkę, która odczytuje zdarzenia z usługi Application Insights znajduje się [tutaj](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 
 >[!NOTE]
 >Obecnie dzienniki szczegółowe działania opisane w tym miejscu są zaprojektowane **tylko** ułatwiających tworzenie niestandardowych zasad. Nie należy używać trybu tworzenia w środowisku produkcyjnym.  Dzienniki zbierać wszystkie oświadczenia wysyłane do i z dostawców tożsamości w czasie projektowania.  Jeśli używane w środowisku produkcyjnym, deweloper przyjmuje na siebie odpowiedzialność dla wrażliwych danych osobowych (prywatnie informacje umożliwiające identyfikację) zebrane w dzienniku Insights aplikacji, w której jest właścicielem.  Te szczegółowe dzienniki są zbierane tylko, gdy zasady jest umieszczona na **tryb programowania**.

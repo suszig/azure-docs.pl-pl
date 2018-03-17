@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: e36c28ef1c05dcdcebc7372316c7f144c92fd02f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Zapewnij maszyny wirtualnej nauki danych CentOS Linux na platformie Azure
 
@@ -124,7 +124,7 @@ Maszyny Wirtualnej systemu Linux jest już zainicjowane z serwerem X2Go i gotowa
 Po zalogowaniu się z maszyną Wirtualną przy użyciu klienta SSH lub XFCE graficznego pulpitu za pomocą klienta X2Go, można przystąpić do uruchomienia przy użyciu narzędzia, które są zainstalowane i skonfigurowane na maszynie Wirtualnej. Na XFCE Zobacz aplikacje menu skrótów i ikony pulpitu dla wielu narzędzi.
 
 ## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Narzędzi zainstalowanych na dane nauki maszyny wirtualnej systemu Linux
-### <a name="microsoft-r-server"></a>Serwer R firmy Microsoft
+### <a name="microsoft-r-server"></a>Microsoft R Server
 R jest jednym z najbardziej popularnych języków do analizowania danych i uczenia maszynowego. Jeśli chcesz użyć R do analizy sieci, czy maszyna wirtualna ma Microsoft R Server (PANI) Microsoft Open R (MRO) i biblioteki jądra matematyczne (MKL). MKL optymalizuje operacji matematycznych typowe w przypadku algorytmów analitycznych. MRO wynosi 100% zgodny z sieci CRAN-R, a wszelkie bibliotek R opublikowane w sieci CRAN można zainstalować na MRO. PANI umożliwia skalowanie i operationalization R modeli do usług sieci web. Można edytować w jednym z edytory domyślne, takie jak programu RStudio vi, Emacs albo gedit programy R. Jeśli używasz edytora emacs: należy pamiętać, że Emacs pakietu dostępu (mówi Statystyka Emacs), co upraszcza Praca z plikami R w edytorze Emacs została wstępnie zainstalowane.
 
 Do uruchamiania R konsoli, wystarczy wpisać **R** w powłoce. Powoduje to przejście do interaktywnego środowiska. Aby opracować R program, zwykle za pomocą edytora Emacs lub vi lub gedit, a następnie uruchom skrypty w R. Z programu RStudio masz pełne graficznego środowiska IDE umożliwiające tworzenie programu R.
@@ -153,8 +153,8 @@ Aby wywołać sesja interaktywna Python, wystarczy wpisać **python** w powłoce
 
 Aby zainstalować dodatkowych bibliotek języka Python, należy uruchomić ```conda``` lub ````pip```` polecenia w obszarze sudo i podaj pełną ścieżkę (conda lub pip), aby zainstalować poprawną środowiska Python Menedżera pakietów języka Python. Na przykład:
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Notesu Jupyter
@@ -366,7 +366,7 @@ Teraz interfejsu graficznego otwartej z zestawu kart. Poniżej przedstawiono kro
 
 Można zamknąć Rattle i R. Teraz możesz zmodyfikować wygenerowany skrypt języka R lub go użyć, ponieważ jest go w każdej chwili uruchomić ponownie wszystkie czynności, które zostało zrobione w Interfejsie użytkownika Rattle. Szczególnie dla początkujących użytkowników w R to prosty sposób na szybkie czy analizy i komputera learning prostego interfejsu graficznego, podczas automatycznego generowania kodu w R, aby zmodyfikować i/lub Dowiedz się więcej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Oto, jak można kontynuować swoją uczenie i eksploracja:
 
 * [Nauki danych na dane nauki maszyny wirtualnej systemu Linux](linux-dsvm-walkthrough.md) przewodniku zademonstrowano, jak wykonać kilka typowych czynności nauki danych z danych nauki maszyny Wirtualnej systemu Linux udostępnione w tym miejscu. 

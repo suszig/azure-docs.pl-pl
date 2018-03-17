@@ -1,24 +1,18 @@
 ---
-title: Zasoby zmiennej automatyzacji Azure | Dokumentacja firmy Microsoft
+title: "Zasoby zmiennej usługi Automatyzacja Azure"
 description: "Zmienna zasoby są wartości, które są dostępne dla wszystkich elementów runbook i konfiguracji DSC automatyzacji Azure.  W tym artykule szczegółowo opisano zmienne i sposobu pracy z nimi w tworzeniu zarówno tekstową i graficznego."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/07/2018
-ms.author: magoedte;bwren
-ms.openlocfilehash: 2ed4cf16615a0ca1789b789a635de564af568eb9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: carmonm
+ms.openlocfilehash: 7c36fce380712da6572e9512a05af9c23c4152a2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Zasoby zmiennej usługi Automatyzacja Azure
 
@@ -34,8 +28,8 @@ Zmienne automatyzacji są trwałe, dlatego są nadal dostępne nawet wtedy, gdy 
 
 Po utworzeniu zmiennej można określić, że jest on przechowywany zaszyfrowany. Gdy zmienna jest zaszyfrowana, jest bezpiecznie przechowywana w automatyzacji Azure i jego wartość nie można pobrać z [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) polecenia cmdlet, które wchodzi w skład modułu Azure PowerShell. Jest jedynym sposobem zaszyfrowaną wartość mogą być pobierane z **Get-AutomationVariable** działania elementu runbook lub konfiguracji DSC.
 
-> [!NOTE]
-> Bezpiecznych zasobów w automatyzacji Azure obejmują poświadczeń, certyfikatów, połączeń i szyfrowane zmienne. Te zasoby są szyfrowane i przechowywane w automatyzacji Azure za pomocą Unikatowy klucz, który jest generowany dla każdego konta automatyzacji. Ten klucz jest zaszyfrowany za pomocą certyfikatu głównego i przechowywane w automatyzacji Azure. Przed zapisaniem zabezpieczonym zasobem, klucza dla konta automatyzacji zostaną odszyfrowane przy użyciu certyfikatu głównego, a następnie używany do szyfrowania elementu zawartości.
+>[!NOTE]
+>Bezpiecznych zasobów w automatyzacji Azure obejmują poświadczeń, certyfikatów, połączeń i szyfrowane zmienne. Te zasoby są szyfrowane i przechowywane w automatyzacji Azure za pomocą Unikatowy klucz, który jest generowany dla każdego konta automatyzacji. Ten klucz jest przechowywany w magazynie kluczy. Przed zapisaniem zabezpieczonym zasobem, klucz jest załadowany z magazynu kluczy i następnie używany do szyfrowania elementu zawartości.
 
 ## <a name="variable-types"></a>Typy zmiennych
 

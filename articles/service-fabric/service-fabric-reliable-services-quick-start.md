@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dbd8508a7f55b8b5fdf53912d2189a18ef504193
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Wprowadzenie do usług Reliable Services
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-Aplikację usługi Azure Service Fabric zawiera jeden lub więcej usług, które uruchomić kod. W tym przewodniku przedstawiono sposób tworzenia aplikacji platformy Service Fabric zarówno bezstanowe i stanowe z [niezawodne usługi](service-fabric-reliable-services-introduction.md).  Microsoft Virtual Academy wideo przedstawiono również sposób tworzenia bezstanowej niezawodnej usługi:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+Aplikację usługi Azure Service Fabric zawiera jeden lub więcej usług, które uruchomić kod. W tym przewodniku przedstawiono sposób tworzenia aplikacji platformy Service Fabric zarówno bezstanowe i stanowe z [niezawodne usługi](service-fabric-reliable-services-introduction.md).  Microsoft Virtual Academy wideo przedstawiono również sposób tworzenia bezstanowej niezawodnej usługi: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -46,7 +46,7 @@ Uruchom program Visual Studio 2015 lub Visual Studio 2017 jako administrator, a 
 
 ![Użyj okna dialogowego Nowy projekt do tworzenia nowej aplikacji sieci szkieletowej usług](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Następnie utwórz projekt usługi bezstanowej o nazwie *HelloWorldStateless*:
+Następnie utwórz projekt usługi bezstanowej za pomocą **.Net Core 2.0** o nazwie *HelloWorldStateless*:
 
 ![W oknie dialogowym drugi utworzyć projekt usługi bezstanowej](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -97,7 +97,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
+        ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
 
         await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
@@ -113,7 +113,7 @@ Platforma wywołuje tę metodę, gdy wystąpienie usługi jest umieszczony i got
 
 Aranżacja jest zarządzany przez system do zachowania usługi wysokiej dostępności i nieprawidłowo zrównoważone.
 
-`RunAsync()`nie zablokować synchronicznie. Implementacji RunAsync powinna zwracać zadanie lub oczekiwania na żadnych operacji długotrwałe lub blokowania, aby umożliwić środowiska wykonawczego kontynuować. Należy zwrócić uwagę w `while(true)` pętli w poprzednim przykładzie, umożliwiające zwracanie zadań `await Task.Delay()` jest używany. Jeśli obciążenie może zablokować synchronicznie, należy zaplanować nowe zadanie z `Task.Run()` w Twojej `RunAsync` implementacji.
+`RunAsync()` nie zablokować synchronicznie. Implementacji RunAsync powinna zwracać zadanie lub oczekiwania na żadnych operacji długotrwałe lub blokowania, aby umożliwić środowiska wykonawczego kontynuować. Należy zwrócić uwagę w `while(true)` pętli w poprzednim przykładzie, umożliwiające zwracanie zadań `await Task.Delay()` jest używany. Jeśli obciążenie może zablokować synchronicznie, należy zaplanować nowe zadanie z `Task.Run()` w Twojej `RunAsync` implementacji.
 
 Anulowanie obciążenie jest współpraca wysiłku, zorkiestrowana przez token anulowania podanego. System będzie oczekiwał na zadania zakończenia (przez pomyślne zakończenie anulowania lub fault), zanim przesyłane w. Ważne jest, aby uwzględnić token anulowania, Zakończ pracę i zamknąć `RunAsync()` tak szybko jak to możliwe, gdy system żąda anulowania.
 
@@ -128,7 +128,7 @@ W tym samym *HelloWorld* aplikacji, można dodać nową usługę prawym przycisk
 
 ![Dodawanie usługi do aplikacji sieci szkieletowej usług](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Wybierz **usługi Stateful** i nadaj mu nazwę *HelloWorldStateful*. Kliknij przycisk **OK**.
+Wybierz **.Net Core 2.0 -> Usługa Stateful** i nadaj mu nazwę *HelloWorldStateful*. Kliknij przycisk **OK**.
 
 ![Użyj okna dialogowego Nowy projekt do utworzenia nowej usługi stanowej sieci szkieletowej usług](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -154,7 +154,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
         {
             var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
+            ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
             await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
@@ -169,7 +169,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`działa podobnie, w usługach stanowe i bezstanowe. Jednak w usługi stanowej, platforma wykonuje dodatkowych działań w Twoim imieniu przed rozpoczęciem wykonywania `RunAsync()`. Te działania mogą obejmować zapewnienie, że Menedżer niezawodnej stanu i niezawodne kolekcji są gotowe do użycia.
+`RunAsync()` działa podobnie, w usługach stanowe i bezstanowe. Jednak w usługi stanowej, platforma wykonuje dodatkowych działań w Twoim imieniu przed rozpoczęciem wykonywania `RunAsync()`. Te działania mogą obejmować zapewnienie, że Menedżer niezawodnej stanu i niezawodne kolekcji są gotowe do użycia.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Kolekcje niezawodnych i niezawodne Menedżer stanu
 ```csharp

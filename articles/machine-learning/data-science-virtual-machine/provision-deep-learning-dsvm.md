@@ -11,13 +11,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: db1360fa54d82c50adc04194697d994925338296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma
+ms.openlocfilehash: 75baef65b8a826009cdbaac3a260d021559504da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Zapewnij bezpośrednich uczenia maszyny wirtualnej na platformie Azure 
 
@@ -46,7 +46,7 @@ Poniżej przedstawiono kroki, aby utworzyć wystąpienie z głębokiego Learning
 > [!NOTE]
 > Ponieważ DLVM jest inicjowana na wystąpień maszyny Wirtualnej Azure serii NC procesora GPU, należy wybrać jeden z lokalizacji w platformy Azure, która ma GPU. Obecnie są lokalizacji, które mają GPU maszyn wirtualnych: **wschodnie stany USA, północno-środkowe stany, południowo-środkowe stany, zachodnie stany USA 2 Europa Północna, Europa Zachodnia**. Najbardziej aktualną listę Sprawdź [produkty Azure według regionu strony](https://azure.microsoft.com/en-us/regions/services/) i poszukaj **NC serii** w obszarze **obliczeniowe**. 
 
-   2. **Ustawienia**: Wybierz jedno z serii NC GPU rozmiar maszyny wirtualnej, który spełnia Twoje wymagania funkcjonalne i ograniczenia kosztów. Utwórz konto magazynu dla maszyny Wirtualnej.  ![Ustawienia dlvm](./media/dlvm-provision-step-2.PNG)
+   2. **Ustawienia**: Wybierz jedno z serii NC GPU rozmiar maszyny wirtualnej, który spełnia Twoje wymagania funkcjonalne i ograniczenia kosztów. Utwórz konto magazynu dla maszyny Wirtualnej.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Podsumowanie**: Sprawdź, czy wszystkie informacje wprowadzone jest poprawna.
    5. **Kup**: kliknij **kupić** uruchomić udostępnianie. Łącze znajduje się na warunki transakcji. Maszyna wirtualna nie ma żadnych dodatkowych kosztów poza obliczeniowe dla rozmiaru serwera w **rozmiar** kroku. 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Przygotowywanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu DPM
 > [!div class="op_single_selector"]
@@ -43,26 +43,28 @@ Ten artykuł zawiera wprowadzenie do używania kopia zapasowa Microsoft Azure w 
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) tworzy kopie zapasowe danych plików i aplikacji. Więcej informacji o obsługiwanych obciążeniach można znaleźć [tutaj](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Dane kopii zapasowej programu DPM można przechowywane na taśmie na dysku, lub kopię zapasową na platformie Azure w usłudze Kopia zapasowa Microsoft Azure. Program DPM współdziała z usługi Kopia zapasowa Azure w następujący sposób:
 
 * **Program DPM wdrożony jako fizycznego serwera lub lokalnej maszyny wirtualnej** — Jeśli program DPM wdrożony jako serwera fizycznego lub lokalnej maszyny wirtualnej funkcji Hyper-V można tworzyć kopie zapasowe danych w magazynie usług odzyskiwania, oprócz dysków i taśm kopii zapasowych.
-* **Program DPM wdrożony jako maszyna wirtualna platformy Azure** — z programu System Center 2012 R2 z aktualizacją Update 3 programu DPM można wdrożyć jako maszynę wirtualną platformy Azure. Program DPM wdrożony jako maszyna wirtualna platformy Azure, które można tworzyć kopie zapasowe danych na dyskach platformy Azure dołączonych do maszyny wirtualnej platformy Azure programu DPM, czy można odciążyć magazyn danych dzięki tworzeniu kopii do magazynu usług odzyskiwania.
+* **Program DPM wdrożony jako maszyna wirtualna platformy Azure** — z programu System Center 2012 R2 z pakietem Update 3 na program DPM można wdrożyć na maszynie wirtualnej platformy Azure. Program DPM wdrożony jako maszyna wirtualna platformy Azure, można utworzyć kopię zapasową danych na dyskach platformy Azure dołączonych do maszyny Wirtualnej lub odciążyć magazyn danych przez tworzenie kopii zapasowych magazynu usług odzyskiwania.
 
-## <a name="why-backup-from-dpm-to-azure"></a>Dlaczego kopii zapasowej z programu DPM na platformie Azure?
-Korzyści biznesowe za pomocą usługi Kopia zapasowa Azure do wykonywania kopii zapasowych serwerów programu DPM obejmują:
+## <a name="why-back-up-dpm-to-azure"></a>Dlaczego warto utworzyć kopię zapasową programu DPM na platformie Azure?
+Tworzenie kopii zapasowych serwerów programu DPM na platformie Azure korzyści biznesowe obejmują:
 
-* Lokalnego wdrożenia programu DPM można użyć Azure zamiast wdrożenia długoterminowych na taśmie.
-* W przypadku wdrożeń programu DPM na platformie Azure kopia zapasowa Azure umożliwia odciążyć magazyn z dysku platformy Azure, co umożliwia skalowanie w górę starsze dane są przechowywane w magazynie usług odzyskiwania i nowych danych na dysku.
+* Lokalnego wdrożenia programu DPM Użyj Azure zamiast wdrożenia długoterminowych na taśmie.
+* Do wdrażania programu DPM na maszynie Wirtualnej na platformie Azure, odciążyć magazyn z dysku platformy Azure. Przechowywania starszych danych w magazynie usług odzyskiwania pozwala na skalowanie w górę firmy przez zapisanie nowych danych na dysku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przygotuj kopia zapasowa Azure, aby utworzyć kopię zapasową danych programu DPM w następujący sposób:
 
 1. **Tworzenie magazynu usług odzyskiwania** — Tworzenie magazynu w portalu Azure.
-2. **Pobierz poświadczenia magazynu** — Pobierz poświadczenia, które służy do rejestrowania serwera DPM w magazynie usług odzyskiwania.
-3. **Zainstaluj agenta kopii zapasowej Azure** — z kopii zapasowej systemu Azure, należy zainstalować agenta na każdym serwerze DPM.
+2. **Pobierz poświadczenia magazynu** — Pobierz poświadczenia służy do rejestrowania serwera DPM w magazynie usług odzyskiwania.
+3. **Zainstaluj agenta kopii zapasowej Azure** — Zainstaluj agenta na każdym serwerze DPM.
 4. **Zarejestruj serwer** — rejestrowania serwera DPM w magazynie usług odzyskiwania.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="key-definitions"></a>Kluczowe definicje
 Oto niektóre kluczowe definicje dla kopii zapasowej Azure dla programu DPM:
 
-1. **Magazyn poświadczeń** — poświadczenia magazynu są potrzebne do uwierzytelnienia w celu wysyłania danych kopii zapasowej do określonych magazynu w usłudze Kopia zapasowa Azure maszyny. Można pobrać z magazynu, a jest nieprawidłowa dla 48hrs.
+1. **Magazyn poświadczeń** — poświadczenia magazynu są potrzebne do uwierzytelnienia w celu wysyłania danych kopii zapasowej do określonych magazynu w usłudze Kopia zapasowa Azure maszyny. Można pobrać z magazynu, a jest ważny przez 48 godzin.
 2. **Hasło** — hasło jest używane do szyfrowania kopii zapasowych w chmurze. Zapisz plik w bezpiecznym miejscu, ponieważ jest on wymagany podczas operacji odzyskiwania.
 3. **Zabezpieczający numer PIN** — Jeśli włączono [ustawienia zabezpieczeń](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) magazynu, kod PIN zabezpieczeń jest potrzebne do wykonywania krytycznej operacji tworzenia kopii zapasowej. To uwierzytelnianie wieloskładnikowe dodawana jest kolejna warstwa zabezpieczeń. 
 4. **Folder odzyskiwania** — jest fraza kopii zapasowych z chmury są tymczasowo pobrane podczas odzyskiwania chmury. Jego rozmiar około powinien być taki sam, jak rozmiar elementów kopii zapasowych, które chcesz odzyskać równolegle.
@@ -81,7 +83,7 @@ Aby utworzyć magazyn usługi Recovery Services:
 
     ![Tworzenie magazynu Usług odzyskiwania — krok 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    Zostanie otwarty blok magazynu Usług odzyskiwania i pojawi się monit o podanie wartości w polach **Nazwa**, **Subskrypcja**, **Grupa zasobów** i **Lokalizacja**.
+    Magazyn usług odzyskiwania otwiera menu monitowania o podanie **nazwa**, **subskrypcji**, **grupy zasobów**, i **lokalizacji**.
 
     ![Tworzenie magazynu Usług odzyskiwania — krok 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 4. W polu **Nazwa** wprowadź przyjazną nazwę identyfikującą magazyn. Nazwa musi być unikalna w tej subskrypcji platformy Azure. Wpisz nazwę o długości od 2 do 50 znaków. Musi ona rozpoczynać się od litery i może zawierać tylko litery, cyfry i łączniki.
@@ -96,8 +98,8 @@ Dla opcji replikacji magazynu można wybrać magazynowanie nadmiarowe geograficz
 
 Aby edytować ustawienia replikacji magazynu:
 
-1. Wybierz swój magazyn, aby otworzyć jego pulpit nawigacyjny i blok Ustawienia. Jeśli blok **Ustawienia** nie zostanie otwarty, kliknij przycisk **Wszystkie ustawienia** na pulpicie nawigacyjnym magazynu.
-2. W bloku **Ustawienia** kliknij opcję **Infrastruktura kopii zapasowej** > **Konfiguracja kopii zapasowej**, aby otworzyć blok **Konfiguracja kopii zapasowej**. W bloku **Konfiguracja kopii zapasowej** wybierz opcję replikacji swojego magazynu.
+1. Wybierz magazyn do otwarcia pulpitu nawigacyjnego magazynu i menu Ustawienia. Jeśli **ustawienia** nie zostanie otwarte menu, kliknij przycisk **wszystkie ustawienia** na pulpicie nawigacyjnym magazynu.
+2. Na **ustawienia** menu, kliknij przycisk **infrastruktura kopii zapasowej** > **konfiguracji kopii zapasowej** otworzyć **konfiguracji kopii zapasowej**menu. Na **konfiguracji kopii zapasowej** menu, wybierz opcję replikacji magazynu dla magazynu.
 
     ![Lista magazynów kopii zapasowych](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -112,9 +114,9 @@ Plik poświadczeń magazynu jest pobierana za pośrednictwem bezpiecznego kanał
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Otwórz magazyn usług odzyskiwania, który chcesz zarejestrować komputera DPM.
-3. Blok ustawień jest otwierany domyślnie. Jeśli jest zamknięty, kliknij polecenie **ustawienia** na pulpicie nawigacyjnym magazynu, aby otworzyć blok ustawień. W bloku ustawienia, kliknij polecenie **właściwości**.
+3. Otwiera menu Ustawienia domyślne. Jeśli jest zamknięty, kliknij polecenie **ustawienia** na pulpicie nawigacyjnym magazynu, aby otworzyć menu Ustawienia. W menu Ustawienia kliknij **właściwości**.
 
-    ![Otwarcie bloku magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Otwieranie menu magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. Na stronie właściwości kliknij **Pobierz** w obszarze **kopię zapasową poświadczeń**. Portalu generuje plik poświadczeń magazynu, który ma zostać udostępnione do pobrania.
 
     ![Do pobrania](./media/backup-azure-dpm-introduction/vault-credentials.png)
@@ -130,9 +132,9 @@ Portalu wygeneruje poświadczenie magazynu przy użyciu kombinacji nazwy magazyn
 Po utworzeniu magazynu usługi Kopia zapasowa Azure, należy zainstalować agenta na wszystkich maszynach systemu Windows (Windows Server, klienta systemu Windows, serwer System Center Data Protection Manager lub serwer kopii zapasowej Azure machine), które umożliwia wykonywanie kopii zapasowych danych i aplikacji na platformie Azure.
 
 1. Otwórz magazyn usług odzyskiwania, który chcesz zarejestrować komputera DPM.
-2. Blok ustawień jest otwierany domyślnie. Jeśli jest zamknięty, kliknij polecenie **ustawienia** aby otworzyć blok ustawień. W bloku ustawienia, kliknij polecenie **właściwości**.
+2. Otwiera menu Ustawienia domyślne. Jeśli jest zamknięty, kliknij polecenie **ustawienia** aby otworzyć menu Ustawienia. W menu Ustawienia kliknij **właściwości**.
 
-    ![Otwarcie bloku magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Otwieranie menu magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na stronie Ustawienia kliknij **Pobierz** w obszarze **Agent usługi Kopia zapasowa Azure**.
 
     ![Do pobrania](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
@@ -142,7 +144,7 @@ Po utworzeniu magazynu usługi Kopia zapasowa Azure, należy zainstalować agent
 5. Agent usługi Kopia zapasowa Azure instaluje program .NET Framework 4.5 i programu Windows PowerShell (Jeśli nie jest dostępna) do ukończenia instalacji.
 6. Po zainstalowaniu agenta **Zamknij** okna.
 
-   ![Zamknij](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+   ![Zamykanie](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 7. Aby **rejestrowania serwera DPM** w magazynie w **zarządzania** karcie, kliknij na **Online**. Następnie wybierz opcję **zarejestrować**. Zostanie otwarty Kreator instalacji zarejestrować.
 8. Jeśli używasz serwera proxy, aby nawiązać połączenie z Internetem, w **konfiguracji serwera Proxy** ekranu, wprowadź szczegóły serwera proxy. Jeśli korzystasz z uwierzytelnionego serwera proxy, wprowadź szczegóły nazwy i hasła użytkownika na tym ekranie.
 

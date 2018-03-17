@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Omówienie certyfikatów dla usług w chmurze Azure
 Certyfikaty są używane na platformie Azure do usługi w chmurze ([usługi certyfikatów](#what-are-service-certificates)) i do uwierzytelniania z interfejsem API zarządzania ([certyfikaty zarządzania](#what-are-management-certificates)). Ten temat zawiera ogólne omówienie obu typów certyfikatów, jak do [utworzyć](#create) i [wdrażanie](#deploy) je do platformy Azure.
@@ -48,8 +48,6 @@ Certyfikaty zarządzania pozwalają do uwierzytelniania w klasycznym modelu wdra
 ### <a name="limitations"></a>Ograniczenia
 Istnieje limit 100 certyfikatów zarządzania dla subskrypcji. Istnieje również limit 100 certyfikatów zarządzania dla wszystkich subskrypcji w obszarze Nazwa użytkownika administratora określonej usługi. Jeśli istnieje potrzeba więcej certyfikatów można dodać 100 certyfikaty zarządzania został już użyty identyfikator użytkownika dla konta administratora, możesz dodać współadministrator można dodać dodatkowych certyfikatów. 
 
-Przed dodaniem więcej niż 100 certyfikatów, zobacz, czy można ponownie użyć istniejącego certyfikatu. Przy użyciu współadministratorów dodaje potencjalnie niepotrzebnych złożoności procesu zarządzania certyfikatu.
-
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Utwórz nowy certyfikat z podpisem własnym
 Można użyć dowolnego narzędzia, które są dostępne do utworzenia certyfikatu z podpisem własnym, tak długo, jak stosować się do tych ustawień:
@@ -66,7 +64,7 @@ Można użyć dowolnego narzędzia, które są dostępne do utworzenia certyfika
 
 Istnieją dwa sposoby łatwe, aby utworzyć certyfikat w systemie Windows, za pomocą `makecert.exe` narzędzia lub usług IIS.
 
-### <a name="makecertexe"></a>MakeCert.exe
+### <a name="makecertexe"></a>Makecert.exe
 Narzędzie to jest przestarzała i nie jest już opisanych tutaj. Aby uzyskać więcej informacji, zobacz [ten artykuł w witrynie MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell
@@ -92,7 +90,7 @@ Istnieje wiele stron w Internecie, które opisano, jak to zrobić w programie II
 ### <a name="linux"></a>Linux
 [To](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artykuł opisuje sposób tworzenia certyfikatów przy użyciu protokołu SSH.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Przekaż certyfikat usługi do portalu Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Przekaż [certyfikat interfejsu API zarządzania](../azure-api-management-certs.md) do portalu Azure.

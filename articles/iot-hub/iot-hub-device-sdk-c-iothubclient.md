@@ -3,7 +3,7 @@ title: "Azure urządzenia IoT zestawu SDK dla języka C - IoTHubClient | Dokumen
 description: "Jak używać biblioteki IoTHubClient na urządzeniu Azure IoT SDK dla języka C do tworzenia aplikacji urządzenia, które komunikują się z Centrum IoT."
 services: iot-hub
 documentationcenter: 
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: 
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: obloch
-ms.openlocfilehash: 8428857bcd444f99ba2c0f6b31ff662d5596b591
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure urządzenia IoT zestawu SDK dla języka C — więcej informacji na temat IoTHubClient
 [Najpierw artykuł](iot-hub-device-sdk-c-intro.md) w tej serii wprowadzone **urządzenia Azure IoT SDK dla języka C**. Tym artykule wyjaśniono, że istnieją dwie warstwy architektury w zestawie SDK. Na podstawowym jest **IoTHubClient** biblioteki, który bezpośrednio prowadzi komunikację z Centrum IoT. Istnieje również **serializator** biblioteki, która tworzy znajdujący się na świadczenie usług serializacji. W tym artykule udostępnimy dodatkowych szczegółów na **IoTHubClient** biblioteki.
@@ -264,14 +264,14 @@ Istnieje kilka opcji, które są powszechnie stosowane:
 
 Opcja łączenia we wsady jest ważna. Domyślnie zdarzenia ingresses biblioteki indywidualnie (pojedyncze zdarzenie jest niezależnie od przekazania do **IoTHubClient\_LL\_SendEventAsync**). Jeśli opcja łączenia we wsady jest **true**, biblioteki gromadzi zdarzenia tyle jak go z buforu (maksymalnie maksymalny rozmiar wiadomości akceptujące Centrum IoT).  Wsadowe zdarzenia są wysyłane do Centrum IoT w pojedynczym wywołaniu HTTPS (zdarzenia są połączone w tablicy JSON). Włączanie przetwarzanie wsadowe zwykle powoduje duża wydajność, ponieważ jest zmniejszenie przechodzenia do sieci. Ponadto znacząco zmniejsza przepustowości od wysyłania jeden zestaw nagłówków protokołu HTTPS z partii zdarzeń, a nie zestaw nagłówki dla każdego wybranego zdarzenia. Chyba że masz powód, aby nie zwykle należy włączyć przetwarzanie wsadowe.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule opisano szczegółowo zachowanie **IoTHubClient** Biblioteka odnaleziona w **urządzenia Azure IoT SDK dla języka C**. Dzięki tym informacjom powinien dysponować dobrą znajomością możliwości **IoTHubClient** biblioteki. [Kolejnym artykule](iot-hub-device-sdk-c-serializer.md) zawiera szczegółowe informacje podobne na **serializator** biblioteki.
 
 Aby dowiedzieć się więcej o tworzeniu aplikacji Centrum IoT, zobacz [Azure IoT SDK][lnk-sdks].
 
 Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
-* [Wdrażanie urządzenia brzegowe AI krawędzi IoT Azure][lnk-iotedge]
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

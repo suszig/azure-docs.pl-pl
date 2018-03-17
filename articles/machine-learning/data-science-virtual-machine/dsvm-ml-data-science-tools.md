@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1897f793b5907a304af0859a1ab321a06d1ce808
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Narzędzia nauki maszyny uczenie i danych
 Maszyna wirtualna nauki danych (DSVM) zawiera bogaty zestaw narzędzi i bibliotek do uczenia maszynowego dostępnych w popularnych języków, takich jak Julia Python, R. 
@@ -48,7 +48,7 @@ Poniżej przedstawiono niektóre machine learning narzędzia i bibliotek w DSVM.
 | Jak jest on skonfigurowany / zainstalowanym DSVM?      |  System Windows — Instalator msi, Linux — stanie get |
 | Jak używać / uruchom go?      | Jako narzędzie wiersza polecenia na ścieżkę (`C:\Program Files\VowpalWabbit\vw.exe` w systemie Windows, `/usr/bin/vw` w systemie Linux)    |
 | Łącza do próbek      | [Przykłady VowPal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
-| Pokrewne narzędzia na DSVM      |XGBoost LightGBM, MXNet,   |
+| Pokrewne narzędzia na DSVM      |LightGBM, MXNet, XGBoost   |
 
 
 ## <a name="weka"></a>Weka
@@ -69,7 +69,7 @@ Poniżej przedstawiono niektóre machine learning narzędzia i bibliotek w DSVM.
 | Typowe zastosowania      | Ogólne interfejsu użytkownika narzędzia wyszukiwania danych dla języka R    |
 | Jak używać / uruchom go?      | Narzędzia interfejsu użytkownika. W systemie Windows, uruchom wiersz polecenia, uruchom R, a następnie wewnątrz R Uruchom `rattle()`. W systemie Linux, połączenie z X2Go, rozpoczęcie terminal, uruchom R, a następnie wewnątrz R Uruchom `rattle()`. |
 | Łącza do próbek      | [Rattle](https://togaware.com/onepager/) |
-| Pokrewne narzędzia na DSVM      |XGBoost LightGBM, Weka,   |
+| Pokrewne narzędzia na DSVM      |LightGBM, Weka, XGBoost   |
 
 ## <a name="lightgbm"></a>LightGBM
 |    |           |

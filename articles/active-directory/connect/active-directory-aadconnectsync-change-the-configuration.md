@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: zmiany w konfiguracji domyślnej
 Celem tego artykułu jest aby zademonstrować sposób wprowadzania zmian w domyślnej konfiguracji synchronizacji usługi Azure Active Directory (Azure AD) Connect. Ona instrukcje dla niektórych typowych scenariuszy. Z tym wiedzy należy wprowadzać proste zmiany własnych konfiguracją na podstawie własnych reguł biznesowych.
@@ -245,7 +245,7 @@ Domyślnie ten atrybut UserType nie zostanie zaimportowane do platformy Azure AD
  1. Przejdź do **łączniki** kartę Menedżera usługi synchronizacji.
  2. Kliknij prawym przyciskiem myszy **łącznika usługi Azure AD** i wybierz **właściwości**.
  3. W wyświetlonym oknie dialogowym, przejdź do **wybierz atrybuty** kartę.
- 4. Upewnij się, że atrybut PreferredDataLocation jest zaznaczona na liście atrybutów.
+ 4. Upewnij się, że zaznaczono atrybut UserType na liście atrybutów.
  5. Kliknij przycisk **OK** do zapisania.
 
 ![Dodaj atrybut źródłowy do schematu łącznika usługi Azure AD](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -293,7 +293,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na wartość atrybutu mogą
 ![Utwórz regułę synchronizacji ruchu przychodzącego](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Krok 5: Tworzenie reguły synchronizacji wychodzący przepływ wartość atrybutu do usługi Azure AD
-Reguła synchronizacji ruchu wychodzącego zezwala na wartość atrybutu mogą przepływać z metaverse z atrybutem PreferredDataLocation w usłudze Azure AD:
+Reguła synchronizacji ruchu wychodzącego zezwala na wartość atrybutu mogą przepływać z metaverse atrybut UserType w usłudze Azure AD:
 
 1. Przejdź do edytora reguły synchronizacji.
 2. Ustaw filtr wyszukiwania **kierunek** jako **wychodzące**.

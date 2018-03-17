@@ -6,20 +6,19 @@ documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
 editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Rozwiązywanie problemów z usługą Magazyn danych Azure SQL
 W tym temacie przedstawiono niektóre z najczęściej pytania dotyczące rozwiązywania problemów, które Otrzymaliśmy od klientów.
@@ -27,9 +26,9 @@ W tym temacie przedstawiono niektóre z najczęściej pytania dotyczące rozwią
 ## <a name="connecting"></a>Łączenie
 | Problem | Rozwiązanie |
 |:--- |:--- |
-| Logowanie użytkownika "NT\LOGOWANIE" nie powiodło się. (Program Microsoft SQL Server, błąd: 18456) |Ten błąd występuje, gdy użytkownik AAD próbuje połączyć się z główną bazą danych, ale nie ma użytkownika głównego.  Aby rozwiązać ten problem albo określić magazyn danych SQL, aby połączyć się w chwili połączenia lub dodać użytkownika do bazy danych master.  Zobacz [Omówienie zabezpieczeń] [ Security overview] artykułu, aby uzyskać więcej informacji. |
-| Serwer główny "MyUserName" nie jest możliwość dostępu do bazy danych "master" w bieżącym kontekście zabezpieczeń. Nie można otworzyć domyślnej bazy danych użytkownika. Logowanie nie powiodło się. Logowanie użytkownika "MyUserName" nie powiodło się. (Program Microsoft SQL Server, błąd: 916) |Ten błąd występuje, gdy użytkownik AAD próbuje połączyć się z główną bazą danych, ale nie ma użytkownika głównego.  Aby rozwiązać ten problem albo określić magazyn danych SQL, aby połączyć się w chwili połączenia lub dodać użytkownika do bazy danych master.  Zobacz [Omówienie zabezpieczeń] [ Security overview] artykułu, aby uzyskać więcej informacji. |
-| Błąd CTAIP |Ten błąd może wystąpić po utworzeniu nazwy logowania bazy danych master serwera SQL, ale nie znajduje się w bazie danych magazynu danych SQL.  Jeśli ten błąd wystąpi, Przyjrzyjmy się [Omówienie zabezpieczeń] [ Security overview] artykułu.  W tym artykule opisano sposób tworzenia Utwórz nazwę logowania i użytkownika na głównym, a następnie tworzenie użytkownika w bazie danych usługi SQL Data Warehouse. |
+| Logowanie użytkownika "NT\LOGOWANIE" nie powiodło się. (Program Microsoft SQL Server, błąd: 18456) |Ten błąd występuje, gdy użytkownik AAD próbuje połączyć się z główną bazą danych, ale nie ma użytkownika głównego.  Aby rozwiązać ten problem, albo określić magazyn danych SQL, aby połączyć się w chwili połączenia lub dodać użytkownika do bazy danych master.  Zobacz [Omówienie zabezpieczeń] [ Security overview] artykułu, aby uzyskać więcej informacji. |
+| Serwer główny "MyUserName" nie jest możliwość dostępu do bazy danych "master" w bieżącym kontekście zabezpieczeń. Nie można otworzyć domyślnej bazy danych użytkownika. Logowanie nie powiodło się. Logowanie użytkownika "MyUserName" nie powiodło się. (Program Microsoft SQL Server, błąd: 916) |Ten błąd występuje, gdy użytkownik AAD próbuje połączyć się z główną bazą danych, ale nie ma użytkownika głównego.  Aby rozwiązać ten problem, albo określić magazyn danych SQL, aby połączyć się w chwili połączenia lub dodać użytkownika do bazy danych master.  Zobacz [Omówienie zabezpieczeń] [ Security overview] artykułu, aby uzyskać więcej informacji. |
+| Błąd CTAIP |Ten błąd może wystąpić po utworzeniu nazwy logowania bazy danych master serwera SQL, ale nie znajduje się w bazie danych magazynu danych SQL.  Jeśli ten błąd wystąpi, Przyjrzyjmy się [Omówienie zabezpieczeń] [ Security overview] artykułu.  W tym artykule opisano, jak utworzyć identyfikator logowania i użytkownika na wzorcu, a następnie utworzyć użytkownika w bazie danych usługi SQL Data Warehouse. |
 | Blokowane przez zaporę |Bazy danych SQL Azure są chronione przez zapory poziomu serwera i bazy danych do zapewnienia tylko znane adresy IP, które mają dostęp do bazy danych. Zapory są zabezpieczone przez domyślną, co oznacza, że musisz jawnie włączyć oraz adres IP lub zakres adresów, zanim będzie można połączyć.  Aby skonfigurować zaporę tak, aby uzyskać dostęp, postępuj zgodnie z instrukcjami [konfigurowania serwera zapory dostępu do sieci IP klienta] [ Configure server firewall access for your client IP] w [inicjowania obsługi administracyjnej instrukcje] [Provisioning instructions]. |
 | Nie można połączyć z narzędziem lub sterownika |Usługa SQL Data Warehouse zaleca użycie [SSMS][SSMS], [narzędzi SSDT dla programu Visual Studio][SSDT for Visual Studio], lub [sqlcmd] [ sqlcmd] zgromadzonych danych. Więcej szczegółów na sterowniki i nawiązywania połączenia z usługi SQL Data Warehouse, zobacz [sterowniki dla usługi Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] i [nawiązywanie połączenia z usługą Magazyn danych SQL Azure] [ Connect to Azure SQL Data Warehouse] artykułów. |
 
@@ -47,7 +46,7 @@ W tym temacie przedstawiono niektóre z najczęściej pytania dotyczące rozwią
 | Współbieżność niski / zapytań w kolejce |Opis [zarządzania obciążenia] [ Workload management] jest ważne, aby zrozumieć, jak Równoważenie alokacji pamięci z współbieżności. |
 | Jak zaimplementować najlepsze rozwiązania |Najlepiej rozpocząć informacje o sposobach poprawiać wydajność zapytań [najlepsze rozwiązania w zakresie usługi SQL Data Warehouse] [ SQL Data Warehouse best practices] artykułu. |
 | Jak poprawić wydajność w przypadku skalowania |Czasami rozwiązanie do poprawy wydajności, to po prostu Dodaj więcej mocy do zapytań przez obliczeniowej [skalowania SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
-| Wydajność zapytań niską wyniku indeksu słabą jakość |Sytuacje zapytania można spowolnienie z powodu [jakości indeksu magazynu kolumn niską][Poor columnstore index quality].  Ten artykuł, aby uzyskać więcej informacji i sposobu [Odbuduj indeksy, aby poprawić jakość segmentu][Rebuild indexes to improve segment quality]. |
+| Wydajność zapytań niską wyniku indeksu słabą jakość |Sytuacje kwerend może to spowolnić z powodu [jakości indeksu magazynu kolumn niską][Poor columnstore index quality].  Ten artykuł, aby uzyskać więcej informacji i sposobu [Odbuduj indeksy, aby poprawić jakość segmentu][Rebuild indexes to improve segment quality]. |
 
 ## <a name="system-management"></a>Zarządzanie systemem
 | Problem | Rozwiązanie |
@@ -60,7 +59,7 @@ W tym temacie przedstawiono niektóre z najczęściej pytania dotyczące rozwią
 ## <a name="polybase"></a>Program Polybase
 | Problem | Rozwiązanie |
 |:--- |:--- |
-| Obciążenia zakończy się niepowodzeniem z powodu dużych wierszy |Obsługa dużych wiersza nie jest obecnie dostępna dla programu Polybase.  Oznacza to, że jeśli tabela zawiera VARCHAR(MAX), NVARCHAR(MAX) lub VARBINARY(MAX), tabel zewnętrznych nie można załadować danych.  Obciążenia dla dużych wierszy jest obecnie obsługiwane tylko za pośrednictwem usługi fabryka danych Azure (za pomocą narzędzia BCP), usługi Azure Stream Analytics, SSIS, BCP lub klasy .NET SQLBulkCopy. Obsługa PolyBase dla dużych wierszy zostanie dodana w przyszłej wersji. |
+| Obciążenia zakończy się niepowodzeniem z powodu dużych wierszy |Obsługa dużych wiersza nie jest obecnie dostępna dla programu Polybase.  Oznacza to, że jeśli tabela zawiera VARCHAR(MAX), NVARCHAR(MAX) lub VARBINARY(MAX), tabel zewnętrznych nie można załadować danych.  Podczas ładowania dużych wierszy jest obecnie obsługiwane tylko za pośrednictwem usługi fabryka danych Azure (za pomocą narzędzia BCP), usługi Azure Stream Analytics, SSIS, BCP lub klasy .NET SQLBulkCopy. Obsługa PolyBase dla dużych wierszy zostanie dodana w przyszłej wersji. |
 | obciążenia BCP tabeli z typem danych MAX kończy się niepowodzeniem |Jest to znany problem, który wymaga VARCHAR(MAX), NVARCHAR(MAX) lub VARBINARY(MAX) można umieścić na koniec tabeli w niektórych scenariuszach.  Spróbuj przenieść maksymalna liczba kolumn na koniec tabeli. |
 
 ## <a name="differences-from-sql-database"></a>Różnice z bazy danych SQL
@@ -74,7 +73,7 @@ W tym temacie przedstawiono niektóre z najczęściej pytania dotyczące rozwią
 | Funkcje UDF nie obsługują instrukcji "SELECT" |Jest to aktualne ograniczenie naszych funkcji UDF.  Zobacz [CREATE FUNCTION] [ CREATE FUNCTION] obsługujemy składni. |
 
 ## <a name="next-steps"></a>Kolejne kroki
-Jeśli jesteś zostały nie można znaleźć rozwiązania problemu powyżej, poniżej przedstawiono inne zasoby, możesz spróbować.
+Aby uzyskać pomoc w znalezieniu rozwiązania problemu Oto inne zasoby, które można wypróbować.
 
 * [Blogi]
 * [Żądania funkcji]
@@ -113,7 +112,7 @@ Jeśli jesteś zostały nie można znaleźć rozwiązania problemu powyżej, pon
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

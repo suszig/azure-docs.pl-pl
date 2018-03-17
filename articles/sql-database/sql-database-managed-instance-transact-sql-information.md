@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d412cbbe44a1b865ff5fa090592faa9b59fb06bf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL bazy danych zarządzanych wystąpienia T-SQL różnice z programu SQL Server 
 
@@ -30,11 +30,11 @@ Ta sekcja zawiera podsumowanie podstawowych różnic w składni T-SQL i zachowan
 ### <a name="always-on-availability"></a>Zawsze włączone dostępności
 
 [Wysoka dostępność](sql-database-high-availability.md) jest wbudowana w wystąpienia zarządzane i nie mogą być kontrolowane przez użytkowników. Poniższe instrukcje nie są obsługiwane:
- - [TWORZENIE PUNKTU KOŃCOWEGO... DLA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql.md)
- - [UTWORZENIE GRUPY DOSTĘPNOŚCI](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
- - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
- - [USUŃ GRUPY DOSTĘPNOŚCI](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [Ustaw HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) klauzuli [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) — instrukcja
+ - [TWORZENIE PUNKTU KOŃCOWEGO... DLA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
+ - [UTWORZENIE GRUPY DOSTĘPNOŚCI](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
+ - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
+ - [USUŃ GRUPY DOSTĘPNOŚCI](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
+ - [Ustaw HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) klauzuli [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) — instrukcja
 
 ### <a name="auditing"></a>Inspekcja 
  
