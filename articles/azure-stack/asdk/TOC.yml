@@ -1,0 +1,87 @@
+- name: Dokumentacja zestawu programowanie Azure stosu
+  href: index.yml
+- name: Przegląd
+  expanded: true
+  items:
+    - name: Co to jest ASDK?
+      href: asdk-what-is.md
+    - name: Informacje o wersji ASDK
+      href: asdk-release-notes.md
+- name: Samouczki
+  items:
+    - name: 1. Wdrażanie ASDK
+      items:
+        - name: Wdrażanie ASDK - Instalatora
+          href: asdk-deploy.md
+        - name: Wdrażanie ASDK - programu PowerShell
+          href: asdk-deploy-powershell.md
+        - name: Wdróż ponownie ASDK
+          href: asdk-redeploy.md
+    - name: 2. Dodaj element marketplace
+      items:
+        - name: Pobierz z platformy Azure
+          href: asdk-marketplace-item.md
+        - name: Dodaj z lokalnego źródła
+          href: asdk-marketplace-item-offline.md
+    - name: 3. Oferta usługi IaaS
+      href: asdk-offer-services.md
+    - name: 4. Subskrybowanie oferty
+      href: asdk-subscribe-services.md
+    - name: 5. Aktualizacja oferty i planów
+      href: asdk-update-offers.md
+    - name: 6. Utwórz maszynę Wirtualną z szablonu
+      href: asdk-create-vm-template.md
+- name: Pojęcia
+  items:
+    - name: Zagadnienia dotyczące planowania wdrożenia
+      href: asdk-deploy-considerations.md
+    - name: Architektura zestawu programowanie
+      href: asdk-architecture.md
+    - name: Podstawy administracji ASDK
+      href: asdk-admin-basics.md
+    - name: Zaawansowane zadania
+      href: asdk-advanced-eval.md
+- name: Instrukcje
+  items:
+    - name: Instalator ASDK
+      items:
+        - name: Pobierać i wyodrębniać z zestawem deweloperskim
+          href: asdk-download.md
+        - name: Przygotuj komputer-host ASDK
+          href: asdk-prepare-host.md
+        - name: Zainstaluj ASDK
+          href: asdk-install.md
+        - name: Po wdrożeniu konfiguracji
+          href: asdk-post-deploy.md
+    - name: Zarejestruj ASDK
+      href: asdk-register.md
+    - name: Skonfiguruj ustawienia telemetrii stosu Azure
+      href: asdk-telemetry.md
+    - name: Rozwiązywanie problemów
+      href: asdk-troubleshooting.md
+- name: Informacje ogólne
+  items:
+    - name: Azure Stack PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: Interfejs wiersza polecenia usługi Azure Stack
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Powiązane
+  items:
+    - name: Dokumentacja operatora usługi Azure Stack
+      href: /azure/azure-stack/
+    - name: Dokumentacja użytkownika usługi Azure Stack
+      href: /azure/azure-stack/user/
+- name: Zasoby
+  items:
+    - name: Mapa usługi Azure stosu
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Forum MSDN stosu platformy Azure
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Opinie dotyczące dokumentacji stosu Azure
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Informacje o cenach
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Szkolenia i certyfikacja
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
