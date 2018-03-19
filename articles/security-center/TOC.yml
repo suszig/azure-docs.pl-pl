@@ -151,10 +151,6 @@
           href: security-center-events-dashboard.md
         - name: Wyszukiwanie
           href: security-center-search.md
-    - name: Integracja dzienników platformy Azure
-      href: security-center-integrating-alerts-with-log-integration.md
-    - name: Eksportowanie danych do rozwiązania SIEM
-      href: security-center-export-data-to-siem.md
     - name: Scenariusze
       items:
         - name: Reagowanie na zdarzenia

@@ -27,11 +27,6 @@
 ### [Sieciowe grupy zabezpieczeń](virtual-networks-nsg.md)
 
 ## Wdrażanie
-### Sieci wirtualne
-#### [Azure Portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Interfejs wiersza polecenia platformy Azure](virtual-networks-create-vnet-arm-cli.md)
-#### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Grupy zabezpieczeń sieci
 #### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
