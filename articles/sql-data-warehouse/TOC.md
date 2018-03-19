@@ -52,11 +52,12 @@
 ### [Zapytanie elastyczne w usłudze SQL Database](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## Monitorowanie i dostrajanie
-### [Zarządzanie obciążeniami](resource-classes-for-workload-management.md)
+## Wydajność zapytań
+### [Klasy zasobów](resource-classes-for-workload-management.md)
 ### [Kompresja magazynu kolumn](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Monitorowanie](sql-data-warehouse-manage-monitor.md)
-### [Rozwiązywanie problemów](sql-data-warehouse-troubleshoot.md)
+
+## [Monitorowanie](sql-data-warehouse-manage-monitor.md)
+
 
 ## Programowanie magazynów danych
 ### [Omówienie](sql-data-warehouse-overview-develop.md)
@@ -88,6 +89,8 @@
 #### [Przypisywanie zmiennej](sql-data-warehouse-develop-variable-assignment.md)
 #### [Widoki](sql-data-warehouse-develop-views.md)
 
+## [Rozwiązywanie problemów](sql-data-warehouse-troubleshoot.md)
+
 # Przewodniki z instrukcjami
 ## Funkcje usługi
 ### [Przywracanie magazynu danych — portal](sql-data-warehouse-restore-database-portal.md)
@@ -102,7 +105,7 @@
 
 ## Ładowanie i przenoszenie danych
 ### [Dane nowojorskiej taksówki](load-data-from-azure-blob-storage-using-polybase.md)
-### [Publiczne dane firmy Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [Contoso public data (Publiczne dane firmy Contoso)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Fabryka danych](sql-data-warehouse-load-with-data-factory.md)
