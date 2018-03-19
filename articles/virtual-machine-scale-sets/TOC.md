@@ -38,6 +38,7 @@
 #### [Korzystanie z interfejsu wiersza polecenia platformy Azure 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Praca z dużymi zestawami skalowania](virtual-machine-scale-sets-placement-groups.md)
 ### [Konwertowanie szablonu zestawu skalowania w celu używania dysku zarządzanego](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Korzystanie z niskiego priorytetu](virtual-machine-scale-sets-use-low-priority.md)
 
 ## Zarządzanie
 ### Typowe zadania zarządzania

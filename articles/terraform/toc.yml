@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Samouczki
   items:
+    - name: Tworzenie maszyny wirtualnej programu z włączoną tożsamością usługi zarządzanej
+      href: terraform-vm-msi.md
     - name: Tworzenie klastra maszyn wirtualnych przy użyciu modułów Terraform
       href: terraform-create-vm-cluster-module.md
     - name: Tworzenie klastra maszyn wirtualnych przy użyciu programu Terraform i HCL

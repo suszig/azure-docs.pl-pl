@@ -67,6 +67,8 @@
       items:
         - name: Replikacja do platformy Azure
           items:
+            - name: Typowe pytania na temat replikacji VMware–Azure
+              href: vmware-azure-common-questions.md
             - name: Matryca obsługi replikacji serwera fizycznego/VMware do platformy Azure
               href: vmware-physical-azure-support-matrix.md
             - name: Architektura VMware–Azure
@@ -77,6 +79,8 @@
               href: vmware-azure-multi-tenant-overview.md
             - name: Informacje o usłudze mobilności
               href: vmware-azure-install-mobility-service.md
+            - name: Opcje lokalizacji dla powrotu po awarii
+              href: concepts-types-of-failback.md
         - name: Replikacja do lokacji dodatkowej
           items:
             - name: Matryca obsługi replikacji serwera fizycznego/VMware do lokacji dodatkowej
@@ -117,7 +121,7 @@
               href: azure-to-azure-about-networking.md
             - name: Przygotowywanie mapowania sieciowego na potrzeby odzyskiwania po awarii maszyny wirtualnej platformy Azure
               href: azure-to-azure-network-mapping.md
-            - name: Konfigurowanie adresów IP po przełączeniu maszyny wirtualnej platformy Azure do trybu failover
+            - name: Konfigurowanie wybierania adresów IP dla trybu failover
               href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Odzyskiwanie po awarii
           items:
@@ -139,7 +143,7 @@
           items:
             - name: Zarządzanie interfejsami sieciowymi na potrzeby replikacji ze środowiska lokalnego na platformę Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Konfigurowanie adresów IP po przełączeniu w tryb failover na platformę Azure
+            - name: Konfigurowanie wybierania adresów IP dla trybu failover
               href: concepts-on-premises-to-azure-networking.md
         - name: Planowanie pojemności
           items:
@@ -241,7 +245,7 @@
           items:
             - name: Zarządzanie interfejsami sieciowymi na potrzeby replikacji ze środowiska lokalnego na platformę Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Konfigurowanie adresów IP po przełączeniu w tryb failover na platformę Azure
+            - name: Konfigurowanie wybierania adresów IP dla trybu failover
               href: concepts-on-premises-to-azure-networking.md
         - name: Planowanie pojemności
           items:
@@ -255,8 +259,6 @@
                   href: hyper-v-deployment-planner-analyze-report.md
                 - name: Analizowanie raportu szacowania kosztów
                   href: hyper-v-deployment-planner-cost-estimation.md
-            - name: Testy skalowania wydajności na potrzeby replikacji funkcji Hyper-V do lokacji dodatkowej
-              href: hyper-v-vmm-performance-results.md
         - name: Odzyskiwanie po awarii
           items:
             - name: Konfigurowanie replikacji funkcji Hyper-V na platformie Azure (bez programu VMM) przy użyciu programu PowerShell
@@ -295,12 +297,14 @@
           href: hyper-v-vmm-powershell-resource-manager.md
         - name: Uruchamianie próbnego odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
           href: hyper-v-vmm-test-failover.md
-        - name: Konfigurowanie adresów IP po przełączeniu w tryb failover do lokacji dodatkowej
+        - name: Konfigurowanie wybierania adresów IP dla trybu failover
           href: hyper-v-vmm-networking.md
         - name: Dodawanie skryptów programu VMM do planów odzyskiwania
           href: hyper-v-vmm-recovery-script.md
         - name: Uruchamianie trybu failover i powrotu po awarii między lokacjami lokalnymi
           href: hyper-v-vmm-failover-failback.md
+        - name: Testy skalowania wydajności na potrzeby replikacji funkcji Hyper-V do lokacji dodatkowej
+          href: hyper-v-vmm-performance-results.md
     - name: Replikowanie aplikacji
       items:
         - name: Usługi Active Directory i DNS

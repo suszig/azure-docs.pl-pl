@@ -2,7 +2,7 @@
 ## [Dlaczego warto wybrać usługę Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Podstawowe informacje o uwierzytelnianiu](active-directory-authentication-scenarios.md)
 ## [Typy aplikacji](active-directory-authentication-scenarios.md#application-types-and-scenarios)
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## Aplikacje mobilne i klasyczne
 ### [Omówienie](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -57,10 +57,12 @@
 ## [Galeria aplikacji usługi Azure AD](active-directory-app-gallery-listing.md)
 ## [Pulpit nawigacyjny sprzedawcy usługi Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 ## Praca z programem Visual Studio
-### [Wprowadzenie do usług połączonych programu Visual Studio](vs-active-directory-dotnet-getting-started.md)
+### [Korzystanie z usługi połączonej Active Directory](vs-active-directory-add-connected-service.md)
+### [Rozpoczynanie pracy z projektami .NET MVC](vs-active-directory-dotnet-getting-started.md)
+### [Co się stało z moim projektem .NET MVC?](vs-active-directory-dotnet-what-happened.md)
+### [Wprowadzenie do projektów WebAPI](vs-active-directory-webapi-getting-started.md)
+### [Co się stało z moim projektem WebAPI?](vs-active-directory-webapi-what-happened.md)
 ### [Wystąpił błąd podczas wykrywania uwierzytelniania](vs-active-directory-error.md)
-### [Wprowadzenie do interfejsu API sieci Web](vs-active-directory-webapi-getting-started.md)
-### [Co się stało z moim projektem interfejsu API sieci Web](vs-active-directory-webapi-what-happened.md)
 ## [Usługi ADFS systemu Windows Server](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migracja usługi ACS](active-directory-acs-migration.md)
 ## [Najlepsze praktyki dotyczące obsługi błędów dla biblioteki ADAL](active-directory-devhowto-adal-error-handling.md)
@@ -88,7 +90,7 @@
 ### [Typy aplikacji](active-directory-v2-flows.md)
 ### [Ograniczenia](active-directory-v2-limitations.md)
 ### [Porównanie wersji 1 i wersji 2](active-directory-v2-compare.md)
-## Wprowadzenie
+## Rozpoczęcie pracy
 ### Aplikacje mobilne i klasyczne
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)

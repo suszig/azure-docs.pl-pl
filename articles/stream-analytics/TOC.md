@@ -64,6 +64,7 @@
 ## Narzędzia programu Visual Studio
 ### [Instalowanie narzędzi](stream-analytics-tools-for-visual-studio-install.md)
 ### [Opracowywanie zadania w chmurze](stream-analytics-tools-for-visual-studio.md)
+### [Tworzenie zadania usługi Edge](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [Konfigurowanie potoku ciągłej integracji/ciągłego dostarczania](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Rozwiązywanie problemów

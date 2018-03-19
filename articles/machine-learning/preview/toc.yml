@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Najważniejsze zadania interfejsu wiersza polecenia
+      href: cli-for-azure-machine-learning.md
     - name: Korzystanie ze środowiska roboczego
       items:
         - name: Praca ze środowiskami IDE języka Python

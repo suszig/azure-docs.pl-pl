@@ -37,6 +37,8 @@
       href: container-instances-using-azure-container-registry.md
     - name: Uruchamianie zadań konteneryzowanych
       href: container-instances-restart-policy.md
+    - name: Ustawianie zmiennych środowiskowych
+      href: container-instances-environment-variables.md
     - name: Rozwiązywanie problemów z wdrożeniami
       href: container-instances-troubleshooting.md
     - name: Konfigurowanie woluminów danych

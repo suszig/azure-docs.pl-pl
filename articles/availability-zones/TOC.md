@@ -24,9 +24,10 @@
 
 ### Moduł równoważenia obciążenia
 #### [Co to jest moduł równoważenia obciążenia?](../load-balancer/load-balancer-standard-overview.md)
-#### [Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Podstawowa przy użyciu witryny Azure Portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [Tworzenie strefowo nadmiarowej usługi Load Balancer w warstwie Podstawowa przy użyciu programu PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Podstawowa przy użyciu interfejsu wiersza polecenia](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](../load-balancer/load-balancer-standard-availability-zones.md)
+#### [Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Standardowa przy użyciu witryny Azure Portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+#### [Tworzenie strefowo nadmiarowej usługi Load Balancer w warstwie Standardowa przy użyciu programu PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+#### [Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
 ### [Publiczny adres IP](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 

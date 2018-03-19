@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 01e85290f00dc70323a16056ca8e73bfba72c975
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Interfejsy API protokołu HTTP w funkcji trwałe (funkcje platformy Azure)
 
@@ -226,7 +226,7 @@ Może być zwracany kilka wartości Kod stanu możliwe.
 * **HTTP 404 (nie znaleziono)**: nie można odnaleźć określonego wystąpienia.
 * **HTTP 410 (Gone)**: określone wystąpienie ma zakończone lub nie powiodło się i nie może przetwarzać zgłoszono zdarzeń.
 
-Poniżej przedstawiono przykładowe żądanie, która wysyła ciągu JSON `"incr"` do wystąpienia oczekiwania na zdarzenie o nazwie **operacji** (pobierane z [licznika](durable-functions-counter.md) przykładowe):
+Poniżej przedstawiono przykładowe żądanie, która wysyła ciągu JSON `"incr"` do wystąpienia oczekiwania na zdarzenie o nazwie **operacji**:
 
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX

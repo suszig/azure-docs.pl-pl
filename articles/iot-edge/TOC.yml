@@ -62,6 +62,8 @@
           href: module-development.md
         - name: Kompozycja
           href: module-composition.md
+        - name: Agent usługi Edge i właściwości centrum
+          href: module-edgeagent-edgehub.md
     - name: Środowisko uruchomieniowe usługi IoT Edge
       href: iot-edge-runtime.md
     - name: Wdrożenia

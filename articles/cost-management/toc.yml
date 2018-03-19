@@ -21,7 +21,9 @@
       href: tutorial-forecast-spending.md
     - name: 3 — Zarządzanie kosztami
       href: tutorial-manage-costs.md
-    - name: 4 — Kontrola dostępu do danych
+    - name: 4 — Optymalizacja wystąpień zarezerwowanych
+      href: tutorial-optimize-reserved-instances.md
+    - name: 5 — Kontrola dostępu do danych
       href: tutorial-user-access.md
 - name: Pojęcia
   items:
