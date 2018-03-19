@@ -11,8 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Samouczki
   items:
-    - name: Przesyłanie strumieniowe zdarzeń za pomocą usługi Event Hubs
+    - name: Przesyłanie strumieniowe danych za pomocą usługi Event Hubs
       href: databricks-stream-from-eventhubs.md
+    - name: Analiza tonacji za pomocą usługi Cognitive Services
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Łączenie z programem Excel oraz kodem R i Python
