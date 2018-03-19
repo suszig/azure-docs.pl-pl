@@ -50,7 +50,7 @@
     - name: Przeszukiwanie dzienników
       items:
         - name: Wyszukiwanie w dzienniku — omówienie
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: Portale do przeszukiwania dzienników
           href: log-analytics-log-search-portals.md
 - name: Przewodniki z instrukcjami
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: Interfejs API wyszukiwania w dzienniku
           href: 'https://dev.loganalytics.io/'
-    - name: Przeszukiwanie starszych dzienników
-      items:
-        - name: Wyszukiwanie w dzienniku — omówienie
-          href: log-analytics-log-searches.md
-        - name: Dokumentacja wyszukiwania
-          href: log-analytics-search-reference.md
-          items:
-            - name: Wyrażenia regularne
-              href: log-analytics-log-searches-regex.md
-        - name: Interfejs API wyszukiwania w dzienniku
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: Analizowanie danych
       items:
         - name: Pulpity nawigacyjne
