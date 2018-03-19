@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/16/2018
 ms.author: bonova
-ms.openlocfilehash: 77d421e9c97f3baa3541040494fb91e0297edb5a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Co to jest wystąpienie zarządzane (wersja zapoznawcza)?
 
@@ -39,7 +39,7 @@ Wytyczne tabeli klucza różnice i Zaplanowaliśmy scenariusze użycia między S
 | | Scenariusz użycia | 
 | --- | --- | 
 |Wystąpienie zarządzane |Dla klientów chcących migracji duża liczba aplikacji z lokalnymi lub IaaS własnym utworzony lub niezależnego dostawcy oprogramowania, pod warunkiem z jako niskie migracji nakładu pracy, jak to możliwe, zaproponować zarządzane wystąpienia. Przy użyciu w pełni zautomatyzowanego [usługi migracji danych (DMS)](/sql/dma/dma-overview) na platformie Azure, klientom przyrostu i przesunięcia ich lokalnego programu SQL Server do wystąpienia zarządzane, który zapewnia zgodność z lokalnej instalacji programu SQL Server i pełne izolacji wystąpienia klienta macierzystą obsługę sieci Wirtualnej.  Pakiet Software Assurance należy wymienić ich istniejących licencji dla rabaty na zarządzane wystąpienia bazy danych SQL za pomocą [korzyści Użyj hybrydowe platformy Azure dla programu SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Zarządzane wystąpienia bazy danych SQL jest najlepsze miejsce docelowe migracji w chmurze dla wystąpień programu SQL Server, które wymagają wysokiego poziomu zabezpieczeń i powierzchni programowalności sformatowanego. |
-|Azure SQL Database |Dla klientów, tworzenie nowych aplikacji z wieloma dzierżawcami SaaS lub celowo przekształcania ich istniejące aplikacje lokalne w wielodostępnych aplikacji SaaS, przedstawia elastyczne pule. Zalety tego modelu to: <br><ul><li>Konwersja modelu biznesowego, ze sprzedaży licencji sprzedaży subskrypcji usługi (dla ISV)</li></ul><ul><li>Łatwe i dowód punktor dzierżawy izolacji</li></ul><ul><li>Uproszczony model programowania skoncentrowane bazy danych</li></ul><ul><li>Możliwość skalowania bez naciśnięcie twardych limitu</li></ul>Tworzenie nowej aplikacji innych niż wielodostępne SaaS, której obciążenie jest stabilne i przewidywalne, klienci zaproponować pojedynczych baz danych. Zalety tego modelu to:<ul><li>Uproszczony model programowania skoncentrowane bazy danych</li></ul>  <ul><li>Przewidywalna wydajność dla każdej bazy danych</li></ul>|
+|Azure SQL Database |**Pule elastyczne**: dla klientów, tworzenie nowych aplikacji z wieloma dzierżawcami SaaS lub celowo Przekształcanie istniejącej lokalnej aplikacji do wielodostępnych aplikacji SaaS, zaproponować elastyczne pule. Zalety tego modelu to: <br><ul><li>Konwersja modelu biznesowego, ze sprzedaży licencji sprzedaży subskrypcji usługi (dla ISV)</li></ul><ul><li>Łatwe i dowód punktor dzierżawy izolacji</li></ul><ul><li>Uproszczony model programowania skoncentrowane bazy danych</li></ul><ul><li>Możliwość skalowania bez naciśnięcie twardych limitu</li></ul>**Pojedyncze bazy danych**: dla klientów, tworzenie nowych aplikacji innych niż wielodostępne SaaS, której obciążenie jest stabilne i przewidywalne, zaproponować pojedynczych baz danych. Zalety tego modelu to:<ul><li>Uproszczony model programowania skoncentrowane bazy danych</li></ul>  <ul><li>Przewidywalna wydajność dla każdej bazy danych</li></ul>|
 |SQL IaaS |W przypadku konieczności dostosowywania systemu operacyjnego lub serwer bazy danych, jak również klientów mających określone wymagania w zakresie uruchamianie aplikacji innych firm siebie z programem SQL Server (w tej samej maszyny Wirtualnej), klienci zaproponować maszyn wirtualnych SQL / IaaS jako najlepszego rozwiązania|
 |||
 

@@ -61,6 +61,7 @@
 ## [Dostosowywanie języka](active-directory-b2c-reference-language-customization.md)
 ## [Korzystanie z interfejsu API raportowania](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Migracja użytkowników](active-directory-b2c-user-migration.md)
+## [Migrowanie tożsamości społecznościowych](active-directory-b2c-social-migration.md)
 
 # Platforma obsługi tożsamości
 ## [Zasady niestandardowe](active-directory-b2c-overview-custom.md)

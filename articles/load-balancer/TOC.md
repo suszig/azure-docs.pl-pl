@@ -11,6 +11,7 @@
 ## [Obsługa protokołu IPv6](load-balancer-ipv6-overview.md)
 ## [Wiele adresów VIP](load-balancer-multivip-overview.md)
 ## [Informacje o połączeniach wychodzących](load-balancer-outbound-connections.md)
+## [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](load-balancer-standard-availability-zones.md)
 
 # Rozpoczęcie pracy
 
@@ -49,6 +50,7 @@
 ### [Rozwiązywanie problemów z usługą Azure Load Balancer](load-balancer-troubleshoot.md)
 
 ## Artykuły dotyczące klasycznego modelu wdrażania
+### [Połączenia wychodzące (klasyczne)](load-balancer-outbound-connections-classic.md)
 ### [Konfigurowanie wewnętrznego modułu równoważenia obciążenia dla usług Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Konfigurowanie wewnętrznego modułu równoważenia obciążenia dla usług Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Konfigurowanie wewnętrznego modułu równoważenia obciążenia dla usług Cloud Services (interfejs wiersza polecenia)](load-balancer-get-started-ilb-classic-cli.md)

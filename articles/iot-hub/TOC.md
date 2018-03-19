@@ -26,9 +26,9 @@
 #### [Urządzenie Intel Edison w środowisku Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Urządzenie Intel Edison w środowisku C](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Urządzenie Adafruit Feather HUZZAH ESP8266 w środowisku IDE Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Urządzenie Sparkfun ESP8266 Thing Dev w środowisku IDE Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Urządzenie Adafruit Feather M0 w środowisku IDE Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### [Urządzenie Adafruit Feather HUZZAH ESP8266 z urządzeniem Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Urządzenie Sparkfun ESP8266 Thing Dev z urządzeniem Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Urządzenie Adafruit Feather M0 z urządzeniem Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ## Rozszerzone scenariusze IoT
 ### [Zarządzanie przesyłaniem komunikatów między chmurą a urządzeniem za pomocą narzędzia iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)

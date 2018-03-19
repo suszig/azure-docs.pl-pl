@@ -5,19 +5,19 @@ metadata:
   title: "Dokumentacja dotycząca rozwiązania Azure Cost Management — samouczki i dokumentacja interfejsu API | Microsoft Docs"
   description: "Azure Cost Management to rozwiązanie do zarządzania kosztami wielu chmur, które ułatwia korzystanie z platformy Azure i innych zasobów w chmurze. Dowiedz się, jak przeglądać dane użycia i kosztów, aktywnie zarządzać kosztami, prognozować wydatki i optymalizować koszty, zapoznając się z naszymi przewodnikami Szybki start i samouczkami."
   services: cost-management
-  author: czeumault
-  manager: carolz
+  author: bandersmsft
+  manager: carmonm
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
-  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.date: 02/27/2018
+  ms.author: banders
+  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/09/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Usługa Azure Cost Management licencjonowana przez firmę Cloudyn (podmiot zależny od firmy Microsoft) to rozwiązanie do zarządzania kosztami wielu chmur, które ułatwia najwydajniejsze korzystanie z platformy Azure i innych zasobów w chmurze oraz zarządzanie nimi. Dowiedz się, jak przeglądać dane użycia i kosztów, aktywnie zarządzać kosztami, prognozować wydatki i optymalizować koszty, zapoznając się z naszymi przewodnikami Szybki start i samouczkami."
 sections:
@@ -40,6 +40,7 @@ sections:
     style: ordered
     items:
     - html: "<a href=\"tutorial-review-usage\">Przeglądanie użycia i kosztów w celu wykrycia anomalii i wydajności</a>"
-    - html: "<a href=\"tutorial-user-access\">Przypisywanie dostępu do danych rozwiązania Cost Management</a>"
     - html: "<a href=\"tutorial-forecast-spending\">Prognozowanie wydatków w przyszłości</a>"
     - html: "<a href=\"tutorial-manage-costs\">Zarządzanie kosztami przy użyciu alokacji kosztów oraz raportów przewidywanych kosztów i obciążeń zwrotnych</a>"
+    - html: "<a href=\"tutorial-optimize-reserved-instances\">Optymalizacja wystąpień zarezerwowanych</a>"
+    - html: "<a href=\"tutorial-user-access\">Przypisywanie dostępu do danych rozwiązania Cost Management</a>"

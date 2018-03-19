@@ -190,11 +190,10 @@
 #### [Raportowanie na temat automatycznej aprowizacji użytkowników](active-directory-saas-provisioning-reporting.md)
 #### [Rozwiązywanie problemów z aprowizowaniem użytkowników](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Zdalny dostęp do aplikacji za pomocą serwera proxy aplikacji](active-directory-application-proxy-get-started.md)
 #### Rozpoczęcie pracy
 ##### [Włączanie serwera proxy aplikacji](active-directory-application-proxy-enable.md)
+##### [Obsługa rozporządzenia RODO](active-directory-application-proxy-gdpr.md)
 ##### [Publikowanie aplikacji](application-proxy-publish-azure-portal.md)
 ##### [Niestandardowe domeny](active-directory-application-proxy-custom-domains.md)
 #### [Logowanie jednokrotne](application-proxy-sso-overview.md)

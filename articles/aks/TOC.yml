@@ -79,6 +79,8 @@
           href: jenkins-continuous-deployment.md
         - name: Używanie usługi OpenFaaS z usługą AKS
           href: openfaas.md
+        - name: Uruchamianie zadań Spark w usłudze AKS
+          href: spark-job.md
     - name: Podstawy platformy Kubernetes
       items:
         - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes

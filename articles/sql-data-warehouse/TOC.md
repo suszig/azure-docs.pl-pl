@@ -18,7 +18,7 @@
 
 
 # Samouczki
-## [1 — Ładowanie danych z obiektu blob](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 — Ładowanie bazy danych WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Pojęcia
 ## Funkcje usługi
@@ -101,7 +101,8 @@
 
 
 ## Ładowanie i przenoszenie danych
-### [Contoso public data (Publiczne dane firmy Contoso)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [Dane nowojorskiej taksówki](load-data-from-azure-blob-storage-using-polybase.md)
+### [Publiczne dane firmy Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Fabryka danych](sql-data-warehouse-load-with-data-factory.md)

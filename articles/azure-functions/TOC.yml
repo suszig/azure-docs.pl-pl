@@ -179,6 +179,8 @@
           href: durable-functions-counter.md
         - name: Interakcja z użytkownikami
           href: durable-functions-phone-verification.md
+        - name: Testy jednostkowe
+          href: durable-functions-unit-testing.md
 - name: Dokumentacja
   items:
     - name: Powiązania
