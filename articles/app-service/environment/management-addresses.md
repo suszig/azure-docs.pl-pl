@@ -1,6 +1,6 @@
 ---
-title: "Adresy zarządzania środowiska usługi aplikacji Azure"
-description: "Wyświetla listę adresów zarządzania używany do poleceń środowiska usługi aplikacji"
+title: Adresy zarządzania środowiska usługi aplikacji Azure
+description: Wyświetla listę adresów zarządzania używany do poleceń środowiska usługi aplikacji
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: ccompy
 ms.openlocfilehash: 3da0e4b7f1db7173124d2b33ee4c9634a253aa31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="app-service-environment-management-addresses"></a>Adresy zarządzania środowiska usługi aplikacji
 
@@ -27,7 +27,7 @@ Ten dokument zawiera listę adresów źródła aplikacji usługi do ASE ruch zwi
 
 Wszystkie ASE ma publiczny VIP, których ruch związany z zarządzaniem wejścia. Ruch przychodzący zarządzania z tych adresów połączy się z od portach 454 i 455 na publiczny adres VIP z Twojej ASE.  
 
-| Region | Adresy |
+| Obszar | Adresy |
 |--------|-----------|
 | Południowo środkowe stany USA & Północna środkowe stany USA | 70.37.57.58, 157.55.208.185, 52.174.22.21,13.94.149.179,13.94.143.126,13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141,  23.102.188.65, 191.236.154.88 |
 | Południowo-Wschodnia Australia & Wschodnia Australia | 70.37.57.58, 157.55.208.185, 52.174.22.21,13.94.149.179,13.94.143.126,13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141, 23.101.234.41, 104.210.90.65, 23.102.188.65, 191.236.154.88 |

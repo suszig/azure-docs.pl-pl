@@ -1,11 +1,11 @@
 ---
-title: "Zainstaluj SAP HANA na SAP HANA na platformie Azure (wystąpienia duże) | Dokumentacja firmy Microsoft"
-description: "Jak zainstalować SAP HANA na SAP HANA na platformie Azure (wystąpienia duże)."
+title: Zainstaluj SAP HANA na SAP HANA na platformie Azure (wystąpienia duże) | Dokumentacja firmy Microsoft
+description: Jak zainstalować SAP HANA na SAP HANA na platformie Azure (wystąpienia duże).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Jak zainstalować i skonfigurować SAP HANA (duże wystąpień) w systemie Azure
 
@@ -51,13 +51,13 @@ Sprawdź ponownie, szczególnie w przypadku planowania instalacji HANA 2.0 [&#22
 
 W określonych, sprawdź następujące parametry, a ostatecznie dostosowana do:
 
-- NET.Core.rmem_max = 16777216
-- NET.Core.wmem_max = 16777216
-- NET.Core.rmem_default = 16777216
-- NET.Core.wmem_default = 16777216
-- NET.Core.optmem_max = 16777216
-- NET.IPv4.tcp_rmem = 65536 16777216 16777216
-- NET.IPv4.tcp_wmem = 65536 16777216 16777216
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 Począwszy od SLES12 z dodatkiem SP1 i RHEL 7.2, te należy ustawić parametry w pliku konfiguracji w katalogu /etc/sysctl.d. Na przykład można utworzyć plik konfiguracji o nazwie 91-NetApp-HANA.conf. W starszych wersjach SLES i RHEL te parametry muszą być in/etc/sysctl.conf zestawu.
 
@@ -100,8 +100,8 @@ Konwencje nazewnictwa woluminów magazynu są wymienione w poniższej tabeli:
 
 | Użycie magazynu | Nazwa instalacji | Nazwa woluminu | 
 | --- | --- | ---|
-| HANA danych | /Hana/Data/SID/mnt0000<m> | Magazyn IP: / hana_data_SID_mnt00001_tenant_vol |
-| HANA dziennika | /Hana/log/SID/mnt0000<m> | Magazyn IP: / hana_log_SID_mnt00001_tenant_vol |
+| HANA danych | /hana/data/SID/mnt0000<m> | Magazyn IP: / hana_data_SID_mnt00001_tenant_vol |
+| HANA dziennika | /hana/log/SID/mnt0000<m> | Magazyn IP: / hana_log_SID_mnt00001_tenant_vol |
 | Kopia zapasowa dziennika HANA | /Hana/log/Backups | Magazyn IP: / hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA udostępnionych | /Hana/Shared/SID | Magazyn IP: / hana_shared_SID_mnt00001_tenant_vol/udostępnionych |
 | usr/sap | /usr/SAP/SID | Magazyn IP: / hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -192,7 +192,7 @@ SAP Obsługa uwagi do implementowania SAP HANA na Red Hat:
 
 Aplikacje SAP oparty na architekturze SAP NetWeaver są wrażliwe na różnice czasu różne składniki wchodzące w skład systemu SAP. Krótki ABAP SAP zrzuty z tytułu błąd ZDATE\_DUŻY\_czasu\_Różnicowy są prawdopodobnie znany, jak te zrzuty krótkich wyglądała czas systemowy na różnych serwerach lub maszyn wirtualnych przemieszcza się zbyt daleko od siebie.
 
-Dla SAP HANA na platformie Azure (duże wystąpień) w Azure &#39; synchronizację czasu t dotyczą jednostki obliczeń w dużych wystąpienia sygnatury. Synchronizacji nie ma zastosowania do uruchamiania aplikacji SAP w macierzysty maszynach wirtualnych platformy Azure, jak Azure zapewnia system &#39; s czasu jest odpowiednio zsynchronizowane. W związku z tym oddzielny czasu można skonfigurować serwera używanego przez SAP serwerów aplikacji działających na maszynach wirtualnych platformy Azure i SAP HANA bazy danych uruchomionych w wystąpieniach dużych HANA wystąpień. Infrastruktury magazynu w dużych wystąpienia sygnatury jest zsynchronizowany z Serwery NTP czasu.
+Dla SAP HANA na platformie Azure (wystąpienia duże), czas synchronizacji w Azure&#39;t dotyczą jednostki obliczeń w dużych wystąpienia sygnatury. Synchronizacja nie ma zastosowania do aplikacje SAP w macierzysty maszynach wirtualnych platformy Azure, jak Azure zapewnia system&#39;czasu s jest odpowiednio zsynchronizowane. W związku z tym oddzielny czasu można skonfigurować serwera używanego przez SAP serwerów aplikacji działających na maszynach wirtualnych platformy Azure i SAP HANA bazy danych uruchomionych w wystąpieniach dużych HANA wystąpień. Infrastruktury magazynu w dużych wystąpienia sygnatury jest zsynchronizowany z Serwery NTP czasu.
 
 ## <a name="setting-up-smt-server-for-suse-linux"></a>Konfigurowanie serwera SMT SUSE Linux
 SAP HANA dużych wystąpień nie ma bezpośredniego połączenia z Internetem. Dlatego nie jest dość proste zarejestrować takiej jednostki u dostawcy systemu operacyjnego oraz do pobierania i stosowania poprawek. W przypadku SUSE Linux jedno rozwiązanie można skonfigurować serwer SMT w maszynie Wirtualnej platformy Azure. Maszyny Wirtualnej Azure powinna być obsługiwana przez sieć wirtualną platformy Azure, którego jest podłączony do wystąpienia dużych HANA. Z takiego serwera SMT jednostka wystąpienia dużych HANA można zarejestrować i pobrania poprawek. 
@@ -352,7 +352,7 @@ Jeśli chcesz zainstalować SAP HANA przy użyciu graficznego instalacji pakietu
 rpm –qa | grep gtk2
 ```
 
-W dalszych krokach możemy są prezentacja konfiguracji SAP HANA z graficznego interfejsu użytkownika. Jako następnego kroku przejdź do katalogu instalacji, a następnie przejdź do katalogu sub HDB_LCM_LINUX_X86_64. Uruchamianie
+W dalszych krokach możemy są prezentacja konfiguracji SAP HANA z graficznego interfejsu użytkownika. Jako następnego kroku przejdź do katalogu instalacji, a następnie przejdź do katalogu sub HDB_LCM_LINUX_X86_64. Początek
 
 ```
 ./hdblcmgui 

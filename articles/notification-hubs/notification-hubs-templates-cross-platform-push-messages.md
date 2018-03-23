@@ -1,11 +1,11 @@
 ---
 title: Szablony
-description: "W tym temacie wyjaśniono szablonów usługi Azure notification hubs."
+description: W tym temacie wyjaśniono szablonów usługi Azure notification hubs.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="templates"></a>Szablony
 ## <a name="overview"></a>Omówienie
@@ -114,13 +114,13 @@ Szablony są ograniczone do formatowania dokumentu XML lub JSON. Ponadto tylko m
 
 W poniższej tabeli przedstawiono dozwolone w szablonach język:
 
-| wyrażenie | Opis |
+| Wyrażenie | Opis |
 | --- | --- |
 | $(prop) |Odwołanie do właściwości zdarzenia o podanej nazwie. Nazwy właściwości nie jest rozróżniana. To wyrażenie rozpoznaje do właściwości wartości tekstowej lub pusty ciąg, jeśli nie ma właściwości. |
 | $(prop, n) |Jak powyżej ale tekst jest jawnie przycinana n znaków, na przykład $(tytuł, 20) przycina zawartość plików właściwości title 20 znaków. |
 | . (prop, n) |Jak powyżej ale tekst jest sufiksem z wielokropkiem, jak ma zostać przycięta. Całkowity rozmiar ciągu przyciętą i sufiksu nie przekracza n znaków. . (tytuł, 20) z właściwości wejściowej "Jest wiersz tytułu" skutkuje **to jest tytuł...** |
 | %(Prop) |Podobnie jak $(name) z tą różnicą, że dane wyjściowe są zakodowane w formacie identyfikatora URI. |
-| #(prop) |Używane w szablonach JSON (na przykład dla systemów iOS i Android szablonów).<br><br>Ta funkcja działa tak samo jak $(prop) wcześniej określony, z wyjątkiem przypadków, gdy używane w szablonach JSON (na przykład szablony Apple). W tym przypadku, jeśli ta funkcja nie jest ujęta w "{","}" (na przykład "myJsonProperty": "#(nazwa)"), i jej wynikiem jest liczba w formacie Javascript, na przykład regexp: (0 &#124; (&#91; 1-9 &#93; &#91; 0-9 &#93;;*))(\.&#91; 0-9 &#93; +)? () (e &#124; E) (+ &#124;-)? &#91; 0-9 &#93; +)?, a następnie dane wyjściowe JSON jest liczbą.<br><br>Na przykład "badge:"#(nazwa)"staje się"badge": 40 (a nie"40"). |
+| #(prop) |Używane w szablonach JSON (na przykład dla systemów iOS i Android szablonów).<br><br>Ta funkcja działa tak samo jak $(prop) wcześniej określony, z wyjątkiem przypadków, gdy używane w szablonach JSON (na przykład szablony Apple). W tym przypadku, jeśli ta funkcja nie jest ujęta w "{","}" (na przykład "myJsonProperty": "#(nazwa)"), a jej wynikiem jest liczba w formacie Javascript, na przykład regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)) (\. &#91;0-9&#93;+)? ((e&#124;E) (+&#124;—)? &#91;0-9&#93;+)?, a następnie dane wyjściowe JSON jest liczbą.<br><br>Na przykład "badge:"#(nazwa)"staje się"badge": 40 (a nie"40"). |
 | "tekst" lub "text" |Literału. Literały zawiera dowolny tekst ujęty w pojedynczym lub podwójnym cudzysłowie. |
 | Wyr1 + Wyr2 |Operator łączenia Sprzęganie dwóch wyrażeń w jednym ciągu. |
 

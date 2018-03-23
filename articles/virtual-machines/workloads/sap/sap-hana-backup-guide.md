@@ -1,11 +1,11 @@
 ---
-title: "Podręcznik tworzenia kopii zapasowej programu SAP HANA na maszynach wirtualnych platformy Azure | Dokumentacja firmy Microsoft"
-description: "Podręcznik tworzenia kopii zapasowej programu SAP HANA udostępnia dwie główne możliwości tworzenia kopii zapasowej dla SAP HANA na maszynach wirtualnych Azure"
+title: Podręcznik tworzenia kopii zapasowej programu SAP HANA na maszynach wirtualnych platformy Azure | Dokumentacja firmy Microsoft
+description: Podręcznik tworzenia kopii zapasowej programu SAP HANA udostępnia dwie główne możliwości tworzenia kopii zapasowej dla SAP HANA na maszynach wirtualnych Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Przewodnik po wykonywaniu kopii zapasowych dla oprogramowania SAP HANA w usłudze Azure Virtual Machines
 
@@ -42,7 +42,7 @@ Trzy poniższe rysunki omówienie SAP HANA opcje tworzenia kopii zapasowej za po
 
 ![Na poniższym rysunku pokazano dwie możliwości zapisywania bieżący stan maszyny Wirtualnej](media/sap-hana-backup-guide/image001.png)
 
-Poniższy rysunek przedstawia możliwości zapisywania w bieżącym stanie maszyny Wirtualnej za pośrednictwem usługi Azure Backup lub ręcznego migawek dysków maszyny Wirtualnej. Z tą metodą, co &#39; nie ma do zarządzania kopiami zapasowymi SAP HANA. Żądania w scenariuszu migawki dysku jest spójności systemu plików i stan dysku spójnych z aplikacją. Temat spójności została szczegółowo opisana w sekcji _spójność danych SAP HANA podejmując magazynu migawek_ dalszej części tego artykułu. Możliwości i ograniczeń związanych z SAP HANA kopii zapasowych usługi Kopia zapasowa Azure również są omówione w dalszej części tego artykułu.
+Poniższy rysunek przedstawia możliwości zapisywania w bieżącym stanie maszyny Wirtualnej za pośrednictwem usługi Azure Backup lub ręcznego migawek dysków maszyny Wirtualnej. Z tej metody, co&#39;było zarządzanie kopiami zapasowymi SAP HANA. Żądania w scenariuszu migawki dysku jest spójności systemu plików i stan dysku spójnych z aplikacją. Temat spójności została szczegółowo opisana w sekcji _spójność danych SAP HANA podejmując magazynu migawek_ dalszej części tego artykułu. Możliwości i ograniczeń związanych z SAP HANA kopii zapasowych usługi Kopia zapasowa Azure również są omówione w dalszej części tego artykułu.
 
 ![Na poniższym rysunku pokazano, że opcje pobierania SAP HANA plików kopii zapasowych w ramach maszyny Wirtualnej](media/sap-hana-backup-guide/image002.png)
 
@@ -85,17 +85,17 @@ Standardowy plik kopii zapasowych przywracania testu nie jest konieczne. Istniej
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Zalet i wad HANA tworzenia kopii zapasowej i pamięci masowej migawki
 
-SAP &#39; preferencji podać t do tworzenia kopii zapasowej albo HANA i pamięci masowej migawki. Wyświetlane ich zalet i wad, dzięki czemu jedną można określić, który ma zostać użyty w zależności od sytuacji i technologii dostępnej pamięci (zobacz [planowania Your kopii zapasowej i odzyskiwania strategii](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP&#39;t dają pierwszeństwo tworzenia kopii zapasowej albo HANA i pamięci masowej migawki. Wyświetlane ich zalet i wad, dzięki czemu jedną można określić, który ma zostać użyty w zależności od sytuacji i technologii dostępnej pamięci (zobacz [planowania Your kopii zapasowej i odzyskiwania strategii](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-Na platformie Azure, należy zwrócić uwagę na fakt funkcja &#39;Tworzenie migawki obiektów blob platformy Azure; t zagwarantowania spójności systemu plików (zobacz [migawki obiektu blob korzystanie z programu PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). Następna sekcja _spójność danych SAP HANA podejmując magazynu migawek_, omówiono pewne kwestie dotyczące tej funkcji.
+Na platformie Azure, należy zwrócić uwagę na fakt, że obiektów blob platformy Azure migawki funkcji&#39;spójności systemu plików gwarancji t (zobacz [migawki obiektu blob korzystanie z programu PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). Następna sekcja _spójność danych SAP HANA podejmując magazynu migawek_, omówiono pewne kwestie dotyczące tej funkcji.
 
-Ponadto jedna ma Niezrozumienie konsekwencji rozliczeń, podczas pracy często z migawki obiektu blob, zgodnie z opisem w tym artykule: [zrozumienia sposobu migawki Naliczanie opłat](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— go &#39; t tak oczywiste jako przy użyciu wirtualnej platformy Azure dyski.
+Ponadto jedna ma Niezrozumienie konsekwencji rozliczeń, podczas pracy często z migawki obiektu blob, zgodnie z opisem w tym artykule: [zrozumienia sposobu migawki Naliczanie opłat](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— go&#39;t tak oczywiste jako przy użyciu wirtualnej platformy Azure dyski.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Spójność danych SAP HANA podejmując pamięci masowej migawki
 
 Zgodność aplikacji i systemu plików jest złożonych problemów podczas wykonywania migawki magazynu. Najprostszym sposobem, aby uniknąć problemów może być zamknięta SAP HANA a może nawet całej maszyny wirtualnej. Zamknięcie systemu może być doable pokaz lub prototypu lub nawet programistycznej, ale nie jest opcją systemu produkcji.
 
-Na platformie Azure, co ma należy pamiętać, że obiektów blob platformy Azure migawki funkcja &#39; spójności systemu plików gwarancji t. Współpracuje jednak za pomocą SAP HANA migawki funkcji, dopóki dotyczy tylko jednego dysku wirtualnego. Ale nawet w przypadku jednego dysku, należy je zaewidencjonować dodatkowe elementy. [SAP 2039883 Uwaga](https://launchpad.support.sap.com/#/notes/2039883) zawiera ważne informacje dotyczące kopii zapasowych SAP HANA za pomocą magazynu migawek. Na przykład informacje o, że w systemie plików XFS jest niezbędne do uruchomienia **xfs\_Zablokuj** przed rozpoczęciem migawkę magazynu w celu zagwarantowania spójności (zobacz [xfs\_freeze(8) — strona man systemu Linux ](https://linux.die.net/man/8/xfs_freeze) szczegółowe informacje na temat **xfs\_Zablokuj**).
+Na platformie Azure, co ma należy pamiętać, że obiektów blob platformy Azure migawki funkcja&#39;spójności systemu plików gwarancji t. Współpracuje jednak za pomocą SAP HANA migawki funkcji, dopóki dotyczy tylko jednego dysku wirtualnego. Ale nawet w przypadku jednego dysku, należy je zaewidencjonować dodatkowe elementy. [SAP 2039883 Uwaga](https://launchpad.support.sap.com/#/notes/2039883) zawiera ważne informacje dotyczące kopii zapasowych SAP HANA za pomocą magazynu migawek. Na przykład informacje o, że w systemie plików XFS jest niezbędne do uruchomienia **xfs\_Zablokuj** przed rozpoczęciem migawkę magazynu w celu zagwarantowania spójności (zobacz [xfs\_freeze(8) — strona man systemu Linux ](https://linux.die.net/man/8/xfs_freeze) szczegółowe informacje na temat **xfs\_Zablokuj**).
 
 Temat spójności staje się nawet trudniejsze w przypadku, gdy system pojedynczy plik obejmuje wiele dysków/woluminów. Na przykład za pomocą mdadm lub LVM i stosowanie. Uwaga SAP, wymienione powyżej stany:
 
@@ -111,7 +111,7 @@ Zakładając, że jest system plików XFS obejmującej cztery dyski wirtualne pl
 
 Zaleca się używanie powyższą procedurę we wszystkich przypadkach jako dla bezpieczeństwa, niezależnie od tego, który system plików. Lub, jeśli jest to jeden dysk lub rozkładanie za pośrednictwem mdadm lub LVM na wielu dyskach.
 
-Należy potwierdzić migawki HANA. Ze względu na &quot;kopii przy zapisie,&quot; SAP HANA nie mogą wymagać dodatkowego miejsca na dysku w tym trybie przygotowania migawki. &#39; s również nie można uruchomić nowe kopie zapasowe, dopóki nie został potwierdzony migawki SAP HANA.
+Należy potwierdzić migawki HANA. Ze względu na &quot;kopii przy zapisie,&quot; SAP HANA nie mogą wymagać dodatkowego miejsca na dysku w tym trybie przygotowania migawki. Go&#39;także nie można rozpocząć nowej kopii zapasowych, dopóki nie został potwierdzony migawki SAP HANA.
 
 Usługa Kopia zapasowa Azure korzysta z rozszerzeń maszyny Wirtualnej Azure automatyzującą spójności systemu plików. Te rozszerzenia maszyny Wirtualnej nie są dostępne do użycia autonomicznego. Jeden nadal ma zarządzać spójności SAP HANA. Zapoznaj się z artykułem pokrewne [SAP HANA Azure Backup na poziomie plików](sap-hana-backup-file-level.md) Aby uzyskać więcej informacji.
 
@@ -230,7 +230,7 @@ Oparte na wynikach testu, który w poniższych tabelach przedstawiono zalet i wa
 |Usługa Kopia zapasowa Azure                               | Zezwala na podstawie kopii zapasowej maszyny Wirtualnej na migawki obiektu blob | Korzystając z nie przywracania na poziomie plików, wymaga utworzenia nowej maszyny Wirtualnej dla procesu przywracania, który następnie pociąga za sobą konieczność klucz licencji SAP HANA|
 |Migawki obiektu blob ręcznie                              | Możliwość tworzenia i przywracania określone dyski maszyny Wirtualnej bez zmieniania Unikatowy identyfikator maszyny Wirtualnej|Wszystkie czynności ręcznych, które mają być wykonane przez klienta|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [SAP HANA kopia zapasowa Azure na poziomie plików](sap-hana-backup-file-level.md) zawiera opis opcji tworzenia kopii zapasowych opartych na plikach.
 * [Kopia zapasowa SAP HANA oparte na magazynu migawek](sap-hana-backup-storage-snapshots.md) zawiera opis opcji tworzenia kopii zapasowej na podstawie migawki magazynu.
 * Aby dowiedzieć się jak ustanowić wysokiej dostępności i planu odzyskiwania po awarii programu SAP HANA na platformie Azure (wystąpienia duże), zobacz [SAP HANA (duże wystąpień) wysokiej dostępności i odzyskiwania po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md).

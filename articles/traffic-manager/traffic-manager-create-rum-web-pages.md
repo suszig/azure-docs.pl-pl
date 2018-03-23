@@ -1,31 +1,28 @@
 ---
-title: "Rzeczywiste pomiary użytkownika usługi Azure Traffic Manager ze stronami sieci web | Dokumentacja firmy Microsoft"
-description: "Konfigurowanie stron sieci web do wysyłania rzeczywiste pomiary użytkownika do usługi Traffic Manager"
+title: Rzeczywiste pomiary użytkownika usługi Azure Traffic Manager ze stronami sieci web | Dokumentacja firmy Microsoft
+description: Konfigurowanie stron sieci web do wysyłania rzeczywiste pomiary użytkownika do usługi Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 71661d8640dbe14082292cb9637964adac9fa803
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Jak wysłać rzeczywiste pomiary użytkownika do usługi Azure Traffic Manager przy użyciu stron sieci web
-
->[!NOTE]
->Funkcja rzeczywiste pomiary użytkownika w usłudze Traffic Manager znajduje się w publicznej wersji zapoznawczej i nie może mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Funkcja nie jest obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich lokalizacjach Azure. Najbardziej aktualne powiadomień o dostępności i stan tej funkcji, sprawdź [aktualizacji usługi Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager) strony.
 
 Można skonfigurować stron sieci web do wysłania do usługi Traffic Manager rzeczywiste pomiary użytkownika uzyskania klucza rzeczywiste pomiary użytkownika (RUM) i osadzanie wygenerowany kod do strony sieci web.
 
