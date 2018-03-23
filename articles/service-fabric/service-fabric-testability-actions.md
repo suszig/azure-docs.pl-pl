@@ -1,6 +1,6 @@
 ---
-title: "Symulacji awarii w Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera informacje o akcji zmianę w usługi sieć szkieletowa usług Microsoft Azure."
+title: Symulacji awarii w Azure mikrousług | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera informacje o akcji zmianę w usługi sieć szkieletowa usług Microsoft Azure.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
 ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="testability-actions"></a>Testowania czynności
 Aby symulować zawodnych infrastruktury, sieć szkieletowa usług Azure udostępnia Tobie, deweloperze, ze sposobów, aby symulować różne błędy rzeczywistych i przejścia stanu. Są one widoczne jako testowania czynności. Akcje są niskiego poziomu interfejsów API, które powodują iniekcji określonych błędów, przejście stanu lub sprawdzania poprawności. Łącząc te akcje można zapisywać scenariusze kompleksowego testowania dla usług.
@@ -36,22 +36,22 @@ Testowania czynności dzieli się na dwie główne pakiety:
 Podczas wywołania różnych błędów bezpieczne i nieprawidłowego lepszą jakość sprawdzania poprawności, uruchamiać obciążenie usługi i biznesowych. Błędy nieprawidłowego wykonuje scenariuszy, w którym proces usługi nagle kończy środku niektórych przepływu pracy. Testy ścieżka odzyskiwania, po przywróceniu repliki usługi przez sieć szkieletowa usług. To może pomóc w testowania spójności danych i określa, czy stan usługi jest prawidłowo utrzymywany po awarii. Zestaw błędów (awarii bezpieczne) przetestować, czy usługa poprawnie reaguje na replik przenoszenie przez sieć szkieletowa usług. Obsługa anulowania to testów w metodzie RunAsync. Usługa musi Sprawdź, czy token anulowania jest ustawiona, poprawnie zapisać jej stan, a następnie zamknij metodzie RunAsync.
 
 ## <a name="testability-actions-list"></a>Pola listy Akcje
-| Akcja | Opis | Zarządzanego interfejsu API | Polecenia cmdlet programu PowerShell | Bezpieczne/nieprawidłowego błędów |
+| action | Opis | Zarządzanego interfejsu API | Polecenia cmdlet programu PowerShell | Bezpieczne/nieprawidłowego błędów |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Usuwa wszystkie stanu testu z klastra w przypadku zły wyłączania sterownika testu. |CleanTestStateAsync |Remove-ServiceFabricTestState |Nie dotyczy |
 | InvokeDataLoss |Powoduje utratę danych na partycji usługi. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Bezpieczne |
-| InvokeQuorumLoss |Umieszcza partycji danej usługi stanowej, w wyniku utraty kworum. |InvokeQuorumLossAsync |Wywołanie ServiceFabricQuorumLoss |Bezpieczne |
-| Przenoszenie podstawowej |Przenosi określony repliką podstawową usługi stanowej określony węzeł klastra. |MovePrimaryAsync |Przenieś ServiceFabricPrimaryReplica |Bezpieczne |
-| Przenieś pomocniczej |Przenosi bieżący pomocniczej replice usługi stanowej na inny węzeł klastra. |MoveSecondaryAsync |Przenieś ServiceFabricSecondaryReplica |Bezpieczne |
-| RemoveReplica |Symuluje awarii repliki poprzez usunięcie repliki z klastra. To spowoduje zamknięcie repliki i przenieść ją do roli "None", usunięcie wszystkich jego stanu z klastra. |RemoveReplicaAsync |Usuń ServiceFabricReplica |Bezpieczne |
-| RestartDeployedCodePackage |Symuluje awarii procesu pakietu kodu przez ponowne uruchomienie pakiet kodu wdrożonych na węzłach w klastrze. Przerywa ten proces pakietu kodu, który zostanie uruchomiony ponownie wszystkie użytkownika repliki usługi hostowanej w tym procesie. |RestartDeployedCodePackageAsync |ServiceFabricDeployedCodePackage ponownego uruchomienia |Nieprawidłowego |
-| RestartNode |Symuluje awarii węzła klastra sieci szkieletowej usług przez ponowne uruchomienie węzła. |RestartNodeAsync |ServiceFabricNode ponownego uruchomienia |Nieprawidłowego |
+| InvokeQuorumLoss |Umieszcza partycji danej usługi stanowej, w wyniku utraty kworum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Bezpieczne |
+| Przenoszenie podstawowej |Przenosi określony repliką podstawową usługi stanowej określony węzeł klastra. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Bezpieczne |
+| Przenieś pomocniczej |Przenosi bieżący pomocniczej replice usługi stanowej na inny węzeł klastra. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Bezpieczne |
+| RemoveReplica |Symuluje awarii repliki poprzez usunięcie repliki z klastra. To spowoduje zamknięcie repliki i przenieść ją do roli "None", usunięcie wszystkich jego stanu z klastra. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Bezpieczne |
+| RestartDeployedCodePackage |Symuluje awarii procesu pakietu kodu przez ponowne uruchomienie pakiet kodu wdrożonych na węzłach w klastrze. Przerywa ten proces pakietu kodu, który zostanie uruchomiony ponownie wszystkie użytkownika repliki usługi hostowanej w tym procesie. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Nieprawidłowego |
+| RestartNode |Symuluje awarii węzła klastra sieci szkieletowej usług przez ponowne uruchomienie węzła. |RestartNodeAsync |Restart-ServiceFabricNode |Nieprawidłowego |
 | RestartPartition |Symuluje scenariusza niedostępności klastra lub niedostępności centrum danych przez ponowne uruchomienie niektórych lub wszystkich replik partycji. |RestartPartitionAsync |Restart-ServiceFabricPartition |Bezpieczne |
-| RestartReplica |Symuluje awarii repliki ponownego uruchamiania utrwalonych repliki w klastrze, zamykając repliki i otworzyć go ponownie. |RestartReplicaAsync |ServiceFabricReplica ponownego uruchomienia |Bezpieczne |
+| RestartReplica |Symuluje awarii repliki ponownego uruchamiania utrwalonych repliki w klastrze, zamykając repliki i otworzyć go ponownie. |RestartReplicaAsync |Restart-ServiceFabricReplica |Bezpieczne |
 | Parametr StartNode |Rozpoczyna się węzeł w klastrze, który jest już zatrzymana. |StartNodeAsync |Start-ServiceFabricNode |Nie dotyczy |
-| Polecenie StopNode |Symuluje awarii węzła przez zatrzymanie węzła w klastrze. Węzeł pozostanie w dół do momentu parametr StartNode jest wywoływana. |StopNodeAsync |Stop-ServiceFabricNode |Nieprawidłowego |
-| ValidateApplication |Sprawdza dostępność i kondycję wszystkich usług sieci szkieletowej usług aplikacji, zwykle po wywołania niektórych błędów w systemie. |ValidateApplicationAsync |ServiceFabricApplication testu |Nie dotyczy |
-| ValidateService |Sprawdza dostępność i kondycji usługi Service Fabric, zwykle po wywołania niektórych błędów w systemie. |ValidateServiceAsync |ServiceFabricService testu |Nie dotyczy |
+| StopNode |Symuluje awarii węzła przez zatrzymanie węzła w klastrze. Węzeł pozostanie w dół do momentu parametr StartNode jest wywoływana. |StopNodeAsync |Stop-ServiceFabricNode |Nieprawidłowego |
+| ValidateApplication |Sprawdza dostępność i kondycję wszystkich usług sieci szkieletowej usług aplikacji, zwykle po wywołania niektórych błędów w systemie. |ValidateApplicationAsync |Test-ServiceFabricApplication |Nie dotyczy |
+| ValidateService |Sprawdza dostępność i kondycji usługi Service Fabric, zwykle po wywołania niektórych błędów w systemie. |ValidateServiceAsync |Test-ServiceFabricService |Nie dotyczy |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Uruchomienie akcji testowania przy użyciu programu PowerShell
 Ten samouczek przedstawia sposób uruchamiania działania testowania przy użyciu programu PowerShell. Dowiesz się sposób uruchamiania działania kontroli względem klastra lokalnego (jeden pole) lub klastrze platformy Azure. Microsoft.Fabric.Powershell.dll — moduł programu PowerShell usługi Service Fabric — jest instalowana automatycznie podczas instalowania MSI sieci szkieletowej usług firmy Microsoft. Moduł jest ładowane automatycznie podczas otwierania wiersza programu PowerShell.
@@ -94,7 +94,7 @@ Dane wyjściowe pierwszego **Get-ServiceFabricNode** (polecenia cmdlet z modułu
 ### <a name="run-an-action-against-an-azure-cluster"></a>Uruchom akcję względem klastra platformy Azure
 Uruchomienie akcji pola (przy użyciu programu PowerShell) względem klastra platformy Azure jest podobny do uruchamiania działania klastra lokalnego. Jedyna różnica polega na tym, że przed uruchomieniem tej akcji, zamiast nawiązywania połączenia z lokalnym klastrem, należy połączyć się z klastrem Azure najpierw.
 
-## <a name="running-a-testability-action-using-c35"></a>Uruchomienie akcji testowania w języku C & 35;
+## <a name="running-a-testability-action-using-c35"></a>Uruchomienie akcji testowania za pomocą C&#35;
 Aby uruchomić akcję testowania przy użyciu języka C#, musisz najpierw Połącz się z klastrem przy użyciu klienta fabricclient z rolą. Następnie Uzyskaj parametrów wymaganych do uruchomienia akcji. Można użyć różnych parametrów do uruchomienia tego samego działania.
 Jednym ze sposobów uruchamiania patrzeć akcji RestartServiceFabricNode, jest przy użyciu informacji węzła (nazwy węzła i identyfikator wystąpienia węzła) w klastrze.
 
@@ -226,7 +226,7 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Scenariusze testowania](service-fabric-testability-scenarios.md)
 * Jak przetestować usługi
   * [Symulacji awarii podczas obciążeń usługi](service-fabric-testability-workload-tests.md)

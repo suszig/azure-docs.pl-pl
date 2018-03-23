@@ -1,6 +1,6 @@
 ---
 title: Migrowanie maszyn wirtualnych do magazynu Azure Premium | Dokumentacja firmy Microsoft
-description: "Migrowanie istniejących maszyn wirtualnych do usługi Azure Premium Storage. Magazyn w warstwie Premium oferuje obsługę dysków o wysokiej wydajności i małych opóźnieniach/O wykonujących obciążeń uruchomionych na maszynach wirtualnych platformy Azure."
+description: Migrowanie istniejących maszyn wirtualnych do usługi Azure Premium Storage. Magazyn w warstwie Premium oferuje obsługę dysków o wysokiej wydajności i małych opóźnieniach/O wykonujących obciążeń uruchomionych na maszynach wirtualnych platformy Azure.
 services: storage
 documentationcenter: na
 author: yuemlu
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrowanie do magazynu Azure Premium (niezarządzany dysków)
 
@@ -163,7 +163,7 @@ Utwórz konto magazynu do przechowywania dyski VHD. Podczas planowania miejsca p
 W przypadku dysków danych można zachować niektóre dyski danych w ramach konta magazynu w warstwie standardowa (na przykład dysków, które mają lodówki magazynu), ale zdecydowanie zalecamy przeniesienie wszystkich danych produkcyjnych obciążenie korzysta Magazyn w warstwie premium.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Krok 3. Skopiuj wirtualny dysk twardy z narzędzia AzCopy lub programu PowerShell
-Należy znaleźć kontenera ścieżkę i magazynu klucz konta do przetwarzania jednej z tych dwóch opcji. Kontener ścieżki i przechowywania klucza konta znajdują się w **Azure Portal** > **magazynu**. Adres URL kontenera będzie takie jak "https://myaccount.blob.core.windows.net/mycontainer/".
+Należy znaleźć kontenera ścieżkę i magazynu klucz konta do przetwarzania jednej z tych dwóch opcji. Kontener ścieżki i przechowywania klucza konta znajdują się w **Azure Portal** > **magazynu**. Kontener adres URL będzie takie jak "https://myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Opcja 1: Skopiuj dysk VHD o AzCopy (asynchroniczne kopia)
 Przy użyciu narzędzia AzCopy, można łatwo przekazanie dysku VHD w Internecie. W zależności od rozmiaru dysków VHD może to potrwać. Pamiętaj, aby sprawdzić wejście/wyjście limity konta magazynu w przypadku użycia tej opcji. Zobacz [cele dotyczące wydajności i skalowalności magazynu Azure](storage-scalability-targets.md) szczegółowe informacje.
@@ -222,7 +222,7 @@ W przypadku migracji wirtualnego dysku twardego z innych niż - Azure magazynu w
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>Krok 1. Eksportowanie do katalogu lokalnego wirtualnego dysku twardego
 ##### <a name="copy-a-vhd-from-aws"></a>Skopiuj wirtualny dysk twardy z usług AWS
-1. Jeśli używasz usług AWS wyeksportować wystąpienia EC2 do dysku VHD w zasobniku Amazon S3. Wykonaj kroki opisane w dokumentacji usługi Amazon eksportowanie Amazon EC2 wystąpień Zainstaluj narzędzie Amazon EC2 interfejsu wiersza polecenia (CLI) i uruchom polecenie eksportu zadań, Utwórz wystąpienie w — Aby wyeksportować wystąpienia EC2 do pliku dysku VHD. Należy użyć **wirtualnego dysku twardego** dla dysku &#95; obraz &#95; FORMAT zmiennej podczas uruchamiania **tworzenie — wystąpienie export zadania** polecenia. Wyeksportowany plik wirtualnego dysku twardego jest zapisany w zasobniku Amazon S3, którą określisz podczas tego procesu.
+1. Jeśli używasz usług AWS wyeksportować wystąpienia EC2 do dysku VHD w zasobniku Amazon S3. Wykonaj kroki opisane w dokumentacji usługi Amazon eksportowanie Amazon EC2 wystąpień Zainstaluj narzędzie Amazon EC2 interfejsu wiersza polecenia (CLI) i uruchom polecenie eksportu zadań, Utwórz wystąpienie w — Aby wyeksportować wystąpienia EC2 do pliku dysku VHD. Należy użyć **wirtualnego dysku twardego** dysku&#95;obrazu&#95;FORMAT zmiennej podczas uruchamiania **tworzenie — wystąpienie export zadania** polecenia. Wyeksportowany plik wirtualnego dysku twardego jest zapisany w zasobniku Amazon S3, którą określisz podczas tego procesu.
 
     ```
     aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT \

@@ -1,25 +1,25 @@
 ---
-title: "Generowanie certyfikatów infrastruktury kluczy publicznych stosu Azure stosu Azure zintegrowanych systemów wdrożenia | Dokumentacja firmy Microsoft"
-description: "Zawiera opis systemów stosu Azure zintegrowanych processfor wdrażania certyfikatu PKI stosu Azure."
+title: Generowanie certyfikatów infrastruktury kluczy publicznych stosu Azure stosu Azure zintegrowanych systemów wdrożenia | Dokumentacja firmy Microsoft
+description: Zawiera opis systemów stosu Azure zintegrowanych processfor wdrażania certyfikatu PKI stosu Azure.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generowanie certyfikaty PKI dla wdrożenia usługi Azure stosu
 Teraz, znając [wymagania dotyczące certyfikatu PKI](azure-stack-pki-certs.md) wdrożeń stosu Azure, należy uzyskać tych certyfikatów z urzędu certyfikacji, wybranych przez użytkownika. 
@@ -30,7 +30,7 @@ Jest jednym ze sposobów żądania certyfikatów z publicznego urzędu certyfika
 ### <a name="sample-inf-file"></a>Przykładowy plik INF 
 Plik INF żądania certyfikatu przykład można utworzyć pliku żądania certyfikatu w trybie offline do przesłania do urzędu certyfikacji (wewnętrzny lub publiczny). Plik INF obejmuje wszystkie wymagane punkty końcowe (w tym usługi opcjonalne PaaS) w certyfikacie jeden symbol wieloznaczny. 
 
-Przykładowy plik INF przyjęto założenie, że region jest taki sam **sea** i wartości zewnętrznej nazwy FQDN jest **& r 46 contoso &46; com**. Zmiana tych wartości przed wygenerowaniem do danego środowiska. Plik INF dla danego wdrożenia. 
+Przykładowy plik INF przyjęto założenie, że region jest taki sam **sea** i wartości zewnętrznej nazwy FQDN jest **sea&#46;contoso&#46;com**. Zmiana tych wartości przed wygenerowaniem do danego środowiska. Plik INF dla danego wdrożenia. 
 
     
     [Version] 

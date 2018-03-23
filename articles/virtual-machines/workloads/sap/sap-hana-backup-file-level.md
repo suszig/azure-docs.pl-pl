@@ -1,11 +1,11 @@
 ---
-title: "SAP HANA Azure Backup na poziomie plików | Dokumentacja firmy Microsoft"
-description: "Istnieją dwa główne kopii zapasowej możliwości SAP HANA na maszynach wirtualnych Azure, w tym artykule omówiono SAP HANA kopia zapasowa Azure na poziomie plików"
+title: SAP HANA Azure Backup na poziomie plików | Dokumentacja firmy Microsoft
+description: Istnieją dwa główne kopii zapasowej możliwości SAP HANA na maszynach wirtualnych Azure, w tym artykule omówiono SAP HANA kopia zapasowa Azure na poziomie plików
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup na poziomie plików
 
@@ -87,9 +87,9 @@ Na tym zrzucie ekranu pokazano co Zobacz, jak wygląda w portalu Azure. Kontener
 
 Konsola kopii zapasowej HANA Studio pozwala jedna, aby ograniczyć maksymalny rozmiar plików HANA kopii zapasowej. W środowisku próbki wyższą wydajność, co umożliwia kilka mniejszych plików kopii zapasowej, zamiast jednego dużego pliku 230 GB.
 
-![Ustawienie limitu rozmiaru pliku kopii zapasowej na po stronie HANA &#39; t zwiększyć czas tworzenia kopii zapasowej](media/sap-hana-backup-file-level/image029.png)
+![Ustawienie limitu rozmiaru pliku kopii zapasowej po stronie HANA&#39;t zwiększyć czas tworzenia kopii zapasowej](media/sap-hana-backup-file-level/image029.png)
 
-Ustawienie limitu rozmiaru pliku kopii zapasowej na po stronie HANA &#39; t zwiększyć czas tworzenia kopii zapasowej, ponieważ pliki są zapisywane w odpowiedniej kolejności, jak pokazano na poniższym rysunku. Limit rozmiaru pliku ustawiono 60 GB, więc kopii zapasowej utworzyć cztery pliki dużej ilości danych, zamiast pliku jednym 230 GB.
+Ustawienie limitu rozmiaru pliku kopii zapasowej po stronie HANA&#39;t zwiększyć czas tworzenia kopii zapasowej, ponieważ pliki są zapisywane w odpowiedniej kolejności, jak pokazano na poniższym rysunku. Limit rozmiaru pliku ustawiono 60 GB, więc kopii zapasowej utworzyć cztery pliki dużej ilości danych, zamiast pliku jednym 230 GB.
 
 ![Aby przetestować równoległości narzędzia blobxfer, rozmiar maksymalny pliku kopii zapasowych HANA następnie ustawiono 15 GB](media/sap-hana-backup-file-level/image030.png)
 
@@ -139,7 +139,7 @@ Dlatego działa, ale wydajność nie został dobrej kopii zapasowej testu 230 GB
 
 Istnieje możliwość zainstalować udział plików na platformę Azure wewnątrz maszyny Wirtualnej systemu Linux na platformie Azure. Artykuł [jak używać magazynu plików Azure z systemem Linux](../../../storage/files/storage-how-to-use-files-linux.md) zawiera szczegółowe informacje o tym, jak to zrobić. Należy pamiętać, że jest obecnie limit przydziału 5 TB jeden udział plików na platformę Azure, a limit rozmiaru pliku o rozmiarze 1 TB na plik. Zobacz [cele dotyczące wydajności i skalowalności magazynu Azure](../../../storage/common/storage-scalability-targets.md) dla informacji na temat limitów magazynu.
 
-Badania wykazały, jednak bez tworzenia kopii zapasowej SAP HANA &#39; t obecnie pracować bezpośrednio z tego rodzaju CIFS instalacji. Również jest podany w [1820529 Uwaga SAP](https://launchpad.support.sap.com/#/notes/1820529) który CIFS nie jest zalecane.
+Badania wykazały, jednak bez tworzenia kopii zapasowej SAP HANA&#39;t obecnie pracować bezpośrednio z tego rodzaju CIFS instalacji. Również jest podany w [1820529 Uwaga SAP](https://launchpad.support.sap.com/#/notes/1820529) który CIFS nie jest zalecane.
 
 ![Poniższy rysunek pokazuje błąd, w oknie dialogowym kopii zapasowej w SAP HANA Studio](media/sap-hana-backup-file-level/image038.png)
 
@@ -155,7 +155,7 @@ W tego zrzutu ekranu, co można zobaczyć, że struktura katalogów źródła na
 
 Przechowywanie plików kopii zapasowej SAP HANA na pliki Azure może być interesujące opcję w przyszłości w przypadku, gdy kopie zapasowe plików SAP HANA obsługuje go bezpośrednio. Lub jeśli staje się możliwe do usługi pliki Azure instalacji za pomocą systemu plików NFS i maksymalny limit przydziału jest znacznie wyższa niż 5 TB.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Podręcznik tworzenia kopii zapasowej programu SAP HANA na maszynach wirtualnych Azure](sap-hana-backup-guide.md) zapewnia przegląd oraz informacje o wprowadzenie.
 * [Kopia zapasowa SAP HANA oparte na magazynu migawek](sap-hana-backup-storage-snapshots.md) zawiera opis opcji tworzenia kopii zapasowej na podstawie migawki magazynu.
 * Aby dowiedzieć się jak ustanowić wysokiej dostępności i planu odzyskiwania po awarii programu SAP HANA na platformie Azure (wystąpienia duże), zobacz [SAP HANA (duże wystąpień) wysokiej dostępności i odzyskiwania po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md).

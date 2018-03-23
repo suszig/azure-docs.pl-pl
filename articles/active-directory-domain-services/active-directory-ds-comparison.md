@@ -1,8 +1,8 @@
 ---
-title: "Usługi domenowe Azure AD: Porównanie usługi Azure AD z usług domenowych do kontrolerów domeny DIY | Dokumentacja firmy Microsoft"
-description: "Porównanie usług domenowych Azure Active Directory do kontrolerów domeny DIY"
+title: 'Usługi domenowe Azure AD: Porównanie usługi Azure AD z usług domenowych do kontrolerów domeny DIY | Dokumentacja firmy Microsoft'
+description: Porównanie usług domenowych Azure Active Directory do kontrolerów domeny DIY
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
 ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Jak stwierdzić, czy usługi domenowe Azure AD jest odpowiednia dla przypadek użycia
 Z usług domenowych Azure AD można wdrażać obciążeń w usługi infrastruktury platformy Azure, nie martwiąc się o zachowaniu infrastruktury tożsamości na platformie Azure. Ta usługa zarządzanych różni się od typowe wdrożenie usługi Active Directory systemu Windows Server, wdrażania i administrowania samodzielnie. Usługa jest łatwa do wdrożenia i zapewnia monitorowanie kondycji automatycznych i korygowania. Firma Microsoft stale ewoluuje usługę, aby dodać obsługę typowych scenariuszy wdrożeń.
@@ -34,21 +34,21 @@ Poniższa tabela ułatwia wybór między przy użyciu usług domenowych Azure AD
 
 | **Funkcja** | **Usługi domenowe Azure AD** | **"Zrób" AD na maszynach wirtualnych platformy Azure** |
 | --- |:---:|:---:|
-| [**Zarządzana usługa**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**& #x 2715;** |
+| [**Zarządzana usługa**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Zabezpieczanie wdrożenia**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Administrator musi bezpiecznego wdrażania. |
-| [**Serwer DNS**](active-directory-ds-comparison.md#dns-server) |**& #x 2713;**  (usługa zarządzane) |**&#x2713;** |
-| [**Uprawnienia administratora domeny lub Enterprise**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**& #x 2715;** |**&#x2713;** |
-| [**Przyłączanie do domeny**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Serwer DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(usługa zarządzane) |**&#x2713;** |
+| [**Uprawnienia administratora domeny lub Enterprise**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Domain join**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Uwierzytelnianie domeny przy użyciu protokołu NTLM i Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Ograniczone delegowanie protokołu Kerberos**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|oparte na zasobach|oparte na zasobach & na podstawie konta|
 | [**Niestandardowe struktury jednostek organizacyjnych**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
-| [**Rozszerzenia schematu**](active-directory-ds-comparison.md#schema-extensions) |**& #x 2715;** |**&#x2713;** |
-| [**Relacje zaufania lasu domeny usługi AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**& #x 2715;** |**&#x2713;** |
+| [**Rozszerzenia schematu**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**Relacje zaufania lasu domeny usługi AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
 | [**LDAP do odczytu**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**Bezpieczny protokół LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**Zapis LDAP**](active-directory-ds-comparison.md#ldap-write) |**& #x 2715;** |**&#x2713;** |
+| [**Zapis LDAP**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
 | [**Zasady grupy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Rozproszona geograficznie wdrożenia**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**& #x 2715;** |**&#x2713;** |
+| [**Rozproszona geograficznie wdrożenia**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Zarządzana usługa
 Azure domeny usług domenowych AD są zarządzane przez firmę Microsoft. Nie trzeba martwić poprawki, aktualizacje, monitorowanie kopii zapasowych i zapewnienie dostępności domeny. Te zadania zarządzania są oferowane jako usługa przez Microsoft Azure w domenach zarządzanych.
@@ -63,7 +63,7 @@ Domeny zarządzanej usług domenowych Azure AD zawiera zarządzanych usług DNS.
 #### <a name="domain-or-enterprise-administrator-privileges"></a>Uprawnienia do domeny lub administratora przedsiębiorstwa
 Te podniesione uprawnienia nie są dostępne w domenie zarządzanej usługi AAD DS. Domen zarządzanych aplikacji, które wymagają tych podniesione uprawnienia nie można wdrożyć przed DS usługi AAD. Mniejszego podzestawu uprawnienia administracyjne są dostępne dla członków grupy administracji delegowanej o nazwie "Administratorzy usługi AAD kontrolera domeny". Uprawnienia te obejmują uprawnienia do konfigurowania serwera DNS, skonfigurować zasady grupy, uzyskanie uprawnień administratora na komputerach przyłączonych do domeny itp.
 
-#### <a name="domain-join"></a>Przyłączanie do domeny
+#### <a name="domain-join"></a>Domain join
 Maszyny wirtualne można przyłączyć do domeny zarządzanej, podobnie jak przyłączania komputerów do domeny usługi AD.
 
 #### <a name="domain-authentication-using-ntlm-and-kerberos"></a>Uwierzytelnianie domeny przy użyciu protokołu NTLM i Kerberos

@@ -1,8 +1,8 @@
 ---
-title: "Azure ściągawka języka zapytań usługi Analiza dzienników | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera pomoc na przechodzenia do nowego języka zapytań dla analizy dzienników, jeśli już znasz starszej wersji języka."
+title: Azure ściągawka języka zapytań usługi Analiza dzienników | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera pomoc na przechodzenia do nowego języka zapytań dla analizy dzienników, jeśli już znasz starszej wersji języka.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
 ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Przejście do nowego języka zapytań usługi Analiza dzienników Azure
 Analiza dzienników zaimplementowana ostatnio nowy język kwerendy.  Ten artykuł zawiera pomoc na przechodzenie ten język dla analizy dzienników, jeśli znasz już starszej wersji języka i nadal potrzebujesz pomocy.
@@ -40,29 +40,29 @@ Jeśli znasz starszych język zapytań usługi Analiza dzienników, najprostszym
 
 Poniższa tabela zawiera porównanie różnych typowych kwerend do równoważnych poleceń między język kwerendy nowych i starszych Analiza dzienników Azure.
 
-| Opis | Starsza wersja | Nowy |
+| Opis | Starsza wersja | nowy |
 |:--|:--|:--|
-| Wszystkie tabele wyszukiwania      | error | Wyszukaj "error" (bez rozróżniania wielkości liter) |
-| Wybierz dane z tabeli | Typ zdarzenia = |  Wydarzenie |
-|                        | Typ = zdarzeń &#124; Wybierz źródło dziennika zdarzeń, identyfikator zdarzenia | Zdarzenie &#124; Źródło dziennika zdarzeń, EventID projektu |
-|                        | Typ = zdarzeń &#124; 100 najpopularniejszych | Zdarzenie &#124; podejmij 100 |
-| Porównanie ciągów      | Typ = Computer=srv01.contoso.com zdarzeń   | Zdarzenie &#124; gdy komputer == "srv01.contoso.com" |
-|                        | Typ = Computer=contains("contoso") zdarzeń | Zdarzenie &#124; gdy komputer zawiera "contoso" (bez rozróżniania wielkości liter)<br>Zdarzenie &#124; gdy komputer contains_cs "Contoso" (z uwzględnieniem wielkości liter) |
-|                        | Typ = komputer zdarzenia = wyrażenie regularne ("@contoso@")  | Zdarzenie &#124; gdy komputer zgodny z wyrażeniem regularnym ". *contoso*" |
-| Porównanie dat        | Typ zdarzenia TimeGenerated = > 1DAYS teraz | Zdarzenie &#124; gdzie TimeGenerated > ago(1d) |
-|                        | Typ zdarzenia TimeGenerated = > TimeGenerated 2017-05-01 < 2017-05-31 | Zdarzenie &#124; gdzie TimeGenerated między (datetime(2017-05-01)... DATETIME(2017-05-31)) |
-| Wartość logiczna porównania     | Typ = IsGatewayInstalled pulsu = false  | Puls \| gdzie IsGatewayInstalled == false |
-| Sortuj                   | Typ = zdarzeń &#124; Sortowanie asc komputera, desc dziennika zdarzeń, EventLevelName asc | Zdarzenie \| Sortuj według komputera asc, desc dziennika zdarzeń, EventLevelName asc |
-| Różne               | Typ = zdarzeń &#124; Funkcja deduplikacji komputera \| Wybierz komputer | Zdarzenie &#124; Podsumuj według komputera, dziennika zdarzeń |
-| Rozszerzenie kolumny         | Typ = CounterName wydajności = "% czasu procesora" &#124; ROZSZERZ if(map(CounterValue,0,50,0,1),"HIGH","LOW") jako wykorzystania | Wydajności &#124; w przypadku, gdy CounterName == "% czasu procesora" \| Rozszerzanie wykorzystania = Jeśli ("Od" równowartości > 50, "HIGH") |
-| Agregacja            | Typ = zdarzeń &#124; Miara count() jako liczność według komputera | Zdarzenie &#124; Podsumuj Count = count() przez komputer |
-|                                | Typ = wydajności ObjectName = CounterName procesora = "% czasu procesora" &#124; Miara avg(CounterValue) interwał komputera 5 minut | Wydajności &#124; Gdzie ObjectName == "Procesor" i CounterName == "% czasu procesora" &#124; Podsumuj avg(CounterValue) przez komputer, bin (TimeGenerated, 5 minut) |
-| Agregacja limit | Typ = zdarzeń &#124; Miara count() przez komputer &#124; 10 pierwszych | Zdarzenie &#124; Podsumuj AggregatedValue = count() przez komputer &#124; limit 10 |
-| Unii                  | Typ = zdarzeń lub typ = Syslog | Unia zdarzenia dziennika systemowego |
-| Join                   | Typ = NetworkMonitoring &#124; Dołącz AgentIP wewnętrzny (typ = pulsu) ComputerIP | NetworkMonitoring &#124; Dołącz rodzaj = wewnętrzny (wyszukiwania typu == "Pulsu") na $left. AgentIP == $right.ComputerIP |
+| Wszystkie tabele wyszukiwania      | błąd | Wyszukaj "error" (bez rozróżniania wielkości liter) |
+| Wybierz dane z tabeli | Typ zdarzenia = |  Zdarzenie |
+|                        | Typ zdarzenia = &#124; wybierz źródło dziennika zdarzeń, identyfikator zdarzenia | Zdarzenia &#124; projektu źródło dziennika zdarzeń, identyfikator zdarzenia |
+|                        | Typ zdarzenia = &#124; pierwszych 100 | Zdarzenia &#124; zająć 100 |
+| Porównanie ciągów      | Type=Event Computer=srv01.contoso.com   | Zdarzenia &#124; gdzie komputera == "srv01.contoso.com" |
+|                        | Type=Event Computer=contains("contoso") | Zdarzenia &#124; gdzie komputer zawiera "contoso" (bez rozróżniania wielkości liter)<br>Zdarzenia &#124; gdzie contains_cs komputera "Contoso" (z uwzględnieniem wielkości liter) |
+|                        | Type=Event Computer=RegEx("@contoso@")  | Zdarzenia &#124; gdzie komputer zgodny z wyrażeniem regularnym ". *contoso*" |
+| Porównanie dat        | Typ zdarzenia TimeGenerated = > 1DAYS teraz | Zdarzenia &#124; gdzie TimeGenerated > ago(1d) |
+|                        | Typ zdarzenia TimeGenerated = > TimeGenerated 2017-05-01 < 2017-05-31 | Zdarzenia &#124; gdzie TimeGenerated między (datetime(2017-05-01)... DATETIME(2017-05-31)) |
+| Wartość logiczna porównania     | Type=Heartbeat IsGatewayInstalled=false  | Puls \| gdzie IsGatewayInstalled == false |
+| Sortuj                   | Typ zdarzenia = &#124; sortowania asc komputera, desc dziennika zdarzeń, EventLevelName asc | Zdarzenie \| sortowania asc komputera, desc dziennika zdarzeń, EventLevelName asc |
+| Różne               | Typ zdarzenia = &#124; deduplikacji komputera \| wybierz komputer | Zdarzenia &#124; podsumowywania przez komputer, w dzienniku zdarzeń |
+| Rozszerzenie kolumny         | Typ = CounterName wydajności = "% czasu procesora" &#124; if(map(CounterValue,0,50,0,1),"HIGH","LOW") ROZSZERZ jako wykorzystania | Wydajności &#124; w przypadku, gdy CounterName == "% czasu procesora" \| rozszerzyć wykorzystania = Jeśli ("Od" równowartości > 50, "HIGH") |
+| Agregacja            | Typ zdarzenia = &#124; miar count() jako liczba w przeliczeniu na komputer | Event &#124; summarize Count = count() by Computer |
+|                                | Typ = wydajności ObjectName = CounterName procesora = "% czasu procesora" &#124; miar avg(CounterValue) interwał komputera 5 minut | Wydajności &#124; gdzie ObjectName == "Procesor" i CounterName == "% czasu procesora" &#124; Podsumuj avg(CounterValue) przez komputer, bin (TimeGenerated, 5 minut) |
+| Agregacja limit | Typ zdarzenia = &#124; miar count() przez komputer &#124; 10 pierwszych | Event &#124; summarize AggregatedValue = count() by Computer &#124; limit 10 |
+| Unii                  | Typ = zdarzeń lub typ = Syslog | union Event, Syslog |
+| Dołączanie                   | Typ = NetworkMonitoring &#124; join AgentIP wewnętrzny (typ = pulsu) ComputerIP | NetworkMonitoring &#124; join rodzaj = wewnętrzny (wyszukiwania typu == "Pulsu") na $left. AgentIP == $right.ComputerIP |
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Zapoznaj się z [Samouczek o pisaniu zapytań](https://go.microsoft.com/fwlink/?linkid=856078) przy użyciu nowego języka zapytań.
 - Zapoznaj się [Query Language Reference](https://go.microsoft.com/fwlink/?linkid=856079) szczegółowe informacje dotyczące polecenia, Operatorzy i funkcje dla nowego języka zapytań.  

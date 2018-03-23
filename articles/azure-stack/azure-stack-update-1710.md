@@ -1,11 +1,11 @@
 ---
 title: Aktualizacja Azure stosu 1710 (kompilacja 20171020.1) | Dokumentacja firmy Microsoft
-description: "Więcej informacji na temat nowości w aktualizacji 1710 stosu Azure zintegrowanych systemów, znane problemy i pobierania aktualizacji."
+description: Więcej informacji na temat nowości w aktualizacji 1710 stosu Azure zintegrowanych systemów, znane problemy i pobierania aktualizacji.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 135314fd-7add-4c8c-b02a-b03de93ee196
 ms.service: azure-stack
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
 ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Aktualizacja Azure stosu 1710 (kompilacja 20171020.1)
 
@@ -35,7 +35,7 @@ Ta aktualizacja obejmuje następujące ulepszenia jakości i poprawki dla stosu 
  
 ### <a name="windows-server-2016-improvements-and-fixes"></a>Ulepszenia w systemie Windows Server 2016 i poprawki
 
-- Aktualizacje systemu Windows Server 2016: 10 października 2017 — KB4041691 (kompilacja 14393.1770 systemu operacyjnego. Zobacz [https://support.microsoft.com/help/4041691](https://support.microsoft.com/help/4041691) Aby uzyskać więcej informacji.
+- Aktualizacje systemu Windows Server 2016: 10 października 2017 — KB4041691 (kompilacja 14393.1770 systemu operacyjnego. Zobacz [ https://support.microsoft.com/help/4041691 ](https://support.microsoft.com/help/4041691) Aby uzyskać więcej informacji.
 
 ### <a name="additional-quality-improvements-and-fixes"></a>Dodatkową jakością ulepszeń i poprawek
 
@@ -64,7 +64,7 @@ Ta sekcja zawiera znane problemy, które mogą wystąpić podczas instalacji akt
 | Podczas wykonywania aktualizacji proces aktualizacji pojawi się do staluj<br> i nie wprowadzać postępu po wykonaniu kroku "krok: uruchamiania kroku 2.4 — Instalacja<br> Aktualizuj"planu działania aktualizacji.<br><br>Ten krok jest po niej serii procesu kopiowania .nupkg<br> pliki do wewnętrznej infrastruktury udziałów plików. Na przykład:<br><br>**Kopiowanie plików 1 z content\PerfCollector\VirtualMachines do <br> \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\ <br>PerfCounterConfiguration**<br><br>Lub zostanie wyświetlony komunikat:<br><br>**WarningMessage:Task: Wywołanie interfejsu "LiveUpdate"<br> roli "Cloud\Fabric\VirtualMachines" nie powiodło się:<br> wpisz "LiveUpdate" roli "VirtualMachines" wywoływane<br> wyjątek: nie ma wystarczającej ilości miejsca na dysku .**  | Przyczyną problemu jest pliki dziennika zapełnia się dyski na maszynie wirtualnej infrastruktury i problemu w systemu Windows Server skalowalnego w poziomie serwerem plików (SOFS) które zostaną dostarczone w kolejnych aktualizacji. | Skontaktuj się z Microsoft dział obsługi klienta i pomocy technicznej (CSS), aby uzyskać pomoc. | 
 | Po wykonaniu aktualizacji wystąpił błąd podobny do następującego<br> mogą wystąpić podczas wykonywania kroku "krok: uruchamiania kroku 2.13.2 — aktualizacja<br> *VM_Name*"planu aktualizacji działania. (Maszyny wirtualnej<br> Nazwa może być inna.)<br><br>**ActionPlanInstanceWarning NZ/MachineName:<br> WarningMessage:Task: wywołanie interfejsu "LiveUpdate" z<br> roli "Cloud\Fabric\WAS" nie powiodło się: typ "LiveUpdate" roli<br> '' zgłoszono wyjątek: Wystąpił błąd podczas Magazyn<br> inicjowania: Wystąpił błąd podczas próby nawiązania interfejsu API<br> wywołań do usługi Microsoft Storage: {"Komunikat": "limit czasu<br> podczas komunikacji z sieci szkieletowej usług.<br> Typ wyjątku: TimeoutException.<br> Komunikat o wyjątku: Upłynął limit czasu operacji. "}**  | Przyczyną problemu jest limit czasu operacji We/Wy w systemie Windows Server, który zostanie rozwiązany w kolejnych aktualizacji. | Aby uzyskać pomoc, skontaktuj się z Microsoft CSS.
 | Po wykonaniu aktualizacji wystąpił błąd podobny do następującego<br> mogą wystąpić podczas wykonywania kroku "krok maszyn wirtualnych 21 ponowne uruchomienie programu SQL server".<br><br>**Wpisz "LiveUpdateRestart" roli "VirtualMachines" wywoływane<br> wyjątek: VerboseMessage: [VirtualMachines:LiveUpdateRestart]<br> wykonywania zapytania dotyczącego MachineName maszyny Wirtualnej — Sql01. - 10/13/2017 5:23:50: 00 VerboseMessage: [maszyn wirtualnych: LiveUpdateRestart]<br> maszyny Wirtualnej jest oznaczony jako dużej dostępności. — 10/13/2017 5:23:50: 00<br> VerboseMessage: [VirtualMachines:LiveUpdateRestart] w<br>MS. Internal.ServerClusters.ExceptionHelp.Build na<br>MS. Internal.ServerClusters.ClusterResource.BeginTakeOffline<br>(wartość logiczna force) w Microsoft.FailoverClusters.PowerShell.<br> StopClusterResourceCommand.BeginTimedOperation() na <br>Microsoft.FailoverClusters.PowerShell.TimedCmdlet.Wrapped<br>ProcessRecord() na Microsoft.FailoverClusters.PowerShell.<br> FCCmdlet.ProcessRecord() - 10/13/2017 5:23:50: 00 ostrzeżenie<br>wiadomości: zadanie: wywołanie interfejsu "LiveUpdateRestart" z<br> roli "Cloud\Fabric\VirtualMachines" nie powiodło się:** | Ten problem może wystąpić, jeśli maszyna wirtualna nie może uruchomić ponownie. | Aby uzyskać pomoc, skontaktuj się z Microsoft CSS.
-| Podczas wykonywania aktualizacji może wystąpić błąd podobny do następującego:<br><br>**2017-10-22T01:37:37.5369944Z typu "Zamknij" rola "SQL"<br> zgłosił wyjątek: wstrzymywanie węzła wystąpił błąd<br> klientem "s45r1004 Sql01" Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType &#95; App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 na<br> zamknięcia, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br> Aplikacje \EnterpriseCloudEngineApplicationType &#95; App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br>Deployment\Classes\SQL\SQL.psm1: wiersz 50 w < ScriptBlock &#62;<br> <No file>: wiersz 18 w < ScriptBlock &#62; < Brak pliku &#62;: wiersz 16** | Ten problem może wystąpić, jeśli nie można umieścić maszyny wirtualnej w stanie wstrzymanym, aby opróżnić dziennik ról. | Aby uzyskać pomoc, skontaktuj się z Microsoft CSS.
+| Podczas wykonywania aktualizacji może wystąpić błąd podobny do następującego:<br><br>**2017-10-22T01:37:37.5369944Z typu "Zamknij" rola "SQL"<br> zgłosił wyjątek: wstrzymywanie węzła wystąpił błąd<br> klientem "s45r1004 Sql01" Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType&#95;App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 na<br> Zamknięcie, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br>\EnterpriseCloudEngineApplicationType aplikacji&#95;App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br> Deployment\Classes\SQL\SQL.psm1: wiersz 50 w < ScriptBlock&#62;,<br> <No file>: 18 na wiersz < ScriptBlock&#62;, < plik nie&#62;: wiersz 16** | Ten problem może wystąpić, jeśli nie można umieścić maszyny wirtualnej w stanie wstrzymanym, aby opróżnić dziennik ról. | Aby uzyskać pomoc, skontaktuj się z Microsoft CSS.
 | Po wykonaniu aktualizacji może wystąpić jeden z następujących błędów:<br><br>**Typ "Weryfikuj" roli "Usług AD FS" zgłosił wyjątek: weryfikacji<br> dla roli usług AD FS/grafu nie powiodła się z powodu błędu: błąd podczas sprawdzania usług AD FS<br> sondowania punktu końcowego *endpoint_URI*: wywołaniu wyjątek<br> " GetResponse"z"0"argumentów:" serwer zdalny<br> zwróciło błąd: (503) serwer jest niedostępny. "w Invoke -<br>ADFSGraphValidation**<br><br>**Typ "Weryfikuj" roli "Usług AD FS" zgłosił wyjątek: weryfikacji<br> dla roli usług AD FS/grafu nie powiodła się z powodu błędu: błąd podczas uzyskiwania<br> właściwości usługi AD FS: nie może połączyć się <br>NET.TCP://localhost: 1500/zasady. Próba nawiązania połączenia trwała<br> dla czasu trwania 00:00:02.0498923. Kod błędu TCP<br> 10061: połączenie nie może zostać ustanowione, ponieważ element docelowy<br> maszyny aktywnie go odmawia 127.0.0.1:1500.<br> na Invoke ADFSGraphValidation** | Plan akcji update nie może sprawdzić poprawności kondycji usługi Active Directory Federation Services (AD FS). | Aby uzyskać pomoc, skontaktuj się z Microsoft CSS.
 
 ## <a name="known-issues-post-installation"></a>Znane problemy (po instalacji)
@@ -86,7 +86,7 @@ Ta sekcja zawiera po instalacji, znane problemy związane z 20171020.1 kompilacj
 - Usunięcie użytkownika powoduje subskrypcje zasoby oddzielone. Jako obejście najpierw usuń zasoby użytkownika lub grupy zasobów całej, a następnie usuń subskrypcji użytkownika.
 - Nie jest możliwe wyświetlić uprawnienia do subskrypcji przy użyciu portali stosu Azure. Jako rozwiązanie alternatywne można sprawdzić uprawnień za pomocą programu PowerShell.
   
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Kopia zapasowa
 
 - Nie należy włączać infrastruktura kopii zapasowej na **infrastruktura kopii zapasowej** bloku.
 
@@ -94,17 +94,17 @@ Ta sekcja zawiera po instalacji, znane problemy związane z 20171020.1 kompilacj
 
 - Jeśli ponowne uruchomienie wystąpienia roli infrastruktury, może zostać wyświetlony komunikat informujący, że ponowne uruchomienie nie powiodło się. Jednak ponownego uruchamiania faktycznie zakończyło się pomyślnie.
 
-### <a name="marketplace"></a>Portal Marketplace
+### <a name="marketplace"></a>Marketplace
 - Podczas dodawania elementów do stosu Azure marketplace przy użyciu **Dodaj z platformy Azure** opcji, nie wszystkie elementy mogą być widoczne do pobrania.
 - Użytkownicy można przeglądać pełnego portalu marketplace bez subskrypcji i widoczne elementy administracyjne, takie jak plany i oferty. Te elementy są niefunkcjonalne dla użytkowników.
 
-### <a name="compute"></a>Wystąpienia obliczeniowe
+### <a name="compute"></a>Compute
 - Użytkownicy skorzystać z opcji, aby utworzyć maszynę wirtualną z magazynu geograficznie nadmiarowego. Ta konfiguracja powoduje niepowodzenie tworzenia maszyny wirtualnej.
 - Można skonfigurować dostępność maszyn wirtualnych, ustaw tylko z jednej domeny błędów i jedną domenę aktualizacji.
 - Brak nie doświadczenie marketplace, aby utworzyć zestawy skalowania maszyny wirtualnej. Można utworzyć skali ustawić za pomocą szablonu.
 - Ustawienia skalowania dla zestawy skalowania maszyny wirtualnej nie są dostępne w portalu. Jako rozwiązanie alternatywne można zastosować [programu Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Z powodu różnic wersji programu PowerShell, należy użyć `-Name` parametru zamiast `-VMScaleSetName`.
  
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 - Nie można utworzyć modułu równoważenia obciążenia z publicznym adresem IP, za pomocą portalu. Jako rozwiązanie alternatywne można utworzyć modułu równoważenia obciążenia za pomocą programu PowerShell.
 - Podczas tworzenia modułu równoważenia obciążenia sieciowego, należy utworzyć regułę translatora adresów sieciowych adres. Jeśli nie, otrzymasz wystąpił błąd podczas próby dodania reguły NAT po utworzeniu usługi równoważenia obciążenia.
 - Nie można usunąć skojarzenie publicznego adresu IP z maszyną wirtualną (VM), po utworzeniu maszyny Wirtualnej i skojarzonych z tym adresem IP. Usuwanie skojarzeń pojawi się do pracy, ale poprzednio przypisanych publiczny adres IP pozostają skojarzone z oryginalna maszyna wirtualna. Dzieje się tak nawet w przypadku ponownego przypisywania adresów IP do nowej maszyny Wirtualnej (nazywane *wymiany wirtualnych adresów IP*). Wszystkie przyszłe próbuje nawiązać połączenie za pośrednictwem tego wyniku adresów IP w przypadku połączenia pierwotnie skojarzonego VM, a nie nowy. Obecnie tylko musi używać nowego publiczne adresy IP do tworzenia nowej maszyny Wirtualnej.
