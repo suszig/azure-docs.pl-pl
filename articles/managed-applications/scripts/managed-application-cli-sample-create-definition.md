@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skrypt przykładowy — Tworzenie definicji aplikacji zarządzanej | Dokumentacja firmy Microsoft"
-description: "Azure CLI skrypt przykładowy — Tworzenie definicji aplikacji zarządzanej"
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie definicji aplikacji zarządzanej | Microsoft Docs
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie definicji aplikacji zarządzanej
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6cfc51e5787ad6ab100638d0965b69232cda070a
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.openlocfilehash: 430cadf0cc609ab3473b14115b2956553a677a26
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="create-a-managed-application-definition-with-azure-cli"></a>Utwórz definicję zarządzanej aplikacji z wiersza polecenia platformy Azure
+# <a name="create-a-managed-application-definition-with-azure-cli"></a>Tworzenie definicji aplikacji zarządzanej za pomocą interfejsu wiersza polecenia platformy Azure
 
-Ten skrypt publikuje definicję aplikacji zarządzanych do katalogu usług. 
+Ten skrypt publikuje definicję aplikacji zarządzanej w katalogu usług. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -32,16 +32,16 @@ Ten skrypt publikuje definicję aplikacji zarządzanych do katalogu usług.
 [!code-azurecli[main](../../../cli_scripts/managed-applications/create-definition/create-definition.sh "Create definition")]
 
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następującego polecenia do tworzenia definicji zarządzanej aplikacji. Każde polecenie w tabeli łącza do dokumentacji specyficzne dla polecenia.
+Ten skrypt używa następującego polecenia do utworzenia definicji aplikacji zarządzanej. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Utworzenie definicji managedapp az](https://docs.microsoft.com/cli/azure/managedapp/definition#az_managedapp_definition_create) | Utwórz definicję zarządzanej aplikacji. Podaj pakiet, który zawiera pliki wymagane. |
+| [az managedapp definition create](https://docs.microsoft.com/cli/azure/managedapp/definition#az_managedapp_definition_create) | Tworzy definicję aplikacji zarządzanej. Należy podać pakiet, który zawiera wymagane pliki. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [zarządzanej aplikacji Azure — omówienie](../overview.md).
-* Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+* Aby zapoznać się z wprowadzeniem do aplikacji zarządzanych, zobacz [Azure Managed Application overview](../overview.md) (Omówienie aplikacji zarządzanych platformy Azure).
+* Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).

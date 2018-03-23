@@ -1,8 +1,8 @@
 ---
-title: "Używanie programu Azure AD Connect Health z usługami AD FS | Microsoft Docs"
-description: "To jest strona programu Azure AD Connect Health, która informuje, jak monitorować lokalną infrastrukturę usług AD FS."
+title: Używanie programu Azure AD Connect Health z usługami AD FS | Microsoft Docs
+description: To jest strona programu Azure AD Connect Health, która informuje, jak monitorować lokalną infrastrukturę usług AD FS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorowanie usług AD FS za pomocą programu Azure AD Connect Health
 Poniższa dokumentacja dotyczy monitorowania infrastruktury usług AD FS przy użyciu programu Azure AD Connect Health. Aby uzyskać informacje na temat monitorowania programu Azure AD Connect (synchronizacja) za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health w celu synchronizacji](active-directory-aadconnect-health-sync.md). Ponadto, aby uzyskać informacje na temat monitorowania Usług domenowych Active Directory za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md).
@@ -115,9 +115,12 @@ Raport zawiera następujące informacje:
 | Adres IP ostatniej nieudanej próby |Wyświetla adres IP klienta dla ostatniego złego żądania. |
 
 > [!NOTE]
-> Ten raport jest aktualizowany automatycznie co 12 godzin o nowe informacje, które pojawiły się w tym czasie. W rezultacie próby logowania z ostatnich dwóch godzin mogą nie zostać zawarte w raporcie.
+> Ten raport jest aktualizowany automatycznie co 12 godzin o nowe informacje, które pojawiły się w tym czasie. W rezultacie próby logowania z ostatnich 12 godzin mogą nie zostać zawarte w raporcie.
 >
 >
+
+### <a name="risky-ip-report"></a>Raport ryzykownych adresów IP 
+Wersja zapoznawcza będzie dostępna wkrótce.
 
 ## <a name="related-links"></a>Powiązane linki
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

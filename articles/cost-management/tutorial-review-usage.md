@@ -1,8 +1,8 @@
 ---
-title: "Samouczek — przeglądanie użycia i kosztów w usłudze Azure Cost Management | Microsoft Docs"
-description: "Ten samouczek przedstawia przeglądanie użycia i kosztów w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów."
+title: Samouczek — przeglądanie użycia i kosztów w usłudze Azure Cost Management | Microsoft Docs
+description: Ten samouczek przedstawia przeglądanie użycia i kosztów w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Samouczek: przeglądanie użycia i kosztów
 
-Usługa Azure Cost Management firmy Cloudyn umożliwia przeglądanie użycia i kosztów w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów. Wszystkie dane użycia i kosztów są wyświetlane na pulpitach nawigacyjnych i w raportach usługi Cloudyn. Przykłady w tym samouczku ilustrują przeglądanie użycia i kosztów za pomocą pulpitów nawigacyjnych i raportów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Usługa Azure Cost Management umożliwia przeglądanie użycia i kosztów w celu śledzenia trendów, wykrywania niewydajności i tworzenia alertów. Wszystkie dane użycia i kosztów są wyświetlane na pulpitach nawigacyjnych i w raportach usługi Cloudyn. Przykłady w tym samouczku ilustrują przeglądanie użycia i kosztów za pomocą pulpitów nawigacyjnych i raportów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Śledzenie trendów użycia i kosztów
@@ -57,7 +57,7 @@ W poprzednim przykładzie od dnia 2017-08-31 wydano mniej pieniędzy niż wcześ
 
 W tym przykładzie wyraźnie widać, że koszty usługi Azure Storage spadły od dnia 2017-08-31, podczas gdy wydatki związane z innymi usługami platformy Azure pozostały na tym samym poziomie. Co więc spowodowało obniżenie wydatków? W tym przykładzie niektórzy pracownicy byli na urlopie i nie używali usługi Storage.
 
-Aby obejrzeć samouczek wideo dotyczący śledzenia trendów użycia i kosztów, zobacz [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Analizowanie danych rozliczeń dla chmury na przestrzeni czasu przy użyciu usługi Azure Cost Management firmy Cloudyn).
+Aby obejrzeć samouczek wideo dotyczący śledzenia trendów użycia i kosztów, zobacz [Analyzing your cloud billing data vs. time with Azure Cost Management (Analizowanie danych rozliczeń dla chmury na przestrzeni czasu przy użyciu usługi Azure Cost Management)](https://youtu.be/7LsVPHglM0g).
 
 ## <a name="detect-usage-inefficiencies"></a>Wykrywanie przypadków niewydajnego użycia
 
@@ -81,7 +81,7 @@ Wyświetl identyfikatory wystąpień maszyn wirtualnych, klikając symbol znaku 
 
 ![Lista kandydatów](./media/tutorial-review-usage/sizing03.png)
 
-Aby obejrzeć samouczek wideo dotyczące wykrywania przypadków niewydajnego użycia, zobacz [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Optymalizowanie rozmiarów maszyn wirtualnych w usłudze Azure Cost Management firmy Cloudyn).
+Aby obejrzeć samouczek wideo dotyczące wykrywania przypadków niewydajnego użycia, zobacz [Optimizing VM Size in Azure Cost Management (Optymalizowanie rozmiarów maszyn wirtualnych w usłudze Azure Cost Management)](https://youtu.be/1xaZBNmV704).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Tworzenie alertów dotyczących nietypowych wydatków
 

@@ -1,21 +1,21 @@
 ---
-title: "Samouczek wdrażania modelu na potrzeby usługi Azure Machine Learning (wersja zapoznawcza) | Microsoft Docs"
-description: "W całej serii tego samouczka kompleksowo przedstawiono sposób korzystania z usługi Azure Machine Learning (wersja zapoznawcza). W części trzeciej omówiono wdrażanie modelu."
+title: Samouczek wdrażania modelu na potrzeby usługi Azure Machine Learning (wersja zapoznawcza) | Microsoft Docs
+description: W całej serii tego samouczka kompleksowo przedstawiono sposób korzystania z usługi Azure Machine Learning (wersja zapoznawcza). W części trzeciej omówiono wdrażanie modelu.
 services: machine-learning
 author: raymondl
 ms.author: raymondl, j-martens, aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Samouczek: klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) to zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
@@ -43,9 +43,9 @@ Ukończ najpierw dwie pierwsze części z tej serii samouczków:
 Aparat platformy Docker musisz zainstalować i uruchomić lokalnie. Alternatywnie możesz przeprowadzić wdrożenie w klastrze usługi Azure Container Service na platformie Azure.
 
 ## <a name="download-the-model-pickle-file"></a>Pobieranie pliku modelu utworzonego w pakiecie pickle
-W poprzedniej części samouczka skrypt **iris_sklearn.py** został uruchomiony lokalnie w programie Azure Machine Learning Workbench. Ta akcja spowodowała zserializowanie modelu regresji logistycznej przy użyciu popularnego pakietu [pickle](https://docs.python.org/2/library/pickle.html) do serializacji obiektów w języku Python. 
+W poprzedniej części samouczka skrypt **iris_sklearn.py** został uruchomiony lokalnie w programie Machine Learning Workbench. Ta akcja spowodowała serializowanie modelu regresji logistycznej przy użyciu popularnego pakietu [pickle](https://docs.python.org/3/library/pickle.html) do serializacji obiektów w języku Python. 
 
-1. Otwórz aplikację Machine Learning Workbench. Następnie otwórz projekt **myIris** utworzony w poprzedniej części serii samouczków.
+1. Otwórz aplikację Machine Learning Workbench. Następnie otwórz projekt **myIris** utworzony w poprzednich częściach serii samouczków.
 
 2. Po otwarciu projektu wybierz przycisk **Pliki** (ikona folderu) w okienku po lewej stronie, aby otworzyć listę plików w folderze projektu.
 
@@ -79,7 +79,7 @@ W poprzedniej części samouczka skrypt **iris_sklearn.py** został uruchomiony 
    Przeczytaj więcej na temat folderu `outputs` w artykule [How to read and write large data files (Jak odczytywać i zapisywać duże pliki danych)](how-to-read-write-files.md).
 
 ## <a name="get-the-scoring-script-and-schema-files"></a>Generowanie skryptu oceny i plików schematu
-Do wdrożenia usługi internetowej z plikiem modelu potrzebny jest również skrypt oceny. Opcjonalnie wejściowe dane usługi internetowej wymagają użycia schematu. Skrypt oceniania ładuje plik **model.pkl** z bieżącego folderu i używa go w celu wygenerowania nowo przewidywanej klasy Iris.
+Do wdrożenia usługi internetowej z plikiem modelu potrzebny jest również skrypt oceny. Opcjonalnie wejściowe dane usługi internetowej wymagają użycia schematu. Skrypt oceniania ładuje plik **model.pkl** z bieżącego folderu i używa go w celu tworzenia nowych przewidywań.
 
 1. Otwórz aplikację Machine Learning Workbench. Następnie otwórz projekt **myIris** utworzony w poprzedniej części serii samouczków.
 
@@ -93,7 +93,7 @@ Do wdrożenia usługi internetowej z plikiem modelu potrzebny jest również skr
 
 5. Ten skrypt utworzy w sekcji **Dane wyjściowe** plik JSON, który będzie przechwytywał wejściowy schemat danych wymagany przez model.
 
-6. Zwróć uwagę na okienko **Zadania** po prawej stronie okienka **Pulpit nawigacyjny projektu**. Poczekaj, aż stan najnowszego zadania **score_iris.py** zmieni się na zielony wskaźnik **Ukończono**. Następnie wybierz hiperlink **score_iris.py [1]** dla najnowszego przebiegu zadania, aby wyświetlić szczegóły dotyczące przebiegu **score_iris.py**. 
+6. Zwróć uwagę na okienko **Zadania** po prawej stronie okienka **Pulpit nawigacyjny projektu**. Poczekaj, aż stan najnowszego zadania **score_iris.py** zmieni się na zielony wskaźnik **Ukończono**. Następnie wybierz hiperlink **score_iris.py** dla najnowszego uruchomienia zadania, aby wyświetlić szczegóły dotyczące uruchomienia. 
 
 7. W okienku **Właściwości przebiegu** w sekcji **Dane wyjściowe** wybierz nowo utworzony plik **service_schema.json**. Zaznacz pole wyboru obok nazwy pliku, a następnie wybierz polecenie **Pobierz**. Zapisz plik w folderze głównym projektu.
 
@@ -107,28 +107,25 @@ Do wdrożenia usługi internetowej z plikiem modelu potrzebny jest również skr
 
 10. Przejrzyj poniższe wiersze kodu, w których funkcja **init()** tworzy wystąpienia klasy **ModelDataCollector**:
 
-      ```python
-      global inputs_dc, prediction_dc
-      inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
-      prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
-      ```
+    ```python
+    global inputs_dc, prediction_dc
+    inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
+    prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
+    ```
 
 11. Przejrzyj następujące wiersze kodu, w których funkcja **run(input_df)** zbiera dane wejściowe i dane prognozowania:
 
-      ```python
-      global clf2, inputs_dc, prediction_dc
-      inputs_dc.collect(input_df)
-      prediction_dc.collect(pred)
-      ```
+    ```python
+    inputs_dc.collect(input_df)
+    prediction_dc.collect(pred)
+    ```
 
 Teraz można przystąpić do przygotowania środowiska do obsługi operacji modelu.
-
-
 
 ## <a name="prepare-to-operationalize-locally"></a>Przygotowywanie do lokalnej obsługi operacji
 Użyj wdrożenia w _trybie lokalnym_, które będzie działać w kontenerach Docker na komputerze lokalnym.
 
-_Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Docker musi być uruchomiony lokalnie, aby możliwe było wykonanie poniższych kroków w celu rozpoczęcia obsługi operacji modelu. Aby korzystać z pomocy do poleceń, na końcu poleceń można umieszczać flagę `-h`.
+_Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Docker musi być uruchomiony lokalnie, aby możliwe było wykonanie poniższych kroków w celu rozpoczęcia obsługi operacji modelu. Możesz użyć flagi `-h` na końcu każdego polecenia w celu wyświetlenia odpowiedniego komunikatu pomocy.
 
 >[!NOTE]
 >Jeśli nie masz lokalnego aparatu platformy Docker, możesz kontynuować, tworząc dla wdrożenia klaster na platformie Azure. Pamiętaj tylko o usunięciu klastra po ukończeniu korzystania z samouczka, aby nie spowodować stałego naliczania opłat.
@@ -146,7 +143,7 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
-   Postępuj zgodnie z wyświetlanymi instrukcjami, aby aprowizować konto magazynu do przechowywania obrazów platformy Docker, rejestr Azure Container Registry, który wyświetla listę obrazów platformy Docker, oraz konto usługi Azure Application Insights, które zbiera dane telemetryczne. Jeśli został użyty przełącznik `-c`, utworzy on również klaster usługi Container Service.
+   Postępuj zgodnie z wyświetlanymi instrukcjami, aby aprowizować konto magazynu do przechowywania obrazów platformy Docker, rejestr Azure Container Registry, który wyświetla listę obrazów platformy Docker, oraz konto usługi Azure Application Insights, które zbiera dane telemetryczne. Jeśli używasz przełącznika `-c`, polecenie dodatkowo spowoduje utworzenie klastra usługi kontenera.
    
    Nazwa klastra służy do identyfikowania środowiska. Lokalizacja powinna być taka sama jak lokalizacja konta Zarządzanie modelami utworzonego w witrynie Azure Portal.
 
@@ -160,8 +157,7 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
 
    ![Stan aprowizacji](media/tutorial-classifying-iris/provisioning_state.png)
  
-   
-3. Utwórz konto zarządzania modelami. Jest to jednorazowa konfiguracja.
+3. Jeśli w poprzednich częściach tego samouczka nie utworzono konta zarządzania modelami, zrób to teraz. Jest to jednorazowa konfiguracja.
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
@@ -200,11 +196,13 @@ Teraz można przystąpić do tworzenia usługi internetowej czasu rzeczywistego.
 
    Następujące przełączniki są używane razem z poleceniem **az ml service create realtime**:
 
-   * `-n`: nazwa aplikacji, która musi zawierać tylko małe litery.
-
    * `-f`: nazwa pliku skryptu oceniania.
 
    * `--model-file`: plik modelu. W tym przypadku jest to plik z pakietu pickle model.pkl.
+
+   * `-s`: schemat usługi. Został on wygenerowany w poprzednim kroku po uruchomieniu skryptu **score_iris.py** lokalnie.
+
+   * `-n`: nazwa aplikacji, która musi zawierać tylko małe litery.
 
    * `-r`: środowisko uruchomieniowe modelu. W tym przypadku jest to model języka Python. Prawidłowe środowiska uruchomieniowe to `python` i `spark-py`.
 
@@ -219,7 +217,7 @@ Teraz można przystąpić do tworzenia usługi internetowej czasu rzeczywistego.
 
    Polecenie ściąga obraz na komputer lokalny i uruchamia kontener Docker oparty na tym obrazie. Jeśli środowisko jest konfigurowane w trybie klastra, kontener platformy Docker zostaje wdrożony do klastra Azure Cloud Services Kubernetes.
 
-   W ramach wdrożenia na komputerze lokalnym zostaje utworzony punkt końcowy HTTP REST na potrzeby usługi internetowej. Po kilku minutach polecenie powinno zostać zakończone z komunikatem o powodzeniu i usługa internetowa powinna być gotowa do działania.
+   W ramach wdrożenia na komputerze lokalnym zostaje utworzony punkt końcowy HTTP REST na potrzeby usługi internetowej. Po kilku minutach polecenie powinno zostać zakończone z komunikatem o powodzeniu. Usługa internetowa jest gotowa do działania.
 
 3. Aby sprawdzić działanie kontenera Docker, użyj polecenia **docker ps**:
 
@@ -253,7 +251,7 @@ Najpierw należy zarejestrować model. Następnie należy wygenerować manifest,
    Aby utworzyć obraz platformy Docker, użyj następującego polecenia i podaj wyjściowy identyfikator manifestu z poprzedniego kroku. Możesz również opcjonalnie dołączyć zależności conda przy użyciu przełącznika `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
    ```
    To polecenie spowoduje wygenerowanie identyfikatora obrazu platformy Docker.
    
@@ -272,7 +270,7 @@ Teraz można przystąpić do uruchomienia usługi internetowej.
 
 W celu przetestowania uruchomionej usługi internetowej **irisapp** użyj rekordu w kodzie JSON zawierającego tablicę czterech losowych liczb.
 
-1. Usługa internetowa zawiera przykładowe dane. W przypadku pracy w trybie lokalnym można wywołać polecenie **az ml service usage realtime**. To wywołanie spowoduje pobranie przykładowego polecenia uruchomienia, które będzie pomocne w przypadku testowania tej usługi. Zostanie również pobrany adres URL oceniania, którego można użyć, aby wprowadzić usługę do własnej aplikacji niestandardowej.
+1. Usługa internetowa zawiera przykładowe dane. W przypadku pracy w trybie lokalnym można wywołać polecenie **az ml service usage realtime**. To wywołanie spowoduje pobranie przykładowego polecenia uruchomienia, którego można użyć do testowania usługi. Zostanie również pobrany adres URL oceniania, którego można użyć, aby wprowadzić usługę do własnej aplikacji niestandardowej.
 
    ```azurecli
    az ml service usage realtime -i <web service ID>
@@ -284,7 +282,7 @@ W celu przetestowania uruchomionej usługi internetowej **irisapp** użyj rekord
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
 
-   Wynikiem jest **„2”** i jest to przewidywana klasa. (Twoje wyniki mogą się różnić). 
+   Wynikiem jest **„Iris-setosa”** i jest to przewidywana klasa. (Twoje wyniki mogą się różnić). 
 
 ## <a name="view-the-collected-data-in-azure-blob-storage"></a>Wyświetlanie zebranych danych w magazynie obiektów blob platformy Azure
 
@@ -303,7 +301,7 @@ W celu przetestowania uruchomionej usługi internetowej **irisapp** użyj rekord
    > 3. Z menu **Plik** otwórz wiersz polecenia.
    > 4. W wierszu polecenia wprowadź wartość `az ml env show -v` i sprawdź wartość *storage_account*. Jest to nazwa używanego konta magazynu.
 
-5. Gdy okienko **Konto magazynu** zostanie otwarte, z listy po lewej stronie wybierz pozycję **Kontenery**. Odszukaj kontener o nazwie **modeldata**. 
+5. Po otwarciu okienka **Konto magazynu** wybierz pozycję **Obiekty blob** w sekcji **Usługi**. Odszukaj kontener o nazwie **modeldata**. 
  
    Jeśli nie są widoczne żadne dane, być może musisz poczekać, aż upłynie 10 minut od pierwszego żądania usługi internetowej — po upływie tego czasu powinno zacząć się propagowanie danych do konta magazynu.
 
@@ -321,14 +319,13 @@ W celu przetestowania uruchomionej usługi internetowej **irisapp** użyj rekord
 
    * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): twórz wykresy zawierające dane pobierane z danych CSV w obiektach blob.
 
-   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): załaduj dane CSV do tabeli programu hive i wykonaj zapytania SQL bezpośrednio w odniesieniu do obiektów blob.
+   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): załaduj dane CSV do tabeli programu Hive i wykonaj zapytania SQL bezpośrednio w odniesieniu do obiektów blob.
 
    * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): utwórz ramkę danych zawierającą dużą część danych CSV.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
       ```
-
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -344,7 +341,7 @@ Po zapoznaniu się z trzecią częścią trzyczęściowej serii samouczków wies
 > * Uruchamianie usługi internetowej czasu rzeczywistego.
 > * Sprawdzanie danych wyjściowych obiektu blob. 
 
-Udało Ci się pomyślnie uruchomić skrypt szkolenia w różnych środowiskach obliczeniowych, utworzyć model, serializować model i rozpocząć obsługę operacji modelu za pośrednictwem usługi internetowej opartej na platformie Docker. 
+Pomyślnie uruchomiono skrypt szkoleniowy w różnych środowiskach obliczeniowych. Masz również model utworzony, serializowany i przygotowany do działania za pośrednictwem usługi internetowej opartej na platformie Docker. 
 
 Możesz teraz zająć się zaawansowanym przygotowywaniem danych:
 > [!div class="nextstepaction"]

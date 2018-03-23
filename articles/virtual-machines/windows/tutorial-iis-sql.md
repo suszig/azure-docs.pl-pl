@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie maszyn wirtualnych uruchamiających stos SQL&#92;IIS&#92;.NET na platformie Azure| Microsoft Docs"
-description: "Samouczek — Instalowanie stosu SQL, IIS i .NET platformy Azure na maszynach wirtualnych z systemem Windows."
+title: Tworzenie maszyn wirtualnych uruchamiających stos SQL&#92;IIS&#92;.NET na platformie Azure| Microsoft Docs
+description: Samouczek — Instalowanie stosu SQL, IIS i .NET platformy Azure na maszynach wirtualnych z systemem Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ad84d6e8f74fa184ac2359ff7f08e6c8143d419a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Instalacja stosu SQL&#92;IIS&#92;.NET na platformie Azure
 
@@ -33,7 +33,7 @@ W tym samouczku instalujemy stos SQL&#92;IIS&#92;.NET przy użyciu programu Azur
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Ten samouczek wymaga modułu AzureRM.Compute w wersji 4.3.1 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM.Compute`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu AzureRM.Compute w wersji 4.3.1 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM.Compute`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Tworzenie maszyny wirtualnej usług IIS 
 

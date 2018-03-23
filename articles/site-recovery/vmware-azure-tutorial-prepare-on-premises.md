@@ -1,19 +1,19 @@
 ---
-title: "Przygotowywanie lokalnych serwerów VMware do odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure| Microsoft Docs"
-description: "Dowiedz się, jak przygotować lokalne serwery VMware do odzyskiwania po awarii na platformie Azure przy użyciu usługi Azure Site Recovery."
+title: Przygotowywanie lokalnych serwerów VMware do odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure| Microsoft Docs
+description: Dowiedz się, jak przygotować lokalne serwery VMware do odzyskiwania po awarii na platformie Azure przy użyciu usługi Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Przygotowywanie lokalnych serwerów VMware do odzyskiwania po awarii na platformie Azure
 
@@ -86,7 +86,7 @@ Upewnij się, że maszyna wirtualna spełnia wymagania platformy Azure podsumowa
 **Nazwa maszyny wirtualnej** | Od 1 do 63 znaków.<br/><br/> Ograniczone do liter, cyfr i łączników. Nazwa maszyny wirtualnej musi zaczynać się i kończyć literą lub cyfrą.
 **Typ maszyny wirtualnej** | Generacja 1 — Linux lub Windows<br/><br/>Generacja 2 — tylko Windows
 
-Na maszynie wirtualnej musi również działać obsługiwany system operacyjny. Zobacz [macierz obsługi usługi Site Recovery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), aby zapoznać się z pełną listą obsługiwanych wersji.
+Na maszynie wirtualnej musi również działać obsługiwany system operacyjny. Aby zapoznać się z pełną listą obsługiwanych wersji, zobacz [VMware and physical server support matrix](vmware-physical-azure-support-matrix.md#replicated-machines) (Tabela obsługi systemu VMware i serwera fizycznego).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Przygotowanie do połączenia z maszynami wirtualnymi Azure po przejściu do trybu failover
 

@@ -1,8 +1,8 @@
 ---
-title: "Tworzenie aplikacji internetowej w języku Ruby i korzystającej z bazy danych MySQL w usłudze Azure App Service w systemie Linux | Microsoft Docs"
-description: "Dowiedz się, jak uruchomić aplikację języka Ruby na platformie Azure z użyciem połączenia z bazą danych MySQL na platformie Azure."
+title: Tworzenie aplikacji internetowej w języku Ruby i korzystającej z bazy danych MySQL w usłudze Azure App Service w systemie Linux | Microsoft Docs
+description: Dowiedz się, jak uruchomić aplikację języka Ruby na platformie Azure z użyciem połączenia z bazą danych MySQL na platformie Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 951e66e47cf8fbe9d2cdf1606a8d63054bcada13
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 73839127c23eca29e3a20ab4d68668dfb7c6a375
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji internetowej w języku Ruby i korzystającej z bazy danych MySQL w usłudze Azure App Service w systemie Linux
 
@@ -132,7 +132,7 @@ W tym kroku utworzysz bazę danych MySQL w usłudze [Azure Database for MySQL (w
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Tworzenie serwera MySQL
 
@@ -312,37 +312,7 @@ W tym kroku wdrożysz aplikację platformy Rails połączoną z bazą danych MyS
 
 ### <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
-W usłudze Cloud Shell utwórz aplikację internetową w planie usługi App Service `myAppServicePlan` za pomocą polecenia [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
-
-W poniższym przykładzie zastąp ciąg `<app_name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe jest ustawione na wartość `RUBY|2.3`, co powoduje wdrożenie [domyślnego obrazu języka Ruby](https://hub.docker.com/r/appsvc/ruby/). Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, uruchom polecenie [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "RUBY|2.3" --deployment-local-git
-```
-
-Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone dane wyjściowe podobne do następujących:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-Utworzona została nowa pusta aplikacja internetowa z włączonym wdrażaniem git.
-
-> [!NOTE]
-> Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
->
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
 

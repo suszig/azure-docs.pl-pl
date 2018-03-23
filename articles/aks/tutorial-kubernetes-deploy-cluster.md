@@ -1,6 +1,6 @@
 ---
-title: "Samouczek dotyczący rozwiązania Kubernetes na platformie Azure — wdrażanie klastra"
-description: "Samouczek dotyczący usługi AKS — wdrażanie klastra"
+title: Samouczek dotyczący rozwiązania Kubernetes na platformie Azure — wdrażanie klastra
+description: Samouczek dotyczący usługi AKS — wdrażanie klastra
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi Azure Container Service (AKS)
 
@@ -85,7 +85,7 @@ Po ukończeniu samouczka klaster AKS jest gotowy do użycia z obciążeniami. W 
 
 ## <a name="configure-acr-authentication"></a>Konfigurowanie uwierzytelniania usługi ACR
 
-Konieczne jest skonfigurowanie uwierzytelniania między klastrem AKS i rejestrem ACR. Obejmuje to udzielenie tożsamości ACS odpowiednich uprawnień do ściągania obrazów z rejestru ACR.
+Konieczne jest skonfigurowanie uwierzytelniania między klastrem AKS i rejestrem ACR. Obejmuje to udzielenie tożsamości AKS odpowiednich uprawnień do ściągania obrazów z rejestru ACR.
 
 Najpierw pobierz identyfikator jednostki usługi skonfigurowanej na potrzeby usług AKS. Zaktualizuj nazwę grupy zasobów i nazwę klastra AKS w taki sposób, aby była zgodna z Twoim środowiskiem.
 
@@ -96,7 +96,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 Pobierz identyfikator zasobu rejestru ACR. Zaktualizuj nazwę rejestru na nazwę używanego rejestru ACR, a grupę zasobów na nazwę grupy zasobów, w której znajduje się w rejestr ACR.
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Utwórz przypisanie roli, które spowoduje udzielenie odpowiedniego dostępu.

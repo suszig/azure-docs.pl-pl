@@ -1,13 +1,13 @@
 ---
-title: Zabezpieczenia bazy danych Azure SQL | Dokumentacja firmy Microsoft
-description: "Więcej informacji na temat techniki i funkcje do zabezpieczenia bazy danych Azure SQL."
+title: Zabezpieczanie usługi Azure SQL Database | Microsoft Docs
+description: Dowiedz się więcej o technikach i funkcjach umożliwiających zabezpieczenie bazy danych Azure SQL Database.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: DRediske
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: mvc,security
 ms.devlang: na
@@ -16,36 +16,36 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: MT
+ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="secure-your-azure-sql-database"></a>Zabezpieczenia bazy danych Azure SQL
+# <a name="secure-your-azure-sql-database"></a>Zabezpieczanie usługi Azure SQL Database
 
 Usługa SQL Database zabezpiecza dane przez ograniczenie dostępu do bazy danych przy użyciu reguł zapory, mechanizmów uwierzytelniania wymagających od użytkowników potwierdzenia tożsamości oraz funkcji autoryzacji do danych za pośrednictwem członkostw i uprawnień opartych na rolach, a także zabezpieczeń na poziomie wiersza i dynamicznego maskowania danych.
 
-Można zwiększyć ochrony bazy danych przed złośliwymi użytkownikami lub nieautoryzowanego dostępu, wystarczy kilka prostych kroków. W tym samouczku dowiesz się: 
+W kilku prostych krokach możesz poprawić zabezpieczenia bazy danych, aby chronić ją przed złośliwymi użytkownikami i nieautoryzowanym dostępem. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności: 
 
 > [!div class="checklist"]
-> * Konfigurowanie reguł zapory poziomu serwera dla serwera w portalu Azure
-> * Konfigurowanie reguł zapory na poziomie bazy danych dla bazy danych przy użyciu narzędzia SSMS
-> * Połączenia z bazą danych przy użyciu ciągu bezpiecznego połączenia
+> * Konfigurowanie reguły zapory serwera na poziomie serwera w witrynie Azure Portal
+> * Konfigurowanie reguł zapory dla bazy danych na poziomie bazy danych przy użyciu programu SSMS
+> * Łączenie z bazą danych przy użyciu bezpiecznych parametrów połączenia
 > * Zarządzanie dostępem użytkowników
 > * Ochrona danych za pomocą szyfrowania
-> * Włączanie inspekcji bazy danych SQL
-> * Włączyć wykrywanie zagrożeń bazy danych SQL
+> * Włączanie inspekcji usługi SQL Database
+> * Włączanie wykrywania zagrożeń w usłudze SQL Database
 
-Jeśli nie masz subskrypcji platformy Azure, [utworzyć bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka, upewnij się, że należy dysponować następującymi elementami:
+Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elementami:
 
-- Zainstalowana najnowsza wersja [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
+- Zainstalowanie najnowszej wersji programu [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - Zainstalowany program Microsoft Excel
-- Utworzone usługi Azure SQL server i bazy danych — zobacz [tworzenie bazy danych Azure SQL w portalu Azure](sql-database-get-started-portal.md), [tworzenia pojedynczej bazy danych Azure SQL przy użyciu interfejsu wiersza polecenia Azure](sql-database-get-started-cli.md), i [tworzenia pojedynczej bazy danych Azure SQL przy użyciu programu PowerShell](sql-database-get-started-powershell.md). 
+- Utworzony serwer i baza danych usługi Azure SQL — zobacz [Tworzenie bazy danych usługi Azure SQL w witrynie Azure Portal](sql-database-get-started-portal.md), [Tworzenie pojedynczej bazy danych usługi Azure SQL przy użyciu interfejsu wiersza polecenia platformy Azure](sql-database-get-started-cli.md) oraz [Tworzenie pojedynczej bazy danych usługi Azure SQL przy użyciu programu PowerShell](sql-database-get-started-powershell.md). 
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
@@ -53,84 +53,84 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Tworzenie reguły zapory na poziomie serwera w witrynie Azure Portal
 
-Baz danych są chronione przez zaporę Windows na platformie Azure. Domyślnie wszystkie połączenia z serwerem i bazy danych w obrębie serwera są odrzucane, z wyjątkiem połączeń z innymi usługami Azure. Aby uzyskać więcej informacji, zobacz [Azure SQL Database server-level and database-level firewall rules (Reguły zapory na poziomie serwera i na poziomie bazy danych usługi Azure SQL Database)](sql-database-firewall-configure.md).
+Bazy danych SQL są chronione przez zaporę na platformie Azure. Domyślnie wszystkie połączenia z serwerem i znajdującymi się na nim bazami danych są odrzucane, poza połączeniami z innych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure SQL Database server-level and database-level firewall rules (Reguły zapory na poziomie serwera i na poziomie bazy danych usługi Azure SQL Database)](sql-database-firewall-configure.md).
 
-Najbezpieczniejszą konfigurację jest do ustawienia "Zezwalaj na dostęp do usług platformy Azure" off. Jeśli potrzebujesz połączenia z bazą danych z maszyny Wirtualnej platformy Azure lub usługę w chmurze, należy utworzyć [zastrzeżonego adresu IP](../virtual-network/virtual-networks-reserved-public-ip.md) i tylko zastrzeżonego adresu IP adres dostęp przez zaporę. 
+Najbezpieczniejsza konfiguracja to ustawienie opcji „Zezwalaj na dostęp do usług platformy Azure” na wartość WYŁ. Jeśli potrzebujesz nawiązać połączenie z bazą danych z maszyny wirtualnej platformy Azure lub z usługi w chmurze, musisz utworzyć [zastrzeżony adres IP](../virtual-network/virtual-networks-reserved-public-ip.md) i zezwolić na dostęp przez zaporę tylko zastrzeżonego adresu IP. 
 
-Wykonaj następujące kroki, aby utworzyć [regułę zapory poziomu serwera bazy danych SQL](sql-database-firewall-configure.md) serwera umożliwia nawiązywanie połączeń z określonego adresu IP. 
+Wykonaj następujące kroki, aby utworzyć [Regułę zapory na poziomie serwera usługi SQL Database](sql-database-firewall-configure.md) dla serwera i umożliwić połączenia z konkretnego adresu IP. 
 
 > [!NOTE]
-> Jeśli utworzono przykładowej bazy danych na platformie Azure przy użyciu jednej z poprzednich samouczki i Przewodniki Szybki Start i wykonywania tego samouczka na komputerze przy użyciu tego samego adresu IP, który znajdował się, gdy udał przez te samouczki, można pominąć ten krok jako zostaną utworzone reguły zapory poziomu serwera.
+> Jeśli utworzono przykładową bazę danych na platformie Azure przy użyciu jednego z poprzednich samouczków lub samouczków Szybki start, a ten samouczek jest wykonywany na komputerze o tym samym adresie IP, który był wykorzystywany podczas realizowania tamtych samouczków, możesz pominąć ten krok, ponieważ masz już utworzoną regułę zapory na poziomie serwera.
 >
 
-1. Kliknij przycisk **baz danych SQL** z menu po lewej stronie i kliknij bazę danych, aby skonfigurować zaporę reguły dla **baz danych SQL** strony. Zostanie otwarta strona Przegląd bazy danych, wyświetlając nazwę FQDN serwera (takich jak **mynewserver 20170313.database.windows.net**) i udostępnia opcje dla dalszej konfiguracji.
+1. Kliknij pozycję **Bazy danych SQL** w menu po lewej stronie, a następnie kliknij bazę danych, dla której chcesz skonfigurować regułę zapory na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver-20170313.database.windows.net**) i opcje dalszej konfiguracji.
 
       ![reguła zapory serwera](./media/sql-database-security-tutorial/server-firewall-rule.png) 
 
 2. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi, tak jak pokazano to na wcześniejszej ilustracji. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
 
-3. Kliknij przycisk **Dodaj adres IP klienta** na pasku narzędzi, aby dodać publiczny adres IP komputera połączonego z portalu lub ręcznie wprowadzić reguły zapory, a następnie kliknij przycisk **zapisać**.
+3. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać publiczny adres IP komputera, z którego nawiązano połączenie z portalem lub wprowadzono regułę zapory ręcznie, a następnie kliknij przycisk **Zapisz**.
 
       ![ustawianie reguły zapory serwera](./media/sql-database-security-tutorial/server-firewall-rule-set.png) 
 
 4. Kliknij przycisk **OK**, a następnie kliknij przycisk **X**, aby zamknąć stronę **Ustawienia zapory**.
 
-Teraz można podłączyć do dowolnej bazy danych na serwerze z określonego adresu IP lub zakresu adresów IP.
+Teraz możesz nawiązać połączenie z dowolną bazą danych na serwerze przy użyciu określonego adresu IP lub zakresu adresów IP.
 
 > [!NOTE]
 > Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli zachodzi taka sytuacja, nie będzie można nawiązać połączenia z serwerem Azure SQL Database, chyba że dział IT otworzy port 1433.
 >
 
-## <a name="create-a-database-level-firewall-rule-using-ssms"></a>Utworzyć regułę zapory poziomu bazy danych przy użyciu narzędzia SSMS
+## <a name="create-a-database-level-firewall-rule-using-ssms"></a>Tworzenie reguły zapory na poziomie bazy danych za pomocą programu SSMS
 
-Włącz reguły zapory poziomu bazy danych, można utworzyć ustawień innej zapory dla różnych baz danych w tym samym serwerze logicznym i tworzenie reguł zapory, które można przenosić — co oznacza, że należy wykonać bazy danych podczas [pracy awaryjnej](sql-database-geo-replication-overview.md) zamiast są przechowywane na serwerze SQL. Reguły zapory poziomu bazy danych można tylko skonfigurowane za pomocą instrukcji języka Transact-SQL i tylko po skonfigurowaniu pierwszą regułę zapory poziomu serwera. Aby uzyskać więcej informacji, zobacz [Azure SQL Database server-level and database-level firewall rules (Reguły zapory na poziomie serwera i na poziomie bazy danych usługi Azure SQL Database)](sql-database-firewall-configure.md).
+Reguły zapory na poziomie bazy danych umożliwiają tworzenie różnych ustawień zapory dla różnych baz danych w ramach tego samego serwera logicznego oraz tworzenie przenośnych reguł zapory — oznacza to, że będą przenoszone razem z bazą danych podczas [pracy awaryjnej](sql-database-geo-replication-overview.md), a nie będą przechowywane na serwerze SQL. Reguły zapory na poziomie bazy danych można skonfigurować wyłącznie za pomocą instrukcji Transact-SQL oraz wyłącznie po skonfigurowaniu reguły zapory na poziomie serwera. Aby uzyskać więcej informacji, zobacz [Azure SQL Database server-level and database-level firewall rules (Reguły zapory na poziomie serwera i na poziomie bazy danych usługi Azure SQL Database)](sql-database-firewall-configure.md).
 
-Obejmuje następujące kroki, aby utworzyć regułę zapory dotyczące bazy danych.
+Wykonaj poniższe kroki, aby utworzyć regułę zapory właściwą dla bazy danych.
 
-1. Połączenia z bazą danych, na przykład za pomocą [programu SQL Server Management Studio](./sql-database-connect-query-ssms.md).
+1. Nawiąż połączenie z bazą danych, np. przy użyciu programu [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
 
-2. W Eksploratorze obiektów kliknij prawym przyciskiem myszy bazę danych, aby dodać regułę zapory, a następnie kliknij przycisk **nowe zapytanie**. Zostanie otwarte puste okno zapytania, które jest połączone z Twoją bazą danych.
+2. W Eksploratorze obiektów kliknij prawym przyciskiem myszy bazę danych, dla której chcesz dodać reguły zapory, a następnie kliknij pozycję **Nowe zapytanie**. Zostanie otwarte puste okno zapytania, które jest połączone z Twoją bazą danych.
 
-3. W oknie zapytania zmienić adres IP do publicznego adresu IP, a następnie wykonaj następujące zapytanie:
+3. W oknie zapytania zmień adres IP na swój publiczny adres IP, a następnie wykonaj następujące zapytanie:
 
     ```sql
     EXECUTE sp_set_database_firewall_rule N'Example DB Rule','0.0.0.4','0.0.0.4';
     ```
 
-4. Na pasku narzędzi kliknij **Execute** do utworzenia reguły zapory.
+4. Na pasku narzędzi kliknij opcję **Wykonaj**, aby utworzyć regułę zapory.
 
-## <a name="view-how-to-connect-an-application-to-your-database-using-a-secure-connection-string"></a>Wyświetl jak łączenie aplikacji z bazy danych przy użyciu ciągu bezpiecznego połączenia
+## <a name="view-how-to-connect-an-application-to-your-database-using-a-secure-connection-string"></a>Zobacz, jak połączyć aplikację z bazą danych przy użyciu bezpiecznych parametrów połączenia
 
-W celu zapewnienia bezpiecznego zaszyfrowanego połączenia między aplikacji klienckiej i bazy danych SQL, ciąg połączenia musi być skonfigurowana do:
+W celu zapewnienia bezpiecznego, szyfrowanego połączenia pomiędzy aplikacją kliencką i usługą SQL Database, należy skonfigurować parametry połączenia, aby:
 
-- Żądanie połączenia szyfrowanego i
-- Aby nie ufać certyfikatowi serwera. 
+- żądać połączenia szyfrowanego; oraz
+- nie ufać certyfikatowi serwera. 
 
-Ustanawia połączenie przy użyciu zabezpieczeń TLS (Transport Layer) i zmniejsza ryzyko ataków man-in--middle. Można uzyskać poprawnie skonfigurowane parametry połączenia bazy danych SQL, aby obsługiwany klient sterowniki z portalu Azure pokazany dla ADO.net w tym zrzucie ekranu.
+W ten sposób nawiązuje się połączenie przy użyciu zabezpieczeń Transport Layer Security (TLS) i redukuje ryzyko ataków typu „man-in-the-middle” (człowiek pośrodku). Możesz uzyskać prawidłowo skonfigurowane parametry połączenia dla usługi SQL Database i obsługiwanych sterowników klienta z witryny Azure Portal, tak jak pokazano na poniższym zrzucie ekranu (w tym przypadku ADO.net).
 
-1. Wybierz **baz danych SQL** z menu po lewej stronie i kliknij bazę danych na **baz danych SQL** strony.
+1. Wybierz pozycję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**.
 
-2. Na **omówienie** stron dla bazy danych, kliknij przycisk **Pokaż parametry połączenia bazy danych**.
+2. Na stronie **Omówienie** bazy danych kliknij pozycję **Pokaż parametry połączenia bazy danych**.
 
 3. Sprawdź pełne parametry połączenia sterownika **ADO.NET**.
 
     ![Parametry połączenia sterownika ADO.NET](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
-## <a name="creating-database-users"></a>Tworzenie bazy danych użytkowników
+## <a name="creating-database-users"></a>Tworzenie użytkowników bazy danych
 
-Przed utworzeniem żadnych użytkowników, należy najpierw wybrać jedną z dwóch typów uwierzytelniania obsługiwanych przez bazę danych SQL Azure: 
+Przed utworzeniem jakichkolwiek użytkowników musisz wybrać jeden z dwóch typów uwierzytelniania obsługiwany przez usługę Azure SQL Database: 
 
-**Uwierzytelnianie SQL**, który używa nazwy użytkownika i hasła do logowania i użytkowników, którzy są prawidłowe tylko w kontekście określonej bazy danych w ramach serwera logicznego. 
+**Uwierzytelnianie SQL** używające nazwy użytkownika i hasła do logowania użytkowników, którzy są prawidłowi tylko w kontekście konkretnej bazy danych w ramach serwera logicznego. 
 
-**Uwierzytelniania usługi Azure Active Directory**, który używa tożsamości zarządzanych przez usługę Azure Active Directory. 
+**Uwierzytelnianie usługi Azure Active Directory** korzystające z tożsamości zarządzanej przez usługę Azure Active Directory. 
 
-Jeśli chcesz użyć [usługi Azure Active Directory](./sql-database-aad-authentication.md) na potrzeby uwierzytelniania w bazie danych SQL, wypełnione usługi Azure Active Directory musi istnieć, zanim przejdziesz dalej.
+Jeśli chcesz użyć usługi [Azure Active Directory](./sql-database-aad-authentication.md) do uwierzytelniania w usłudze SQL Database, zanim przejdziesz dalej, musisz mieć wypełnioną usługę Azure Active Directory.
 
-Wykonaj następujące kroki, aby utworzyć użytkownika przy użyciu uwierzytelniania programu SQL:
+Wykonaj następujące kroki, aby utworzyć użytkownika przy użyciu uwierzytelniania SQL:
 
-1. Połączenia z bazą danych, na przykład za pomocą [programu SQL Server Management Studio](./sql-database-connect-query-ssms.md) przy użyciu poświadczeń administratora serwera.
+1. Nawiąż połączenie z bazą danych, np. przy użyciu programu [SQL Server Management Studio](./sql-database-connect-query-ssms.md), korzystając z poświadczeń administratora serwera.
 
-2. W Eksploratorze obiektów kliknij prawym przyciskiem myszy bazę danych, aby dodać nowego użytkownika na, a następnie kliknij przycisk **nowe zapytanie**. Zostanie otwarte okno puste zapytania podłączoną do wybranej bazy danych.
+2. W Eksploratorze obiektów kliknij prawym przyciskiem myszy bazę danych, dla której chcesz dodać nowego użytkownika, a następnie kliknij pozycję **Nowe zapytanie**. Zostanie otwarte puste okno zapytania, które jest połączone z wybraną bazą danych.
 
 3. W oknie zapytania wprowadź następujące zapytanie:
 
@@ -138,118 +138,118 @@ Wykonaj następujące kroki, aby utworzyć użytkownika przy użyciu uwierzyteln
     CREATE USER ApplicationUser WITH PASSWORD = 'YourStrongPassword1';
     ```
 
-4. Na pasku narzędzi kliknij **Execute** do utworzenia użytkownika.
+4. Na pasku narzędzi kliknij opcję **Wykonaj**, aby utworzyć użytkownika.
 
-5. Domyślnie użytkownik może połączyć się z bazą danych, ale nie ma uprawnień do odczytu lub zapisu danych. Aby przyznać uprawnienia do nowo utworzonego użytkownika, należy wykonać następujące dwa polecenia w nowym oknie zapytania
+5. Domyślnie użytkownik może łączyć się z bazą danych, ale nie ma uprawnień do odczytywania i zapisywania danych. Aby przyznać te uprawnienia nowo utworzonemu użytkownikowi, wykonaj poniższe dwa polecenia w oknie nowego zapytania
 
     ```sql
     ALTER ROLE db_datareader ADD MEMBER ApplicationUser;
     ALTER ROLE db_datawriter ADD MEMBER ApplicationUser;
     ```
 
-Jest najlepszym rozwiązaniem jest tworzenie tych kont bez uprawnień administratora na poziomie bazy danych w celu połączenia z bazą danych, chyba że trzeba wykonać zadania administratora, takie jak tworzenie nowych użytkowników. Zapoznaj się z tematem [samouczek usługi Azure Active Directory](./sql-database-aad-authentication-configure.md) na temat uwierzytelniania za pomocą usługi Azure Active Directory.
+Najlepszym rozwiązaniem jest utworzenie tych kont użytkowników innych niż administrator na poziomie bazy danych, aby nawiązywać połączenie z bazą danych, chyba że potrzebujesz możliwości wykonywania zadań administratora, np. tworzenia nowych użytkowników. Zapoznaj się z [samouczkiem usługi Azure Active Directory](./sql-database-aad-authentication-configure.md) dotyczącym sposobów uwierzytelniania przy użyciu usługi Azure Active Directory.
 
 
 ## <a name="protect-your-data-with-encryption"></a>Ochrona danych za pomocą szyfrowania
 
-Azure SQL Database przezroczystego szyfrowania danych (funkcji TDE) automatycznie szyfruje dane przechowywane, bez konieczności wprowadzania jakichkolwiek zmian w aplikacji dostęp do zaszyfrowanych bazy danych. W przypadku nowo utworzonego baz danych funkcji TDE jest domyślnie włączone. Aby włączyć funkcji TDE bazy danych lub sprawdź, czy w funkcji TDE, wykonaj następujące kroki:
+Przezroczyste szyfrowanie danych (TDE) usługi Azure SQL Database automatycznie szyfruje dane w spoczynku, bez potrzeby wprowadzania jakichkolwiek zmian w aplikacji uzyskującej dostęp do szyfrowanej bazy danych. W przypadku nowo utworzonych baz danych funkcja TDE jest domyślnie włączona. Aby włączyć funkcję TDE dla bazy danych lub sprawdzić, czy funkcja TDE jest włączona, wykonaj następujące kroki:
 
-1. Wybierz **baz danych SQL** z menu po lewej stronie i kliknij bazę danych na **baz danych SQL** strony. 
+1. Wybierz pozycję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
 
-2. Polecenie **przezroczystego szyfrowania danych** aby otworzyć stronę konfiguracji dla funkcji TDE.
+2. Kliknij opcję **Niewidoczne szyfrowanie danych**, aby otworzyć stronę konfiguracji dla funkcji TDE.
 
-    ![Przezroczyste szyfrowanie danych](./media/sql-database-security-tutorial/transparent-data-encryption-enabled.png)
+    ![Niewidoczne szyfrowanie danych](./media/sql-database-security-tutorial/transparent-data-encryption-enabled.png)
 
-3. W razie potrzeby ustaw **szyfrowanie danych** on i kliknij przycisk **zapisać**.
+3. W razie potrzeby ustaw opcję **Szyfrowanie danych** na WŁ., a następnie kliknij opcję **Zapisz**.
 
-Proces szyfrowania jest uruchamiany w tle. Można monitorować postęp, łącząc się z bazą danych SQL przy użyciu [programu SQL Server Management Studio](./sql-database-connect-query-ssms.md) badając kolumnie encryption_state `sys.dm_database_encryption_keys` widoku.
+Proces szyfrowania zostanie uruchomiony w tle. Możesz monitorować postępy, łącząc się z usługą SQL Database przy użyciu programu [SQL Server Management Studio](./sql-database-connect-query-ssms.md) poprzez wysłanie zapytania do kolumny encryption_state widoku `sys.dm_database_encryption_keys`.
 
-## <a name="enable-sql-database-auditing-if-necessary"></a>Włączanie inspekcji bazy danych SQL, w razie potrzeby
+## <a name="enable-sql-database-auditing-if-necessary"></a>Włączanie inspekcji usługi SQL Database, jeżeli jest potrzebna
 
-Usługa Azure SQL Database Auditing śledzi zdarzenia bazy danych i zapisuje je inspekcji logowania na koncie magazynu Azure. Inspekcja pomaga zachować zgodność z przepisami, analizować aktywność bazy danych oraz uzyskać wgląd w odchylenia i anomalie, które mogą wskazywać potencjalne naruszenie zabezpieczeń. Wykonaj następujące kroki, aby utworzyć domyślne zasady dla Twojej bazy danych SQL inspekcji:
+Inspekcja usługi Azure SQL Database śledzi zdarzenia bazy danych i zapisuje je w dzienniku inspekcji na koncie usługi Azure Storage. Inspekcja pomaga zachować zgodność z przepisami, analizować aktywność bazy danych oraz uzyskać wgląd w odchylenia i anomalie, które mogą oznaczać potencjalne naruszenia zabezpieczeń. Wykonaj następujące kroki, aby utworzyć domyślne zasady inspekcji dla bazy danych SQL:
 
-1. Wybierz **baz danych SQL** z menu po lewej stronie i kliknij bazę danych na **baz danych SQL** strony. 
+1. Wybierz pozycję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
 
-2. W bloku ustawienia, wybierz **Inspekcja i wykrywanie zagrożeń**. Powiadomienie, że inspekcję na poziomie serwera jest diabled i że istnieje **wyświetlić ustawienia serwera** łącze, które pozwala wyświetlać lub modyfikować ustawienia z tego kontekstu inspekcji serwera.
+2. W bloku Ustawienia wybierz opcję **Inspekcja i wykrywanie zagrożeń**. Zauważ, że inspekcja na poziomie serwera jest wyłączona. Jest dostępny link **Wyświetl ustawienia serwera**, który umożliwia wyświetlenie lub zmodyfikowanie ustawień inspekcji serwera z tego kontekstu.
 
-    ![Inspekcja bloku](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
+    ![Blok Inspekcja](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Jeśli wolisz włączyć typu inspekcji (lub lokalizacji?) innej niż określono na poziomie serwera, Włącz **ON** inspekcji i wybierz polecenie **obiektu Blob** typu inspekcji. Po włączeniu inspekcji obiektu Blob serwera inspekcji bazy danych skonfigurowane będą istniały równolegle z obiektu Blob inspekcji serwera.
+3. Jeśli wolisz włączyć typ inspekcji (lub lokalizację) inny od określonego na poziomie serwera, **WŁĄCZ** inspekcję, a następnie wybierz typ inspekcji **Obiekt blob**. Jeśli inspekcja obiektów blob serwera jest włączona, skonfigurowana inspekcja bazy danych będzie istnieć równolegle z inspekcją obiektów blob serwera.
 
     ![Włączanie inspekcji](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. Wybierz **szczegóły magazynu** aby otworzyć blok magazyn dzienników inspekcji. Wybierz konto magazynu Azure, w którym zostaną zapisane dzienniki, a następnie kliknij przycisk okres przechowywania, po upływie którego będzie można usunąć stare dzienniki, **OK** u dołu. 
+4. Wybierz opcję **Szczegóły magazynu**, aby otworzyć blok Magazyn dzienników inspekcji. Wybierz konto magazynu platformy Azure, na którym będą zapisywane dzienniki, a także okres przechowywania, po którym stare dzienniki będą usuwane, a następnie kliknij przycisk **OK** u dołu. 
 
    > [!TIP]
-   > Użyj tego samego konta magazynu dla wszystkich baz danych inspekcji na maksymalne wykorzystanie inspekcji szablonów raportów.
+   > Użyj tego samego konta magazynu dla wszystkich baz danych poddawanych inspekcji, aby możliwie najlepiej wykorzystać szablony raportów inspekcji.
    > 
 
 5. Kliknij pozycję **Zapisz**.
 
 > [!IMPORTANT]
-> Jeśli chcesz dostosować zdarzeń inspekcji, można to zrobić za pomocą programu PowerShell lub interfejsu API REST — zobacz [inspekcji bazy danych SQL](sql-database-auditing.md) więcej szczegółów.
+> Jeśli chcesz dostosować zdarzenia poddawane inspekcji, możesz to zrobić za pośrednictwem programu PowerShell lub interfejsu API REST — zobacz [Inspekcja bazy danych SQL](sql-database-auditing.md), aby uzyskać więcej informacji.
 >
 
-## <a name="enable-sql-database-threat-detection"></a>Włączyć wykrywanie zagrożeń bazy danych SQL
+## <a name="enable-sql-database-threat-detection"></a>Włączanie wykrywania zagrożeń w usłudze SQL Database
 
-Wykrywanie zagrożeń udostępnia nową warstwę zabezpieczeń, co umożliwia klientom wykrywanie i odpowiadanie na potencjalne zagrożenia w miarę ich występowania, zapewniając alerty zabezpieczeń w nietypowych działań. Użytkownicy mogą eksplorować podejrzane zdarzenia przy użyciu inspekcji bazy danych SQL w celu określenia, czy są one wynikiem próba uzyskania dostępu, naruszenia lub wykorzystać w bazie danych. Wykrywanie zagrożeń upraszcza potencjalne zagrożenia do bazy danych bez konieczności ekspertów zabezpieczeń lub zarządzać zabezpieczeniami zaawansowanymi, monitorowanie systemów.
-Na przykład wykrywanie zagrożeń wykrywa niektóre działania nietypowych bazy danych, które wskazują potencjalne prób iniekcji kodu SQL. Iniekcja kodu SQL jest jednym z typowych problemów zabezpieczeń aplikacji sieci Web w Internecie, używane do ataków opartych na danych aplikacji. Osoby atakujące wykorzystać luki w zabezpieczeniach aplikacji do dodania złośliwego instrukcje SQL do pola wejścia aplikacji, naruszenia i modyfikacji danych w bazie danych.
+Funkcja wykrywania zagrożeń stanowi nową warstwę zabezpieczeń, która umożliwia klientom wykrywanie potencjalnych zagrożeń i reagowanie na nie na bieżąco, zapewniając alerty zabezpieczeń w przypadku wystąpienia nietypowych działań. Użytkownicy mogą eksplorować podejrzane zdarzenia przy użyciu inspekcji usługi SQL Database, aby określić, czy są one skutkiem próby uzyskania dostępu, naruszenia zabezpieczeń lub wykorzystania danych w bazie danych. Wykrywanie zagrożeń upraszcza reagowanie na potencjalne zagrożenia bazy danych bez konieczności dysponowania wiedzą na poziomie eksperta zabezpieczeń lub zarządzania zaawansowanymi systemami monitorowania bezpieczeństwa.
+Na przykład funkcja wykrywania zagrożeń wykrywa niektóre nietypowe działania bazy danych, wskazują na potencjalne próby iniekcji kodu SQL. Iniekcja kodu SQL jest jednym z typowych problemów z zabezpieczeniami aplikacji internetowych w Internecie. Metody tej używa się do atakowania aplikacji opartych na danych. Osoby atakujące wykorzystują luki w zabezpieczeniach aplikacji, aby przeprowadzać iniekcję złośliwych instrukcji SQL do pól wejścia aplikacji, co umożliwia naruszenie lub zmodyfikowanie danych w bazie danych.
 
-1. Przejdź do bloku konfiguracji bazy danych SQL, które chcesz monitorować. W bloku ustawienia, wybierz **Inspekcja i wykrywanie zagrożeń**.
+1. Przejdź do bloku konfiguracji bazy danych SQL, którą chcesz monitorować. W bloku Ustawienia wybierz opcję **Inspekcja i wykrywanie zagrożeń**.
 
     ![Okienko nawigacji](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
-2. W **Inspekcja i wykrywanie zagrożeń** Włącz bloku konfiguracji **ON** inspekcji, które będą wyświetlane ustawienia wykrywania zagrożeń.
+2. W bloku konfiguracji **Inspekcja i wykrywanie zagrożeń** **WŁĄCZ** inspekcję, co spowoduje wyświetlenie ustawień wykrywania zagrożeń.
 
-3. Włącz **ON** wykrywanie zagrożeń.
+3. **WŁĄCZ** wykrywanie zagrożeń.
 
-4. Skonfiguruj listę wiadomości e-mail, które będą wysyłane alerty zabezpieczeń po wykryciu nietypowe działania bazy danych.
+4. Skonfiguruj listę adresów e-mail, które będą otrzymywać alerty zabezpieczeń po wykryciu nietypowych działań bazy danych.
 
-5. Kliknij przycisk **zapisać** w **Inspekcja i wykrywanie zagrożeń** bloku, aby zapisać nowe lub zaktualizowane inspekcji i zasady wykrywania zagrożeń.
+5. Kliknij przycisk **Zapisz** w bloku **Inspekcja i wykrywanie zagrożeń**, aby zapisać nowe lub zaktualizowane zasady inspekcji i wykrywania zagrożeń.
 
     ![Okienko nawigacji](./media/sql-database-security-tutorial/td-turn-on-threat-detection.png)
 
-    W przypadku wykrycia są nietypowe działania bazy danych, otrzymasz wiadomość e-mail z powiadomieniem po wykryciu nietypowe działania bazy danych. Wiadomość e-mail będzie zawierał informacje o zdarzeniu podejrzane zabezpieczeń w tym rodzaju nietypowych działań, nazwa bazy danych, nazwę serwera i czas trwania zdarzenia. Ponadto zawierają informacje dotyczące możliwe przyczyny i zalecane akcje do sprawdzania i ograniczyć potencjalne zagrożenie dla bazy danych. Następne kroki opisano za pośrednictwem co zrobić, należy pojawi się wiadomość e-mail:
+    W przypadku wykrycia nietypowych działań bazy danych otrzymasz powiadomienie e-mail zaraz po takim wykryciu. Wiadomość e-mail będzie zapewniać informacje o podejrzanych zdarzeniach dotyczących zabezpieczeń, w tym o naturze nietypowych działań, nazwie bazy danych, nazwie serwera oraz czasie trwania zdarzenia. Ponadto będzie zapewniać informacje o możliwych przyczynach i rekomendowanych działań umożliwiających sprawdzenie i ograniczenie potencjalnych zagrożeń dla bazy danych. Następne kroki opisują czynności, które należy wykonać, aby odebrać taką wiadomość e-mail:
 
-    ![Wykrywanie zagrożeń w wiadomości e-mail](./media/sql-database-threat-detection-get-started/4_td_email.png)
+    ![Wiadomość e-mail dotycząca wykrywania zagrożeń](./media/sql-database-threat-detection-get-started/4_td_email.png)
 
-6. W wiadomości e-mail, kliknij polecenie **dziennik inspekcji SQL Azure** łącza, co spowoduje uruchomienie portalu Azure i wyświetlić odpowiednie rekordy inspekcji w czasie zbliżonym do podejrzane zdarzenia.
+6. W wiadomości e-mail kliknij link **Dziennik inspekcji usługi Azure SQL**, który spowoduje uruchomienie witryny Azure Portal i wyświetlenie odpowiednich rekordów inspekcji dotyczących czasu wystąpienia podejrzanego zdarzenia.
 
     ![Rekordy inspekcji](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Polecenie rekordów inspekcji, aby wyświetlić więcej szczegółów na działania podejrzane bazy danych, takie jak instrukcji SQL, Niepowodzenie IP Przyczyna i klienta.
+7. Kliknij rekordy inspekcji, aby wyświetlić więcej informacji o podejrzanych działaniach bazy danych, np. instrukcji SQL, powodzie awarii oraz adresie IP klienta.
 
     ![Szczegóły rekordu](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 
-8. W bloku rekordów inspekcji kliknij **Otwórz w programie Excel** otworzyć wstępnie skonfigurowany szablon programu excel Aby zaimportować i uruchomić dokładniejszej analizy w czasie zbliżonym do podejrzane zdarzenia dziennika inspekcji.
+8. W bloku Rekordy inspekcji kliknij opcję **Otwórz w programie Excel**, aby otworzyć wstępnie skonfigurowany szablon programu Excel i zaimportować oraz uruchomić dogłębną analizę dziennika inspekcji dla przybliżonego czasu wystąpienia podejrzanego zdarzenia.
 
     > [!NOTE]
-    > Excel 2010 lub nowszej, zasilanie kwerendy i **szybkie łączenie** ustawienie jest wymagane.
+    > W programie Excel 2010 lub nowszym wymagana jest funkcja Power Query oraz ustawienie **Szybkie łączenie**.
 
-    ![Otwarte rekordy w programie Excel](./media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png)
+    ![Rekordy otwarte w programie Excel](./media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png)
 
-9. Aby skonfigurować **szybkie łączenie** ustawienie — w **dodatku POWER QUERY** karty wstążki, wybierz opcję **opcje** do wyświetlenia okna dialogowego Opcje. Wybierz sekcję prywatności i wybierz opcję drugi — "Ignorowanie poziomów prywatności i potencjalne poprawianie wydajności":
+9. Aby skonfigurować ustawienie **Szybkie łączenie** — na karcie wstążki **POWER QUERY** wybierz pozycję **Opcje**, aby wyświetlić okno dialogowe Opcje. Wybierz sekcję prywatności i wybierz drugą opcję — „Ignorowanie poziomów prywatności i potencjalne poprawianie wydajności”:
 
-    ![Łączenie programu Excel fast](./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png)
+    ![Funkcja szybkiego łączenia programu Excel](./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png)
 
-10. Aby załadować dzienników inspekcji SQL, upewnij się, że parametry w ustawieniach kartę są poprawnie ustawione, a następnie wybierz wstążki "Dane" i kliknij przycisk "Odśwież wszystko".
+10. Aby załadować dzienniki inspekcji SQL, upewnij się, że parametry na karcie ustawień są skonfigurowane prawidłowo, a następnie wybierz wstążkę „Dane” i kliknij przycisk „Odśwież wszystko”.
 
     ![Parametry programu Excel](./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png)
 
-11. Wyniki są wyświetlane w **dzienników inspekcji SQL** arkusza, co pozwala na przeprowadzanie analizy głębiej nietypowych działań, które zostały wykryte i ograniczyć wpływ zdarzeń zabezpieczeń w aplikacji.
+11. Wyniki zostaną wyświetlone w arkuszu **Dzienniki inspekcji SQL**, co umożliwia uruchomienie dogłębnej analizy wykrytych nietypowych działań, a także ograniczenie wpływu zdarzenia dotyczącego zabezpieczeń na Twoją aplikację.
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku przedstawiono poprawienia ochrony przed złośliwymi użytkownikami lub nieautoryzowanego dostępu, wystarczy kilka prostych kroków bazy danych.  W tym samouczku omówiono: 
+W tym samouczku dowiedzieliśmy się, jak w kilku prostych krokach poprawić zabezpieczenia bazy danych, aby chronić ją przed złośliwymi użytkownikami i nieautoryzowanym dostępem.  W tym samouczku omówiono: 
 
 > [!div class="checklist"]
-> * Konfigurowanie reguł zapory dla serwera i lub bazy danych
-> * Połączenia z bazą danych przy użyciu ciągu bezpiecznego połączenia
+> * Konfigurowanie reguł zapory dla serwera lub bazy danych
+> * Łączenie z bazą danych przy użyciu bezpiecznych parametrów połączenia
 > * Zarządzanie dostępem użytkowników
 > * Ochrona danych za pomocą szyfrowania
-> * Włączanie inspekcji bazy danych SQL
-> * Włączyć wykrywanie zagrożeń bazy danych SQL
+> * Włączanie inspekcji usługi SQL Database
+> * Włączanie wykrywania zagrożeń w usłudze SQL Database
 
-Przejdź do następnego samouczkiem, aby dowiedzieć się, jak wdrożyć rozproszona geograficznie bazy danych.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak wdrożyć bazę danych rozproszoną geograficznie.
 
 > [!div class="nextstepaction"]
 >[Implementowanie rozproszonej geograficznie bazy danych](sql-database-implement-geo-distributed-database.md)

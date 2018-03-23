@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI skrypt przykładowy — łączenie aplikacji sieci web z bazy danych SQL | Dokumentacja firmy Microsoft"
-description: "Azure CLI skrypt przykładowy — łączenie aplikacji sieci web z bazy danych SQL"
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — łączenie aplikacji internetowej z bazą danych SQL Database | Microsoft Docs
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — łączenie aplikacji internetowej z bazą danych SQL Database
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
 ms.service: app-service
@@ -16,21 +16,21 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e85b405e61460c7cde8dd8a6001add736c53c713
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: 8356785582657811dbf745637c7216cfa9b3f445
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="connect-a-web-app-to-a-sql-database"></a>Łączenie aplikacji sieci web z bazy danych SQL
+# <a name="connect-a-web-app-to-a-sql-database"></a>Łączenie aplikacji internetowej z bazą danych SQL Database
 
-Ten przykładowy skrypt tworzy bazę danych Azure SQL i aplikacji sieci web platformy Azure. Następnie łącza z bazą danych SQL w aplikacji sieci web przy użyciu ustawień aplikacji.
+Ten przykładowy skrypt służy do tworzenia bazy danych Azure SQL Database i aplikacji internetowej platformy Azure. Następnie łączy on bazę danych SQL Database z aplikacją internetową przy użyciu ustawień aplikacji.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Istnieje możliwość instalacji i używania interfejsu wiersza polecenia lokalnie, należy najpierw wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, musisz mieć interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -38,22 +38,22 @@ Istnieje możliwość instalacji i używania interfejsu wiersza polecenia lokaln
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, aplikacji sieci web, bazy danych SQL i wszystkie powiązane zasoby. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+W tym skrypcie użyto następujących poleceń do utworzenia grupy zasobów, aplikacji internetowej, bazy danych SQL Database i wszystkich powiązanych zasobów. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Tworzy plan usługi App Service. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Tworzenie aplikacji sieci web platformy Azure. |
-| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) | Tworzy serwer bazy danych SQL.  |
-| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) | Tworzy nową bazę danych z serwera bazy danych SQL. |
-| [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string) | Generuje ciąg połączenia z bazą danych. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji sieci web platformy Azure. Ustawienia aplikacji są widoczne jako zmienne środowiskowe dla aplikacji. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Tworzy aplikację internetową platformy Azure. |
+| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) | Tworzy serwer bazy danych SQL Database.  |
+| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) | Tworzy nową bazę danych na serwerze bazy danych SQL Database. |
+| [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string) | Generuje ciąg połączenia dla bazy danych. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji internetowej platformy Azure. Ustawienia aplikacji są dostępne dla aplikacji jako zmienne środowiskowe. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
 
-Dodatkowe przykłady skryptów aplikacji usługi interfejsu wiersza polecenia można znaleźć w [dokumentacji usługi Azure App Service](../app-service-cli-samples.md).
+Dodatkowe przykłady skryptów interfejsu wiersza polecenia usługi App Service można znaleźć w [dokumentacji usługi Azure App Service](../app-service-cli-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Samouczek udostępniania roweru — przygotowanie zaawansowanych danych za pomocą usługi Azure Machine Learning Workbench"
-description: "W tym samouczku wykonasz zadanie całościowego przygotowania danych przy użyciu usługi Azure Machine Learning Workbench"
+title: Samouczek udostępniania roweru — przygotowanie zaawansowanych danych za pomocą usługi Azure Machine Learning Workbench
+description: W tym samouczku wykonasz zadanie całościowego przygotowania danych przy użyciu usługi Azure Machine Learning Workbench
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: ca7239fd3e31c7a6cfc6fb64e04afb376e01c190
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f1d4b58d0fe0628aa00b8229a1383d3ada414f62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Samouczek: przygotowanie zaawansowanych danych za pomocą usługi Azure Machine Learning Workbench (dane udostępniania roweru)
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do zaawansowanych analiz przeznaczone dla profesjonalnych analityków. Będą oni korzystać z tego rozwiązania w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -736,7 +736,7 @@ Aby zapisać przepływ danych **Dołącz wynik** do pliku CSV, musisz zmienić s
 3. Utwórz konfigurację uruchomieniową usługi HDInsight. Potrzebna jest nazwa klastra i hasło `sshuser`.
 
     ```azurecli
-    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
     az ml experiment prepare -c hdinsight
     ```
 > [!NOTE]

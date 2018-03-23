@@ -1,13 +1,13 @@
 ---
-title: "Przykładowy skrypt Azure CLI — ponowne uruchomienie maszyn wirtualnych | Dokumentacja firmy Microsoft"
-description: "Azure CLI przykładowym skrypcie — ponowne uruchomienie maszyn wirtualnych, za pomocą tagu i identyfikator"
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — ponowne uruchamianie maszyn wirtualnych | Microsoft Docs
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — ponowne uruchamianie maszyn wirtualnych
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,85 +16,85 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ea114f484c774573b7d219cff9102a7308af356e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a9f7cf8ba492004cb6d9e359bfb392448dfbe813
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="restart-vms"></a>Ponowne uruchomienie maszyn wirtualnych
+# <a name="restart-vms"></a>Ponowne uruchamianie maszyn wirtualnych
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-W tym przykładzie pokazano kilka sposobów, aby pobrać niektórych maszyn wirtualnych i uruchomić je ponownie.
+W tym przykładzie pokazano kilka sposobów pobierania niektórych maszyn wirtualnych i ich ponownego uruchamiania.
 
-Pierwszy powoduje ponowne uruchomienie wszystkich maszyn wirtualnych w grupie zasobów.
+Pierwszy sposób powoduje ponowne uruchomienie wszystkich maszyn wirtualnych w grupie zasobów.
 
 ```bash
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-Drugi pobiera oznakowanych maszyn wirtualnych przy użyciu `az resouce list` filtrów do zasobów, które są maszyny wirtualne i ponowne uruchomienie tych maszyn wirtualnych.
+Drugi sposób powoduje pobranie oznakowanych maszyn wirtualnych przy użyciu polecenia `az resouce list` i filtrów do zasobów będących maszynami wirtualnymi oraz ponowne uruchomienie tych maszyn wirtualnych.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-W tym przykładzie działanie powłoki Bash. Aby wyświetlić opcje uruchamiania skryptów wiersza polecenia platformy Azure na kliencie systemu Windows, zobacz [działający w systemie Windows Azure CLI](../windows/cli-options.md).
+Ten przykład działa w powłoce Bash. Aby uzyskać informacje na temat opcji uruchamiania skryptów interfejsu wiersza polecenia platformy Azure w ramach klienta systemu Windows, zobacz [Running the Azure CLI in Windows (Uruchamianie interfejsu wiersza polecenia platformy Azure w systemie Windows)](../windows/cli-options.md).
 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-Próbka ma trzy skryptów.
-Pierwsza z nich inicjuje maszyn wirtualnych.
-Opcja oczekiwania nie używa tak polecenie zwraca bez oczekiwania na każdej maszynie Wirtualnej na potrzeby aprowizacji.
-Drugi czeka na maszynach wirtualnych być w pełni obsługiwany.
-Trzeci skryptu ponowne uruchomienie wszystkich maszyn wirtualnych, które zostały udostępnione, a następnie tylko oznakowanych maszyn wirtualnych.
+Przykład obejmuje trzy skrypty.
+Pierwszy z nich aprowizuje maszyny wirtualne.
+Używa on opcji no-wait, dlatego polecenie jest zwracane bez oczekiwania na aprowizowanie poszczególnych maszyn wirtualnych.
+Drugi czeka na pełne aprowizowanie maszyn wirtualnych.
+Trzeci skrypt ponownie uruchamia wszystkie aprowizowane maszyny wirtualne, a następnie tylko otagowane maszyny wirtualne.
 
-### <a name="provision-the-vms"></a>Zainicjuj obsługę maszyn wirtualnych
+### <a name="provision-the-vms"></a>Aprowizowanie maszyn wirtualnych
 
-Ten skrypt tworzy grupę zasobów, a następnie tworzy trzech maszyn wirtualnych o ponowne uruchomienie.
-Dwa z nich są oznaczone.
+Ten skrypt tworzy grupę zasobów, a następnie tworzy trzy maszyny wirtualne do ponownego uruchomienia.
+Dwie z nich są otagowane.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### <a name="wait"></a>Oczekiwanie
 
-Ten skrypt sprawdza stan inicjowania obsługi administracyjnej, co 20 sekund, aż wszystkie trzy maszyny wirtualne są udostępnione lub jeden z nich nie powiedzie się, aby udostępnić.
+Ten skrypt sprawdza stan aprowizowania co 20 sekund, aż wszystkie trzy maszyny wirtualne zostaną aprowizowane lub aprowizacja jednej z nich zakończy się niepowodzeniem.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
-### <a name="restart-the-vms"></a>Ponowne uruchomienie maszyn wirtualnych
+### <a name="restart-the-vms"></a>Ponowne uruchamianie maszyn wirtualnych
 
-Ten skrypt powoduje ponowne uruchomienie wszystkich maszyn wirtualnych w grupie zasobów, a następnie ponowne uruchomienie po prostu oznakowane maszyn wirtualnych.
+Ten skrypt ponownie uruchamia wszystkie maszyny wirtualne w grupie zasobów, a następnie ponownie uruchamia tylko otagowane maszyny wirtualne.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Po uruchomieniu przykładowym skrypcie następującego polecenia można usunąć grupy zasobów, maszyn wirtualnych i wszystkie powiązane zasoby.
+Po wykonaniu przykładowego skryptu możesz uruchomić następujące polecenie, aby usunąć grupy zasobów, maszyny wirtualne i wszystkie powiązane zasoby.
 
 ```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, maszyny wirtualnej zestawu dostępności, usługi równoważenia obciążenia i wszystkie powiązane zasoby. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobów, maszyny wirtualnej, zestawu dostępności, modułu równoważenia obciążenia i wszystkich powiązanych zasobów. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Tworzenie maszyny wirtualnej az](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Tworzy maszyny wirtualne.  |
-| [AZ listy maszyny wirtualnej](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Używane z `--query` zapewnienie obsługi administracyjnej maszyn wirtualnych przed ponownym uruchomieniem je, a następnie pobrania identyfikatorów maszyn wirtualnych, aby uruchomić je ponownie. |
-| [Lista zasobów az](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Używane z `--query` pobrania identyfikatorów maszyn wirtualnych za pomocą znacznika. |
-| [ponowne uruchomienie maszyny wirtualnej az](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Ponowne uruchomienie maszyn wirtualnych. |
-| [Usuwanie grupy az](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Tworzy maszyny wirtualne.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Używane z opcją `--query` w celu upewnienia się, że maszyny wirtualne zostaną aprowizowane przed ponownym uruchomieniem, i pobrania identyfikatorów maszyn wirtualnych na potrzeby ich ponownego uruchomiania. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Używane z opcją `--query` w celu pobrania identyfikatorów maszyn wirtualnych za pomocą tagu. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Ponownie uruchamia maszyny wirtualne. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
 
-Przykłady skryptów CLI dodatkowe maszyny wirtualnej znajdują się w [dokumentacji maszyny Wirtualnej systemu Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Więcej przykładowych skryptów interfejsu wiersza polecenia maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

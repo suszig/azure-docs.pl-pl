@@ -1,8 +1,8 @@
 ---
-title: "Samouczek — przypisywanie dostępu w usłudze Azure Cost Management | Microsoft Docs"
-description: "Ten samouczek zawiera informacje na temat przypisywania dostępu do danych rozwiązania Cost Management przy użyciu kont użytkowników w celu zdefiniowania poziomów dostępu do jednostek."
+title: Samouczek — przypisywanie dostępu w usłudze Azure Cost Management | Microsoft Docs
+description: Ten samouczek zawiera informacje na temat przypisywania dostępu do danych rozwiązania Cost Management przy użyciu kont użytkowników w celu zdefiniowania poziomów dostępu do jednostek.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Samouczek: przypisywanie dostępu do danych rozwiązania Cost Management
 
@@ -54,7 +54,7 @@ Zazwyczaj użytkownicy, którzy potrzebują dostępu do danych rozwiązania Cost
 
 ![dodawanie nowego użytkownika z prawami dostępu użytkownika](.\media\tutorial-user-access\new-user-access.png)
 
-Aby obejrzeć film wideo z samouczkiem dotyczącym dodawania użytkowników, zobacz [Adding Users to Azure Cost Management by Cloudyn (Dodawanie użytkowników do usługi Azure Cost Management na platformie Cloudyn)](https://youtu.be/Nzn7GLahx30).
+Aby obejrzeć film wideo z samouczkiem dotyczącym dodawania użytkowników, zobacz [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30) (Dodawanie użytkowników do usługi Azure Cost Management).
 
 ## <a name="create-entities"></a>Tworzenie jednostek
 
@@ -75,9 +75,9 @@ Obok pozycji **Jednostki** kliknij pozycję **Dodaj jednostkę**. Wprowadź info
 Gdy wszystko będzie gotowe, **zapisz** jednostkę.
 
 
-Aby obejrzeć film wideo z samouczkiem dotyczącym tworzenia hierarchii jednostek kosztów, zobacz [Creating a Cost Entity Hierarchy in Azure Cost Management by Cloudyn (Tworzenie hierarchii jednostek kosztów w usłudze Azure Cost Management na platformie Cloudyn)](https://youtu.be/dAd9G7u0FmU).
+Aby obejrzeć film wideo z samouczkiem dotyczącym tworzenia hierarchii jednostek kosztów, zobacz [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU) (Tworzenie hierarchii jednostek kosztów w usłudze Azure Cost Management).
 
-Jeśli jesteś użytkownikiem platformy Azure z umową Enterprise Agreement, obejrzyj film z samouczkiem dotyczącym kojarzenia kont i subskrypcji z jednostkami: [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn (Łączenie z usługą Azure Resource Manager przy użyciu usługi Azure Cost Management na platformie Cloudyn)](https://youtu.be/oCIwvfBB6kk).
+Jeśli jesteś użytkownikiem platformy Azure z umową Enterprise Agreement, obejrzyj film z samouczkiem dotyczącym kojarzenia kont i subskrypcji z jednostkami: [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) (Łączenie z usługą Azure Resource Manager przy użyciu usługi Azure Cost Management).
 
 ## <a name="next-steps"></a>Następne kroki
 

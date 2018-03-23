@@ -1,25 +1,29 @@
 ---
-title: "Omówienie usług Azure Location Based Services | Microsoft Docs"
-description: "Wprowadzenie do usług Azure Location Based Services (wersja zapoznawcza)"
+title: Omówienie usług Azure Location Based Services | Microsoft Docs
+description: Wprowadzenie do usług Azure Location Based Services (wersja zapoznawcza)
 services: location-based-services
-keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+keywords: ''
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Wprowadzenie do usług Azure Location Based Services (wersja zapoznawcza)
 Usługi Azure Location Based Services to portfel usług geoprzestrzennych obejmujący interfejsy API usług dla map, wyszukiwania, wyznaczania tras, ruchu drogowego oraz stref czasowych. Portfel usług zgodnych z interfejsem Azure OneAPI umożliwia używanie znanych narzędzi deweloperskich do szybkiego tworzenia i skalowania rozwiązań, które będą integrować informacje o lokalizacji w rozwiązaniach platformy Azure. Usługi Azure Location Based Services udostępniają deweloperom ze wszystkich branż zaawansowane funkcje geoprzestrzenne wraz z aktualnymi danymi map niezbędnymi do zapewniania kontekstu geograficznego aplikacjom internetowym i mobilnym. Usługi Azure Location Based Services to zestaw interfejsów API REST zgodnych z interfejsem Azure One API wyposażony w internetową kontrolkę JavaScript. Dzięki niej programowanie jest bardzo łatwe i elastyczne, a rezultaty można przenosić na różne platformy. 
+
+Następujące wideo zawiera wprowadzenie do usług Azure Location Based Services.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Usługi Azure Location Based Services składają się z pięciu głównych usług wspierających aplikacje platformy Azure wymagające kontekstu geograficznego. Każdą z tych usług omówiono poniżej.
 
@@ -64,6 +68,16 @@ Usługi Azure Location Based Services składają się z pięciu głównych usłu
 Usługi Azure Location Based Services zostały opracowane z myślą o mobilności i mogą wspierać aplikacje międzyplatformowe, ponieważ model programowania jest niezależny i obsługuje dane wyjściowe JSON za pośrednictwem interfejsów API REST. Ponadto usługi Azure LBS oferują wygodną kontrolkę mapy JavaScript z prostym modelem programowania, która umożliwia szybkie opracowywanie aplikacji internetowych i mobilnych. 
 
 Usługi Azure Location Based Services używają schematu uwierzytelniania opartego na kluczach, więc uzyskanie dostępu do usług wymaga jedynie przejścia do witryny [Azure Portal](http://portal.azure.com) i utworzenia konta usług Azure Location Based Services. Konto będzie zawierać dwa wstępnie wygenerowane klucze do użycia. Rozpocznij integrowanie tych możliwości opartych na lokalizacji bezpośrednio w aplikacjach przy użyciu dowolnego z kluczy w żądaniach wysyłanych do usług Azure Location Based Services.
+
+## <a name="unsupported-regions"></a>Nieobsługiwane regiony
+Nasze interfejsy API są obecnie niedostępne w poniższych krajach. Sprawdź swój bieżący adres IP i zweryfikuj, czy nie pochodzi on z jednego z nieobsługiwanych krajów wymienionych poniżej.
+
+* Argentyna
+* Chiny
+* Indie
+* Maroko
+* Pakistan
+* Korea Południowa
 
 ## <a name="relationship-with-bing-maps"></a>Relacja z usługą Mapy Bing
 Usługi Azure Location Based Services opisane w tym dokumencie różnią się od usług udostępnianych przez usługę Mapy Bing.  Mimo że korzystają z wielu takich samych funkcji, te usługi są różne i nie są ze sobą związane.  Dostępność nowej usługi w obrębie platformy Azure, która będzie zarządzana oddzielnie, nie ma żadnego wpływu na produkt lub harmonogram działania usługi Mapy Bing.

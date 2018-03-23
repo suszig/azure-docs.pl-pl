@@ -1,13 +1,13 @@
 ---
-title: "Baza danych Azure SQL przykład — monitor skali — jednego interfejsu wiersza polecenia | Dokumentacja firmy Microsoft"
-description: "Azure CLI przykładowy skrypt do monitorowania i skalowania pojedynczej bazy danych Azure SQL"
+title: Przykładowy skrypt interfejsu wiersza polecenia — monitorowanie i skalowanie pojedynczej bazy danych Azure SQL Database | Microsoft Docs
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do monitorowania i skalowania pojedynczej bazy danych Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
 manager: jstrauss
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune, mvc
 ms.devlang: azurecli
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 6a09558b67c3e84d1057e5e51af256e6ed71a9e5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Użyj interfejsu wiersza polecenia, aby monitorować i skalowania pojedynczej bazy danych SQL
+# <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Monitorowanie i skalowanie pojedynczej bazy danych SQL
 
-Ten przykładowy skrypt wiersza polecenia platformy Azure skaluje pojedynczej bazy danych Azure SQL do poziomu wydajności różnych po podczas badania informacji rozmiar bazy danych. 
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure skaluje pojedynczą bazę danych Azure SQL Database do innego poziomu wydajności po utworzeniu zapytania o informacje na temat rozmiaru bazy danych. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,31 +37,31 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> Użyj [listy op bazy danych sql az](/cli/azure/sql/db/op?#az_sql_db_op_list) w celu uzyskania listy operacji wykonywanych na bazie danych i użyj [Anuluj op bazy danych sql az](/cli/azure/sql/db/op#az_sql_db_op_cancel) Aby anulować operację aktualizacji w bazie danych.
+> Użyj polecenia [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) w celu uzyskania listy operacji wykonanych na bazie danych lub użyj polecenia [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) w celu anulowania operacji aktualizacji w bazie danych.
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Po uruchomieniu przykładowy skrypt następującego polecenia można usunąć grupy zasobów i wszystkie zasoby skojarzone z nim.
+Po wykonaniu przykładowego skryptu możesz uruchomić następujące polecenie, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Utwórz az programu sql server](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Tworzy serwer logiczny, który jest hostem bazy danych. |
-| [bazy danych sql az Pokaż — użycie](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | Przedstawia informacje o użyciu rozmiar bazy danych. |
-| [Aktualizacja bazy danych sql az](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Aktualizuje właściwości bazy danych (na przykład poziomu wydajności ani warstwy usług) lub przenosi bazy danych do z lub między elastyczne pule. |
-| [Usuwanie grupy az](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Tworzy serwer logiczny hostujący bazę danych. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | Pokazuje informacje o użyciu rozmiaru dla bazy danych. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Aktualizuje właściwości bazy danych (takie jak poziom wydajności lub warstwa usługi) lub przenosi bazę danych do pul elastycznych, poza nie lub między nimi. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
 
-Dodatkowe przykłady skryptów bazy danych SQL interfejsu wiersza polecenia można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).

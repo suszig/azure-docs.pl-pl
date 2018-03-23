@@ -1,21 +1,21 @@
 ---
-title: "Samouczek dotyczący przygotowywania danych do klasyfikowania irysów w usługach Azure Machine Learning (wersja zapoznawcza) | Microsoft Docs"
-description: "W całej serii tego samouczka kompleksowo przedstawiono sposób korzystania z usługi Azure Machine Learning (wersja zapoznawcza). W części pierwszej omówiono przygotowywanie danych."
+title: Samouczek dotyczący przygotowywania danych do klasyfikowania irysów w usługach Azure Machine Learning (wersja zapoznawcza) | Microsoft Docs
+description: W całej serii tego samouczka kompleksowo przedstawiono sposób korzystania z usługi Azure Machine Learning (wersja zapoznawcza). W części pierwszej omówiono przygotowywanie danych.
 services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 12cba3d4acf0e6018cea6e76df9208bcf380d976
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Samouczek: klasyfikowanie irysów, część 1 — przygotowanie danych
 
@@ -60,8 +60,8 @@ Jeśli wykonywano kroki z artykułu [Szybki start: instalacja i uruchamianie](qu
    Project name (Nazwa projektu) | myIris |Wprowadź unikatową nazwę, która identyfikuje Twoje konto. Możesz użyć własnej nazwy albo nazwy działu lub projektu, która najlepiej identyfikuje eksperyment. Nazwa powinna mieć od 2 do 32 znaków. Powinna ona zawierać tylko znaki alfanumeryczne i znak łącznika (-). 
    Katalog projektu | c:\Temp\ | Określ katalog, w którym zostanie utworzony projekt.
    Opis projektu | _Pozostaw puste_ | Pole opcjonalne przydatne do opisywania projektów.
-   Visualstudio.com |_Pozostaw puste_ | Pole opcjonalne. Możesz skojarzyć projekt z repozytorium Git w usłudze Visual Studio Team Services na potrzeby kontroli źródła i współpracy. [Dowiedz się, jak to skonfigurować](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Obszar roboczy | IrisGarden (jeśli istnieje) | Wybierz obszar roboczy utworzony dla konta Eksperymentowania w witrynie Azure Portal. <br/>Jeśli samouczek Szybki start był wykonywany, powinien już istnieć obszar roboczy o nazwie IrisGarden. W przeciwnym razie wybierz obszar roboczy utworzony podczas tworzenia konta Eksperymentowania lub dowolny inny, którego chcesz użyć.
+   Adres URL repozytorium usługi GIT VisualStudio.com |_Pozostaw puste_ | Pole opcjonalne. Możesz skojarzyć projekt z repozytorium Git w usłudze Visual Studio Team Services na potrzeby kontroli źródła i współpracy. [Dowiedz się, jak to skonfigurować](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Wybrany obszar roboczy | IrisGarden (jeśli istnieje) | Wybierz obszar roboczy utworzony dla konta Eksperymentowania w witrynie Azure Portal. <br/>Jeśli samouczek Szybki start był wykonywany, powinien już istnieć obszar roboczy o nazwie IrisGarden. W przeciwnym razie wybierz obszar roboczy utworzony podczas tworzenia konta Eksperymentowania lub dowolny inny, którego chcesz użyć.
    Szablon projektu | Classifying Iris | Szablony zawierają skrypty i dane, których można użyć, aby zapoznać się z produktem. Ten szablon zawiera skrypty i dane potrzebne w tym samouczku Szybki start oraz innych samouczkach w tej witrynie dokumentacji. 
 
    ![Nowy projekt](media/tutorial-classifying-iris/new_project.png)
@@ -77,7 +77,7 @@ W dalszej kolejności możesz przeglądać dane i rozpocząć ich przygotowywani
 
 Można go przekazać później do środowiska uruchomieniowego, takiego jak lokalne środowisko C#/CoreCLR, Scala/Spark lub Scala/HDI. 
 
-1. Wybierz ikonę folderu, aby otworzyć widok plików, a następnie wybierz plik **iris.csv** w celu jego otwarcia.  
+1. Wybierz ikonę folderu, aby otworzyć widok Pliki, a następnie wybierz plik **iris.csv** w celu jego otwarcia.
 
    Ten plik zawiera tabelę składającą się z 5 kolumn i 50 wierszy. Cztery kolumny są kolumnami funkcji liczbowych. Piąta kolumna jest kolumną docelową ciągu. Żadna z tych kolumn nie ma nazwy nagłówka.
 
@@ -90,28 +90,25 @@ Można go przekazać później do środowiska uruchomieniowego, takiego jak loka
 
    ![Widok danych w aplikacji Azure Machine Learning Workbench](media/tutorial-classifying-iris/data_view.png)
 
-3. Wybierz pozycję **Pliki tekstowe(*.csv, .json, .txt, ...)** i kliknij przycisk **Dalej**.
+3. Wybierz pozycję **Pliki tekstowe(\*.csv, \*.json, \*.txt., ...)** i kliknij przycisk **Dalej**.
    ![Źródło danych w aplikacji Azure Machine Learning Workbench](media/tutorial-classifying-iris/data-source.png)
-   
 
-4. Wskaż plik **iris.csv** i kliknij przycisk **Dalej**.  
+4. Przejdź do pliku **iris.csv** i kliknij pozycję **Zakończ**. Spowoduje to użycie wartości domyślnych parametrów, takich jak separator i typy danych.
 
    >[!IMPORTANT]
    >Na potrzeby tego ćwiczenia wybierz plik **iris.csv** z bieżącego katalogu projektu. W przeciwnym razie dalsze kroki mogą zakończyć się niepowodzeniem.
  
    ![Wybierz iris](media/tutorial-classifying-iris/select_iris_csv.png)
    
-5. Pozostaw wartości domyślne i kliknij przycisk **Zakończ**.
-
-6. Zostanie utworzony nowy plik o nazwie **iris-1.dsource**. Plik ma unikatową nazwę z sufiksem „-1”, ponieważ przykładowy projekt zawiera już nienumerowany plik **iris.dsource**.  
+5. Zostanie utworzony nowy plik o nazwie **iris-1.dsource**. Plik ma unikatową nazwę z sufiksem „-1”, ponieważ przykładowy projekt zawiera już nienumerowany plik **iris.dsource**.  
 
    Plik zostanie otwarty i widoczne będą dane. Do zestawu danych zostaną automatycznie dodane nagłówki kolumn od **Column1** do **Column5**. Przewiń w dół i zwróć uwagę, że ostatni wiersz z zestawu danych jest pusty. Wiersz jest pusty, ponieważ plik CSV zawiera dodatkowy podział wiersza.
 
    ![Widok danych irysów](media/tutorial-classifying-iris/iris_data_view.png)
 
-1. Wybierz przycisk **Metryki**. Spowoduje to wygenerowanie histogramów i wyświetlenie ich na ekranie.
+1. Wybierz przycisk **Metryki**. Spowoduje to wygenerowanie i wyświetlenie histogramów.
 
-   Wróć do widoku danych, naciskając przycisk **Dane**. 
+   Możesz wrócić do widoku danych, wybierając przycisk **Dane**.
    
    ![Widok danych irysów](media/tutorial-classifying-iris/iris_data_view_metrics.png)
 
@@ -121,7 +118,7 @@ Można go przekazać później do środowiska uruchomieniowego, takiego jak loka
 
 8. Rozpocznij tworzenie pakietu przygotowywania danych, naciskając przycisk **Przygotowywanie**. Zostanie otwarte okno dialogowe **Przygotowywanie**. 
 
-   Przykładowy projekt zawiera domyślnie plik przygotowywania danych **iris.dprep**. 
+   Przykładowy projekt zawiera domyślnie wybrany plik przygotowywania danych **iris.dprep**. 
 
    ![Widok danych irysów](media/tutorial-classifying-iris/prepare.png)
 
@@ -129,7 +126,7 @@ Można go przekazać później do środowiska uruchomieniowego, takiego jak loka
 
    ![Widok danych irysów](media/tutorial-classifying-iris/prepare_new.png)
 
-1. Wprowadź nową wartość nazwy pakietu (użyj nazwy **iris 1**), a następnie wybierz pozycję **OK**.
+1. Wprowadź nową wartość nazwy pakietu (użyj nazwy **iris-1**), a następnie wybierz pozycję **OK**.
 
    Nowy pakiet przygotowania danych o nazwie **iris-1.dprep** zostanie utworzony i otwarty w edytorze przygotowywania danych.
 
@@ -148,7 +145,7 @@ Można go przekazać później do środowiska uruchomieniowego, takiego jak loka
    1. Kliknij prawym przyciskiem myszy, aby ją zaznaczyć. 
    1. Z menu rozwijanego wybierz pozycję **Liczba wartości**. 
 
-   Poniżej danych zostanie otwarte okienko **Inspektorzy**. Zostanie wyświetlony histogram z czterema słupkami. Kolumna docelowa ma trzy różne wartości: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** i wartość **(null)**.
+   Poniżej danych zostanie otwarte okienko **Inspektorzy**. Zostanie wyświetlony histogram z czterema słupkami. Kolumna docelowa ma cztery różne wartości: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** i wartość **(null)**.
 
    ![Wybieranie pozycji Liczba wartości](media/tutorial-classifying-iris/value_count.png)
 
@@ -160,11 +157,11 @@ Można go przekazać później do środowiska uruchomieniowego, takiego jak loka
 
    ![Filtrowanie wartości null](media/tutorial-classifying-iris/filter_out2.png)
 
-1. Zwróć uwagę na poszczególne etapy przygotowywania danych, które zostały szczegółowo opisane w okienku **KROKI**. Każda akcja dotycząca zmiany nazw kolumn i filtrowania wierszy z wartością null została zarejestrowana jako krok przygotowywania danych. Poszczególne kroki można edytować, aby dostosować ustawienia, zmienić kolejność kroków i usunąć kroki.
+1. Zwróć uwagę na poszczególne etapy przygotowywania danych, które zostały szczegółowo opisane w okienku **KROKI**. Każda akcja dotycząca zmiany nazw kolumn i filtrowania wierszy z wartością null została zarejestrowana jako krok przygotowywania danych. Poszczególne kroki można edytować, aby dostosować ich ustawienia, zmienić kolejność i je usunąć.
 
    ![Kroki](media/tutorial-classifying-iris/steps.png)
 
-1. Zamknij Kreatora przygotowywania danych. Wybierz ikonę x na karcie **iris-1** z ikoną wykresu, aby zamknąć kartę. Twoja praca zostanie automatycznie zapisana w pliku **iris-1.dprep** wyświetlanym w obszarze oznaczonym nagłówkiem **Przygotowywanie danych**.
+1. Zamknij Kreatora przygotowywania danych. Wybierz ikonę **x** na karcie **iris-1** z ikoną wykresu, aby zamknąć kartę. Twoja praca zostanie automatycznie zapisana w pliku **iris-1.dprep** wyświetlanym w obszarze oznaczonym nagłówkiem **Przygotowywanie danych**.
 
    ![Zamykanie](media/tutorial-classifying-iris/close.png)
 
@@ -197,7 +194,7 @@ Można go przekazać później do środowiska uruchomieniowego, takiego jak loka
    df.head(10)
    ```
 
-   W zależności od kontekstu uruchamiania kodu element `df` reprezentuje rodzaj ramki danych. 
+   W zależności od kontekstu uruchamiania kodu element `df` reprezentuje inny rodzaj ramki DataFrame:
    + Podczas wykonywania w środowisku uruchomieniowym języka Python jest używana ramka danych [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html).
    + Podczas wykonywania w kontekście aparatu Spark jest używana ramka danych [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html). 
    

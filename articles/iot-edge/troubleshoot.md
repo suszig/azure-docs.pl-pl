@@ -1,8 +1,8 @@
 ---
-title: "Rozwiązywanie problemów z usługą Azure IoT Edge | Microsoft Docs"
-description: "Rozwiązywanie typowych problemów i nabywanie umiejętności rozwiązywania problemów z usługą Azure IoT Edge"
+title: Rozwiązywanie problemów z usługą Azure IoT Edge | Microsoft Docs
+description: Rozwiązywanie typowych problemów i nabywanie umiejętności rozwiązywania problemów z usługą Azure IoT Edge
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5de069eb35e88c1dce6dcfa5a1661e8ab87302b1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Typowe problemy z usługą Azure IoT Edge i ich rozwiązania
 
@@ -30,10 +30,10 @@ W przypadku wystąpienia problemu dowiedz się więcej o stanie urządzenia usł
    docker logs <container name>
    ```
 
-* Przejrzyj komunikaty przechodzące przez centrum usługi Edge i zbierz analizy dotyczące aktualizacji właściwości urządzenia za pomocą szczegółowych dzienników z kontenerów środowiska wykonawczego.
+* Przejrzyj komunikaty przechodzące przez centrum usługi Edge i zbierz analizy dotyczące aktualizacji właściwości urządzenia za pomocą szczegółowych dzienników z kontenerów środowiska wykonawczego. Jeśli wykonujesz procedury z artykułów Szybki start, może być konieczne dodanie opcji „--auto-cert-gen-force-no-passwords”.
 
    ```cmd
-   iotedgectl setup --runtime-log-level DEBUG
+   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
    ```
 
 * Jeśli wystąpią problemy z łącznością, zbadaj zmienne środowiskowe urządzenia Edge, takie jak parametry połączenia urządzenia:
@@ -96,6 +96,23 @@ Agent usługi Edge nie ma uprawnień dostępu do obrazu modułu.
 
 ### <a name="resolution"></a>Rozwiązanie
 Spróbuj uruchomić ponownie polecenie `iotedgectl login`.
+
+## <a name="iotedgectl-cant-find-docker"></a>Polecenie iotedgectl nie może znaleźć platformy Docker
+Polecenie iotedgectl nie może uruchomić instalatora lub polecenia uruchomienia i zapisuje w dziennikach następujący komunikat:
+```output
+File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
+  info = self._client.info()
+File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
+  return self.api.info(*args, **kwargs)
+File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
+  return self._result(self._get(self._url("/info")), True)
+```
+
+### <a name="root-cause"></a>Główna przyczyna
+Polecenie iotedgectl nie może znaleźć platformy Docker, która jest wymaganiem wstępnym.
+
+### <a name="resolution"></a>Rozwiązanie
+Zainstaluj platformę Docker, upewnij się, że jest uruchomiona, i spróbuj ponownie.
 
 ## <a name="next-steps"></a>Następne kroki
 Uważasz, że znaleziono usterkę platformy IoT Edge? [Prześlij problem](https://github.com/Azure/iot-edge/issues), aby umożliwić nam naprawę. 

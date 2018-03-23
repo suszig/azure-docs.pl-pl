@@ -1,6 +1,6 @@
 ---
-title: "Sieciowe grupy zabezpieczeń na platformie Azure | Microsoft Docs"
-description: "Dowiedz się, jak izolować przepływ ruchu i sterować nim w sieciach wirtualnych przy użyciu rozproszonej zapory platformy Azure korzystającej z sieciowych grup zabezpieczeń."
+title: Sieciowe grupy zabezpieczeń na platformie Azure | Microsoft Docs
+description: Dowiedz się, jak izolować przepływ ruchu i sterować nim w sieciach wirtualnych przy użyciu rozproszonej zapory platformy Azure korzystającej z sieciowych grup zabezpieczeń.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń
 
 Sieciowa grupa zabezpieczeń (NSG, network security group) zawiera listę reguł zabezpieczeń, które blokują lub zezwalają na ruch sieciowy do zasobów połączonych z usługami Azure Virtual Network (VNet). Sieciowe grupy zabezpieczeń można skojarzyć z podsieciami, poszczególnymi maszynami wirtualnymi (model klasyczny) lub poszczególnymi interfejsami sieciowymi (NIC) dołączonymi do maszyn wirtualnych (model usługi Resource Manager). Jeśli sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, te reguły są stosowane do wszystkich zasobów połączonych z tą podsiecią. Ruch można ograniczyć jeszcze bardziej, kojarząc sieciową grupę zabezpieczeń również z maszyną wirtualną lub kartą sieciową.
-
+ 
 > [!NOTE]
 > Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md). W tym artykule przedstawiono oba modele, ale firma Microsoft zaleca przeprowadzanie większości nowych wdrożeń z zastosowaniem modelu wdrażania przy użyciu usługi Azure Resource Manager.
 
@@ -98,7 +98,7 @@ W zależności od używanego modelu wdrażania sieciową grupę zabezpieczeń mo
 
 * **Maszyna wirtualna (tylko model klasyczny):** reguły zabezpieczeń są stosowane do całego ruchu do/z maszyny wirtualnej. 
 * **Karta sieciowa (tylko model Resource Manager):** reguły zabezpieczeń są stosowane do całego ruchu do/z karty sieciowej, z którą jest skojarzona sieciowa grupa zabezpieczeń. Na maszynie wirtualnej wyposażonej w wiele kart sieciowych można stosować różne (lub takie same) sieciowe grupy zabezpieczeń do poszczególnych kart sieciowych. 
-* **Podsieć (model Resource Manager i klasyczny):** reguły zabezpieczeń są stosowane do dowolnego ruchu do/z dowolnego zasobu połączonego z siecią wirtualną.
+* **Podsieć (model Resource Manager i klasyczny):** reguły zabezpieczeń są stosowane do dowolnego ruchu do/z dowolnego zasobu połączonego z podsiecią.
 
 Można skojarzyć różne sieciowe grupy zabezpieczeń z maszyną wirtualną (lub kartą sieciową, w zależności od modelu wdrażania) i podsiecią, z którą jest połączona karta sieciowa lub maszyna wirtualna. Reguły zabezpieczeń są stosowane do ruchu sieciowego według priorytetu w poszczególnych sieciowych grupach zabezpieczeń w następującej kolejności:
 
