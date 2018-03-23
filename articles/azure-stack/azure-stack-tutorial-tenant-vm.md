@@ -1,31 +1,28 @@
 ---
-title: "Udostępnić użytkownikom stosu Azure maszyny wirtualnej | Dokumentacja firmy Microsoft"
-description: "Samouczek, aby udostępnić maszyn wirtualnych na stosie Azure"
+title: Udostępnić użytkownikom stosu Azure maszyny wirtualnej | Dokumentacja firmy Microsoft
+description: Samouczek, aby udostępnić maszyn wirtualnych na stosie Azure
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Udostępnić użytkownikom stosu Azure maszyny wirtualne
-
-*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
-
 Jako administrator chmury Azure stosu można utworzyć oferty, które mogą subskrybować użytkowników (nazywane czasami dzierżawcy). Za pomocą swoich subskrypcji, użytkownicy będą mogły używać usługi Azure stosu.
 
 W tym artykule przedstawiono sposób tworzenia oferty, a następnie sprawdź go. Dla testu będzie zalogować się do portalu jako użytkownik, subskrybować oferty, a następnie utwórz maszynę wirtualną przy użyciu subskrypcji.
@@ -117,11 +114,11 @@ Teraz, po utworzeniu oferty, można sprawdzić. Zaloguj się jako użytkownik i 
 
    a. Zaloguj się do portalu użytkowników jako użytkowników i kliknij przycisk **uzyskania subskrypcji**.
    - Zintegrowany system adres URL zmienia się na podstawie od regionu i nazwy domen zewnętrznych z operatorem i będzie w format https://portal. &lt; *region*&gt;.&lt; *FQDN*&gt;.
-   - Jeśli używasz usługi Azure stosu Development Kit portalu adres jest https://portal.local.azurestack.external.
+   - Jeśli używasz usługi Azure stosu Development Kit adres portalu jest https://portal.local.azurestack.external.
 
    ![Uzyskaj subskrypcję](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. W **Nazwa wyświetlana** pola, wpisz nazwę dla Twojej subskrypcji, kliknij przycisk **oferują**, kliknij jeden z oferty w **wybierz ofertę** sekcji, a następnie kliknij przycisk ** Utwórz**.
+   b. W **Nazwa wyświetlana** pola, wpisz nazwę dla Twojej subskrypcji, kliknij przycisk **oferują**, kliknij jeden z oferty w **wybierz ofertę** sekcji, a następnie kliknij przycisk  **Utwórz**.
 
    ![Tworzenie oferty](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
@@ -135,7 +132,7 @@ Teraz, po utworzeniu oferty, można sprawdzić. Zaloguj się jako użytkownik i 
 
    a. Zaloguj się do portalu użytkowników, jako użytkownik.
       - Zintegrowany system adres URL zmienia się na podstawie od regionu i nazwy domen zewnętrznych z operatorem i będzie w format https://portal. &lt; *region*&gt;.&lt; *FQDN*&gt;.
-   - Jeśli używasz usługi Azure stosu Development Kit portalu adres jest https://portal.local.azurestack.external.
+   - Jeśli używasz usługi Azure stosu Development Kit adres portalu jest https://portal.local.azurestack.external.
 
    b.  Na pulpicie nawigacyjnym kliknij **nowy** > **obliczeniowe** > **Eval centrum danych systemu Windows Server 2016**, a następnie kliknij przycisk **Utwórz**.
 

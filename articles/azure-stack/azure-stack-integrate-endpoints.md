@@ -1,20 +1,20 @@
 ---
-title: "Azure stosu integracji datacenter — publikować punkty końcowe"
-description: "Dowiedz się, jak publikować punkty końcowe platformy Azure stosu w centrum danych."
+title: Azure stosu integracji datacenter — publikować punkty końcowe
+description: Dowiedz się, jak publikować punkty końcowe platformy Azure stosu w centrum danych.
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-keywords: 
-ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 694b8604949406c1c3064fd91bf1fe38f83ee946
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stosu integracji datacenter — publikować punkty końcowe
 Stos Azure konfiguruje wirtualnych adresów IP (VIP) do jego role infrastruktury. Te adresy VIP są przydzielone z puli publicznych adresów IP. Każdy adres VIP jest zabezpieczony z listy kontroli dostępu (ACL) w warstwie sieci zdefiniowanych przez oprogramowanie. Listy ACL są również używane przez przełączniki fizyczne (torach i BMC) dodatkowo zabezpieczyć rozwiązanie. Wpis DNS jest tworzony dla każdego punktu końcowego w strefie DNS zewnętrznego, który określono w czasie wdrażania.

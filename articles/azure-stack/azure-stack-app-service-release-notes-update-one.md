@@ -1,27 +1,27 @@
 ---
-title: "Usługi aplikacji w usłudze Azure stosu Update jeden | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat nowości w aktualizacji, jeden dla usługi aplikacji Azure stosu, znane problemy i pobierania aktualizacji."
+title: Usługi aplikacji — informacje o wersji 1 update stosu Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat nowości w aktualizacji, jeden dla usługi aplikacji Azure stosu, znane problemy i pobierania aktualizacji.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 0c33c8fdefbb27ba8414e58bed1b42ee7aaba88a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="app-service-on-azure-stack-update-one-release-notes"></a>Usługa aplikacji Azure stosu zaktualizować co informacje o wersji
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>Usługi aplikacji — informacje o wersji 1 update Azure stosu
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
@@ -39,7 +39,7 @@ Usługa aplikacji Azure stosu Update 1 numer kompilacji jest **69.0.13698.9**
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 > [!IMPORTANT]
-> Usługa aplikacji Azure na stosie Azure wymaga teraz [certyfikat uniwersalny podmiotu trzech](azure-stack-app-service-before-you-get-started.md#get-certificates) ze względu na ulepszenia w taki sposób, w jaki usługa rejestracji Jednokrotnej dla Kudu teraz obsługiwane w usłudze Azure App Service.  Nowy temat jest ** *. sso.appservice.<region>. <domainname>.<extension>**
+> Nowe wdrożenia usługi Azure App Service na stosie Azure wymaga [certyfikat uniwersalny podmiotu trzech](azure-stack-app-service-before-you-get-started.md#get-certificates) ze względu na ulepszenia w taki sposób, w jaki usługa rejestracji Jednokrotnej dla Kudu teraz obsługiwane w usłudze Azure App Service.  Nowy temat jest ** *. sso.appservice.<region>. <domainname>.<extension>**
 >
 >
 
@@ -103,7 +103,13 @@ Usługa aplikacji Azure na Azure stosu Update 1 zawiera następujące ulepszenia
 
 ### <a name="known-issues-with-the-deployment-process"></a>Znane problemy z procesu wdrażania
 
-- Nie są znane problemy dla wdrożenia usługi Azure App Service na Azure stosu Update 1.
+- Błędy sprawdzania poprawności certyfikatu
+
+Niektórzy klienci wystąpić problemy podczas dostarczania certyfikatów Instalatora usługi aplikacji podczas wdrażania w systemie zintegrowane z powodu zbyt restrykcyjne weryfikacji w Instalatorze.  Instalator usługi aplikacji została ponownie wydana, jeżeli klienci [Pobierz zaktualizowany Instalator](https://aka.ms/appsvconmasinstaller).  Jeśli nadal występują problemy dotyczące sprawdzania poprawności certyfikatów przy użyciu zaktualizowanych Instalatora, należy się z pomocą techniczną.
+
+- Problem podczas pobierania certyfikatu głównego stosu Azure z zintegrowany system.
+
+Błąd w Get AzureStackRootCert.ps1 spowodował klientów nie można pobrać certyfikat główny stos Azure podczas wykonywania skryptu na komputerze, na którym nie ma zainstalowany certyfikat główny.  Skrypt teraz również opublikowano ponownie, rozwiązywanie tego problemu, a żądania klientów [Pobierz skrypty zaktualizowane Pomocnika](https://aka.ms/appsvconmashelpers).  Jeśli nadal występują problemy podczas pobierania certyfikatu głównego z zaktualizowany skrypt, skontaktuj się z pomocą techniczną.
 
 ### <a name="known-issues-with-the-update-process"></a>Znane problemy związane z procesem aktualizacji
 
@@ -111,13 +117,91 @@ Usługa aplikacji Azure na Azure stosu Update 1 zawiera następujące ulepszenia
 
 ### <a name="known-issues-post-installation"></a>Znane problemy (po instalacji)
 
-- Nie są znane problemy dotyczące instalacji usługi Azure App Service na Azure stosu Update 1.
+- Wymiany gniazd nie działa.
+
+Wymiany gniazd lokacji są dzielone w tej wersji.  Aby przywrócić funkcjonalność, wykonaj następujące kroki:
+
+1. Modyfikowanie grupy zabezpieczeń sieci ControllersNSG do **Zezwalaj** połączeń pulpitu zdalnego do wystąpień kontrolera usługi aplikacji.  Zamień na nazwę grupy zasobów, wdrożonej usługi aplikacji w AppService.local.
+
+    ```powershell
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+2. Przejdź do **CN0-VM** w obszarze maszyn wirtualnych w portalu Azure stosu administratora i **kliknij przycisk Połącz** otworzyć sesję pulpitu zdalnego z wystąpienie kontrolera.  Użyj poświadczeń określonych podczas wdrażania usługi aplikacji.
+3. Uruchom **programu PowerShell jako Administrator** i uruchom następujący skrypt
+
+    ```powershell
+        Import-Module appservice
+
+        $sm = new-object Microsoft.Web.Hosting.SiteManager
+
+        if($sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$true)
+        {
+          $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$false
+        #  'Slot swap mode reverted'
+        }
+        
+        # Confirm new setting is false
+        $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus
+        
+        # Commit Changes
+        $sm.CommitChanges()
+
+        Get-AppServiceServer -ServerType ManagementServer | ForEach-Object Repair-AppServiceServer
+        
+    ```
+
+4. Zamykanie sesji usług pulpitu zdalnego.
+5. Przywróć ControllersNSG sieciową grupę zabezpieczeń do **Odmów** połączeń pulpitu zdalnego do wystąpień kontrolera usługi aplikacji.  Zamień na nazwę grupy zasobów, wdrożonej usługi aplikacji w AppService.local.
+
+    ```powershell
+
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Znane problemy dotyczące działania usługi Azure App Service na stosie Azure Administratorzy chmury
 
 Zapoznaj się z dokumentacją w [1802 stosu Azure informacje o wersji](azure-stack-update-1802.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Kolejne kroki
 
 - Omówienie usługi Azure App Service, zobacz [usłudze Azure App Service na stos Azure omówienie](azure-stack-app-service-overview.md).
 - Aby uzyskać więcej informacji dotyczących sposobu przygotowania do wdrożenia usługi aplikacji Azure stosu, zobacz [przed rozpoczęciem pracy z usługi aplikacji Azure stosu](azure-stack-app-service-before-you-get-started.md).

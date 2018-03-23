@@ -131,6 +131,8 @@
   items:
     - name: Dokumentacja operatora usługi Azure Stack
       href: /azure/azure-stack/
+    - name: Dokumentacja ASDK
+      href: /azure/azure-stack/asdk/
 - name: Zasoby
   items:
     - name: Mapa usługi Azure stosu

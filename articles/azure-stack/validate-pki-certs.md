@@ -1,25 +1,25 @@
 ---
-title: "Sprawdź poprawność certyfikatów infrastruktury kluczy publicznych stosu Azure stosu Azure zintegrowanych systemów wdrożenia | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób sprawdzania poprawności certyfikatów PKI stosu Azure stosu Azure zintegrowanych systemów."
+title: Sprawdź poprawność certyfikatów infrastruktury kluczy publicznych stosu Azure stosu Azure zintegrowanych systemów wdrożenia | Dokumentacja firmy Microsoft
+description: Opisuje sposób sprawdzania poprawności certyfikatów PKI stosu Azure stosu Azure zintegrowanych systemów.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86f1b889d83905abfb5ddab2e82f32922409ff5f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Sprawdź poprawność certyfikatów PKI stosu Azure
 Narzędzie sprawdzania certyfikatów stosu Azure opisane w tym artykule są dostarczane przez producenta OEM dołączonego pliku deploymentdata.json, aby sprawdzić, czy [wygenerowanych certyfikatów PKI](azure-stack-get-pki-certs.md) nadają się do przed wdrożeniem. Certyfikaty powinny być weryfikowane z wystarczająco dużo czasu na test i uzyskać certyfikaty ponownie w razie potrzeby. 

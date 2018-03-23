@@ -1,25 +1,25 @@
 ---
 title: Zainstaluj zestaw Azure stosu Development Kit (ASDK) | Dokumentacja firmy Microsoft
-description: "Opisuje sposób instalowania Azure stosu Development Kit (ASDK)."
+description: Opisuje sposób instalowania Azure stosu Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Zainstaluj zestaw Azure stosu Development Kit (ASDK)
 Po [Przygotowywanie komputera hosta ASDK](asdk-prepare-host.md), ASDK można wdrożyć w obrazie CloudBuilder.vhdx, wykonując następujące kroki w tym artykule.
@@ -55,8 +55,10 @@ Kroki opisane w tym artykule opisano sposób wdrażania ASDK przy użyciu grafic
     - **DHCP** (domyślnie): maszyny wirtualnej pobiera konfigurację sieci IP od serwera DHCP.
     - **Statyczne**: tej opcji należy używać tylko wtedy, gdy DHCP nie można przypisać prawidłowy adres IP dla stosu Azure na dostęp do Internetu. **Należy określić statyczny adres IP o długości maska podsieci w formacie CIDR (na przykład 10.0.0.5/24)**.
     - Wpisz w prawidłowy **czasu adres IP serwera** adres. Wymaganego pola ustawia czas server używanego przez zestaw deweloperski. Ten parametr musi być dostarczona jako adres IP serwera czas ważności. Nazwy serwerów nie są obsługiwane.
+
       > [!TIP]
       > Aby znaleźć adres IP serwera czasu, odwiedź stronę [pool.ntp.org](http:\\pool.ntp.org) lub polecenie ping time.windows.com. 
+
     - **Opcjonalnie**, ustaw następujące wartości:
         - **Identyfikator sieci VLAN**: Określa identyfikator sieci VLAN. Tej opcji należy używać tylko wtedy, gdy host i AzS BGPNAT01 należy skonfigurować identyfikator sieci VLAN umożliwiający dostęp do sieci fizycznej (i Internetu). 
         - **Usługa przesyłania dalej DNS**: serwer DNS jest tworzony jako część wdrożenia stosu Azure. Aby umożliwić komputerom wewnątrz rozwiązania do rozpoznawania nazw poza sygnatury, podaj istniejącej infrastruktury serwera DNS. Serwer DNS w sygnatury przekazuje żądania rozpoznania nieznanej nazwy do tego serwera.
@@ -88,10 +90,10 @@ Gratulacje, po zainstalowaniu pomyślnie ASDK!
 
 Jeśli wdrożenie nie powiedzie się z jakiegoś powodu, możesz [ponownie wdrożyć](asdk-redeploy.md) od podstaw lub użyj programu PowerShell następujących poleceń, z tego samego okna programu PowerShell z podwyższonym poziomem uprawnień, uruchom ponownie wdrażanie w ostatnim kroku powiodło się:
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>Kolejne kroki
 [Konfiguracja wdrożenia POST](asdk-post-deploy.md)

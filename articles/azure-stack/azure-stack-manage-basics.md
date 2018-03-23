@@ -1,11 +1,11 @@
 ---
 title: Azure podstawy administracji stosu | Dokumentacja firmy Microsoft
-description: "Dowiedz się, co jest potrzebne do administrowania systemem Azure stosu."
+description: Dowiedz się, co jest potrzebne do administrowania systemem Azure stosu.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Azure podstawy administracji stosu
-
-*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
-
 Istnieje kilka kwestii, które trzeba znać, jeśli zaczynasz administracji stosu Azure. We wskazówkach tych zawiera omówienie roli jako operator stosu Azure i należy mówić użytkownikom na ich szybko stać się produktywności.
 
 ## <a name="understand-the-builds"></a>Zrozumienie kompilacji
@@ -48,7 +45,7 @@ Domyślnie stosu Azure zawiera następujące "podstawowych usługi" podczas wdra
 
 - Wystąpienia obliczeniowe
 - Magazyn
-- Sieć
+- Networking
 - Usługa Key Vault
 
 Z tych podstawowych usług może oferować użytkownikom z minimalną konfiguracją infrastruktury jako — usługa (IaaS).
@@ -58,7 +55,7 @@ Z tych podstawowych usług może oferować użytkownikom z minimalną konfigurac
 Obecnie obsługują następujące dodatkowe usługi platformy jako — usługa (PaaS):
 
 - App Service
-- Stan usługi Funkcje Azure
+- Azure Functions
 - Bazy danych SQL i MySQL
 
 Te usługi wymagają dodatkowej konfiguracji przed można udostępnić je użytkownikom. Aby uzyskać więcej informacji zobacz "Samouczki" i "guides\Offer poradnik dotyczący usługi" części dokumentacji operator stosu Azure.
@@ -132,7 +129,7 @@ Dla żadnych innych czynności skontaktuj się z Microsoft CSS.
 
 Dla zestawu SDK, można zadawać pytania dotyczące pomocy technicznej w [fora Microsoft](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Jeśli kliknij ikonę Pomoc i obsługa techniczna (znak zapytania) w prawym górnym rogu portalu administratora, a następnie kliknij przycisk **nowy obsługuje żądania**, to spowoduje otwarcie witryny fora bezpośrednio. Fora te są regularnie monitorowane. Ponieważ zestaw deweloperski środowiska do oceny, nie jest oficjalną obsługiwane oferowane przez firmy Microsoft CSS.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zarządzanie regionu Azure stosu](azure-stack-region-management.md)
 

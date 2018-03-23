@@ -1,25 +1,25 @@
 ---
-title: "Przygotowywanie certyfikatów infrastruktury kluczy publicznych stosu Azure do wdrożenia systemów stosu Azure zintegrowanych | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób przygotowania certyfikatów PKI stosu Azure stosu Azure zintegrowanych systemów."
+title: Przygotowywanie certyfikatów infrastruktury kluczy publicznych stosu Azure do wdrożenia systemów stosu Azure zintegrowanych | Dokumentacja firmy Microsoft
+description: Opisuje sposób przygotowania certyfikatów PKI stosu Azure stosu Azure zintegrowanych systemów.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b2f1e9bf62773dd7124678552f23dd9262530031
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Przygotowanie do wdrożenia certyfikatów PKI stosu Azure
 Pliki certyfikatów [uzyskany z urzędu certyfikacji wyboru](azure-stack-get-pki-certs.md) musi być zaimportowane i wyeksportowane z właściwościami dopasowania wymagań dotyczących certyfikatów Azure stosu.

@@ -1,25 +1,25 @@
 ---
-title: "Wymagania wstępne dotyczące usługi Azure stosu Development Kit wdrażania (ASDK) | Dokumentacja firmy Microsoft"
-description: "Przejrzyj wymagania dotyczące sprzętu i środowisko dla Azure stosu Development Kit (ASDK)."
+title: Wymagania wstępne dotyczące usługi Azure stosu Development Kit wdrażania (ASDK) | Dokumentacja firmy Microsoft
+description: Przejrzyj wymagania dotyczące sprzętu i środowisko dla Azure stosu Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24a766ada1cdd1cb854b6869d571acd73e376327
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Zagadnienia związane z planowaniem wdrożenia usługi Azure stosu
 Przed wdrożeniem Azure stosu Development Kit (ASDK), upewnij się, że komputer-host zestawu programowanie spełnia wymagania opisane w tym artykule.
@@ -34,7 +34,7 @@ Przed wdrożeniem Azure stosu Development Kit (ASDK), upewnij się, że komputer
 | Obliczenia: pamięć |96 GB pamięci RAM |128 GB pamięci RAM (jest to co najmniej do obsługi dostawców zasobów PaaS).|
 | Obliczenia: system BIOS |Włączona funkcja Hyper-V (z obsługą usługi SLAT) |Włączona funkcja Hyper-V (z obsługą usługi SLAT) |
 | Sieć: karta sieciowa |Wymagany certyfikat systemu Windows Server 2012 R2 dla karty sieciowej; żadne specjalne funkcje nie są wymagane |Wymagany certyfikat systemu Windows Server 2012 R2 dla karty sieciowej; żadne specjalne funkcje nie są wymagane |
-| Certyfikacja logo sprzętu |[Certyfikowane dla systemu Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certyfikowane dla systemu Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Certyfikacja logo sprzętu |[Certyfikowane dla systemu Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certyfikowane dla systemu Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Potrzebujesz więcej niż zalecana pojemność, jeśli planowane jest dodanie wiele [elementów marketplace](asdk-marketplace-item.md) z platformy Azure.
 
