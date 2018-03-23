@@ -1,33 +1,33 @@
 ---
-title: "Rejestracja w usłudze Azure stosu Azure zintegrowanych systemów | Dokumentacja firmy Microsoft"
-description: "Zawiera opis procesu rejestracji Azure wdrożeniach z wieloma węzłami połączone Azure stosu Azure."
+title: Rejestracja w usłudze Azure stosu Azure zintegrowanych systemów | Dokumentacja firmy Microsoft
+description: Zawiera opis procesu rejestracji Azure wdrożeniach z wieloma węzłami połączone Azure stosu Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.reviewer: avishwan
+ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Zarejestruj stosu Azure przy użyciu platformy Azure
-Stos Azure można zarejestrować przy użyciu platformy Azure, aby pobrać elementów marketplace z platformy Azure i ustaw commerce dane raportowania z powrotem do firmy Microsoft. Po zarejestrowaniu stosu Azure użycia jest zgłaszane do handlu Azure. Można to sprawdzić w ramach subskrypcji, używanego do rejestracji.
+Rejestrowanie [stosu Azure](azure-stack-poc.md) z platformą Azure umożliwia pobieranie elementów marketplace z platformy Azure i ustawienia commerce danych raportowania z powrotem do firmy Microsoft. Po zarejestrowaniu stosu Azure użycia jest zgłaszany do handlu Azure i widoczny w ramach subskrypcji, używana do rejestracji. 
 
 > [!IMPORTANT]
 > Rejestracja jest wymagane, jeśli wybierzesz modelu rozliczeń płatności jako — użytkownik użycia. W przeciwnym razie będzie do naruszenia postanowień licencyjnych dotyczących wdrożenia stosu Azure zgodnie z użycia w przeciwnym razie nie będzie raportowana.
 
-## <a name="before-you-register-azure-stack-with-azure"></a>Przed zarejestrowaniem stosu Azure przy użyciu platformy Azure
+## <a name="prerequisites"></a>Wymagania wstępne
 Przed zarejestrowaniem stosu Azure przy użyciu platformy Azure, musi mieć:
 
 - Identyfikator subskrypcji dla subskrypcji platformy Azure. Można uzyskać Identyfikatora, logowanie do platformy Azure, kliknij przycisk **więcej usług** > **subskrypcje**, kliknij subskrypcję, którego chcesz użyć, a następnie w obszarze **Essentials** można znaleźć Identyfikator subskrypcji. 
@@ -36,52 +36,48 @@ Przed zarejestrowaniem stosu Azure przy użyciu platformy Azure, musi mieć:
   > Chin, Niemczech i instytucji rządowych Stanów Zjednoczonych subskrypcje w chmurze nie są obecnie obsługiwane. 
 
 - Nazwa użytkownika i hasło dla konta, które jest właścicielem subskrypcji (obsługiwane są konta MSA/2FA)
-- *Niewymagana, począwszy od wersji aktualizacji 1712 stosu Azure (180106.1)*: usługi Azure AD dla subskrypcji platformy Azure. Ten katalog można znaleźć na platformie Azure, ustawiając kursor nad Awatar w prawym górnym rogu portalu Azure. 
-- Zarejestrowano dostawcę zasobów Azure stosu (zobacz poniższą sekcję zarejestrować dostawcy zasobów stosu Azure, aby uzyskać szczegółowe informacje)
+- Zarejestrowano dostawcę zasobów Azure stosu (zobacz poniższą sekcję zarejestrować dostawcy zasobów stosu Azure, aby uzyskać szczegółowe informacje).
 
 Jeśli nie masz subskrypcji platformy Azure, która spełnia te wymagania, możesz [utworzyć tutaj bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?b=17.06). Rejestrowanie stosu Azure wiąże się bez kosztów w ramach subskrypcji platformy Azure.
 
 ### <a name="bkmk_powershell"></a>Instalowanie programu PowerShell dla usługi Azure stosu
-Musisz użyć najnowszej programu PowerShell dla usługi Azure stosu zarejestrować system z platformy Azure.
+Musisz użyć najnowszej programu PowerShell dla usługi Azure stosu do rejestracji w usłudze Azure.
 
 Jeśli nie jest jeszcze zainstalowana, [zainstalować program PowerShell Azure stosu](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install). 
 
 ### <a name="bkmk_tools"></a>Pobieranie narzędzia Azure stosu
 Repozytorium GitHub narzędzia stosu Azure zawiera moduły programu PowerShell Azure stosu funkcjonalności. w tym funkcje rejestracji. Podczas rejestracji procesu, które mają być importowane i używane moduł RegisterWithAzure.psm1 PowerShell znalezione w repozytorium narzędzia Azure stosu, można zarejestrować wystąpienia stosu Azure przy użyciu platformy Azure. 
 
-```powershell
-# Change directory to the root directory. 
-cd \
-
-# Download the tools archive.
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-  invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
-
-# Expand the downloaded files.
-  expand-archive master.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-  cd AzureStack-Tools-master
-```
+Aby upewnić się, czy używasz najnowszej wersji, należy usunąć istniejące wersje narzędzia Azure stosu i [najnowszą wersję można pobrać z witryny GitHub](azure-stack-powershell-download.md) przed zarejestrowaniem z platformy Azure.
 
 ## <a name="register-azure-stack-in-connected-environments"></a>Zarejestruj Azure stosu w środowiskach połączonych
 Środowisk sieciowych można uzyskać dostępu do Internetu Azure. Dla tych środowisk należy zarejestrować dostawcę zasobów Azure stosu z platformy Azure, a następnie skonfiguruj modelu rozliczeń.
+
+> [!NOTE]
+> Kroki te należy uruchomić z komputera, który ma dostęp do uprzywilejowanych punktu końcowego. 
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Rejestrowanie dostawcy zasobów Azure stosu
 Aby zarejestrować stosu Azure dostawcy zasobów platformy Azure, uruchom program Powershell ISE jako administrator i użyj następujących poleceń programu PowerShell. Polecenia te obejmują:
 - Wyświetlenie monitu zaloguj się jako właściciela subskrypcji Azure używanych i ustawić `EnvironmentName` parametr **AzureCloud**.
 - Rejestrowanie dostawcy zasobów platformy Azure **Microsoft.AzureStack**.
 
-PowerShell wpisz:
+1. Dodaj konto platformy Azure, która służy do rejestrowania stosu Azure. Aby dodać konta, uruchom **Add-AzureRmAccount** polecenia cmdlet. Zostanie wyświetlony monit o wprowadzenie poświadczeń konta administratora globalnego usługi Azure i może być konieczne użycie uwierzytelniania wieloskładnikowego 2 na podstawie konfiguracji Twoje konto.
 
-```powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack 
-```
+   ```Powershell
+      Add-AzureRmAccount -EnvironmentName AzureCloud
+   ```
+
+2. Jeśli masz wiele subskrypcji, uruchom następujące polecenie, wybierz ten, który ma być używany:  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+3. Uruchom następujące polecenie, aby zarejestrować dostawcę zasobów Azure stosu w Twojej subskrypcji platformy Azure:
+
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
 
 ### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Zarejestruj stosu Azure przy użyciu platformy Azure przy użyciu modelu rozliczeń płatności jako — użytkownik użycia
 Użyj tych kroków zarejestrować stosu Azure za pomocą platformy Azure przy użyciu modelu rozliczeń płatności jako — użytkownik użycia.
@@ -197,22 +193,6 @@ Jeśli chcesz zmienić modelu rozliczeń lub zespolonego funkcji dla instalacji,
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## <a name="remove-a-registered-resource"></a>Usuń zarejestrowanych zasobów
-Jeśli chcesz usunąć rejestrację, należy użyć **UnRegister-AzsEnvironment** polecenia cmdlet i przekaż nazwę zasobu rejestracji lub rejestracji token użyte do **Register-AzsEnvironment**.
-
-Aby usunąć rejestrację przy użyciu nazwy zasobu:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-Aby usunąć rejestrację przy użyciu tokenu rejestracji:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## <a name="next-steps"></a>Kolejne kroki
 
-[Integracja monitorowania zewnętrznych](azure-stack-integrate-monitor.md)
+[Pobieranie elementów marketplace z platformy Azure](azure-stack-download-azure-marketplace-item.md)

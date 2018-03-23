@@ -1,24 +1,24 @@
 ---
 title: Informacje o wersji zestawu Microsoft Azure stosu Development Kit | Dokumentacja firmy Microsoft
-description: "Ulepszenia, poprawki i znane problemy dotyczące Azure stosu Development Kit."
+description: Ulepszenia, poprawki i znane problemy dotyczące Azure stosu Development Kit.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Informacje o wersji platformy Azure stosu Development Kit
 Te informacje o wersji zawierają informacje dotyczące ulepszeń, poprawki i znane problemy w systemie Azure stosu Development Kit. Jeśli nie masz pewności, której używasz wersji, możesz [sprawdzić za pomocą portalu](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ Zobacz [nowe funkcje i poprawki](.\.\azure-stack-update-1802.md#new-features-and
     - *Błąd — szablon FaultType ResourceProviderTimeout Brak.*
 
     Można bezpiecznie zignorować ten alert. 
+
+- W portalu administratora usługi i portalu użytkowników, bloku omówienie nie udało się załadować po wybraniu bloku omówienie kont magazynu, które zostały utworzone przy użyciu starszej wersji interfejsu API (przykład: 2015-06-15). 
+
+  Jako obejście, użyj programu PowerShell, aby uruchomić **Start ResourceSynchronization.ps1** skryptu, aby przywrócić dostęp do szczegółów konta magazynu. [Skrypt jest dostępny w witrynie GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)i musi działać z poświadczeniami administratora usługi na hoście development kit, jeśli używasz ASDK.  
+
 
 #### <a name="health-and-monitoring"></a>Monitorowania kondycji i
 W portalu administracyjnym stosu Azure zostanie wyświetlony alert krytyczny o nazwie **do czasu wygaśnięcia certyfikatu zewnętrznego**.  Ten alert można bezpiecznie zignorować i ma wpływu na operacje Azure stosu Development Kit. 
@@ -273,9 +278,11 @@ W usłudze Azure Active Directory Federation Services (ADFS) wdrożone w środow
     > Niektóre elementy na liście **nowe funkcje i poprawki** sekcji mają zastosowanie tylko do stosu Azure zintegrowanych systemów.
 
 ### <a name="known-issues"></a>Znane problemy
+
  
 #### <a name="deployment"></a>Wdrożenie
 - Należy określić serwer czasu za pomocą adresu IP podczas wdrażania.
+- Począwszy od wersji 1711, **CloudAdmin** jest nazwą konta zastrzeżone i nie powinien być ręcznie określony podczas wdrażania zestaw deweloperski. 
 
 #### <a name="infrastructure-management"></a>Zarządzanie infrastrukturą
 - Nie należy włączać infrastruktura kopii zapasowej na **infrastruktura kopii zapasowej** bloku.

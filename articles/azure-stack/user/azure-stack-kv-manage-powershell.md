@@ -1,11 +1,11 @@
 ---
-title: "Zarządzanie Key Vault w stosie Azure przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zarządzać Key Vault w stosie Azure przy użyciu programu PowerShell"
+title: Zarządzanie Key Vault w stosie Azure przy użyciu programu PowerShell | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak zarządzać Key Vault w stosie Azure przy użyciu programu PowerShell
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>Zarządzanie Key Vault w stosie Azure przy użyciu programu PowerShell
 
@@ -81,7 +81,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![Nowy magazyn kluczy](media/azure-stack-kv-manage-powershell/image4.png)
 
-Dane wyjściowe tego polecenia są wyświetlane właściwości magazynu kluczy, który został utworzony. Gdy aplikacja uzyskuje dostęp do tego magazynu, używa **identyfikator URI magazynu** właściwość wyświetlany w danych wyjściowych. Identyfikator URI (Uniform Resource) magazynu jest w tym przypadku "https://vault01.vault.local.azurestack.external". Aplikacje, które współdziałają z tym magazynie kluczy za pomocą interfejsu API REST muszą używać tego identyfikatora URI.
+Dane wyjściowe tego polecenia są wyświetlane właściwości magazynu kluczy, który został utworzony. Gdy aplikacja uzyskuje dostęp do tego magazynu, używa **identyfikator URI magazynu** właściwość wyświetlany w danych wyjściowych. Na przykład Magazyn identyfikator URI (Uniform Resource) w tym przypadku jest "https://vault01.vault.local.azurestack.external". Aplikacje, które współdziałają z tym magazynie kluczy za pomocą interfejsu API REST muszą używać tego identyfikatora URI.
 
 W usługach federacyjnych Active Directory (AD FS)-wdrożenia oparte na, podczas tworzenia klucza magazynu przy użyciu programu PowerShell, może pojawić się ostrzeżenie informujące "nie ustawiono zasad dostępu. Nie użytkownika lub aplikacji ma uprawnienia dostępu do użycia w tym magazynie." Aby rozwiązać ten problem, należy ustawić zasady dostępu dla magazynu przy użyciu [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) polecenia:
 
@@ -90,7 +90,7 @@ W usługach federacyjnych Active Directory (AD FS)-wdrożenia oparte na, podczas
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value 
 
-#Set the key vault access policy
+# Set the key vault access policy
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
@@ -113,8 +113,8 @@ Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destin
 
 Teraz możesz odwoływać utworzony klucz za pomocą jego identyfikatora URI. Tworzenie lub Importowanie klucza, takiej samej nazwie jak istniejący klucz oryginalny klucz został zaktualizowany o wartości podanych w nowego klucza. Za pomocą identyfikatora URI określonej wersji klucza można uzyskać dostępu do poprzedniej wersji. Na przykład: 
 
-* Użyj "https://vault10.vault.local.azurestack.external:443 kluczy/key01", aby zawsze uzyskać bieżącą wersję. 
-* Użyj "https://vault010.vault.local.azurestack.external:443/kluczy/key01/d0b36ee2e3d14e9f967b8b6b1d38938a", aby uzyskać tę konkretną wersję.
+* Użyj "https://vault10.vault.local.azurestack.external:443/keys/key01" Aby zawsze uzyskać bieżącą wersję. 
+* Użyj "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" Aby uzyskać tę konkretną wersję.
 
 ### <a name="get-a-key"></a>Uzyskać klucz
 
@@ -162,7 +162,7 @@ Jeśli chcesz zezwolić tej samej aplikacji na odczyt kluczy tajnych w magazynie
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wdrożenie maszyny Wirtualnej przy użyciu hasła zapisane w magazynie kluczy](azure-stack-kv-deploy-vm-with-secret.md) 
 * [Wdrożenie maszyny Wirtualnej przy użyciu certyfikatu przechowywane w magazynie kluczy](azure-stack-kv-push-secret-into-vm.md)
 

@@ -1,24 +1,25 @@
 ---
 title: Aktualizacja Azure stosu 1711 | Dokumentacja firmy Microsoft
-description: "Więcej informacji na temat nowości w aktualizacji 1711 stosu Azure zintegrowanych systemów, znane problemy i pobierania aktualizacji."
+description: Więcej informacji na temat nowości w aktualizacji 1711 stosu Azure zintegrowanych systemów, znane problemy i pobierania aktualizacji.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure aktualizacji 1711 stosu
 
@@ -37,7 +38,13 @@ Numer kompilacji aktualizacji 1711 stosu Azure jest **171201.3**.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Należy najpierw zainstalować na stosie Azure [zaktualizować 1710](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) przed zastosowaniem tej aktualizacji.
+- Należy najpierw zainstalować na stosie Azure [zaktualizować 1710](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) przed zastosowaniem tej aktualizacji.
+
+- Przejrzyj użycie **CloudAdmin** jako nazwę konta, przed zainstalowaniem aktualizacji 1711. Począwszy od wersji 1711, *CloudAdmin* jest nazwą konta zastrzeżone i nie powinien być określony ręcznie. Podczas aktualizacji do wersji 1711 aktualizacja usuwa istniejące wystąpienia konto wdrażania (zwykle nazywane AzureStackAdmin). Jeśli konto wdrażania *CloudAdmin*, aktualizacja do 1711 usunięcia go. 
+
+  *CloudAdmin* jest wbudowane konto używane do nawiązywania połączenia z [ *uprzywilejowanych punktu końcowego* ](azure-stack-privileged-endpoint.md) (program ten). Usunięcie tego konta może spowodować blokady program ten, chyba że innego konta użytkownika, który jest członkiem grupy CloudAdmin już istnieje. 
+
+  Jeśli CloudAdmin jest używana jako nazwa konta wdrożenia, należy dodać nowego użytkownika CloudAdmin do Twojej program ten, przed rozpoczęciem aktualizacji 1711, aby uniknąć blokowanie poza stosu Azure. Aby dodać nowego użytkownika CloudAdmin, uruchom polecenie cmdlet **CloudAdminUser nowy** na program ten.
 
 ### <a name="new-features-and-fixes"></a>Nowe funkcje i poprawki
 
@@ -61,7 +68,7 @@ Ta aktualizacja obejmuje następujące ulepszenia i poprawki dla stosu Azure.
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 nowe funkcje i poprawki
 
-- [14 listopada 2017 — KB4048953 (kompilacja 14393.1884 systemu operacyjnego)](https://support.microsoft.com/help/4048953)
+- [14 listopada 2017 — KB4048953 (kompilacja 14393.1884 systemu operacyjnego) ](https://support.microsoft.com/help/4048953)
 
 ### <a name="known-issues-with-the-update-process"></a>Znane problemy związane z procesem aktualizacji
 
@@ -76,11 +83,11 @@ Ta sekcja zawiera znane problemy, które mogą wystąpić podczas instalacji akt
     1. **Przyczyna:** ten problem występuje po wznowieniu wznawianie aktualizacji z portalu, który został wcześniej, używając uprzywilejowanego punktu końcowego (program ten).
     2. **Rozwiązanie:** skontaktuj się z Microsoft dział obsługi klienta i pomocy technicznej (CSS), aby uzyskać pomoc.
 <br><br>
-3. **Objaw:**operatory stosu Azure może zostać wyświetlony następujący błąd podczas procesu aktualizacji:*"typu"CheckHealth"rola"VirtualMachines"zgłoszony wyjątek: \n\nVirtual maszyny kondycji Sprawdź <machineName>-ACS01 utworzone następujące błędy. \nThere wystąpił błąd pobierania informacji o maszyn wirtualnych z hostów. Szczegóły wyjątku: \nGet-VM: operacji na komputerze "Node03" nie powiodło się: Usługa WS-Management nie może przetworzyć żądania. WMI \nservice lub Dostawca WMI zwróciła nieznany błąd: HRESULT 0x8004106c ".*
+3. **Objaw:** operatory stosu Azure może zostać wyświetlony następujący błąd podczas procesu aktualizacji:*"typu"CheckHealth"rola"VirtualMachines"zgłoszony wyjątek: \n\nVirtual maszyny kondycji Sprawdź <machineName>-ACS01 utworzone następujące błędy. \nThere wystąpił błąd pobierania informacji o maszyn wirtualnych z hostów. Szczegóły wyjątku: \nGet-VM: operacji na komputerze "Node03" nie powiodło się: Usługa WS-Management nie może przetworzyć żądania. WMI \nservice lub Dostawca WMI zwróciła nieznany błąd: HRESULT 0x8004106c ".*
     1. **Przyczyna:** przyczyną tego problemu jest problem z systemem Windows Server, który ma zostać poprawione w kolejnych aktualizacji serwera okna.
     2. **Rozwiązanie:** skontaktuj się z Microsoft dział obsługi klienta i pomocy technicznej (CSS), aby uzyskać pomoc.
 <br><br>
-4. **Objaw:**operatory stosu Azure może zostać wyświetlony następujący błąd podczas procesu aktualizacji:*"typu"DefenderUpdate"rola"URP"zgłosił wyjątek: nie powiodło się pobieranie wersji z \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{nazwę pliku} .exe po 60 prób AzSDefenderFiles kopiowania, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: wiersz 262"*
+4. **Objaw:** operatory stosu Azure może zostać wyświetlony następujący błąd podczas procesu aktualizacji:*"typu"DefenderUpdate"rola"URP"zgłosił wyjątek: nie powiodło się pobieranie wersji z \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{nazwę pliku} .exe po 60 prób AzSDefenderFiles kopiowania, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: wiersz 262"*
     1. **Przyczyna:** przyczyną tego problemu w tle nie powiodło się lub są one niepełne pobranie aktualizacji definicji programu Windows Defender.
     2. **Rozwiązanie:** od pierwszej aktualizacji spróbuj minęło próba Sprawdź wznowienie aktualizacji po maksymalnie 8 godzin.
 

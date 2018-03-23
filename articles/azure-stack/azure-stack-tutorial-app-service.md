@@ -1,29 +1,28 @@
 ---
-title: "Udostępnić w sieci web i aplikacji API apps użytkownikom stosu Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek, aby zainstalować dostawcę zasobów usługi aplikacji i utworzyć oferuje który zapewnić użytkownikom stosu Azure możliwość tworzenia sieci web i aplikacji API apps."
+title: Udostępnić w sieci web i aplikacji API apps użytkownikom stosu Azure | Dokumentacja firmy Microsoft
+description: Samouczek, aby zainstalować dostawcę zasobów usługi aplikacji i utworzyć oferuje który zapewnić użytkownikom stosu Azure możliwość tworzenia sieci web i aplikacji API apps.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Udostępnić w sieci web i aplikacji API apps użytkownikom Azure stosu
-
 Jako administrator chmury Azure stosu tworzenia oferty, które pozwalają użytkownikom (dzierżawcami), tworzenie aplikacji usługi Azure Functions i sieci web i interfejsu API. Zapewniając użytkownikom dostęp do tych aplikacji na żądanie, oparte na chmurze, można je zapisać czasu i zasobów. Aby to skonfigurować, obejmują:
 
 > [!div class="checklist"]
@@ -58,12 +57,12 @@ Na przykład można utworzyć ofertę, która umożliwia użytkownikom tworzenie
 Po wdrożeniu dostawcy zasobów usługi aplikacji i utworzyć ofertę, może zalogować się jako użytkownik, subskrybować oferty i tworzenie aplikacji. Na przykład utworzymy system zarządzania zawartością DNN platformy. Należy najpierw utworzyć bazę danych SQL, a następnie DNN aplikacji sieci web.
 
 ### <a name="subscribe-to-the-offer"></a>Subskrybuj oferty
-1. Zaloguj się do portalu Azure stosu (https://portal.local.azurestack.external) jako dzierżawcy.
+1. Zaloguj się do portalu Azure stosu (https://portal.local.azurestack.external) dzierżawcy.
 2. Kliknij przycisk **uzyskania subskrypcji** > typ **TestAppServiceSubscription** w obszarze **Nazwa wyświetlana** > **wybierz ofertę**  >  **TestAppServiceOffer** > **utworzyć**.
 
 ### <a name="create-a-sql-database"></a>Tworzenie bazy danych SQL
 
-1. Kliknij przycisk  **+**   >  **dane i magazyn** > **bazy danych SQL**.
+1. Kliknij przycisk **+**  >  **dane i magazyn** > **bazy danych SQL**.
 2. Pozostaw wartości domyślne dla pól, z wyjątkiem w następujący sposób:
     - **Nazwa bazy danych**: DNNdb
     - **Maksymalny rozmiar w MB**: 100
@@ -75,7 +74,7 @@ Po wdrożeniu dostawcy zasobów usługi aplikacji i utworzyć ofertę, może zal
 
 ### <a name="create-a-dnn-app"></a>Tworzenie aplikacji DNN    
 
-1. Kliknij przycisk  **+**   >  **zobaczyć wszystkie** > **DNN platformy w wersji zapoznawczej** > **Utwórz**.
+1. Kliknij przycisk **+**  >  **zobaczyć wszystkie** > **DNN platformy w wersji zapoznawczej** > **Utwórz**.
 2. Typ *DNNapp* w obszarze **Nazwa aplikacji** i wybierz **TestAppServiceOffer** w obszarze **subskrypcji**.
 3. Kliknij przycisk **Skonfiguruj wymagane ustawienia** > **Utwórz nowy** > typ **planu usługi aplikacji** nazwy.
 4. Kliknij przycisk **warstwa cenowa** > **F1 bezpłatna** > **wybierz** > **OK**.

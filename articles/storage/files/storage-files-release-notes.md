@@ -1,24 +1,18 @@
 ---
 title: Informacje o wersji agenta usługi Azure File Sync (wersja zapoznawcza) | Microsoft Docs
-description: Informacje o wersji agenta usługi Azure File Sync (wersja zapoznawcza)
+description: Informacje o wersji dla agenta synchronizacji plików Azure (wersja zapoznawcza).
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: tamram
-ms.assetid: ''
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.topic: article
+ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: fabfb02a199744c63c3a2191589fd450cfdd0304
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Informacje o wersji agenta usługi Azure File Sync (wersja zapoznawcza)
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Instalacje systemów Windows Server są przekształcane w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -28,14 +22,25 @@ W tym artykule udostępniono informacje o obsługiwanych wersjach agenta usługi
 ## <a name="supported-versions"></a>Obsługiwane wersje
 Następujące wersje są obsługiwane przez agenta usługi Azure File Sync:
 
-| Wersja | Data wydania | Data zakończenia wsparcia |
-|---------|--------------|------------------|
-| 2.1.0.0 | 28 lutego 2018 r. | Bieżąca wersja |
-| 2.0.11.0 | 8 lutego 2018 r. | Bieżąca wersja |
-| 1.1.0.0 | 26 września 2017 r. | 30 lipca 2018 r. |
+| Milestone | Numer wersji agenta | Data wydania | Stan |
+|----|----------------------|--------------|------------------|
+| Pakiet zbiorczy aktualizacji z marca | 2.2.0.0 | 12 marca 2018 | Obsługiwane (zalecana wersja) |
+| Pakiet zbiorczy aktualizacji lutego | 2.1.0.0 | 28 lutego 2018 r. | Obsługiwane |
+| Odśwież 1 | 2.0.11.0 | 8 lutego 2018 r. | Obsługiwane |
+| Pakiet zbiorczy aktualizacji stycznia | 1.4.0.0 | 8 stycznia 2018 | Obsługiwane do 8 mogą 2018<sup>1</sup> |
+| Pakiet zbiorczy aktualizacji z listopada | 1.3.0.0 | 30 listopada 2017 r. | Obsługiwane do 8 mogą 2018<sup>1</sup> |
+| Pakiet zbiorczy aktualizacji z października | 1.2.0.0 | 31 października 2017 r. | Obsługiwane do 8 mogą 2018<sup>1</sup> |
+| Początkowa wersja zapoznawcza | 1.1.0.0 | 26 września 2017 r. | Obsługiwane do 8 mogą 2018<sup>1</sup> |
+
+\[1\]: wersje agenta synchronizacji plików Azure w wersji zapoznawczej celowo nie są zgodne z zasadami aktualizacji. Zasady aktualizacji zostaną wymuszone, począwszy od pierwszej wersji agenta po synchronizacji plików Azure zadeklarowano ogólnie dostępna.
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2200"></a>Wersja agenta 2.2.0.0
+Poniższe informacje o wersji dotyczą wersji 2.2.0.0 wydane 12 marca 2018 agent synchronizacji plików Azure.  Te informacje są oprócz wymienionych wersji 2.1.0.0 i 2.0.11.0 informacje o wersji
+
+Instalacja v2.1.0.0 niektórzy klienci będą się kończyć niepowodzeniem z powodu FileSyncSvc nie zatrzymywanie. Ta aktualizacja umożliwia rozwiązanie tego problemu.
 
 ## <a name="agent-version-2100"></a>Wersja agenta 2.1.0.0
 Poniższe informacje o wersji dotyczą wersji 2.1.0.0 agenta usługi Azure File Sync wydanej 28 lutego 2018 r. Te informacje są uzupełnieniem informacji o wersji 2.0.11.0.

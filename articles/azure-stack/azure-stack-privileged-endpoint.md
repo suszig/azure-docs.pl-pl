@@ -1,24 +1,24 @@
 ---
-title: "Przy użyciu punktu końcowego uprzywilejowanych w stosie Azure | Dokumentacja firmy Microsoft"
-description: "Przedstawia sposób użycia uprzywilejowanego punktu końcowego (program ten) w stosie Azure (dla operatora stosu Azure)."
+title: Przy użyciu punktu końcowego uprzywilejowanych w stosie Azure | Dokumentacja firmy Microsoft
+description: Przedstawia sposób użycia uprzywilejowanego punktu końcowego (program ten) w stosie Azure (dla operatora stosu Azure).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Przy użyciu punktu końcowego uprzywilejowanych w stosie Azure
 
@@ -74,7 +74,7 @@ Zaleca się, że należy połączyć program ten tylko od sprzętu hosta cyklu �
       ```` 
    Po wyświetleniu monitu użyj następujących poświadczeń:
 
-      - **Nazwa użytkownika**: Określ konto CloudAdmin w formacie  **&lt; *domeny stosu Azure*&gt;\cloudadmin**. (ASDK, nazwa użytkownika jest **azurestack\cloudadmin**.)
+      - **Nazwa użytkownika**: Określ konto CloudAdmin w formacie  **&lt; *domeny stosu Azure*&gt;\accountname**. (ASDK, nazwa użytkownika jest **azurestack\accountname**.) 
       - **Hasło**: wprowadź to samo hasło, które zostało podane podczas instalacji dla konta administratora domeny AzureStackAdmin.
     
 3.  Po nawiązaniu połączenia wiersza zmieni się na **[*nazwa adresu IP lub wirtualna ERCS*]: PS >** lub **[azs ercs01]: PS >**, w zależności od środowiska. W tym miejscu, należy uruchomić `Get-Command` Aby wyświetlić listę dostępnych poleceń cmdlet.
@@ -143,7 +143,7 @@ Aby zaimportować program ten sesji na komputerze lokalnym, wykonaj następując
       ```` 
    Po wyświetleniu monitu użyj następujących poświadczeń:
 
-      - **Nazwa użytkownika**: Określ konto CloudAdmin w formacie  **&lt; *domeny stosu Azure*&gt;\cloudadmin**. (ASDK, nazwa użytkownika jest **azurestack\cloudadmin**.)
+      - **Nazwa użytkownika**: Określ konto CloudAdmin w formacie  **&lt; *domeny stosu Azure*&gt;\accountname**. (ASDK, nazwa użytkownika jest **azurestack\accountname**.) 
       - **Hasło**: wprowadź to samo hasło, które zostało podane podczas instalacji dla konta administratora domeny AzureStackAdmin.
 
 3. Zaimportuj program ten sesji do komputera lokalnego
@@ -161,7 +161,7 @@ Aby zamknąć sesji punktu końcowego:
 
 1. Tworzenie udziału plików zewnętrznego, który jest dostępny program ten. W środowisku development kit można po prostu utworzyć udział plików na hoście development kit.
 2. Uruchom `Close-PrivilegedEndpoint` polecenia cmdlet. 
-3. Zostanie wyświetlony monit o ścieżkę do przechowywania plików dziennika zapis. Określ udział plików, który został utworzony wcześniej, w formacie &#92; &#92; *servername*&#92; *Nazwa udziału*. Jeśli ścieżka nie jest określony, polecenie cmdlet nie powiedzie się i sesja pozostanie otwarta. 
+3. Zostanie wyświetlony monit o ścieżkę do przechowywania plików dziennika zapis. Określ udział plików, który został utworzony wcześniej, w formacie &#92; &#92; *servername*&#92;*sharename*. Jeśli ścieżka nie jest określony, polecenie cmdlet nie powiedzie się i sesja pozostanie otwarta. 
 
     ![Dane wyjściowe polecenia cmdlet PrivilegedEndpoint Zamknij pokazujący, gdzie Określ ścieżkę docelową, zapis](media/azure-stack-privileged-endpoint/closeendpoint.png)
 

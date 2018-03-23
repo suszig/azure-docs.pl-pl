@@ -1,29 +1,28 @@
 ---
-title: "Udostępnić użytkownikom Azure stosu baz danych SQL | Dokumentacja firmy Microsoft"
-description: "Samouczek, aby zainstalować dostawcę zasobów programu SQL Server i utworzyć oferuje które zezwala użytkownikom Azure stosu na tworzenie baz danych."
+title: Udostępnić użytkownikom Azure stosu baz danych SQL | Dokumentacja firmy Microsoft
+description: Samouczek, aby zainstalować dostawcę zasobów programu SQL Server i utworzyć oferuje które zezwala użytkownikom Azure stosu na tworzenie baz danych.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Udostępnić użytkownikom Azure stosu bazy danych SQL
-
 Jako administrator chmury Azure stosu tworzenia oferty, które pozwalają użytkownikom (dzierżawcami) Utwórz bazy danych SQL, które mogą używać z ich chmury natywnych aplikacji, witryn sieci Web i obciążeń. Zapewniając użytkownikom tych baz danych niestandardowych, na żądanie, oparte na chmurze, można je zapisać czasu i zasobów. Aby to skonfigurować, obejmują:
 
 > [!div class="checklist"]
@@ -56,7 +55,7 @@ Proces wdrażania opisano szczegółowo w [użycia baz danych w artykule stosu A
 Wdrożeniu dostawcy zasobów programu SQL Server, a następnie utworzyć ofertę, może zalogować się jako użytkownik, subskrybować ofertę i utworzyć bazę danych.
 
 ### <a name="subscribe-to-the-offer"></a>Subskrybuj oferty
-1. Zaloguj się do portalu Azure stosu (https://portal.local.azurestack.external) jako dzierżawcy.
+1. Zaloguj się do portalu Azure stosu (https://portal.local.azurestack.external) dzierżawcy.
 2. Kliknij przycisk **uzyskania subskrypcji** , a następnie wpisz **TestSQLServerSubscription** w obszarze **Nazwa wyświetlana**.
 3. Kliknij przycisk **wybierz ofertę** > **TestSQLServerOffer** > **Utwórz**.
 4. Kliknij przycisk **więcej usług** > **subskrypcje** > **TestSQLServerSubscription** > **zasobów dostawcy**.
@@ -64,7 +63,7 @@ Wdrożeniu dostawcy zasobów programu SQL Server, a następnie utworzyć ofertę
 
 ### <a name="create-a-sql-database"></a>Tworzenie bazy danych SQL
 
-1. Kliknij przycisk  **+**   >  **dane i magazyn** > **bazy danych SQL**.
+1. Kliknij przycisk **+**  >  **dane i magazyn** > **bazy danych SQL**.
 2. Pozostaw wartości domyślne dla pól, lub można użyć tych przykładów:
     - **Nazwa bazy danych**: SQLdb
     - **Maksymalny rozmiar w MB**: 100

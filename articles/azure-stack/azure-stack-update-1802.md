@@ -1,25 +1,25 @@
 ---
 title: Aktualizacja Azure stosu 1802 | Dokumentacja firmy Microsoft
-description: "Więcej informacji na temat nowości w aktualizacji 1802 stosu Azure zintegrowanych systemów, znane problemy i pobierania aktualizacji."
+description: Więcej informacji na temat nowości w aktualizacji 1802 stosu Azure zintegrowanych systemów, znane problemy i pobierania aktualizacji.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure aktualizacji 1802 stosu
 
@@ -103,7 +103,7 @@ Poniżej przedstawiono znane problemy występujące po instalacji w kompilacji *
 
 #### <a name="portal"></a>Portal
 - Możliwość [aby otworzyć nowe żądanie pomocy technicznej z listy rozwijanej](azure-stack-manage-portals.md#quick-access-to-help-and-support) z wewnątrz administrator portalu nie jest dostępna. Zamiast tego użyj następującego łącza:     
-    - Stosu Azure zintegrowanych systemów, użyj https://aka.ms/newsupportrequest.
+    - Azure stosu Użyj zintegrowanych systemów https://aka.ms/newsupportrequest.
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -123,6 +123,13 @@ Poniżej przedstawiono znane problemy występujące po instalacji w kompilacji *
     - *Błąd — szablon FaultType ResourceProviderTimeout Brak.*
 
     Można bezpiecznie zignorować ten alert. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- W portalu administratora usługi i portalu użytkowników, bloku omówienie nie udało się załadować po wybraniu bloku omówienie kont magazynu, które zostały utworzone przy użyciu starszej wersji interfejsu API (przykład: 2015-06-15). Dotyczy to systemu kont magazynu, takich jak **updateadminaccount** używany podczas poprawek i aktualizacji. 
+
+  Jako obejście, użyj programu PowerShell, aby uruchomić **Start ResourceSynchronization.ps1** skryptu, aby przywrócić dostęp do szczegółów konta magazynu. [Skrypt jest dostępny w witrynie GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)i musi działać z poświadczeniami administratora usługi uprzywilejowanych w punkcie końcowym. 
+
 
 #### <a name="health-and-monitoring"></a>Monitorowania kondycji i
 Nie są znane problemy po zaktualizowaniu do 1802.

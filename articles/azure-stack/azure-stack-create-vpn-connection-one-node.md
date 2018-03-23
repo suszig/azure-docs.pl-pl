@@ -1,11 +1,11 @@
 ---
-title: "Utwórz połączenie sieci VPN lokacja lokacja między dwoma sieciami wirtualnymi w różnych środowiskach Azure stosu Development Kit | Dokumentacja firmy Microsoft"
-description: "Krok po kroku procedury, która używa administrator chmury nie można utworzyć połączenia sieci VPN lokacja lokacja między dwoma środowiskami Azure stosu Development Kit jednym węzłem."
+title: Utwórz połączenie sieci VPN lokacja lokacja między dwoma sieciami wirtualnymi w różnych środowiskach Azure stosu Development Kit | Dokumentacja firmy Microsoft
+description: Krok po kroku procedury, która używa administrator chmury nie można utworzyć połączenia sieci VPN lokacja lokacja między dwoma środowiskami Azure stosu Development Kit jednym węzłem.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Utwórz połączenie sieci VPN lokacja lokacja między dwoma sieciami wirtualnymi w różnych środowiskach Azure stosu Development Kit
 ## <a name="overview"></a>Przegląd
@@ -33,7 +33,7 @@ Na poniższym diagramie przedstawiono, jak powinna wyglądać konfiguracji poł�
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 Aby ukończyć konfigurację połączenia, upewnij się, że masz następujące elementy, przed rozpoczęciem:
 
-* Dwa serwery, które spełniają wymagania sprzętowe Azure stosu Development Kit, które są określone przez [wymagania wstępne dotyczące wdrażania usługi Azure stosu](azure-stack-deploy.md). Upewnij się, że inne wymagania wstępne, które są wyświetlane w [artykułu](azure-stack-deploy.md) spełnione są zbyt.
+* Dwa serwery i inne wymagania wstępne, które spełniają wymagania sprzętowe Azure stosu Development Kit, zgodnie z opisem w [Szybki Start: ocena Azure stosu Development Kit](azure-stack-deploy-overview.md). 
 * [Azure stosu Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) pakietu wdrożeniowego.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Wdrażanie środowiska Azure stosu Development Kit
@@ -168,7 +168,7 @@ Aby sprawdzić poprawność danych, który przechodzi przez połączenie sieci V
 5. Wprowadź prawidłową nazwę użytkownika i hasło. Służy do logowania się do maszyny Wirtualnej, po jego utworzeniu.
 6. Podaj **subskrypcji**, **grupy zasobów**, i **lokalizacji**, a następnie wybierz **OK**.
 7. Na **rozmiar** bloku dla tego wystąpienia, wybierz rozmiar maszyny wirtualnej, a następnie wybierz **wybierz**.
-8. Na **ustawienia** bloku, zaakceptuj ustawienia domyślne. Upewnij się, że **VNET-01** sieci wirtualnej jest zaznaczone. Sprawdź, czy podsieci ma ustawioną **10.0.10.0/24**. Następnie wybierz **OK**.
+8. Na **ustawienia** bloku, zaakceptuj ustawienia domyślne. Upewnij się, że **VNET-01** sieci wirtualnej jest zaznaczone. Sprawdź, czy podsieci ma ustawioną **10.0.10.0/24**. Następnie wybierz przycisk **OK**.
 9. Na **Podsumowanie** bloku, przejrzyj ustawienia, a następnie wybierz **OK**.
 
 

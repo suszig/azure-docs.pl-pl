@@ -1,11 +1,11 @@
 ---
-title: "Ochrona maszyn wirtualnych wdrożonych na stosie Azure | Dokumentacja firmy Microsoft"
-description: "Wskazówki na temat ochrony maszyn wirtualnych wdrożonych na stosie Azure."
+title: Ochrona maszyn wirtualnych wdrożonych na stosie Azure | Dokumentacja firmy Microsoft
+description: Wskazówki na temat ochrony maszyn wirtualnych wdrożonych na stosie Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Ochrona maszyn wirtualnych wdrożonych na stosie Azure
 
@@ -68,8 +68,8 @@ Najbardziej typowe schemat ochrony dla aplikacji opartych na maszyna wirtualna m
  
 Odzyskiwanie aplikacji wymaga Przywracanie przynajmniej jednej maszyny wirtualnej do tej samej chmury, lub do nowej chmury. Możesz zastosować chmury w centrum danych lub w chmurze publicznej. Chmury, które są przeznaczone jest całkowicie w obrębie formantu i opierają się na wymagań suwerenności i poufności informacji w danych. 
  
- - RTO: Przestój mierzony w sekundach 
- - Cel punktu odzyskiwania: Minimalna utrata danych
+ - RTO: Przestój mierzony w godzinach 
+ - Cel punktu odzyskiwania: Utraty danych zmiennej (w zależności od częstotliwości tworzenia kopii zapasowej)
  - Topologia wdrażania: aktywny/pasywny 
 
 #### <a name="planning-your-backup-strategy"></a>Planowanie strategii tworzenia kopii zapasowych
@@ -95,8 +95,8 @@ Z tej metody aplikacja zostanie wdrożona tylko w jednej chmury. Maszyna wirtual
 
 ![Replikacja ręczną pracę awaryjną](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO: Przestój w przypadku minut 
- - Cel punktu odzyskiwania: Utrata danych zmiennej
+ - RTO: Przestój mierzony w minutach 
+ - Cel punktu odzyskiwania: Utraty danych zmiennej (w zależności od częstotliwości replikacji)
  - Topologia wdrażania: czuwania aktywny/pasywny
  
 ### <a name="high-availabilityautomatic-failover"></a>Tryb failover wysokiej dostępności/automatyczne
