@@ -1,6 +1,6 @@
 ---
-title: "Migrowanie maszyn wirtualnych z usług AWS na platformę Azure za pomocą usługi Azure Site Recovery | Microsoft Docs"
-description: "W tym artykule opisano sposób migrowania maszyn wirtualnych z systemem Windows działających w usługach Amazon Web Sevices (AWS) na platformę Azure za pomocą usługi Azure Site Recovery."
+title: Migrowanie maszyn wirtualnych z usług AWS na platformę Azure za pomocą usługi Azure Site Recovery | Microsoft Docs
+description: W tym artykule opisano sposób migrowania maszyn wirtualnych z systemem Windows działających w usługach Amazon Web Sevices (AWS) na platformę Azure za pomocą usługi Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -133,7 +133,7 @@ Na stronie **Przygotowywanie źródła** kliknij pozycję **+ Serwer konfiguracj
 
 6. Na maszynie wirtualnej uruchom plik **cspsconfigtool.exe**, aby utworzyć co najmniej jedno konto zarządzania na serwerze konfiguracji. Upewnij się, że konta zarządzania mają uprawnienia administratora na wystąpieniach usługi EC2, które chcesz zmigrować.
 
-Po zakończeniu konfigurowania serwera konfiguracji wróć do portalu i wybierz utworzony przez siebie serwer jako **Serwer konfiguracji** i kliknij przycisk *OK**, aby przejść do kroku 3. Przygotowywanie celu.
+Po zakończeniu konfigurowania serwera konfiguracji wróć do portalu i wybierz utworzony przez siebie serwer jako **Serwer konfiguracji** i kliknij przycisk *OK** , aby przejść do kroku 3. Przygotowywanie celu.
 
 ### <a name="3-target-prepare"></a>3. Przygotowywanie celu
 

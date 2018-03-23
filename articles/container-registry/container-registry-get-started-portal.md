@@ -1,23 +1,23 @@
 ---
-title: "Szybki start — tworzenie rejestru prywatnego platformy Docker na platformie Azure przy użyciu witryny Azure Portal"
-description: "Szybka nauka tworzenia rejestru prywatnego platformy Docker przy użyciu witryny Azure Portal."
+title: Szybki start — tworzenie rejestru prywatnego platformy Docker na platformie Azure przy użyciu witryny Azure Portal
+description: Szybka nauka tworzenia rejestru prywatnego platformy Docker przy użyciu witryny Azure Portal.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Tworzenie rejestru kontenerów za pomocą witryny Azure Portal
 
-Usługa Azure Container Registry to rejestr prywatny platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów Docker i zarządzać nimi. W tym przewodniku Szybki start utworzysz rejestr kontenerów za pomocą witryny Azure Portal.
+Usługa Azure Container Registry to rejestr prywatny platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów Docker i zarządzać nimi. W tym przewodniku Szybki start utworzysz rejestr kontenerów za pomocą witryny Azure Portal, wypchniesz obraz kontenera do rejestru i na koniec wdrożysz kontener z rejestru do usługi Azure Container Instances (ACI).
 
 Aby ukończyć ten przewodnik Szybki start, musisz mieć platformę Docker zainstalowaną lokalnie. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac][docker-mac], [Windows][docker-windows] lub [Linux][docker-linux].
 
@@ -39,7 +39,7 @@ W tym przewodniku Szybki start utworzymy rejestr w ramach jednostki *Podstawowa*
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Kiedy pojawi się komunikat **Wdrażanie zakończyło się pomyślnie**, wybierz rejestru kontenerów w portalu, a następnie wybierz pozycję **Klucze dostępu**.
+Kiedy pojawi się komunikat **Wdrażanie zakończyło się pomyślnie**, wybierz rejestr kontenerów w portalu, a następnie wybierz pozycję **Klucze dostępu**.
 
 ![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-05]
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 Przed wypchnięciem obrazu do rejestru musisz otagować obraz przy użyciu nazwy serwera logowania usługi ACR. Aby dodać tag do obrazu, użyj polecenia [docker tag][docker-tag]. Zastąp element *login server* zapisaną wcześniej nazwą serwera logowania.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Na koniec użyj polecenia [docker push][docker-push], aby wypchnąć obraz do wystąpienia usługi ACR. Zastąp element *login server* nazwą serwera logowania wystąpienia usługi ACR.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ W tym przykładzie wybierz repozytorium **aci-helloworld**. Zobaczysz obraz z ta
 
 ![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>Wdrażanie obrazu w usłudze ACI
+
+W celu wdrożenia do wystąpienia z rejestru trzeba przejść do repozytorium (aci helloworld), a następnie kliknąć przycisk wielokropka obok wersji v1.
+
+![Uruchamianie wystąpienia kontenera platformy Azure z portalu][qs-portal-10]
+
+Z wyświetlonego menu kontekstowego wybierz pozycję **Uruchom wystąpienie**:
+
+![Menu kontekstowe uruchamiania usługi ACI][qs-portal-11]
+
+Wypełnij pole **Nazwa kontenera**, upewnij się, że wybrana jest poprawna subskrypcja, wybierz istniejącą **grupę zasobów**: „myResourceGroup”, a następnie kliknij przycisk **OK** w celu uruchomienia wystąpienia kontenera platformy Azure.
+
+![Opcje uruchamiania wdrażania w usłudze ACI][qs-portal-12]
+
+Po rozpoczęciu wdrażania na pulpicie nawigacyjnym portalu pojawi się kafelek wskazujący postęp wdrażania. Po zakończeniu wdrażania ten kafelek zostanie zaktualizowany i będzie zawierał nową grupę kontenerów **mycontainer**.
+
+![Stan wdrożenia w usłudze ACI][qs-portal-13]
+
+Wybierz grupę kontenerów mycontainer, aby wyświetlić jej właściwości. Zanotuj **Adres IP** grupy kontenerów oraz **STAN** kontenera.
+
+![Szczegóły kontenera usługi ACI][qs-portal-14]
+
+## <a name="view-the-application"></a>Wyświetlanie aplikacji
+
+Gdy kontener będzie w stanie **Uruchomiono**, w ulubionej przeglądarce przejdź do adresu IP zanotowanego w poprzednim kroku, aby wyświetlić aplikację.
+
+![Aplikacja Hello World w przeglądarce][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy grupa zasobów **myResourceGroup** nie jest już potrzebna, można ją usunąć. Spowoduje to usunięcie grupy zasobów, wystąpienia usługi ACR i wszystkich obrazów kontenerów.
+Aby wyczyścić zasoby, przejdź do grupy zasobów **myResourceGroup** w portalu. Po załadowaniu grupy zasobów kliknij pozycję **Usuń grupę zasobów** w celu usunięcia grupy zasobów, usługi Azure Container Registry i wszystkich wystąpień kontenerów platformy Azure.
 
 ![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-08]
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono usługę Azure Container Registry za pomocą witryny Azure Portal. Jeśli chcesz używać usługi Azure Container Registry z usługą Azure Container Instances, przejdź do samouczka dotyczącego usługi Azure Container Instances.
+W tym przewodniku Szybki start utworzona została usługa Azure Container Registry z interfejsem wiersza polecenia platformy Azure i uruchomione zostało jej wystąpienie za pośrednictwem usługi Azure Container Instances. Przejdź do samouczka usługi Azure Container Instances, aby dowiedzieć się więcej o tej usłudze.
 
 > [!div class="nextstepaction"]
 > [Samouczki dotyczące usługi Azure Container Instances][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ W tym przewodniku Szybki start utworzono usługę Azure Container Registry za po
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

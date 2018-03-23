@@ -1,8 +1,8 @@
 ---
-title: "Wprowadzenie do platformy Apache Kafka w usłudze HDInsight Azure | Microsoft Docs"
-description: "Uzyskaj informacje o platformie Apache Kafka w usłudze HDInsight: artykuł zawiera opis platformy, jej działania oraz informacje o tym, gdzie można znaleźć przykłady i informacje ułatwiające rozpoczęcie pracy."
+title: Wprowadzenie do platformy Apache Kafka w usłudze HDInsight Azure | Microsoft Docs
+description: 'Uzyskaj informacje o platformie Apache Kafka w usłudze HDInsight: artykuł zawiera opis platformy, jej działania oraz informacje o tym, gdzie można znaleźć przykłady i informacje ułatwiające rozpoczęcie pracy.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b91d1c1eb452ade005fceb095f8d9e62b28a14ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Wprowadzenie do platformy Apache Kafka w usłudze HDInsight
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2018
 
 Platforma Kafka w usłudze HDInsight oferuje następujące funkcje:
 
-* __Umowa dotycząca poziomu usług (SLA) gwarantująca czas pracy platformy Kafka na poziomie 99%__: aby uzyskać więcej informacji, zobacz dokument [HDInsight — umowa SLA](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __Umowa dotycząca poziomu usług (SLA) gwarantująca czas pracy platformy Kafka na poziomie 99,9%__: aby uzyskać więcej informacji, zobacz dokument [HDInsight — umowa SLA](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * __Odporność na uszkodzenia i rozpoznawanie regałów sprzętowych__: platformę Kafka zaprojektowano pod kątem jednowymiarowej perspektywy regału sprzętowego, co sprawdza się w niektórych środowiskach. Jednak w takich środowiskach jak platforma Azure regał sprzętowy jest reprezentowany w dwóch wymiarach — domenach aktualizacji i domenach błędów. Firma Microsoft udostępnia narzędzia, które zapewniają ponowne równoważenie partycji i replik platformy Kafka między domenami aktualizacji i błędów. 
 

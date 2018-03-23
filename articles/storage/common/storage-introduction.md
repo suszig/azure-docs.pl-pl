@@ -1,24 +1,18 @@
 ---
-title: "Wprowadzenie do usługi Azure Storage | Microsoft Docs"
-description: "Wprowadzenie do usługi Azure Storage — magazynu danych w chmurze firmy Microsoft."
+title: Wprowadzenie do usługi Azure Storage | Microsoft Docs
+description: Wprowadzenie do usługi Azure Storage — magazynu danych w chmurze firmy Microsoft.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
 
@@ -137,7 +131,7 @@ W przypadku usług Storage dostępne są dwa podstawowe rodzaje szyfrowania. Aby
 
 Szyfrowanie usługi Azure Storage w spoczynku pomaga chronić dane zgodnie z wymaganiami organizacji w zakresie zabezpieczeń i zgodności. Przy użyciu tej funkcji usługa Azure Storage automatycznie szyfruje dane przed trwałym wprowadzeniem ich do magazynu i odszyfrowuje je przed pobraniem. Szyfrowanie, odszyfrowywanie i zarządzanie kluczami jest całkowicie przezroczyste dla użytkowników.
 
-Szyfrowanie usługi Storage można włączyć dla usługi Blob Storage lub dla usługi Azure Files (wersja zapoznawcza). Jeśli szyfrowanie zostanie włączone, wszystkie dane zapisane w określonej usłudze będą szyfrowane przed zapisaniem. Podczas odczytywania dane są odszyfrowywane, a następnie zwracane.
+Usługa SSE automatycznie szyfruje dane we wszystkich warstwach wydajności (Standardowa i Premium), wszystkich modelach wdrażania (model usługi Azure Resource Manager i model klasyczny) oraz wszystkich usługach Azure Storage (Blob, Queue, Table i File). Usługa SSE nie wpływa na wydajność usługi Azure Storage.
 
 Aby uzyskać więcej informacji o szyfrowaniu usługi Storage w spoczynku, zobacz [Szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md).
 

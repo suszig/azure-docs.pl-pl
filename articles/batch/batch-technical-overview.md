@@ -1,12 +1,12 @@
 ---
-title: "Uruchamianie rozbudowanych zadań przetwarzania równoległego w chmurze za pomocą usługi Azure Batch | Microsoft Docs"
-description: "Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC"
+title: Uruchamianie rozbudowanych zadań przetwarzania równoległego w chmurze za pomocą usługi Azure Batch | Microsoft Docs
+description: Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
 manager: jkabat
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>Co to jest Azure Batch?
 
@@ -74,10 +74,10 @@ Na poniższym diagramie przedstawiono kroki typowego przepływu pracy usługi Ba
 |Krok  |Opis  |
 |---------|---------|
 |1.  Przekazanie **plików wejściowych** i **aplikacji**, które przetworzą te pliki, na konto usługi Azure Storage.     |Pliki wejściowe mogą zawierać dowolne dane, które aplikacja może przetworzyć, np. dane modelowania finansowego lub pliki wideo do transkodowania. Pliki aplikacji mogą obejmować skrypty lub aplikacje przetwarzające dane, na przykład transkoder multimediów.|
-|2.  Utworzenie **puli** usługi Batch z węzłami obliczeniowymi na koncie usługi Batch, **zadania** do uruchomienia obciążenia w puli i **zadań podrzędnych** w tramach zadania.     | Węzły puli to maszyny wirtualne wykonujące zadania podrzędne. Określ właściwości, takie jak liczba i rozmiar węzłów, obraz maszyny wirtualnej z systemem Windows lub Linux oraz aplikacja do zainstalowania, gdy węzły zostaną przyłączone do puli. Zarządzaj kosztem i rozmiarem puli, używając [maszyn wirtualnych o niskim priorytecie](batch-low-pri-vms.md) lub [automatycznego skalowania](batch-automatic-scaling.md) liczby węzłów w miarę zmian obciążenia. <br/><br/>Po dodaniu zadań podrzędnych do zadania usługa Batch automatycznie planuje wykonanie zadań podrzędnych w węzłach obliczeniowych w puli. Każde zadanie podrzędne używa przekazanej aplikacji w celu przetwarzania plików wejściowych. |
+|2.  Utworzenie **puli** usługi Batch z węzłami obliczeniowymi na koncie usługi Batch, **zadania** do uruchomienia obciążenia w puli i **zadań podrzędnych** w tramach zadania.     | Węzły puli to maszyny wirtualne wykonujące zadania podrzędne. Określ właściwości, takie jak liczba i rozmiar węzłów, obraz maszyny wirtualnej z systemem Windows lub Linux oraz aplikacja do zainstalowania, gdy węzły zostaną przyłączone do puli. Zarządzaj kosztem i rozmiarem puli, używając [maszyn wirtualnych o niskim priorytecie](batch-low-pri-vms.md) lub [automatycznego skalowania](batch-automatic-scaling.md) liczby węzłów w miarę zmian obciążenia. <br/><br/>Po dodaniu podzadań do zadania usługa Batch automatycznie planuje wykonanie podzadań w węzłach obliczeniowych w puli. Każde podzadanie używa przekazanej aplikacji w celu przetwarzania plików wejściowych. |
 |3.  Pobieranie **plików wejściowych** i **aplikacji** do usługi Batch     |Zanim każde zadanie podrzędne zostanie wykonane, może pobrać dane wejściowe, które ma przetworzyć, do przypisanego węzła obliczeniowego. Jeśli aplikacja jeszcze nie została zainstalowana na węzłach puli, można ją pobrać w tym miejscu. Po zakończeniu operacji pobierania z usługi Azure Storage zadanie podrzędne jest wykonywane na przypisanym węźle.|
-|4.  Monitorowanie **wykonania zadań podrzędnych**     |Po uruchomieniu zadań podrzędnych wykonaj zapytanie do usługi Batch w celu monitorowania postępu zadania oraz jego zadań podrzędnych. Aplikacja lub usługa kliencka komunikuje się z usługą Batch za pośrednictwem protokołu HTTPS. Ponieważ monitorowane mogą być tysiące zadań podrzędnych uruchomionych w ramach tysięcy węzłów obliczeniowych, upewnij się, że [zapytanie względem usługi Batch jest wydajne](batch-efficient-list-queries.md).|
-|5.  Przekazywanie **danych wyjściowych zadania podrzędnego**     |Gdy zadania podrzędne zostaną ukończone, mogą przekazać dane wynikowe do usługi Azure Storage. Możesz również pobrać pliki bezpośrednio z systemu plików w ramach węzła obliczeniowego.|
+|4.  Monitorowanie **wykonania zadań podrzędnych**     |Po uruchomieniu zadań podrzędnych wykonaj zapytanie do usługi Batch w celu monitorowania postępu zadania oraz jego zadań podrzędnych. Aplikacja lub usługa kliencka komunikuje się z usługą Batch za pośrednictwem protokołu HTTPS. Ponieważ monitorowane mogą być tysiące podzadań uruchomionych w ramach tysięcy węzłów obliczeniowych, upewnij się, że [zapytanie względem usługi Batch jest wydajne](batch-efficient-list-queries.md).|
+|5.  Przekazywanie **danych wyjściowych zadania podrzędnego**     |Gdy podzadania zostaną ukończone, mogą przekazać dane wynikowe do usługi Azure Storage. Możesz również pobrać pliki bezpośrednio z systemu plików w ramach węzła obliczeniowego.|
 |6.  Pobieranie **plików wyjściowych**     |Jeśli podczas monitorowania zostanie wykryte, że zadania podrzędne w zadaniu zostały ukończone, aplikacja lub usługa kliencka może pobrać dane wyjściowe do dalszego przetwarzania.|
 
 
@@ -85,7 +85,7 @@ Na poniższym diagramie przedstawiono kroki typowego przepływu pracy usługi Ba
 
 Pamiętaj, że jest to tylko jeden sposób korzystania z usługi Batch, a w tym scenariuszu opisano tylko część jej dostępnych funkcji. Na przykład można uruchamiać [wiele zadań podrzędnych równolegle](batch-parallel-node-tasks.md) na każdym węźle obliczeniowym. Można też użyć [zadań podrzędnych przygotowywania i kończenia zadań](batch-job-prep-release.md), aby przygotować węzły dla swoich zadań, a po wszystkim je wyczyścić. 
 
-Zobacz [Omówienie usługi Batch dla deweloperów](batch-api-basics.md), aby zapoznać się z bardziej szczegółowymi informacjami o pulach, węzłach, zadaniach i zadaniach podrzędnych oraz wielu funkcjach API, których można używać podczas tworzenia aplikacji usługi Batch. 
+Zobacz [Omówienie usługi Batch dla deweloperów](batch-api-basics.md), aby zapoznać się z bardziej szczegółowymi informacjami o pulach, węzłach, zadaniach i zadaniach podrzędnych oraz wielu funkcjach API, których można używać podczas tworzenia aplikacji usługi Batch. Zobacz też najnowsze [aktualizacje usługi Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Następne kroki
 

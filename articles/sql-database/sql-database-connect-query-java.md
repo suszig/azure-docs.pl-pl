@@ -1,25 +1,20 @@
 ---
-title: "Korzystanie z języka Java do wykonywania zapytań w bazie danych Azure SQL | Microsoft Docs"
-description: "W tym temacie przedstawiono sposób użycia języka Java do utworzenia programu, który nawiązuje połączenie z bazą danych SQL Azure i wykonuje zapytania za pomocą instrukcji języka Transact-SQL."
+title: Korzystanie z języka Java do wykonywania zapytań w bazie danych Azure SQL | Microsoft Docs
+description: W tym temacie przedstawiono sposób użycia języka Java do utworzenia programu, który nawiązuje połączenie z bazą danych SQL Azure i wykonuje zapytania za pomocą instrukcji języka Transact-SQL.
 services: sql-database
-documentationcenter: 
 author: ajlam
 manager: jhubbard
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: 7de8a1e19de1a72dfc02d726447270fc1ee047d1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85a42230bb8b13810909f81c1f34a484ca532fac
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Korzystanie z języka Java do wykonywania zapytań w bazie danych Azure SQL
 

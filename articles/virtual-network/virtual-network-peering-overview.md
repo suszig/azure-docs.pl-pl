@@ -1,6 +1,6 @@
 ---
-title: "Wirtualne sieci równorzędne platformy Azure | Microsoft Docs"
-description: "Dowiedz się więcej na temat wirtualnych sieci równorzędnych na platformie Azure."
+title: Wirtualne sieci równorzędne platformy Azure | Microsoft Docs
+description: Dowiedz się więcej na temat wirtualnych sieci równorzędnych na platformie Azure.
 services: virtual-network
 documentationcenter: na
 author: NarayanAnnamalai
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
 
@@ -35,7 +35,7 @@ Korzystanie z wirtualnych sieci równorzędnych zapewnia m.in. następujące kor
 
 ## <a name="requirements-constraints"></a>Wymagania i ograniczenia
 
-* Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Możliwość łączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach jest aktualnie dostępna w wersji zapoznawczej w następujących regionach: Zachodnio-środkowe stany USA, Kanada Środkowa, Zachodnie stany USA 2, Korea Południowa, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Kanada Wschodnia, Indie Południowe, Indie Środkowe i Indie Zachodnie. Przed rozpoczęciem łączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach należy [zarejestrować subskrypcję](virtual-network-create-peering.md#register) w celu uzyskania dostępu do wersji zapoznawczej. Próba połączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach zakończy się niepowodzeniem, jeśli rejestracja w celu uzyskania dostępu do wersji zapoznawczej nie została zakończona.
+* Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Możliwość łączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach jest aktualnie dostępna w wersji zapoznawczej w następujących regionach: Zachodnio-środkowe stany USA, Kanada Środkowa, Zachodnie stany USA 2, Korea Południowa, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Kanada Wschodnia, Indie Południowe, Indie Środkowe i Indie Zachodnie. Przed rozpoczęciem łączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach należy [zarejestrować subskrypcję](tutorial-connect-virtual-networks-powershell.md#register) w celu uzyskania dostępu do wersji zapoznawczej. Próba połączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach zakończy się niepowodzeniem, jeśli rejestracja w celu uzyskania dostępu do wersji zapoznawczej nie została zakończona.
     > [!WARNING]
     > Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej między regionami mogą nie mieć takiego samego poziomu dostępności i niezawodności jak połączenia za pomocą komunikacji równorzędnej w wersji ogólnodostępnej. Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich regionach platformy Azure. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -126,7 +126,7 @@ Istnieje nominalna opłata za ruch przychodzący i wychodzący w połączeniach 
 
     |Model wdrażania platformy Azure  | Subskrypcja  |
     |---------|---------|
-    |Resource Manager — w obu przypadkach |[Ta sama](virtual-network-create-peering.md)|
+    |Resource Manager — w obu przypadkach |[Ta sama](tutorial-connect-virtual-networks-portal.md)|
     | |[Różne](create-peering-different-subscriptions.md)|
     |Jedna sieć — Resource Manager, druga — model klasyczny     |[Ta sama](create-peering-different-deployment-models.md)|
     | |[Różne](create-peering-different-deployment-models-subscriptions.md)|

@@ -1,24 +1,24 @@
 ---
-title: "Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center | Microsoft Docs"
-description: "Poznaj sposób integracji usługi Azure Security Center z partnerami w celu poprawy ogólnego stanu zabezpieczeń zasobów platformy Azure."
+title: Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center | Microsoft Docs
+description: Poznaj sposób integracji usługi Azure Security Center z partnerami w celu poprawy ogólnego stanu zabezpieczeń zasobów platformy Azure.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center
 Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączonymi z usługą Azure Security Center i dodawanie nowych.
@@ -41,10 +41,10 @@ Obsługa integracji ochrony punktów końcowych może się różnić w zależno�
 
 | Ochrona punktów końcowych               | Platformy                             | Instalacja usługi Security Center | Odnajdywanie usługi Security Center |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem)                  | Windows Server 2016                   | Nie, wbudowana w system operacyjny           | Tak                       |
-| System Center Endpoint Protection (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem) | Windows Server 2012 R2, 2012, 2008 R2 | Za pomocą rozszerzenia                | Tak                       |
-| Trend Micro — wszystkie wersje         | Rodzina systemów Windows Server                 | Za pomocą rozszerzenia                | Tak                       |
-| Symantec — w wersji co najmniej 12.1.1100                     | Rodzina systemów Windows Server                 | Nie                           | Tak                        |
+| Windows Defender (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem)                  | Windows Server 2016                   | Nie, wbudowana w system operacyjny           | Yes                       |
+| System Center Endpoint Protection (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem) | Windows Server 2012 R2, 2012, 2008 R2 | Za pomocą rozszerzenia                | Yes                       |
+| Trend Micro — wszystkie wersje         | Rodzina systemów Windows Server                 | Za pomocą rozszerzenia                | Yes                       |
+| Symantec — w wersji co najmniej 12.1.1100                     | Rodzina systemów Windows Server                 | Nie                           | Yes                        |
 | MacAfee                           | Rodzina systemów Windows Server                 | Nie                           | Nie                        |
 | Kaspersky                         | Rodzina systemów Windows Server                 | Nie                           | Nie                        |
 | Sophos                            | Rodzina systemów Windows Server                 | Nie                           | Nie                        |
@@ -63,7 +63,15 @@ Rozwiązania zabezpieczeń platformy Azure, które zostały wdrożone z usługi 
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Zarządzanie zintegrowanymi rozwiązaniami zabezpieczeń platformy Azure i innymi źródłami danych
 
-Po wdrożeniu możesz wyświetlić informacje o kondycji zintegrowanych rozwiązań zabezpieczeń platformy Azure i wykonać podstawowe zadania zarządzania. Możesz też połączyć inne typy źródeł danych zabezpieczeń, takie jak alerty usługi Azure Active Directory Identity Protection, i dzienniki zapory w formacie CEF. Na pulpicie nawigacyjnym usługi Security Center wybierz rozwiązania zabezpieczeń.
+1. Zaloguj się w [Portalu Azure](https://azure.microsoft.com/features/azure-portal/).
+
+2. W **menu platformy Microsoft Azure** wybierz pozycję **Security Center**. Zostanie otwarte okno **Security Center — Przegląd**.
+
+  ![Security Center — Przegląd](./media/security-center-partner-integration/overview.png)
+
+3. W obszarze **Przegląd** wybierz pozycję **Rozwiązania w zakresie bezpieczeństwa**.
+
+W obszarze **Rozwiązania w zakresie bezpieczeństwa** możesz wyświetlić informacje o kondycji zintegrowanych rozwiązań zabezpieczeń platformy Azure i wykonać podstawowe zadania zarządzania. Możesz też połączyć inne typy źródeł danych zabezpieczeń, takie jak alerty usługi Azure Active Directory Identity Protection, i dzienniki zapory w formacie CEF.
 
 ### <a name="connected-solutions"></a>Rozwiązania połączone
 
@@ -71,13 +79,22 @@ Sekcja **Połączone rozwiązania** zawiera rozwiązania zabezpieczeń, które s
 
 ![Rozwiązania połączone](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+Aby dowiedzieć się więcej, zobacz [Managing connected partner solutions (Zarządzanie połączonymi rozwiązaniami partnerskimi)](security-center-partner-solutions.md).
+
 ### <a name="discovered-solutions"></a>Rozwiązania odnalezione
 
-Sekcja **Rozwiązania odnalezione** przedstawia wszystkie rozwiązania, które zostały dodane za pośrednictwem platformy Azure. Pokazuje ona także wszystkie rozwiązania, z którymi, według sugestii usługi Security Center, należy się połączyć.
+Usługa Security Center automatycznie odnajduje rozwiązania w zakresie zabezpieczeń działające na platformie Azure, ale niepołączone z usługą Security Center, i wyświetla rozwiązania w sekcji **Rozwiązania odnalezione**. Obejmuje to rozwiązania platformy Azure, takie jak [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), jak również rozwiązania partnerskie.
+
+> [!NOTE]
+> Funkcja rozwiązań odnalezionych jest dostępna w warstwie Standardowa usługi Security Center. Zobacz [cennik](security-center-pricing.md), aby dowiedzieć się więcej na temat warstw cenowych usługi Security Center.
+>
+>
+
+Wybierz pozycję **POŁĄCZ** w obszarze rozwiązania, aby zintegrować je z usługą Security Center i otrzymywać powiadomienia o alertach zabezpieczeń.
 
 ![Rozwiązania odnalezione](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Usługa Security Center automatycznie odnajduje inne rozwiązania zabezpieczeń, które działają na platformie Azure. Obejmuje to rozwiązania platformy Azure, takie jak [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), jak również rozwiązania partnerskie, które są uruchomione na platformie Azure. Aby zintegrować te rozwiązania z usługą Security Center, wybierz pozycję **POŁĄCZ**.
+Usługa Security Center odnajduje również rozwiązania wdrożone w ramach subskrypcji, które mogą przekazywać dalej Dzienniki w formacie Common Event Format (CEF). Dowiedz się, jak [połączyć rozwiązanie w zakresie zabezpieczeń](quick-security-solutions.md), które używa dzienników CEF, z usługą Security Center.
 
 ### <a name="add-data-sources"></a>Dodawanie źródeł danych
 
@@ -90,7 +107,6 @@ Sekcja **Dodawanie źródeł danych** obejmuje inne dostępne źródła danych, 
 
 W tym artykule przedstawiono sposób zintegrowania rozwiązania partnerskiego w usłudze Security Center. Aby dowiedzieć się więcej na temat usługi Security Center, zobacz następujące artykuły:
 
-* [Przewodnik planowania i obsługi usługi Security Center](security-center-planning-and-operations-guide.md)
 * [Connecting Microsoft Advanced Threat Analytics to Azure Security Center (Łączenie usługi Microsoft Advanced Threat Analytics z usługą Azure Security Center)](security-center-ata-integration.md)
 * [Connecting Azure Active Directory Identity Protection to Azure Security Center (Łączenie usługi Azure Active Directory Identity Protection z usługą Azure Security Center)](security-center-aadip-integration.md)
 * [Monitorowanie kondycji zabezpieczeń w usłudze Security Center](security-center-monitoring.md). Informacje na temat sposobu monitorowania kondycji zasobów platformy Azure.

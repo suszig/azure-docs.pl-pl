@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI skryptu przykład — wdrażanie stosu światła w zestawie skalowania równoważeniem obciążenia Machin wirtualna | Dokumentacja firmy Microsoft"
-description: "Użyć niestandardowego rozszerzenia skryptu do wdrożenia stosu światła w przypadku obciążenia = skali maszyny wirtualnej ze zrównoważonym ustawiony na platformie Azure."
+title: Przykładowy skrypt wiersza polecenia platformy Azure — wdrażanie stosu LAMP w zestawie skalowania maszyn wirtualnych o zrównoważonym obciążeniu | Microsoft Docs
+description: Użyj rozszerzenia skryptu niestandardowego w celu wdrożenia stosu LAMP w zestawie skalowania maszyn wirtualnych ze zrównoważonym obciążeniem na platformie Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 23170923d7c05c9b7230cf331725250b2a3c0f09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 1764fc15a888fbe15cc14b990721240d1baf3c40
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Wdrażanie stosu światła w zestawie skalowania maszyn wirtualnych z równoważeniem obciążenia
+# <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Wdrażanie stosu LAMP w zestawie skalowania maszyn wirtualnych ze zrównoważonym obciążeniem
 
-W tym przykładzie tworzy zestaw skali maszyny wirtualnej i stosuje rozszerzenie, które uruchamia niestandardowego skryptu do wdrożenia stosu światła na każdej maszynie wirtualnej w zestawie skalowania.
+Ten przykład tworzy zestaw skalowania maszyn wirtualnych i stosuje rozszerzenie, które uruchamia niestandardowy skrypt w celu wdrożenia stosu LAMP na każdej maszynie wirtualnej w zestawie skalowania.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -34,35 +34,35 @@ W tym przykładzie tworzy zestaw skali maszyny wirtualnej i stosuje rozszerzenie
 
 ## <a name="connect"></a>Połączenie
 
-Umożliwia podłączanie maszyn wirtualnych i na skalę tego kodu ustawić.
+Ten kod umożliwia sprawdzenie sposobu połączenia maszyn wirtualnych i zestawu skalowania.
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/how-to-access.sh "Access the virtual machine scale set")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Uruchom następujące polecenie, aby usunąć grupę zasobów, zestaw skali i maszyn wirtualnych, a wszystkie powiązane zasoby.
+Uruchom następujące polecenie, aby usunąć grupę zasobów, zestaw skalowania i maszyny wirtualne oraz wszystkie powiązane zasoby.
 
 ```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Wyjaśnienie skryptu
+## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, maszyny wirtualnej zestawu dostępności, usługi równoważenia obciążenia i wszystkie powiązane zasoby. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobów, maszyny wirtualnej, zestawu dostępności, modułu równoważenia obciążenia i wszystkich powiązanych zasobów. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Utwórz az vmss](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Tworzy zestaw skali maszyny wirtualnej |
-| [Utwórz regułę równoważeniem obciążenia sieciowego az](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Dodaj punkt końcowy równoważeniem obciążenia |
-| [Ustaw rozszerzenie vmss az](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Tworzenie rozszerzenia, uruchamiany skryptu niestandardowego podczas wdrażania maszyny wirtualnej |
-| [Aktualizacja vmss az-wystąpienia](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Uruchom skrypt niestandardowe na wystąpień maszyn wirtualnych, które zostały wdrożone, przed rozszerzeniem została zastosowana do zestawu skalowania. |
-| [AZ vmss skali](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Skalowanie w górę skali, dodając więcej wystąpień maszyny Wirtualnej. Niestandardowe skrypt jest uruchamiany na te, gdy są one wdrażane. |
-| [Lista ip publicznej sieci az](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | Uzyskaj adresy IP maszyn wirtualnych utworzonych przez próbki. |
-| [Pokaż równoważeniem obciążenia sieciowego az](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Pobierz frontonu i zaplecza porty używane przez usługi równoważenia obciążenia. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Tworzy zestaw skalowania maszyn wirtualnych. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Dodaje zestaw punktów końcowych ze zrównoważonym obciążeniem. |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Tworzy rozszerzenie, które uruchamia skrypt niestandardowy w obrębie wdrożenia maszyny wirtualnej. |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Uruchamia skrypt niestandardowy w obrębie wdrożonych wystąpień maszyny wirtualnej przed zastosowaniem rozszerzenia w zestawie skalowania. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Skaluje zestaw skalowania w górę, dodając kolejne wystąpienia maszyn wirtualnych. Podczas ich wdrażania w ich obrębie jest uruchamiany skrypt niestandardowy. |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | Pobiera adresy IP maszyn wirtualnych utworzonych w ramach przykładu. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Pobiera porty frontonu i zaplecza używane przez moduł równoważenia obciążenia. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
 
-Przykłady skryptów CLI dodatkowe maszyny wirtualnej znajdują się w [dokumentacji maszyny Wirtualnej systemu Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Więcej przykładowych skryptów interfejsu wiersza polecenia maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

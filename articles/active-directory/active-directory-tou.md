@@ -1,24 +1,24 @@
 ---
-title: "Warunki użytkowania usługi Azure Active Directory | Microsoft Docs"
-description: "Warunki użytkowania usługi Azure AD pozwalają administratorom i firmom udostępnić użytkownikom warunki użytkowania usług Azure AD."
+title: Warunki użytkowania usługi Azure Active Directory | Microsoft Docs
+description: Warunki użytkowania usługi Azure AD pozwalają administratorom i firmom udostępnić użytkownikom warunki użytkowania usług Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funkcja Warunki użytkowania usługi Azure Active Directory (wersja zapoznawcza)
 Warunki użytkowania usługi Azure AD pozwalają organizacjom przedstawiać informacje użytkownikom w prosty sposób.  Dzięki temu użytkownicy mogą zapoznać się z istotnymi zastrzeżeniami do wymagań prawnych lub wymagań dotyczących zgodności.
@@ -128,7 +128,7 @@ Odp. Informacja o zaakceptowaniu warunków użytkowania przez użytkownika jest 
 Odp. Tak, po zmianie warunków użytkowania przez administratora użytkownicy muszą ponownie zaakceptować nowe warunki.
 
 **Pyt. Czy warunki użytkowania obsługują wiele języków?**</br>
-Odp. Nie, warunki użytkowania nie mogą aktualnie zawierać treści w wielu językach.  Można jednak utworzyć grupę (na przykład gdy warunki użytkowania we Francji różnią się od warunków użytkowania w Wielkiej Brytanii). 
+Odp. Tak.  Obecnie istnieje 18 różnych języków, które administrator może skonfigurować na potrzeby pojedynczych warunków użytkowania. 
 
 **Pyt. Kiedy są wyzwalane warunki użytkowania?**</br>
 Odp. Warunki użytkowania są wyzwalane podczas logowania.

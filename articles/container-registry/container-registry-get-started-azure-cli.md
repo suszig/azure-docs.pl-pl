@@ -1,25 +1,25 @@
 ---
-title: "Szybki start — tworzenie rejestru prywatnego platformy Docker na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure"
-description: "Szybka nauka tworzenia rejestru prywatnego platformy Docker przy użyciu interfejsu wiersza polecenia platformy Azure."
+title: Szybki start — tworzenie rejestru prywatnego platformy Docker na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Szybka nauka tworzenia rejestru prywatnego platformy Docker przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/07/2017
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: db1fb3deec4b70a9341753a59910aeb0e002bca0
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Tworzenie rejestru kontenera za pomocą interfejsu wiersza polecenia platformy Azure
 
-Usługa Azure Container Registry to zarządzana usługa rejestru kontenerów platformy Docker używana do przechowywania prywatnych obrazów kontenerów Docker. W tym przewodniku znajdują się szczegółowe informacje dotyczące tworzenia wystąpienia usługi Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Azure.
+Usługa Azure Container Registry to zarządzana usługa rejestru kontenerów platformy Docker używana do przechowywania prywatnych obrazów kontenerów Docker. W tym przewodniku szczegółowo opisano tworzenie wystąpienia usługi Azure Container Registry za pomocą interfejsu wiersza polecenia platformy Azure, wypychanie obrazu kontenera do rejestru i na koniec wdrażanie kontenera z rejestru do usługi Azure Container Instances (ACI).
 
-Ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.25 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0][azure-cli].
+Ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.27 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0][azure-cli].
 
 Musisz mieć również zainstalowane lokalnie środowisko Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac][docker-mac], [Windows][docker-windows] lub [Linux][docker-linux].
 
@@ -29,13 +29,13 @@ Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-W tym przewodniku Szybki start utworzymy rejestr w ramach jednostki *Podstawowa*. Usługa Azure Container Registry jest dostępna w ramach kilku różnych jednostek SKU, krótko opisanych w poniższej tabeli. Aby uzyskać szczegółowe informacji o każdej z nich, zobacz [Jednostki SKU rejestru kontenerów][container-registry-skus].
+W tym przewodniku Szybki start utworzysz rejestr w ramach jednostki *Podstawowa*. Usługa Azure Container Registry jest dostępna w ramach kilku różnych jednostek SKU, krótko opisanych w poniższej tabeli. Aby uzyskać szczegółowe informacji o każdej z nich, zobacz [Jednostki SKU rejestru kontenerów][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -70,7 +70,7 @@ Po utworzeniu rejestru dane wyjściowe będą podobne do następujących:
 }
 ```
 
-W dalszej części tego przewodnika Szybki start wartość `<acrName>` zostanie użyta jako symbol zastępczy nazwy rejestru kontenerów.
+W dalszej części tego przewodnika Szybki start wartość `<acrName>` jest używana jako symbol zastępczy nazwy rejestru kontenerów.
 
 ## <a name="log-in-to-acr"></a>Zaloguj się do usługi ACR
 
@@ -84,7 +84,7 @@ Po ukończeniu polecenie zwraca komunikat `Login Succeeded`.
 
 ## <a name="push-image-to-acr"></a>Wypychanie obrazu do usługi ACR
 
-Aby wypchnąć obraz do usługi Azure Container Registry, najpierw musisz mieć obraz. Jeśli nie masz jeszcze żadnych lokalnych obrazów kontenerów, uruchom następujące polecenie, aby ściągnąć istniejący obraz z usługi Docker Hub.
+Aby wypchnąć obraz do usługi Azure Container Registry, najpierw musisz go mieć. Jeśli nie masz jeszcze żadnych lokalnych obrazów kontenerów, uruchom następujące polecenie, aby ściągnąć istniejący obraz z usługi Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
@@ -138,20 +138,64 @@ Result
 v1
 ```
 
+## <a name="deploy-image-to-aci"></a>Wdrażanie obrazu w usłudze ACI
+
+W celu wdrożenia wystąpienia kontenera z utworzonego rejestru musisz podać podczas wdrażania poświadczenia rejestru. W scenariuszach ze środowiskiem produkcyjnym do uzyskiwania dostępu do rejestru kontenerów powinna być używana [jednostka usługi][container-registry-auth-aci], ale aby nie wydłużać tego przewodnika Szybki start, włącz administratora w swoim rejestrze za pomocą następującego polecenia:
+
+```azurecli
+az acr update --name <acrName> --admin-enabled true
+```
+
+Po włączeniu administratora nazwa użytkownika jest taka sama jak nazwa rejestru, a hasło można uzyskać za pomocą następującego polecenia:
+
+```azurecli
+az acr credential show --name <acrName> --query "passwords[0].value"
+```
+
+Aby wdrożyć obraz kontenera przy użyciu 1 rdzenia procesora CPU i 1 GB pamięci, uruchom następujące polecenie. Zastąp elementy `<acrName>`, `<acrLoginServer>` i `<acrPassword>` wartościami uzyskanymi przy użyciu poprzednich poleceń.
+
+```azurecli
+az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+```
+
+Powinna pojawić się wstępna odpowiedź od usługi Azure Resource Manager ze szczegółowymi informacjami o kontenerze. Aby monitorować stan kontenera i sprawdzić, czy jest uruchomiony, powtórz polecenie [az container show][az-container-show]. Powinno to zająć mniej niż minutę.
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
+```
+
+## <a name="view-the-application"></a>Wyświetlanie aplikacji
+
+Po pomyślnym wdrożenia w usłudze ACI uzyskaj nazwę FQDN kontenera za pomocą polecenia [az container show][az-container-show]:
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.fqdn
+```
+
+Przykładowe dane wyjściowe: `"aci-demo.eastus.azurecontainer.io"`
+
+Aby wyświetlić działającą aplikację, przejdź do publicznego adresu IP w ulubionej przeglądarce.
+
+![Aplikacja Hello World w przeglądarce][aci-app-browser]
+
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, wystąpienie usługi ACR i wszystkie obrazy kontenerów nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete][az-group-delete].
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku Szybki start utworzono usługę Azure Container Registry za pomocą interfejsu wiersza polecenia platformy Azure. Jeśli chcesz używać usługi Azure Container Registry z usługą Azure Container Instances, przejdź do samouczka dotyczącego usługi Azure Container Instances.
+W tym przewodniku Szybki start utworzona została usługa Azure Container Registry z interfejsem wiersza polecenia platformy Azure, wypchnięto obraz kontenera do rejestru i uruchomiono jego wystąpienie za pośrednictwem usługi Azure Container Instances. Przejdź do samouczka usługi Azure Container Instances, aby dowiedzieć się więcej o tej usłudze.
 
 > [!div class="nextstepaction"]
 > [Samouczek dotyczący usługi Azure Container Instances][container-instances-tutorial-prepare-app]
+
+<!-- IMAGES> -->
+[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
+
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -167,5 +211,7 @@ W tym samouczku Szybki start utworzono usługę Azure Container Registry za pomo
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
+[az-container-show]: /cli/azure/container#az_container_show
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-auth-aci]: container-registry-auth-aci.md

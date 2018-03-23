@@ -1,0 +1,39 @@
+- name: Dokumentacja usługi Batch AI
+  href: index.md
+- name: Omówienie
+  items:
+    - name: Co to jest Batch AI?
+      href: overview.md
+- name: Rozpoczęcie pracy
+  expanded: true
+  items:
+    - name: Uruchamianie zadania szkolenia — interfejs wiersza polecenia
+      href: quickstart-cli.md
+    - name: Uruchamianie zadania szkolenia — język Python
+      href: quickstart-python.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/batchai
+    - name: .NET
+      href: /dotnet/api/overview/azure/batchai
+    - name: Java
+      href: /java/api/overview/azure/batchai
+    - name: Node.js
+      href: /javascript/api/overview/azure/batchai
+    - name: Python
+      href: /python/api/overview/azure/batchai
+    - name: REST
+      href: /rest/api/batchai
+- name: Zasoby
+  items:
+    - name: Przepisy na szkolenie
+      href: 'https://github.com/Azure/BatchAI'
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/batch-ai'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Dostępność regionalna
+      href: 'https://azure.microsoft.com/regions/services/'

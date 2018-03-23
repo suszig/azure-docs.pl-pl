@@ -1,6 +1,6 @@
 ---
-title: "Migracja lokalnych aplikacji usług AD FS na platformę Azure | Microsoft Docs"
-description: "Ten dokument ma ułatwić organizacjom zrozumienie sposobu przeprowadzania migracji lokalnych aplikacji do usługi Azure AD, ze szczególnym uwzględnieniem federacyjnych aplikacji SaaS."
+title: Migracja lokalnych aplikacji usług AD FS na platformę Azure | Microsoft Docs
+description: Ten dokument ma ułatwić organizacjom zrozumienie sposobu przeprowadzania migracji lokalnych aplikacji do usługi Azure AD, ze szczególnym uwzględnieniem federacyjnych aplikacji SaaS.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migracja lokalnych aplikacji usług AD FS na platformę Azure 
 
@@ -166,7 +166,7 @@ Obecnie nie można migrować aplikacji, które wymagają wymienionych poniżej m
 - Możliwości oświadczeń w tokenie
     - Wystawianie nazw grup lokalnych jako oświadczeń
     - Oświadczenia z magazynów innych niż usługa Azure AD
-    - Złożone reguły przekształcania wystawiania oświadczeń (zobacz ten dokument i ten dokument w celu uzyskania informacji o mapowaniach obsługiwanych oświadczeń)
+    - Złożone reguły przekształcania wystawiania oświadczeń (zobacz ten [dokument](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) i ten [dokument](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) w celu uzyskania informacji o mapowaniach obsługiwanych oświadczeń)
     - Wystawianie rozszerzeń katalogów jako oświadczeń
     - Niestandardowa specyfikacja formatu NameID
     - Wystawianie atrybutów o wielu wartościach

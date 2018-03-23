@@ -1,21 +1,21 @@
 ---
-title: "Samouczek budowania modelu na potrzeby usługi Azure Machine Learning (wersja zapoznawcza) | Microsoft Docs"
-description: "W całej serii tego samouczka kompleksowo przedstawiono sposób korzystania z usługi Azure Machine Learning (wersja zapoznawcza). To jest część druga, w której omówiono eksperymenty."
+title: Samouczek budowania modelu na potrzeby usługi Azure Machine Learning (wersja zapoznawcza) | Microsoft Docs
+description: W całej serii tego samouczka kompleksowo przedstawiono sposób korzystania z usługi Azure Machine Learning (wersja zapoznawcza). To jest część druga, w której omówiono eksperymenty.
 services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 9a1613e2137e178d00a24f9f5b3c802f8a894b15
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: 3e7f1b25757dc627f0f42a34c1a42b2d421c06c9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-2---build-a-model"></a>Samouczek: klasyfikowanie irysów, część 2 — budowanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -66,13 +66,13 @@ Aby poeksperymentować z wysyłką skryptu uruchamianego w kontenerze platformy 
 
    - Używa biblioteki [scikit-learn](http://scikit-learn.org/stable/index.html) uczenia maszynowego w celu zbudowania modelu regresji logistycznej. 
 
-   - Serializuje model przez wstawienie biblioteki [pickle](https://docs.python.org/2/library/pickle.html) do pliku w folderze `outputs`. Skrypt następnie ładuje plik i deserializuje go z powrotem do pamięci.
+   - Serializuje model przez użycie biblioteki [pickle](https://docs.python.org/3/library/pickle.html) w pliku w folderze `outputs`. Skrypt następnie ładuje plik i deserializuje go z powrotem do pamięci.
 
    - Za pomocą modelu po deserializacji przewiduje nowy rekord. 
 
    - Rysuje dwa wykresy, macierz pomyłek oraz wieloklasową krzywą ROC (Receiver Operating Characteristic) przy użyciu biblioteki [matplotlib](https://matplotlib.org/), a następnie zapisuje te elementy w folderze `outputs`.
 
-   - Obiekt `run_logger` jest używany przez cały czas w celu rejestrowania współczynnika uregulowania i modelowania dokładności w dziennikach. Dzienniki są automatycznie oznaczane na wykresach w historii uruchamiania.
+   - Obiekt `run_logger` jest używany przez cały czas w celu rejestrowania współczynnika uregulowania i modelowania dokładności w dziennikach. Te wartości są automatycznie oznaczane na wykresach w historii uruchamiania.
 
 
 ## <a name="execute-irissklearnpy-script-in-a-local-environment"></a>Wykonywanie skryptu iris_sklearn.py w środowisku lokalnym
@@ -92,30 +92,31 @@ Przygotujmy się do uruchomienia skryptu **iris_sklearn.py** po raz pierwszy. Te
 
 3. Wróć do okna aplikacji Workbench. 
 
-4. Na pasku narzędzi u góry karty **iris_sklearn.py** wybierz opcję otwarcia menu rozwijanego koło ikony **Zapisz**, a następnie wybierz opcję **Konfiguracja uruchomieniowa**. Wybierz **lokalne** jako środowisko wykonawcze, a następnie wprowadź `iris_sklearn.py` jako skrypt do uruchomienia.
+4. Na pasku narzędzi w górnej części karty **iris_sklearn.py** wybierz pozycję **lokalne** jako środowisko wykonywania i `iris_sklearn.py` jako skrypt do uruchomienia.
 
-5. Następnie przejdź na prawą stronę paska narzędzi i wprowadź `0.01` w polu **Argumenty**. 
+5. Następnie przejdź na prawą stronę paska narzędzi i wprowadź `0.01` w polu **Argumenty**. Ta wartość odpowiada współczynnikowi uregulowania modelu regresji logistycznej.
 
    ![Kontrolka Uruchom](media/tutorial-classifying-iris/run_control.png)
 
 6. Wybierz przycisk **Uruchom**. Nastąpi natychmiastowe zaplanowanie zadania. To zadanie jest widoczne w panelu **Zadania** po prawej stronie okna aplikacji Workbench. 
 
-7. Po kilku chwilach stan zadania zostanie zmieniony z **Przesyłanie** na **Uruchomiono**, a następnie będzie miał wartość **Zakończono**.
+7. Po kilku chwilach stan zadania zostanie zmieniony z **Przesyłanie** na **Uruchomiono**, a na koniec na wartość **Zakończono**.
 
    ![Uruchamianie skryptu sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
-8. Wybierz wyraz **Ukończono** w tekście stanu zadania w panelu **Zadania**. Zostanie otwarte okno podręczne, w którym widoczny będzie tekst wyjścia standardowego (stdout) działającego skryptu. Aby zamknąć tekst stdout, wybierz przycisk **Zamknij** (**x**) w prawym górnym rogu okna podręcznego.
+8. Wybierz wyraz **Ukończono** w tekście stanu zadania w panelu **Zadania**. Zostanie otwarte okno podręczne, w którym widoczny będzie tekst wyjścia standardowego (stdout) dla uruchomienia. Aby zamknąć tekst stdout, wybierz przycisk **Zamknij** (**x**) w prawym górnym rogu okna podręcznego.
 
-9. W tym samym stanie zadania w panelu **Zadania** wybierz niebieski tekst **iris_sklearn.py [n]** (_n_ to numer uruchomienia) tuż nad stanem **Zakończono** i czasem uruchomienia. Zostanie otwarte okno **Właściwości uruchamiania**, które zawiera następujące informacje dotyczące konkretnego uruchomienia:
+9. W tym samym stanie zadania w okienku **Zadania** wybierz niebieski tekst **iris_sklearn.py [n]** (_n_ to numer uruchomienia) tuż nad stanem **Zakończono** i czasem uruchomienia. Zostanie otwarte okno **Właściwości uruchamiania**, które zawiera następujące informacje dotyczące konkretnego uruchomienia:
    - Informacje w oknie **Właściwości uruchomienia**
-   - Pliki **wyjściowe**
+   - **Dane wyjściowe**
+   - **Metryki**
    - **Wizualizacje**, jeśli są dostępne
    - **Dzienniki** 
 
    Gdy uruchomienie zostanie zakończone, pojawi się okno podręczne z następującymi wynikami:
 
    >[!NOTE]
-   >Do zestawu szkoleniowego wprowadziliśmy generowanie losowe, dlatego uzyskane wyniki mogą się nieznacznie różnić od widocznych tutaj.
+   >Do zestawu szkoleniowego wprowadziliśmy generowanie losowe, dlatego wyniki mogą się nieznacznie różnić od widocznych tutaj.
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -148,9 +149,9 @@ Przygotujmy się do uruchomienia skryptu **iris_sklearn.py** po raz pierwszy. Te
 
 10. Zamknij kartę **Właściwości uruchomienia**, a następnie wróć do karty **iris_sklearn.py**. 
 
-11. Powtórz dodatkowe uruchomienia. 
+11. Powtórz te czynności dla dodatkowych uruchomień. 
 
-    Do pola **Argumenty** wprowadź szereg różnych wartości liczbowych z zakresu od `0.001` do `10`. Wybierz przycisk **Uruchom**, aby wykonać ten kod jeszcze kilka razy. Zmieniana za każdym razem wartość argumentu jest wprowadzana do algorytmu regresji logistycznej w kodzie, przez co wyniki są za każdym razem różne.
+    W polu **Argumenty** wprowadź serię wartości z zakresu od `0.001` do `10`. Wybierz przycisk **Uruchom**, aby wykonać ten kod jeszcze kilka razy. Zmieniana za każdym razem wartość argumentu jest wprowadzana do modelu regresji logistycznej w kodzie, przez co wyszukane dane są za każdym razem różne.
 
 ## <a name="review-the-run-history-in-detail"></a>Przeglądanie szczegółów historii uruchamiania
 W aplikacji Azure Machine Learning Workbench każde wykonanie skryptu jest przechwytywane jako rekord w historii uruchamiania. Jeśli otworzysz widok **Uruchomienia**, możesz wyświetlić historię uruchamiania konkretnego skryptu.
@@ -175,16 +176,16 @@ W aplikacji Azure Machine Learning Workbench każde wykonanie skryptu jest przec
 
 ## <a name="execute-scripts-in-the-local-docker-environment"></a>Wykonywanie skryptów w lokalnym środowisku platformy Docker
 
-Usługa Machine Learning umożliwia łatwe konfigurowanie dodatkowych środowisk wykonawczych, takich jak platforma Docker, i uruchamianie skryptów w tych środowiskach. 
+Możesz łatwo konfigurować dodatkowe środowiska wykonawcze, takich jak platforma Docker, i uruchamiać skrypty w tych środowiskach. 
 
 >[!IMPORTANT]
->Aby można było wykonać ten krok, aparat platformy Docker musi zostać lokalnie zainstalowany i uruchomiony. Aby uzyskać więcej informacji, zapoznaj się z instrukcjami dotyczącymi instalacji platformy Docker.
+>Aby można było wykonać ten krok, aparat platformy Docker musi zostać lokalnie zainstalowany i uruchomiony. Aby uzyskać więcej informacji, zapoznaj się z [instrukcjami dotyczącymi instalacji platformy Docker](https://docs.docker.com/install/).
 
 1. W okienku po lewej stronie wybierz ikonę **folderu**, aby otworzyć listę **Pliki** dla projektu. Rozwiń folder `aml_config`. 
 
-2. Istnieje kilka wstępnie skonfigurowanych środowisk, takich jak **docker-python**, **docker-spark** oraz **lokalne**. 
+2. Istnieje kilka wstępnie skonfigurowanych środowisk: **docker-python**, **docker-spark** oraz **lokalne**. 
 
-   Każde środowisko ma dwa pliki, takie jak `docker-python.compute` i `docker-python.runconfig`. Otwórz każdy plik, aby zobaczyć, że niektóre opcje można skonfigurować w edytorze tekstów.  
+   Każde środowisko ma dwa pliki, takie jak `docker.compute` (środowiska **docker python** i **docker spark**) i `docker-python.runconfig`. Otwórz każdy plik, aby zobaczyć, że niektóre opcje można skonfigurować w edytorze tekstów.  
 
    Aby wyczyścić, wybierz przycisk **Zamknij** (**x**) na kartach wszystkich otwartych edytorów tekstu.
 
@@ -198,9 +199,9 @@ Usługa Machine Learning umożliwia łatwe konfigurowanie dodatkowych środowisk
 
 4. Sprawdź, czy nowe zadanie uruchamia się. To zadanie jest widoczne w okienku **Zadania** po prawej stronie okna aplikacji Workbench.
 
-   Jeśli uruchamiasz skrypt na platformie Docker po raz pierwszy, uruchomienie trwa kilka minut dłużej. 
+   Jeśli uruchamiasz zadanie na platformie Docker po raz pierwszy, jego ukończenie potrwa kilka minut dłużej. 
 
-   W tle aplikacja Azure Machine Learning Workbench tworzy nowy plik docker. 
+   W tle aplikacja Azure Machine Learning Workbench tworzy nowy plik platformy Docker. 
    Nowy plik odwołuje się do obrazu podstawowego platformy Docker określonego w pliku `docker.compute` oraz pakietów zależności języka Python określonych w pliku `conda_dependencies.yml`. 
    
    Aparat platformy Docker wykonuje następujące zadania:
@@ -211,13 +212,13 @@ Usługa Machine Learning umożliwia łatwe konfigurowanie dodatkowych środowisk
     - Kopiuje (albo — w zależności od konfiguracji uruchamiania — tworzy do niej odniesienie) lokalną kopię folderu projektu.      
     - Wykonuje skrypt `iris_sklearn.py`.
 
-   Wynik końcowy powinien być dokładnie taki sam jak wtedy, gdy miejscem docelowym jest środowisko **lokalne**.
+   Wyniki końcowe powinny być dokładnie takie same jak wtedy, gdy miejscem docelowym jest środowisko **lokalne**.
 
-5. Teraz wypróbujmy platformę Spark. Obraz podstawowy platformy Docker zawiera preinstalowane i skonfigurowane wystąpienie platformy Spark. Przy użyciu tego wystąpienia można wykonać skrypt PySpark. Jest to prosty sposób tworzenia i testowania programu na platformę Spark bez konieczności samodzielnego instalowania i konfigurowania platformy Spark. 
+5. Teraz wypróbujmy platformę Spark. Obraz podstawowy platformy Docker zawiera wstępnie zainstalowane i skonfigurowane wystąpienie platformy Spark, którego można używać do wykonywania skryptu PySpark. Jest to prosty sposób tworzenia i testowania programu na platformę Spark bez konieczności samodzielnego instalowania i konfigurowania platformy Spark. 
 
    Otwórz plik `iris_spark.py`. Ten skrypt ładuje plik danych `iris.csv` i używa algorytmu regresji logistycznej z biblioteki Spark Machine Learning do klasyfikowania zestawu danych Iris. Teraz zmień środowisko uruchomieniowe na **docker-spark**, a skrypt na **iris_spark.py**, a następnie uruchom go ponownie. Proces trwa nieco dłużej, ponieważ sesja platformy Spark musi zostać utworzona i uruchomiona w kontenerze platformy Docker. Możesz także zobaczyć, że wyjście standardowe różni się od wyjścia standardowego dla pliku `iris_spark.py`.
 
-6. Wykonaj kilka dodatkowych uruchomień i poeksperymentuj z różnymi argumentami. 
+6. Rozpocznij kilka dodatkowych uruchomień i poeksperymentuj z różnymi argumentami. 
 
 7. Otwórz plik `iris_spark.py`, aby zobaczyć model regresji logistycznej utworzony za pomocą biblioteki Spark Machine Learning. 
 
@@ -242,7 +243,7 @@ Usługa Machine Learning umożliwia łatwe konfigurowanie dodatkowych środowisk
    az account list -o table
    
    REM sets the current Azure subscription to the one you want to use
-   az account set -s <subscriptionId>
+   az account set -s <SubscriptionId>
    
    REM verifies that your current subscription is set correctly
    az account show
@@ -269,6 +270,7 @@ Usługa Machine Learning umożliwia łatwe konfigurowanie dodatkowych środowisk
    REM executes iris_spark.py in the local Docker container Spark environment
    az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
+
 6. W aplikacji Workbench wybierz ikonę **Folder** w lewym okienku, aby wyświetlić listę plików projektu, i otwórz skrypt w języku Python o nazwie **run.py**. 
 
    Ten skrypt jest przydatny do zapętlania różnych współczynników uregulowania. Uruchom eksperyment wiele razy z tymi współczynnikami. Ten skrypt uruchamia zadanie `iris_sklearn.py` ze współczynnikiem uregulowania `10.0` (bardzo duża liczba). Następnie skrypt zmniejsza współczynnik o połowę w kolejnym uruchomieniu. Robi tak, aż współczynnik nie będzie mniejszy niż `0.005`. 
@@ -283,17 +285,17 @@ Usługa Machine Learning umożliwia łatwe konfigurowanie dodatkowych środowisk
        reg = reg / 2
    ```
 
-   Aby otworzyć skrypt **run.py** z wiersza polecenia, uruchom następujące polecenia:
+   Aby wykonać skrypt **run.py** z wiersza polecenia, uruchom następujące polecenia:
 
    ```cmd
    REM submits iris_sklearn.py multiple times with different regularization rates
    python run.py
    ```
 
-   Gdy działanie skryptu `run.py` zostanie zakończone, w widoku listy historii uruchamiania w aplikacji Workbench pojawi się wykres.
+   Gdy działanie skryptu `run.py` zostanie zakończone, w widoku listy historii uruchamiania w aplikacji Workbench będzie można zobaczyć wykres różnych metryk.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Wykonywanie w kontenerze platformy Docker na komputerze zdalnym
-W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z systemem Linux wymagany jest dostęp za pośrednictwem powłoki SSH (nazwa użytkownika i hasło) do tego komputera zdalnego. Ponadto na komputerze zdalnym musi zostać zainstalowany i uruchomiony aparat platformy Docker. Najprostszym sposobem uzyskania takiego komputera z systemem Linux jest utworzenie maszyny wirtualnej Data Science Virtual Machine (DSVM) opartej na dystrybucji Ubuntu na platformie Azure. Dowiedz się, [jak utworzyć maszynę wirtualną DSVM opartą na dystrybucji Ubuntu do użycia w aplikacji Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
+W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z systemem Linux wymagany jest dostęp za pośrednictwem powłoki SSH (nazwa użytkownika i hasło) do tego komputera zdalnego. Ponadto na maszynie należy zainstalować i uruchomić aparat platformy Docker. Najprostszym sposobem uzyskania takiego komputera z systemem Linux jest utworzenie maszyny wirtualnej Data Science Virtual Machine (DSVM) opartej na dystrybucji Ubuntu na platformie Azure. Dowiedz się, [jak utworzyć maszynę wirtualną DSVM opartą na dystrybucji Ubuntu do użycia w aplikacji Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >Maszyna wirtualna DSVM oparta na dystrybucji CentOS *nie* jest obsługiwana.
@@ -306,7 +308,10 @@ W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z s
    ```
    
    >[!NOTE]
-   >Adres IP może być również adresowaną publicznie w pełni kwalifikowaną nazwą domeny (FQDN), taką jak `vm-name.southcentralus.cloudapp.azure.com`. Dobrym rozwiązaniem jest dodanie nazwy FQDN do maszyny wirtualnej DSVM i użycie jej w tym miejscu zamiast adresu IP. Takie rozwiązanie jest dobrym pomysłem, ponieważ w pewnym momencie maszynę wirtualną można będzie wyłączyć w związku z oszczędnościami. Ponadto przy następnym uruchomieniu maszyny wirtualnej adres IP może już być zmieniony.
+   >Adres IP może być również adresowaną publicznie w pełni kwalifikowaną nazwą domeny (FQDN), taką jak `vm-name.southcentralus.cloudapp.azure.com`. Dobrym rozwiązaniem jest dodanie nazwy FQDN do maszyny wirtualnej DSVM i użycie jej zamiast adresu IP. Takie rozwiązanie jest dobrym pomysłem, ponieważ w pewnym momencie maszynę wirtualną można będzie wyłączyć w związku z oszczędnościami. Ponadto przy następnym uruchomieniu maszyny wirtualnej adres IP może już być zmieniony.
+
+   >[!NOTE]
+   >Oprócz uwierzytelniania nazwy użytkownika i hasła możesz określić klucz prywatny i odpowiednie hasło (jeśli istnieją) przy użyciu opcji `--private-key-file` i (opcjonalnie) `--private-key-passphrase`.
 
    Następnie uruchom poniższe polecenie, aby skonstruować obraz platformy Docker na maszynie wirtualnej i przygotować go na uruchamianie skryptów:
    
@@ -315,17 +320,17 @@ W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z s
    az ml experiment prepare -c myvm
    ```
    >[!NOTE]
-   >W pliku `myvm.runconfig` możesz również zmienić wartość `PrepareEnvironment` z domyślnej `false` na `true`. Ta zmiana spowoduje automatyczne przygotowanie kontenera platformy Docker przy pierwszym uruchomieniu.
+   >W pliku `myvm.runconfig` możesz również zmienić wartość `PrepareEnvironment` z domyślnej wartości `false` na `true`. Ta zmiana spowoduje automatyczne przygotowanie kontenera platformy Docker jako części pierwszego uruchomienia.
 
-2. Edytuj wygenerowany plik `myvm.runconfig` w folderze `aml_config` i zmień domyślne ustawienie Framework z wartości `PySpark` na wartość `Python`:
+2. Edytuj wygenerowany plik `myvm.runconfig` w folderze `aml_config` i zmień ustawienie Framework z wartości domyślnej `PySpark` na wartość `Python`:
 
    ```yaml
-   "Framework": "Python"
+   Framework: Python
    ```
    >[!NOTE]
-   >Pozostawienie ustawienia Framework z wartością PySpark również powinno zadziałać. Ale takie rozwiązanie jest mniej wydajne, jeśli do uruchomienia skryptu w języku Python nie jest potrzebna sesja platformy Spark.
+   >Rozwiązanie PySpark powinno działać, ale użycie języka Python jest bardziej wydajne, jeśli do uruchomienia skryptu w języku Python faktycznie nie potrzeba sesji platformy Spark.
 
-3. Wydaj to samo polecenie jak poprzednio w oknie interfejsu wiersza polecenia, jednak tym razem środowiskiem docelowym będzie środowisko _myvm_:
+3. Wydaj to samo polecenie jak poprzednio w oknie interfejsu wiersza polecenia, używając tym razem środowiska docelowego _myvm_:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
    az ml experiment submit -c myvm iris_sklearn.py
@@ -334,11 +339,11 @@ W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z s
 
 4. Wypróbujmy użycie platformy Spark w kontenerze. Otwórz Eksploratora plików. Można to zrobić również z okna interfejsu wiersza polecenia, pod warunkiem że potrafisz się posługiwać prostymi poleceniami do manipulowania plikami. Utwórz kopię pliku `myvm.runconfig` i nadaj jej nazwę `myvm-spark.runconfig`. Edytuj nowy plik, aby zmienić wartość ustawienia `Framework` z `Python` na `PySpark`:
    ```yaml
-   "Framework": "PySpark"
+   Framework: PySpark
    ```
-   Nie wprowadzaj żadnych zmian w pliku `myvm.compute`. W celu przeprowadzenia wykonania na platformie Spark zostanie wykorzystany ten sam obraz platformy Docker na tej samej maszynie wirtualnej. W nowym pliku `myvm-spark.runconfig` pole `target` wskazuje ten sam plik `myvm.compute` za pośrednictwem jego nazwy `myvm`.
+   Nie wprowadzaj żadnych zmian w pliku `myvm.compute`. W celu przeprowadzenia wykonania na platformie Spark zostanie wykorzystany ten sam obraz platformy Docker na tej samej maszynie wirtualnej. W nowym pliku `myvm-spark.runconfig` pole `Target` wskazuje ten sam plik `myvm.compute` za pośrednictwem jego nazwy `myvm`.
 
-5. Wpisz następujące polecenie, aby uruchomić je w wystąpieniu platformy Spark w zdalnym kontenerze platformy Docker:
+5. Wpisz następujące polecenie, aby uruchomić skrypt **iris_spark.py** w wystąpieniu platformy Spark uruchomionej w zdalnym kontenerze Docker:
    ```azureli
    REM executes iris_spark.py in a Spark instance on a remote Docker container
    az ml experiment submit -c myvm-spark .\iris_spark.py
@@ -363,9 +368,9 @@ Ten skrypt można również uruchomić w klastrze usługi HDInsight Spark. Dowie
    Nazwa FQDN węzła głównego klastra to zazwyczaj `<cluster_name>-ssh.azurehdinsight.net`.
 
    >[!NOTE]
-   >`username` jest nazwą użytkownika powłoki SSH klastra. Wartość domyślna to `sshuser`, o ile nie została zmieniona podczas konfiguracji usługi HDInsight. Wartością nie jest `admin`, ponieważ jest to drugi użytkownik utworzony podczas konfiguracji w celu zapewnienia dostępu do administracyjnej witryny internetowej klastra. 
+   >`username` jest nazwą użytkownika powłoki SSH klastra. Wartość domyślna to `sshuser`, o ile nie została zmieniona podczas konfigurowania usługi HDInsight. Wartością nie jest `admin`, ponieważ jest to drugi użytkownik utworzony podczas konfiguracji w celu zapewnienia dostępu do administracyjnej witryny internetowej klastra. 
 
-2. Uruchom następujące polecenie, a skrypt zostanie uruchomiony w klastrze usługi HDInsight:
+2. Uruchom następujące polecenie, aby uruchomić skrypt **iris_spark.py** w klastrze usługi HDInsight:
 
    ```azurecli
    REM executes iris_spark on the HDInsight cluster
@@ -374,7 +379,6 @@ Ten skrypt można również uruchomić w klastrze usługi HDInsight Spark. Dowie
 
    >[!NOTE]
    >W przypadku wykonywania względem zdalnego klastra usługi HDInsight możesz również wyświetlić szczegóły wykonania zadania YARN (Yet Another Resource Negotiator) pod adresem `https://<cluster_name>.azurehdinsight.net/yarnui`, korzystając z konta użytkownika `admin`.
-
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
