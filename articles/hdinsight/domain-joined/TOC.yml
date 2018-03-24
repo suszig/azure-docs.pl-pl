@@ -6,8 +6,6 @@
       href: apache-domain-joined-introduction.md
     - name: Planowanie pod kątem klastrów przyłączonych do domeny
       href: apache-domain-joined-architecture.md
-    - name: Konfigurowanie przyłączonego do domeny środowiska piaskownicy
-      href: apache-domain-joined-configure.md
     - name: Konfigurowanie przyłączonych do domeny klastrów za pomocą usługi Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Synchronizowanie użytkowników usługi Azure AD z klastrem usługi HDInsight

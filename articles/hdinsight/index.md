@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja usługi Azure HDInsight — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Poznaj platformę Hadoop w usłudze HDInsight. Dokumentacja przedstawiająca sposób użycia platform Hadoop, Spark, HBase i R-Server oraz innych technologii w celu przetwarzania i analizowania danych big data oraz uzyskiwania wglądu w nie."
+title: Dokumentacja usługi Azure HDInsight — samouczki i dokumentacja interfejsu API | Microsoft Docs
+description: Poznaj platformę Hadoop w usłudze HDInsight. Dokumentacja przedstawiająca sposób użycia platform Hadoop, Spark, HBase i R-Server oraz innych technologii w celu przetwarzania i analizowania danych big data oraz uzyskiwania wglądu w nie.
 services: hdinsight
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/05/2017
 ms.author: carolz
-ms.openlocfilehash: 12fbfada95f9356b1d32c0edd3346a57c6ffa26f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6d00f3194f7cf02d9c0218ed768f3c3350efdd16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-hdinsight-documentation"></a>Dokumentacja usługi Azure HDInsight
+# <a name="azure-hdinsight-documentation"></a>Dokumentacja usługi Azure HDInsight
 
 Dowiedz się, jak używać usługi Azure HDInsight do analizowania danych przesyłanych strumieniowo lub danych historycznych. Samouczki i inne dokumenty przedstawiają sposób tworzenia klastrów, przetwarzania i analizowania danych big data oraz opracowywania rozwiązań przy użyciu najbardziej popularnych struktur typu „open source”, takich jak Hadoop, Spark, Hive, LLAP, Kafka, Storm, R i innych. 
 
@@ -241,7 +241,7 @@ Azure HDInsight jest w pełni zarządzaną usługą analityczną typu „open so
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">Program PowerShell</a></p>
                     </div>
                 </div>
             </div>

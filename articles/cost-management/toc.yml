@@ -28,7 +28,7 @@
 - name: Pojęcia
   items:
     - name: Omówienie raportów kosztów
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Aktywowanie subskrypcji i kont platformy Azure

@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja usługi Azure Load Balancer — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Informacje o sposobie używania usługi Load Balancer do zarządzania wydajnością aplikacji w sieci. Zarządzanie ruchem dla maszyn wirtualnych i zasobów w chmurze oraz w sieciach wirtualnych obejmujących wiele lokalizacji."
+title: Dokumentacja usługi Azure Load Balancer — samouczki i dokumentacja interfejsu API | Microsoft Docs
+description: Informacje o sposobie używania usługi Load Balancer do zarządzania wydajnością aplikacji w sieci. Zarządzanie ruchem dla maszyn wirtualnych i zasobów w chmurze oraz w sieciach wirtualnych obejmujących wiele lokalizacji.
 services: load-balancer
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4642b0108343b417dc09bbc5978b6a18a58d39a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="load-balancer-documentation"></a>Dokumentacja usługi Load Balancer
+# <a name="load-balancer-documentation"></a>Dokumentacja usługi Load Balancer
 
 Dowiedz się, jak skonfigurować usługę Load Balancer, aby zapewnić aplikacjom wysoką dostępność i wydajność sieci. Dokumentacja przedstawiająca sposób równoważenia obciążenia ruchu w sieciach wirtualnych obejmujących wiele lokalizacji oraz kierowanego do i z maszyn wirtualnych i zasobów w chmurze.
 
@@ -107,7 +107,7 @@ Dowiedz się, jak skonfigurować usługę Load Balancer, aby zapewnić aplikacjo
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">Program PowerShell</a></p>
                         <p><a href="/cli/azure/network/lb">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
                     </div>
                 </div>

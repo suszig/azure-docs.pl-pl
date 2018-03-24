@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja usługi Azure StorSimple — samouczki | Microsoft Docs"
-description: "Dowiedz się, jak używać usługi Azure StorSimple, zintegrowanego rozwiązania, które pozwala zarządzać zadaniami dotyczącymi przesyłania danych między urządzeniami lokalnymi i magazynem w chmurze Azure."
+title: Dokumentacja usługi Azure StorSimple — samouczki | Microsoft Docs
+description: Dowiedz się, jak używać usługi Azure StorSimple, zintegrowanego rozwiązania, które pozwala zarządzać zadaniami dotyczącymi przesyłania danych między urządzeniami lokalnymi i magazynem w chmurze Azure.
 services: storsimple
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: storsimple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 579fe32f75e051e679e6cbbaea5f99c7fcd6037b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0115c1794878296df826e7d04724a561464125d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="storsimple-documentation"></a>Dokumentacja usługi StorSimple
+# <a name="storsimple-documentation"></a>Dokumentacja usługi StorSimple
 
 Dowiedz się, jak używać usługi Azure StorSimple, zintegrowanego rozwiązania, które pozwala zarządzać zadaniami dotyczącymi przesyłania danych między urządzeniami lokalnymi i magazynem w chmurze Azure. Samouczki i inne dokumenty przedstawiające sposób konfigurowania odzyskiwania po awarii, tworzenia kopii zapasowych niezależnych od lokalizacji i zarządzania magazynem.
 
@@ -117,7 +117,7 @@ Dowiedz się, jak używać usługi Azure StorSimple, zintegrowanego rozwiązania
 
 ---
 
-##<a name="other-storsimple-solutions"></a>Inne rozwiązania StorSimple
+## <a name="other-storsimple-solutions"></a>Inne rozwiązania StorSimple
 
 <ul class="panelContent cardsW">
     <li>

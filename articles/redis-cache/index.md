@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja usługi Azure Redis Cache — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pamięci podręcznej danych i komunikatów, który zapewnia aplikacjom szybki dostęp do danych. Samouczki, dokumentacja interfejsu API i inne materiały."
+title: Dokumentacja usługi Azure Redis Cache — samouczki i dokumentacja interfejsu API | Microsoft Docs
+description: Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pamięci podręcznej danych i komunikatów, który zapewnia aplikacjom szybki dostęp do danych. Samouczki, dokumentacja interfejsu API i inne materiały.
 services: redis-cache
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: redis-cache
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b772df55f8862330da9e557b9bf2ed11b9e2347
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="redis-cache-documentation"></a>Dokumentacja usługi Redis Cache
+# <a name="redis-cache-documentation"></a>Dokumentacja usługi Redis Cache
 
 Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pamięci podręcznej danych i komunikatów, który zapewnia aplikacjom dostęp do danych o dużej przepustowości i małych opóźnieniach. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak używać usługi Redis Cache z poziomu dowolnej aplikacji na platformie Azure.
 
@@ -160,7 +160,7 @@ Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pami�
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">Program PowerShell</a></p>
                         <p><a href="/cli/azure/redis">Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)</a></p>
                     </div>
                 </div>

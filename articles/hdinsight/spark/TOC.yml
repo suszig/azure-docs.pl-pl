@@ -97,8 +97,6 @@
           href: apache-spark-structured-streaming-overview.md
         - name: Tworzenie zadań przesyłania strumieniowego platformy Spark o wysokiej dostępności na platformie YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Przesyłanie strumieniowe ze strukturą za pomocą usługi Event Hubs
-          href: apache-spark-eventhub-structured-streaming.md
         - name: Przesyłanie strumieniowe ze strukturą za pomocą usługi Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
