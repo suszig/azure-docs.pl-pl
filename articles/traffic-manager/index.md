@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja usługi Azure Traffic Manager — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak zarządzać ruchem przychodzącym, aby uzyskać optymalną wydajność aplikacji. W dokumentacji przedstawiono sposób dystrybucji ruchu do punktów końcowych platformy Azure lub punktów końcowych usługi zewnętrznej."
+title: Dokumentacja usługi Azure Traffic Manager — samouczki i dokumentacja interfejsu API | Microsoft Docs
+description: Dowiedz się, jak zarządzać ruchem przychodzącym, aby uzyskać optymalną wydajność aplikacji. W dokumentacji przedstawiono sposób dystrybucji ruchu do punktów końcowych platformy Azure lub punktów końcowych usługi zewnętrznej.
 services: traffic-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce3699f4838c30eaaa0ab2938190c05de1feb781
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="traffic-manager-documentation"></a>Dokumentacja usługi Traffic Manager
+# <a name="traffic-manager-documentation"></a>Dokumentacja usługi Traffic Manager
 
 Dowiedz się, jak za pomocą usługi Traffic Manager kierować ruchem przychodzącym, aby uzyskać optymalną wydajność i niezawodność aplikacji. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak zarządzać ruchem do punktów końcowych platformy Azure lub punktów końcowych usługi zewnętrznej.
 
@@ -108,7 +108,7 @@ Dowiedz się, jak za pomocą usługi Traffic Manager kierować ruchem przychodz�
                 <div class="card">
                     <div class="cardText">
                         <h3>Języki</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">Program PowerShell</a></p>
                         <p><a href="/cli/azure/network/traffic-manager">Interfejs wiersza polecenia platformy Azure</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p>

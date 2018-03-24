@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja usługi Azure Resource Manager — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak za pomocą usługi Resource Manager wdrażać zasoby rozwiązań i zarządzać nimi jako grupą oraz jak tworzyć szablony na potrzeby spójnego i powtarzalnego wdrażania zasobów."
+title: Dokumentacja usługi Azure Resource Manager — samouczki i dokumentacja interfejsu API | Microsoft Docs
+description: Dowiedz się, jak za pomocą usługi Resource Manager wdrażać zasoby rozwiązań i zarządzać nimi jako grupą oraz jak tworzyć szablony na potrzeby spójnego i powtarzalnego wdrażania zasobów.
 services: azure-resource-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-resource-manager-documentation"></a>Dokumentacja usługi Azure Resource Manager
+# <a name="azure-resource-manager-documentation"></a>Dokumentacja usługi Azure Resource Manager
 
 Dowiedz się, jak używać usługi Resource Manager w celu wdrażania i monitorowania zasobów rozwiązań oraz zarządzania nimi jako grupą. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób konfigurowania grup zasobów i tworzenia szablonów na potrzeby spójnego i powtarzalnego wdrażania.
 
@@ -125,7 +125,7 @@ Dowiedz się, jak używać usługi Resource Manager w celu wdrażania i monitoro
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">Program PowerShell</a></p>
                         <p><a href="/cli/azure/resource">Interfejs wiersza polecenia platformy Azure</a></p>
                     </div>
                 </div>
@@ -141,7 +141,7 @@ Dowiedz się, jak używać usługi Resource Manager w celu wdrażania i monitoro
                         <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
-                        <p><a href="/azure/templates/">Template format</a> (Format szablonu)</p>
+                        <p><a href="/azure/templates/">Format szablonu</a></p>
                         <p><a href="/azure/resource-group-template-functions">Funkcje szablonów</a></p>
                         <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funkcje definicji interfejsu użytkownika</a></p>
                         <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementy definicji interfejsu użytkownika</a></p>

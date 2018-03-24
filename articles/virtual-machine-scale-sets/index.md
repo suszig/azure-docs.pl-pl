@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja zestawów skalowania maszyn wirtualnych na platformie Azure — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych tworzyć automatycznie skalowane maszyny wirtualne z systemem Windows lub Linux na potrzeby dużych wystąpień obliczeniowych, danych big data i obciążeń konteneryzowanych."
+title: Dokumentacja zestawów skalowania maszyn wirtualnych na platformie Azure — samouczki i dokumentacja interfejsu API | Microsoft Docs
+description: Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych tworzyć automatycznie skalowane maszyny wirtualne z systemem Windows lub Linux na potrzeby dużych wystąpień obliczeniowych, danych big data i obciążeń konteneryzowanych.
 services: virtual-machine-scale-sets
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f6c51a605a3fe28fb906e8c35a68a885a46136ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53a6db483ff760c143d98a209e622e1214762ce3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="virtual-machine-scale-sets-documentation"></a>Dokumentacja zestawów skalowania maszyn wirtualnych
+# <a name="virtual-machine-scale-sets-documentation"></a>Dokumentacja zestawów skalowania maszyn wirtualnych
 
 Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych wdrożyć zestaw identycznych, automatycznie skalowanych maszyn wirtualnych z systemem Windows lub Linux oraz zarządzać nimi. W dokumentacji przedstawiono, jak przy użyciu zestawów skalowania obsługiwać usługi przeznaczone dla dużych wystąpień obliczeniowych, danych big data i obciążeń konteneryzowanych.
 
@@ -90,7 +90,7 @@ Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych wdrożyć
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Program PowerShell</a></p>
                         <p><a href="/cli/azure/vm">Interfejs wiersza polecenia platformy Azure</a></p>
                     </div>
                 </div>

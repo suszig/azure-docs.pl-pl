@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja usługi Azure ExpressRoute — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Informacje o sposobie konfigurowania prywatnego połączenia usługi ExpressRoute między usługami chmurowymi firmy Microsoft a infrastrukturą lokalną lub środowiskiem obejmującym kilka lokalizacji oraz zarządzania takim połączeniem."
+title: Dokumentacja usługi Azure ExpressRoute — samouczki i dokumentacja interfejsu API | Microsoft Docs
+description: Informacje o sposobie konfigurowania prywatnego połączenia usługi ExpressRoute między usługami chmurowymi firmy Microsoft a infrastrukturą lokalną lub środowiskiem obejmującym kilka lokalizacji oraz zarządzania takim połączeniem.
 services: expressroute
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8c12fd74d131538e736d6357da586c5debb9929c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9255a4166809568258d733c2894e5788d27cd612
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="expressroute-documentation"></a>Dokumentacja usługi ExpressRoute
+# <a name="expressroute-documentation"></a>Dokumentacja usługi ExpressRoute
 
 Dowiedz się, jak za pomocą usługi ExpressRoute skonfigurować szybkie, prywatne połączenie między usługami chmurowymi firmy Microsoft a infrastrukturą lokalną lub środowiskiem obejmującym kilka lokalizacji. Samouczki, interfejsy API REST i inne dokumenty ułatwiające konfigurowanie obwodu usługi ExpressRoute i zarządzanie nim.
 
@@ -89,7 +89,7 @@ Dowiedz się, jak za pomocą usługi ExpressRoute skonfigurować szybkie, prywat
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/module/azurerm.network/#expressroute">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.network/#expressroute">Program PowerShell</a></p>
                         <p><a href="/cli/azure/network/express-route">Interfejs wiersza polecenia platformy Azure</a></p>
                     </div>
                 </div>

@@ -1,24 +1,24 @@
 ---
-title: "Dokumentacja usługi Azure Service Bus — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak skonfigurować obsługę komunikatów łączących aplikacje i usługi w środowiskach lokalnych i chmurowych.  Samouczki, klipy wideo, dokumentacja interfejsu API i inne materiały."
+title: Dokumentacja usługi Azure Service Bus — samouczki i dokumentacja interfejsu API | Microsoft Docs
+description: Dowiedz się, jak skonfigurować obsługę komunikatów łączących aplikacje i usługi w środowiskach lokalnych i chmurowych.  Samouczki, klipy wideo, dokumentacja interfejsu API i inne materiały.
 services: service-bus
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-bus
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
-ms.openlocfilehash: 9651d93f4d29121e561108845ed48558e46e42f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ce116da6fe3651a4ed50805660ced2c2e5ac61d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="service-bus-documentation"></a>Dokumentacja usługi Service Bus
+# <a name="service-bus-documentation"></a>Dokumentacja usługi Service Bus
 
 Dowiedz się, jak używać usług Service Bus i Relay do łączenia środowisk lokalnych i chmurowych. Samouczki, klipy wideo, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób konfigurowania obsługi komunikatów wysyłanych między aplikacjami i usługami w chmurze.
 
