@@ -1,11 +1,10 @@
 ---
-title: "Przenoszenie danych z serwera FTP przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu przenoszenia danych z serwera FTP przy użyciu fabryki danych Azure."
+title: Przenoszenie danych z serwera FTP przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat sposobu przenoszenia danych z serwera FTP przy użyciu fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 17dea2d1106a57aa678a88db6647c71048d8c38f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Przenoszenie danych z serwera FTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,8 +73,8 @@ W poniższej tabeli opisano specyficzne dla usługi FTP połączone elementy JSO
 | encryptedCredential |Określ zaszyfrowane poświadczenia dostępu do serwera FTP. |Nie |&nbsp; |
 | gatewayName |Określ nazwę bramy w brama zarządzania danymi do nawiązania połączenia lokalnego serwera FTP. |Nie |&nbsp; |
 | port |Określ port, na którym nasłuchuje serwer FTP. |Nie |21 |
-| enableSsl |Określ, czy używać FTP za pośrednictwem kanału SSL/TLS. |Nie |prawda |
-| enableServerCertificateValidation |Określ, czy w celu włączenia weryfikacji certyfikatu serwera SSL, gdy używasz FTP za pośrednictwem kanału SSL/TLS. |Nie |prawda |
+| enableSsl |Określ, czy używać FTP za pośrednictwem kanału SSL/TLS. |Nie |true |
+| enableServerCertificateValidation |Określ, czy w celu włączenia weryfikacji certyfikatu serwera SSL, gdy używasz FTP za pośrednictwem kanału SSL/TLS. |Nie |true |
 
 ### <a name="use-anonymous-authentication"></a>Uwierzytelnianie anonimowe
 
@@ -155,7 +154,7 @@ Aby uzyskać pełną listę właściwości dostępnych do definiowania zestawów
 | --- | --- | --- |
 | folderPath |Podrzędną do folderu. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** ścieżki folderu oparte na początku wycinka i kończyć daty i godziny. |Yes |
 | fileName |Określ nazwę pliku w **folderPath** aby tabela do odwoływania się do określonego pliku w folderze. Jeśli nie określono żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Gdy **fileName** nie jest określony dla wyjściowego zestawu danych, nazwę wygenerowanego pliku znajduje się w następującym formacie: <br/><br/>Dane. <Guid>.txt (przykład: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nie |
-| obiektu fileFilter |Określ filtr służący do wybierania podzbioru plików w **folderPath**, a nie wszystkich plików.<br/><br/>Dozwolone wartości to: `*` (wielu znaków) i `?` (pojedynczy znak).<br/><br/>Przykład 1:`"fileFilter": "*.log"`<br/>Przykład 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **obiektu fileFilter** dotyczy wejściowy zestaw danych z udziału plików. Ta właściwość nie jest obsługiwana z Hadoop Distributed pliku System (HDFS). |Nie |
+| obiektu fileFilter |Określ filtr służący do wybierania podzbioru plików w **folderPath**, a nie wszystkich plików.<br/><br/>Dozwolone wartości to: `*` (wielu znaków) i `?` (pojedynczy znak).<br/><br/>Przykład 1: `"fileFilter": "*.log"`<br/>Przykład 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **obiektu fileFilter** dotyczy wejściowy zestaw danych z udziału plików. Ta właściwość nie jest obsługiwana z Hadoop Distributed pliku System (HDFS). |Nie |
 | partitionedBy |Służy do określania dynamicznym **folderPath** i **fileName** czasu serii danych. Na przykład można określić **folderPath** który jest sparametryzowana dla każdej godziny danych. |Nie |
 | Format | Obsługiwane są następujące typy format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw **typu** właściwości w formacie do jednej z tych wartości. Aby uzyskać więcej informacji, zobacz [formacie tekstowym](data-factory-supported-file-and-compression-formats.md#text-format), [formatu Json](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), i [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sekcje. <br><br> Jeśli chcesz skopiować pliki są one między magazynów opartych na plikach (kopia binarnego), Pomiń sekcji format w obu definicji zestawu danych wejściowych i wyjściowych. |Nie |
 | Kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to **GZip**, **Deflate**, **BZip2**, i **ZipDeflate**, i są obsługiwane poziomy **optymalna** i **najszybciej**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w fabryce danych Azure](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |

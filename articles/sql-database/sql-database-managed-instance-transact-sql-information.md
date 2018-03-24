@@ -1,20 +1,20 @@
 ---
-title: "Baza danych Azure SQL zarządzane wystąpienia T-SQL różnice | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano różnice T-SQL wystąpienia zarządzane bazy danych SQL Azure i SQL Server."
+title: Baza danych Azure SQL zarządzane wystąpienia T-SQL różnice | Dokumentacja firmy Microsoft
+description: W tym artykule opisano różnice T-SQL wystąpienia zarządzane bazy danych SQL Azure i SQL Server.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL bazy danych zarządzanych wystąpienia T-SQL różnice z programu SQL Server 
 
@@ -393,7 +393,11 @@ Następujące zmienne, funkcje i widoki zwraca różne wyniki:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Powyżej miejsca do magazynowania z plikami małych baz danych
 
-Każde wystąpienie zarządzane ma się do 35 TB zarezerwowane miejsce do magazynowania i każdego pliku bazy danych jest początkowo umieszczona na jednostce alokacji 128 GB pamięci masowej. Bazy danych o wiele małych plików może znajdować się na jednostkach 128 GB, które łącznie przekracza limit 35 TB. W takim przypadku nowych baz danych nie można utworzyć ani przywrócenia, nawet jeśli całkowity rozmiar wszystkich baz danych osiągnięto limit rozmiaru wystąpienia. Błąd, który jest zwracany w takiej sytuacji może nie być Wyczyść.
+Każde wystąpienie zarządzania ma do 35 TB magazynu zarezerwowane dla miejsca na dysku Premium Azure i wszystkich plików bazy danych znajduje się na innym dysku fizycznym. Rozmiary dysków może być 128 GB, 256 GB, 512 GB, 1 TB lub 4 TB. Nieużywane miejsce na dysku nie jest pobierana, ale suma rozmiarów dysków Premium Azure nie może przekraczać 35 TB. W niektórych przypadkach zarządzane wystąpienia, które nie wymagają 8 TB w sumie może przekroczyć 35 TB Azure limit rozmiaru magazynu z powodu wewnętrznego fragmentacji. 
+
+Na przykład wystąpieniem zarządzane może mieć jeden plik o rozmiarze 1,2 TB, który używa dysku 4 TB i 248 pliki z 1 GB każda są umieszczane na dyskach 248 o rozmiarze 128 GB. W tym przykładzie rozmiar całkowitą dysku magazynu jest 1 x 4 TB + 248 x 128 GB = 35 TB. Jednakże rozmiar całkowitą wystąpienia zarezerwowana dla baz danych jest 1 x 1.2 TB + 248 x 1 GB = 1,4 TB. Potwierdza to, że w pewnych okolicznościach, ze względu na bardzo szczegółowej rozkład plików, wystąpienie usługi zarządzania może osiągnąć limit magazynu Azure Premium dysku, gdzie może nie oczekujesz. 
+
+Nie byłoby błąd braku na istniejących baz danych i może zwiększyć bez żadnych problemów, jeśli nie są dodawane nowe pliki, ale nie można utworzyć ani przywrócić, ponieważ nie jest wystarczająco dużo miejsca na nowe dyski twarde, nawet jeśli całkowity rozmiar wszystkich baz danych nie osiąga t nowych baz danych limit rozmiaru jego wystąpienia. Błąd, który jest zwracany nie jest w tym przypadku Wyczyść.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Przywróć niepoprawnej konfiguracji klucza sygnatury dostępu Współdzielonego w bazie danych
 

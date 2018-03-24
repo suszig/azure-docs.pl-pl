@@ -1,12 +1,12 @@
 ---
-title: "Rozwiązywanie problemów z ustawieniami roamingu stanu przedsiębiorstwa w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Zawiera odpowiedzi na pytania Administratorzy IT mogą mieć o ustawieniach i synchronizacji danych aplikacji."
+title: Rozwiązywanie problemów z ustawieniami roamingu stanu przedsiębiorstwa w usłudze Azure Active Directory | Dokumentacja firmy Microsoft
+description: Zawiera odpowiedzi na pytania Administratorzy IT mogą mieć o ustawieniach i synchronizacji danych aplikacji.
 services: active-directory
-keywords: "Enterprise mobilnego ustawienia stanu, chmury systemu windows, często zadawane pytania na roamingu stanu przedsiębiorstwa"
-documentationcenter: 
+keywords: Enterprise mobilnego ustawienia stanu, chmury systemu windows, często zadawane pytania na roamingu stanu przedsiębiorstwa
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Rozwiązywanie problemów z ustawieniami roamingu stanu przedsiębiorstwa w usłudze Azure Active Directory
 
@@ -47,7 +47,7 @@ Jeśli nie możesz rozwiązać problemu z poniższych wskazówek, można skontak
 
 Te informacje w tym pomoże nam w możliwie najkrótszym czasie rozwiązać tego problemu.
 
-## <a name="troubleshooting-and-diagnosing-issues"></a>Rozwiązywanie problemów i diagnozowanie problemów
+## <a name="troubleshooting-and-diagnosing-issues"></a>Rozwiązywanie i diagnozowanie problemów
 W tej sekcji przedstawiono sugestie dotyczące Rozwiązywanie problemów i diagnozowanie problemów związanych z roamingu stanu przedsiębiorstwa.
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Sprawdź, synchronizacji i na stronie ustawień "Synchronizuj swoje ustawienia" 
@@ -78,7 +78,7 @@ W niektórych warunkach roamingu stanu przedsiębiorstwa może zakończyć się 
 
 **Potencjalny problem**: synchronizacja może zakończyć się niepowodzeniem, jeśli administrator konfiguruje zasady dostępu warunkowego uwierzytelniania wieloskładnikowego usług federacyjnych Active Directory i wygaśnięcia tokenu dostępu na urządzeniu. Upewnij się zalogujesz, wyloguj się przy użyciu Microsoft Passport dla numeru PIN pracy lub wykonać uwierzytelnianie wieloskładnikowe podczas uzyskiwania dostępu do innych usług Azure, takich jak usługi Office 365.
 
-###<a name="event-viewer"></a>Podgląd zdarzeń
+### <a name="event-viewer"></a>Podgląd zdarzeń
 Do zaawansowanego rozwiązywania problemów można znaleźć określone błędy Podgląd zdarzeń. Te są opisane w poniższej tabeli. Zdarzenia można znaleźć w Podglądzie zdarzeń > Dzienniki aplikacji i usług > **Microsoft** > **Windows** > **SettingSync** i problemów z synchronizacją tożsamości **Microsoft** > **Windows** > **usługi Azure AD**.
 
 
@@ -154,8 +154,8 @@ Podłącz urządzenie do sieci firmowej, dzięki którym możliwe wznowienie syn
 Użytkownik będzie musiał Odłączanie i ponowne przyłączenie urządzenia do chmury. W tym Zaloguj się jako użytkownik administratora lokalnego i odłączyć urządzenie, przechodząc do **ustawienia** > **systemu** > **o** i wybierz pozycję "Zarządzaj lub Odłącz od pracy lub nauki". Czyszczenie plików poniżej i Azure AD Join urządzenia ponownie w **ustawienia** > **systemu** > **o** i wybierając pozycję "Połącz z pracy lub Służbowe". Nadal dołączenie urządzenia do usługi Azure Active Directory i zakończyć przepływ.
 
 W kroku oczyszczania oczyszczania następujące pliki:
-- Settings.dat w`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Wszystkie pliki w folderze`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- Settings.dat w `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Wszystkie pliki w folderze `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

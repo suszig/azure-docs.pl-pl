@@ -1,11 +1,11 @@
 ---
-title: "Redagowanie krojów z przewodnikiem analizy multimediów Azure | Dokumentacja firmy Microsoft"
-description: "W tym temacie przedstawiono instrukcje krok po kroku na temat uruchamiania redakcyjne pełnego przepływu pracy przy użyciu usługi Azure Media Services Explorer (AMSE) i Azure Media Redactor Visualizer (narzędzie typu open source)."
+title: Redagowanie krojów z przewodnikiem analizy multimediów Azure | Dokumentacja firmy Microsoft
+description: W tym temacie przedstawiono instrukcje krok po kroku na temat uruchamiania redakcyjne pełnego przepływu pracy przy użyciu usługi Azure Media Services Explorer (AMSE) i Azure Media Redactor Visualizer (narzędzie typu open source).
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redagowanie krojów z przewodnikiem analizy multimediów Azure
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 **Azure Media Redactor** jest [analizy multimediów Azure](media-services-analytics-overview.md) procesor multimediów (MP) oferuje skalowalne krój redakcyjne w chmurze. Redakcyjne krój umożliwia modyfikowanie wideo do rozmycia kroje wybrane osoby. Można korzystać z usługi redakcyjne krój w publicznych scenariusze bezpieczeństwa i nośnika wiadomości. Kilka minut najmniejszym zawiera wiele kroje może zająć godzin redagowanie ręcznie, ale z tą usługą krój redakcyjne wymagany wykonanie kilku prostych krokach. Aby uzyskać więcej informacji, zobacz [to](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 
@@ -59,7 +59,7 @@ Dane wyjściowe będzie zawierać plik json adnotacje z danych lokalizacji krój
 
 ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>Drugi przekazać — redagowanie tryb
+### <a name="second-pass--redact-mode"></a>Drugi przekazać — redagowanie tryb
 
 1. Wyślij oryginalnej zawartości wideo dane wyjściowe z pierwszego przejścia i Ustaw jako podstawowy zasobów. 
 
@@ -78,7 +78,7 @@ Dane wyjściowe będzie zawierać plik json adnotacje z danych lokalizacji krój
 
     ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor wizualizatora typu open source narzędzia
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor wizualizatora typu open source narzędzia
 
 Typu open source [narzędzie wizualizatora](https://github.com/Microsoft/azure-media-redactor-visualizer) ułatwia deweloperom uruchamiana z formatem adnotacje z analizy i przy użyciu danych wyjściowych.
 
@@ -119,7 +119,7 @@ Jeśli jesteś deweloperem próby przeprowadzenia analizy danych JSON adnotacji,
 6.  Przekazywanie tego pliku do elementu zawartości wyjściowej z kroku 1. Przekazywanie oryginalnego wideo do trwałego również i Ustaw jako podstawowy zasobów. 
 7.  Uruchom zadanie redakcyjne ten zasób w trybie "Redact" można uzyskać końcowa zredagowanego wideo. 
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Kolejne kroki 
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

@@ -1,11 +1,11 @@
 ---
-title: "Dodawanie powiadomień wypychanych do aplikacji platformy Xamarin.Forms | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak wysyłać powiadomienia wypychane obejmującego wiele platform do aplikacji platformy Xamarin.Forms przy użyciu usług Azure."
+title: Dodawanie powiadomień wypychanych do aplikacji platformy Xamarin.Forms | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak wysyłać powiadomienia wypychane obejmującego wiele platform do aplikacji platformy Xamarin.Forms przy użyciu usług Azure.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0bea00d411205541684e807182abd3236c09bd9d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Dodawanie powiadomień wypychanych do aplikacji platformy Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -213,7 +213,7 @@ Pierwsze dwa kroki są wymagane tylko wtedy, gdy w przypadku testowania emulator
 ## <a name="configure-and-run-the-ios-project-optional"></a>Konfigurowanie i uruchamianie projektu iOS (opcjonalnie)
 Ta sekcja dotyczy uruchamiania projektu Xamarin iOS dla urządzeń z systemem iOS. Jeśli nie pracujesz z urządzeniami z systemem iOS, możesz pominąć tę sekcję.
 
-[!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
+[!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 #### <a name="configure-the-notification-hub-for-apns"></a>Konfigurowanie Centrum powiadomień dla usługi APNS
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]

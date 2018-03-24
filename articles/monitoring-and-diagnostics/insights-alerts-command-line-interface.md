@@ -1,9 +1,9 @@
 ---
-title: "Utwórz alerty dla usług Azure - CLI wieloplatformowych | Dokumentacja firmy Microsoft"
-description: "Wyzwalacz wiadomości e-mail, powiadomienia, Wywołaj adresy URL witryny sieci Web (elementy webhook) lub automatyzacji po spełnieniu warunków, które określisz."
+title: Utwórz alerty dla usług Azure - CLI wieloplatformowych | Dokumentacja firmy Microsoft
+description: Wyzwalacz wiadomości e-mail, powiadomienia, Wywołaj adresy URL witryny sieci Web (elementy webhook) lub automatyzacji po spełnieniu warunków, które określisz.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Tworzenie metryki alertów w monitorze Azure dla usług Azure - CLI między platformami
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Tworzenie klasycznego metryki alertów w monitorze Azure dla usług Azure - CLI między platformami
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [Program PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Przegląd
+> [!NOTE]
+> W tym artykule opisano sposób tworzenia starsze alerty metryki. Azure obsługuje teraz Monitor [nowszą, lepiej metryki alerty](monitoring-near-real-time-metric-alerts.md). Te alerty można monitorować wiele metryk i umożliwić alertów na wymiarów metryki. Obsługa interfejsu wiersza polecenia dla nowszej alertów metryki będzie dostępna wkrótce.
+>
+>
+
 W tym artykule przedstawiono sposób konfigurowania Azure metryki alertów za pomocą interfejsu wiersza polecenia i platform (CLI).
 
 > [!NOTE]
@@ -39,7 +44,7 @@ W tym artykule przedstawiono sposób konfigurowania Azure metryki alertów za po
 Możesz otrzymywać alertu na podstawie metryki monitorowania lub zdarzenia na usługami Azure.
 
 * **Wartości metryki** — uruchamia alert, gdy wartość określonej metryki przekracza próg przypisać w żadnym kierunku. Oznacza to, że oba wyzwala po spełnieniu warunku zostanie najpierw i następnie później podczas warunku jest już spełniane.    
-* **Zdarzenia dziennika aktywności** — alert może wyzwolić na *co* zdarzenia lub tylko wtedy, gdy występuje określone zdarzenia. Aby dowiedzieć się więcej o alertach dziennika aktywności [kliknij tutaj](monitoring-activity-log-alerts.md)
+* **Zdarzenia dziennika aktywności** -alert może wyzwolić na *co* zdarzenia lub tylko wtedy, gdy wystąpi określone zdarzenie. Aby dowiedzieć się więcej o alertach dziennika aktywności [kliknij tutaj](monitoring-activity-log-alerts.md)
 
 Można skonfigurować metryki alert do wyzwala, wykonaj następujące czynności:
 
@@ -50,7 +55,7 @@ Można skonfigurować metryki alert do wyzwala, wykonaj następujące czynności
 
 Można skonfigurować i uzyskać informacje na temat metryki reguły alertów za pomocą
 
-* [Azure portal](insights-alerts-portal.md)
+* [Azure Portal](insights-alerts-portal.md)
 * [Program PowerShell](insights-alerts-powershell.md)
 * [Interfejs wiersza polecenia (CLI)](insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -99,7 +104,7 @@ Zawsze może odbierać pomocy dla poleceń, wpisując polecenie i odkładanie �
      *PT1M* jest stopień szczegółowości miary dostępne (1-minutowy). Przy użyciu różnych szczegółowości zapewnia różne opcje metryki.
 4. Aby utworzyć regułę alertu metryki, użyj polecenia mają następującą postać:
 
-    **Azure insights metryki zestaw reguł alertów** *[opcje] &lt;ruleName&gt; &lt;lokalizacji&gt; &lt;resourceGroup&gt; &lt;Rozmiar_okna&gt; &lt;operator&gt; &lt;próg&gt; &lt;element targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
+    **Usługa Azure insights metryki zestaw reguł alertów** *[opcje] &lt;ruleName&gt; &lt;lokalizacji&gt; &lt;resourceGroup&gt; &lt;Rozmiar_okna&gt; &lt;operator&gt; &lt;próg&gt; &lt;element targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 
     Poniższy przykład powoduje ustawienie alertu dla zasobu witryny sieci web. Wyzwalacze alertu zawsze, gdy odbierze spójnie cały ruch do 5 minut i ponownie po otrzymaniu żaden ruch na 5 minut.
 

@@ -1,11 +1,11 @@
 ---
-title: "Transmisja strumieniowa przy użyciu usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów na żywo | Dokumentacja firmy Microsoft"
-description: "W tym temacie opisano, jak skonfigurować kanału, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów z kodera lokalnego i wykonuje następnie kodowanie na żywo do strumienia o adaptacyjnej szybkości transmisji bitów z usługi Media Services. Strumień następnie zostanie dostarczona do klienta odtwarzanie aplikacji za pośrednictwem jednego lub więcej punkty końcowe przesyłania strumieniowego, przy użyciu jednej z następujących protokołów adaptacyjną: HLS, Smooth Stream, MPEG DASH."
+title: Transmisja strumieniowa przy użyciu usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów na żywo | Dokumentacja firmy Microsoft
+description: 'W tym temacie opisano, jak skonfigurować kanału, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów z kodera lokalnego i wykonuje następnie kodowanie na żywo do strumienia o adaptacyjnej szybkości transmisji bitów z usługi Media Services. Strumień następnie zostanie dostarczona do klienta odtwarzanie aplikacji za pośrednictwem jednego lub więcej punkty końcowe przesyłania strumieniowego, przy użyciu jednej z następujących protokołów adaptacyjną: HLS, Smooth Stream, MPEG DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: anilmur
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 9d89849bb982804515b21de8c251859591dbf6ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o różnej szybkości transmisji bitów
+
+> [!NOTE]
+> Uruchamianie kanałów na żywo 12 maja 2018 będzie już obsługi strumienia transportowego RTP/MPEG-2 protokołu pozyskiwania. Przeprowadź migrację z RTP/MPEG-2 RTMP lub pofragmentowany MP4 (Smooth Streaming) pozyskiwania protokołów.
+
 ## <a name="overview"></a>Przegląd
 W konsoli usługi Azure Media Services (AMS) **kanału** reprezentuje potok przetwarzania zawartości transmisji strumieniowej na żywo. A **kanału** odbiera na żywo wejściowych strumieni w jeden z dwóch sposobów:
 
@@ -65,9 +69,9 @@ W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie o
 | Stan kanału | Wskaźniki w interfejsie użytkownika portalu | Jest to karta? |
 | --- | --- | --- |
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
-| Działa |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |TAK |
+| Działanie |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |TAK |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
-| Zatrzymane |Zatrzymane |Nie |
+| Zatrzymano |Zatrzymano |Nie |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatyczne wyłączania nieużywanych kanałów
 Począwszy od 25 stycznia 2016 Media Services wprowadzanie aktualizacji, która automatycznie zatrzyma kanał (kodowanie na żywo włączone) po jego działaniu w stanie nieużywane przez dłuższy okres. Dotyczy to kanałów, które nie mają żadnych aktywnych programów i nie uzyskały wejściowych wkład źródła danych przez dłuższy czas.
@@ -217,7 +221,7 @@ Po utworzeniu kanału możesz uzyskać adres URL w wersji zapoznawczej. Aby uzys
 Po uruchomieniu kanału wprowadzania danych można wyświetlić podgląd strumienia.
 
 > [!NOTE]
-> Obecnie podglądu strumienia tylko mogą być dostarczane w pofragmentowany MP4 (Smooth Streaming) format bez względu na określony typ danych wejściowych. Można użyć [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player do testowania Smooth Stream. Aby wyświetlić strumienia umożliwia także odtwarzacza hostowanej w portalu Azure.
+> Obecnie podglądu strumienia tylko mogą być dostarczane w pofragmentowany MP4 (Smooth Streaming) format bez względu na określony typ danych wejściowych. Można użyć [ http://smf.cloudapp.net/healthmonitor ](http://smf.cloudapp.net/healthmonitor) player do testowania Smooth Stream. Aby wyświetlić strumienia umożliwia także odtwarzacza hostowanej w portalu Azure.
 > 
 > 
 
@@ -364,9 +368,9 @@ W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie o
 | Stan kanału | Wskaźniki w interfejsie użytkownika portalu | Naliczanie opłat? |
 | --- | --- | --- |
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
-| Działa |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |Yes |
+| Działanie |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |Yes |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
-| Zatrzymane |Zatrzymane |Nie |
+| Zatrzymano |Zatrzymano |Nie |
 
 > [!NOTE]
 > Obecnie średnią start kanał jest około 2 minuty, ale czasami może potrwać maksymalnie 20 + minut. Resetowanie kanału może potrwać do 5 minut.
@@ -381,7 +385,7 @@ W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie o
 * Domyślnie 5 kanałów można dodawać tylko do konta usługi Media Services. Jest to przydziału elastycznego na wszystkich nowych kont. Aby uzyskać więcej informacji, zobacz [przydziały i ograniczenia](media-services-quotas-and-limitations.md).
 * Nie można zmienić protokołu wejściowego, gdy kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
 * Rozliczenie jest przeprowadzane tylko w przypadku kanału **systemem** stanu. Aby uzyskać więcej informacji, zapoznaj się [to](media-services-manage-live-encoder-enabled-channels.md#states) sekcji.
-* Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z amslived@microsoft.com Jeśli chcesz uruchomić kanał na dłuższe okresy.
+* Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Napisz na adres amslived@microsoft.com, jeśli potrzebujesz uruchomić kanał na dłuższy czas.
 * Upewnij się, że ma punktu końcowego przesyłania strumieniowego, z którego chcesz zawartości strumienia w **systemem** stanu.
 * Gdy wprowadzanie wielu wersji językowych i wykonywania, kodowanie na żywo przy użyciu platformy Azure, tylko RTP jest obsługiwane dla wielu języków w danych wejściowych. Można określić maksymalnie 8 strumieni audio przy użyciu usług terminalowych MPEG-2 przy użyciu protokołu RTP. Wprowadzania wielu ścieżek audio RTMP lub Smooth streaming nie jest obecnie obsługiwane. Twoją kodowanie na żywo z [live lokalnymi koduje](media-services-live-streaming-with-onprem-encoders.md), jest nie takiego ograniczenia, ponieważ niezależnie od są wysyłane do usługi AMS przechodzi przez kanał bez dalszego przetwarzania.
 * Ustawienie wstępne kodowania używa pojęcie "maksymalną szybkość" 30 klatek na sekundę. Dlatego w przypadku danych wejściowych jest 60 klatek na sekundę / 59.97i, ramki wejściowe są porzucony/dezaktywuje-interlaced do 30/29,97 kl. / s. Jeśli dane wejściowe są 50 klatek na sekundę/50i, ramki wejściowe są porzucony/dezaktywuje-interlaced do 25 kl. / s. Jeśli dane wejściowe są 25 kl. / s, dane wyjściowe pozostaje w 25 kl. / s.

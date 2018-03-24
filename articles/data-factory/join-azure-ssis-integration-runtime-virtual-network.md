@@ -1,11 +1,10 @@
 ---
-title: "Dołącz do sieci wirtualnej środowiska uruchomieniowego integracji usług SSIS Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak sprzęgać środowiska uruchomieniowego integracji usług SSIS Azure z sieci wirtualnej platformy Azure."
+title: Dołącz do sieci wirtualnej środowiska uruchomieniowego integracji usług SSIS Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak sprzęgać środowiska uruchomieniowego integracji usług SSIS Azure z sieci wirtualnej platformy Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołącz do środowiska uruchomieniowego integracji usług SSIS Azure do sieci wirtualnej
 Dołącz do programu Azure SSIS integracji runtime (IR) do sieci wirtualnej platformy Azure w następujących scenariuszach: 
@@ -52,7 +51,7 @@ Oto kilka ważnych kwestii, które należy pamiętać:
 - W przypadku istniejącego Menedżera zasobów Azure sieci wirtualnej podłączone do sieci lokalnej w innej lokalizacji z Twojej IR Azure SSIS, można najpierw utworzyć [sieci wirtualnej Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) dla usług Azure-SSIS IR do przyłączenia. Skonfiguruj połączenie wirtualnej sieci usługi Azure Resource Manager do usługi Azure Resource Manager. Można utworzyć [klasycznej sieci wirtualnej](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) dla Twojego IR Azure SSIS do przyłączenia. Następnie należy skonfigurować [sieci wirtualnej klasycznego do usługi Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) połączenia.
 
 ## <a name="domain-name-services-server"></a>Serwer usługi nazw domeny 
-Jeśli musisz użyć serwera usługi nazw domen (DNS) w sieci wirtualnej dołączane za pomocą Twojego środowiska uruchomieniowego integracji usług SSIS Azure, wykonaj wskazówki dotyczące [mogły rozpoznać węzły Twojego środowiska uruchomieniowego integracji usług SSIS Azure w sieci wirtualnej Azure punkty końcowe](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Jeśli musisz użyć serwera usługi nazw domen (DNS) w sieci wirtualnej dołączane za pomocą programu Azure SSIS runtime integracji, postępuj zgodnie z instrukcjami podanymi w sekcji "Rozpoznawania nazw, która używa serwera DNS" artykułu [rozpoznawanie nazw maszyn wirtualnych i wystąpień ról](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="network-security-group"></a>Sieciowa grupa zabezpieczeń
 Jeśli musisz wdrożyć grupę zabezpieczeń sieci (NSG) w sieci wirtualnej dołączane za pomocą programu Azure SSIS runtime integracji, Zezwalaj ruchu przychodzącego/wychodzącego przez następujące porty:

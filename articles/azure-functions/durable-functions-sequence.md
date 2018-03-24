@@ -1,24 +1,24 @@
 ---
-title: "Funkcja łańcucha w funkcjach trwałe - Azure"
-description: "Dowiedz się, jak uruchomić przykład trwałe funkcji, który wykonuje sekwencji funkcji."
+title: Funkcja łańcucha w funkcjach trwałe - Azure
+description: Dowiedz się, jak uruchomić przykład trwałe funkcji, który wykonuje sekwencji funkcji.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funkcja łańcucha w funkcje trwałe — przykład sekwencji Hello
 
@@ -26,7 +26,7 @@ Funkcja łańcucha odwołuje się do wzorca wykonywanych kolejności funkcji w o
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Postępuj zgodnie z instrukcjami [zainstalować funkcje trwałe](durable-functions-install.md) do skonfigurowania próbki.
+* [Instalowanie funkcji trwałe](durable-functions-install.md).
 
 ## <a name="the-functions"></a>Funkcje
 
@@ -35,7 +35,7 @@ W tym artykule opisano następujące funkcje w przykładowej aplikacji:
 * `E1_HelloSequence`: Funkcja programu orchestrator, który wywołuje `E1_SayHello` wiele razy w sekwencji. Przechowuje dane wyjściowe z `E1_SayHello` wywołuje i rejestruje wyniki.
 * `E1_SayHello`: Funkcja działanie dołącza ciąg "Hello".
 
-W poniższych sekcjach opisano konfigurację i kod, który są używane do tworzenia portalu Azure. Kod dla tworzenia Visual Studio jest wyświetlany na końcu tego artykułu.
+W poniższych sekcjach opisano konfigurację i kodu, które są używane dla języka C# skryptów. Kod dla tworzenia Visual Studio jest wyświetlany na końcu tego artykułu.
  
 ## <a name="functionjson-file"></a>Plik Function.JSON
 
@@ -71,7 +71,7 @@ Implementacja `E1_SayHello` jest stosunkowo prosta ciągu formatowania operacji.
 
 Ta funkcja ma parametr typu [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), używanym do pobrania danych wejściowych, który został przekazany do niej przez wywołanie funkcji orchestrator [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
-## <a name="run-the-sample"></a>Uruchom próbki
+## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
 Aby wykonać `E1_HelloSequence` aranżacji, Wyślij żądanie następujące HTTP POST.
 
@@ -121,7 +121,7 @@ Oto aranżacji jako pojedynczy plik C# w projektu programu Visual Studio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przykładzie wykazała proste aranżacji łańcucha funkcji. Następny przykład przedstawia sposób implementacji wzorca fan-wyjściowego/fan-w. 
 

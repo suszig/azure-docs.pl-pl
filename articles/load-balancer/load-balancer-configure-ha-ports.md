@@ -1,32 +1,32 @@
 ---
-title: "Konfigurowanie wysokiej dostępności portów dla usługi równoważenia obciążenia Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie korzystania z wysokiej dostępności portów do wewnętrznego ruchu na wszystkich portach równoważenia obciążenia"
+title: Konfigurowanie wysokiej dostępności portów dla usługi równoważenia obciążenia Azure | Dokumentacja firmy Microsoft
+description: Informacje o sposobie korzystania z wysokiej dostępności portów do wewnętrznego ruchu na wszystkich portach równoważenia obciążenia
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurowanie wysokiej dostępności portów dla wewnętrznego modułu równoważenia obciążenia
 
 W tym artykule przedstawiono przykładowe wdrożenie wysokiej dostępności porty na wewnętrzny moduł równoważenia obciążenia. Aby uzyskać więcej informacji na temat konfiguracji specyficznych dla sieci wirtualnych urządzeń (NVAs) Zobacz odpowiedniej witryny sieci Web dostawcy.
 
 >[!NOTE]
-> Funkcję wysokiej dostępności portów jest obecnie w przeglądzie. W wersji zapoznawczej funkcja może nie mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Usługa Azure Load Balancer obsługuje dwie warstwy: Podstawowa i Standardowa. W tym artykule omówiono standardowe usługi równoważenia obciążenia. Aby uzyskać więcej informacji na temat podstawowe usługi równoważenia obciążenia, zobacz [Omówienie usługi równoważenia obciążenia](load-balancer-overview.md).
 
 Na ilustracji przedstawiono następującą konfigurację przykład wdrożenia, opisane w tym artykule:
 
@@ -108,6 +108,6 @@ W kroku 4 [utworzenie zestawu modułu równoważenia obciążenia wewnętrznego]
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o [wysokiej dostępności porty](load-balancer-ha-ports-overview.md).

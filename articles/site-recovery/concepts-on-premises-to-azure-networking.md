@@ -1,11 +1,11 @@
 ---
-title: "Skonfigurować adresy IP, aby połączyć po przejściu w tryb failover Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Zawiera opis sposobu konfigurowania adresu IP, adresy połączyć się z maszynami wirtualnymi Azure po pracy awaryjnej z lokalnych z usługą Azure Site Recovery"
+title: Skonfigurować adresy IP, aby połączyć po przejściu w tryb failover Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft
+description: Zawiera opis sposobu konfigurowania adresu IP, adresy połączyć się z maszynami wirtualnymi Azure po pracy awaryjnej z lokalnych z usługą Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1833c576fe03bbfd1819fedc5630b915c6e9ee71
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Skonfiguruj adresowanie nawiązania połączenia po przejściu w tryb failover Azure IP
 
@@ -49,9 +49,9 @@ Usługa Site Recovery zapewnia adresy możliwości, aby zachować stałego adres
 
 ### <a name="failover-example"></a>Przykład trybu failover
 
-Oto przykład dla trybu failover do platformy Azure usng firmy ficticious banku Woodgrove.
+Oto przykład dla trybu failover do platformy Azure przy użyciu firmy ficticious, banku Woodgrove.
 
-- Banku Woodgrove obsługuje aplikacje biznesowe, że w lokacji lokalnej. One hostowanie swoich aplikacji mobilnych na platformie Azure.
+- Banku Woodgrove obsługuje aplikacje biznesowe w lokacji lokalnej. One hostowanie swoich aplikacji mobilnych na platformie Azure.
 - Brak połączenia lokacja lokacja sieci VPN między lokalnymi krawędzi sieci i sieci wirtualnej platformy Azure. Z powodu połączenie sieci VPN sieci wirtualnej platformy Azure jest wyświetlany jako rozszerzenie sieci lokalnej.
 - Woodgrove chce, aby replikować obciążenia lokalnego do platformy Azure z usługą Site Recovery.
  - Woodgrove ma aplikacje, które są zależne od stałe adresy IP, dlatego należy zachować adresów IP dla aplikacji, po przejściu w tryb failover Azure.

@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Dodać własne atrybutów niestandardowych zasad i używać w edycji profilu | Dokumentacja firmy Microsoft"
-description: "Przewodnik dotyczący przy użyciu właściwości rozszerzenia, atrybuty niestandardowe, w tym ich z interfejsu użytkownika"
+title: 'Usługa Azure Active Directory B2C: Dodać własne atrybutów niestandardowych zasad i używać w edycji profilu | Dokumentacja firmy Microsoft'
+description: Przewodnik dotyczący przy użyciu właściwości rozszerzenia, atrybuty niestandardowe, w tym ich z interfejsu użytkownika
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: davidmu
+ms.openlocfilehash: e0595a67b90e1be7bb992ef7bda4343e692d8957
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Usługa Azure Active Directory B2C: Tworzenie i używanie niestandardowych atrybutów w profilu niestandardowego edytowanie zasad
 

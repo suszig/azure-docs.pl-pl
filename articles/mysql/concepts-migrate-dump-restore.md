@@ -1,6 +1,6 @@
 ---
-title: "Migrowanie bazy danych MySQL przy użyciu zrzutu i przywrócić w bazie danych Azure dla programu MySQL"
-description: "W tym artykule opisano dwa podstawowe sposoby kopie zapasowe i przywracanie baz danych w bazie danych Azure dla programu MySQL, za pomocą narzędzi, takich jak mysqldump, MySQL Workbench i PHPMyAdmin."
+title: Migrowanie bazy danych MySQL przy użyciu zrzutu i przywrócić w bazie danych Azure dla programu MySQL
+description: W tym artykule opisano dwa podstawowe sposoby kopie zapasowe i przywracanie baz danych w bazie danych Azure dla programu MySQL, za pomocą narzędzi, takich jak mysqldump, MySQL Workbench i PHPMyAdmin.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrowanie bazy danych MySQL bazą danych Azure dla programu MySQL przy użyciu zrzutu i przywracania
 W tym artykule opisano dwa podstawowe sposoby kopie zapasowe i przywracanie baz danych w bazie danych Azure dla programu MySQL
@@ -87,10 +87,12 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Utwórz bazę danych w celu Azure bazy danych MySQL serwera
 Utwórz pustą bazę danych w celu Azure bazy danych dla serwera MySQL, w którym chcesz przeprowadzić migrację danych. Utwórz bazę danych za pomocą narzędzia MySQL Workbench, Toad lub Navicat. Bazy danych może mieć takiej samej nazwie bazy danych, który jest zawarty zrzut danych lub utworzysz bazę danych pod inną nazwą.
 
-Połączenia się znaleźć informacje o połączeniu na stronie właściwości w bazie danych Azure dla programu MySQL.
-![Znajdź informacje o połączeniu w portalu Azure](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
+Aby skontaktować się, Znajdź informacje o połączeniu w **omówienie** bazy danych Azure dla programu MySQL.
+
+![Znajdź informacje o połączeniu w portalu Azure](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
 Dodaj informacje o połączeniu do środowiska roboczego programu MySQL.
+
 ![Parametry połączenia MySQL Workbench](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 

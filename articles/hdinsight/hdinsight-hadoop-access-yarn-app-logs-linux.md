@@ -1,11 +1,11 @@
 ---
-title: "Dzienniki aplikacji Hadoop YARN dostępu w usłudze HDInsight opartych na systemie Linux - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dostępu do dzienników aplikacji YARN w klastrze opartych na systemie Linux usługą HDInsight (Hadoop) przy użyciu wiersza polecenia i przeglądarki sieci web."
+title: Dzienniki aplikacji Hadoop YARN dostępu w usłudze HDInsight opartych na systemie Linux - Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak dostępu do dzienników aplikacji YARN w klastrze opartych na systemie Linux usługą HDInsight (Hadoop) przy użyciu wiersza polecenia i przeglądarki sieci web.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f61e94d37a5e5f958a706f0db82526996a4ec02
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4d3157441777cc7e39c3ede65a6d90a0f9a163aa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Dzienniki aplikacji YARN dostępu w usłudze HDInsight z systemem Linux
 
@@ -72,7 +72,7 @@ Określ &lt;applicationId >, &lt;-który — uruchomiona — aplikacji użytkown
 
 Interfejs użytkownika YARN ResourceManager działa na headnode klastra. Jest on dostępny za pośrednictwem interfejsu użytkownika sieci web Ambari. Aby wyświetlić dzienniki YARN, wykonaj następujące kroki:
 
-1. W przeglądarce sieci web przejdź do https://CLUSTERNAME.azurehdinsight.net. Zamień na nazwę klastra usługi HDInsight CLUSTERNAME.
+1. W przeglądarce sieci web, przejdź do https://CLUSTERNAME.azurehdinsight.net. Zamień na nazwę klastra usługi HDInsight CLUSTERNAME.
 2. Wybierz z listy usług po lewej stronie, **YARN**.
 
     ![Wybrana usługa yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)

@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Azure wykonuje okresowo aktualizacje do poprawy niezawodności, wydajności i zabezpieczeń infrastruktury hosta dla maszyny wirtualnej. Zakres te aktualizacje z poprawki składników oprogramowania w środowisku macierzystym (na przykład systemu operacyjnego, funkcji hypervisor i różnych agentów wdrożonych na hoście), uaktualnienie składników sieciowych do likwidacji sprzętu. Większość tych aktualizacji są wykonywane bez wpływu na maszyny wirtualne. Istnieją jednak przypadki, w których aktualizacje mają wpływ:
 
-- Jeśli konserwacji nie wymaga ponownego uruchomienia systemu, platforma Azure korzysta migracji w miejscu wstrzymanie maszyny Wirtualnej, gdy host jest aktualizowany.
+- Jeśli aktualizacja bez ponownego rozruchu jest możliwe, Azure używa pamięci, zachowując konserwacji wstrzymanie maszyny Wirtualnej podczas aktualizacji hosta lub maszyny Wirtualnej jest całkowicie przenieść na host już zaktualizowany.
 
 - Jeśli konserwacji wymaga ponownego uruchomienia, możesz uzyskać zawiadomienia o podczas jest planowanych konserwacji. W takich przypadkach będziesz też mieć przedział czasu, w którym można uruchomić obsługi samodzielnie, w czasie, który należy.
 
@@ -24,15 +24,15 @@ Na tej stronie opisano, jak Microsoft Azure wykonuje obu typów konserwacji. Aby
 
 Aplikacje działające na maszynie wirtualnej umożliwia zebranie informacji o nadchodzących aktualizacji za pomocą usługi Azure metadanych dla [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) lub [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
-"Porad" uzyskać na zarządzanie maintence planowane, zobacz "Obsługa planowanych konserwacji powiadomienia" do [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) lub [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+"Porad" informacje o zarządzaniu zaplanowanej konserwacji, zobacz "Obsługa planowanych konserwacji powiadomienia" do [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) lub [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>Migracja maszyny Wirtualnej w miejscu
+## <a name="memory-preserving-maintenance"></a>Zachowywanie konserwacji pamięci
 
-Gdy aktualizacje nie wymagają ponownego uruchomienia pełnej, migracji na żywo w miejscu jest używany. Podczas aktualizacji maszyna wirtualna jest wstrzymana około 30 sekund, zachowując pamięci w pamięci RAM, środowisko macierzyste dotyczy niezbędne aktualizacje i poprawki. Maszyna wirtualna jest następnie wznowiona i zegara maszyny wirtualnej jest synchronizowana automatycznie.
+Aktualizacje nie potrzebują pełnego ponownego uruchomienia systemu, zachowania mechanizmy obsługi pamięci są używane do zmniejszenia wpływu na maszynie wirtualnej. Maszyna wirtualna jest wstrzymana przez maksymalnie 30 sekund, utrzymania pamięci w pamięci RAM, w czasie środowisko macierzyste stosuje niezbędne aktualizacje i poprawki lub przenosi maszyny Wirtualnej na hoście już zaktualizowany. Maszyna wirtualna jest następnie wznowiona i zegara maszyny wirtualnej jest synchronizowana automatycznie. 
 
 Dla maszyn wirtualnych w zestawach dostępności aktualizacji domeny są zaktualizowane pojedynczo. Wszystkie maszyny wirtualne w jednej domenie aktualizacji (UD) są wstrzymany, aktualizacji i następnie ponownie uruchomiony przed zaplanowanej konserwacji przechodzi do następnego UD.
 
-Niektóre aplikacje może mieć wpływ na tego rodzaju aktualizacji. Aplikacje wykonujące przetwarzania, takich jak przesyłania strumieniowego multimediów lub transkodowanie lub uzyskać wysoką przepustowość sieci scenariuszy, w czasie rzeczywistym zdarzeń nie mogą być przeznaczone do tolerować 30 jednosekundową przerwę. <!-- sooooo, what should they do? --> 
+Niektóre aplikacje może mieć wpływ na tego rodzaju aktualizacji. Aplikacje wykonujące przetwarzania, takich jak przesyłania strumieniowego multimediów lub transkodowanie lub uzyskać wysoką przepustowość sieci scenariuszy, w czasie rzeczywistym zdarzeń nie mogą być przeznaczone do tolerować 30 jednosekundową przerwę. <!-- sooooo, what should they do? --> W przypadku, gdy maszyna wirtualna jest przenieść do innego hosta, niektórych obciążeń poufnych zauważyć spadek wydajności nieznaczne w kilka minut, które doprowadziły do wstrzymywania maszyny wirtualnej. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Konserwacja konieczności ponownego uruchamiania
@@ -47,9 +47,11 @@ Występuje błąd podczas uruchamiania samoobsługi konserwacji, operacja nie zo
 
 Po upływie okna samoobsługi **zaplanowanego okna obsługi** rozpoczyna się. W tym oknie można nadal zapytania dla okna obsługi, ale nie będzie można uruchomić obsługi samodzielnie.
 
+Informacje na temat zarządzania konserwacji konieczności ponownego uruchamiania, zobacz "Obsługa planowanych konserwacji powiadomienia" dla [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) lub [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+
 ## <a name="availability-considerations-during-planned-maintenance"></a>Zagadnienia dotyczące dostępności podczas zaplanowanej konserwacji 
 
-Jeśli zdecydujesz się po upływie okno zaplanowanej konserwacji, jest kilka rzeczy, wziąć pod uwagę obsługę najwyższy availabilty sieci maszyn wirtualnych. 
+Jeśli zdecydujesz się po upływie okno zaplanowanej konserwacji, jest kilka rzeczy, wziąć pod uwagę obsługę najwyższą dostępność maszyn wirtualnych. 
 
 ### <a name="paired-regions"></a>Sparowanego regionów
 

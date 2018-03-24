@@ -1,8 +1,8 @@
 ---
-title: "Skonfiguruj uwierzytelnianie wieloskładnikowe platformy Azure | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób konfigurowania ustawień usługi Azure Multi-Factor Authentication dla raportów, alertów oszustwa, jednorazowego obejścia, niestandardowe wiadomości głosowe, buforowanie listę zaufanych adresów IP i hasła aplikacji."
+title: Skonfiguruj uwierzytelnianie wieloskładnikowe platformy Azure | Dokumentacja firmy Microsoft
+description: W tym artykule opisano sposób konfigurowania ustawień usługi Azure Multi-Factor Authentication dla raportów, alertów oszustwa, jednorazowego obejścia, niestandardowe wiadomości głosowe, buforowanie listę zaufanych adresów IP i hasła aplikacji.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
-Ten artykuł pomaga w zarządzaniu Azure Multi-Factor Authentication, teraz, gdy jest uruchomiona. Obejmuje ona różnych tematów, które ułatwiają maksymalne wykorzystanie usługi Azure Multi-Factor Authentication. Nie wszystkie funkcje są dostępne w każdym [wersja Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+Ten artykuł pomaga w zarządzaniu Azure Multi-Factor Authentication, teraz, gdy jest uruchomiona. Obejmuje ona różnych tematów, które ułatwiają maksymalne wykorzystanie usługi Azure Multi-Factor Authentication. Nie wszystkie funkcje są dostępne w każdym [wersja Azure Multi-Factor Authentication](multi-factor-authentication-get-started.md#what-features-do-i-need).
 
 | Cecha | Opis | 
 |:--- |:--- |
@@ -73,7 +73,7 @@ Skonfiguruj _oszustwa_ funkcji, dzięki czemu użytkownicy mogą raportować fa�
 ### <a name="configuration-options"></a>Opcje konfiguracji
 
 - **Blokuj użytkownika, gdy zostaje zgłoszone oszustwo**: Jeśli użytkownik zgłasza oszustwa, ich konto zostało zablokowane przez 90 dni lub dopóki administrator odblokowuje swojego konta. Administrator może przejrzeć logowania za pomocą raportu logowania i podjąć odpowiednie działania w celu zapobiegania oszustwom przyszłych. Administrator może następnie [odblokować](#unblock-a-user) konta użytkownika.
-- **Kod zgłoszenia oszustwa w trakcie początkowego pozdrowienia**: gdy użytkownik odbierze połączenie telefoniczne do przeprowadzenia weryfikacji dwuetapowej, zwykle naciśnięciu  **#**  o potwierdzenie ich logowania. Zgłoszenia oszustwa użytkownik musi wprowadzić kod przed naciskając klawisz  **#** . Ten kod jest **0** domyślnie, ale można go dostosować.
+- **Kod zgłoszenia oszustwa w trakcie początkowego pozdrowienia**: gdy użytkownik odbierze połączenie telefoniczne do przeprowadzenia weryfikacji dwuetapowej, zwykle naciśnięciu **#** o potwierdzenie ich logowania. Zgłoszenia oszustwa użytkownik musi wprowadzić kod przed naciskając klawisz **#**. Ten kod jest **0** domyślnie, ale można go dostosować.
 
   >[!NOTE]
   >Domyślne pozdrowienia głosowe firmy Microsoft poinstruować użytkowników, aby naciśnij **0#** przesłać alert o oszustwie. Jeśli chcesz użyć kodu innego niż **0**, rejestrowania i przekazać swoje własne niestandardowe pozdrowienia głosowe odpowiednie instrukcje dla użytkowników.

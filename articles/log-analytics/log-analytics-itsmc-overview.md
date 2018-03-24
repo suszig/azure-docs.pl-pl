@@ -1,11 +1,11 @@
 ---
-title: "IT usługi łącznika zarządzania w programie Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera omówienie IT usługi zarządzania łącznika (ITSMC) i informacje o sposobie używania tego rozwiązania, aby centralnie monitorować i zarządzać nimi Zarządzanie usługami IT — elementów roboczych w Azure Log Analytics i szybkie rozwiązywanie problemów."
+title: IT usługi łącznika zarządzania w programie Azure Log Analytics | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera omówienie IT usługi zarządzania łącznika (ITSMC) i informacje o sposobie używania tego rozwiązania, aby centralnie monitorować i zarządzać nimi Zarządzanie usługami IT — elementów roboczych w Azure Log Analytics i szybkie rozwiązywanie problemów.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a51b96641c80a6575c64f58fa09e0bf6078e4185
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Połącz Azure narzędzia Zarządzanie usługami IT — za pomocą łącznika zarządzania usługi IT
 
@@ -191,7 +191,7 @@ Można też utworzyć elementów roboczych w połączonych źródeł Zarządzani
 4. Podaj odpowiednie wartości w **typ**, **wpływ**, **pilność**, **kategorii**, i **podkategorii** pola tekstowe, a następnie kliknij przycisk **Utwórz**.
 
 
-##<a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Wizualizuj i analizować zdarzenia i dane żądania zmiany
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Wizualizuj i analizować zdarzenia i dane żądania zmiany
 
 Podczas konfigurowania połączenia zgodnie z konfiguracją, zarządzanie usługami IT — łącznik mogą synchronizować maksymalnie 120 dni zdarzenia i zmiany danych żądania. Schemat rekordu dziennika dla tych danych jest dostępne w [następnej sekcji](#additional-information).
 
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s | Kategoria |
 | Title_s|  Krótki opis |
 | Description_s|  Uwagi |
-| CreatedDate_t|  Otwierano |
+| CreatedDate_t|  Otwarte |
 | ClosedDate_t| zamknięte|
 | ResolvedDate_t|Rozwiązany|
 | Computer (Komputer)  | element konfiguracji |

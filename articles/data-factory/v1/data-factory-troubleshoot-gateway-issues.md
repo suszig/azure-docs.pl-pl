@@ -1,10 +1,9 @@
 ---
-title: "Rozwiązywanie problemów z brama zarządzania danymi | Dokumentacja firmy Microsoft"
-description: "Zawiera wskazówki dotyczące rozwiązywania problemów związanych z bramą zarządzania danymi."
+title: Rozwiązywanie problemów z brama zarządzania danymi | Dokumentacja firmy Microsoft
+description: Zawiera wskazówki dotyczące rozwiązywania problemów związanych z bramą zarządzania danymi.
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
@@ -14,17 +13,17 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b3b34921168661089946b5c5dd9e6d489880733b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Rozwiązywanie problemów z używaniem bramy zarządzania danymi
 Ten artykuł zawiera informacje na temat rozwiązywania problemów przy użyciu bramy zarządzania danymi.
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi fabryka danych Azure, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [hosta samodzielnego środowiska uruchomieniowego integracji z fabryki danych w wersji 2](../create-self-hosted-integration-runtime.md).
+> Ten artykuł dotyczy wersji 1 usługi Azure Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [hosta samodzielnego środowiska uruchomieniowego integracji z fabryki danych w wersji 2](../create-self-hosted-integration-runtime.md).
 
 Zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md) artykułu, aby uzyskać szczegółowe informacje na temat bramy. Zobacz [przenoszenie danych między lokalnymi i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu przewodnik przenoszenia danych z lokalną bazą danych programu SQL Server do magazynu obiektów Blob Microsoft Azure przy użyciu bramy.
 
@@ -206,7 +205,7 @@ Certyfikat SSL mogą zostać utracone na komputerze bramy. Komputer z bramą, ni
 Wykonaj następujące kroki w celu rozwiązania problemu:
 
 1. Uruchom Menedżera konfiguracji bramy zarządzania danymi.
-2. Przełącz się do **ustawienia** kartę.  
+2. Przejdź do karty **Ustawienia**.  
 3. Kliknij przycisk **zmienić** przycisk, aby zmienić certyfikat SSL.
 
    ![Zmień przycisk certyfikat](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)

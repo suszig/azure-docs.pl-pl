@@ -1,11 +1,11 @@
 ---
-title: "Inicjowanie obsługi zarządzania aplikacjami przedsiębiorstwa w usłudze Azure Active Directory użytkownika | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zarządzać aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa przy użyciu usługi Azure Active Directory"
+title: Inicjowanie obsługi zarządzania aplikacjami przedsiębiorstwa w usłudze Azure Active Directory użytkownika | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak zarządzać aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa przy użyciu usługi Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Zarządzanie kontami użytkowników, inicjowanie obsługi administracyjnej dla aplikacji przedsiębiorstwa w portalu Azure
 W tym artykule opisano sposób użycia [portalu Azure](https://portal.azure.com) zarządzać aprowizację konta użytkowników i anulowanie obsługi aplikacji obsługujących go, zwłaszcza tych, które zostały dodane z "dostępne" kategorii [ Galerii aplikacji usługi Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Aby dowiedzieć się więcej na temat Inicjowanie obsługi konta użytkowników i jak działa, zobacz [zautomatyzować Inicjowanie obsługi użytkowników i anulowania zastrzeżenia do aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -76,7 +76,7 @@ Ta sekcja zawiera dodanie szczegółów dotyczących operacji inicjowania obsłu
 
 Podano linki **inicjowania obsługi administracyjnej raport aktywności**, zapewniające dziennik wszystkich użytkowników i grup utworzonych, zaktualizowane i usunięty między usługą Azure AD i aplikacji docelowej i **inicjowania obsługi administracyjnejraportuobłędach** zapewniające bardziej szczegółowe komunikaty o błędach dla użytkowników i grupy obiektów, które nie można odczytać utworzone, zaktualizowane lub usunięte. 
 
-##<a name="feedback"></a>Opinia
+## <a name="feedback"></a>Opinia
 
 Mamy nadzieję jak środowiska usługi Azure AD. Pamiętaj o opinie przesyłanych! Opinie i pomysły dotyczące poprawy **portalu administracyjnego** sekcji naszych [forum opinii](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Firma Microsoft jest podekscytowani, informacje o kompilowaniu chłodnych nowości codziennie i użyj wskazówek z kształtem i zdefiniować, co mamy utworzyć w następnej kolejności.
 

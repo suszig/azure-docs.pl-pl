@@ -1,6 +1,6 @@
 ---
-title: "Omówienie bazy danych Azure usługa relacyjnej bazy danych MySQL"
-description: "Omówienie bazy danych Azure usługa relacyjnej bazy danych MySQL."
+title: Omówienie bazy danych Azure usługa relacyjnej bazy danych MySQL
+description: Omówienie bazy danych Azure usługa relacyjnej bazy danych MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 82d96424569daf481e31ab04c08dcb5e63e58476
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2689befc6a686d0ffc25d1fccbacb66cc6e10725
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Co to jest Azure bazy danych MySQL?
-Bazy danych platformy Azure dla programu MySQL to usługa relacyjnej bazy danych w chmurze firmy Microsoft, na podstawie [MySQL Community Edition](https://www.mysql.com/products/community/) aparatu bazy danych. Ta usługa jest dostępna w publicznej wersji zapoznawczej. Bazy danych platformy Azure dla programu MySQL zapewnia:
+Bazy danych platformy Azure dla programu MySQL to usługa relacyjnej bazy danych w chmurze firmy Microsoft, na podstawie [MySQL Community Edition](https://www.mysql.com/products/community/) aparatu bazy danych. Bazy danych platformy Azure dla programu MySQL zapewnia:
 
 - Wbudowana wysoka dostępność bez dodatkowych kosztów
 - Przewidywalna wydajność dzięki płatnościom zgodnym z rzeczywistym użyciem
@@ -38,7 +38,7 @@ Aby uzyskać zestaw przykładów interfejsu wiersza polecenia platformy Azure, z
 - [Przykładów dla interfejsu wiersza polecenia platformy Azure dla bazy danych Azure dla programu MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Dostosowanie wydajności i skalowania w kilka sekund
-W wersji zapoznawczej, baza danych Azure dla usługi MySQL zapewnia kilka warstwy usług: Basic, ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci. Każda z warstw oferuje inną wydajność i różne możliwości w celu obsługi różnych obciążeń bazy danych, zarówno niewielkich, jak i ogromnych. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Zapłacisz tylko za potrzebne zasoby i tylko wtedy, gdy będą używane. Aby uzyskać szczegółowe informacje, zobacz [Warstwy cenowe](concepts-service-tiers.md).
+Baza danych Azure dla usługi MySQL zapewnia kilka warstwy usług: Basic, ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci. Każda z warstw oferuje inną wydajność i różne możliwości w celu obsługi różnych obciążeń bazy danych, zarówno niewielkich, jak i ogromnych. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Zapłacisz tylko za potrzebne zasoby i tylko wtedy, gdy będą używane. Aby uzyskać szczegółowe informacje, zobacz [Warstwy cenowe](concepts-service-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Monitorowanie i zgłaszanie alertów
 Jak podjąć decyzję o tym, kiedy należy regulować w górę i w dół? Możesz użyć wbudowanych wydajności monitorowania oraz alertów funkcji, z ocen wydajności oparte na vCores. Za pomocą tych narzędzi, można szybko ocenić wpływ vCores skalowania w górę lub w dół na podstawie Twoich potrzeb wydajności bieżącego lub planowane. Aby uzyskać szczegółowe informacje, zobacz [Alerty](howto-alert-on-metric.md).

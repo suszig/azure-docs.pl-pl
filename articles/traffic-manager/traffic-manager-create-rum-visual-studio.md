@@ -1,31 +1,28 @@
 ---
-title: "Pomiary rzeczywistego użytkownika do usługi Azure Traffic Manager z programem Visual Studio Mobile Center | Dokumentacja firmy Microsoft"
-description: "Skonfiguruj aplikację mobilną utworzony przy użyciu Centrum Mobile programu Visual Studio do wysłania do usługi Traffic Manager rzeczywiste pomiary użytkownika"
+title: Pomiary rzeczywistego użytkownika do usługi Azure Traffic Manager z programem Visual Studio Mobile Center | Dokumentacja firmy Microsoft
+description: Skonfiguruj aplikację mobilną utworzony przy użyciu Centrum Mobile programu Visual Studio do wysłania do usługi Traffic Manager rzeczywiste pomiary użytkownika
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 893e84b07b365fb0b534e0ddc021b2249c4174cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Jak należy wysyłać do Menedżera ruchu z Centrum programu Visual Studio Mobile rzeczywiste pomiary użytkownika
-
->[!NOTE]
->Funkcja rzeczywiste pomiary użytkownika w usłudze Traffic Manager znajduje się w publicznej wersji zapoznawczej i nie może mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Funkcja nie jest obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich lokalizacjach Azure. Najbardziej aktualne powiadomień o dostępności i stan tej funkcji, sprawdź [aktualizacji usługi Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager) strony.
 
 Można skonfigurować aplikację mobilną utworzony przy użyciu Centrum Mobile programu Visual Studio do wysłania do usługi Traffic Manager rzeczywiste pomiary użytkownika przez wykonanie kroków:
 
@@ -101,7 +98,7 @@ Aby użyć rzeczywiste pomiary użytkownika, wykonaj następującą procedurę:
     MobileCenter.start(getApplication(), "<Your Mobile Center AppSecret>", RealUserMeasurements.class);
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się więcej o [rzeczywiste pomiary użytkownika](traffic-manager-rum-overview.md)
 - Dowiedz się [działania Menedżera ruchu](traffic-manager-overview.md)
 - Dowiedz się więcej o [Mobile Center](https://docs.microsoft.com/mobile-center/)

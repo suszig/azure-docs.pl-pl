@@ -1,11 +1,11 @@
 ---
-title: "What's new in zarządzania aplikacjami przedsiębiorstwa w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, co jest nowego w zarządzania aplikacjami przedsiębiorstwa w usłudze Azure Active Directory."
+title: What's new in zarządzania aplikacjami przedsiębiorstwa w usłudze Azure Active Directory | Dokumentacja firmy Microsoft
+description: Dowiedz się, co jest nowego w zarządzania aplikacjami przedsiębiorstwa w usłudze Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>What's new in zarządzania aplikacjami przedsiębiorstwa w usłudze Azure Active Directory 
 
@@ -147,7 +147,7 @@ Po dodaniu wiele nowych aplikacji może być chcesz zezwolić użytkownikom prze
 1. Aby rozpocząć pracę, możesz zaznaczyć **samoobsługi** menu nawigacji w lewo i ustaw opcję z aplikacji **Zezwalaj użytkownikom na żądanie dostępu do tej aplikacji?** opcje "**tak**". 
 2. Można konfigurować, kto może zatwierdzić dostęp do tej aplikacji i grup samoobsługi użytkowników, którzy zostaną dodane zostaną włączone. Ponadto jeśli aplikacja jest skonfigurowana pod kątem hasła jednokrotnego, również zobaczysz inną opcją, co umożliwia opcjonalnie zezwolić tych osób zatwierdzających do zarządzania hasłami przypisany do aplikacji.
 
-##<a name="feedback"></a>Opinia
+## <a name="feedback"></a>Opinia
 
 Mamy nadzieję przy użyciu udoskonalone środowisko usługi Azure AD. Pamiętaj o opinie przesyłanych! Opinie i pomysły dotyczące poprawy **portalu administracyjnego** sekcji naszych [forum opinii](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Firma Microsoft jest podekscytowani, informacje o kompilowaniu chłodnych nowości codziennie i użyj wskazówek z kształtem i zdefiniować, co mamy utworzyć w następnej kolejności.
 

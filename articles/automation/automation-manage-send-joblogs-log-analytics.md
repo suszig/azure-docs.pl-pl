@@ -1,6 +1,6 @@
 ---
-title: "Przekazywanie danych zadanie usługi Automatyzacja Azure z analizą dzienników OMS"
-description: "W tym artykule przedstawiono sposób wysyłania stan zadania i runbook strumieni zadania do zarządzania i analizy dzienników pakiet zarządzania Operations Microsoft dostarczać szczegółowe informacje o dodatkowych."
+title: Przekazywanie danych zadania usługi Azure Automation do usługi Log Analytics
+description: W tym artykule przedstawiono sposób wysyłania stan zadania i runbook strumieni zadania do zarządzania i analizy dzienników pakiet zarządzania Operations Microsoft dostarczać szczegółowe informacje o dodatkowych.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: c73a523f1239fb7d549b573ea6105168f4a63144
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Przekazuj strumienie zadania i stan zadania z automatyzacji analizy dzienników (OMS)
-Automatyzacja może wysyłać runbook strumieni zadania stanu i zadania do swojego obszaru roboczego analizy dzienników programu Microsoft Operations Management Suite (OMS). Rejestruje zadania i strumieni zadania są widoczne w portalu Azure lub przy użyciu programu PowerShell, dla poszczególnych zadań i to umożliwia wykonywanie prostych dochodzenia. Teraz przy użyciu analizy dzienników można:
+# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Przekazuj strumienie zadania i stan zadania z automatyzacji do analizy dzienników
+Automatyzacja może wysyłać runbook strumieni zadania stanu i zadania do swojego obszaru roboczego analizy dzienników. Rejestruje zadania i strumieni zadania są widoczne w portalu Azure lub przy użyciu programu PowerShell, dla poszczególnych zadań i to umożliwia wykonywanie prostych dochodzenia. Teraz przy użyciu analizy dzienników można:
 
 * Uzyskiwanie wglądu w zadaniach automatyzacji.
 * Wyzwalacz poczty e-mail lub alertu oparte na stan zadania elementu runbook (na przykład nie powiodło się lub wstrzymane).
@@ -157,7 +155,7 @@ Debugowanie zadania, można również przyglądać strumieni zadania. Następuj�
 Na koniec można zwizualizować historię zadania wraz z upływem czasu. Skorzystaj z tej kwerendy, aby wyszukać stan zadań wraz z upływem czasu.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![Wykres stanu zadania historycznych OMS](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Wykres stanu historycznego zadanie analizy dziennika](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Podsumowanie
 Wysyłając automatyzacji zadań stan strumienia danych i do analizy dzienników, można uzyskać lepszy wgląd w stan zadań automatyzacji przez:
@@ -170,4 +168,4 @@ Analiza dzienników zapewnia lepszą widoczność operacyjnej do automatyzacji z
 * Aby dowiedzieć się więcej na temat sposobu konstruowania różne zapytania i przejrzyj dzienniki zadania automatyzacji z analizy dzienników, zobacz [Zaloguj wyszukiwania analizy dzienników](../log-analytics/log-analytics-log-searches.md).
 * Aby poznać sposób tworzenia i pobrać dane wyjściowe i komunikaty o błędach z elementów runbook, zobacz [Runbook dane wyjściowe i komunikaty](automation-runbook-output-and-messages.md).
 * Aby dowiedzieć się więcej o wykonywaniu elementów runbook, sposobie monitorowania zadań elementów runbook i innych szczegółach technicznych, zobacz [Track a runbook job](automation-runbook-execution.md) (Śledzenie zadania elementu runbook).
-* Aby dowiedzieć się więcej na temat analizy dzienników OMS i źródeł danych kolekcji, zobacz [Azure zbierania danych magazynu w omówieniu analizy dzienników](../log-analytics/log-analytics-azure-storage.md).
+* Aby dowiedzieć się więcej na temat analizy dzienników i źródeł danych kolekcji, zobacz [Azure zbierania danych magazynu w omówieniu analizy dzienników](../log-analytics/log-analytics-azure-storage.md).

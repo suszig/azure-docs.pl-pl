@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Dodawanie konta Microsoft (MSA) jako dostawca tożsamości za pomocą zasad niestandardowych"
-description: "Przykładowe za pomocą programu Microsoft jako dostawca tożsamości za pomocą protokołu OpenID Connect (OIDC)"
+title: 'Usługa Azure Active Directory B2C: Dodawanie konta Microsoft (MSA) jako dostawca tożsamości za pomocą zasad niestandardowych'
+description: Przykładowe za pomocą programu Microsoft jako dostawca tożsamości za pomocą protokołu OpenID Connect (OIDC)
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Usługa Azure Active Directory B2C: Dodawanie konta Microsoft (MSA) jako dostawca tożsamości za pomocą zasad niestandardowych
 
@@ -38,7 +35,7 @@ Kroki te obejmują:
 5.  Przesyłanie zasad do usługi Azure AD B2C dzierżawy i przetestować go
 
 ## <a name="create-a-microsoft-account-application"></a>Tworzenie aplikacji konta Microsoft
-Do używania konta Microsoft jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy utworzyć aplikację konta Microsoft i dostarczyć prawo parametrów. Musisz mieć konto Microsoft. Jeśli nie masz, odwiedź stronę [https://www.live.com/](https://www.live.com/).
+Do używania konta Microsoft jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy utworzyć aplikację konta Microsoft i dostarczyć prawo parametrów. Musisz mieć konto Microsoft. Jeśli nie masz, odwiedź stronę [ https://www.live.com/ ](https://www.live.com/).
 
 1.  Przejdź do [portalu rejestracji aplikacji Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) i zaloguj się przy użyciu poświadczeń konta Microsoft.
 2.  Kliknij przycisk **Dodaj aplikację**.
@@ -156,10 +153,10 @@ W tym momencie Konfigurowanie dostawcy tożsamości, ale nie jest dostępna w ż
 4.  Wklej całą zawartość `<UserJournesy>` węzła, który został skopiowany jako element podrzędny `<UserJourneys>` elementu.
 
 ### <a name="display-the-button"></a>Wyświetlany przycisk
-`<ClaimsProviderSelections>` Element definiuje listę opcje wyboru dostawcy oświadczeń i ich kolejność.  `<ClaimsProviderSelection>`element jest odpowiednikiem przycisku dostawcy tożsamości na stronie konta-konta/logowania. Jeśli dodasz `<ClaimsProviderSelection>` elementu dla konta Microsoft, nowy przycisk zostaną wyświetlone po wyładowuje użytkownika na stronie. Aby dodać ten element:
+`<ClaimsProviderSelections>` Element definiuje listę opcje wyboru dostawcy oświadczeń i ich kolejność.  `<ClaimsProviderSelection>` element jest odpowiednikiem przycisku dostawcy tożsamości na stronie konta-konta/logowania. Jeśli dodasz `<ClaimsProviderSelection>` elementu dla konta Microsoft, nowy przycisk zostaną wyświetlone po wyładowuje użytkownika na stronie. Aby dodać ten element:
 
 1.  Znajdź `<UserJourney>` węzła, który zawiera `Id="SignUpOrSignIn"` w podróży użytkownika, które zostały skopiowane.
-2.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera`Order="1"`
+2.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera `Order="1"`
 3.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsProviderSelections>` węzła:
 
 ```xml
@@ -204,7 +201,7 @@ Można również dodać dostawcy tożsamości Account Microsoft do użytkownika 
 ### <a name="display-the-button"></a>Wyświetlany przycisk
 1.  Otwórz plik rozszerzenia zasad (na przykład TrustFrameworkExtensions.xml).
 2.  Znajdź `<UserJourney>` węzła, który zawiera `Id="ProfileEdit"` w podróży użytkownika, które zostały skopiowane.
-3.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera`Order="1"`
+3.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera `Order="1"`
 4.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsProviderSelections>` węzła:
 
 ```xml

@@ -1,10 +1,11 @@
 ---
 title: Galerii Azure AI | Dokumentacja firmy Microsoft
-description: "Udostępnianie i odnajdywanie oraz analiza zasobów w galerii Azure AI. Dowiedz się od innych użytkowników i wprowadź własny wkład społeczności."
+description: Udostępnianie i odnajdywanie oraz analiza zasobów w galerii Azure AI. Dowiedz się od innych użytkowników i wprowadź własny wkład społeczności.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 5ccb595e24d8ee169cc6ee589a3ddc2f9fef5dcd
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 540f97d1383b8a992a12426b03249ef82af0e7a4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Udostępnianie i odnajdywanie zasobów w galerii Azure AI
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -46,7 +46,7 @@ Te podstawowe zasoby galerii można grupować logicznie na kilka sposobów:
 * **[Kolekcje](gallery-collections.md)**  — kolekcji pozwala na grupowanie eksperymentów, interfejsów API, i innych galerii elementy tego adresu konkretne rozwiązanie lub koncepcji.
 * **[Branżach](gallery-industries.md)**  -różnych zasobów, które są specyficzne dla takich branż jako sprzedaży detalicznej, produkcyjnym bankowości i opieki zdrowotnej zgromadzono w branżach sekcję galerii.
 
-Na koniec  **[konkursami](gallery-competitions.md)**  umożliwiają atrakcyjnych konkurują ze społecznością data scientsts rozwiązywania złożonych problemów za pomocą pakietu Cortana Intelligence Suite.
+Na koniec **[konkursami](gallery-competitions.md)** umożliwiają atrakcyjnych konkurują ze społecznością data scientsts rozwiązywania złożonych problemów za pomocą pakietu Cortana Intelligence Suite.
 
 ![Strona główna AI galerii Azure](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
@@ -91,5 +91,5 @@ Chcemy galerii, aby być prowadzony przez użytkowników oraz dla użytkowników
 
 ![Opinia](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[PRZEJDŹ DO GALERII >>](http://gallery.cortanaintelligence.com)**
+**[PRZEJDŹ DO GALERII &GT;&GT;](http://gallery.cortanaintelligence.com)**
 

@@ -1,25 +1,21 @@
 ---
-title: "Usługa Azure AD B2C do zarządzania tożsamościami w chmurze dla aplikacji internetowych i mobilnych | Microsoft Docs"
-description: "Tworzenie aplikacji dla użytkowników za pomocą usługi Azure Active Directory B2C"
+title: Usługa Azure AD B2C do zarządzania tożsamościami w chmurze dla aplikacji internetowych i mobilnych | Microsoft Docs
+description: Tworzenie aplikacji dla użytkowników za pomocą usługi Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: c465dbde-f800-4f2e-8814-0ff5f5dae610
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/06/2016
-ms.author: saeedakhter-msft
-ms.custom: seohack1
-ms.openlocfilehash: 7881793ebce10b4f9fbc9c534d9d6fc0ebb38f0b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: HT
+ms.author: davidmu
+ms.openlocfilehash: 6385a4e4b89cf889b71db6e09010dfe3a674336a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: Skup się na swojej aplikacji — pozwól nam zająć się rejestrowaniem i logowaniem
 
@@ -64,7 +60,7 @@ Informacje o sposobie korzystania z określonych funkcji usługi Azure Active Di
 * [Dostosuj wygląd i obsługę funkcji rejestrowania i logowania oraz innych stron dla użytkownika](active-directory-b2c-reference-ui-customization.md) obsługiwanych przez usługę Azure Active Directory B2C.
 * [Skorzystaj z interfejsu API Azure Active Directory programu Graph do programowego tworzenia, odczytywania, aktualizowania i usuwania użytkowników](active-directory-b2c-devquickstarts-graph-dotnet.md) w swojej dzierżawie usługi Azure Active Directory B2C.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Poniższe linki pozwalają szczegółowo eksplorować usługę:
 

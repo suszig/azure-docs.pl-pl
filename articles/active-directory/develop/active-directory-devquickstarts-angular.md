@@ -1,11 +1,11 @@
 ---
 title: Azure AD AngularJS, wprowadzenie | Dokumentacja firmy Microsoft
-description: "Sposób tworzenia aplikacji jednostronicowej AngularJS, która integruje się z usługą Azure AD, logowania i wywołuje Azure interfejsów API, które są chronione przez usługi AD za pomocą uwierzytelniania OAuth."
+description: Sposób tworzenia aplikacji jednostronicowej AngularJS, która integruje się z usługą Azure AD, logowania i wywołuje Azure interfejsów API, które są chronione przez usługi AD za pomocą uwierzytelniania OAuth.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS, wprowadzenie
 
@@ -52,13 +52,13 @@ Aby umożliwić aplikacji w celu uwierzytelniania użytkowników i uzyskać toke
 4. Kliknij przycisk **rejestracji aplikacji**, a następnie wybierz **Dodaj**.
 5. Postępuj zgodnie z monitami i utworzyć nową aplikację sieci web i/lub interfejs API sieci web:
   * **Nazwa** opisuje aplikacji dla użytkowników.
-  * **Identyfikator Uri przekierowania** to lokalizacja, do której usługi Azure AD zwróci tokenów. Domyślna lokalizacja dla tego przykładu `https://localhost:44326/`.
+  * **Adres URL logowania na** to lokalizacja, do której usługi Azure AD zwróci tokenów. Domyślna lokalizacja dla tego przykładu `https://localhost:44326/`.
 6. Po zakończeniu rejestracji usługi Azure AD przypisuje unikatowy identyfikator aplikacji do aplikacji.  Ta wartość jest potrzebny w kolejnych sekcjach, dlatego skopiuj go na karcie aplikacji.
 7. Adal.js używa niejawnego przepływu OAuth do komunikowania się z usługą Azure AD. Należy włączyć niejawnego przepływu aplikacji:
   1. Kliknij aplikację, a następnie wybierz **manifestu** aby otworzyć Edytor manifestu w tekście.
   2. Zlokalizuj `oauth2AllowImplicitFlow` właściwości. Ustaw dla niego wartość `true`.
   3. Kliknij przycisk **zapisać** można zapisać manifestu.
-8. Przyznaj uprawnienia w dzierżawie dla aplikacji. Przejdź do **ustawienia** > **właściwości** > **wymagane uprawnienia**i kliknij przycisk **udzielanie uprawnień** przycisk na górnym pasku. Kliknij przycisk **Tak**, aby potwierdzić.
+8. Przyznaj uprawnienia w dzierżawie dla aplikacji. Przejdź do **ustawienia** > **wymagane uprawnienia**i kliknij przycisk **udzielanie uprawnień** przycisk na górnym pasku. Kliknij przycisk **Tak**, aby potwierdzić.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Krok 2: Install ADAL i konfigurowanie aplikacji jednostronicowej
 Teraz, gdy masz aplikacji w usłudze Azure AD, można zainstalować adal.js i wpisz swój kod dotyczące tożsamości.

@@ -1,11 +1,11 @@
 ---
-title: "Rozpoczynanie pracy z magazynu tabel platformy Azure i programu Visual Studio połączone usługi (ASP.NET) | Dokumentacja firmy Microsoft"
-description: "Jak rozpocząć korzystanie z magazynu tabel platformy Azure w projekcie platformy ASP.NET w programie Visual Studio po połączeniu z kontem magazynu przy użyciu programu Visual Studio usług połączonych"
+title: Rozpoczynanie pracy z magazynu tabel platformy Azure i programu Visual Studio połączone usługi (ASP.NET) | Dokumentacja firmy Microsoft
+description: Jak rozpocząć korzystanie z magazynu tabel platformy Azure w projekcie platformy ASP.NET w programie Visual Studio po połączeniu z kontem magazynu przy użyciu programu Visual Studio usług połączonych
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Rozpoczynanie pracy z magazynu tabel platformy Azure i programu Visual Studio połączone usługi (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Magazyn tabel Azure umożliwia przechowywanie dużych ilości danych strukturalnych. Usługa jest magazynem danych NoSQL, który przyjmuje uwierzytelnione wywołania z wewnątrz lub na zewnątrz w chmurze Azure. Tabele Azure idealnie nadają się do przechowywania strukturalnych danych nierelacyjnych.
 
 Ten samouczek pokazuje, jak napisać kod ASP.NET dla niektórych typowych scenariuszy przy użyciu jednostek magazynu tabel Azure. Te scenariusze obejmują tworzenie tabeli i dodanie, wyszukiwanie i usuwania jednostek tabeli. 
 
-##<a name="prerequisites"></a>Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Program Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Konto usługi Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -172,7 +172,7 @@ Poniższe kroki pokazano, jak utworzyć tabelę:
 
 1. Uruchom aplikację i wybierz **Utwórz tabelę** aby zobaczyć wyniki, podobnie jak na poniższym zrzucie ekranu:
   
-    ![Tworzenie tabeli](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
+    ![Utwórz tabelę](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
     Jak wspomniano wcześniej, **CloudTable.CreateIfNotExists** metoda zwraca **true** tylko po tabeli nie istnieje i jest tworzona. W związku z tym po uruchomieniu aplikacji, gdy tabela istnieje, metoda zwraca **false**. Aby uruchomić aplikację wiele razy, możesz usunąć tabeli przed ponownym uruchomieniem aplikacji. Usunięcie tabeli może odbywać się za pośrednictwem **CloudTable.Delete** metody. Możesz także usunąć za pomocą tabeli [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) lub [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
@@ -708,7 +708,7 @@ W tej części przedstawiono sposób usuwania jednostek z tabeli.
   
     ![Pobierz pojedynczy](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
 
   * [Wprowadzenie do magazynu obiektów blob platformy Azure i programu Visual Studio połączone usługi (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)

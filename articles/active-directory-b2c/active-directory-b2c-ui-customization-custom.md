@@ -1,24 +1,21 @@
 ---
-title: "Dostosowywanie interfejsu użytkownika za pomocą niestandardowych zasad — usługi Azure AD B2C | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat dostosowywania interfejsu użytkownika (UI), gdy użycie zasad niestandardowych w usłudze Azure AD B2C."
+title: Dostosowywanie interfejsu użytkownika za pomocą niestandardowych zasad — usługi Azure AD B2C | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat dostosowywania interfejsu użytkownika (UI), gdy użycie zasad niestandardowych w usłudze Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 659910f239087a1d87d650c05af157c085e8c72c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Usługa Azure Active Directory B2C: Konfigurowanie dostosowywania interfejsu użytkownika w zasadach niestandardowych
 
@@ -40,7 +37,7 @@ Oto jak to działa: usługi Azure AD B2C kod w przeglądarce klienta, korzysta z
 
 Tworzenie zawartości o nazwie markę produktu HTML w tytule.
 
-1. Skopiuj poniższy fragment kodu HTML. Jest poprawnie sformułowanym HTML5 z pustego elementu o nazwie  *\<div id = "interfejsu api"\>\</DIV\>*  znajdujących się w granicach  *\<treści\>*  tagów. Ten element wskazuje, gdzie jest zawartość usługi Azure AD B2C do wstawienia.
+1. Skopiuj poniższy fragment kodu HTML. Jest poprawnie sformułowanym HTML5 z pustego elementu o nazwie *\<div id = "interfejsu api"\>\</DIV\>* znajdujących się w granicach *\<treści\>* tagów. Ten element wskazuje, gdzie jest zawartość usługi Azure AD B2C do wstawienia.
 
    ```html
    <!DOCTYPE html>
@@ -124,7 +121,7 @@ Sprawdź, czy wszystko jest gotowe, wykonując następujące czynności:
 
 ## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Modyfikowanie zasad niestandardowych rejestracji i logowania
 
-Najwyższego poziomu  *\<TrustFrameworkPolicy\>*  tagu, należy odnaleźć  *\<BuildingBlocks\>*  tagu. W ramach  *\<BuildingBlocks\>*  Dodaj tagi,  *\<ContentDefinitions\>*  tag przez skopiowanie w poniższym przykładzie. Zastąp *your_storage_account* z nazwą konta magazynu.
+Najwyższego poziomu *\<TrustFrameworkPolicy\>* tagu, należy odnaleźć *\<BuildingBlocks\>* tagu. W ramach *\<BuildingBlocks\>* Dodaj tagi, *\<ContentDefinitions\>* tag przez skopiowanie w poniższym przykładzie. Zastąp *your_storage_account* z nazwą konta magazynu.
 
   ```xml
   <BuildingBlocks>
@@ -141,7 +138,7 @@ Najwyższego poziomu  *\<TrustFrameworkPolicy\>*  tagu, należy odnaleźć  *\<B
 1. W [portalu Azure](https://portal.azure.com), [przełącznika w kontekście dzierżawy usługi Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), a następnie otwórz **usługi Azure AD B2C** bloku.
 2. Kliknij przycisk **wszystkich zasad**.
 3. Kliknij przycisk **przekazywać zasady**.
-4. Przekaż `SignUpOrSignin.xml` z  *\<ContentDefinitions\>*  tag, który wcześniej został dodany.
+4. Przekaż `SignUpOrSignin.xml` z *\<ContentDefinitions\>* tag, który wcześniej został dodany.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Testowanie zasad niestandardowych przy użyciu **Uruchom teraz**
 

@@ -1,11 +1,11 @@
 ---
-title: "Dowiedz się więcej o inny token i typy obsługiwane przez usługę Azure AD | Dokumentacja firmy Microsoft"
-description: "Przewodnik dla opis i ocena oświadczenia w tokenach SAML 2.0 i tokenów sieci Web JSON (JWT), wystawione przez usługi Azure Active Directory (AAD)"
+title: Dowiedz się więcej o inny token i typy obsługiwane przez usługę Azure AD | Dokumentacja firmy Microsoft
+description: Przewodnik dla opis i ocena oświadczenia w tokenach SAML 2.0 i tokenów sieci Web JSON (JWT), wystawione przez usługi Azure Active Directory (AAD)
 documentationcenter: na
 author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f9eb95f49e0d2bd01d9ead7eda7d13288bfd573
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Odwołania do usługi Azure AD tokenu
 Azure Active Directory (Azure AD) emituje kilka typów tokenów zabezpieczających do przetworzenia każdy przepływ uwierzytelniania. Ten dokument zawiera opis format właściwości zabezpieczeń i zawartości każdego typu tokenu.
@@ -321,3 +321,4 @@ Oprócz oświadczenia, token zawiera numeru wersji w **ver** i **appidacr**, odw
 ## <a name="related-content"></a>Zawartość pokrewna
 * Zobacz Azure AD Graph [operacji zasad](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) i [jednostki zasady](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), aby dowiedzieć się więcej na temat zarządzania zasadami okres istnienia tokenu przy użyciu interfejsu API Azure AD Graph.
 * Aby uzyskać więcej informacji i przykłady dotyczące zarządzania zasadami za pomocą poleceń cmdlet programu PowerShell, zawierająca próbek, zobacz [można skonfigurować tokenu okresy istnienia w usłudze Azure AD](../active-directory-configurable-token-lifetimes.md). 
+* Dodaj [niestandardowych i opcjonalnych oświadczeń](active-directory-optional-claims.md) na tokeny dla aplikacji. 

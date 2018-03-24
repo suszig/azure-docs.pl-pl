@@ -1,19 +1,19 @@
 ---
-title: "Wysoka dostępność — usługa Azure SQL Database | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat możliwości wysokiej dostępności usługi baza danych SQL Azure i funkcje"
+title: Wysoka dostępność — usługa Azure SQL Database | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat możliwości wysokiej dostępności usługi baza danych SQL Azure i funkcje
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d26fe28d301cf563dc6bdb3d9e17903dea3e73fc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Baza danych SQL wysokiej dostępności i platformy Azure
 Od chwili rozpoczęcia oferty PaaS bazy danych SQL Azure firma Microsoft wprowadziła Obietnica jej klientów, które wysokiej dostępności (HA) korzysta z wbudowanej w usługi i klientów nie są wymagane do działania, Dodaj logikę specjalnych lub podejmować decyzje dotyczące wysokiej dostępności. Firma Microsoft udostępnia pełną kontrolę nad HA system konfiguracji i obsłudze, zaoferować klientom umowy dotyczącej poziomu usług. HA umowy SLA stosuje się do bazy danych SQL w regionie i nie zapewnia ochrony w przypadku niepowodzenia obszar całkowity, który jest wystąpiły z przyczyn będących poza kontrolą firmy Microsoft (na przykład klęski żywiołowej, plik war, czynności terroryzmu, zamieszek, akcji dla instytucji rządowych, lub sieci lub na urządzeniu niepowodzenie zewnętrznych w centrach danych firmy Microsoft, w tym klientów w lokacjach lub między lokacjami klienta i centrum danych firmy Microsoft).
@@ -23,7 +23,7 @@ Aby uprościć miejsce problem wysokiej dostępności, firma Microsoft wykorzyst
 2.  Personel operacyjny popełnione, prowadzących do błędów
 3.  Planowane operacji obsługi powodować awarie 
 
-Gdy takie poszczególne zdarzenia są rzadko w skali chmury, ich co tydzień, jeśli nie każdego dnia. 
+Takie poszczególne zdarzenia są rzadko w skali chmury, występują co tydzień, jeśli nie każdego dnia. 
 
 ## <a name="fault-tolerant-sql-databases"></a>Odpornej na uszkodzenia bazy danych SQL
 Klienci najbardziej interesujących odporność własnych baz danych i mniej planuje się odporności usługi baza danych SQL jako całość. czas działania 99,99% dla usługi nie ma znaczenia, jeśli "bazy danych" % 0,01 baz danych, które nie działają. Wszystkie bazy danych musi być odpornej na uszkodzenia i środki zaradcze błędów nigdy nie powinno spowodować utratę zatwierdzić transakcji. 
@@ -46,7 +46,7 @@ Najważniejsze korzyści:
 
 ## <a name="data-redundancy"></a>Nadmiarowość danych
 
-Rozwiązania wysokiej dostępności w bazie danych SQL jest oparty na [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technologii z programu SQL Server i ułatwia działa zarówno LS, jak i RS baz danych z minimalnym różnice. W elemencie LS konfiguracji zawsze służy ON trwałości znajduje się w usługach RS jest ona używana w przypadku dostępności (RTO niski). 
+Rozwiązania wysokiej dostępności w bazie danych SQL jest oparty na [ON zawsze grup dostępności](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technologii z programu SQL Server i ułatwia działa zarówno LS, jak i RS baz danych z minimalnym różnice. W konfiguracji LS technologii grupy dostępności ON zawsze służy trwałości w usługach RS jest używane dla dostępności (RTO niski). 
 
 ## <a name="local-storage-configuration"></a>Lokalny magazyn konfiguracji
 

@@ -1,11 +1,12 @@
 ---
-title: "Wykonywanie skryptów programu Python machine learning | Dokumentacja firmy Microsoft"
-description: "Przedstawiono projektowania zasad podstawowej obsługi skryptów języka Python w usłudze Azure Machine Learning i scenariusze użycia podstawowe, możliwości i ograniczeń."
-keywords: "Python uczenia maszynowego, pandas, pandas języka python, skrypty języka python, wykonywanie skryptów języka python"
+title: Wykonywanie skryptów programu Python machine learning | Dokumentacja firmy Microsoft
+description: Przedstawiono projektowania zasad podstawowej obsługi skryptów języka Python w usłudze Azure Machine Learning i scenariusze użycia podstawowe, możliwości i ograniczeń.
+keywords: Python uczenia maszynowego, pandas, pandas języka python, skrypty języka python, wykonywanie skryptów języka python
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: c25f31ca72417672298657c4585184ad72db6c99
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0efa2a7604b41b791ed3717b7f2b667b7181085d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Wykonywanie skryptów uczenia maszynowego w języku Python w usłudze Azure Machine Learning Studio
 
@@ -187,8 +187,8 @@ W tym miejscu jest funkcją języka Python, używany do obliczania oceny znaczen
 
 ![image11](./media/execute-python-scripts/figure8.png)
 
-Rysunek 10. Funkcja funkcji rank przez wyniki.
- Następujące eksperymentu następnie oblicza i zwraca wyniki znaczenie funkcji w zestawie danych "Pima indyjskiego cukrzyca" w usłudze Azure Machine Learning:
+Figure 10. Funkcja funkcji rank przez wyniki.
+  Następujące eksperymentu następnie oblicza i zwraca wyniki znaczenie funkcji w zestawie danych "Pima indyjskiego cukrzyca" w usłudze Azure Machine Learning:
 
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    
@@ -208,7 +208,7 @@ Rysunek 11. Wypróbuj rangi funkcji w zestawie danych cukrzyca indyjskiego Pima.
 
 Oczekujemy oferowanie dodatkowych funkcji do [wykonanie skryptu Python] [ execute-python-script] modułu, takich jak możliwość nauczenia i operacjonalizuj modele w języku Python i lepszą obsługę opracowywania i debugowania kodu w usłudze Azure Machine Learning Studio.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](https://azure.microsoft.com/develop/python/).
 
 <!-- Module References -->

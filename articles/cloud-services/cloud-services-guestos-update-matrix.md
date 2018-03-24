@@ -1,24 +1,24 @@
 ---
-title: "Dowiedz się więcej o najnowszych wersjach systemu operacyjnego gościa Azure | Dokumentacja firmy Microsoft"
-description: "Najnowsze informacje o wersji i zestawu SDK zgodności w systemie operacyjnym gościa usługi w chmurze Azure."
+title: Dowiedz się więcej o najnowszych wersjach systemu operacyjnego gościa Azure | Dokumentacja firmy Microsoft
+description: Najnowsze informacje o wersji i zestawu SDK zgodności w systemie operacyjnym gościa usługi w chmurze Azure.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/27/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure wersji systemu operacyjnego gościa i zgodność pakietu SDK
 Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego gościa Azure wersje usługi w chmurze. Informacje te pomagają sobie planowanie uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli konfigurujesz role do użycia *automatyczne* aktualizacji systemu operacyjnego gościa, zgodnie z opisem w [ustawienia aktualizacji systemu operacyjnego gościa Azure][Azure Guest OS Update Settings], nie jest istotne, aby odczytać tę stronę.
@@ -42,6 +42,9 @@ Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego g
 Nie wiesz, o jaką systemu operacyjnego gościa jest lub jak systemu operacyjnego gościa wersje robocze? Odczyt [to](#how-it-works) sekcji.
 
 ## <a name="news-updates"></a>Wiadomości
+###### <a name="march-19-2018"></a>**19 marca 2018**
+Wydała lutego systemu operacyjnego gościa.
+
 ###### <a name="january-29-2018"></a>**29 stycznia 2018**
 Systemu operacyjnego gościa stycznia została wydana 2 rodzin systemu operacyjnego (WA-GOŚCIA — systemu operacyjnego — 2.70_201801-01) & 3 (WA-GOŚCIA-systemu operacyjnego — 3.57_201801-01)
 
@@ -72,12 +75,6 @@ Wydała lipca systemu operacyjnego gościa.
 ###### <a name="july-19-2017"></a>**19 lipca 2017 r.**
 Wdrożenie systemu operacyjnego gościa lipca rozpoczyna lipca 19 i ma planowanego wersji 8 sierpnia.
 
-###### <a name="july-7-2017"></a>**7 lipca 2017 r.**
-Wydała czerwca systemu operacyjnego gościa.
-
-###### <a name="june-16-2017"></a>**16 czerwca 2017 r.**
-Wdrożenie systemu operacyjnego gościa czerwca uruchamia 16 czerwca i ma planowanego zlecenia lipca 11.
-
 
 ## <a name="releases"></a>Wersje
 ## <a name="family-5-releases"></a>Zwalnia rodziny 5
@@ -93,8 +90,9 @@ Wdrożenie systemu operacyjnego gościa czerwca uruchamia 16 czerwca i ma planow
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.16_201802-01 |12 marca 2018 |Post 5.18 |TBD |
 | WA-GUEST-OS-5.15_201801-01 |4 stycznia 2018 |Post 5.17 |TBD |
-| WA-GUEST-OS-5.14_201712-01 |4 stycznia 2018 |Post 5.16 |TBD |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 stycznia 2018 |12 marca 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 grudnia 2017 r. |4 stycznia 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
@@ -118,8 +116,9 @@ Wdrożenie systemu operacyjnego gościa czerwca uruchamia 16 czerwca i ma planow
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.51_201802-01 |12 marca 2018 |Post 4,53 |TBD |
 | WA-GUEST-OS-4.50_201801-01 |4 stycznia 2018 |Post 4,52 |TBD |
-| WA-GUEST-OS-4.49_201712-01 |4 stycznia 2018 |Post 4.51 |TBD |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 stycznia 2018 |12 marca 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 grudnia 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
@@ -143,8 +142,9 @@ Wdrożenie systemu operacyjnego gościa czerwca uruchamia 16 czerwca i ma planow
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.58_201802-01 |19 marca 2018 |Post 3.60 |TBD |
 | WA-GUEST-OS-3.57_201801-01 |29 stycznia 2018 |Post 3.59 |TBD |
-| WA-GUEST-OS-3.56_201712-01 |4 stycznia 2018 |Post 3.58 |TBD |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 stycznia 2018 |19 marca 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 grudnia 2017 r. |29 stycznia 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
@@ -168,8 +168,9 @@ Wdrożenie systemu operacyjnego gościa czerwca uruchamia 16 czerwca i ma planow
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.71_201802-01 |12 marca 2018 |Post 2,73 |TBD |
 | WA-GUEST-OS-2.70_201801-01 |29 stycznia 2018 |Post 2.72 |TBD |
-| WA-GUEST-OS-2.69_201712-01 |4 stycznia 2018 |Post 2.71 |TBD |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 stycznia 2018 |12 marca 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 grudnia 2017 r. |29 stycznia 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |

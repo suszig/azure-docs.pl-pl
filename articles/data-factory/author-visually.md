@@ -1,11 +1,11 @@
 ---
 title: Tworzenie Visual w fabryce danych Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak używać visual tworzenia w fabryce danych Azure"
+description: Dowiedz się, jak używać visual tworzenia w fabryce danych Azure
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bce74c80f53eda654bb0289a1ff8a6cb88fd13f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Tworzenie Visual w fabryce danych Azure
 Fabryka danych Azure użytkownika interfejsu środowisko (UX) pozwala wizualnie tworzyć i wdrażać zasobów dla fabrykę danych bez konieczności pisania kodu. Można przeciągnij działania kanwy potoku, wykonaj uruchomień testów, wielokrotnie powtarzane, debugowanie i wdrażanie i monitorowanie sekwencji potoku. Istnieją dwa podejścia do wykonywania visual tworzenia przy użyciu środowiska użytkownika:

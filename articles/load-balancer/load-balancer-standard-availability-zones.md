@@ -1,24 +1,24 @@
 ---
-title: "Moduł równoważenia obciążenia standardowego Azure i dostępności stref | Dokumentacja firmy Microsoft"
-description: "Moduł równoważenia obciążenia standardowego i dostępności stref"
+title: Moduł równoważenia obciążenia standardowego Azure i dostępności stref | Dokumentacja firmy Microsoft
+description: Moduł równoważenia obciążenia standardowego i dostępności stref
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Moduł równoważenia obciążenia standardowego i dostępności stref
 
@@ -151,7 +151,7 @@ Jeśli używasz istniejących szablonów usługi Resource Manager w konfiguracji
 
 Równoważenie obciążenia między strefy jest możliwość osiągnięcia punktu końcowego wewnętrznej bazy danych w każdej strefie moduł równoważenia obciążenia i jest niezależna od frontonu i jego zonality.
 
-Jeśli chcesz wyrównać i zagwarantować wdrożenia z jednej strefie wyrównuje zonal frontonu i zaplecza zonal zasoby do tej samej strefy. Są wymagane żadne dalsze akcje.
+Jeśli chcesz wyrównać i zagwarantować wdrożenia w ramach jednej strefie wyrównuje zonal frontonu i zaplecza zonal zasoby do tej samej strefy. Są wymagane żadne dalsze akcje.
 
 ### <a name="backend"></a>Zaplecze
 
@@ -210,7 +210,7 @@ Strefowo nadmiarowy może udostępniać strefy niezależny od i o tej samej opcj
 
 Zonal można podać jawne gwarancji do strefy, udostępnianie obecność kondycji strefy. Kojarzenie zonal IP adres lub zonal frontonu modułu równoważenia obciążenia może być pożądane lub uzasadnione atrybut szczególnie w przypadku dołączonych zasobu zonal maszyny Wirtualnej w ramach tej samej strefie.  Lub być może aplikacja wymaga jawnego wiedzy, o której strefie zasób znajduje się w i chcesz jawnie przyczyny o dostępności w osobnym stref.  Użytkownik może ujawnić wielu frontends zonal usługi end-to-end dystrybuowana do strefy (to znaczy na strefy frontends zonal dla wielu skalowania zonal maszyny wirtualnej ustawia).  Jeśli Twoje zonal frontends są publiczne adresy IP, można użyć tych wielu frontends zonal publikowania usługi z [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Lub wielu frontends zonal służy do uzyskania na strefy insights kondycji i wydajności za pośrednictwem innej monitorowanie rozwiązań i udostępnienia ogólnej usługi z strefowo nadmiarowy frontonu. Tylko powinien obsługiwać zasoby zonal z zonal frontends wyrównane do tej samej strefy i uniknąć potencjalnie szkodliwe scenariusze strefy między zonal zasobów.  Zonal zasobów istnieje tylko w regionach, gdzie istnieje stref dostępności.
 
-Nie ma żadnych ogólne wskazówki, że jeden jest lepszym rozwiązaniem niż drugi bez uprzedniego uzyskania informacji o usłudze end-to-end.
+Nie ma żadnych ogólne wskazówki, że jeden jest lepszym rozwiązaniem niż drugi bez uprzedniego uzyskania informacji o architekturze usługi.
 
 ## <a name="limitations"></a>Ograniczenia
 

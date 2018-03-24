@@ -1,21 +1,21 @@
 ---
-title: "Ładowanie danych do usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Użyj fabryki danych Azure, aby skopiować dane do magazynu danych SQL Azure"
+title: Ładowanie danych do usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Użyj fabryki danych Azure, aby skopiować dane do magazynu danych SQL Azure
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: eec6eeb3419c5f5f4c8d22398051f7cf057ac980
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 49ba61ba8cf68a39eef21b1939a3e8a6c92f8827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 
@@ -42,18 +42,18 @@ W tym artykule przedstawiono sposób użycia narzędzia kopii fabryki danych do 
 * Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
 * Usługa Azure SQL Data Warehouse: Magazyn danych zawiera dane, które są kopiowane z bazy danych SQL. Jeśli nie masz usługi Azure SQL Data Warehouse, zapoznaj się z instrukcjami w [Tworzenie usługi SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL Database: W tym samouczku kopiuje dane z bazy danych Azure SQL z firmy Adventure Works LT przykładowych danych. Można utworzyć bazy danych SQL, postępując zgodnie z instrukcjami w [tworzenie bazy danych Azure SQL](../sql-database/sql-database-get-started-portal.md). 
-* Konto magazynu Azure: Usługa Azure Storage jest używany jako _przemieszczania_ obiektów blob w operacji kopiowania zbiorczego. Jeśli nie masz konta magazynu platformy Azure, zobacz instrukcje w [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Konto magazynu Azure: Usługa Azure Storage jest używany jako _przemieszczania_ obiektów blob w operacji kopiowania zbiorczego. Jeśli nie masz konta usługi Azure Storage, zobacz instrukcje podane w temacie [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. W menu po lewej stronie wybierz **nowy** > **dane i analiza** > **fabryki danych**: 
    
-   ![Tworzenie nowego fabryki danych](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
+   ![Tworzenie nowej fabryki danych](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
 2. W **nowa fabryka danych** Podaj wartości dla pól, które są wyświetlane na poniższej ilustracji:
       
    ![Strona Nowa fabryka danych](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
-    * **Nazwa**: Wprowadź globalnie unikatowej nazwy dla fabryką danych Azure. Jeśli zostanie wyświetlony błąd "Nazwa fabryki danych \"LoadSQLDWDemo\" jest niedostępny," Wprowadź inną nazwę dla fabryki danych. Na przykład można użyć nazwy  _**twojanazwa**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabryki danych. Zasady nazewnictwa artefaktów fabryki danych, zobacz [regułami nazywania dla fabryki danych](naming-rules.md).
+    * **Nazwa**: Wprowadź globalnie unikatowej nazwy dla fabryką danych Azure. Jeśli zostanie wyświetlony błąd "Nazwa fabryki danych \"LoadSQLDWDemo\" jest niedostępny," Wprowadź inną nazwę dla fabryki danych. Na przykład można użyć nazwy  _**twojanazwa**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabryki danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
     * **Subskrypcja**: Wybierz subskrypcję platformy Azure, w którym można utworzyć fabryki danych. 
     * **Grupa zasobów**: Wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz **Utwórz nowy** opcję i wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
     * **Wersja**: Wybierz **V2 (wersja zapoznawcza)**.

@@ -1,12 +1,12 @@
 ---
-title: "Zainstaluj lasu usługi Active Directory w sieci wirtualnej platformy Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek, który wyjaśnia sposób tworzenia nowego lasu usługi Active Directory na maszynie wirtualnej (VM) w sieci wirtualnej platformy Azure."
+title: Zainstaluj lasu usługi Active Directory w sieci wirtualnej platformy Azure | Dokumentacja firmy Microsoft
+description: Samouczek, który wyjaśnia sposób tworzenia nowego lasu usługi Active Directory na maszynie wirtualnej (VM) w sieci wirtualnej platformy Azure.
 services: active-directory, virtual-network
-keywords: "Maszyna wirtualna usługi Active directory, instalacja lasu usługi active directory, filmy wideo z usługi azure active directory "
-documentationcenter: 
+keywords: 'Maszyna wirtualna usługi Active directory, instalacja lasu usługi active directory, filmy wideo z usługi azure active directory '
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalowanie nowego lasu usługi Active Directory w sieci wirtualnej platformy Azure
 W tym artykule przedstawiono sposób tworzenia nowego środowiska usługi Active Directory systemu Windows Server na maszynie wirtualnej (VM) na [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). W takim przypadku sieci wirtualnej platformy Azure nie jest połączony z siecią lokalną.
@@ -31,7 +31,7 @@ Być może zainteresuje te pokrewne artykuły:
 * Aby uzyskać ogólne wskazówki dotyczące instalowania usług domenowych w usłudze Active Directory (AD DS) w sieci wirtualnej platformy Azure, zobacz [wskazówki dotyczące wdrażania systemu Windows Server Active Directory na maszynach wirtualnych Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Diagram scenariusza
-W tym scenariuszu użytkownicy zewnętrzni trzeba uzyskiwać dostęp do aplikacji działających na serwerach przyłączonych do domeny. Maszyny wirtualne, które działa serwery aplikacji i maszyn wirtualnych kontrolerów domeny z systemem są zainstalowaną ich w usłudze w chmurze w sieci wirtualnej platformy Azure. Są one również uwzględniona w obrębie zbiór dostępności dla ulepszone odporność na uszkodzenia.
+W tym scenariuszu użytkownicy zewnętrzni trzeba uzyskiwać dostęp do aplikacji działających na serwerach przyłączonych do domeny. Maszyn wirtualnych działających na serwery aplikacji i maszyn wirtualnych kontrolerów domeny z systemem są zainstalowane w ich własnych usługi w chmurze w sieci wirtualnej platformy Azure. Są one również uwzględniona w obrębie zbiór dostępności dla ulepszone odporność na uszkodzenia.
 
 ![Las usługi Active Directory na maszyny wirtualne w sieci wirtualnej Azure ][1] 7
 

@@ -1,24 +1,24 @@
 ---
-title: "Zarządzaj aplikacjami w programie Visual Studio | Dokumentacja firmy Microsoft"
-description: "Tworzenie, tworzenie, pakietów, wdrażanie i debugowania aplikacji usługi Service Fabric i usług za pomocą programu Visual Studio."
+title: Zarządzaj aplikacjami Azure Servic sieci szkieletowej w programie Visual Studio | Dokumentacja firmy Microsoft
+description: Tworzenie, tworzenie, pakietów, wdrażanie i debugowania aplikacji usługi Azure Service Fabric i usług za pomocą programu Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 16ca821f7cae252148e8901c2ccb8539a25d1d59
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Uproszczenie pisanie aplikacji i zarządzanie nimi z sieci szkieletowej usług za pomocą programu Visual Studio
 Można zarządzać sieć szkieletowa usług Azure, aplikacji i usług za pomocą programu Visual Studio. Po wprowadzeniu [Konfigurowanie środowiska deweloperskiego](service-fabric-get-started.md), można użyć programu Visual Studio do tworzenia aplikacji usługi Service Fabric, Dodaj rejestru usług lub pakietu i wdrażania aplikacji w klastrze lokalnym programowanie.
@@ -45,7 +45,7 @@ Visual Studio Udostępnij właściwość o nazwie **tryb debugowania aplikacji**
 
 #### <a name="application-debug-modes"></a>Tryb debugowania aplikacji
 
-1. **Odświeżanie aplikacji** ten tryb pozwala na szybkie zmiany i debugować kod i obsługuje edycję plików statycznych sieci web podczas debugowania. W tym trybie działa tylko, jeśli klaster lokalny rozwój jest w [tryb węzła 1](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Odświeżanie aplikacji** ten tryb pozwala na szybkie zmiany i debugować kod i obsługuje edycję plików statycznych sieci web podczas debugowania. W tym trybie działa tylko, jeśli klaster lokalny rozwój jest w [tryb węzła 1](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Jest to domyślny tryb debugowania aplikacji.
 2. **Usuń aplikację** powoduje, że aplikacja ma zostać usunięty podczas kończenia sesji debugowania.
 3. **Automatyczne uaktualnienie** aplikacji będzie kontynuował działanie podczas kończenia sesji debugowania. Następnej sesji debugowania, będą traktować jako uaktualnienia wdrożenia. Proces uaktualniania zachowuje dane, które wprowadzono w poprzedniej sesji debugowania.
 4. **Zachowaj aplikacji** aplikacja przechowuje uruchomiona w klastrze podczas kończenia sesji debugowania. Na początku następnej sesji debugowania aplikacji zostaną usunięte.
@@ -53,7 +53,7 @@ Visual Studio Udostępnij właściwość o nazwie **tryb debugowania aplikacji**
 Aby uzyskać **automatycznego uaktualnienia** dane zostaną zachowane, stosując możliwości uaktualnienia aplikacji sieci szkieletowej usług. Aby uzyskać więcej informacji o uaktualnianiu aplikacji i jak może wykonać uaktualnienie w środowisku prawdziwe, zobacz [uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Dodawanie usługi do aplikacji sieci szkieletowej usług
-Możesz dodać nowe usługi do aplikacji, aby rozszerzyć jego funkcjonalność.  Aby zapewnić, że usługa jest zawarte w pakiecie aplikacji, Dodaj usługi za pośrednictwem **nowa sieci szkieletowej usług...**  elementu menu.
+Możesz dodać nowe usługi do aplikacji, aby rozszerzyć jego funkcjonalność. Aby zapewnić, że usługa jest zawarte w pakiecie aplikacji, Dodaj usługi za pośrednictwem **nowa sieci szkieletowej usług...**  elementu menu.
 
 ![Dodaj nową usługę sieci szkieletowej usług][newservice]
 
@@ -79,7 +79,7 @@ Można wykonać operacji zarządzania podstawowy klaster z poziomu programu Visu
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Model aplikacji sieci szkieletowej usług](service-fabric-application-model.md)
 * [Wdrażanie aplikacji sieci szkieletowej usług](service-fabric-deploy-remove-applications.md)
 * [Zarządzanie parametry aplikacji dla wielu środowisk](service-fabric-manage-multiple-environment-app-configuration.md)

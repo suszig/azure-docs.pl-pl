@@ -1,8 +1,8 @@
 ---
 title: Historia wersji programu Azure AD Connect Health
-description: "Ten dokument zawiera opis wydanie dla usługi Azure AD Connect Health i dołączył w tych wersjach."
+description: Ten dokument zawiera opis wydanie dla usługi Azure AD Connect Health i dołączył w tych wersjach.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: historia wersji
 Zespół usługi Azure Active Directory regularnie aktualizuje Azure AD Connect Health z nowych funkcji. W tym artykule wymieniono wersje i funkcje, które zostały wydane.
 
 ## <a name="march-2018"></a>2018 marca
+**Nowe funkcje w wersji zapoznawczej:**
+* Azure AD Connect Health dla usług AD FS - raport ryzykownych adresów IP i alertów.
+
 **Aktualizacja agenta:**
 
 *   Agent Azure AD Connect Health dla usług AD DS (wersja 3.0.176.0)
@@ -64,7 +67,7 @@ Zespół usługi Azure Active Directory regularnie aktualizuje Azure AD Connect 
   1. Ogólne ulepszenia i poprawki błędów
   2. Obsługa suwerennych chmury
 * Agent Azure AD Connect Health zwolnione z programem Azure AD Connect wersji 1.1.614.0 synchronizacji (wersja 3.0.68.0)
-1. Obsługa platformy Microsoft Azure dla instytucji rządowych chmury i Niemczech firmy Microsoft w chmurze
+  1. Obsługa platformy Microsoft Azure dla instytucji rządowych chmury i Niemczech firmy Microsoft w chmurze
 
 ## <a name="april-2017"></a>Kwietnia 2017      
 **Aktualizacja agenta:**

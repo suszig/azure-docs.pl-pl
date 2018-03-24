@@ -1,10 +1,11 @@
 ---
-title: "Tworzenie punktów końcowych usługi sieci Web usługi Machine Learning | Dokumentacja firmy Microsoft"
-description: "Tworzenie punktów końcowych usługi sieci Web w usłudze Azure Machine Learning"
+title: Tworzenie punktów końcowych usługi sieci Web usługi Machine Learning | Dokumentacja firmy Microsoft
+description: Tworzenie punktów końcowych usługi sieci Web w usłudze Azure Machine Learning
 services: machine-learning
-documentationcenter: 
-author: hiteshmadan
-manager: padou
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.author: himad
-ms.openlocfilehash: 6de83042779a1a4edae57499f108dcddc9d68309
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fac284e9f0c852306d99733a879fc13c85f07768
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="creating-endpoints"></a>Tworzenie punktów końcowych
 > [!NOTE]
@@ -35,7 +35,7 @@ W tym celu uczenia maszynowego Azure umożliwia tworzenie wielu punktów końcow
 ## <a name="adding-endpoints-to-a-web-service"></a>Dodawanie punktów końcowych usługi sieci Web
 Istnieją dwa sposoby, aby dodać punkt końcowy usługi sieci Web.
 
-* Programistycznie
+* Programistyczne
 * Za pomocą portalu usługi sieci Web systemu Azure Machine Learning
 
 Po utworzeniu punktu końcowego, możesz pobrać go za pośrednictwem interfejsów API synchroniczne, partii interfejsów API i arkusze programu excel. Oprócz dodania punktów końcowych za pośrednictwem tego interfejsu użytkownika, umożliwia także interfejsów API Management punktu końcowego do programowego dodawania punktów końcowych.
@@ -54,6 +54,6 @@ Możesz dodać punkt końcowy do usługi sieci Web, programowo przy użyciu [Add
 3. Kliknij przycisk **Nowy**.
 4. Wpisz nazwę i opis dla nowego punktu końcowego. Nazwy punktu końcowego musi być 24 znaków lub mniej długości i musi składać się z małych małych liter i cyfr. Wybierz poziom rejestrowania i czy jest włączone przykładowych danych. Aby uzyskać więcej informacji, zobacz [należy włączyć rejestrowanie dla usługi Machine Learning Web](web-services-logging.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Jak korzystać z usługi sieci Web Azure Machine Learning](consume-web-services.md).
 

@@ -1,33 +1,33 @@
 ---
-title: "Oferty konsultacji witrynę Azure Marketplace"
+title: Oferty konsultacji witrynę Azure Marketplace
 description: Kryteria i wymagania publikowania dla nowego typu oferty w portalu Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: dd00711a9be208ddf635c998a77935ed63fcf996
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e063721f2fa2ac87b2f9dd7385b2d114a1b76cb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-marketplace-consulting-services"></a>Azure Marketplace Consulting Services
+# <a name="azure-marketplace-consulting-services"></a>Azure Marketplace Consulting Services
 W celu połączenia klientów z usługi do obsługi i rozszerzanie ich użycie systemu Microsoft Azure Azure Marketplace obsługuje listę konsultacji oferty usług systemu Integrator (SI) partnerów firmy Microsoft. 
 
 Te konsultacji usługi, które oferty są promujących zaangażowanie właściwe dla klienta, stała zakresu i czasu trwania, można naprawić cen lub zwolnij i mieć zdefiniowany wynik. Kontakt przez partnerów w sposób wolny tarcia łatwo poprosić potencjalnych klientów. Partnerzy odbierać powiadomienie w ich systemu CRM i staraj się odpowiedzieć użytkowników w ramach 48hrs.
 
 Oferuje usługi na podstawie Microsoft Dynamics 365, Microsoft Office 365 i Microsoft Power BI kwalifikują się do umieszczenia na AppSource. Przejrzyj szczegóły [wytyczne dotyczące tych usług w tym miejscu](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
-##<a name="eligible-services-and-partners"></a>Kwalifikujących się usług i partnerów
+## <a name="eligible-services-and-partners"></a>Kwalifikujących się usług i partnerów
 
 Partnerzy również muszą mieć kompetencja silver lub gold w obszarze odpowiednich dla usługi. Poniżej zamieszczono kwalifikujących się uprawnienia:
 
@@ -49,7 +49,7 @@ Z wyjątkiem dostarczał, usługi doradcze mogą być oferowane (np. u klienta w
 
 Przeczytaj więcej na temat [umiejętności za pośrednictwem sieci Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
 
-##<a name="countries-supported"></a>Obsługiwane kraje
+## <a name="countries-supported"></a>Obsługiwane kraje
 
 RO partnerzy mogą przesyłać konsultingowe oferty usług dla następujących krajów 18. 
 
@@ -65,7 +65,7 @@ RO partnerzy mogą przesyłać konsultingowe oferty usług dla następujących k
 
 Uruchamianie usługi konsultingowe Marketplace Azure przejdzie na żywo najpierw dla Australii, Kanady, Polski i Stanów Zjednoczonych. Katalogi dla innych krajach przejdzie na żywo po łatwy do rozpoznania numer i wybór atrakcyjnych ofert usługi zostały przesłane przez partnerów i zatwierdzone przez firmę Microsoft.
 
-##<a name="prepare-your-publishing-artifacts"></a>Przygotowanie Twojego publikowania artefaktów
+## <a name="prepare-your-publishing-artifacts"></a>Przygotowanie Twojego publikowania artefaktów
 Nawet przed wyznaczyć usługi, można uruchomić zbierania i przygotowywanie zawartości, która może pomóc Twojej listy nieznajdującej wartość usługi i rozwiązania do klienta docelowego. 
 
 
@@ -88,7 +88,7 @@ Nawet przed wyznaczyć usługi, można uruchomić zbierania i przygotowywanie za
 |Marketing dokumentów (maksymalna 3)     |
 
 
-##<a name="publishing-process"></a>Proces publikowania
+## <a name="publishing-process"></a>Proces publikowania
 Wyświetlanie listy ofertę usługi konsultingowe w witrynie Azure Marketplace obejmuje następujące czynności:
 
 1. **Żądanie:** wysyłania w żądaniu [tutaj](https://azuremarketplace.microsoft.com/en-us/sell/nominate) i powiedz nam więcej informacji na temat Twojej organizacji. 

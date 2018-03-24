@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych do i z programem Oracle przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z obsługiwanej źródłowej magazynów z bazą danych Oracle lub Oracle sklepów zbiornika obsługiwanych przy użyciu fabryki danych."
+title: Kopiowanie danych do i z programem Oracle przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z obsługiwanej źródłowej magazynów z bazą danych Oracle lub Oracle sklepów zbiornika obsługiwanych przy użyciu fabryki danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dfbc6e1d8bdf20cc7a0a4b1571882ba84487dddc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aa96356b01d63aa21c55f1b2e6998e65f9d617f6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiowanie danych z i do Oracle przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Wersja 1 - ogólnie dostępna](v1/data-factory-onprem-oracle-connector.md)
+> * [Wersja 1 — ogólnie dostępna](v1/data-factory-onprem-oracle-connector.md)
 > * [Wersja 2 — wersja zapoznawcza](connector-oracle.md)
 
 W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z i do bazy danych programu Oracle. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykułu, który przedstawia ogólne omówienie działania kopiowania.
@@ -58,7 +58,7 @@ Następujące właściwości są obsługiwane przez usługę Oracle połączone.
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną **Oracle**. | Yes |
-| Parametry połączenia | Określa informacje wymagane do nawiązania połączenia z wystąpieniem bazy danych programu Oracle. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Obsługiwany typ połączenia**: można użyć **Oracle SID** lub **nazwa usługi Oracle** Aby zidentyfikować bazy danych:<br>— Jeśli używasz identyfikator SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>— Jeśli używasz nazwa usługi:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
+| Parametry połączenia | Określa informacje wymagane do nawiązania połączenia z wystąpieniem bazy danych programu Oracle. Zaznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w fabryce danych lub [odwołania klucz tajny przechowywane w usłudze Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Obsługiwany typ połączenia**: można użyć **Oracle SID** lub **nazwa usługi Oracle** Aby zidentyfikować bazy danych:<br>— Jeśli używasz identyfikator SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>— Jeśli używasz nazwa usługi: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -211,7 +211,7 @@ Po skopiowaniu danych od i do Oracle, następujące mapowania są używane z typ
 | BLOB |Byte[]<br/>(obsługiwana tylko w bazie danych Oracle 10 GB/s i nowsze) |
 | CHAR |Ciąg |
 | CLOB |Ciąg |
-| DATE |Data/godzina |
+| DATE |DateTime |
 | FLOAT |Decimal, ciąg (jeśli precyzja > 28) |
 | LICZBA CAŁKOWITA |Decimal, ciąg (jeśli precyzja > 28) |
 | DŁUGA |Ciąg |
@@ -222,7 +222,7 @@ Po skopiowaniu danych od i do Oracle, następujące mapowania są używane z typ
 | NVARCHAR2 |Ciąg |
 | RAW |Byte[] |
 | ROWID |Ciąg |
-| ZNACZNIK CZASU |Data/godzina |
+| ZNACZNIK CZASU |DateTime |
 | SYGNATURA CZASOWA Z LOKALNEJ STREFIE CZASOWEJ |Ciąg |
 | SYGNATURA CZASOWA ZE STREFĄ CZASOWĄ |Ciąg |
 | LICZBA CAŁKOWITA BEZ ZNAKU |Liczba |

@@ -1,11 +1,11 @@
 ---
-title: "Przekształcanie danych za pomocą działania procedury składowanej w fabryce danych Azure | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak używać programu SQL Server działania dotyczącego procedury składowanej do wywołania procedury przechowywanej w magazyn danych/bazy danych SQL Azure z potoku fabryki danych."
+title: Przekształcanie danych za pomocą działania procedury składowanej w fabryce danych Azure | Dokumentacja firmy Microsoft
+description: Wyjaśniono, jak używać programu SQL Server działania dotyczącego procedury składowanej do wywołania procedury przechowywanej w magazyn danych/bazy danych SQL Azure z potoku fabryki danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 84ef1e48de17db6f8b3b6fa4bdea2b5ef0f2efe6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania procedury składowanej SQL Server w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ W poniższej tabeli opisano te właściwości JSON:
 | storedProcedureName       | Określ nazwę procedury składowanej do wywołania. | Yes      |
 | storedProcedureParameters | Określ wartości dla parametrów procedury składowanej. Użyj `"param1": { "value": "param1Value","type":"param1Type" }` do przekazania wartości parametrów i typem obsługiwane przez źródło danych. Jeśli trzeba przekazać wartości null dla parametru, użyj `"param1": { "value": null }` (małe litery). | Nie       |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)

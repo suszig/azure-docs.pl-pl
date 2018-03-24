@@ -1,11 +1,11 @@
 ---
-title: "Program SQL Server na maszynach wirtualnych platformy Azure z systemem Windows — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programem SQL Server na maszynach wirtualnych Azure."
+title: Program SQL Server na maszynach wirtualnych platformy Azure z systemem Windows — często zadawane pytania | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programem SQL Server na maszynach wirtualnych Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: v-shysun
 manager: felixwu
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: v-shysun
-ms.openlocfilehash: 141dd1fe9e727f430b7c45dbb798f5471167c355
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 42a82a59d0cf786e80b93f124cbe04007b2a4704
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Często zadawane pytania dotyczące programu SQL Server na maszynach wirtualnych Windows Azure
 
@@ -34,7 +34,7 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Obrazy
+## <a id="images"></a> Obrazy
 
 1. **Jakie galerii obrazów maszyny wirtualnej programu SQL Server są dostępne?**
 
@@ -48,6 +48,10 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
    Tak. Azure obsługuje tylko jeden obraz na głównych wersji i wydania. Na przykład po wydaniu nowego dodatku service pack programu SQL Server Azure dodaje nowy obraz w galerii tego dodatku service pack. Obraz programu SQL Server dla poprzedniego dodatku service pack jest od razu usunięte z portalu Azure. Jednak jest wciąż dostępna na potrzeby inicjowania obsługi administracyjnej z programu PowerShell dla trzy kolejne miesiące. Po upływie trzech miesięcy poprzednie obrazu dodatku service pack nie jest już dostępny. Te zasady usuwania również będą miały zastosowania, jeśli po osiągnie koniec cyklu jego życia, jest nieobsługiwana wersja programu SQL Server.
 
+1. **Obraz wirtualnego dysku twardego można utworzyć maszyny wirtualnej programu SQL Server?**
+
+   Tak, ale są kilka zagadnienia. Wdrożenie tego wirtualnego dysku twardego do nowej maszyny Wirtualnej na platformie Azure, możesz zrobić nie ge sekcji konfiguracji serwera SQL w portalu. Następnie należy zarządzać opcje konfiguracji programu SQL Server za pomocą programu PowerShell. Ponadto możesz zostanie naliczona opłata za szybkością obraz został pierwotnie na podstawie maszyny wirtualnej SQL. Dotyczy to nawet po usunięciu programu SQL Server z dysku VHD przed wdrożeniem. 
+
 1. **Czy jest możliwe do skonfigurowania konfiguracje nie są wyświetlane w galerii maszyn wirtualnych (na przykład Windows 2008 R2 i SQL Server 2012)**
 
    Nie. Dla maszyny wirtualnej galerii obrazów, które obejmują program SQL Server należy wybrać jeden z dostarczonego obrazów.
@@ -56,7 +60,7 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
 1. **Jak utworzyć maszynę wirtualną platformy Azure z programem SQL Server?**
 
-   Najlepszym rozwiązaniem jest, aby utworzyć maszynę wirtualną, która obejmuje program SQL Server. Samouczek dotyczący rejestracji na platformie Azure i tworzenia maszyny Wirtualnej SQL z portalu, zobacz [Aprowizowanie maszyny wirtualnej programu SQL Server w portalu Azure](virtual-machines-windows-portal-sql-server-provision.md). Można wybrać obraz maszyny wirtualnej, który używa licencjonowania programu SQL Server o płatności na minutę, lub można użyć obrazu, który pozwala na użycie własnej licencji programu SQL Server. Istnieje również opcja ręcznego instalowania programu SQL Server na maszynie Wirtualnej w trybie za darmo licencjonowanej (deweloperem lub Express) lub przez ponowne użycie licencji usługi lokalnej. Jeśli użycie własnej licencji, musisz mieć [przenośność licencji za pośrednictwem programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/). Aby uzyskać więcej informacji, zobacz [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
+   Najlepszym rozwiązaniem jest, aby utworzyć maszynę wirtualną, która obejmuje program SQL Server. Samouczek dotyczący rejestracji na platformie Azure i tworzenia maszyny Wirtualnej SQL z portalu, zobacz [Aprowizowanie maszyny wirtualnej programu SQL Server w portalu Azure](virtual-machines-windows-portal-sql-server-provision.md). Można wybrać obraz maszyny wirtualnej, który używa licencjonowania programu SQL Server o płatności na sekundę, lub można użyć obrazu, który pozwala na użycie własnej licencji programu SQL Server. Istnieje również opcja ręcznego instalowania programu SQL Server na maszynie Wirtualnej w trybie za darmo licencjonowanej (deweloperem lub Express) lub przez ponowne użycie licencji usługi lokalnej. Jeśli użycie własnej licencji, musisz mieć [przenośność licencji za pośrednictwem programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/). Aby uzyskać więcej informacji, zobacz [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
 1. **Jak migrować lokalnej bazy danych programu SQL Server do chmury**
 
@@ -70,7 +74,7 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
 1. **Czy można zmienić maszyny Wirtualnej, aby użyć własnej licencji programu SQL Server, jeśli została utworzona z jednego z obrazów z galerii?**
 
-   Nie. Nie można zmienić na przy użyciu własnej licencji Licencjonowanie płatności na minutę. Tworzenie nowej maszyny wirtualnej platformy Azure przy użyciu jednej z [obrazy BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), a następnie przeprowadzić migrację bazy danych do nowego serwera przy użyciu standardu [techniki migracji danych](virtual-machines-windows-migrate-sql.md).
+   Nie. Nie można zmienić na przy użyciu własnej licencji Licencjonowanie płatności na sekundę. Tworzenie nowej maszyny wirtualnej platformy Azure przy użyciu jednej z [obrazy BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), a następnie przeprowadzić migrację bazy danych do nowego serwera przy użyciu standardu [techniki migracji danych](virtual-machines-windows-migrate-sql.md).
 
 1. **Czy muszę płacić za licencji programu SQL Server na maszynie Wirtualnej platformy Azure, jeśli jest on używany tylko dla stanu wstrzymania i pracy awaryjnej?**
 
@@ -85,15 +89,16 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
 1. **Czy można odinstalować domyślnego wystąpienia programu SQL Server**
 
-   Tak. Istnieją pewne zagadnienia. Jak już wspomniano w poprzedniej odpowiedzi, funkcje, które polegać na [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md) wykonywać operacje tylko na domyślnym wystąpieniu. Po odinstalowaniu wystąpienie domyślne rozszerzenie wyszukaj go w dalszym ciągu i może generować błędy dziennika zdarzeń. Te błędy są z następujących dwóch źródeł: **zarządzania poświadczeń programu Microsoft SQL Server** i **programu Microsoft SQL Server IaaS Agent**. Błędy mogą być podobne do następujących:
+   Tak, ale są pewne zagadnienia. Jak już wspomniano w poprzedniej odpowiedzi, funkcje, które polegać na [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md) wykonywać operacje tylko na domyślnym wystąpieniu. Po odinstalowaniu wystąpienie domyślne rozszerzenie wyszukaj go w dalszym ciągu i może generować błędy dziennika zdarzeń. Te błędy są z następujących dwóch źródeł: **zarządzania poświadczeń programu Microsoft SQL Server** i **programu Microsoft SQL Server IaaS Agent**. Błędy mogą być podobne do następujących:
 
       Wystąpił błąd związany z siecią lub wystąpieniem podczas ustanawiania połączenia z programem SQL Server. Serwer nie został znaleziony lub był niedostępny.
 
    Jeśli zdecydujesz się wystąpienia domyślnego, również odinstalować [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md) również.
-   
-   >[!NOTE]
-   >Maszyny wirtualnej Azure serwera SQL są rozliczane zgodnie z opisem w [cennik wskazówki dotyczące maszyn wirtualnych programu SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Po usunięciu programu SQL Server, opłaty za użycie kontynuować. Jeśli program SQL Server nie są już potrzebne, można wdrożyć nową maszynę wirtualną i przeprowadzić migrację danych i aplikacji do nowej maszyny wirtualnej. Następnie można usunąć maszyny wirtualnej programu SQL Server.
 
+1. **Można usunąć serwera SQL całkowicie z maszyny Wirtualnej SQL?**
+
+   Tak, ale będą nadal naliczane za maszyną Wirtualną programu SQL, zgodnie z opisem w [cennik wskazówki dotyczące maszyn wirtualnych programu SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Jeśli program SQL Server nie są już potrzebne, można wdrożyć nową maszynę wirtualną i przeprowadzić migrację danych i aplikacji do nowej maszyny wirtualnej. Następnie można usunąć maszyny wirtualnej programu SQL Server.
+   
 ## <a name="updating-and-patching"></a>Aktualizowanie i stosowanie poprawek
 
 1. **Jak uaktualnić do nowej wersji/wydania programu SQL Server w maszynie Wirtualnej platformy Azure?**

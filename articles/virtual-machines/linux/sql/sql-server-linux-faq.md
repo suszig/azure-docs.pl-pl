@@ -1,8 +1,8 @@
 ---
-title: "Program SQL Server na maszynach wirtualnych systemu Linux platformy Azure — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programem SQL Server na maszynach wirtualnych systemu Linux platformy Azure."
+title: Program SQL Server na maszynach wirtualnych systemu Linux platformy Azure — często zadawane pytania | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programem SQL Server na maszynach wirtualnych systemu Linux platformy Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Często zadawane pytania dotyczące programu SQL Server na maszynach wirtualnych Azure systemu Linux
 
@@ -31,7 +31,7 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Obrazy
+## <a id="images"></a> Obrazy
 
 1. **Jakie galerii obrazów maszyny wirtualnej programu SQL Server są dostępne?**
 
@@ -71,13 +71,17 @@ Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 
 1. **Czy można zmienić maszyny Wirtualnej, aby użyć własnej licencji programu SQL Server, jeśli została utworzona z jednego z obrazów z galerii?**
 
-   Nie. Nie można zmienić na przy użyciu własnej licencji Licencjonowanie płatności na minutę. Należy utworzyć nową maszynę Wirtualną systemu Linux, instalowania programu SQL Server i migrację danych. Zobacz na powyższe pytanie, aby uzyskać więcej informacji na temat przełączania własnej licencji.
+   Nie. Nie można zmienić na przy użyciu własnej licencji Licencjonowanie płatności na sekundę. Należy utworzyć nową maszynę Wirtualną systemu Linux, instalowania programu SQL Server i migrację danych. Zobacz na powyższe pytanie, aby uzyskać więcej informacji na temat przełączania własnej licencji.
 
 ## <a name="administration"></a>Administracja
 
 1. **Czy mogę zarządzać maszyny wirtualnej systemu Linux programu SQL Server z programu SQL Server Management Studio (SSMS)**
 
    Tak, ale SSMS jest obecnie narzędzia systemu Windows. Należy połączyć zdalnie z komputera z systemem Windows do użycia narzędzia SSMS z maszyn wirtualnych systemu Linux programu SQL Server. Lokalnie w systemie Linux nowe [mssql conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) narzędzie można wykonywać wielu zadań administracyjnych. Aby wyświetlić podgląd narzędzia do zarządzania i platform bazy danych, zobacz [Studio operacji serwera SQL (wersja zapoznawcza)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+1. **Można usunąć serwera SQL całkowicie z maszyny Wirtualnej SQL?**
+
+   Tak, ale będą nadal naliczane za maszyną Wirtualną programu SQL, zgodnie z opisem w [cennik wskazówki dotyczące maszyn wirtualnych programu SQL Server Azure](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Jeśli program SQL Server nie są już potrzebne, można wdrożyć nową maszynę wirtualną i przeprowadzić migrację danych i aplikacji do nowej maszyny wirtualnej. Następnie można usunąć maszyny wirtualnej programu SQL Server.
 
 ## <a name="updating-and-patching"></a>Aktualizowanie i stosowanie poprawek
 

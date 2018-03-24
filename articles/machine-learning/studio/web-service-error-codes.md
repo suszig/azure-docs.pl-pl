@@ -1,11 +1,12 @@
 ---
-title: "Kody błędów w usłudze Azure Machine Learning REST API | Dokumentacja firmy Microsoft"
-description: "Te kody błędów mogą być zwracane przez operację usługi sieci web uczenie maszynowe Azure."
-keywords: 
+title: Kody błędów w usłudze Azure Machine Learning REST API | Dokumentacja firmy Microsoft
+description: Te kody błędów mogą być zwracane przez operację usługi sieci web uczenie maszynowe Azure.
+keywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.author: garye
-ms.openlocfilehash: 5cf7d5bb878f323e4e3559822dc745359e43608e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Kody błędów interfejsu API REST uczenia maszynowego
  
@@ -31,7 +31,7 @@ Podano nieprawidłowy argument.
  
 Ta klasa błędy oznacza, że udostępniane innym argument był nieprawidłowy. Może to być poświadczeń lub lokalizacji magazynu Azure do coś przekazany do usługi sieci web. Zapoznaj się pola 'code' błąd w sekcji "szczegóły" do diagnozowania, które określonych argument był nieprawidłowy.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | BadParameterValue | Podana wartość parametru nie spełnia warunków reguły parametru dla parametru |
 | BadSubscriptionId | Identyfikator służący do wyniku subskrypcji nie jest obecny w zasobie |
@@ -71,7 +71,7 @@ Ta klasa błędy oznacza, że udostępniane innym argument był nieprawidłowy. 
 | RequestBodyInvalid | Nie podano treści żądania lub wystąpił błąd podczas deserializacji treści żądania. |
 | RequestIsEmpty | Nie podano żądania. Podaj prawidłowy żądania i spróbuj ponownie. |
 | UnexpectedParameter | Podane parametry nieoczekiwany. Sprawdź wszystkie nazwy parametrów są poprawne, tylko oczekiwane parametry są przekazywane, a następnie spróbuj ponownie. |
-| Nieznany | Wystąpił nieznany błąd. |
+| Nieznany | Nieznany błąd. |
 | UserParameterInvalid | {0} |
 | WebServiceConcurrentRequestRequirementInvalid | Nie można zmienić wymagania równoczesnych żądań dla usługi sieci web {0}. |
 | WebServiceIdInvalid | Podany identyfikator usługi sieci web nieprawidłowy. Identyfikator usługi sieci Web powinna być prawidłowym identyfikatorem guid. |
@@ -82,7 +82,7 @@ Ta klasa błędy oznacza, że udostępniane innym argument był nieprawidłowy. 
  
 Podany argument nieprawidłowego użytkownika.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | InputMismatchError | Dane wejściowe jest niezgodna z portu wejściowego schematu. |
 | InputParseError | Analizowanie wektor wejściowy nie powiodło się.  Sprawdź, czy wektor wejściowy ma nieprawidłową liczbę kolumn i typy danych.  Dodatkowe szczegóły: {0}. |
@@ -94,7 +94,7 @@ Podany argument nieprawidłowego użytkownika.
  
 Żądania jest nieprawidłowy w bieżącym kontekście.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | CannotStartJob | Nie można uruchomić zadania, ponieważ jest w stanie {0}. |
 | IncompatibleModel | Model jest niezgodna z wersją żądania. Wersja żądania obsługuje tylko modele danych wyjściowych jednego elementu datatable. |
@@ -114,7 +114,7 @@ Operacja uruchamiania modułu wystąpił błąd.
  
 Pakiet usługi sieci web nieprawidłowy. Sprawdź podany pakiet usługi sieci web jest prawidłowy i spróbuj ponownie.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | FormatError | Pakiet usługi sieci web jest nieprawidłowo sformułowany. Szczegóły: {0} |
 | RuntimesError | Wykres pakietu usługi sieci web jest nieprawidłowy. Szczegóły: {0} |
@@ -124,7 +124,7 @@ Pakiet usługi sieci web nieprawidłowy. Sprawdź podany pakiet usługi sieci we
  
 Żądanie nie ma autoryzacji do dostępu do zasobów.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | AdminRequestUnauthorized | Brak autoryzacji |
 | ManagementRequestUnauthorized | Brak autoryzacji |
@@ -134,7 +134,7 @@ Pakiet usługi sieci web nieprawidłowy. Sprawdź podany pakiet usługi sieci we
  
 Nie znaleziono zasobu.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | ModelPackageNotFound | Nie znaleziono pakietu modelu. Sprawdź, czy identyfikator pakietu modelu jest poprawny i spróbuj ponownie. |
 | WebServiceIdNotFoundInWorkspace | Usługi sieci Web w ramach tego obszaru roboczego nie można odnaleźć. Wystąpiła niezgodność między webServiceId i workspaceId. Sprawdź usług sieci web jest częścią obszaru roboczego i spróbuj ponownie. |
@@ -145,7 +145,7 @@ Nie znaleziono zasobu.
  
 Nie można zakończyć operacji w dozwolonym czasie.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | RequestCanceled | Żądanie zostało anulowane przez klienta. |
 | ScoreRequestTimeout | Upłynął limit czasu żądania wykonania. |
@@ -154,7 +154,7 @@ Nie można zakończyć operacji w dozwolonym czasie.
  
 Zasób już istnieje.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | ModelOutputMetadataMismatch | Nazwa parametru nieprawidłowe dane wyjściowe. Spróbuj zmienić nazwę kolumny i spróbuj ponownie za pomocą modułu Edytor metadanych. |
  
@@ -162,7 +162,7 @@ Zasób już istnieje.
  
 Model przekroczył limit przydziału pamięci przypisane do niej.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | OutOfMemoryLimit | Model używany więcej pamięci niż była przeznaczona dla niego. Maksymalna dozwolona ilość pamięci dla modelu to {0} MB. Sprawdź, czy model problemów. |
  
@@ -170,7 +170,7 @@ Model przekroczył limit przydziału pamięci przypisane do niej.
  
 Wykonanie napotkał błąd wewnętrzny.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | AdminAuthenticationFailed |  |
 | BackendArgumentError |  |
@@ -223,7 +223,7 @@ Nieprawidłowy model pakietu. Sprawdź podany pakiet model jest prawidłowy i sp
  
 Pakiet usługi sieci web nieprawidłowy. Sprawdź podany pakiet sieci web jest prawidłowy i spróbuj ponownie.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | ModuleError | Wykres pakietu usługi sieci web jest nieprawidłowy. Szczegóły: {0} |
  
@@ -236,7 +236,7 @@ Nie można wykonać żądania, zgodnie z kontenerów jest inicjowany.
  
 Usługa jest tymczasowo niedostępna.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | NoMoreResources | Brak dostępnych zasobów do żądania. |
 | RequestThrottled | Żądanie zostało ograniczenie dla punktu końcowego {0}. Maksymalna współbieżności dla punktu końcowego jest {1}. |
@@ -248,7 +248,7 @@ Usługa jest tymczasowo niedostępna.
  
 Nie można zakończyć operacji w dozwolonym czasie.
  
-| Kod błędu: | Komunikat użytkownika |
+| Kod błędu | Komunikat użytkownika |
 | ---------- |--------------|
 | BackendInitializationTimeout | Nie można ukończyć inicjowania usługi sieci web w dozwolonym czasie. |
 | BackendScoreTimeout | Nie można ukończyć wykonywania żądania usługi sieci web w dozwolonym czasie. |

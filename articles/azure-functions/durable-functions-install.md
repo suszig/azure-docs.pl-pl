@@ -1,24 +1,24 @@
 ---
-title: "Zainstaluj rozszerzenie funkcji trwałe i przykłady - Azure"
-description: "Dowiedz się, jak zainstalować rozszerzenie funkcji trwałe dla usługi Azure Functions do rozwoju portalu lub tworzenia Visual Studio."
+title: Zainstaluj rozszerzenie funkcji trwałe i przykłady - Azure
+description: Dowiedz się, jak zainstalować rozszerzenie funkcji trwałe dla usługi Azure Functions do rozwoju portalu lub tworzenia Visual Studio.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Zainstaluj rozszerzenie funkcji trwałe i przykłady (usługi Azure Functions)
 
@@ -77,12 +77,17 @@ Visual Studio Code zapewnia środowisko rozwoju lokalnego obejmujących wszystki
 3. Zainstaluj rozszerzenie trwałe funkcji platformy Azure, uruchamiając następujące polecenia oknie monitu / terminala:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. Uruchom Emulator usługi Azure Storage lub aktualizacji *local.appsettings.json* pliku z rzeczywistych parametrów połączenia usługi Azure Storage.
-3. Otwórz projekt w programie Visual Studio Code. 
-5. Aby uzyskać instrukcje na temat uruchamiania próbki, rozpoczynać się od [funkcji łańcucha — Witaj próbki sekwencji](durable-functions-sequence.md). Próbki można uruchomić lokalnie lub opublikowane na platformie Azure.
-6. Uruchom projekt, uruchamiając w poleceniu monitu / terminali następujące polecenie:
+4. Zainstaluj rozszerzenie usługi Twilio funkcji platformy Azure, uruchamiając następujące polecenia oknie monitu / terminala:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. Uruchom Emulator usługi Azure Storage lub aktualizacji *local.appsettings.json* pliku z rzeczywistych parametrów połączenia usługi Azure Storage.
+6. Otwórz projekt w programie Visual Studio Code. 
+7. Aby uzyskać instrukcje na temat uruchamiania próbki, rozpoczynać się od [funkcji łańcucha — Witaj próbki sekwencji](durable-functions-sequence.md). Próbki można uruchomić lokalnie lub opublikowane na platformie Azure.
+8. Uruchom projekt, uruchamiając w poleceniu monitu / terminali następujące polecenie:
     ```bash
     func host start
     ```

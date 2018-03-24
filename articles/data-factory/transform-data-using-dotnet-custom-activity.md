@@ -1,11 +1,11 @@
 ---
-title: "Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory"
-description: "Informacje o sposobie tworzenia niestandardowych działań i używać ich w potoku fabryki danych Azure."
+title: Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
+description: Informacje o sposobie tworzenia niestandardowych działań i używać ich w potoku fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 770187c16ed9d0eacfaf99e571ad048c6723a9cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -298,7 +298,7 @@ Jeśli chcesz korzystać z zawartości stdout.txt działania podrzędne, można 
   > - Activity.json linkedServices.json i datasets.json są przechowywane w folderze czasu wykonywania zadania wsadowego. Na przykład activity.json, linkedServices.json i datasets.json są przechowywane w "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" ścieżki. Jeśli to konieczne, należy wyczyścić oddzielnie. 
   > - Do celów połączone usługi, środowiska uruchomieniowego integracji Self-Hosted, poufne informacje, takie jak klucze lub haseł, są szyfrowane przez środowisko uruchomieniowe integracji Self-Hosted do zapewnienia poświadczeń pozostaje klientów zdefiniowane prywatnego środowiska sieciowego. Gdy odwołuje się kod aplikacji niestandardowej w ten sposób można brakuje niektórych pól. W właściwości rozszerzone zamiast odwołanie do połączonej usługi, jeśli to konieczne, należy użyć elementu SecureString. 
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>Porównanie działania niestandardowe v2 i wersja 1 (niestandardowy) działania DotNet
+## <a name="compare-v2-v1"></a> Porównanie działania niestandardowe v2 i wersja 1 (niestandardowy) działania DotNet
 
   W fabryce danych Azure w wersji 1, implementacji działania DotNet (niestandardowy) przez utworzenie .net projektu biblioteki klas z klasy, która implementuje `Execute` metody `IDotNetActivity` interfejsu. Połączone usługi, zestawy danych i właściwości rozszerzone w ładunku JSON aktywności DotNet (niestandardowy) są przekazywane do metody wykonywania jako silnie typizowanych obiektów. Aby uzyskać więcej informacji dotyczących zachowania w wersji 1, zobacz [DotNet (niestandardowy) w wersji 1](v1/data-factory-use-custom-activities.md). Z powodu tej implementacji kodu działania DotNet wersji 1 ma docelowy .net Framework 4.5.2. Wersja 1 DotNet działanie ma również ma być wykonywana na węzłach opartych na systemie Windows Azure puli partii. 
 

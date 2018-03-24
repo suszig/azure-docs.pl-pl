@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Rozwiązywanie problemów dotyczących zasad niestandardowych | Dokumentacja firmy Microsoft"
-description: "Poznaj sposoby rozwiązywania błędy podczas pracy z niestandardowych zasad w usłudze Azure Active Directory."
+title: 'Usługa Azure Active Directory B2C: Rozwiązywanie problemów dotyczących zasad niestandardowych | Dokumentacja firmy Microsoft'
+description: Poznaj sposoby rozwiązywania błędy podczas pracy z niestandardowych zasad w usłudze Azure Active Directory.
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: joroja
-ms.openlocfilehash: 8718f9c1dfce81682174eec11e8cbb731cbdf796
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Rozwiązywanie problemów z niestandardowych zasad usługi Azure AD B2C i Framework obsługi tożsamości
 
@@ -44,17 +41,17 @@ Przegląd reguł XML może okazać się przydatne. Usługa Azure AD B2C odrzuca 
  
  Następujące typowe błędy sprawdzania poprawności.
 
-Fragment kodu błędu:`... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Fragment kodu błędu: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * Wartość typu oświadczenia mogą być zawiera błąd pisowni lub nie istnieje w schemacie.
 * Typ oświadczenia wartości muszą być zdefiniowane w co najmniej jeden z plików w zasadach. 
     Na przykład: ` <ClaimType Id="socialIdpUserId">`
 * Jeśli typ oświadczenia jest zdefiniowana w pliku rozszerzenia, ale jest również używana wartość TechnicalProfile w pliku podstawowego, przekazywanie pliku podstawowego powoduje błąd.
 
-Fragment kodu błędu:`...makes a reference to a ClaimsTransformation with id...`
+Fragment kodu błędu: `...makes a reference to a ClaimsTransformation with id...`
 * Przyczyny tego błędu może być taki sam jak błąd typu oświadczenia.
 
-Fragment kodu błędu:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Sprawdź, czy wartość identyfikatora dzierżawy w  **\<TrustFrameworkPolicy\>**  i  **\<BasePolicy\>**  elementy dzierżawy usługi Azure AD B2C docelowej są zgodne.  
+Fragment kodu błędu: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+* Sprawdź, czy wartość identyfikatora dzierżawy w **\<TrustFrameworkPolicy\>** i **\<BasePolicy\>** elementy dzierżawy usługi Azure AD B2C docelowej są zgodne.  
 
 ## <a name="troubleshoot-the-runtime"></a>Rozwiązywanie problemów z środowiska uruchomieniowego
 
@@ -67,7 +64,7 @@ Fragment kodu błędu:`Reason: User is currently logged as a user of 'yourtenant
 
 * W **tryb programowania**, użyj **usługi Application Insights** śledzenie działania podróży Framework obsługi tożsamości użytkownika. W **tryb programowania**, można zaobserwować wymiany oświadczeń w ramach obsługi tożsamości i różnych dostawców oświadczeń są definiowane przez techniczne profile, takie jak dostawców tożsamości, oparty na interfejsach API usług Katalog użytkowników w usłudze Azure AD B2C i innych usług, takich jak Azure kilku-Factor uwierzytelniania.  
 
-## <a name="recommended-practices"></a>Zalecane wskazówki
+## <a name="recommended-practices"></a>Zalecane praktyki
 
 **Przechowywać wiele wersji scenariuszy. Grupowania ich w projekcie z aplikacją.** Podstawowy, rozszerzenia i jednostki uzależnionej plików firm są bezpośrednio zależne od siebie nawzajem. Zapisz je jako grupa. Nowe funkcje zostaną dodane do zasad, zachować różne wersje robocze. Etap wersji pracy w ramach własnego pliku system z kodu aplikacji, którymi wchodzić w interakcje.  Aplikacje mogą wywoływać wiele różnych jednostki uzależnionej zasady firmy, w dzierżawie. Mogą być zależne od oświadczenia, które oczekiwane z zasad usługi Azure AD B2C.
 
@@ -75,6 +72,6 @@ Fragment kodu błędu:`Reason: User is currently logged as a user of 'yourtenant
 
 **Opracowanie i przetestowanie podróże użytkownika z profilami techniczne przetestowane.** Przyrostowo zmieniać kolejności kroków aranżacji przebieg użytkownika. Kompilacji stopniowego zamierzonego scenariuszy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-* W usłudze GitHub Pobierz plik zip (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) [active-directory-b2c-custom-policy-starterpack].
+* W witrynie GitHub, Pobierz [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) pliku zip.

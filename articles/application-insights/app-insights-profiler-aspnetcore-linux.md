@@ -1,8 +1,8 @@
 ---
 title: Profil aplikacji sieci web platformy ASP.NET core Azure Linux z Application Insights profilera | Dokumentacja firmy Microsoft
-description: "Omówienie koncepcji i samouczek krok po kroku dotyczące sposobu włączania go"
+description: Omówienie koncepcji i samouczek krok po kroku dotyczące sposobu włączania go
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profil platformy ASP.NET Core aplikacji sieci Web dla systemu Linux platformy Azure za pomocą Application Insights profilera
 
@@ -143,6 +143,18 @@ Zostaną wyświetlone informacje podobne do następujących:
 5. Przejdź do okienka wydajności usługi Application Insights w portalu Azure. Zostanie wyświetlone ślady profilera dostępne w prawym dolnym rogu.
 
     ![Wyświetl dane śledzenia](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>Znane problemy
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>Włącz przycisk w konfiguracji profilera okienku nie działa.
+**Host aplikacji z użyciem Linux usług aplikacji, nie trzeba ponownie włączyć w okienku wyników w portalu usługi App Insights profilera. W tym pakietu NuGet w projekcie i ustawienie App Insights iKey w ustawieniach aplikacji są wystarczające, aby umożliwić profilera**.
+
+Jeśli wykonujesz [App Insights profilera dla systemu Windows](./app-insights-profiler.md) przepływu pracy aktywacji kliknij **włączyć** w okienku skonfiguruj profilera, zostanie zwrócony błąd, jak przycisk spróbuje zainstalować wersję systemu Windows Profiler agenta w środowisku systemu Linux.
+
+Pracujemy nad rozwiązanie tego problemu w środowisku aktywacji.
+
+![Nie musisz włączyć profilera ponownie w okienku wyników profilera pracować nad usługi aplikacji w systemie Linux](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli używasz niestandardowego kontenery obsługiwane przez usługi aplikacji, postępuj zgodnie z instrukcjami [ włączyć profilera usługi dla aplikacji platformy ASP.NET Core konteneryzowanych](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) umożliwiające App Insights profilera

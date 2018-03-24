@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Opis zasady niestandardowe pakietu starter | Dokumentacja firmy Microsoft"
-description: "Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C"
+title: 'Usługa Azure Active Directory B2C: Opis zasady niestandardowe pakietu starter | Dokumentacja firmy Microsoft'
+description: Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: fccb6cfddc8629de7db0310340f07bffd1ff8a65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Opis zasad niestandardowych początkowego pakietu Azure AD B2C niestandardowych zasad
 
@@ -54,16 +51,16 @@ Następujące oświadczenia są wymagane dla użytkownika podróże do poprawneg
 |-------------|-------------|
 | *Nazwa użytkownika* | Nazwa użytkownika |
 | *signInName* | Zaloguj się w nazwie |
-| *dla identyfikatora dzierżawcy* | Identyfikator dzierżawy (ID) obiektu użytkownika w usłudze Azure AD B2C w warstwie Premium |
-| *Identyfikator obiektu* | Identyfikator obiektu (ID) obiektu użytkownika w usłudze Azure AD B2C w warstwie Premium |
-| *hasło* | Hasło |
-| *NoweHasło* | |
+| *Dla identyfikatora dzierżawcy* | Identyfikator dzierżawy (ID) obiektu użytkownika w usłudze Azure AD B2C w warstwie Premium |
+| *objectId* | Identyfikator obiektu (ID) obiektu użytkownika w usłudze Azure AD B2C w warstwie Premium |
+| *Hasło* | Hasło |
+| *newPassword* | |
 | *reenterPassword* | |
 | *passwordPolicies* | Zasady haseł używane przez usługi Azure AD B2C Premium do określenia siły hasła, wygaśnięcia itp. |
-| *Sub* | |
+| *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
-| *Nazwa wyświetlana* | |
+| *displayName* | |
 | *strongAuthenticationPhoneNumber* | Numer telefonu użytkownika |
 | *Verified.strongAuthenticationPhoneNumber* | |
 | *Adres e-mail* | Adres e-mail, który może służyć do kontaktowania się z użytkownika |
@@ -73,8 +70,8 @@ Następujące oświadczenia są wymagane dla użytkownika podróże do poprawneg
 | *upnUserName* | Nazwa użytkownika do tworzenia głównej nazwy użytkownika |
 | *mailNickName* | Nazwa użytkownika poczty nick przechowywanej w usłudze Azure AD B2C — wersja Premium |
 | *newUser* | |
-| *Wykonano SelfAsserted — dane wejściowe* | Oświadczenie, które określa, czy atrybuty zostały zebrane przez użytkownika |
-| *Wykonano PhoneFactor — dane wejściowe* | Oświadczenie, które określa, czy nowy numer telefonu został zebrany przez użytkownika |
+| *executed-SelfAsserted-Input* | Oświadczenie, które określa, czy atrybuty zostały zebrane przez użytkownika |
+| *executed-PhoneFactor-Input* | Oświadczenie, które określa, czy nowy numer telefonu został zebrany przez użytkownika |
 | *authenticationSource* | Określa, czy użytkownik został uwierzytelniony w społecznościowych dostawcy tożsamości, login.microsoftonline.com lub lokalnego konta |
 
 ### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Oświadczenia wymagane w celu parametrów ciągu zapytania i inne parametry specjalne
@@ -84,12 +81,12 @@ Następujące oświadczenia są wymagane do przekazania na specjalne parametry (
 | Typ oświadczenia | Opis |
 |-------------|-------------|
 | *nux* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
-| *Asystent łączności sieciowej* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *nca* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
 | *wiersz* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
 | *mkt* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
-| *LC* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
-| *Typ grant_type* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
-| *zakres* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *lc* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *grant_type* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *Zakres* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
 | *client_id* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
 | *objectIdFromSession* | Parametr udostępniane przez dostawcę zarządzania sesji domyślnej, aby wskazać, że identyfikator obiektu zostały pobrane z sesji rejestracji Jednokrotnej |
 | *isActiveMFASession* | Udostępniony parametr przez Zarządzanie sesjami MFA wskazująca, czy użytkownik ma aktywnej sesji usługi MFA |
@@ -100,8 +97,8 @@ Następujące oświadczenia są dodatkowe oświadczenia, które mogą być zebra
 
 | Typ oświadczenia | Opis |
 |-------------|-------------|
-| *Imię* | Imię użytkownika (znanej także jako nazwa pierwszej) |
-| *nazwisko* | Nazwisko użytkownika (znanej także jako nazwa rodziny lub nazwisko) |
+| *givenName* | Imię użytkownika (znanej także jako nazwa pierwszej) |
+| *surname* | Nazwisko użytkownika (znanej także jako nazwa rodziny lub nazwisko) |
 | *Extension_picture* | Obraz użytkownika z społecznego |
 
 ## <a name="claim-transformations"></a>Przekształcenia oświadczeń
@@ -130,7 +127,7 @@ W tej sekcji opisano zawartości definicje już zadeklarowany w *B2C_1A_base* za
 | *Samodzielnie potwierdzony* | |
 | *Konto lokalne* | |
 | *Zarządzanie sesjami* | |
-| *Aparat zasad Trustframework* | |
+| *Trustframework Policy Engine* | |
 | *TechnicalProfiles* | |
 | *Wystawca tokenu* | |
 
@@ -142,43 +139,43 @@ W tej sekcji przedstawiono techniczne profile już zadeklarowana dla dostawcy o�
 
 | Profil techniczne | Opis |
 |-------------------|-------------|
-| *Facebook OAUTH* | |
+| *Facebook-OAUTH* | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>Profile techniczne dla lokalnego konta logowanie
 
 | Profil techniczne | Opis |
 |-------------------|-------------|
-| *Logowania nieinterakcyjnego* | |
+| *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Profile techniczne dla aplikacji Phone Factor
 
 | Profil techniczne | Opis |
 |-------------------|-------------|
-| *Dane wejściowe PhoneFactor* | |
-| *PhoneFactor InputOrVerify* | |
-| *Sprawdź PhoneFactor* | |
+| *PhoneFactor-Input* | |
+| *PhoneFactor-InputOrVerify* | |
+| *PhoneFactor-Verify* | |
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Profile techniczne dotyczące usługi Azure Active Directory
 
 | Profil techniczne | Opis |
 |-------------------|-------------|
-| *Typowe usługi AAD* | Techniczne dołączonego przez innych profilów techniczne AAD xxx profilu |
-| *UserWriteUsingAlternativeSecurityId usługi AAD* | Profil techniczne dla logowania społecznościowych |
-| *UserReadUsingAlternativeSecurityId usługi AAD* | Profil techniczne dla logowania społecznościowych |
-| *AAD-UserReadUsingAlternativeSecurityId-brak błędu* | Profil techniczne dla logowania społecznościowych |
-| *UserWritePasswordUsingLogonEmail usługi AAD* | Profil techniczne dla kont lokalnych |
-| *UserReadUsingEmailAddress usługi AAD* | Profil techniczne dla kont lokalnych |
-| *UserWriteProfileUsingObjectId usługi AAD* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
-| *UserWritePhoneNumberUsingObjectId usługi AAD* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
-| *UserWritePasswordUsingObjectId usługi AAD* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
-| *UserReadUsingObjectId usługi AAD* | Techniczne profil jest używany do odczytywania danych po uwierzytelnia użytkownika |
+| *AAD-Common* | Techniczne dołączonego przez innych profilów techniczne AAD xxx profilu |
+| *AAD-UserWriteUsingAlternativeSecurityId* | Profil techniczne dla logowania społecznościowych |
+| *AAD-UserReadUsingAlternativeSecurityId* | Profil techniczne dla logowania społecznościowych |
+| *AAD-UserReadUsingAlternativeSecurityId-NoError* | Profil techniczne dla logowania społecznościowych |
+| *AAD-UserWritePasswordUsingLogonEmail* | Profil techniczne dla kont lokalnych |
+| *AAD-UserReadUsingEmailAddress* | Profil techniczne dla kont lokalnych |
+| *AAD-UserWriteProfileUsingObjectId* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
+| *AAD-UserWritePhoneNumberUsingObjectId* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
+| *AAD-UserWritePasswordUsingObjectId* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
+| *AAD-UserReadUsingObjectId* | Techniczne profil jest używany do odczytywania danych po uwierzytelnia użytkownika |
 
 ### <a name="technical-profiles-for-self-asserted"></a>Profile techniczne dla potwierdzone samoobsługowego
 
 | Profil techniczne | Opis |
 |-------------------|-------------|
-| *Społecznego SelfAsserted* | |
-| *SelfAsserted ProfileUpdate* | |
+| *SelfAsserted-Social* | |
+| *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Profile techniczne dla lokalnego konta
 
@@ -190,11 +187,11 @@ W tej sekcji przedstawiono techniczne profile już zadeklarowana dla dostawcy o�
 
 | Profil techniczne | Opis |
 |-------------------|-------------|
-| *Operacja SM* | |
-| *SM AAD* | |
+| *SM-Noop* | |
+| *SM-AAD* | |
 | *SM SocialSignup* | Nazwa profilu jest używana do odróżniania sesji AAD między logowania się i zaloguj się |
-| *SM SocialLogin* | |
-| *UWIERZYTELNIANIE WIELOSKŁADNIKOWE SM* | |
+| *SM-SocialLogin* | |
+| *SM-MFA* | |
 
 ### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Profile techniczne dla TechnicalProfiles aparatu zasad Trustframework
 
@@ -213,7 +210,7 @@ W tej sekcji przedstawiono podróże użytkownik już zadeklarowany w *B2C_1A_ba
 | Przebieg użytkownika | Opis |
 |--------------|-------------|
 | *Rejestracja* | |
-| *Logowanie* | |
+| *SignIn* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |

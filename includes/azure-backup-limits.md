@@ -1,18 +1,18 @@
 ---
-title: "Plik dołączania"
-description: "Plik dołączania"
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: backup
 author: markgalioto
 ms.service: backup
 ms.topic: include
 ms.date: 2/7/2018
-ms.author: trinadhk
+ms.author: trinadhk;sogup
 ms.custom: include file
-ms.openlocfilehash: 7ca5b34961b4d0e3d4fcecb8175e3e0901d7049d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b345283f87c446ff3b583b0c5dd8a4be222303ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 Następujące ograniczenia mają zastosowanie do usługi Kopia zapasowa Azure.
 
@@ -23,8 +23,8 @@ Następujące ograniczenia mają zastosowanie do usługi Kopia zapasowa Azure.
 | Liczba magazynów kopii zapasowych, które mogą zostać utworzone w każdej subskrypcji platformy Azure |25 Magazyny usług odzyskiwania dla regionu |
 | Liczba kopii zapasowej mogą być planowane na dzień |3 dziennie dla systemu Windows Server/Client <br/> 2 dziennie SCDPM <br/> Raz dziennie dla maszyn wirtualnych IaaS |
 | Dyskach danych dołączonych do maszyny wirtualnej platformy Azure do utworzenia kopii zapasowej |16 |
-| Rozmiar dysku danych poszczególnych dołączony do maszyny wirtualnej platformy Azure do utworzenia kopii zapasowej| 1024 GB <sup>2</sup>|
+| Rozmiar dysku danych poszczególnych dołączony do maszyny wirtualnej platformy Azure do utworzenia kopii zapasowej| 4095 GB <sup>2</sup>|
 
 * <sup>1</sup>limitu 54400 GB nie ma zastosowania do kopii zapasowej maszyny Wirtualnej IaaS.
-* <sup>2</sup> mamy [prywatnej wersji zapoznawczej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) do obsługi dysków maksymalnie 4 TB. 
+ 
 

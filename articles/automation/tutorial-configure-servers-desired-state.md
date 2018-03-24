@@ -1,26 +1,18 @@
 ---
-title: "Konfigurowanie serwerów do pożądanego stanu i zarządzanie nimi odejście w automatyzacji Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek — Zarządzanie konfiguracjami serwera w usłudze Konfiguracja DSC automatyzacji Azure"
+title: Konfigurowanie wymaganego stanu serwerów i zarządzanie odejściem od tego stanu za pomocą usługi Azure Automation
+description: Samouczek — Zarządzanie konfiguracjami serwera w usłudze Konfiguracja DSC automatyzacji Azure
 services: automation
-documentationcenter: automation
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
 ms.service: automation
-ms.devlang: powershell
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.custom: 
-ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+manager: carmonm
+ms.topic: article
+ms.date: 09/25/2017
+ms.openlocfilehash: 50c58224eaecc20a0878df5e1c7f100039978455
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Konfigurowanie serwerów do pożądanego stanu i Zarządzaj odejście
 
@@ -56,9 +48,9 @@ Login-AzureRmAccount
 
 W tym samouczku używamy prostą konfigurację DSC, które powodują, że IIS są zainstalowane na Maszynie wirtualnej.
 
-Aby uzyskać informacje o konfiguracji DSC, zobacz [konfiguracji DSC](https://docs.microsoft.com/powershell/dsc/configurations).
+Aby uzyskać informacje o konfiguracjach DSC, zobacz [Konfiguracje DSC](https://docs.microsoft.com/powershell/dsc/configurations).
 
-W edytorze tekstów, wpisz następujące polecenie i zapisz go na lokalnie, jak `TestConfig.ps1`.
+W edytorze tekstów wpisz poniższe i zapisz go lokalnie, jako `TestConfig.ps1`.
 
 ```powershell
 configuration TestConfig {
@@ -158,7 +150,7 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się, aby dodać węzły mają być zarządzane w usłudze Konfiguracja DSC automatyzacji Azure, zobacz temat [dołączania komputerów do zarządzania przez Konfiguracja DSC automatyzacji Azure](automation-dsc-onboarding.md)
 * Aby dowiedzieć się, jak używać usługi Konfiguracja DSC automatyzacji za pomocą portalu Azure, zobacz [wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-getting-started.md)

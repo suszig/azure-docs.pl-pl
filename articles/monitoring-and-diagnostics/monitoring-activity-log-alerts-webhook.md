@@ -1,10 +1,10 @@
 ---
-title: "Zrozumienie schematu elementu webhook używane w alertach dziennika aktywności | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat schematu JSON, zamieszczony na adres URL elementu webhook, aktywuje alert dziennika aktywności."
+title: Zrozumienie schematu elementu webhook używane w alertach dziennika aktywności | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat schematu JSON, zamieszczony na adres URL elementu webhook, aktywuje alert dziennika aktywności.
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementów Webhook alertów dziennik aktywności platformy Azure
 W ramach definicji grupę można skonfigurować elementu webhook punktów końcowych, aby otrzymywać powiadomienia o alertach dziennika aktywności. Z elementów webhook można kierować te powiadomienia do innych systemów akcje przetwarzania końcowego lub niestandardowych. W tym artykule opisano, jak wygląda ładunek dla HTTP POST do elementu webhook.
@@ -31,7 +31,7 @@ Elementu webhook można używać do uwierzytelniania opartego na tokenie autoryz
 ## <a name="payload-schema"></a>Schemat ładunku
 Ładunek JSON zawarte w operacji POST różni się na podstawie w polu data.context.activityLog.eventSource ładunku.
 
-###<a name="common"></a>Wspólne
+### <a name="common"></a>Wspólne
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -58,7 +58,7 @@ Elementu webhook można używać do uwierzytelniania opartego na tokenie autoryz
     }
 }
 ```
-###<a name="administrative"></a>Administracyjne
+### <a name="administrative"></a>Administracyjne
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -85,7 +85,7 @@ Elementu webhook można używać do uwierzytelniania opartego na tokenie autoryz
 }
 
 ```
-###<a name="servicehealth"></a>ServiceHealth
+### <a name="servicehealth"></a>ServiceHealth
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -143,7 +143,7 @@ Dla określonego schematu informacji na temat wszystkich innych alertów dzienni
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 | sygnatura czasowa |Czas, w którym to zdarzenie zostało wygenerowane przez usługę Azure, który przetwarzał żądanie. |
 | resourceId |Identyfikator zasobu ryzyko zasobu. |
-| Grupy zasobów o nazwie |Nazwa grupy zasobów dla zasobu ryzyko. |
+| resourceGroupName |Nazwa grupy zasobów dla zasobu ryzyko. |
 | properties |Zestaw `<Key, Value>` par (czyli `Dictionary<String, String>`) zawierającą szczegółowe informacje o zdarzeniu. |
 | event |Element zawierający metadane dotyczące zdarzenia. |
 | Autoryzacji |Właściwości kontroli dostępu opartej na rolach zdarzenia. Te właściwości obejmują zazwyczaj akcji, roli i zakresu. |
@@ -152,14 +152,14 @@ Dla określonego schematu informacji na temat wszystkich innych alertów dzienni
 | correlationId |Zazwyczaj identyfikator GUID w postaci ciągu. Zdarzenia z correlationId należą do tego samego działania większych i zazwyczaj udziału correlationId. |
 | eventDescription |Opis zdarzenia tekst statyczny. |
 | eventDataId |Unikatowy identyfikator zdarzenia. |
-| Źródła zdarzeń |Nazwa usługi Azure lub infrastruktury, który wygenerował zdarzenie. |
+| eventSource |Nazwa usługi Azure lub infrastruktury, który wygenerował zdarzenie. |
 | httpRequest |Żądanie obejmuje zazwyczaj clientRequestId, clientIpAddress i metodę HTTP (na przykład umieścić). |
 | poziom |Jedną z następujących wartości: krytyczny, błąd, ostrzeżenie i do celów informacyjnych. |
 | operationId |Zazwyczaj identyfikator GUID współdzielenia zdarzenia odpowiadające jednej operacji. |
 | operationName |Nazwa operacji. |
 | properties |Właściwości zdarzenia. |
 | status |Ciąg. Stan operacji. Typowe wartości to rozpoczęte, w toku, zakończyło się pomyślnie, nie powiodło się, aktywnych i rozwiązanych. |
-| Podstan |Zwykle zawiera kod stanu HTTP odpowiedniego wywołania REST. Może również zawierać innych ciągów, które opisują podstanu. Typowe wartości podstanu obejmują OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP: 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503) i limit czasu bramy (kod stanu HTTP : 504). |
+| subStatus |Zwykle zawiera kod stanu HTTP odpowiedniego wywołania REST. Może również zawierać innych ciągów, które opisują podstanu. Typowe wartości podstanu obejmują OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP: 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503) i limit czasu bramy (kod stanu HTTP : 504). |
 
 ## <a name="next-steps"></a>Kolejne kroki
 * [Dowiedz się więcej o dziennika aktywności](monitoring-overview-activity-logs.md).

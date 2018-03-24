@@ -1,11 +1,11 @@
 ---
-title: "Limity i konfiguracji — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Limity usług i wartości konfiguracji dla usługi Azure Logic Apps"
+title: Limity i konfiguracji — usługi Azure Logic Apps | Dokumentacja firmy Microsoft
+description: Limity usług i wartości konfiguracji dla usługi Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Ograniczenia aplikacji logiki i konfiguracji
 
@@ -86,7 +86,7 @@ Poniżej przedstawiono limity dla logiki pojedynczego wystąpienia aplikacji:
 
 | Name (Nazwa) | Limit | Uwagi | 
 | ----- | ----- | ----- | 
-| Wykonania akcji na 5 minut | 100,000 | Aby zwiększyć limit 300 000, możesz uruchomić aplikację logiki w `High Througput` tryb. Aby skonfigurować tryb wysokiej przepływności, w obszarze `runtimeConfiguration` zasobu przepływu pracy, należy ustawić `operationOptions` właściwości `OptimizedForHighThroughput`. <p>**Uwaga**: Tryb wysokiej przepływności jest w wersji zapoznawczej. Ponadto można rozpowszechniać obciążenia pracą wielu aplikacjom w razie potrzeby. | 
+| Wykonania akcji na 5 minut | 100,000 | Aby zwiększyć limit 300 000, możesz uruchomić aplikację logiki w `High Throughput` tryb. Aby skonfigurować tryb wysokiej przepływności, w obszarze `runtimeConfiguration` zasobu przepływu pracy, należy ustawić `operationOptions` właściwości `OptimizedForHighThroughput`. <p>**Uwaga**: Tryb wysokiej przepływności jest w wersji zapoznawczej. Ponadto można rozpowszechniać obciążenia pracą wielu aplikacjom w razie potrzeby. | 
 | Akcje równoczesnych połączeń wychodzących | ~2,500 | Można zmniejszyć liczbę jednoczesnych żądań lub skrócić czas trwania, zgodnie z potrzebami. | 
 | Punkt końcowy środowiska wykonawczego: równoczesnych połączeń przychodzących |~1,000 | Można zmniejszyć liczbę jednoczesnych żądań lub skrócić czas trwania, zgodnie z potrzebami. | 
 | Środowisko uruchomieniowe punkt końcowy: wywołania na 5 minut do odczytu  | 60,000 | Można rozpowszechniać obciążenia pracą wielu aplikacjom zgodnie z potrzebami. | 

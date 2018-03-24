@@ -1,6 +1,6 @@
 ---
-title: "Ciągłe wdrażanie usługi Konfiguracja DSC usługi Automatyzacja Azure z Chocolatey"
-description: "DevOps ciągłe wdrażanie przy użyciu usługi Konfiguracja DSC automatyzacji Azure i Menedżer pakietów Chocolatey.  Przykład pełny szablon JSON ARM i źródła programu PowerShell."
+title: Ciągłe wdrażanie usługi Konfiguracja DSC usługi Automatyzacja Azure z Chocolatey
+description: DevOps ciągłe wdrażanie przy użyciu usługi Konfiguracja DSC automatyzacji Azure i Menedżer pakietów Chocolatey.  Przykład pełny szablon JSON ARM i źródła programu PowerShell.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e92bb8b4078bc5c85a639d3b5b38c124152576f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Przykład użycia: Ciągłe wdrażanie maszyn wirtualnych przy użyciu usługi Konfiguracja DSC automatyzacji i Chocolatey
 W świecie DevOps istnieje wiele narzędzi do pomagać w różnych punktach w potoku ciągłej integracji.  Konfiguracji usługi Azure Automation pożądanej stanu (DSC) to powitalnej oprócz nowe opcje, które zespoły opracowywania oprogramowania można wdrożyć.  W tym artykule przedstawiono ustawienia zapasowej ciągłego wdrażania (CD) na komputerze z systemem Windows.  Metoda zawierać dowolną liczbę komputerów z systemem Windows zgodnie z potrzebami w roli (na przykład witryną sieci web), a następnie do również dodatkowych ról można z łatwością rozszerzyć.

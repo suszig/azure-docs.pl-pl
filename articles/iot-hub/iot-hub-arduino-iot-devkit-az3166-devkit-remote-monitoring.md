@@ -1,12 +1,12 @@
 ---
-title: "Zestaw deweloperski IoT do chmury: Połącz AZ3166 zestaw deweloperski IoT z Centrum IoT Azure | Dokumentacja firmy Microsoft"
-description: "W tym samouczku Dowiedz się, jak wysyłać stanu czujników na AZ3166 zestaw deweloperski IoT Azure IoT pakietu monitorowania i wizualizacji."
+title: 'Zestaw deweloperski IoT do chmury: Połącz IoT MXChip zestaw deweloperski z Centrum IoT Azure | Dokumentacja firmy Microsoft'
+description: W tym samouczku Dowiedz się, jak wysyłać stanu czujników na AZ3166 zestaw deweloperski IoT Azure IoT pakietu monitorowania i wizualizacji.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Nawiązać pakiet IoT Azure IoT zestaw deweloperski AZ3166 zdalnego monitorowania
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Zestaw deweloperski IoT MXChip połączyć się z pakiet IoT Azure zdalnego monitorowania
 
 W tym samouczku Dowiedz się jak uruchomić przykładową aplikację na Twoje zestaw deweloperski, aby wysłać dane czujników do pakietu Azure IoT.
 
@@ -42,7 +42,7 @@ Aktywna subskrypcja platformy Azure. Jeśli nie masz, możesz zarejestrować za 
 
 1. Przejdź do [lokacji pakiet IoT Azure](https://www.azureiotsuite.com/) i kliknij przycisk **Utwórz nowe rozwiązanie**.
   ![Wybierz typ pakiet IoT Azure](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
+  > [!WARNING]
   > Domyślnie ten przykład tworzy Centrum IoT S2 po utworzeniu jeden pakiet IoT. Jeśli w tym Centrum IoT nie jest używana z bardzo dużej liczby urządzeń, zdecydowanie zaleca się obniżyć go z S2 S1 i usunąć pakiet IoT, więc pokrewne Centrum IoT mogą być również usuwane, gdy nie są już potrzebne. 
 
 2. Wybierz **monitorowania zdalnego**.

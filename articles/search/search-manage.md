@@ -1,11 +1,11 @@
 ---
-title: "Administrowanie usługi dla usługi Azure Search w portalu Azure"
-description: "Zarządzaj usługi Azure Search, Usługa wyszukiwania w hostowanej chmurze w systemie Microsoft Azure, przy użyciu portalu Azure."
+title: Administrowanie usługi dla usługi Azure Search w portalu Azure
+description: Zarządzaj usługi Azure Search, Usługa wyszukiwania w hostowanej chmurze w systemie Microsoft Azure, przy użyciu portalu Azure.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administrowanie usługi dla usługi Azure Search w portalu Azure
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ Zwróć uwagę, że *uaktualnienia* nie jest wymieniony jako zadania administrac
 ## <a name="administrator-rights"></a>Prawa administratora
 Inicjowanie obsługi administracyjnej lub likwidowanie sama usługa może odbywać się przez administratora subskrypcji platformy Azure lub współadministratorem.
 
-W ramach usługi kto ma dostęp do adresu URL usługi i klucz interfejsu api administratora ma dostęp do odczytu i zapisu do usługi. Dostęp do odczytu zapisu zapewnia możliwość dodania, usunięcia lub zmodyfikowania obiektów serwera, w tym klucze interfejsu api, indeksów, indeksatorów, źródła danych, harmonogramów i przypisania ról, ponieważ implementowane za pośrednictwem [zdefiniowane RBAC ról](#rbac).
+W ramach usługi kto ma dostęp do adresu URL usługi i klucz interfejsu api administratora ma dostęp do odczytu i zapisu do usługi. Dostęp do odczytu zapisu zapewnia możliwość dodania, usunięcia lub zmodyfikowania obiektów serwera, w tym klucze interfejsu api, indeksów, indeksatorów, źródła danych, harmonogramów i przypisania ról, ponieważ implementowane za pośrednictwem [zdefiniowane RBAC ról](search-security-rbac.md).
 
-Cała interakcja użytkownika z usługi Azure Search znajduje się w jeden z następujących trybów: dostęp do odczytu i zapisu do usługi (prawa administratora) lub dostęp tylko do odczytu do usługi (zapytania praw). Aby uzyskać więcej informacji, zobacz [zarządzanie kluczami interfejsu api](#manage-keys).
+Cała interakcja użytkownika z usługi Azure Search znajduje się w jeden z następujących trybów: dostęp do odczytu i zapisu do usługi (prawa administratora) lub dostęp tylko do odczytu do usługi (zapytania praw). Aby uzyskać więcej informacji, zobacz [zarządzanie kluczami interfejsu api](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>Ustaw role RBAC dla dostępu administracyjnego
-Platforma Azure udostępnia [modelu autoryzacji opartej na rolach globalne](../active-directory/role-based-access-control-configure.md) dla wszystkich usług zarządzanych za pomocą portalu lub Menedżera zasobów interfejsów API. Role właściciela, współautora i czytnika określają poziomu administracji usługi dla użytkowników, grup i podmiotów zabezpieczeń przypisanych do każdej roli usługi Active Directory. 
-
-Dla usługi Azure Search uprawnienia RBAC określają następujących zadań:
-
-| Rola | Zadanie |
-| --- | --- |
-| Właściciel |Utwórz lub Usuń usługę lub dowolny obiekt na usługi, w tym klucze interfejsu api, indeksów, indeksatorów, indeksatora źródeł danych i harmonogramy indeksatora.<p>Wyświetl stan usługi, w tym liczby i rozmiaru magazynu.<p>Dodawanie lub usuwanie członkostwo roli (tylko właściciel może zarządzać członkostwem w roli).<p>Administratorzy subskrypcji i właścicieli usług mają automatyczne członkostwo w roli właścicieli. |
-| Współautor |Sam poziom dostępu właściciel minus RBAC zarządzania rolami. Na przykład współautora można wyświetlić i ponownie wygenerować `api-key`, ale nie można zmodyfikować członkostwa w roli. |
-| Czytelnik |Wyświetl klucze stanu i zapytania usługi. Członkowie tej roli nie można zmienić konfiguracji usługi i nie można wyświetlić kluczy administratora. |
-
-Role nie prawa dostępu do punktu końcowego usługi. Wyszukiwania na nich operacji usługi, takie jak Zarządzanie indeksami, wypełniania indeksu i zapytań wyszukiwania danych, są kontrolowane przez klucze interfejsu api, nie ról. Aby uzyskać więcej informacji, zobacz "Autoryzacja zarządzania lub dane" w [co to jest kontrola dostępu oparta na rolach](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Informacje o rejestracji i system
 Usługa Azure Search nie ujawnia plików dziennika dla poszczególnych usług za pomocą portalu lub interfejsów programistycznych. W warstwie podstawowa i powyżej Microsoft monitoruje wszystkie usługi Azure Search dostępności 99,9% na umów dotyczących poziomu usług (SLA). Jeśli usługa jest powolne lub przepływności żądania spada poniżej progów umowy dotyczącej poziomu usług, zespoły pomocy technicznej, przejrzyj pliki dziennika dostępne dla nich i rozwiąż problem.
 
@@ -72,38 +58,6 @@ Pod względem ogólne informacje o usłudze informacje można uzyskać w następ
 * W portalu na pulpicie nawigacyjnym usługi za pomocą powiadomień, właściwości i komunikaty o stanie.
 * Przy użyciu [PowerShell](search-manage-powershell.md) lub [interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/) do [pobrać właściwości usługi](https://docs.microsoft.com/rest/api/searchmanagement/services), lub stan użycia zasobów indeksu.
 * Za pomocą [analizy ruchu wyszukiwania](search-traffic-analytics.md), jak podano wcześniej.
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>Zarządzanie kluczami interfejsu api
-Wszystkie żądania do usługi wyszukiwania należy klucz interfejsu api wygenerowany specjalnie dla usługi. Ten klucz interfejsu api jest jedynym mechanizmu uwierzytelniania dostępu do punktu końcowego usługi wyszukiwania. 
-
-Klucz interfejsu api to ciąg składający się z losowo generowany liter i cyfr. Za pomocą [uprawnienia RBAC](#rbac), możesz usunąć lub odczytu kluczy, ale nie można zastąpić klucz przy użyciu hasła użytkownika. 
-
-Dwa typy klucze są używane do uzyskania dostępu do usługi wyszukiwania:
-
-* Administrator (prawidłowe do żadnej operacji odczytu i zapisu z usługą)
-* Zapytania (nieprawidłowy dla operacji tylko do odczytu, takich jak zapytań względem indeksu)
-
-Klucz interfejsu api administratora jest tworzona po zainicjowaniu obsługi usługi. Dostępne są dwa klucze administratora, wyznaczony jako *głównej* i *dodatkowej* zachować je bezpośrednio, ale w rzeczywistości są wymienne. Każda usługa ma dwa klucze administratora, dzięki czemu można jedną przerzucane bez utraty dostępu do usługi. Można ponownie wygenerować klucza albo administratora, ale nie można dodać do liczby całkowitej admin klucza. Brak maksymalnie dwa klucze administratora dla usługi wyszukiwania.
-
-Klucze zapytania są przeznaczone dla aplikacji klienckich, które bezpośrednio wywołać wyszukiwania. Można utworzyć maksymalnie 50 klucze zapytania. W kodzie aplikacji należy określić adres URL wyszukiwania i klucz api zapytania, aby zezwolić na dostęp tylko do odczytu do usługi. Kod aplikacji określa również indeks używanych przez aplikację. Punkt końcowy, klucz interfejsu api, aby uzyskać dostęp tylko do odczytu i indeksu docelowego określa poziom dostępu i zakres połączenia do aplikacji klienckiej.
-
-Aby uzyskać lub ponownie wygenerować klucze interfejsu api, Otwórz pulpit nawigacyjny usługi. Kliknij przycisk **KLUCZE** Aby wysunąć strony zarządzania kluczami. Polecenia ponownie wygenerować lub tworzenia kluczy znajdowały się u góry strony. Domyślnie są tworzone tylko kluczy administratora. Klucze interfejsu api zapytania muszą być utworzone ręcznie.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>Klucze zabezpieczeń interfejsu api
-Bezpieczeństwo kluczy jest zapewniana przez ograniczenie dostępu za pośrednictwem portalu lub interfejsy usługi Resource Manager (programu PowerShell lub interfejsu wiersza polecenia). Jak wspomniano, Administratorzy subskrypcji można wyświetlać i ponowne wygenerowanie wszystkich kluczy interfejsu api. Ze względów Przejrzyj przypisań ról, aby zrozumieć, kto ma dostęp do kluczy administratora.
-
-1. Na pulpicie nawigacyjnym usługi kliknij ikonę dostępu, aby wysunąć blok użytkowników.
-   ![][7]
-2. Użytkownicy przejrzyj istniejące przypisania roli. Zgodnie z oczekiwaniami, Administratorzy subskrypcji już pełny dostęp do usługi za pośrednictwem rolę właściciela.
-3. Aby przejść dalej, kliknij przycisk **Administratorzy subskrypcji** , a następnie rozwiń listę przypisania roli, aby zobaczyć, kto ma uprawnienia do administrowania wspólnej na usługi wyszukiwania.
-
-Innym sposobem wyświetlenia uprawnień dostępu ma kliknij **ról** na blok użytkowników. Dzięki temu Wyświetla dostępne role oraz liczbę użytkowników lub grupy przypisane do każdej roli.
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ Zalecamy również recenzowania [wydajności i optymalizacji artykułu](search-p
 Inny zalecane jest aby obejrzeć wideo zanotowanym w poprzedniej sekcji. Zapewnia on lepszą pokrycia technik wymienionych w tej sekcji.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

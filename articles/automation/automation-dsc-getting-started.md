@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure"
-description: "Objaśnienie i przykłady typowych zadań w żądany stan konfiguracji (Konfiguracja DSC automatyzacji Azure)"
+title: Wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure
+description: Objaśnienie i przykłady typowych zadań w żądany stan konfiguracji (Konfiguracja DSC automatyzacji Azure)
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e6e4df6fce783e7b4cc33d7f3c26136680ceb44f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0833005963fa8728c2a52cc9cf5968bf4afe147d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure
 W tym artykule opisano sposób wykonywania typowych zadań z żądanego stanu konfiguracji (Konfiguracja DSC automatyzacji Azure), takie jak tworzenie, importowanie i konfiguracje, dołączania urządzenia do zarządzania, kompilowanie i wyświetlania raportów. Omówienie jakie Konfiguracja DSC automatyzacji Azure jest, zobacz [Przegląd usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-overview.md). Dokumentacja usługi Konfiguracja DSC w temacie [żądany stan konfiguracji Omówienie środowiska Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).

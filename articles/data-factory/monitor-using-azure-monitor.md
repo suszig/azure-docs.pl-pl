@@ -1,11 +1,11 @@
 ---
 title: Monitorowanie fabryki danych Azure monitorze | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak używać Azure Monitor do monitorowania potoki fabryki danych przez włączenie dzienników diagnostycznych z informacjami z fabryki danych Azure."
+description: Dowiedz się, jak używać Azure Monitor do monitorowania potoki fabryki danych przez włączenie dzienników diagnostycznych z informacjami z fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorowanie za pomocą monitora Azure fabryki danych  
 Aplikacje w chmurze są złożonych z wielu części ruchu. Monitorowanie zawiera danych, aby upewnić się, że aplikacja pozostaje w górę i działa w dobrej kondycji. Pomaga również umożliwia stave potencjalne problemy i rozwiązywanie problemów w przeszłości te. Ponadto można użyć danych monitorowania w celu uzyskania szczegółowych informacji o aplikacji. Wiedzy może pomóc zwiększyć wydajność aplikacji lub utrzymania lub automatyzować czynności, które w przeciwnym razie wymagają ręcznej interwencji.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Aby dowiedzieć się więcej tutaj] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+Aby dowiedzieć się więcej tutaj] ()https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Schemat dzienniki & zdarzenia
 
@@ -396,7 +396,7 @@ ADFV2 emituje następujące metryki
 | TriggerSucceededRuns | Pomyślnie metryki uruchamia wyzwalacz  | Licznik    | Łącznie                | Całkowita wyzwalacz uruchamia zakończyło się pomyślnie w ciągu minuty okna   |
 | TriggerFailedRuns    | Nie powiodło się wyzwalacz uruchamia metryk     | Licznik    | Łącznie                | Całkowita wyzwalacz uruchamia nie powiodło się w ciągu minuty okna      |
 
-Dostęp do metryk, postępuj zgodnie z instrukcjami w artykule - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Aby uzyskać dostęp do metryk, postępuj zgodnie z instrukcjami w artykule- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Kolejne kroki
 Zobacz [monitora i programowe zarządzanie potoki](monitor-programmatically.md) artykułu, aby uzyskać informacje o monitorowaniu i zarządzaniu nimi potoki, uruchamiając. 

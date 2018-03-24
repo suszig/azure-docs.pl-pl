@@ -4,7 +4,7 @@ description: Informacje o wersji zestawu Azure SDK dla platformy .NET 2.9
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 199f0906f73d693d7cd4b73c928f23ae83b99596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Informacje o wersji zestawu Azure SDK dla programu .NET 2.9
 
 Ten temat zawiera informacje o wersji dla wersji 2.9 i 2.9.6 zestawu Azure SDK dla platformy .NET.
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>Podsumowanie wersji zestawu Azure SDK dla platformy .NET 2.9.6
+## <a name="azure-sdk-for-net-296-release-summary"></a>Podsumowanie wersji zestawu Azure SDK dla platformy .NET 2.9.6
 
 Data wydania: 2016-11-16
  
@@ -48,7 +48,7 @@ W tej wersji zostały wprowadzone żadne zmiany podziału Azure SDK 2.9. Nie ma 
 - Azure .NET SDK 2.9.6 wprowadzone ograniczeń, która blokuje wdrożenie projektów przy użyciu nieobsługiwanego platformy .NET (np. .NET 4.6) do dowolnego rodziny systemów operacyjnych < 5. Udostępniono obejście [tutaj](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
  
-### <a name="azure-in-role-cache"></a>Pamięć podręczna na roli Azure 
+### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
 
 - Obsługa kończy się na roli Azure w pamięci podręcznej w dniu 30 listopada 2016 r. Aby uzyskać więcej informacji, kliknij przycisk [tutaj](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
@@ -59,7 +59,7 @@ W tej wersji zostały wprowadzone żadne zmiany podziału Azure SDK 2.9. Nie ma 
 
 ## <a name="azure-sdk-for-net-29-summary"></a>Zestaw Azure SDK dla platformy .NET 2.9 podsumowanie
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Ten dokument zawiera informacje o wersji dla zestawu Azure SDK dla platformy .NET 2.9 wydania. 
 
 Aby uzyskać szczegółowe informacje na temat aktualizacji w tej wersji, zobacz [post anonsu zestaw Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/).
@@ -74,7 +74,7 @@ Ta aktualizacja obejmuje następującą nową funkcję:
 
 * Obsługa dodatkowej usługi aplikacji na karcie "Usługi" okno dialogowe zastrzegania usługi aplikacji. 
 
-## <a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a>Narzędzia usługi Azure Data Lake Tools dla Visual Studio 2015 Update 2
+## <a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a>Azure Data Lake Tools for Visual Studio 2015 Update 2
 Tej aktualizacji obejmuje następujące funkcje:
 
 * **Azure Data Lake Tools** dla programu Visual Studio teraz jest scalany zestawu Azure SDK dla wersji platformy .NET. Narzędzie jest automatycznie instalowany podczas instalowania zestawu Azure SDK. 
@@ -88,6 +88,6 @@ Tej aktualizacji obejmuje następujące funkcje:
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Ta wersja dodaje [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) obsługę szablony Menedżera zasobów.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Azure SDK 2.9 anonsu post](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 

@@ -1,24 +1,24 @@
 ---
-title: "Usługa Azure sieci szkieletowej zdarzeń agregacji z systemem Windows Azure Diagnostics | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat agregowania i zbierania zdarzeń przy użyciu WAD monitorowania i diagnostyki klastrów sieci szkieletowej usług Azure."
+title: Usługa Azure sieci szkieletowej zdarzeń agregacji z systemem Windows Azure Diagnostics | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat agregowania i zbierania zdarzeń przy użyciu WAD monitorowania i diagnostyki klastrów sieci szkieletowej usług Azure.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: f8159d8637967c3297c886ec79a002f0765047e4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregacja zdarzeń i kolekcji przy użyciu systemu Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -170,67 +170,75 @@ Następnie zaktualizuj `VirtualMachineProfile` sekcji pliku template.json przez 
 
 Po zmodyfikowaniu pliku template.json zgodnie z opisem, ponownie opublikować szablonu usługi Resource Manager. Jeśli szablon został wyeksportowany, uruchamiania pliku deploy.ps1 je opublikuje szablonu. Po wdrożeniu, upewnij się, że **ProvisioningState** jest **zakończyło się pomyślnie**.
 
-## <a name="collect-health-and-load-events"></a>Zbieranie kondycji i załadować zdarzenia
+## <a name="log-collection-configurations"></a>Konfiguracje zbierania dzienników
+Dzienniki z dodatkowych kanałów są również dostępne dla kolekcji, Oto niektóre spośród najbardziej typowe konfiguracje wprowadzone w szablonie dla klastrów działających na platformie Azure.
 
-Począwszy od wersji 5.4 sieci szkieletowej usług kondycji i obciążenia metryki zdarzenia są dostępne dla kolekcji. Te zdarzenia odzwierciedlają zdarzeń generowanych przez system lub kodu za pomocą kondycji lub załadować API raportowania, takie jak [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) lub [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Dzięki temu agregowanie i wyświetlanie stanu systemu wraz z upływem czasu oraz alerty na podstawie kondycji lub obciążenia zdarzeń. Aby wyświetlić te zdarzenia w Podglądzie zdarzeń diagnostycznych programu Visual Studio Dodaj "Microsoft-ServiceFabric:4:0x4000000000000008" do listy dostawców ETW.
-
-Aby zbierać zdarzenia w klastrze, należy zmodyfikować `scheduledTransferKeywordFilter` w WadCfg szablonu usługi Resource Manager `4611686018427387912`.
+* Kanał Operational - Base: Włączona domyślnie wysokiego poziomu operacje wykonywane przez sieć szkieletowa usług i klastra, w tym zdarzenia dotyczące węzła przygotowanie Nowa aplikacja jest wdrażana, oraz wycofywania uaktualnienia, itp. Aby uzyskać listę zdarzeń, zapoznaj się [zdarzenia operacyjne kanału](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* Kanał Operational — szczegółowe: W tym raportów o kondycji i równoważenie decyzji, a także wszystkich elementów w podstawowej kanału operacyjne obciążenia. Te zdarzenia są generowane przez system lub kodu za pomocą kondycji lub załadować API raportowania, takie jak [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) lub [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Aby wyświetlić te zdarzenia w Podglądzie zdarzeń diagnostycznych programu Visual Studio Dodaj "Microsoft-ServiceFabric:4:0x4000000000000008" do listy dostawców ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>Zbieranie zdarzeń zwrotnego serwera proxy
-
-Począwszy od wersji 5.7 wydania usługi Service Fabric [odwrotny serwer proxy](service-fabric-reverseproxy.md) zdarzenia są dostępne dla kolekcji kanałami wiadomości & danych. 
-
-Zwrotny serwer proxy wypycha tylko zdarzenia błędów za pośrednictwem głównego kanału wiadomości & danych - odzwierciedlające żądania przetwarzania błędów i krytyczne problemy. Szczegółowe kanału zawiera pełne zdarzenia o wszystkie żądania przetwarzane przez zwrotny serwer proxy. 
-
-Aby wyświetlić zdarzenia błędów w Podglądzie zdarzeń diagnostycznych programu Visual Studio Dodaj "Microsoft-ServiceFabric:4:0x4000000000000010" do listy dostawców ETW. Wszystkie dane telemetryczne żądania, aktualizacja ServiceFabric programu Microsoft wpis na liście dostawcy ETW "Microsoft-ServiceFabric:4:0x4000000000000020".
-
-Dla klastrów działających na platformie Azure:
-
-Aby pobrać dane śledzenia w głównym kanału wiadomości & danych, zmodyfikuj `scheduledTransferKeywordFilter` wartość WadCfg szablonu usługi Resource Manager `4611686018427387920`.
+* Dane i kanał wiadomości - Base: dzienniki krytyczne i zdarzenia generowane w wiadomości (obecnie tylko ReverseProxy) oraz ścieżki danych oprócz szczegółowe kanału operacyjnych dziennikach. Te zdarzenia są przetwarzania błędów i innych zagadnień krytycznych ReverseProxy i żądań przetwarzanych żądań. **To Nasze zalecenia dla rejestrowania kompleksowe**. Aby wyświetlić te zdarzenia w Podglądzie zdarzeń diagnostycznych programu Visual Studio, należy dodać "Microsoft-ServiceFabric:4:0x4000000000000010" do listy dostawców ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-Aby zbierać zdarzenia przetwarzania żądania, Włącz wiadomości - & danych szczegółowe kanału, zmieniając `scheduledTransferKeywordFilter` wartość WadCfg szablonu usługi Resource Manager `4611686018427387936`.
+* Kanał wiadomości - szczegółowe & danych: pełne kanału, który zawiera wszystkie dzienniki niekrytyczne z danych i komunikatów w klastrze i szczegółowe operacyjne kanału. Szczegółowe Rozwiązywanie problemów z wszystkich zdarzeń zwrotnego serwera proxy, zobacz [przewodnik diagnostyki zwrotnego serwera proxy](service-fabric-reverse-proxy-diagnostics.md).  Aby wyświetlić te zdarzenia w Podglądzie zdarzeń diagnostycznych programu Visual Studio, należy dodać "Microsoft-ServiceFabric:4:0x4000000000000020" do listy dostawców ETW.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-Włączenie zbierania zdarzeń z tego szczegółowe wyniki kanału w partii śladów Trwa generowanie szybko i może używać pojemności magazynu. Tylko włączenie tej funkcji, gdy jest to bezwzględnie konieczne.
-Szczegółowe Rozwiązywanie problemów z zdarzeń zwrotnego serwera proxy, zobacz [przewodnik diagnostyki zwrotnego serwera proxy](service-fabric-reverse-proxy-diagnostics.md).
+>[!NOTE]
+>Ten kanał ma bardzo dużą liczbę zdarzeń, włączanie zbierania zdarzeń z tego szczegółowe wyniki kanału w partii śladów Trwa generowanie szybko i może wykorzystać pojemności magazynu. Tylko włączenie tej funkcji, jeśli jest to bezwzględnie konieczne.
+
+
+Aby włączyć **bazy danych i kanał wiadomości** Nasze zalecenia dla rejestrowania kompleksowe `EtwManifestProviderConfiguration` w `WadCfg` szablonu będzie wyglądać podobnie do następującej:
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>Zbierać z nowych kanałów źródła zdarzeń
 

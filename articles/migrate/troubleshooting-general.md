@@ -1,16 +1,16 @@
 ---
-title: "Rozwiązywanie problemów z migracji Azure | Dokumentacja firmy Microsoft"
-description: "Zawiera omówienie znanych problemów dotyczących usługi Azure migracji i rozwiązywania problemów wskazówki dotyczące typowych błędów."
+title: Rozwiązywanie problemów z migracji Azure | Dokumentacja firmy Microsoft
+description: Zawiera omówienie znanych problemów dotyczących usługi Azure migracji i rozwiązywania problemów wskazówki dotyczące typowych błędów.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 02/21/2018
+ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Rozwiązywanie problemów z usługą Azure Migrate
 
@@ -58,7 +58,7 @@ Tak, każdy klucz Projekt kończy się wyrazem "==". Moduł zbierający szyfruje
 
 Może to wystąpić, jeśli poziom ustawienie statystyk na serwer vCenter jest ustawiony na mniej niż trzech. Na poziomie 3 lub nowszym vCenter przechowuje historii wydajności maszyny Wirtualnej dla zasobów obliczeniowych, magazynu i sieci. Dla trzech poniżej poziomu vCenter nie przechowuje magazynu i sieci danych, ale tylko dane Procesora i pamięci. W tym scenariuszu wydajności pokazuje dane jako zero w migracji Azure i migracji Azure udostępnia zalecenia rozmiaru dysków i sieci na podstawie metadanych zebrane z komputerów lokalnych.
 
-Aby włączyć zbieranie danych wydajności dysku i sieci, należy zmienić poziom ustawienia statystyki do trzech. Następnie należy poczekać co najmniej jeden dzień w celu odnajdywania środowisku i jego oceny. 
+Aby włączyć zbieranie danych wydajności dysku i sieci, należy zmienić poziom ustawienia statystyki do trzech. Następnie należy poczekać co najmniej jeden dzień w celu odnajdywania środowisku i jego oceny.
 
 **Agenci zostali zainstalowani i używane do tworzenia grup wizualizacji zależności. Teraz po pracy w trybie failover maszyny Pokaż akcji "Zainstaluj agentów" zamiast "Wyświetl zależności"**
 * Post planowane lub nieplanowane przełączenie awaryjne, lokalne maszyny są wyłączone i maszyny równoważne są uruchomione na platformie Azure. Te maszyny uzyskać inny adres MAC. Mogą one uzyskać inny adres IP w oparciu Określa, czy użytkownik wybrał opcję zachowania lokalny adres IP, czy nie. Jeżeli różnią się adresy IP i MAC, Azure migracji nie wiąże lokalnymi maszynami z żadnych danych zależności mapy usług i pyta użytkownika, aby zainstalować agentów zamiast wyświetlanie zależności.
@@ -70,28 +70,28 @@ Aby włączyć zbieranie danych wydajności dysku i sieci, należy zmienić pozi
 **Problem** | **Fix**
 --- | ---
 Nieobsługiwany typ rozruchu | Azure nie obsługuje maszyn wirtualnych z typem rozruchu interfejsu EFI. Zalecane jest można przekonwertować typu rozruchu systemu BIOS, przed rozpoczęciem migracji. <br/><br/>Można użyć [usługi Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) przeprowadzania migracji takich maszyn wirtualnych, jak konwersji typu rozruchowego maszyny wirtualnej do systemu BIOS podczas migracji.
-Liczba dysków przekracza limit | Usuń nieużywane dyski na komputerze przed migracją.
-Rozmiar dysku przekracza limit | Azure obsługuje dyski o rozmiarze nieprzekraczającym 4 TB. Zmniejszanie dysków do mniej niż 4 TB przed migracją. 
-Dysk niedostępny w określonej lokalizacji | Upewnij się, że dysk jest w lokalizacji docelowej, przed przeprowadzeniem migracji.
-Brak dostępnych dysków dla określonej nadmiarowości | Dysk należy używać typu magazynu nadmiarowość zdefiniowanego w ustawieniach oceny (LRS domyślnie).
-Nie można określić przydatności dysku z powodu błędu wewnętrznego | Spróbuj utworzyć nowy oceny grupy. 
-Nie znaleziono maszyny wirtualnej o żądanej liczbie rdzeni i pamięci | Azure nie drobne odpowiedniego typu maszyny Wirtualnej. Ograniczenia pamięci i liczby rdzeni na lokalnej maszynie, przed przeprowadzeniem migracji. 
-Co najmniej jeden dysk nieodpowiednie. | Upewnij się, że lokalne dyski są 4 TB lub w obszarze przed rozpoczęciem migracji.
-Jeden lub więcej kart sieciowych nie nadaje się. | Usuń nieużywane sieciowe z maszyny przed migracją.
-Nie można określić przydatności maszyny Wirtualnej z powodu błędu wewnętrznego. | Spróbuj utworzyć nowy oceny grupy. 
-Nie można określić przydatności do co najmniej jeden dysk z powodu błędu wewnętrznego. | Spróbuj utworzyć nowy oceny grupy.
-Nie można określić przydatności do co najmniej jednej karty sieciowej z powodu błędu wewnętrznego. | Spróbuj utworzyć nowy oceny grupy.
-Nie można odnaleźć wydajności wymagane magazynu maszyny Wirtualnej. | Wydajność magazynu (IOPS/przepływność) wymagane dla komputera przekracza obsługi maszyny Wirtualnej platformy Azure. Zmniejsz wymagania dotyczące magazynu dla maszyny przed migracją.
-Nie można odnaleźć wydajności wymagana sieć maszyny Wirtualnej. | Wydajność sieci (We/Wy) wymagane dla komputera przekracza obsługi maszyny Wirtualnej platformy Azure. Zmniejsz wymagania sieciowe dla komputera. 
-Maszyna wirtualna nie można odnaleźć w określonej warstwie cenowej. | Jeśli warstwa cenowa jest ustawiony na standardowy, należy wziąć pod uwagę downsizing maszyny Wirtualnej przed migracją do systemu Azure. Jeśli zmiany rozmiaru warstwy Basic, należy rozważyć zmianę warstwy cenowej oceny Standard. 
-Maszyna wirtualna nie można odnaleźć w określonej lokalizacji. | Użyj inną lokalizację docelową przed migracją.
-Nieznany system operacyjny | System operacyjny maszyny wirtualnej została określona jako "Inne" w programie vCenter Server, z powodu którego Azure migracji nie można zidentyfikować platformy Azure gotowości maszyny wirtualnej. Upewnij się, że system operacyjny uruchomiony na maszynie jest [obsługiwane](https://aka.ms/azureoslist) przez platformę Azure, przed przeprowadzeniem migracji maszyny.
 Warunkowo obsługiwanych systemu operacyjnego Windows | System operacyjny osiągnęła koniec okresu pomocy technicznej i musi niestandardowe obsługuje umowy (CSA) dla [obsługuje na platformie Azure](https://aka.ms/WSosstatement), Rozważ uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformie Azure.
-Nieobsługiwany system Windows. | Azure obsługuje tylko [wybranych wersji systemu operacyjnego Windows](https://aka.ms/WSosstatement), Rozważ uaktualnienie systemu operacyjnego maszyny przed migracją do systemu Azure. 
+Nieobsługiwany system Windows. | Azure obsługuje tylko [wybranych wersji systemu operacyjnego Windows](https://aka.ms/WSosstatement), Rozważ uaktualnienie systemu operacyjnego maszyny przed migracją do systemu Azure.
 Warunkowo zatwierdzone systemu operacyjnego Linux | Azure wspiera tylko działania [wybranych wersji systemu operacyjnego Linux](../virtual-machines/linux/endorsed-distros.md), Rozważ uaktualnienie systemu operacyjnego maszyny przed migracją do systemu Azure.
 Unendorsed system operacyjny Linux | Komputer może rozruchu w systemie Azure, ale nie obsługuje systemu operacyjnego są dostarczane przez platformę Azure, Rozważ uaktualnienie systemu operacyjnego w celu [zatwierdzone wersji systemu Linux](../virtual-machines/linux/endorsed-distros.md) przed migracją do systemu Azure
+Nieznany system operacyjny | System operacyjny maszyny wirtualnej została określona jako "Inne" w programie vCenter Server, z powodu którego Azure migracji nie można zidentyfikować platformy Azure gotowości maszyny wirtualnej. Upewnij się, że system operacyjny uruchomiony na maszynie jest [obsługiwane](https://aka.ms/azureoslist) przez platformę Azure, przed przeprowadzeniem migracji maszyny.
 Nieobsługiwany typ systemu operacyjnego (liczba bitów) | Maszyny wirtualne z 32-bitowego systemu operacyjnego może rozruchu w systemie Azure, ale zaleca się uaktualnienie systemu operacyjnego maszyny wirtualnej z 32-bitowej do 64-bitowych przed migracją do systemu Azure.
 Wymagana jest subskrypcja programu Visual Studio. | Maszyny została uruchomiona w nim co systemu operacyjnego klienta systemu Windows jest obsługiwana tylko w ramach subskrypcji programu Visual Studio.
+Nie można odnaleźć wydajności wymagane magazynu maszyny Wirtualnej. | Wydajność magazynu (IOPS/przepływność) wymagane dla komputera przekracza obsługi maszyny Wirtualnej platformy Azure. Zmniejsz wymagania dotyczące magazynu dla maszyny przed migracją.
+Nie można odnaleźć wydajności wymagana sieć maszyny Wirtualnej. | Wydajność sieci (We/Wy) wymagane dla komputera przekracza obsługi maszyny Wirtualnej platformy Azure. Zmniejsz wymagania sieciowe dla komputera.
+Maszyna wirtualna nie można odnaleźć w określonej warstwie cenowej. | Jeśli warstwa cenowa jest ustawiony na standardowy, należy wziąć pod uwagę downsizing maszyny Wirtualnej przed migracją do systemu Azure. Jeśli zmiany rozmiaru warstwy Basic, należy rozważyć zmianę warstwy cenowej oceny Standard.
+Maszyna wirtualna nie można odnaleźć w określonej lokalizacji. | Użyj inną lokalizację docelową przed migracją.
+Co najmniej jeden dysk nieodpowiednie. | Co najmniej jeden dysk dołączony do maszyny Wirtualnej nie spełniają wymagań platformy Azure. Dla każdego dysku do maszyny Wirtualnej upewnij się, że rozmiar dysku jest < 4 TB, jeśli nie, Zmniejsz rozmiar dysku przed migracją do systemu Azure. Upewnij się, że wydajność (IOPS/przepływność) wymagane przez każdy dysk jest obsługiwany przez platformę Azure [zarządzane dysków maszyny wirtualnej](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
+Jeden lub więcej kart sieciowych nie nadaje się. | Usuń nieużywane sieciowe z maszyny przed migracją.
+Liczba dysków przekracza limit | Usuń nieużywane dyski na komputerze przed migracją.
+Rozmiar dysku przekracza limit | Azure obsługuje dyski o rozmiarze nieprzekraczającym 4 TB. Zmniejszanie dysków do mniej niż 4 TB przed migracją.
+Dysk niedostępny w określonej lokalizacji | Upewnij się, że dysk jest w lokalizacji docelowej, przed przeprowadzeniem migracji.
+Brak dostępnych dysków dla określonej nadmiarowości | Dysk należy używać typu magazynu nadmiarowość zdefiniowanego w ustawieniach oceny (LRS domyślnie).
+Nie można określić przydatności dysku z powodu błędu wewnętrznego | Spróbuj utworzyć nowy oceny grupy.
+Nie znaleziono maszyny wirtualnej o żądanej liczbie rdzeni i pamięci | Azure nie drobne odpowiedniego typu maszyny Wirtualnej. Ograniczenia pamięci i liczby rdzeni na lokalnej maszynie, przed przeprowadzeniem migracji.
+Nie można określić przydatności maszyny Wirtualnej z powodu błędu wewnętrznego. | Spróbuj utworzyć nowy oceny grupy.
+Nie można określić przydatności do co najmniej jeden dysk z powodu błędu wewnętrznego. | Spróbuj utworzyć nowy oceny grupy.
+Nie można określić przydatności do co najmniej jednej karty sieciowej z powodu błędu wewnętrznego. | Spróbuj utworzyć nowy oceny grupy.
 
 
 ## <a name="collect-logs"></a>Zbieranie dzienników
@@ -122,27 +122,46 @@ Aby zbierać zdarzenia śledzenia systemu Windows, wykonaj następujące czynno�
  - W programie Edge/IE, kliknij przycisk **eksportu przechwycone ruchu** ikony. To zips i eksportuje dziennika.
 6. Przejdź do **konsoli** kartę, aby sprawdzić wszelkie ostrzeżenia lub błędy. Aby zapisać dziennik konsoli:
  - W przeglądarce Chrome kliknij prawym przyciskiem myszy w dzienniku konsoli. Wybierz **Zapisz jako**, aby wyeksportować i zip dziennika.
- - W programie Edge/IE, kliknij prawym przyciskiem myszy na błędy i wybierz **skopiuj wszystkie**. 
+ - W programie Edge/IE, kliknij prawym przyciskiem myszy na błędy i wybierz **skopiuj wszystkie**.
 7. Zamknij narzędzia dla deweloperów.
- 
+
 
 ## <a name="vcenter-errors"></a>błędy vCenter
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Wystąpił błąd wewnętrzny UnhandledException: System.IO.FileNotFoundException
 
-Jest to problem w wersji modułu zbierającego mniej niż 1.0.9.5. Jeśli używany jest moduł zbierający wersji 1.0.9.2 lub wersji pre-GA, takich jak 1.0.8.59, będą występować ten problem. Postępuj zgodnie z [link podany tutaj, aby fora szczegółowe odpowiedzi](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+Jest to problem występujący w module zbierającym w wersjach starszych niż 1.0.9.5. Jeśli używasz modułu zbierającego w wersji 1.0.9.2 lub wersji wcześniejszych niż ogólnodostępne, takich jak 1.0.8.59, napotkasz ten problem. Użyj [tego linku, aby przejść do forów i uzyskać szczegółową odpowiedź](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
 
-[Uaktualnienie z modułu zbierającego, aby rozwiązać problem](https://aka.ms/migrate/col/checkforupdates).
+[Uaktualnij moduł zbierający, aby rozwiązać problem](https://aka.ms/migrate/col/checkforupdates).
 
 ### <a name="error-unabletoconnecttoserver"></a>Błąd UnableToConnectToServer
 
-Nie można nawiązać połączenia z programem vCenter Server "Servername.com:9443" z powodu błędu: nie znaleziono żadnego punktu końcowego nasłuchiwania na https://Servername.com:9443/sdk, który mógłby odebrać komunikat.
+Nie można nawiązać połączenia z programem vCenter Server "Servername.com:9443" z powodu błędu: nie znaleziono żadnego punktu końcowego nasłuchiwania na https://Servername.com:9443/sdk który mógłby odebrać komunikat.
 
-Dzieje się tak, gdy moduł zbierający maszyny nie może rozpoznać podana nazwa serwera vCenter lub speficified portu jest nieprawidłowy. Domyślnie jeśli port nie jest określony, moduł zbierający będzie spróbują połączyć się z numerem portu 443.
+Dzieje się tak, gdy maszyna modułu zbierającego nie może rozpoznać podanej nazwy programu vCenter Server lub gdy wybrano nieprawidłowy port. Jeśli port nie zostanie określony, moduł zbierający domyślnie podejmie próbę połączenia z portem o numerze 443.
 
-1. Spróbuj wykonać polecenie ping Servername.com z komputera modułu zbierającego.
-2. Jeśli krok 1 nie powiedzie się, spróbuj połączyć się z serwerem vCenter za pośrednictwem adresu IP.
-3. Określ poprawny numer portu nawiązać połączenia z programem vCenter.
-4. Na koniec sprawdź, czy serwer vCenter jest uruchomiona.
- 
+1. Spróbuj wykonać polecenie ping dla adresu Servername.com z maszyny modułu zbierającego.
+2. Jeśli nie możesz wykonać kroku 1, spróbuj połączyć się z programem vCenter Server za pośrednictwem adresu IP.
+3. Podaj prawidłowy numer portu, aby nawiązać połączenie z programem vCenter.
+4. Na koniec sprawdź, czy program vCenter Server działa.
 
+## <a name="collector-error-codes-and-recommended-actions"></a>Kody błędów modułu zbierającego i zalecane akcje
+
+|           |                                |                                                                               |                                                                                                       |                                                                                                                                            | 
+|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------| 
+| Kod błędu | Nazwa błędu                      | Komunikat                                                                       | Możliwe przyczyny                                                                                        | Zalecana akcja                                                                                                                          | 
+| 601       | CollectorExpired               | Moduł zbierający wygasł.                                                        | Moduł zbierający wygasł.                                                                                    | Pobierz nową wersję modułu zbierającego i ponów próbę.                                                                                      | 
+| 751       | UnableToConnectToServer        | Nie można nawiązać połączenia z serwerem vCenter Server „%Name;” z powodu błędu: %ErrorMessage;     | Więcej informacji można znaleźć w komunikacie o błędzie.                                                             | Rozwiąż problem i spróbuj ponownie.                                                                                                           | 
+| 752       | InvalidvCenterEndpoint         | Serwer „%Name;” nie jest serwerem vCenter Server.                                  | Podaj szczegóły serwera vCenter.                                                                       | Spróbuj ponownie wykonać operację, używając poprawnych informacji o serwerze vCenter Server.                                                                                   | 
+| 753       | InvalidLoginCredentials        | Nie można nawiązać połączenia z programem vCenter Server "% Name;" z powodu błędu: % ErrorMessage; | Połączenie z serwerem vCenter nie powiodło się z powodu nieprawidłowych poświadczeń logowania.                             | Upewnij się, że podane poświadczenia logowania są poprawne.                                                                                    | 
+| 754       | NoPerfDataAvaialable           | Dane wydajności są niedostępne.                                               | Sprawdź poziom statystyk w programie vCenter Server. Należy wybrać na 3, aby dane wydajności mają być dostępne. | Zmień poziom statystyk na 3 (do 5 minut, 30 minut, a czas trwania 2 godziny), a następnie spróbuj po odczekaniu co najmniej jeden dzień.                   | 
+| 756       | NullInstanceUUID               | Napotkano maszynę o wartości null InstanceUUID                                  | Serwer vCenter może być nieodpowiednie obiektu.                                                      | Rozwiąż problem i spróbuj ponownie.                                                                                                           | 
+| 757       | VMNotFound                     | Nie znaleziono maszyny wirtualnej                                                  | Maszyny wirtualne mogą zostać usunięte: % VMID;                                                                | Upewnij się, że podczas określania zakresu spisu vCenter istnieje podczas odnajdywania zaznaczone maszyny wirtualne                                      | 
+| 758       | GetPerfDataTimeout             | Upłynął limit czasu żądania VCenter. Komunikat % Message;                                  | poświadczenia serwera vCenter są nieprawidłowe                                                              | Sprawdź poświadczenia serwera vCenter i upewnij się, że ten serwer vCenter jest dostępny. Spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzać, skontaktuj się z pomocy technicznej. | 
+| 759       | VmwareDllNotFound              | Nie można odnaleźć biblioteki DLL VMWare.Vim.                                                     | PowerCLI nie został poprawnie zainstalowany.                                                                   | Sprawdź, czy PowerCLI jest poprawnie zainstalowany. Spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzać, skontaktuj się z pomocy technicznej.                               | 
+| 800       | ServiceError                   | Usługa Azure Migrate Collector nie jest uruchomiona.                               | Usługa Azure Migrate Collector nie jest uruchomiona.                                                       | Użyj services.msc, aby uruchomić tę usługę i spróbuj ponownie wykonać operację.                                                                             | 
+| 801       | PowerCLIError                  | VMware PowerCLI instalacja nie powiodła się.                                          | VMware PowerCLI instalacja nie powiodła się.                                                                  | Spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzać, ręcznie zainstalować i spróbuj ponownie wykonać operację.                                                   | 
+| 802       | TimeSyncError                  | Czas nie jest zsynchronizowany z internetowym serwerem czasu.                            | Czas nie jest zsynchronizowany z internetowym serwerem czasu.                                                    | Upewnij się, że czas na komputerze dokładnie jest ustawiona na strefę czasową na komputerze i spróbuj ponownie wykonać operację.                                 | 
+| 702       | OMSInvalidProjectKey           | Określono nieprawidłowy klucz projektu.                                                | Określono nieprawidłowy klucz projektu.                                                                        | Spróbuj ponownie wykonać operację, używając poprawnego klucza projektu.                                                                                              | 
+| 703       | OMSHttpRequestException        | Wystąpił błąd podczas wysyłania żądania. Komunikat % Message;                                | Sprawdź identyfikator projektu i klucz i upewnij się, że ten punkt końcowy jest dostępny.                                       | Spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzać, skontaktuj się z działem pomocy technicznej firmy Microsoft.                                                                     | 
+| 704       | OMSHttpRequestTimeoutException | Upłynął limit czasu żądania HTTP. Komunikat % Message;                                     | Sprawdź identyfikator i klucz projektu, aby upewnić się, że punkt końcowy jest osiągalny.                                       | Spróbuj ponownie wykonać operację. Jeśli problem będzie się powtarzać, skontaktuj się z działem pomocy technicznej firmy Microsoft.                                                                     | 

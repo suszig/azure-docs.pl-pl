@@ -1,19 +1,19 @@
 ---
-title: "Kontener grupy wystąpień kontenera platformy Azure"
-description: "Zrozumienie, jak działają grupy kontenerów w wystąpień kontenera platformy Azure"
+title: Grupy kontenerów wystąpień kontenera platformy Azure
+description: Zrozumienie, jak działają grupy kontenerów w wystąpień kontenera platformy Azure
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3b1eeebacb55ffc7af4e2014f26dd9d5643f5478
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Kontener grupy wystąpień kontenera platformy Azure
 
@@ -21,7 +21,7 @@ Zasób najwyższego poziomu w wystąpień kontenera Azure jest *grupy konteneró
 
 ## <a name="how-a-container-group-works"></a>Jak działa grupa kontenera
 
-Grupy kontenerów jest kolekcją kontenerów, które są planowane na tym samym komputerze-hoście. Kontenery w grupie kontenera udostępniania cykl, sieci lokalnej i woluminy magazynu. Jest on podobny do koncepcji *pod* w [Kubernetes] [ kubernetes-pod] i [DC/OS][dcos-pod].
+Grupy kontenerów jest kolekcją kontenerów, które są planowane na tym samym komputerze-hoście. Kontenery w grupie kontenera udostępniania cykl, sieci lokalnej i woluminy magazynu. Jest podobna do *pod* w [Kubernetes] [ kubernetes-pod] i [DC/OS][dcos-pod].
 
 Na poniższym diagramie przedstawiono przykład grupy kontenera, który zawiera wiele kontenerów:
 
@@ -38,15 +38,15 @@ Ten przykład grupy kontenerów:
 > [!NOTE]
 > Kontener wielu grup są obecnie ograniczone do kontenerów systemu Linux. Podczas gdy pracujemy, aby udostępnić wszystkie funkcje na potrzeby kontenerów systemu Windows, bieżące różnice dotyczące platform możesz znaleźć w temacie [Limity przydziałów i dostępność regionów dla usługi Azure Container Instances](container-instances-quotas.md).
 
-### <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>Wdrożenie
 
-**Grupy kontenerów** ma alokacji zasobów minimalną 1 vCPU i 1 GB pamięci. Poszczególne **kontenery** można udostępnić przy użyciu mniejszej niż 1 vCPU i 1 GB pamięci. W ramach kontenera grupy dystrybucji zasobów można dostosować, aby wiele kontenerów w granicach określonych na poziomie grupy kontenera. Na przykład dwa kontenery z 0,5 vCPU znajdującej się w obrębie grupy kontenera przydzielone 1 vCPU.
+Kontener *grup* ma alokacji zasobów minimalną 1 vCPU i 1 GB pamięci. Poszczególne *kontenery* w kontenerze grupy można inicjować z mniej niż 1 vCPU i 1 GB pamięci. W grupie kontenera dystrybucji zasobów można dostosować, aby wiele kontenerów w granicach określonych na poziomie grupy kontenera. Na przykład dwa kontenery każdego z 0,5 vCPU znajdującej się w grupie kontenera, która została przydzielona 1 vCPU.
 
-### <a name="networking"></a>Networking
+## <a name="networking"></a>Networking
 
 Kontener grupy mają adres IP i port przestrzeni nazw na ten adres IP. Aby umożliwić klientom zewnętrznych do kontenera w obrębie grupy, musi ujawniać port, na adres IP i z kontenera. Ponieważ kontenery w ramach grupy używają portu przestrzeni nazw, mapowanie portów nie jest obsługiwane. Kontenery w obrębie grupy może nawiązać połączenie wzajemnie za pośrednictwem hosta lokalnego na portach, które mają one dostępne, nawet jeśli te porty nie są widoczne zewnętrznie na adres IP grupy.
 
-### <a name="storage"></a>Magazyn
+## <a name="storage"></a>Magazyn
 
 Można określić zewnętrzne woluminów należy zainstalować w grupie kontenera. Woluminy można mapować do określonej ścieżki w ramach poszczególnych kontenerów w grupie.
 
@@ -57,12 +57,15 @@ Kontener wielu grupy są przydatne w sytuacjach, w którym chcesz podzielić poj
 Przykład użycia mogą obejmować:
 
 * Kontener aplikacji i kontener rejestrowania. Kontener rejestrowania zbiera dane wyjściowe dzienników i metryk przechowywanych w ramach aplikacji głównej i zapisuje je do magazynu długoterminowego.
-* Aplikacja i monitorowania kontenera. Kontener monitorowania okresowo wysyła żądanie do aplikacji, aby upewnić się, że jest uruchomiona i odpowiada prawidłowo i zgłasza alert, jeśli nie jest.
+* Kontener aplikacji i monitorowania kontenera. Kontener monitorowania okresowo wysyła żądanie do aplikacji, aby upewnić się, że jest uruchomiona i odpowiada prawidłowo i zgłasza alert, jeśli nie jest.
 * Kontener obsługująca aplikacji sieci web i kontener ściąganie najnowsza zawartość z kontroli źródła.
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Dowiedz się, jak [wdrożenie grupy kontenera wielu](container-instances-multi-container-group.md) z szablonem usługi Azure Resource Manager.
+Dowiedz się, jak wdrożyć grupę kontenerem usługi kontenera przy użyciu szablonu usługi Azure Resource Manager:
+
+> [!div class="nextstepaction"]
+> [Wdrożenie grupy kontenera](container-instances-multi-container-group.md)
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png

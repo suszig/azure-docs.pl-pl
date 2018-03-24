@@ -1,6 +1,6 @@
 ---
-title: "Informacje na temat technologii aplikacji Azure — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Często zadawane pytania dotyczące usługi Application Insights."
+title: Informacje na temat technologii aplikacji Azure — często zadawane pytania | Dokumentacja firmy Microsoft
+description: Często zadawane pytania dotyczące usługi Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Usługa Application Insights: Często zadawane pytania
 
@@ -121,7 +121,7 @@ Z innych źródeł, jeśli je skonfigurować:
 * [Diagnostyka Azure](app-insights-azure-diagnostics.md)
 * [Kontenery docker](app-insights-docker.md)
 * [Importowanie tabel do analityka](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Można odfiltrować lub zmodyfikować niektóre telemetrii?
@@ -188,7 +188,7 @@ Użyj pojedynczego zasobu dla wszystkich składników lub ról w systemie biznes
 * Jeśli jeden rzeczywistych użytkownik korzysta z witryną w różnych przeglądarkach, albo za pomocą przeglądania w prywatnego/incognito lub różnych komputerach, a następnie ich będzie zliczenia więcej niż raz.
 * Aby zidentyfikować zalogowanego użytkownika wiele maszyn i przeglądarki, dodaj wywołanie do [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-## <a name="q17"></a>I włączono wszystko w usłudze Application Insights?
+## <a name="q17"></a> I włączono wszystko w usłudze Application Insights?
 | Należy wyświetlić | Jak przygotować | Dlaczego chcesz |
 | --- | --- | --- |
 | Wykresy dostępności |[Testy sieci Web](app-insights-monitor-web-app-availability.md) |Wiedzieć, że aplikacja sieci web |
@@ -250,7 +250,7 @@ Poniżej przedstawiono dwie metody:
 
 ### <a name="firewall-door"></a>Drzwi zapory
 
-Zezwalaj na serwerze sieci web wysłać dane telemetryczne do punktów końcowych https://dc.services.visualstudio.com:443 i https://rt.services.visualstudio.com:443 firmy Microsoft. 
+Zezwalaj na serwerze sieci web wysłać dane telemetryczne do naszej punktów końcowych https://dc.services.visualstudio.com:443 i https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Serwer proxy
 
@@ -262,7 +262,7 @@ Kierować ruchem z serwera bramy w sieci intranet, ustawiając to ApplicationIns
 </TelemetryChannel>
 ```
 
-Bramy należy kierować ruch do śledzenia-https://dc.services.visualstudio.com:443/v2
+Bramy należy kierować ruchem do https://dc.services.visualstudio.com:443/v2/track
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Na serwerze sieci intranet można uruchomić testów sieci web dostępności?
 

@@ -1,11 +1,11 @@
 ---
 title: Tworzenie funkcji platformy Azure z programem Media Services
-description: "W tym temacie pokazano, jak rozpocząć tworzenie usługi Azure Functions w usłudze Media Services przy użyciu portalu Azure."
+description: W tym temacie pokazano, jak rozpocząć tworzenie usługi Azure Functions w usłudze Media Services przy użyciu portalu Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 51bdcb01-1846-4e1f-bd90-70020ab471b0
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 02d513bffac50a3a287ab09b1cf9b4eb4525c34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Tworzenie funkcji platformy Azure z programem Media Services
 
@@ -327,7 +327,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 }
 ```
 
-##<a name="test-your-function"></a>Testowanie funkcji
+## <a name="test-your-function"></a>Testowanie funkcji
 
 Aby przetestować funkcję, należy przekazać plik MP4 do **wejściowych** kontenera konta magazynu, który określono w parametrach połączenia.  
 

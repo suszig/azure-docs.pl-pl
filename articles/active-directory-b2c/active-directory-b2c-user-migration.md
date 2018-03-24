@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Podejścia migracji użytkownika"
-description: "Omówiono w nim podstawowe i zaawansowane pojęcia dotyczące migracji użytkownika przy użyciu interfejsu API programu Graph i opcjonalnie za pomocą niestandardowych zasad usługi Azure AD B2C."
+title: 'Usługa Azure Active Directory B2C: Podejścia migracji użytkownika'
+description: Omówiono w nim podstawowe i zaawansowane pojęcia dotyczące migracji użytkownika przy użyciu interfejsu API programu Graph i opcjonalnie za pomocą niestandardowych zasad usługi Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Usługi Azure Active Directory B2C: Migracja użytkowników
 Podczas migracji dostawcy tożsamości do usługi Azure Active Directory B2C (Azure AD B2C), może być również konieczne migracji konta użytkownika. W tym artykule opisano sposób migracji istniejących kont użytkowników z dowolnego dostawcy tożsamości do usługi Azure AD B2C. Artykuł nie ma mieć charakter opisowy, ale raczej opisano dwa różne podejścia. Deweloper jest odpowiedzialny za przydatności każdego z podejść.
@@ -97,7 +94,7 @@ Teraz możesz korzystać z aplikacji z uprawnieniami do tworzenia, odczytu i akt
 Odczyt i zapis w katalogu danych uprawnienia *nie* mają prawo do usuwania użytkowników. Aby udzielić aplikacji możliwość usuwania użytkowników (Aby wyczyścić środowisko), należy wykonać dodatkowe czynności, które obejmuje programu PowerShell, aby ustawić uprawnienia administratora konta użytkownika. W przeciwnym razie możesz przejść do następnej sekcji.
 
 > [!IMPORTANT]
-> Należy użyć konta administratora dzierżawy B2C, która jest *lokalnego* do dzierżawy B2C. Składnia nazwy konta jest  *admin@contosob2c.onmicrosoft.com* .
+> Należy użyć konta administratora dzierżawy B2C, która jest *lokalnego* do dzierżawy B2C. Składnia nazwy konta jest *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > Poniższy skrypt programu PowerShell wymaga [Azure Active Directory programu PowerShell w wersji 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
@@ -148,10 +145,10 @@ Aby edytować plik JSON, otwórz `AADB2C.UserMigration.sln` rozwiązania Visual 
 ![Plik danych użytkownika](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Jak widać, plik zawiera listę jednostkami użytkownika. Każdy obiekt użytkownika ma następujące właściwości:
-* wyślij wiadomość e-mail
+* e-mail
 * Nazwa wyświetlana
 * Imię
-* Nazwisko
+* lastName
 * hasło (może być pusta)
 
 > [!NOTE]

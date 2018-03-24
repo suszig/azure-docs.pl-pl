@@ -1,11 +1,11 @@
 ---
-title: "Przegląd kondycji zasobów platformy Azure | Dokumentacja firmy Microsoft"
-description: "Przegląd kondycji zasobów platformy Azure"
+title: Przegląd kondycji zasobów platformy Azure | Dokumentacja firmy Microsoft
+description: Przegląd kondycji zasobów platformy Azure
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: shawntabrizi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: shawn.tabrizi
-ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 661faf8560295dd037364f9509d21719362ae727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-overview"></a>Przegląd kondycji zasobów platformy Azure
  
@@ -77,7 +77,7 @@ Jeśli uważasz, że bieżący stan kondycji jest nieprawidłowa, użytkownik mo
 ![Pole do przesyłania informacji o niepoprawnym stanie](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>Informacje historyczne
-Dostęp do 14 dni historii kondycji wybierając **wyświetlanie historii** w kondycja zasobów. 
+Można uzyskać dostęp do 14 dni historii kondycji w **Historia kondycji** sekcji kondycja zasobów. 
 
 ![Lista zdarzeń kondycja zasobów w ciągu ostatnich dwóch tygodni](./media/resource-health-overview/history-blade.png)
 

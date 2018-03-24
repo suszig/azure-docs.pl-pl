@@ -1,11 +1,11 @@
 ---
-title: "Problem podczas konfiguracji, inicjowanie obsługi użytkowników dla aplikacji w galerii Azure AD | Dokumentacja firmy Microsoft"
-description: "Sposoby rozwiązywania typowych problemów, które muszą ponieść podczas konfigurowania Inicjowanie obsługi użytkowników do aplikacji już wyświetlane w galerii aplikacji usługi Azure AD"
+title: Problem podczas konfiguracji, inicjowanie obsługi użytkowników dla aplikacji w galerii Azure AD | Dokumentacja firmy Microsoft
+description: Sposoby rozwiązywania typowych problemów, które muszą ponieść podczas konfigurowania Inicjowanie obsługi użytkowników do aplikacji już wyświetlane w galerii aplikacji usługi Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 3a19169effad54e26cd2061bffae369cd31e9a9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9fcfee9cbbeb01422e7d9e92d90b908e054f96da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problem podczas konfiguracji, inicjowanie obsługi użytkowników dla aplikacji w galerii Azure AD
 
@@ -31,7 +31,7 @@ Po skonfigurowaniu usługi większości wgląd w funkcjonowanie usługi może by
 
 -   **Dzienniki inspekcji** — dzienniki inspekcji inicjowania obsługi administracyjnej, rekord wszystkich operacji wykonywanych przez usługę inicjowania obsługi administracyjnej, łącznie z zapytań usługi Azure AD dla przypisanych użytkowników, którzy znajdują się w zakresie udostępniania. Wyślij zapytanie do aplikacji docelowej istnienie tych użytkowników, porównanie obiektów użytkownika między systemem. Następnie dodać, zaktualizować lub wyłączyć konto użytkownika w systemie docelowym na podstawie porównania. Inicjowania obsługi administracyjnej dzienników inspekcji można uzyskać w portalu Azure w **usługi Azure Active Directory &gt; aplikacje przedsiębiorstwa &gt; \[Nazwa aplikacji\] &gt; dzienniki inspekcji** kartę. Odfiltruj dzienniki **Inicjowanie obsługi konta** kategorię, aby zobaczyć tylko inicjowania obsługi zdarzeń dla danej aplikacji.
 
--   **Inicjowanie obsługi administracyjnej stan —** Uruchom podsumowanie ostatniego inicjowania obsługi dla danej aplikacji można przeglądać w **usługi Azure Active Directory &gt; aplikacje przedsiębiorstwa &gt; \[Nazwa aplikacji\] &gt;inicjowania obsługi administracyjnej** sekcji w dolnej części ekranu w obszarze Ustawienia usługi. Ta sekcja zawiera podsumowanie liczby użytkowników (i/lub grup) są aktualnie synchronizowane między tymi dwoma systemami, a jeśli wystąpiły żadne błędy. Szczegóły błędu można w dziennikach inspekcji. Należy pamiętać, że stan inicjowania obsługi administracyjnej nie można wypełnić do momentu zakończenia jednej pełnej wstępnej synchronizacji od usługi Azure AD i aplikacji.
+-   **Inicjowanie obsługi administracyjnej stan —** Uruchom podsumowanie ostatniego inicjowania obsługi dla danej aplikacji można przeglądać w **usługi Azure Active Directory &gt; aplikacje przedsiębiorstwa &gt; \[Nazwa aplikacji\] &gt;Inicjowania obsługi administracyjnej** sekcji w dolnej części ekranu w obszarze Ustawienia usługi. Ta sekcja zawiera podsumowanie liczby użytkowników (i/lub grup) są aktualnie synchronizowane między tymi dwoma systemami, a jeśli wystąpiły żadne błędy. Szczegóły błędu można w dziennikach inspekcji. Należy pamiętać, że stan inicjowania obsługi administracyjnej nie można wypełnić do momentu zakończenia jednej pełnej wstępnej synchronizacji od usługi Azure AD i aplikacji.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Ogólnych problemów z inicjowaniem obsługi administracyjnej do rozważenia
 
@@ -66,5 +66,5 @@ Gdy użytkownik jest wyświetlany jako "pominięte" w dziennikach inspekcji, jes
 
    * **Mapowania dla grupy atrybutów:** inicjowania obsługi administracyjnej Nazwa grupy i szczegóły grupy, oprócz członków, jeśli są obsługiwane w przypadku niektórych aplikacji. Można włączyć lub wyłączyć tę funkcję przez włączenie lub wyłączenie **mapowania** dla obiektów grupy pokazano **inicjowania obsługi administracyjnej** kartę. Jeśli Inicjowanie obsługi grup jest włączone, należy przejrzeć mapowań atrybutów do upewnij się, że odpowiednie pole jest używany przez "Pasujących ID". Może to być wyświetlaną nazwę lub alias e-mail), jak grupy i jej elementów członkowskich nie można zainicjować obsługi administracyjnej Jeśli zgodnej właściwości jest pusta lub nie jest wypełnione dla grupy w usłudze Azure AD.
 
-#<a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Automatyzowanie użytkownika alokowania i anulowania alokowania do aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-app-provisioning.md)

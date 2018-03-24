@@ -1,13 +1,13 @@
 ---
-title: "Azure kolejki magazynu powiązania dla usługi Azure Functions"
-description: "Zrozumienie, jak używać magazynu kolejek Azure wyzwalacza i powiązania w usługi Azure Functions wyjściowego."
+title: Azure kolejki magazynu powiązania dla usługi Azure Functions
+description: Zrozumienie, jak używać magazynu kolejek Azure wyzwalacza i powiązania w usługi Azure Functions wyjściowego.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "funkcje usługi Azure, funkcje, przetwarzania zdarzeń, dynamiczne obliczeń niekorzystającą architektury"
+editor: ''
+tags: ''
+keywords: funkcje usługi Azure, funkcje, przetwarzania zdarzeń, dynamiczne obliczeń niekorzystającą architektury
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 63d466425a524316236998cb4ff954de272808f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eff36b6628c86038b3d08bf3cfd32a6322508baa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure kolejki magazynu powiązania dla usługi Azure Functions
 
@@ -482,7 +482,7 @@ W funkcji JavaScript, za pomocą `context.bindings.<name>` dostępu do danych wy
 
 | Powiązanie |  Informacje ogólne |
 |---|---|
-| Kolejka | [Kody błędów kolejki](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Kolejka | [Kody błędów kolejki](https://docs.microsoft.com/en-us/rest/api/storageservices/queue-service-error-codes) |
 | Obiekt blob, tabeli, kolejki | [Kody błędów magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Obiekt blob, tabeli, kolejki |  [Rozwiązywanie problemów](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

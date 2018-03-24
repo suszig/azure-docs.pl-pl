@@ -1,20 +1,19 @@
 ---
-title: "Dowiedz się, jak dołączyć rozwiązań do zarządzania aktualizacjami, śledzenia zmian i magazynu z maszyny wirtualnej platformy Azure"
-description: "Dowiedz się, jak można dołączyć wirtualnej Azure maszyny z rozwiązań zarządzania aktualizacjami, śledzenia zmian i magazynu, które są częścią usługi Automatyzacja Azure"
+title: Dowiedz się, jak dołączyć rozwiązań do zarządzania aktualizacjami, śledzenia zmian i magazynu z maszyny wirtualnej platformy Azure
+description: Dowiedz się, jak można dołączyć wirtualnej Azure maszyny z rozwiązań zarządzania aktualizacjami, śledzenia zmian i magazynu, które są częścią usługi Automatyzacja Azure
 services: automation
-keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/19/2018
 ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a850189406b394e7935763206f9e3a191b415170
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 8713447386e116b3f1ecb2754d46cc8d88d00b39
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Zintegrowanego rozwiązania zarządzania aktualizacjami, śledzenia zmian i magazynu z maszyny wirtualnej platformy Azure
 
@@ -22,19 +21,19 @@ Automatyzacja Azure zapewnia rozwiązania do zarządzania aktualizacjami zabezpi
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Zaloguj się do platformy Azure pod adresem https://portal.azure.com
+Logowanie do platformy Azure w https://portal.azure.com
 
 ## <a name="enable-the-solutions"></a>Włącz rozwiązania
 
 Przejdź do istniejącej maszyny wirtualnej, a następnie wybierz opcję **zarządzanie aktualizacjami**, **spisu**, lub **śledzenie zmian** w obszarze **operacji**.
 
-Wybierz obszar roboczy i automatyzacji konta analizy dzienników i kliknij przycisk **włączyć** umożliwiające rozwiązanie. Rozwiązanie trwa do 15 minut, aby włączyć.
+Wybierz obszar roboczy usługi Log Analytics i konto usługi Automation, a następnie kliknij przycisk **Włącz**, aby włączyć to rozwiązanie. Włączanie rozwiązania może trwać do 15 minut.
 
-![Dodaj rozwiązanie aktualizacji](media/automation-onboard-solutions-from-vm/onboard-solution.png)
+![Dołączanie rozwiązania Update](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Przejdź do innych rozwiązań i kliknij **włączyć**, analizy dzienników, a konto automatyzacji list rozwijanych są wyłączone, ponieważ używają tego samego konta dla obszaru roboczego automatyzacji jako rozwiązanie wcześniej włączony.
 
-![Dodaj rozwiązanie aktualizacji](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
+![Dołączanie rozwiązania Update](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Śledzenie zmian** i **spisu** używać tego samego rozwiązania, gdy jeden jest włączona innych także włączone.

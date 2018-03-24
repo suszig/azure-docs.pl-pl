@@ -1,11 +1,11 @@
 ---
-title: "Obsługiwane typy zasobów za pośrednictwem kondycji zasobów platformy Azure | Dokumentacja firmy Microsoft"
-description: "Obsługiwane typy zasobów za pośrednictwem kondycji zasobów platformy Azure"
+title: Obsługiwane typy zasobów za pośrednictwem kondycji zasobów platformy Azure | Dokumentacja firmy Microsoft
+description: Obsługiwane typy zasobów za pośrednictwem kondycji zasobów platformy Azure
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Typy zasobów i kondycji sprawdza w kondycji zasobów platformy Azure
 Poniżej przedstawiono pełną listę wszystkie testy wykonane przez kondycja zasobów według typów zasobów.
@@ -48,7 +48,7 @@ Poniżej przedstawiono pełną listę wszystkie testy wykonane przez kondycja za
 |---|
 |<ul><li>Konto jest osiągalna z wewnątrz centrum danych?</li><li>Kognitywnych dostawcy zasobów usługi jest dostępny?</li><li>Kognitywnych usługi jest dostępna w regionie odpowiednie?</li><li>Może być odczytany można wykonać operacji na koncie magazynu zawierający metadane zasobu?</li><li>Został osiągnięty limit przydziału wywołania interfejsu API?</li><li>Wywołanie interfejsu API odczytu — limit został osiągnięty?</li></ul>|
 
-## <a name="microsoftcomputevirtualmachines"></a>Microsoft.COMPUTE/virtualmachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Wykonanie testów|
 |---|
 |<ul><li>Jest serwer obsługujący tej maszyny wirtualnej w górę i systemem</li><li>Rozruch systemu operacyjnego hosta ukończono?</li><li>Są udostępniane kontenera maszyny wirtualnej i włączone?</li><li>Czy istnieje połączenie sieciowe między hostem i konto magazynu?</li><li>Rozruch system operacyjny gościa ukończono?</li><li>Istnieje już uruchomione zaplanowanej konserwacji?</li></ul>|
@@ -64,7 +64,7 @@ Poniżej przedstawiono pełną listę wszystkie testy wykonane przez kondycja za
 |---|
 |<ul><li>Można użytkownikom przekazywanie danych do usługi Data Lake Store w regionie</li><li>Użytkownicy pobrać danych z usługi Data Lake Store w regionie?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
 |Wykonanie testów|
 |---|
@@ -75,7 +75,7 @@ Poniżej przedstawiono pełną listę wszystkie testy wykonane przez kondycja za
 |---|
 |<ul><li>Zostały jeszcze żądań bazy danych lub kolekcji nie jest wyświetlona z powodu niedostępności usługi bazy danych Azure rozwiązania Cosmos?</li><li>Zostały jeszcze żądań dokumentu nie jest wyświetlona z powodu niedostępności usługi bazy danych Azure rozwiązania Cosmos?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Wykonanie testów|
 |---|
 |<ul><li>Tunel VPN jest podłączony?</li><li>Połączenia są konflikty konfiguracji?</li><li>Klucze wstępne poprawnie skonfigurowanych?</li><li>Lokalnego urządzenia sieci VPN jest dostępny?</li><li>Zasady zabezpieczeń IPSec i IKE czy niezgodności?</li><li>Prawidłowo zainicjowana lub w stanie niepowodzenia, jest połączenie sieci VPN S2S?</li><li>Jest połączenia do Wirtualnymi prawidłowo zainicjowana lub w stanie niepowodzenia?</li></ul>|
@@ -115,12 +115,12 @@ Poniżej przedstawiono pełną listę wszystkie testy wykonane przez kondycja za
 |---|
 |<ul><li>Jest serwerem hosta działa prawidłowo?</li><li>Internetowe usługi informacyjne jest uruchomiona?</li><li>Moduł równoważenia obciążenia jest uruchomiona?</li><li>Planowanie usługi sieci Web jest osiągalna z w centrum danych?</li><li>Konto magazynu jest hostem zawartość witryny serverFarm dostępne?</li></ul>|
 
-## <a name="microsoftwebsites"></a>Microsoft.Web/Sites
+## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Wykonanie testów|
 |---|
 |<ul><li>Jest serwerem hosta działa prawidłowo?</li><li>Internet Information server jest uruchomiona?</li><li>Moduł równoważenia obciążenia jest uruchomiona?</li><li>Aplikacja sieci Web jest osiągalna z wewnątrz centrum danych?</li><li>Konto magazynu jest hostem dostępnej zawartości witryny?</li></ul>|
 
 # <a name="next-steps"></a>Następne kroki
--  Zobacz [wprowadzenie do platformy Azure usługa kondycji](service-health-overview.md) i [wprowadzenie do kondycji zasobów Azure](resource-health-overview.md) Aby dowiedzieć się więcej o nich. 
+-  Zobacz [wprowadzenie do pulpit nawigacyjny kondycji usługi Azure](service-health-overview.md) i [wprowadzenie do kondycji zasobów Azure](resource-health-overview.md) Aby dowiedzieć się więcej o nich. 
 -  [Często zadawane pytania dotyczące kondycji zasobów platformy Azure](resource-health-faq.md)
-- Konfigurowanie alertów, więc użytkownik jest powiadamiany o kondycji problemy. Aby uzyskać więcej informacji, zobacz [skonfigurować alerty dotyczące kondycji usługi](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Konfigurowanie alertów, więc użytkownik jest powiadamiany o kondycji problemy. Aby uzyskać więcej informacji, zobacz [skonfiguruj alerty dla zdarzenia kondycji usługi](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

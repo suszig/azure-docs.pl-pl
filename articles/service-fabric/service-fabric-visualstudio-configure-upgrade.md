@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie uaktualnienia aplikacji usługi Service Fabric | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować ustawienia dotyczące uaktualniania aplikacji sieci szkieletowej usług za pomocą programu Microsoft Visual Studio."
+title: Konfigurowanie uaktualnienia aplikacji usługi Service Fabric | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skonfigurować ustawienia dotyczące uaktualniania aplikacji sieci szkieletowej usług za pomocą programu Microsoft Visual Studio.
 services: service-fabric
 documentationcenter: na
 author: mikkelhegn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 3ff85991e87a4996890520a566b3909d331ed27f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6bd9f23be2133ca8a207ceca19fcccc116eaf24d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurowanie uaktualnienia aplikacji usługi Service Fabric w programie Visual Studio
 Visual Studio tools dla sieci szkieletowej usług Azure zapewniają obsługę uaktualnienia publikowanie do klastrów lokalnym lub zdalnym. Istnieją trzy scenariusze, w których ma zostać uaktualniony do nowszej wersji zamiast zastępowania aplikacji podczas testowania i debugowania aplikacji:

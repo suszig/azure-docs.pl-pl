@@ -1,10 +1,11 @@
 ---
-title: "Krok 2: Prześlij dane do eksperymentu uczenia maszynowego | Dokumentacja firmy Microsoft"
-description: "Krok 2 opracowanie wskazówki rozwiązanie predykcyjne: przekazywanie przechowywanych danych publicznych do usługi Azure Machine Learning Studio."
+title: 'Krok 2: Prześlij dane do eksperymentu uczenia maszynowego | Dokumentacja firmy Microsoft'
+description: 'Krok 2 opracowanie wskazówki rozwiązanie predykcyjne: przekazywanie przechowywanych danych publicznych do usługi Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -12,13 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 469c94f6115f99bc4cf067e9c8f0e55c64990358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f482b1273f83f5ae5bb4f1e64609767ee0c5fe32
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Przewodnik, krok 2. Przekazywanie istniejących danych do eksperymentu usługi Azure Machine Learning
 Jest to drugi etap wskazówki, [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -32,7 +31,7 @@ Jest to drugi etap wskazówki, [tworzenie rozwiązania analizy predykcyjnej w us
 
 - - -
 Aby opracować model predykcyjny dla oceny ryzyka kredytowego, potrzebujemy możemy użyć do nauczenia i przetestowania następnie modelu danych. W ramach tego przewodnika użyjemy "UCI Statlog (niemieckim dane środki) zestawu danych" z repozytorium UC Irvine Machine Learning. Możesz go znaleźć tutaj:  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://Archive.ICS.uci.edu/ml/DataSets/Statlog+(German+Credit+Data)</a>
+<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Użyjemy plik o nazwie **german.data**. Pobierz ten plik na lokalnym dysku twardym.  
 

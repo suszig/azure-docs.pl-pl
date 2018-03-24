@@ -1,18 +1,18 @@
 ---
-title: "Azure schematu zdarzeń siatki zdarzeń"
-description: "Opisuje właściwości, które są dostępne dla zdarzeń o Azure zdarzeń siatki"
+title: Azure schematu zdarzeń siatki zdarzeń
+description: Opisuje właściwości, które są dostępne dla zdarzeń o Azure zdarzeń siatki
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure schematu zdarzeń siatki zdarzeń
 
@@ -97,7 +97,11 @@ Aby dowiedzieć się więcej na temat właściwości w obiekcie danych, zobacz �
 * [IoT Hub](event-schema-iot-hub.md)
 * [Grupy zasobów (operacje zarządzania)](event-schema-resource-groups.md)
 
-W przypadku niestandardowych tematów wydawca zdarzeń określa obiekt danych. Danych najwyższego poziomu powinien zawierać te same pola jako standardowych zdarzeń zdefiniowanych zasobów. Podczas publikowania zdarzeń w niestandardowych tematów, należy rozważyć modelowania przedmiotem zdarzeń ułatwiających routingu i filtrowania.
+W przypadku niestandardowych tematów wydawca zdarzeń określa obiekt danych. Danych najwyższego poziomu powinien zawierać te same pola jako standardowych zdarzeń zdefiniowanych zasobów.
+
+Podczas publikowania zdarzeń w niestandardowych tematów, utworzyć tematy dla zdarzeń, które ułatwiają subskrybentów dowiedzieć się, czy są zainteresowane w zdarzeniu. Subskrybenci używać podmiotu na zdarzenia filtru i trasy. Rozważ podanie ścieżki, na którym wystąpiło zdarzenie, aby subskrybenci można filtrować według segmentów tej ścieżki. Ścieżka pozwala subskrybentom ściśle lub szeroko filtrować zdarzenia. Na przykład podaj ścieżkę trzy segmentu jak `/A/B/C` w tym temacie, subskrybentów można filtrować według pierwszy segment `/A` uzyskać szeroką gamę zdarzenia. Tych subskrybentów pobrać zdarzenia z tematów, takich jak `/A/B/C` lub `/A/D/E`. Inne subskrybentów można filtrować według `/A/B` można pobrać mniejszą niż zestaw zdarzeń.
+
+Czasami temat potrzebuje więcej szczegółów na temat co się stało. Na przykład **kont magazynu** wydawcy zawiera temat `/blobServices/default/containers/<container-name>/blobs/<file>` po dodaniu pliku do kontenera. Subskrybent można filtrować według ścieżki `/blobServices/default/containers/testcontainer` uzyskać wszystkie zdarzenia dla tego kontenera, ale nie innych kontenerów na koncie magazynu. Subskrybent można również filtrować lub trasy sufiksem `.txt` aby działał tylko z plików tekstowych.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

@@ -1,18 +1,18 @@
 ---
 title: Jednostki SKU rejestru kontenera platformy Azure
-description: "Porównanie różnych warstwach usług dostępnych w rejestrze kontenera platformy Azure."
+description: Porównanie różnych warstwach usług dostępnych w rejestrze kontenera platformy Azure.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>Jednostki SKU rejestru kontenera platformy Azure
 
@@ -37,11 +37,11 @@ Podstawowa, standardowa i Premium jednostki SKU są nazywane zbiorczo *zarządza
 
 ### <a name="managed-basic-standard-premium"></a>Zarządzane (Basic, Standard i Premium)
 
-Rejestry organizacji IANA zarządzanych bazują na konto usługi Azure Storage, zarządzane przez usługę Azure. Oznacza to, że konto magazynu, które są przechowywane obrazy nie jest wyświetlana w ramach Twojej subskrypcji platformy Azure. Ma wiele zalet uzyskane przy użyciu jednej z rejestru zarządzanej jednostki SKU, omówione szczegółowe w [uaktualnienia rejestru Classic][container-registry-upgrade]. Ten artykuł dotyczy jednostki SKU zarządzanych rejestru i ich funkcji.
+Zarządzane rejestrów korzyści z magazynu obrazu całkowicie zarządza Azure. Oznacza to, że konto magazynu, w którym są przechowywane obrazy nie jest wyświetlana w ramach Twojej subskrypcji platformy Azure. Ma wiele zalet uzyskane przy użyciu jednej z rejestru zarządzanej jednostki SKU, omówione szczegółowe w [kontenera magazynu obrazu w rejestrze kontenera Azure][container-registry-storage]. Ten artykuł dotyczy jednostki SKU zarządzanych rejestru i ich funkcji.
 
 ### <a name="unmanaged-classic"></a>Niezarządzane (klasyczne)
 
-Rejestry organizacji IANA klasycznego są "niezarządzanych" w tym sensie, że konto magazynu, aby utworzyć kopię zapasową rejestru Classic znajduje się w *Twojego* subskrypcji platformy Azure. Tak jest odpowiedzialny za zarządzanie konta magazynu, w którym są przechowywane obrazy kontenera. Z rejestrów niezarządzane, nie można przełączać jednostki SKU stosownie do potrzeb (inne niż [uaktualniania] [ container-registry-upgrade] zarządzanych rejestru), i kilka funkcji rejestrów zarządzanych (na przykład są niedostępne Usuwanie obrazu kontenera, [— replikacja geograficzna] [ container-registry-geo-replication] i [elementów webhook][container-registry-webhook]).
+Rejestry organizacji IANA klasycznego są "niezarządzanych" w tym sensie, że konto magazynu, aby utworzyć kopię zapasową rejestru Classic znajduje się w *Twojego* subskrypcji platformy Azure. Tak jest odpowiedzialny za zarządzanie konta magazynu, w którym są przechowywane obrazy kontenera. Z rejestrów niezarządzane, nie można przełączać jednostki SKU stosownie do potrzeb (inne niż [uaktualniania] [ container-registry-upgrade] zarządzanych rejestru), i kilka funkcji rejestrów zarządzanych (na przykład są niedostępne Usuwanie obrazu kontenera, [— replikacja geograficzna][container-registry-geo-replication], i [elementów webhook][container-registry-webhook]).
 
 Aby uzyskać więcej informacji na temat uaktualniania rejestru klasycznego do jednego z zarządzanego jednostki SKU zobacz [uaktualnienia rejestru Classic][container-registry-upgrade].
 
@@ -103,4 +103,5 @@ Przesłać opinię i głosuj na nowe sugestii funkcji w [ACR UserVoice][containe
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

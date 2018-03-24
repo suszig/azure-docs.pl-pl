@@ -1,10 +1,11 @@
 ---
-title: "Azure galerii AI niestandardowe moduły | Dokumentacja firmy Microsoft"
-description: "Odkryj maszyny niestandardowych modułów uczenia w galerii Azure AI."
+title: Azure galerii AI niestandardowe moduły | Dokumentacja firmy Microsoft
+description: Odkryj maszyny niestandardowych modułów uczenia w galerii Azure AI.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: garye
-ms.openlocfilehash: bec2860d1da5044ad6969e2b23142256aa90042e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 26cd814980af0824cbf40052a4a9f47161b8cc62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Odkryj maszyny niestandardowych modułów uczenia w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ Aby przeglądać niestandardowe moduły [w galerii](http://gallery.cortanaintell
 
 ![Wybierz niestandardowe moduły na stronie głównej galerii](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
-**[Niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules)**  zostanie wyświetlona lista ostatnio dodany i popularnych modułów. Zaznacz, aby wyświetlić wszystkie niestandardowe moduły **zobaczyć wszystkie** przycisku. Aby wyszukać określony moduł niestandardowe, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+**[Niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules)** zostanie wyświetlona lista ostatnio dodany i popularnych modułów. Zaznacz, aby wyświetlić wszystkie niestandardowe moduły **zobaczyć wszystkie** przycisku. Aby wyszukać określony moduł niestandardowe, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
 
 ![Wybierz opcję "Zobacz wszystkie" Aby przeglądać wszystkie niestandardowe moduły](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 

@@ -1,5 +1,19 @@
-Platforma Azure oferuje następujące jednostki SKU bramy sieci VPN:
-
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: c9457e51858d4a073d8baffdd435c8100d95d566
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/23/2018
+---
 |**SKU**   | **Połączenia typu lokacja-lokacja/Połączenia między sieciami wirtualnymi<br>Tunele** | **Połączenia<br>punkt-lokacja** | **Test porównawczy<br>agregowanej przepływności** |
 |---       | ---                             | ---                    | ---                         |
 |**VpnGw1**| Maksymalnie z 30                         | Maksymalnie z 128               | 650 Mb/s                    |
@@ -13,3 +27,5 @@ Platforma Azure oferuje następujące jednostki SKU bramy sieci VPN:
 - Informacje o cenach znajdują się na stronie [Cennik](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
 - Informacje na temat umowy SLA (Service Level Agreement) można znaleźć na stronie [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/).
+
+- VpnGw1, VpnGw2 i VpnGw3 są obsługiwane dla bram sieci VPN przy użyciu tylko modelu wdrażania Menedżera zasobów.

@@ -1,12 +1,12 @@
 ---
-title: "Poziomy spójności w usłudze Azure DB rozwiązania Cosmos | Dokumentacja firmy Microsoft"
-description: "Azure DB rozwiązania Cosmos ma pięć poziomy spójności, aby ułatwić równoważenie ostatecznego spójności, dostępnością i opóźnieniem kompromis."
+title: Poziomy spójności w usłudze Azure DB rozwiązania Cosmos | Dokumentacja firmy Microsoft
+description: Azure DB rozwiązania Cosmos ma pięć poziomy spójności, aby ułatwić równoważenie ostatecznego spójności, dostępnością i opóźnieniem kompromis.
 keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: aa95cae5d62ebe23d6822232c4a5ab872e1f2c6a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności danych dostosowywalne w usłudze Azure DB rozwiązania Cosmos
 Azure DB rozwiązania Cosmos jest zaprojektowany od podstaw się z globalnego dystrybucji pamiętać dla każdego modelu danych. Zaprojektowano go do zapewnienia gwarancje przewidywalną małe opóźnienia i wielu modeli dobrze zdefiniowany swobodna spójności. Obecnie bazy danych Azure rozwiązania Cosmos zawiera pięć poziomów spójności: silne, nieaktualność, sesji, prefiks spójne i "ostateczna". Nieaktualność, sesji prefiks spójne i ostatecznego są nazywane "swobodna spójności modeli" świadczą one mniej spójności niż silne, czyli większości wysokiej spójny model dostępne. 
@@ -60,6 +60,7 @@ Poziom szczegółowości spójności obejmuje żądanie jednego użytkownika. Ż
 ## <a name="consistency-levels"></a>Poziomy spójności
 Domyślny poziom spójności można skonfigurować na Twoim koncie bazy danych, która ma zastosowanie do wszystkich kolekcji (i baz danych) na koncie DB rozwiązania Cosmos. Domyślnie wszystkie odczyty i zapytań wystawiony na podstawie zasoby zdefiniowane przez użytkownika będą używać domyślnego poziomu spójności określonego na konto bazy danych. Może osłabić poziomu spójności odczytu/zapytania określonego żądania, używając w każdej z obsługiwanych interfejsów API. Istnieje pięć typów poziomy spójności obsługiwane przez protokół replikacji bazy danych Azure rozwiązania Cosmos zapewniające wyczyść zależność między spójności określone gwarancje i wydajności, zgodnie z opisem w tej sekcji.
 
+<a id="strong"></a>
 **Silne**: 
 
 * Zapewnia wysoki poziom spójności [linearizability](https://aphyr.com/posts/313-strong-consistency-models) gwarancja odczyty gwarancji, aby powrócić do najnowszej wersji elementu. 
@@ -67,6 +68,7 @@ Domyślny poziom spójności można skonfigurować na Twoim koncie bazy danych, 
 * Azure DB rozwiązania Cosmos kont, które są skonfigurowane do używania wysoki poziom spójności nie można skojarzyć więcej niż jeden region platformy Azure z użyciem konta bazy danych Azure rozwiązania Cosmos.  
 * Koszt operacja odczytu (w postaci liczby [jednostek żądania](request-units.md) używane) z wysoki poziom spójności jest wyższy niż sesji i "ostateczna", ale taka sama jak spójność powiązanej nieaktualności.
 
+<a id="bounded-staleness"></a>
 **Ograniczone nieaktualności**: 
 
 * Ograniczone nieaktualności gwarantuje spójności odczytami może opóźniona zapisy, przez co najwyżej *K* wersji lub prefiksy elementu lub *t* interwał czasu. 
@@ -76,6 +78,7 @@ Domyślny poziom spójności można skonfigurować na Twoim koncie bazy danych, 
 * Azure kont rozwiązania Cosmos bazy danych, które są skonfigurowane przy użyciu spójność powiązanej nieaktualności można skojarzyć dowolną liczbę regiony platformy Azure z użyciem konta bazy danych Azure rozwiązania Cosmos. 
 * Koszt operacja odczytu (pod względem używane RUs) z spójność powiązanej nieaktualności jest wyższy niż sesji i spójność ostateczna, ale taka sama jak wysoki poziom spójności.
 
+<a id="session"></a>
 **Sesja**: 
 
 * W odróżnieniu od oferowanych przez poziomy spójności nieaktualności silne i ograniczonego modeli globalne spójności spójność sesji obejmuje sesji klienta. 
@@ -91,6 +94,7 @@ Domyślny poziom spójności można skonfigurować na Twoim koncie bazy danych, 
 * Prefiks spójne gwarantuje, że odczyty nigdy nie zobaczyć zapisy poza kolejnością. Jeśli wykonano operacji zapisu w kolejności `A, B, C`, klient widzi albo `A`, `A,B`, lub `A,B,C`, ale nigdy nie poza kolejnością jak `A,C` lub `B,A,C`.
 * Azure kont rozwiązania Cosmos bazy danych, które są skonfigurowane przy użyciu prefiksu spójne spójności można skojarzyć dowolną liczbę regiony platformy Azure z użyciem konta bazy danych Azure rozwiązania Cosmos. 
 
+<a id="eventual"></a>
 **Ewentualne**: 
 
 * Spójność ostateczna gwarantuje, że w przypadku braku kolejnych zapisów repliki w grupie ostatecznie zbieżność. 
@@ -125,19 +129,12 @@ Azure DB rozwiązania Cosmos implementuje obecnie bazy danych MongoDB w wersji 3
 ## <a name="next-steps"></a>Kolejne kroki
 Jeśli chcesz zrobić więcej informacje o poziomy spójności i wady i zalety, zaleca się następujące zasoby:
 
-* Jakub Dougowi. Wyjaśniono spójności replikowanych danych za pośrednictwem baseball (klip wideo).   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Jakub Dougowi. Wyjaśniono spójności replikowanych danych za pośrednictwem baseball.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Jakub Dougowi. Gwarancje sesji słabo spójności replikowanych danych.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. Wady i zalety spójności w projekcie: nowoczesnych systemów bazy danych dystrybucji: zakończenie jest tylko część wątku ".   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peterowi Bailis, Shivaram Venkataraman, Michael J. tw, Joseph M. Hellerstein, Stoica zakres przechowywania. Prawdopodobieństwa ograniczone nieaktualności (PBS) praktyczne częściowe kworum.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. Ostateczna spójne — uruchomić ponownie.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor, wełna Avishai, obciążenia, pojemności i dostępność systemów kworum, SIAM Dziennik przetwarzania danych, v.27 n.2, 447 p.423, kwietnia 1998.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Burckhardt Sebastianowi, Krzysztof Dern, Macanal Musuvathi, Tan Royowi, każdy: linearizability pełny i automatyczne sprawdzanie, postępowania 2010 konferencji ACM SIGPLAN programowania języka projekt i implementację, czerwca 05 10 2010 naszej, Ontario, Kanada [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peterowi Bailis, Shivaram Venkataraman, Michael J. tw, Joseph M. Hellerstein, Stoica zakres przechowywania Probabilistically ograniczone nieaktualności do praktycznych kworum częściowe postępowania wydzielony VLDB, v.5 n.8, 787 p.776, kwietnia 2012 [http:// DL.ACM.org/CITATION.cfm?ID=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [Wyjaśniono spójności replikowanych danych za pośrednictwem baseball (klip wideo) przez Jakuba Dougowi](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [Wyjaśniono spójności replikowanych danych za pośrednictwem baseball (dokument oficjalny) przez Jakuba Dougowi](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [Gwarancje sesji dla słabo spójności replikowanych danych](http://dl.acm.org/citation.cfm?id=383631)
+* [Wady i zalety spójności w projekcie: nowoczesnych systemów bazy danych dystrybucji: zakończenie jest tylko część wątku](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Spójność powiązanej nieaktualności prawdopodobieństwa (PBS) do praktycznych częściowe kworum](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+* [Ostateczna spójne — poprawione](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [Obciążenia, wydajność i dostępność systemów kworum dziennika SIAM obliczeniowych](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [Wersje: pełne i automatyczne linearizability sprawdzania, postępowania 2010 konferencji ACM SIGPLAN programowania w języku projektowanie i wdrażanie](http://dl.acm.org/citation.cfm?id=1806634)
+* [Probabilistically spójność powiązanej nieaktualności do praktycznych częściowe kworum](http://dl.acm.org/citation.cfm?id=2212359)

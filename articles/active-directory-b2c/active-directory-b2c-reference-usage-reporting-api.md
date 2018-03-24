@@ -1,22 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Przykłady interfejsu API raportowania użycia i definicje | Dokumentacja firmy Microsoft"
-description: "Przewodnik i przykłady dotyczące konfigurowania raportów dzierżawcy usługi Azure AD B2C, użytkowników, uwierzytelnianie i operacje uwierzytelniania wieloskładnikowego"
+title: 'Usługa Azure Active Directory B2C: Przykłady interfejsu API raportowania użycia i definicje | Dokumentacja firmy Microsoft'
+description: Przewodnik i przykłady dotyczące konfigurowania raportów dzierżawcy usługi Azure AD B2C, użytkowników, uwierzytelnianie i operacje uwierzytelniania wieloskładnikowego
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3470f45683ea508dfe338c313a5307eb6c1164d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Uzyskiwanie dostępu do raportów użycia w usłudze Azure AD B2C za pośrednictwem interfejsu API raportowania
 
@@ -118,7 +117,7 @@ Użytkownik liczba dane są odświeżane co 24 do 48 godzin. Uwierzytelnienia s�
   * Identyfikator aplikacji istnieje, ale nie znaleziono danych w tym okresie raportowania. Przejrzyj parametry daty/godziny.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 ### <a name="monthly-bill-estimates-for-azure-ad"></a>Rachunek miesięczny szacuje dla usługi Azure AD
 W połączeniu z [najbardziej bieżące usługi Azure AD B2C ceny dostępne](https://azure.microsoft.com/pricing/details/active-directory-b2c/), można oszacować dzienne, tygodniowe i miesięczne wykorzystania platformy Azure.  Szacowana jest szczególnie przydatne podczas planowania zmiany w zachowaniu dzierżawy, który może mieć wpływ na całkowity koszt. Możesz przejrzeć koszty rzeczywiste w Twojej [połączonej subskrypcji Azure](active-directory-b2c-how-to-enable-billing.md).
 

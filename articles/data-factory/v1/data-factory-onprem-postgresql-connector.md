@@ -1,11 +1,10 @@
 ---
-title: "Przenoszenie danych z PostgreSQL przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu przenoszenia danych z bazy danych PostgreSQL przy użyciu fabryki danych Azure."
+title: Przenoszenie danych z PostgreSQL przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat sposobu przenoszenia danych z bazy danych PostgreSQL przy użyciu fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4ee466c85b68ebc72dbd55849db84a473d584ffb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Przenoszenia danych z PostgreSQL przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -327,9 +326,9 @@ Podczas przenoszenia danych do PostgreSQL, następujące mapowania są używane 
 | intarry | |Ciąg |&nbsp;
 | int4range | |Ciąg |&nbsp;
 | int8range | |Ciąg |&nbsp;
-| liczba całkowita |int, int4 |Int32 |
+| integer |int, int4 |Int32 |
 | Interwał [pola] [(p)] | |Zakres czasu |&nbsp;
-| json | |Ciąg |&nbsp;
+| JSON | |Ciąg |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | wiersz | |Byte [], ciąg |&nbsp;
 | lseg | |Byte [], ciąg |&nbsp;

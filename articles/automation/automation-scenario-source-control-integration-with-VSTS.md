@@ -1,24 +1,19 @@
 ---
-title: "Integracja usługi Automatyzacja Azure z kontroli źródła Visual Stuido Team Services | Dokumentacja firmy Microsoft"
-description: "Scenariusz przeprowadzi Cię przez proces konfigurowania integracji z kontroli źródła Visual Stuido Team Services i konto usługi Automatyzacja Azure."
+title: Integracja usługi Automatyzacja Azure z kontroli źródła Visual Stuido Team Services
+description: Scenariusz przeprowadzi Cię przez proces konfigurowania integracji z kontroli źródła Visual Stuido Team Services i konto usługi Automatyzacja Azure.
 services: automation
-documentationcenter: 
-author: eamono
-manager: 
-editor: 
-keywords: "Program Azure powershell, VSTS, kontroli źródła, automatyzacji"
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+documentationcenter: ''
+author: eamonoreilly
+ms.author: eamono
+keywords: Program Azure powershell, VSTS, kontroli źródła, automatyzacji
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
-ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 03/19/2017
+ms.openlocfilehash: a60143db03e5f89685a25f26789003de30d91f4c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Scenariusz automatyzacji Azure - automatyzacji integracji kontroli źródła z Visual Studio Team Services
 

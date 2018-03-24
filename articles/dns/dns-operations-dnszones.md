@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie strefami DNS w usłudze Azure DNS - PowerShell | Dokumentacja firmy Microsoft"
-description: "Możesz zarządzać stref DNS przy użyciu programu Azure Powershell. W tym artykule opisano sposób aktualizowanie, usuwanie i tworzenie stref DNS w usłudze Azure DNS"
+title: Zarządzanie strefami DNS w usłudze Azure DNS - PowerShell | Dokumentacja firmy Microsoft
+description: Możesz zarządzać stref DNS przy użyciu programu Azure Powershell. W tym artykule opisano sposób aktualizowanie, usuwanie i tworzenie stref DNS w usłudze Azure DNS
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Jak zarządzać stref DNS przy użyciu programu PowerShell
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-dnszones-cli.md)
 
 W tym artykule przedstawiono sposób zarządzania stref DNS przy użyciu programu Azure PowerShell. Można również zarządzać stref DNS przy użyciu wielu platform [interfejsu wiersza polecenia Azure](dns-operations-dnszones-cli.md) lub w portalu Azure.
+
+Ten przewodnik dotyczy w szczególności stref w publicznym systemie DNS. Informacje dotyczące używania programu Azure PowerShell do zarządzania prywatnego stref w usłudze Azure DNS, zobacz [wprowadzenie stref DNS prywatnego Azure przy użyciu programu Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -50,7 +52,7 @@ Poniższy przykład przedstawia sposób tworzenia strefy DNS przy użyciu dwóch
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Usługa Azure DNS teraz obsługuje również prywatnej stref DNS (obecnie w wersji zapoznawczej).  Na przykład sposobu tworzenia prywatnej strefy DNS Zobacz [wprowadzenie do usługi Azure DNS strefy prywatnej przy użyciu programu PowerShell](./private-dns-getstarted-powershell.md).
+Usługa Azure DNS teraz obsługuje również prywatnej stref DNS (obecnie w publicznej wersji zapoznawczej).  Aby uzyskać więcej informacji na temat prywatnych stref DNS, zobacz [Using Azure DNS for private domains (Używanie usługi Azure DNS dla domen prywatnych)](private-dns-overview.md). Na przykład sposobu tworzenia prywatnej strefy DNS Zobacz [wprowadzenie do usługi Azure DNS strefy prywatnej przy użyciu programu PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="get-a-dns-zone"></a>Pobierz strefę DNS
 

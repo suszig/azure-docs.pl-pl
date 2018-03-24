@@ -1,27 +1,31 @@
 ---
-title: "Omówienie transmisji strumieniowej na żywo przy użyciu usługi Azure Media Services | Dokumentacja firmy Microsoft"
-description: "Ten temat zawiera omówienie transmisji strumieniowych na żywo przy użyciu usługi Azure Media Services."
+title: Omówienie transmisji strumieniowej na żywo przy użyciu usługi Azure Media Services | Dokumentacja firmy Microsoft
+description: Ten temat zawiera omówienie transmisji strumieniowych na żywo przy użyciu usługi Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Omówienie transmisji strumieniowej na żywo przy użyciu usługi Azure Media Services
-## <a name="overview"></a>Omówienie
+
+> [!NOTE]
+> Uruchamianie kanałów na żywo 12 maja 2018 będzie już obsługi strumienia transportowego RTP/MPEG-2 protokołu pozyskiwania. Przeprowadź migrację z RTP/MPEG-2 RTMP lub pofragmentowany MP4 (Smooth Streaming) pozyskiwania protokołów.
+
+## <a name="overview"></a>Przegląd
 Gdy dostarczanie wydarzeń transmisji strumieniowej na żywo usłudze Azure Media Services zwykle obejmuje następujące składniki:
 
 * Kamera, która umożliwia emisję wydarzenia.
@@ -60,19 +64,19 @@ Począwszy od Media Services 2.10 wersji, podczas tworzenia kanału, można okre
 ## <a name="comparison-of-channel-types"></a>Porównanie typów kanałów
 Poniższa tabela zawiera przewodnik dotyczący porównanie dwóch typów kanałów obsługiwane w usłudze Media Services
 
-| Funkcja | Kanał przekazywania | Wzorzec kanał |
+| Cecha | Kanał przekazywania | Wzorzec kanał |
 | --- | --- | --- |
-| Dane wejściowe pojedynczej szybkości transmisji bitów jest kodowane do wielokrotnych szybkości transmisji bitów w chmurze |Nie |Tak |
+| Dane wejściowe pojedynczej szybkości transmisji bitów jest kodowane do wielokrotnych szybkości transmisji bitów w chmurze |Nie |Yes |
 | Rozdzielczość maksymalna, liczba warstw |1080p, 8 warstwy 60 + kl. / s |720p 6 warstwy 30 klatek na sekundę |
 | Protokoły wejściowych |RTMP, Smooth Streaming |RTMP, Smooth Streaming i RTP |
 | Cena |Zobacz [cennikiem](https://azure.microsoft.com/pricing/details/media-services/) i kliknij kartę "Wideo na żywo" |Zobacz [stronie dotyczącej cen](https://azure.microsoft.com/pricing/details/media-services/) |
-| Maksymalny czas wykonywania |24 x 7 |8 godzin |
-| Obsługa Wstawianie typu |Nie |Tak |
-| Obsługa sygnalizowania ad |Nie |Tak |
-| Podpisy CEA 608/708 przekazywania |Tak |Tak |
-| Możliwość odzyskania z krótki wstrzymania w udziale źródła danych |Tak |Nie (kanał rozpocznie slating sekund 6 + bez wprowadzania danych) |
-| Obsługa niejednolitego GOPs wejściowych |Tak |Nie — dane wejściowe muszą być ustalone 2 s GOPs |
-| Obsługa danych wejściowych szybkość zmiennej ramki |Tak |Nie — dane wejściowe muszą być ustalane szybkość klatek.<br/>Niewielkich zmian są dopuszczalne, na przykład podczas ruchu wysokiej sceny. Ale koder nie można porzucić do 10 klatek na sekundę. |
+| Maksymalny czas wykonywania |Całodobowo |8 godzin |
+| Obsługa Wstawianie typu |Nie |Yes |
+| Obsługa sygnalizowania ad |Nie |Yes |
+| Podpisy CEA 608/708 przekazywania |Yes |Yes |
+| Możliwość odzyskania z krótki wstrzymania w udziale źródła danych |Yes |Nie (kanał rozpocznie slating sekund 6 + bez wprowadzania danych) |
+| Obsługa niejednolitego GOPs wejściowych |Yes |Nie — dane wejściowe muszą być ustalone 2 s GOPs |
+| Obsługa danych wejściowych szybkość zmiennej ramki |Yes |Nie — dane wejściowe muszą być ustalane szybkość klatek.<br/>Niewielkich zmian są dopuszczalne, na przykład podczas ruchu wysokiej sceny. Ale koder nie można porzucić do 10 klatek na sekundę. |
 | Auto bliskie kanałów podczas wprowadzania źródła danych zostaną utracone |Nie |Po 12 godzinach, jeśli żaden Program uruchomiony |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)
@@ -136,7 +140,7 @@ W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie o
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
 | Działanie |Gotowy (brak uruchomionych programów)<br/>lub<br/>Transmisja strumieniowa (co najmniej jeden uruchomiony program) |TAK |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
-| Zatrzymane |Zatrzymane |Nie |
+| Zatrzymano |Zatrzymano |Nie |
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

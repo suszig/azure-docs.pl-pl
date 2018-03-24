@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: Rozwiązywanie problemów z synchronizacją obiektu | Dokumentacja firmy Microsoft"
-description: "Ten temat zawiera procedurę rozwiązywania problemów z synchronizacją obiektu przy użyciu zadania dotyczące rozwiązywania problemów."
+title: 'Azure AD Connect: Rozwiązywanie problemów z synchronizacją obiektu | Dokumentacja firmy Microsoft'
+description: Ten temat zawiera procedurę rozwiązywania problemów z synchronizacją obiektu przy użyciu zadania dotyczące rozwiązywania problemów.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Rozwiązywanie problemów z synchronizacją obiektu z synchronizacji Azure AD Connect
 Ten dokument zawiera kroki umożliwiające rozwiązywanie problemów z synchronizacją obiektu przy użyciu zadania dotyczące rozwiązywania problemów.
 
 ## <a name="troubleshooting-task"></a>Rozwiązywanie problemów z zadania
-Do wdrożenia usługi Azure Active Directory (AAD) Połącz z wersji <verison> lub wyższym, korzystając z zadania dotyczące rozwiązywania problemów w Kreatorze rozwiązywać problemy z synchronizacją obiektu. W przypadku wcześniejszych wersji, należy rozwiązać ręcznie, zgodnie z opisem [tutaj](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Dla usługi Azure Active Directory (AAD) wdrożenia Uzyskuj dostęp do wersji 1.1.749.0 lub wyższym, korzystając z zadania dotyczące rozwiązywania problemów w Kreatorze rozwiązywać problemy z synchronizacją obiektu. W przypadku wcześniejszych wersji, należy rozwiązać ręcznie, zgodnie z opisem [tutaj](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Uruchom zadanie rozwiązywania problemów w Kreatorze
 Aby uruchomić zadanie rozwiązywania problemów w kreatorze, wykonaj następujące czynności:

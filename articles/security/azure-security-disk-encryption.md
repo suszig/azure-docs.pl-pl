@@ -1,6 +1,6 @@
 ---
-title: "Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera omówienie programu Microsoft Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS."
+title: Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera omówienie programu Microsoft Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS.
 services: security
 documentationcenter: na
 author: DevTiw
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS
 Microsoft Azure jest silnie zobowiązane do zapewnienia prywatności danych, suwerenności danych i umożliwia sterowanie platformy Azure hostowanej danych za pomocą wielu zaawansowanych technologii szyfrowania, sterowania i zarządzania kluczami szyfrowania, inspekcji i kontroli dostępu do danych. Klienci Azure zapewnia elastyczność wyboru rozwiązania, które będzie najlepiej odpowiadać ich potrzeb biznesowych. W tym dokumencie firma Microsoft podstawowe informacje na temat nowego rozwiązania technologii "Szyfrowania dysków Azure dla systemu Windows i Linux IaaS maszyny Wirtualnej na" Aby chronić i ochrony danych w celu spełnienia organizacji bezpieczeństwa i zgodności zobowiązań. Papieru zapewnia napotka szczegółowe wskazówki dotyczące sposobu używania funkcji szyfrowania dysków Azure w tym obsługiwane scenariusze i użytkownika.
@@ -156,13 +156,13 @@ Przed włączeniem szyfrowania dysków Azure na maszynach wirtualnych Azure IaaS
 * Platforma Azure wymaga dostępu do kluczy szyfrowania lub kluczy tajnych w magazynie kluczy, aby były dostępne dla maszyny wirtualnej podczas rozruchu i odszyfrowuje wolumin systemu operacyjnego maszyny wirtualnej. Aby udzielić uprawnień do platformy Azure, należy ustawić **EnabledForDiskEncryption** właściwość w magazynie kluczy. Aby uzyskać więcej informacji, zobacz **ustawiony w górę i konfigurowania magazynu kluczy szyfrowania dysków Azure** w dodatku.
 * Klucz tajny magazynu kluczy, a adresy URL KEK musi być numerów wersji. Azure wymusza to ograniczenie wersji. Nieprawidłowy klucz tajny i KEK adresów URL zobacz następujące przykłady:
 
-  * Przykład prawidłowego adresu URL tajny: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Przykład prawidłowy adres URL KEK: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Przykład prawidłowego adresu URL tajny:   *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Przykład prawidłowy adres URL KEK:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Szyfrowanie dysków Azure nie obsługuje określania numery portów, jako część adresy URL KEK i kluczy tajnych w magazynie kluczy. Przykłady adresów URL magazynu kluczy obsługiwanych i nieobsługiwanych zobacz następujące tematy:
 
-  * Adres URL magazynu kluczy można zaakceptować *https://contosovault.vault.azure.net:443/klucze tajne/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Adres URL magazynu kluczy dopuszczalne: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Adres URL nie do przyjęcia magazynu kluczy  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Adres URL dopuszczalne magazynu kluczy:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Aby włączyć szyfrowanie dysków Azure funkcji, maszyny wirtualne IaaS musi spełniać następujące wymagania dotyczące konfiguracji punktu końcowego sieci:
   * Aby uzyskać token, aby połączyć się z magazynu kluczy, musi być można nawiązać połączenia z punktem końcowym usługi Azure Active Directory, maszyn wirtualnych IaaS \[login.microsoftonline.com\].
@@ -172,7 +172,7 @@ Przed włączeniem szyfrowania dysków Azure na maszynach wirtualnych Azure IaaS
   > [!NOTE]
   > Jeśli zasady zabezpieczeń ogranicza dostęp do Internetu z maszyn wirtualnych platformy Azure, można rozwiązać poprzedni identyfikator URI i skonfigurować określona Reguła zezwalająca na łączności wychodzącego adresy IP.
   >
-  >Konfigurowanie i dostępu do usługi Azure Key Vault za zaporą (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
+  >Konfigurowanie i dostępu do usługi Azure Key Vault za (zaporyhttps://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Użyj najnowszej wersji zestawu SDK programu PowerShell Azure w wersji, aby skonfigurować szyfrowanie dysków Azure. Pobierz najnowszą wersję [wersji programu Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 
@@ -193,7 +193,7 @@ Przed włączeniem szyfrowania dysków Azure na maszynach wirtualnych Azure IaaS
 * Aby skonfigurować wymagań wstępnych szyfrowania dysków za pomocą interfejsu wiersza polecenia Azure, zobacz [ten skrypt Bash](https://github.com/ejarvi/ade-cli-getting-started).
 * Aby korzystać z usługi Kopia zapasowa Azure kopii zapasowej i przywracanie zaszyfrowanych maszyn wirtualnych, po włączeniu szyfrowania z szyfrowania dysków Azure, szyfrowania maszyn wirtualnych przy użyciu konfiguracji klucza szyfrowania dysków Azure. Usługa kopii zapasowej obsługuje maszyny wirtualne, które są szyfrowane za pomocą KEK nie lub KEK konfiguracji. Zobacz [jak wykonać kopię zapasową i przywrócić szyfrowane maszyn wirtualnych przy użyciu szyfrowania usługi Kopia zapasowa Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Podczas szyfrowania woluminu systemu operacyjnego Linux, należy pamiętać, że ponowne uruchomienie maszyny Wirtualnej jest obecnie wymagane na koniec procesu. Można to zrobić za pomocą portalu, programu powershell lub interfejsu wiersza polecenia.   Aby śledzić postęp szyfrowania, okresowo sondować komunikatu o stanie zwracanych przez https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus Get AzureRmVMDiskEncryptionStatus.  Po zakończeniu szyfrowania komunikatu o stanie zwracanych przez to polecenie będzie tę informację.  Na przykład "postępu: dysk systemu operacyjnego zostały pomyślnie zaszyfrowane, wykonaj ponowny rozruch maszyny Wirtualnej" w tym punkcie maszyny Wirtualnej może być uruchomiona ponownie oraz używane.  
+* Podczas szyfrowania woluminu systemu operacyjnego Linux, należy pamiętać, że ponowne uruchomienie maszyny Wirtualnej jest obecnie wymagane na koniec procesu. Można to zrobić za pomocą portalu, programu powershell lub interfejsu wiersza polecenia.   Aby śledzić postęp szyfrowania, okresowo sondować komunikatu o stanie zwracanych przez Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Po zakończeniu szyfrowania komunikatu o stanie zwracanych przez to polecenie będzie tę informację. Na przykład "postępu: dysk systemu operacyjnego zostały pomyślnie zaszyfrowane, wykonaj ponowny rozruch maszyny Wirtualnej" w tym punkcie maszyny Wirtualnej może być uruchomiona ponownie oraz używane.  
 
 * Azure szyfrowanie dysku dla systemu Linux wymaga dysków z danymi ma zainstalowany system plików w systemie Linux przed szyfrowania
 
@@ -224,25 +224,25 @@ Aby utworzyć aplikację usługi Azure AD, należy użyć następującego polece
 ##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Konfigurowanie usługi Azure AD identyfikator klienta i klucz tajny z portalu Azure
 Można również ustawić zapasowej identyfikator klienta usługi Azure AD i klucz tajny przy użyciu portalu Azure. Aby wykonać to zadanie, wykonaj następujące czynności:
 
-1. Kliknij przycisk **usługi Active Directory** kartę.
+1. Wybierz **wszystkie usługi > Azure Active Directory**
 
- ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Kliknij przycisk **Dodawanie aplikacji**, a następnie wpisz nazwę aplikacji.
+2. Wybierz **rejestracji aplikacji > nowej rejestracji aplikacji**
 
- ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. Kliknij przycisk strzałki, a następnie skonfigurować właściwości aplikacji.
+3. Podaj wymagane informacje i utworzyć aplikację:
 
- ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Kliknij znacznik wyboru, w lewym dolnym rogu, aby zakończyć. Zostanie wyświetlona strona konfiguracji aplikacji, a identyfikator klienta usługi Azure AD są wyświetlane u dołu strony.
+4. Wybierz nowo utworzonej aplikacji, aby wyświetlić jego właściwości, w tym identyfikator aplikacji.  Aby utworzyć klucz dla aplikacji, wybierz **Ustawienia > klucze**, Dodaj opis i wygaśnięcia klucza i kliknij przycisk **Zapisz**
 
- ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. Zapisz klucz tajny klienta usługi Azure AD, klikając **zapisać** przycisku. Należy pamiętać, klucz tajny klienta usługi Azure AD w polu tekstowym kluczy. Chroń odpowiednio.
+5. Skopiuj wygenerowany wartość tajna i odpowiednio go chronić.
 
- ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Usługa Azure Disk Encryption](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### <a name="use-an-existing-application"></a>Użyj istniejącej aplikacji

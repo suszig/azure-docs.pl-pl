@@ -1,11 +1,11 @@
 ---
-title: "Przekształcanie danych za pomocą skryptu U-SQL - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się sposobu przetwarzania lub Przekształcanie danych za pomocą skryptów U-SQL w usłudze obliczeniowych Azure Data Lake Analytics."
+title: Przekształcanie danych za pomocą skryptu U-SQL - Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się sposobu przetwarzania lub Przekształcanie danych za pomocą skryptów U-SQL w usłudze obliczeniowych Azure Data Lake Analytics.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych za pomocą skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Uwierzytelnianie usługi głównej przez określenie następujących właściwo�
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Określ identyfikator aplikacji klienta.     | Yes      |
 | **servicePrincipalKey** | Określ klucz aplikacji.           | Yes      |
-| **dzierżawy**              | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Yes      |
+| **Dzierżawy**              | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Yes      |
 
 **Przykład: Usługa podmiotu zabezpieczeń uwierzytelniania**
 ```json
@@ -165,7 +165,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-W powyżej przykładowy skrypt danych wejściowych i wyjściowych skryptu jest zdefiniowany w  **@in**  i  **@out**  parametrów. Wartości  **@in**  i  **@out**  Parametry skryptu U-SQL są przekazywane dynamicznie przez fabrykę danych zgodnie z sekcją "parameters". 
+W powyżej przykładowy skrypt danych wejściowych i wyjściowych skryptu jest zdefiniowany w **@in** i **@out** parametrów. Wartości **@in** i **@out** Parametry skryptu U-SQL są przekazywane dynamicznie przez fabrykę danych zgodnie z sekcją "parameters". 
 
 Inne właściwości, takie jak degreeOfParallelism i priorytet można określić również w definicji potoku dla zadań, które są uruchamiane w usłudze Azure Data Lake Analytics.
 

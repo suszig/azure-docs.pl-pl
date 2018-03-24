@@ -1,11 +1,11 @@
 ---
-title: "Niezawodne dodatkowej podmiotów aktora typu serializacji | Dokumentacja firmy Microsoft"
-description: "W tym artykule omówiono podstawowe wymagania dotyczące Definiowanie klas możliwych do serializacji, które mogą służyć do definiowania stanów Reliable Actors sieci szkieletowej usług i interfejsów"
+title: Niezawodne dodatkowej podmiotów aktora typu serializacji | Dokumentacja firmy Microsoft
+description: W tym artykule omówiono podstawowe wymagania dotyczące Definiowanie klas możliwych do serializacji, które mogą służyć do definiowania stanów Reliable Actors sieci szkieletowej usług i interfejsów
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b1b7c8af6d852599359baab2188bfc3395d33a28
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 210f47b4b052286900781f97077af4d0a0b9c968
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Uwagi dotyczące usługi sieci szkieletowej Reliable Actors typu serializacji
-Argumenty metod wszystkie typy wyników zadań zwracane przez każda metoda w interfejsie aktora, a obiekty przechowywane w Menedżerze stanu aktora musi być [serializacji kontraktu danych](https://msdn.microsoft.com/library/ms731923.aspx). Dotyczy to również argumenty metody zdefiniowane w [interfejsów zdarzeń aktora](service-fabric-reliable-actors-events.md). (Metod interfejsu zdarzenia aktora zawsze zwracać typ void.)
+Argumenty metod wszystkie typy wyników zadań zwracane przez każda metoda w interfejsie aktora, a obiekty przechowywane w Menedżerze stanu aktora musi być [serializacji kontraktu danych](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Dotyczy to również argumenty metody zdefiniowane w [interfejsów zdarzeń aktora](service-fabric-reliable-actors-events.md). (Metod interfejsu zdarzenia aktora zawsze zwracać typ void.)
 
 ## <a name="custom-data-types"></a>Niestandardowe typy danych
 W tym przykładzie interfejsu aktora definiuje metodę, która zwraca niestandardowego typu danych o nazwie `VoicemailBox`:
@@ -144,7 +144,7 @@ public class VoicemailBox implements Serializable
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Aktora cykl życia i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
 * [Czasomierze aktora i przypomnieniami](service-fabric-reliable-actors-timers-reminders.md)
 * [Zdarzenia aktora](service-fabric-reliable-actors-events.md)

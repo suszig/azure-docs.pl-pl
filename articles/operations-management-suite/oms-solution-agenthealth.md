@@ -1,24 +1,24 @@
 ---
-title: "Rozwiązanie Agent Health w usłudze OMS | Microsoft Docs"
-description: "Ten artykuł ma pomóc w zrozumieniu, jak używać tego rozwiązania do monitorowania kondycji Twoich agentów raportujących bezpośrednio do usługi OMS lub programu System Center Operations Manager."
+title: Rozwiązanie Agent Health w usłudze OMS | Microsoft Docs
+description: Ten artykuł ma pomóc w zrozumieniu, jak używać tego rozwiązania do monitorowania kondycji Twoich agentów raportujących bezpośrednio do usługi OMS lub programu System Center Operations Manager.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Rozwiązanie Agent Health w usłudze OMS
 Rozwiązanie Agent Health w usłudze OMS pomaga zrozumieć, dla wszystkich agentów raportujących bezpośrednio do obszaru roboczego usługi OMS lub grupy zarządzania programu System Center Operations Manager połączonej z usługą OMS, które z nich nie odpowiadają, a które przesyłają dane operacyjne.  Można także śledzić liczbę wdrożonych agentów i ich geograficzne rozmieszczenie oraz wykonywać inne zapytania dające informacje na temat rozmieszczenia agentów wdrożonych na platformie Azure, w innych środowiskach w chmurze i lokalnie.    
@@ -98,25 +98,6 @@ Każdy agent raportujący do serwera zarządzania programu Operations Manager b�
 Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów zbieranych przez to rozwiązanie.
 
 | Zapytanie | Opis |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Łączna liczba agentów |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Liczba nieodpowiadających agentów w ciągu ostatnich 24 godzin |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Liczba nieodpowiadających agentów w ciągu ostatnich 15 minut |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Komputery w trybie online (w ciągu ostatnich 24 godzin) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Całkowita liczba agentów w trybie offline w ciągu ostatnich 30 minut (dla ostatnich 24 godzin) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Pobierz trend liczby agentów w miarę upływu czasu według wartości OSType|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Rozkład według typu systemu operacyjnego |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Rozkład według wersji agenta |
-| Type=Heartbeat&#124;measure count() by Category |Rozkład według kategorii agenta |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Rozkład według grupy zarządzania |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Lokalizacja geograficzna agentów |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Liczba zainstalowanych bram usługi OMS |
-
-
->[!NOTE]
-> Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań usługi Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), powyższe zapytania zmienią się w następujący sposób.
->
->| Zapytanie | Opis |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Łączna liczba agentów |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Liczba nieodpowiadających agentów w ciągu ostatnich 24 godzin |
@@ -130,6 +111,9 @@ Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów zbi
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Rozkład według grupy zarządzania |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Lokalizacja geograficzna agentów |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Liczba zainstalowanych bram usługi OMS |
+
+
+
 
 ## <a name="next-steps"></a>Kolejne kroki
 

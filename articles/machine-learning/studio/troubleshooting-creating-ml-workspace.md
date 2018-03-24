@@ -1,10 +1,11 @@
 ---
-title: "Rozwiązywanie problemów: Utworzyć i nawiązywanie z obszaru roboczego usługi Machine Learning | Dokumentacja firmy Microsoft"
-description: "Rozwiązania typowych problemów z tworzeniem i nawiązywania połączenia z obszaru roboczego uczenia maszynowego Azure"
+title: 'Rozwiązywanie problemów: Utworzyć i nawiązywanie z obszaru roboczego usługi Machine Learning | Dokumentacja firmy Microsoft'
+description: Rozwiązania typowych problemów z tworzeniem i nawiązywania połączenia z obszaru roboczego uczenia maszynowego Azure
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
@@ -13,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: cdccd4ce7b87f47d21578076653bde901748188b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c265b14a88e993512811de365f1ba51f7ba6028
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Podręcznik rozwiązywania problemów: tworzenie obszaru roboczego usługi Machine Learning i nawiązywanie połączenia z nim
 Ten przewodnik zawiera temat rozwiązań dla niektórych często spotykanych problemów podczas konfigurowania obszarów roboczych usługi Azure Machine Learning.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="workspace-owner"></a>Właściciela obszaru roboczego
+## <a name="workspace-owner"></a>Właściciel obszaru roboczego
 Aby otworzyć obszar roboczy usługi Machine Learning Studio, użytkownik musi zalogować się Account Microsoft użyty do utworzenia obszaru roboczego lub konieczność odbierania zaproszenia od właściciela do obszaru roboczego. W portalu Azure można zarządzać obszaru roboczego, który obejmuje możliwość konfigurowania dostępu.
 
 Aby uzyskać więcej informacji na temat zarządzania obszaru roboczego, zobacz [Zarządzanie obszarem roboczym usługi Azure Machine Learning].

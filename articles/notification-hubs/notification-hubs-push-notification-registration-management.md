@@ -1,11 +1,11 @@
 ---
-title: "Zarządzanie rejestracji"
-description: "W tym temacie wyjaśniono, jak zarejestrować urządzenia z usługą notification hubs w celu odbierania powiadomień wypychanych."
+title: Zarządzanie rejestracji
+description: W tym temacie wyjaśniono, jak zarejestrować urządzenia z usługą notification hubs w celu odbierania powiadomień wypychanych.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="registration-management"></a>Zarządzanie rejestracją
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym temacie wyjaśniono, jak zarejestrować urządzenia z usługą notification hubs w celu odbierania powiadomień wypychanych. Temat opisuje rejestracji na wysokim poziomie, a następnie wprowadza dwa główne wzorce do rejestracji urządzeń: rejestrację z urządzenia bezpośrednio w Centrum powiadomień i rejestrowanie za pomocą wewnętrznej bazy danych aplikacji. 
 
 ## <a name="what-is-device-registration"></a>Co to jest rejestracja urządzenia
@@ -39,7 +39,7 @@ Poniżej przedstawiono niektóre kluczowe zalety korzystania z instalacji:
 * Model instalacji ułatwia czy poszczególnych wypchnięć - przeznaczonych dla określonego urządzenia. Tag systemu **"$InstallationId: [identyfikator installationId]"** jest automatycznie dodawany z każdej instalacji na podstawie rejestracji. Dlatego należy wywołać Wyślij do tego znacznika do określonego urządzenia bez konieczności dodatkowe kodowania.
 * Przy użyciu instalacji umożliwia także aktualizacje częściowe rejestracji. Zażądano częściowej aktualizacji instalacji z metody poprawki przy użyciu [standard JSON poprawki](https://tools.ietf.org/html/rfc6902). Jest to szczególnie przydatne, jeśli chcesz zaktualizować tagów do rejestracji. Nie trzeba rozwiń całego rejestracji, a następnie ponownie Wyślij ponownie wszystkie poprzednie tagi.
 
-Instalacja produktu może zawierać następujące właściwości. Aby uzyskać pełną listę można znaleźć właściwości instalacji, [utworzyć ani zastąpić instalacji z interfejsu API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) lub [właściwości instalacji](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) dla.
+Instalacja produktu może zawierać następujące właściwości. Aby uzyskać pełną listę można znaleźć właściwości instalacji, [utworzyć ani zastąpić instalacji z interfejsu API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) lub [właściwości instalacji](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
     {

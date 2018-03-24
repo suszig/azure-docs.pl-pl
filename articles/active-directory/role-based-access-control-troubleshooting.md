@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązywanie problemów z kontroli dostępu opartej na rolach Azure RBAC | Dokumentacja firmy Microsoft"
-description: "Uzyskaj pomoc dotyczącą problemy lub pytania dotyczące zasobów kontroli dostępu opartej na rolach."
+title: Rozwiązywanie problemów z kontroli dostępu opartej na rolach Azure RBAC | Dokumentacja firmy Microsoft
+description: Uzyskaj pomoc dotyczącą problemy lub pytania dotyczące zasobów kontroli dostępu opartej na rolach.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Rozwiązywanie problemów z kontroli dostępu opartej na rolach na platformie Azure 
 
-W tym artykule dokumentu odpowiedzi na często zadawane pytania dotyczące określone prawa dostępu przyznane z rolami, aby wiedzieli, czego można oczekiwać, korzystając z ról w portalu Azure i może rozwiązać problemy z dostępem do. Te trzy role opisano wszystkie typy zasobów:
+Ten artykuł zawiera odpowiedzi często zadawane pytania dotyczące określone prawa dostępu przyznane z rolami, tak aby wiedzieli, czego można oczekiwać, korzystając z ról w portalu Azure i może rozwiązać problemy z dostępem do. Te trzy role opisano wszystkie typy zasobów:
 
 * Właściciel  
 * Współautor  
@@ -31,7 +31,7 @@ W tym artykule dokumentu odpowiedzi na często zadawane pytania dotyczące okre�
 
 Właściciele i współautorzy mają pełny dostęp do możliwości zarządzania, ale współautora nie może udzielić dostępu do innych użytkowników lub grup. Elementy poznasz nieco bardziej interesującego z rolą czytnika, dzięki czemu to, gdzie będzie poświęcić trochę czasu. Zobacz [opartej na rolach kontrola dostępu get-started artykułu](role-based-access-control-configure.md) szczegółowe informacje na temat sposobu udzielić dostępu.
 
-## <a name="app-service-workloads"></a>Obciążeń usługi aplikacji
+## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Możliwości zapisu
 Przyznanie dostępu użytkowników tylko do odczytu w aplikacji sieci web jednej, niektóre funkcje zostały wyłączone, że nie może spodziewać się. Następujące funkcje zarządzania wymagają **zapisu** dostęp do aplikacji sieci web (współautora lub właściciela), a nie są dostępne w jakimkolwiek scenariuszu tylko do odczytu.
 
@@ -69,7 +69,14 @@ Te elementy wymagają **zapisu** dostęp do całego **grupy zasobów** zawieraj�
 * Składniki usługi Application Insights  
 * Testy sieci Web  
 
-## <a name="virtual-machine-workloads"></a>Obciążenia maszyny wirtualnej
+## <a name="azure-functions"></a>Azure Functions
+Niektóre funkcje [usługi Azure Functions](../azure-functions/functions-overview.md) wymagają dostępu do zapisu. Na przykład jeśli użytkownik jest przypisać rolę czytelnika, nie będą mogli wyświetlać funkcje w aplikacji funkcji. Zostaną wyświetlone w portalu **(bez dostępu)**.
+
+![Funkcja Brak dostępu do aplikacji](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+Można kliknąć czytnik **funkcji platformy** a następnie kliknij pozycję **wszystkie ustawienia** Aby wyświetlić niektóre ustawienia związane z aplikacji funkcji (podobnie do aplikacji sieci web), ale nie mogą modyfikować tych ustawień.
+
+## <a name="virtual-machine"></a>Maszyna wirtualna
 Wiele takich jak z aplikacjami sieci web, niektóre funkcje w bloku maszyny wirtualnej wymagają dostęp do zapisu do maszyny wirtualnej lub do innych zasobów w grupie zasobów.
 
 Maszyny wirtualne są powiązane z nazwy domeny, sieci wirtualne, konta magazynu i reguł alertów.

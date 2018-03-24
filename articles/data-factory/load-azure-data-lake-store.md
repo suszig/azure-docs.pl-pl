@@ -1,21 +1,21 @@
 ---
-title: "Ładowanie danych do usługi Azure Data Lake Store przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Kopiowanie danych do usługi Azure Data Lake Store za pomocą fabryki danych Azure"
+title: Ładowanie danych do usługi Azure Data Lake Store przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Kopiowanie danych do usługi Azure Data Lake Store za pomocą fabryki danych Azure
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4446f83563293d0834f241dcca382ccf6ea99403
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf0d607d63a68a222a1d44d9cb05253497d12591
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Data Lake Store przy użyciu fabryki danych Azure
 
@@ -47,12 +47,12 @@ W tym artykule przedstawiono sposób użycia narzędzia kopii fabryki danych do 
 
 1. W menu po lewej stronie wybierz **nowy** > **dane i analiza** > **fabryki danych**:
    
-   ![Tworzenie nowego fabryki danych](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![Tworzenie nowej fabryki danych](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
 2. W **nowa fabryka danych** Podaj wartości dla pól, które są wyświetlane na poniższej ilustracji: 
       
    ![Strona Nowa fabryka danych](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Nazwa**: Wprowadź globalnie unikatowej nazwy dla fabryką danych Azure. Jeśli zostanie wyświetlony błąd "Nazwa fabryki danych \"LoadADLSDemo\" jest niedostępny," Wprowadź inną nazwę dla fabryki danych. Na przykład można użyć nazwy  _**twojanazwa**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabryki danych. Zasady nazewnictwa artefaktów fabryki danych, zobacz [regułami nazywania dla fabryki danych](naming-rules.md).
+    * **Nazwa**: Wprowadź globalnie unikatowej nazwy dla fabryką danych Azure. Jeśli zostanie wyświetlony błąd "Nazwa fabryki danych \"LoadADLSDemo\" jest niedostępny," Wprowadź inną nazwę dla fabryki danych. Na przykład można użyć nazwy  _**twojanazwa**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabryki danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
     * **Subskrypcja**: Wybierz subskrypcję platformy Azure, w którym można utworzyć fabryki danych. 
     * **Grupa zasobów**: Wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz **Utwórz nowy** opcję i wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
     * **Wersja**: Wybierz **V2 (wersja zapoznawcza)**.
@@ -120,7 +120,7 @@ W tym artykule przedstawiono sposób użycia narzędzia kopii fabryki danych do 
 13. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. **Akcje** kolumna zawiera łącza, aby wyświetlić szczegóły uruchomienia działania i ponownie uruchomić potoku:
 
     ![Monitorowanie uruchomień potoku](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-14. Zaznacz, aby wyświetlić uruchomień działania, które są skojarzone z potoku Uruchom **odbywa się działanie widoku** łącze w **akcje** kolumny. Potoku, jest tylko jedno działanie (działanie kopiowania), tak aby widoczne tylko jeden wpis. Wybierz, aby wrócić do potoku uruchamia widok **potoki** łącze u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę. 
+14. Zaznacz, aby wyświetlić uruchomień działania, które są skojarzone z potoku Uruchom **odbywa się działanie widoku** łącze w **akcje** kolumny. W potoku jest tylko jedno działanie (działanie kopiowania), dlatego na liście jest wyświetlana tylko jedna pozycja. Wybierz, aby wrócić do potoku uruchamia widok **potoki** łącze u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę. 
 
     ![Monitorowanie uruchomień działania](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 

@@ -1,24 +1,21 @@
 ---
-title: "Aplikacja rozszerzenia — usługa Azure AD B2C | Dokumentacja firmy Microsoft"
-description: "Przywrócenie aplikacji rozszerzeń b2c"
+title: Aplikacja rozszerzenia — usługa Azure AD B2C | Dokumentacja firmy Microsoft
+description: Przywrócenie aplikacji rozszerzeń b2c
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f0392e32-0771-473c-a799-81438ca2bcff
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
-ms.author: parja
-ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: c07aba797118af2cc8283509944eda8b41d499b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Usługa Azure AD B2C: Rozszerzeń aplikacji
 
@@ -39,7 +36,7 @@ Aby sprawdzić, czy znajduje się w aplikacji rozszerzeń b2c:
 
 Jeśli przypadkowo usunięto aplikacji rozszerzeń b2c, masz 30 dni, aby go odzyskać. Możesz przywrócić aplikacji przy użyciu interfejsu API programu Graph:
 
-1. Przejdź do [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
+1. Przejdź do [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/).
 1. Zaloguj się do witryny jako administrator globalny katalogu usługi Azure AD B2C, której chcesz przywrócić usuniętego aplikacji dla. Ten administrator globalny musi mieć adres e-mail jest podobny do następującego: `username@{yourTenant}.onmicrosoft.com`.
 1. Wystawiać HTTP GET względem adresu URL `https://graph.windows.net/myorganization/deletedApplications` z interfejsu api-version = 1.6. Ta operacja spowoduje wyświetlenie listy wszystkich aplikacji, które zostały usunięte w ciągu ostatnich 30 dni.
 1. Znajdź aplikację na liście, których nazwa rozpoczyna się od "ruch aplikacji b2c rozszerzenia" i skopiuj jej `objectid` wartości właściwości.

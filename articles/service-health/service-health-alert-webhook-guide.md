@@ -1,12 +1,12 @@
 ---
-title: "Konfigurowanie powiadomień o kondycji istniejących systemów zarządzania problem przy użyciu elementu webhook | Dokumentacja firmy Microsoft"
-description: "Pobierz spersonalizowany powiadomień dotyczących zdarzeń usługi kondycji do systemu zarządzania istniejący problem."
+title: Konfigurowanie powiadomień o kondycji istniejących systemów zarządzania problem przy użyciu elementu webhook | Dokumentacja firmy Microsoft
+description: Pobierz spersonalizowany powiadomień dotyczących zdarzeń usługi kondycji do systemu zarządzania istniejący problem.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: b6a5f61f61675b825dcfe9c706c80944f5890538
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0e233fe537ea37da97ebe5d4e8221d24f656fd10
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Konfigurowanie powiadomień o kondycji istniejących systemów zarządzania problem przy użyciu elementu webhook
 
@@ -36,9 +36,9 @@ Jeśli chcesz użyć wstępnie skonfigurowane integracji, zobacz jak:
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Konfigurowanie niestandardowych powiadomienia za pomocą usługi kondycji elementu webhook ładunku
 Aby skonfigurować integrację własnego niestandardowego elementu webhook, należy przeanalizować ładunek JSON, wysyłany podczas powiadomień o kondycji usługi.
 
-Szukaj [tutaj, aby zobaczyć przykład](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) co `Service Health` wygląda ładunku elementu webhook.
+Szukaj [tutaj, aby zobaczyć przykład](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) co `ServiceHealth` wygląda ładunku elementu webhook.
 
-Może wykryć, to w przypadku wystąpienia alertu Service Health analizując `context.eventSource == "ServiceHealth"`. Dostępne są właściwości, które są najbardziej odpowiednie do pozyskiwania:
+Może wykryć, analizując jest alertu health service `context.eventSource == "ServiceHealth"`. Dostępne są właściwości, które są najbardziej odpowiednie do pozyskiwania:
  * `data.context.activityLog.status`
  * `data.context.activityLog.level`
  * `data.context.activityLog.subscriptionId`
@@ -48,13 +48,13 @@ Może wykryć, to w przypadku wystąpienia alertu Service Health analizując `co
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## <a name="creating-a-direct-link-to-azure-service-health-for-an-incident"></a>Utworzenie bezpośredniego łącza do usługi Azure kondycji zdarzenie
-Można utworzyć bezpośredniego łącza do spersonalizowanych zdarzenia kondycji usługi platformy Azure na pulpicie lub przenośne generując specjalne adresu URL. Użyj `trackingId`, oraz imię i nazwisko trzech cyfr Twojego `subscriptionId`, do utworzenia:
+## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>Utworzenie bezpośredniego łącza do pulpit nawigacyjny kondycji usługi dla incydentu
+Można utworzyć bezpośredniego łącza do pulpitu nawigacyjnego usługi kondycji na pulpicie lub przenośne generując specjalne adresu URL. Użyj `trackingId`, oraz imię i nazwisko trzech cyfr Twojego `subscriptionId`, do utworzenia:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-Na przykład jeśli Twoje `subscriptionId` jest `bba14129-e895-429b-8809-278e836ecdb3` i `trackingId` jest `0DET-URB`, to jest adres URL spersonalizowane Azure usługi kondycji:
+Na przykład jeśli Twoje `subscriptionId` jest `bba14129-e895-429b-8809-278e836ecdb3` i `trackingId` jest `0DET-URB`, to jest adres URL usługi kondycji:
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3
@@ -101,7 +101,7 @@ Oznacza to, że istnieją problemy z "Metryki & alerty" zarówno Australia Wscho
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testowanie za pomocą żądania HTTP POST integracją elementu webhook
-1. Utwórz ładunku usługi kondycji, który chcesz wysłać. Można znaleźć przykład kondycja usługi elementu webhook ładunku w [elementów Webhook dla działania Azure rejestrowania alertów](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Utwórz ładunku kondycji usługi, który chcesz wysłać. Można znaleźć przykład usługi kondycji elementu webhook ładunku w [elementów Webhook dla działania Azure rejestrowania alertów](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Utwórz żądanie HTTP POST w następujący sposób:
 
@@ -110,13 +110,13 @@ Oznacza to, że istnieją problemy z "Metryki & alerty" zarówno Australia Wscho
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Powinien zostać wyświetlony `2XX - Successful` odpowiedzi.
 
 4. Przejdź do [PagerDuty](https://www.pagerduty.com/) aby upewnić się, że integracją zostało pomyślnie skonfigurowane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Przegląd [schemat alertu elementu webhook dziennika aktywności](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
 - Dowiedz się więcej o [usługi powiadomień o kondycji](../monitoring-and-diagnostics/monitoring-service-notifications.md).
 - Dowiedz się więcej o [grupy akcji](../monitoring-and-diagnostics/monitoring-action-groups.md).

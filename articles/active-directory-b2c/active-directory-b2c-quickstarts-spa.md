@@ -1,23 +1,21 @@
 ---
-title: "Testowanie jednostronicowej aplikacji z włączoną obsługą usługi Azure AD B2C"
-description: "Ten przewodnik Szybki start pozwala wypróbować przykładową aplikację jednostronicową, która korzysta z usługi Azure Active Directory B2C do uwierzytelniania i rejestrowania użytkowników."
+title: Testowanie jednostronicowej aplikacji z włączoną obsługą usługi Azure AD B2C
+description: Ten przewodnik Szybki start pozwala wypróbować przykładową aplikację jednostronicową, która korzysta z usługi Azure Active Directory B2C do uwierzytelniania i rejestrowania użytkowników.
 services: active-directory-b2c
-documentationcenter: 
-author: PatAltimore
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.reviewer: saraford
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
-ms.topic: quickstart
+ms.topic: article
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: e659fd228c2294313a62b331c8e530b7d34073ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
+ms.author: davidmu
+ms.openlocfilehash: 02a0515ff7c461370f29a511ac576d857676cb2b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>Szybki start: Testowanie jednostronicowej aplikacji z włączoną obsługą usługi Azure AD B2C
 
@@ -99,7 +97,7 @@ Przykładowa aplikacja jednostronicowa uwzględnia token dostępu usługi Azure 
 
 Jeśli planujesz wypróbować inne przewodniki Szybki start lub samouczki usługi Azure AD B2C, możesz użyć swojej dzierżawy usługi Azure AD B2C. Możesz [usunąć dzierżawę usługi Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant), gdy nie będzie już potrzebna.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku Szybki start użyto przykładowej aplikacji platformy ASP.NET z obsługą usługi Azure AD B2C do logowania za pomocą niestandardowej strony logowania, logowania za pomocą dostawcy tożsamości dla sieci społecznościowej, utworzenia konta usługi Azure AD B2C i wywołania internetowego interfejsu API chronionego przez usługę Azure AD B2C. 
 

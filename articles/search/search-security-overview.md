@@ -1,24 +1,24 @@
 ---
-title: "Bezpieczeństwo danych i operacji w usłudze Azure Search | Dokumentacja firmy Microsoft"
-description: "Azure zabezpieczenia wyszukiwania jest oparte na zgodności SOC 2, szyfrowania, uwierzytelnianie i tożsamość dostęp za pośrednictwem użytkowników i identyfikatorach grup zabezpieczeń w filtrach usługi Azure Search."
+title: Bezpieczeństwo danych i operacji w usłudze Azure Search | Dokumentacja firmy Microsoft
+description: Azure zabezpieczenia wyszukiwania jest oparte na zgodności SOC 2, szyfrowania, uwierzytelnianie i tożsamość dostęp za pośrednictwem użytkowników i identyfikatorach grup zabezpieczeń w filtrach usługi Azure Search.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: search
-ms.devlang: 
+ms.devlang: ''
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Bezpieczeństwo i kontrolą dostępu w usłudze Azure Search
 
@@ -57,29 +57,16 @@ Wszystkie usługi Azure obsługę kontroli dostępu opartej na rolach (RBAC) ust
 
 ## <a name="service-access-and-authentication"></a>Dostęp do usługi i uwierzytelniania
 
-Podczas wyszukiwania Azure dziedziczy zabezpieczenia zabezpieczeń platformy Azure, także własną uwierzytelniania opartego na kluczach. Typ klucza (admin lub zapytanie) określa poziom dostępu. Przesłanie prawidłowego klucza jest uznawany za dowód żądanie pochodzi z zaufanego jednostki. 
+Podczas wyszukiwania Azure dziedziczy zabezpieczenia zabezpieczeń platformy Azure, także własną uwierzytelniania opartego na kluczach. Klucz interfejsu api to ciąg składający się z losowo generowany liter i cyfr. Typ klucza (admin lub zapytanie) określa poziom dostępu. Przesłanie prawidłowego klucza jest uznawany za dowód żądanie pochodzi z zaufanego jednostki. Dwa typy klucze są używane do uzyskania dostępu do usługi wyszukiwania:
 
-Wymagane jest uwierzytelnienie na każdym żądaniu, gdzie każde żądanie składa się z kluczem obowiązkowe, operacji i obiektu. Gdy połączonych ze sobą, dwa poziomy uprawnień (pełna lub tylko do odczytu) oraz kontekst są wystarczające dla zapewnianie bezpieczeństwa full spektrum na nich operacji usługi. 
+* Administrator (prawidłowe do żadnej operacji odczytu i zapisu z usługą)
+* Zapytania (nieprawidłowy dla operacji tylko do odczytu, takich jak zapytań względem indeksu)
 
-|Klucz|Opis|Limity|  
-|---------|-----------------|------------|  
-|Jednostka administracyjna|Przyznaje pełne prawa do wszystkich operacji, łącznie z możliwością zarządzania usługą oraz tworzenia i usuwania indeksów, indeksatorów i źródeł danych.<br /><br /> Dwa admin **klucze interfejsu api**, nazywany *głównej* i *dodatkowej* klucze w portalu, są generowane, gdy usługa jest tworzony i można osobno ponownie wygenerowane na żądanie . Mając dwa klucze umożliwia przerzucane jednego klucza podczas używania drugi klucz dla nieprzerwanego dostępu do usługi.<br /><br /> Kluczy administratora są tylko określone w nagłówkach żądania HTTP. Klucz interfejsu api administratora nie można umieścić w adresie URL.|Maksymalnie 2 dla usługi|  
-|Zapytanie|Zezwala na dostęp tylko do odczytu do indeksów oraz dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.<br /><br /> Klucze zapytania są tworzone na żądanie. Można je utworzyć ręcznie w portalu lub programowo przy użyciu [interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Klucze zapytania można określić w nagłówku żądania HTTP do wyszukiwania, sugestię lub operacji wyszukiwania. Alternatywnie można przekazać klucz zapytania jako parametr przy użyciu adresu URL. W zależności od tego, jak aplikacja kliencka formulates żądania może być łatwiejsze do przekazania klucza jako parametr zapytania:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 dla usługi|  
+Klucze administratora są tworzone po zainicjowaniu obsługi usługi. Dostępne są dwa klucze administratora, wyznaczony jako *głównej* i *dodatkowej* zachować je bezpośrednio, ale w rzeczywistości są wymienne. Każda usługa ma dwa klucze administratora, dzięki czemu można jedną przerzucane bez utraty dostępu do usługi. Można ponownie wygenerować klucza albo administratora, ale nie można dodać do liczby całkowitej admin klucza. Brak maksymalnie dwa klucze administratora dla usługi wyszukiwania.
 
- Efekty wizualne nie ma ma różnicy między klucz administratora i klucz zapytania. Oba klucze są ciągi składa się z 32 losowo wygenerowany znaków alfanumerycznych. Jeśli zgubisz track określono typ klucza w aplikacji, możesz [Sprawdź wartości klucza w portalu](https://portal.azure.com) lub użyj [interfejsu API REST](https://docs.microsoft.com/rest/api/searchmanagement/) aby zwrócić wartości i typ klucza.  
+Klucze zapytania są tworzone w razie potrzeby i są przeznaczone dla aplikacji klienckich, które bezpośrednio wywołać wyszukiwania. Można utworzyć maksymalnie 50 klucze zapytania. W kodzie aplikacji należy określić adres URL wyszukiwania i klucz api zapytania, aby zezwolić na dostęp tylko do odczytu do usługi. Kod aplikacji określa również indeks używanych przez aplikację. Punkt końcowy, klucz interfejsu api, aby uzyskać dostęp tylko do odczytu i indeksu docelowego określa poziom dostępu i zakres połączenia do aplikacji klienckiej.
 
-> [!NOTE]  
->  Jest on uznawany za rozwiązanie w zakresie zabezpieczeń niską do przekazywania poufnych danych, takich jak `api-key` w identyfikatorze URI żądania. Z tego powodu usługa Azure Search akceptuje tylko klucz zapytania jako `api-key` w zapytaniu ciąg, na które należy unikać chyba, że zawartość indeksu powinny być publicznie dostępne w ten sposób. Ogólną zasadą jest, zalecamy przekazywanie Twojej `api-key` jako nagłówek żądania.  
-
-### <a name="how-to-find-the-access-keys-for-your-service"></a>Jak znaleźć klucze dostępu dla usługi
-
-Możesz uzyskać dostępu do kluczy w portalu lub za pomocą [interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/). Aby uzyskać więcej informacji, zobacz [zarządzanie kluczami](search-manage.md#manage-api-keys).
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Lista [usługi wyszukiwania](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dla Twojej subskrypcji.
-3. Wybierz usługę, a następnie odnaleźć na stronie usługi **ustawienia** >**klucze** do wyświetlania kluczy administratora, jak i zapytania.
-
-![Sekcję klucze strony portalu, ustawienia](media/search-security-overview/settings-keys.png)
+Wymagane jest uwierzytelnienie na każdym żądaniu, gdzie każde żądanie składa się z kluczem obowiązkowe, operacji i obiektu. Gdy połączonych ze sobą, dwa poziomy uprawnień (pełna lub tylko do odczytu) oraz kontekst (na przykład operacji zapytania w indeksie) są wystarczające dla zapewnianie bezpieczeństwa full spektrum na nich operacji usługi. Aby uzyskać więcej informacji o kluczach, zobacz [Utwórz i Zarządzaj kluczami interfejsu api](search-security-api-keys.md).
 
 ## <a name="index-access"></a>Dostęp do indeksu
 
@@ -123,7 +110,7 @@ W poniższej tabeli przedstawiono operacje dozwolone w usłudze Azure Search i k
 | Tworzenie zapytań względem indeksu | Klucz administratora lub zapytania (nie dotyczy RBAC) |
 | Wyślij zapytanie do informacji o systemie, takich jak zwracanie statystyk, liczby i listy obiektów. | Klucz administratora, RBAC zasobu (czytnik właściciela, współautora) |
 | Zarządzanie kluczami administratora | Klucz administratora, RBAC właścicielem lub współautorem zasobu. |
-| Zarządzanie kluczami zapytań |  Klucz administratora, RBAC właścicielem lub współautorem zasobu. Czytnik RBAC można wyświetlić klucze zapytania. |
+| Zarządzanie kluczami zapytań |  Klucz administratora, RBAC właścicielem lub współautorem zasobu.  |
 
 
 ## <a name="see-also"></a>Zobacz także

@@ -1,6 +1,6 @@
 ---
-title: "Podrzędne elementy runbook automatyzacji Azure"
-description: "W tym artykule opisano różne metody udostępniania informacji między nimi i uruchamianie elementu runbook automatyzacji Azure z innego elementu runbook."
+title: Podrzędne elementy runbook automatyzacji Azure
+description: W tym artykule opisano różne metody udostępniania informacji między nimi i uruchamianie elementu runbook automatyzacji Azure z innego elementu runbook.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e8fe3b0023d2cdb9061b5a2c15c3b2c7095c128e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 587a6badd57aad839b4b03ca9da1b62d97b38f82
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Podrzędne elementy runbook automatyzacji Azure
 Jest najlepszym rozwiązaniem w automatyzacji Azure zapisu wielokrotnego użytku, moduły elementów runbook zawierających osobne funkcje, które mogą być używane przez inne elementy runbook. Nadrzędny element runbook często wywołuje jeden lub więcej podrzędnych elementów runbook do wykonania wymaganej funkcjonalności. Istnieją dwa sposoby do wywoływania podrzędnego elementu runbook, a każdy odznacza się istotnymi różnicami, które należy zrozumieć, dzięki czemu można określić, który będzie najlepiej w różnych sytuacjach.

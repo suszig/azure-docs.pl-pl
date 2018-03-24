@@ -1,24 +1,24 @@
 ---
-title: "Użycie wielu wystąpień zadań w celu uruchamiania aplikacji MPI - partii zadań Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie wykonywania aplikacji komunikat interfejsu (Passing Interface), za pomocą typu zadania wielu wystąpień w partii zadań Azure."
+title: Użycie wielu wystąpień zadań w celu uruchamiania aplikacji MPI - partii zadań Azure | Dokumentacja firmy Microsoft
+description: Informacje o sposobie wykonywania aplikacji komunikat interfejsu (Passing Interface), za pomocą typu zadania wielu wystąpień w partii zadań Azure.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Użycie wielu wystąpień zadań w celu uruchamiania aplikacji komunikat interfejsu (Passing Interface) w partii
 
@@ -49,6 +49,10 @@ Po przesłaniu zadania o wielu wystąpieniach ustawienia do zadania wsadowego wy
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Wymagania dotyczące zadań w wielu wystąpieniach
 Mająca wiele wystąpień zadania wymagają z pulą **włączono komunikację między węzłami**oraz z **wykonywanie zadań jednoczesnych wyłączone**. Aby wyłączyć wykonywanie zadań jednoczesnych, ustaw [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) właściwości na wartość 1.
+
+> [!NOTE]
+> Wsadowe [limity](batch-quota-limit.md#other-limits) rozmiar puli, który ma włączoną komunikację między węzłami.
+
 
 Następujący fragment kodu przedstawia sposób tworzenia puli dla wielu wystąpień zadań za pomocą biblioteki partiami platformy .NET.
 
@@ -107,8 +111,7 @@ Wyszukaj rozmiary określony jako "RDMA stanie" w następujących artykułach:
   * [Rozmiary maszyn wirtualnych na platformie Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (system Windows)
 
 > [!NOTE]
-> Aby móc korzystać z funkcji RDMA [węzły obliczeniowe Linux](batch-linux-nodes.md), należy użyć **Intel MPI** w węzłach. Aby uzyskać więcej informacji na CloudServiceConfiguration i VirtualMachineConfiguration pule, zobacz sekcję puli [Przegląd funkcji partii](batch-api-basics.md).
->
+> Aby móc korzystać z funkcji RDMA [węzły obliczeniowe Linux](batch-linux-nodes.md), należy użyć **Intel MPI** w węzłach. 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Utwórz zadanie wielu wystąpień z partiami platformy .NET
@@ -278,7 +281,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 >
 >
 
-### <a name="execution"></a>Wykonanie
+### <a name="execution"></a>Wykonywanie
 1. Pobierz [azure partii próbek] [ github_samples_zip] z usługi GitHub.
 2. Otwórz MultiInstanceTasks **rozwiązania** w programie Visual Studio 2015 lub nowszego. `MultiInstanceTasks.sln` Plik rozwiązania znajduje się w:
 
@@ -327,7 +330,7 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * W tym artykule omówiono Microsoft HPC & Azure partii Team blog [MPI obsługę systemu Linux na partii zadań Azure][blog_mpi_linux]oraz informacje na temat używania [OpenFOAM] [ openfoam] z partii. Można znaleźć przykłady kodu języka Python dla [przykład OpenFOAM w serwisie GitHub][github_mpi].
 * Dowiedz się, jak [tworzenia pul węzły obliczeniowe Linux](batch-linux-nodes.md) do użycia w rozwiązań MPI usługi partia zadań Azure.
 

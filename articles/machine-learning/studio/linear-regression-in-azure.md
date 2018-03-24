@@ -1,11 +1,12 @@
 ---
-title: "Przy użyciu regresji liniowej w uczeniu maszynowym | Dokumentacja firmy Microsoft"
-description: "Porównanie modeli regresji liniowej w programie Excel, jak i w usłudze Azure Machine Learning Studio"
-metakeywords: 
+title: Przy użyciu regresji liniowej w uczeniu maszynowym | Dokumentacja firmy Microsoft
+description: Porównanie modeli regresji liniowej w programie Excel, jak i w usłudze Azure Machine Learning Studio
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Używanie regresji liniowej w usłudze Azure Machine Learning
 > *Kate Baroni* i *Ben Boatman* są architekci rozwiązań w firmy Microsoft danych usługi Insights centrum doskonałości przedsiębiorstwa. W tym artykule opisano w nich ich obsługi migracji na istniejący pakiet analizy regresji rozwiązanie oparte na chmurze za pomocą usługi Azure Machine Learning. 
@@ -62,8 +62,8 @@ Na początku model programu Excel wyraźnie outperformed modelu usługi Machine 
 |  | Excel | Studio |
 | --- |:---:|:---:|
 | Wydajność | | |
-| <ul style="list-style-type: none;"><li>Dostosowana R-kwadrat</li></ul> |0.96 |Nie dotyczy |
-| <ul style="list-style-type: none;"><li>Współczynnik <br />Oznaczanie</li></ul> |Nie dotyczy |0.78<br />(dokładność niski) |
+| <ul style="list-style-type: none;"><li>Dostosowana R-kwadrat</li></ul> |0.96 |ND |
+| <ul style="list-style-type: none;"><li>Współczynnik <br />Oznaczanie</li></ul> |ND |0.78<br />(dokładność niski) |
 | Oznacza błąd absolutny |$9. 5M |$ 19.4 M |
 | Oznacza błąd absolutny (%) |6.03% |12.2% |
 
@@ -77,17 +77,17 @@ Wystąpił naszych procesu i wyniki przez programistów i analityków danych na 
 ### <a name="mystery-solved"></a>Taki rozwiązanie!
 Stosowania zaleceń, firma Microsoft uzyskuje do linii bazowej wydajności w usłudze Machine Learning Studio jako przy użyciu programu Excel: 
 
-|  | Excel | Studio (początkowego) | Studio z najmniejszych kwadratów |
+|  | Excel | Studio (Initial) | Studio z najmniejszych kwadratów |
 | --- |:---:|:---:|:---:|
 | Wartość etykietą |Rzeczywiste (numeryczne) |tym samym |tym samym |
 | Uczeń |Excel -> dane analizy -> regresji |Regresji liniowej. |Regresja liniowa |
-| Opcje uczeń |Nie dotyczy |Wartości domyślne |zwykłe najmniejszych kwadratów<br />L2 = 0,005 |
+| Opcje uczeń |ND |Wartości domyślne |zwykłe najmniejszych kwadratów<br />L2 = 0,005 |
 | Zestaw danych |26 wierszy, funkcje 3, 1 etykiety. Wszystkie liczbowe. |tym samym |tym samym |
 | Podziel: pociągu |Excel ćwiczenie najpierw 18 wierszy, przetestowane na ostatnie 8 wierszy. |tym samym |tym samym |
 | Podziel: testu |Formuła regresji stosowany do wierszy ostatnie 8 w programie Excel |tym samym |tym samym |
 | **Wydajność** | | | |
-| Dostosowana R-kwadrat |0.96 |Nie dotyczy | |
-| Współczynnik determinacji |Nie dotyczy |0.78 |0.952049 |
+| Dostosowana R-kwadrat |0.96 |ND | |
+| Współczynnik determinacji |ND |0.78 |0.952049 |
 | Oznacza błąd absolutny |$9. 5M |$ 19.4 M |$9. 5M |
 | Oznacza błąd absolutny (%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
 
@@ -141,8 +141,8 @@ Możliwość przekazywania predykcyjnej analityczne prognozowania z uczenia masz
 Poniżej przedstawiono niektóre zasoby pomagające w pracy z regresji: 
 
 * Regresja w programie Excel. Jeśli nigdy nie podjęto regresji w programie Excel, w tym samouczku ułatwia: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Funkcja prognozowania vs regresji. Tyler Chessman zapisano artykułu blog, objaśnienia dotyczące czasu serii prognozowania w programie Excel, zawiera opis dla początkujących dobrej regresji liniowej. [http://sqlmag.com/SQL-Server-Analysis-Services/Understanding-Time-Series-forecasting-Concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Regresja liniowa zwykłej najmniejszych kwadratów: Wady, problemów i problemów. Wprowadzenie oraz omówienie regresji: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Funkcja prognozowania vs regresji. Tyler Chessman zapisano artykułu blog, objaśnienia dotyczące czasu serii prognozowania w programie Excel, zawiera opis dla początkujących dobrej regresji liniowej. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Regresja liniowa zwykłej najmniejszych kwadratów: Wady, problemów i problemów. Wprowadzenie oraz omówienie regresji: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

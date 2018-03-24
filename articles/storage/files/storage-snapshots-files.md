@@ -1,6 +1,6 @@
 ---
-title: "Omówienie migawek udział plików Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
-description: "Migawka udziału jest tylko do odczytu wersji udziału plików platformy Azure, która jest wykonywana w punkcie w czasie, aby utworzyć kopię zapasową udziału."
+title: Omówienie migawek udział plików Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft
+description: Migawka udziału jest tylko do odczytu wersji udziału plików platformy Azure, która jest wykonywana w punkcie w czasie, aby utworzyć kopię zapasową udziału.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a6b80c134351429ec85a20f7ab83b7674b8b7352
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Omówienie migawek udział plików Azure (wersja zapoznawcza)
 Usługa pliki Azure oferuje możliwość migawek udziału udziałów plików. Udostępnianie przechwytywania migawek (wersja zapoznawcza) stanu udziału w danym momencie. W tym artykule opisano możliwości, jakie Podaj migawki udziału i jak można korzystać z nich w Twoim przypadku wykorzystania niestandardowego.
@@ -48,7 +48,7 @@ Po utworzeniu migawki udziału, to można można odczytać, kopiowane, lub usuni
 
 Funkcja migawki udziału znajduje się na poziomie udziału plików. Pobieranie znajduje się na poziomie poszczególnych plików, aby umożliwić Przywracanie pojedynczych plików. Udział plików pełną można przywrócić za pomocą protokołu SMB, interfejsu API REST, portalu, Biblioteka klienta lub narzędzi programu PowerShell/interfejsu wiersza polecenia.
 
-Migawki udziału udział plików jest identyczny z udziału pliku podstawowego. Jedyną różnicą jest to, że **DateTime** wartość jest dołączany do udziału URI wskazująca czas, w którym udziału migawki. Na przykład jeśli identyfikator URI udziału plików jest http://storagesample.core.file.windows.net/myshare, migawki udziału identyfikatora URI jest podobny do:
+Migawki udziału udział plików jest identyczny z udziału pliku podstawowego. Jedyną różnicą jest to, że **DateTime** wartość jest dołączany do udziału URI wskazująca czas, w którym udziału migawki. Na przykład jeśli identyfikator URI udostępniania plików jest http://storagesample.core.file.windows.net/myshare, identyfikator URI jest podobny do migawki udziału:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Migawki udziału Podaj tylko ochrony na poziomie pliku. Migawki udziału nie uni
 
 ## <a name="next-steps"></a>Kolejne kroki
 * [Praca z migawkami udziału](storage-how-to-use-files-snapshots.md)
-* [Udostępnianie migawki — często zadawane pytania](storage-files-faq.md)
+* [Udostępnianie migawki — często zadawane pytania](storage-files-faq.md#share-snapshots)
 

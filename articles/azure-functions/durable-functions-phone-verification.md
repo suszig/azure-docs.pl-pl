@@ -1,24 +1,24 @@
 ---
-title: "Człowieka i limity czasu w funkcjach trwałe - Azure"
-description: "Informacje o sposobie obsługi człowieka i limity czasu w rozszerzeniu trwałe funkcji dla usługi Azure Functions."
+title: Człowieka i limity czasu w funkcjach trwałe - Azure
+description: Informacje o sposobie obsługi człowieka i limity czasu w rozszerzeniu trwałe funkcji dla usługi Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Człowieka w funkcje trwałe — przykład weryfikacji telefonu
 
@@ -28,8 +28,8 @@ W tym przykładzie implementuje system weryfikacji na podstawie SMS telefonu. Te
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Postępuj zgodnie z instrukcjami [zainstalować funkcje trwałe](durable-functions-install.md) do skonfigurowania próbki.
-* W tym artykule przyjęto już przeszły [Hello sekwencji](durable-functions-sequence.md) wskazówki przykładowe.
+* [Instalowanie funkcji trwałe](durable-functions-install.md).
+* Zakończenie [Hello sekwencji](durable-functions-sequence.md) wskazówki.
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
@@ -50,7 +50,7 @@ W tym artykule przedstawiono następujące funkcje w przykładowej aplikacji:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-W poniższych sekcjach opisano konfigurację i kod, który są używane do tworzenia portalu Azure. Kod dla tworzenia Visual Studio jest wyświetlany na końcu tego artykułu.
+W poniższych sekcjach opisano konfigurację i kodu, które są używane dla języka C# skryptów. Kod dla tworzenia Visual Studio jest wyświetlany na końcu tego artykułu.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestration weryfikację SMS (Visual Studio Code i Azure portal przykładowy kod) 
 

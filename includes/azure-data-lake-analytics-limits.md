@@ -3,6 +3,6 @@ Usługa Data Lake Analytics ułatwia wykonywanie zadań związanych z zarządzan
 | **Zasób** | **Limit domyślny** | **Komentarze** |
 | --- | --- | --- |
 | Maksymalna liczba jednoczesnych zadań |20 | |
-| Maksymalna liczba jednostek Analytics (AUs) dla konta |250 | Użyć dowolnej kombinacji maksymalnie 250 AUs między 20 zadania. |
+| Maksymalna liczba jednostek Analytics (AUs) dla konta |250 | Użyć dowolnej kombinacji maksymalnie 250 AUs między 20 zadania.  Skontaktuj się z pomocą techniczną firmy Microsoft, aby zwiększyć ten limit. |
 | Rozmiar maksymalny skryptu przesyłanie zadań | 3 MB | |
-
+| Maksymalna liczba kont ADLA na region na subskrypcję | 5 | Skontaktuj się z pomocą techniczną firmy Microsoft, aby zwiększyć ten limit. |

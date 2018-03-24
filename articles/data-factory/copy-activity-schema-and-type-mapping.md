@@ -1,11 +1,11 @@
 ---
-title: "Mapowanie schematu w przypadku działania kopiowania | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu działania kopiowania w fabryce danych Azure mapowania typów schematów i dane ze źródła danych do zbiornika danych podczas kopiowania danych."
+title: Mapowanie schematu w przypadku działania kopiowania | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat sposobu działania kopiowania w fabryce danych Azure mapowania typów schematów i dane ze źródła danych do zbiornika danych podczas kopiowania danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22dbaa3d10d09456a972a7991583dc29b7941db1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapowanie schematu w przypadku działania kopiowania
 W tym artykule opisano, jak aktywność kopiowania fabryki danych Azure mapowania schematu i mapowanie typu danych ze źródła danych do zbiornika danych kiedy wykonać kopię danych.

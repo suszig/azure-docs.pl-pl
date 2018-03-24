@@ -1,18 +1,18 @@
 ---
-title: "Tabela wsparcia dla replikację maszyn wirtualnych VMware i serwerów fizycznych do platformy Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Podsumowanie obsługiwanych systemów operacyjnych oraz składników do replikowania maszyn wirtualnych VMware i serwerów fizycznych do platformy Azure przy użyciu usługi Azure Site Recovery."
+title: Tabela wsparcia dla replikację maszyn wirtualnych VMware i serwerów fizycznych do platformy Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft
+description: Podsumowanie obsługiwanych systemów operacyjnych oraz składników do replikowania maszyn wirtualnych VMware i serwerów fizycznych do platformy Azure przy użyciu usługi Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Tabela wsparcia dla VMware i replikacja serwerów fizycznych do platformy Azure
 
@@ -175,7 +175,7 @@ Architektura systemu operacyjnego gościa | 64-bitowych. | Sprawdzenie nie powie
 Rozmiar dysku systemu operacyjnego | Do 2048 GB. | Sprawdzenie nie powiedzie się, jeśli jest nieobsługiwany. 
 Liczba dysków systemu operacyjnego | 1 | Sprawdzenie nie powiedzie się, jeśli jest nieobsługiwany.  
 Liczba dysków danych | 64 lub mniej. | Sprawdzenie nie powiedzie się, jeśli jest nieobsługiwany.  
-Rozmiar wirtualnego dysku twardego dysku danych | Do 4,095 GB | Sprawdzenie nie powiedzie się, jeśli jest nieobsługiwany. 
+Rozmiar dysku danych | Do 4,095 GB | Sprawdzenie nie powiedzie się, jeśli jest nieobsługiwany. 
 Karty sieciowe | Wiele kart sieciowych są obsługiwane. | 
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzenie nie powiedzie się, jeśli jest nieobsługiwany. 
 FC dysku | Nieobsługiwane. | Sprawdzenie nie powiedzie się, jeśli jest nieobsługiwany. 

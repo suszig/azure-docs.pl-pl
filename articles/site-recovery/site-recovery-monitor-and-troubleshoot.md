@@ -1,12 +1,12 @@
 ---
-title: "Monitorowanie i rozwiązywanie problemów z usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Monitorowanie i rozwiązywanie problemów z replikacją usługi Azure Site Recovery i operacje przy użyciu portalu"
+title: Monitorowanie i rozwiązywanie problemów z usługi Azure Site Recovery | Dokumentacja firmy Microsoft
+description: Monitorowanie i rozwiązywanie problemów z replikacją usługi Azure Site Recovery i operacje przy użyciu portalu
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: bsiva
 manager: abhemraj
 editor: raynew
-ms.assetid: 
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: bb453f6c16440fae8a12cc1c4890a473ce541f45
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Monitorowanie i rozwiązywanie problemów z usługi Azure Site Recovery
 
@@ -145,7 +145,7 @@ Widok infrastruktury, zakres w kontekście jednej maszynie replikacji jest dost�
 **ODPOWIEDŹ** Infrastruktura widoku funkcja jest dostępna tylko dla maszyn wirtualnych, które są replikowane do platformy Azure. Funkcja nie jest obecnie dostępna dla maszyn wirtualnych, które jest replikowana między lokacjami lokalnymi.
 
 **PYTANIE** Dlaczego liczby maszyn wirtualnych w widoku infrastruktury magazynu inny niż łączna liczba jest wyświetlana w pierścień zreplikowanych elementów?</br>
-**ODPOWIEDŹ** Widok infrastruktury magazynu jest ograniczone w zależności od scenariuszy replikacji. Tylko maszyny wirtualne z uczestnictwa w scenariuszu aktualnie zaznaczonego replikacji są uwzględnione w liczbie maszyn wirtualnych w widoku infrastruktury. Ponadto dla wybranego scenariusza, tylko maszyny wirtualne, które są aktualnie skonfigurowane do replikacji do platformy Azure są uwzględnione w liczbie maszyn wirtualnych w widoku infrastruktury (dla na przykład: przejścia w tryb failover maszyn wirtualnych replikowanych maszyn wirtualnych Powrót do lokacji lokalnej nie znajdują się w widoku infrastruktury.)
+**ODPOWIEDŹ** Widok infrastruktury magazynu jest ograniczone w zależności od scenariuszy replikacji. Tylko maszyny wirtualne z uczestnictwa w scenariuszu aktualnie zaznaczonego replikacji są uwzględnione w liczbie maszyn wirtualnych w widoku infrastruktury. Ponadto dla wybranego scenariusza, tylko maszyny wirtualne, które są aktualnie skonfigurowane do replikacji do platformy Azure są uwzględnione w liczbie maszyn wirtualnych w widoku infrastruktury (przykład Fo: przejścia w tryb failover maszyny wirtualnej, Utwórz kopię maszyn wirtualnych replikowanych do lokacji lokalnej nie znajdują się w widoku infrastruktury.)
 
 **PYTANIE** Dlaczego jest liczba replikowanych elementy(ów) w szufladzie essentials na stronie Przegląd różnych z łącznej liczby zreplikowanych elementów wyświetlane na wykresie pierścień na pulpicie nawigacyjnym?</br>
 **ODPOWIEDŹ** Tylko maszyny wirtualne, dla których Replikacja początkowa została ukończona są uwzględnione w liczbie wyświetlany w szufladzie essentials. Całkowita liczba pierścień zreplikowanych elementów obejmuje wszystkie maszyny wirtualne w magazynie, włącznie z serwerami dla których Replikacja początkowa jest w toku.

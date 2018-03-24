@@ -1,24 +1,19 @@
 ---
-title: "Biznesowe ciągłości i odzyskiwanie po awarii (BCDR): łączyć regiony platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o Azure regionalnych parowania, aby upewnić się, że aplikacje są odporne podczas awarii centrum danych."
+title: 'Biznesowe ciągłości i odzyskiwanie po awarii (BCDR): łączyć regiony platformy Azure | Dokumentacja firmy Microsoft'
+description: Dowiedz się więcej o Azure regionalnych parowania, aby upewnić się, że aplikacje są odporne podczas awarii centrum danych.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+manager: carmonm
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: raynew
-ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Biznesowe ciągłości i odzyskiwanie po awarii (BCDR): łączyć regiony platformy Azure
 
@@ -41,7 +36,7 @@ Rysunek 1 — diagram Azure pary regionalne
 | Indie |Indie Środkowe |Indie Południowe |
 | Indie |Indie Zachodnie (1) |Indie Południowe |
 | Japonia |Japonia Wschodnia |Japonia Zachodnia |
-| Korea Południowa |Korea Środkowa |Korea Południowa |
+| Korea |Korea Środkowa |Korea Południowa |
 | Ameryka Północna |Środkowo-północne stany USA |Środkowo-południowe stany USA |
 | Ameryka Północna |Wschodnie stany USA |Zachodnie stany USA |
 | Ameryka Północna |Wschodnie stany USA 2 |Środkowe stany USA |
@@ -58,10 +53,10 @@ Rysunek 1 — diagram Azure pary regionalne
 
 Tabela 1 - mapowania par regionalnych Azure
 
-- > (1) Indie Zachodnie jest inny, ponieważ jest on łączyć się z innego regionu tylko w jednym kierunku. Indie Południowe jest region pomocniczy Indie Zachodnie, lecz region pomocniczy Indie Południowe Indie środkowe.
-- > (2) Brazylia Południowa jest unikatowa, ponieważ jest łączyć się z obszarem poza jego własnej lokalizacji geograficznej. Brazylia Południowa region pomocniczy jest południowo-środkowe stany, ale południowo-środkowe stany w regionie pomocniczym nie jest Brazylia Południowa.
-- > (3) region pomocniczy Iowa wersji dla instytucji rządowych Stanów Zjednoczonych jest Virginia nam wersji dla instytucji rządowych, ale region pomocniczy Virginia nam wersji dla instytucji rządowych nie Iowa nam wersji dla instytucji rządowych.
-- > (4) region pomocniczy Virginia wersji dla instytucji rządowych Stanów Zjednoczonych jest Texas nam wersji dla instytucji rządowych, ale region pomocniczy Texas nam wersji dla instytucji rządowych nie Virginia nam wersji dla instytucji rządowych.
+- (1) Indie Zachodnie jest inny, ponieważ jest on łączyć się z innego regionu tylko w jednym kierunku. Indie Południowe jest region pomocniczy Indie Zachodnie, lecz region pomocniczy Indie Południowe Indie środkowe.
+- (2) Brazylia Południowa jest unikatowa, ponieważ jest łączyć się z obszarem poza jego własnej lokalizacji geograficznej. Brazylia Południowa region pomocniczy jest południowo-środkowe stany, ale południowo-środkowe stany w regionie pomocniczym nie jest Brazylia Południowa.
+- (3) region pomocniczy Iowa wersji dla instytucji rządowych Stanów Zjednoczonych jest Virginia nam wersji dla instytucji rządowych, ale region pomocniczy Virginia nam wersji dla instytucji rządowych nie Iowa nam wersji dla instytucji rządowych.
+- (4) region pomocniczy Virginia wersji dla instytucji rządowych Stanów Zjednoczonych jest Texas nam wersji dla instytucji rządowych, ale region pomocniczy Texas nam wersji dla instytucji rządowych nie Virginia nam wersji dla instytucji rządowych.
 
 
 Firma Microsoft zaleca replikować obciążenia między regionalnych pary do korzystania z platformy Azure zasad izolacji i dostępności. Na przykład aktualizacje planowane systemu Azure są wdrażane kolejno (nie w tym samym czasie) w parach regionach. Oznacza to, że nawet w rzadkich błędny aktualizacji obu regionów nie zostaną zmienione jednocześnie. Ponadto na wypadek awarii szerokie priorytetu jest Odzyskiwanie co najmniej jeden region poza każdej pary.
@@ -97,7 +92,7 @@ Określone na rysunku 2.
 **kolejności odzyskiwania Region** — w przypadku awarii szerokie, odzyskiwania jeden region jest priorytety poza każdej pary. Aplikacje, które są wdrażane w regionach sparowanego dotrą do ma regionów odzyskane o priorytecie. Jeśli aplikacja jest wdrażana w regionach, które nie są skojarzone, odzyskiwania mogą być opóźnione — w najgorszym przypadku wybranych regionów może być ostatnie dwa mają zostać odzyskane.
 
 ![Aktualizacje](./media/best-practices-availability-paired-regions/8Orange.png)
-**kolejnych aktualizacji** — aktualizacje systemu Azure planowane są wprowadzanie do regionów sparowanego sekwencyjnie (nie w tym samym czasie) aby zminimalizować czas przestoju, wpływ usterek i błędów logicznych w rzadkich zły aktualizacji.
+**kolejnych aktualizacji** — aktualizacje systemu Azure planowane są wprowadzanie do regionów sparowanego sekwencyjnie (nie w tym samym czasie) aby zminimalizować czas przestoju, wpływ usterek i błędów logicznych w rzadkich zły Aktualizacja.
 
 ![Dane](./media/best-practices-availability-paired-regions/9Orange.png)
 **siedziby danych** — region znajduje się w tej samej lokalizacji geograficznej, jako jego para (z wyjątkiem Brazylia Południowa) w celu spełnienia wymagań siedziby danych do celów właściwość wymuszania podatku i prawa.

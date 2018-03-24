@@ -1,12 +1,13 @@
 ---
-title: "Wybieranie algorytmów uczenia maszynowego | Dokumentacja firmy Microsoft"
-description: "Jak wybrać Azure Machine Learning algorytmów uczenie nadzorowane i nienadzorowane w eksperymentach klaster, klasyfikacji lub regresji."
+title: Wybieranie algorytmów uczenia maszynowego | Dokumentacja firmy Microsoft
+description: Jak wybrać Azure Machine Learning algorytmów uczenie nadzorowane i nienadzorowane w eksperymentach klaster, klasyfikacji lub regresji.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Wybór algorytmów dla usługi Microsoft Azure Machine Learning
 Odpowiedź na pytanie "Jakie Algorytm uczenia maszynowego należy używać?" jest zawsze "Zależy." To zależy od rozmiaru, jakości i charakter danych. To zależy co chcesz zrobić z odpowiedzią. To zależy jak matematyczne algorytmu był przekształcić instrukcje dla komputera, którego używasz. I jest ono zależne na czas, jaki ma. Nawet najbardziej doświadczeni analityków danych nie wiadomo, który algorytm będzie wykonywać najlepiej przed podjęciem próby je.
@@ -102,7 +102,7 @@ Dla niektórych typów danych liczbę funkcji mogą być bardzo duże w porówna
 ### <a name="special-cases"></a>Specjalne przypadki
 Niektóre algorytmów uczenia zakładają określonej struktury danych lub zakładanych wyników. Jeśli znajdziesz taki, który odpowiada potrzebom użytkownika, jego możesz nadać bardziej przydatne wyniki, dokładniejszych prognoz lub szybsze szkolenia.
 
-| **Algorytm** | **Dokładność** | **Czas szkolenia** | **Liniowości** | **Parametry** | **Uwagi** |
+| **Algorytm** | **Accuracy** | **Czas szkolenia** | **Liniowości** | **Parametry** | **Uwagi** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Klasyfikacja dwa — klasa** | | | | | |
 | [Regresja logistyczna](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
@@ -117,11 +117,11 @@ Niektóre algorytmów uczenia zakładają określonej struktury danych lub zakł
 | **Klasa usługi klasyfikacji** | | | | | |
 | [Regresja logistyczna](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [decyzja lasu](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [Dżungla decyzji](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Mało pamięci |
+| [Dżungla decyzji ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Mało pamięci |
 | [sieć neuronowa](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Możliwe jest dodatkowe dostosowanie](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [jedna v wszystkie](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Zobacz właściwości wybrano metodę dwa — klasa |
-| **Regresja** | | | | | |
-| [liniowy](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Zobacz właściwości wybrano metodę dwa — klasa |
+| **Regression** | | | | | |
+| [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Estymacja Bayesian liniowy](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [decyzja lasu](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [drzewo decyzyjne boosted](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Zużycie pamięci |
@@ -187,7 +187,7 @@ Obsługa wektor maszyny (SVMs) znaleźć granicy oddziela klasy przez jako szero
 
 ***Margin oddzielenie dwie klasy maksymalizuje granicę techniczną wektor maszyny — klasa***
 
-Innego produktu Microsoft Research [SVM lokalnie głębokie dwuklasowych](https://msdn.microsoft.com/library/azure/dn913070.aspx) jest-liniowej wariant SVM, który zachowuje większość szybkość i pamięci wydajności liniowej wersji. Jest idealny dla przypadków gdzie liniowej podejście nie zapewniają wystarczająco dokładne odpowiedzi. Deweloperzy przechowywane fast dzieląc problem do licznych drobne problemy SVM liniowej. Odczyt [pełny opis](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) szczegółowe informacje dotyczące sposobu pobierane poza ta procedura.
+Innego produktu Microsoft Research [SVM lokalnie głębokie dwuklasowych](https://msdn.microsoft.com/library/azure/dn913070.aspx) jest-liniowej wariant SVM, który zachowuje większość szybkość i pamięci wydajności liniowej wersji. Jest idealny dla przypadków gdzie liniowej podejście nie zapewniają wystarczająco dokładne odpowiedzi. Deweloperzy przechowywane fast dzieląc problem do licznych drobne problemy SVM liniowej. Odczyt [pełny opis](http://proceedings.mlr.press/v28/jose13.html) szczegółowe informacje dotyczące sposobu pobierane poza ta procedura.
 
 Przy użyciu inteligentne rozszerzenia rożne SVMs [SVM jednej klasy](https://msdn.microsoft.com/library/azure/dn913103.aspx) rysuje obramowanie ściśle przedstawiono cały zestaw danych. Jest to przydatne w przypadku wykrywania anomalii. Nietypowe za warte wymienienia są wszystkie nowe punkty danych należących do tej pory poza tę granicę.
 

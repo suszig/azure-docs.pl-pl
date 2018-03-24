@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Migracja użytkowników z tożsamościami społecznościowych"
-description: "Omówiono w nim podstawowe koncepcje migracji użytkowników z społecznościowych tożsamości w usłudze Azure AD B2C, za pomocą interfejsu API programu Graph"
+title: 'Usługa Azure Active Directory B2C: Migracja użytkowników z tożsamościami społecznościowych'
+description: Omówiono w nim podstawowe koncepcje migracji użytkowników z społecznościowych tożsamości w usłudze Azure AD B2C, za pomocą interfejsu API programu Graph
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
-manager: joroja
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: davidmu
+manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
-ms.date: 14/03/2018
-ms.author: yoelh
-ms.openlocfilehash: b82805f1c5d83c4d4a11c4b88fd6771c0b85f0f4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/03/2018
+ms.author: davidmu
+ms.openlocfilehash: 76ed4dac40872bf6db07b26c5805a4db62dc9dfc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Usługa Azure Active Directory B2C: Migracja użytkowników z tożsamościami społecznościowych
 Podczas planowania migracji do usługi Azure AD B2C dostawcy tożsamości, konieczne może być migracja użytkowników z tożsamościami społecznościowych. W tym artykule opisano sposób migracji istniejących kont społecznościowych tożsamości, takich jak: usługi Facebook, LinkedIn firmy Microsoft i Google kont do usługi Azure AD B2C. Ten artykuł dotyczy również tożsamości federacyjnych, jednak te migracji są mniej typowe.

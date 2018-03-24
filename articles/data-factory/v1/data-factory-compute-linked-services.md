@@ -1,11 +1,10 @@
 ---
-title: "Obliczeniowe środowiskach obsługiwanych przez usługi fabryka danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat środowiska obliczeniowego, w których można użyć w potokach fabryki danych Azure (np. Azure HDInsight) do przechowywania danych transformacji lub proces."
+title: Obliczeniowe środowiskach obsługiwanych przez usługi fabryka danych Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat środowiska obliczeniowego, w których można użyć w potokach fabryki danych Azure (np. Azure HDInsight) do przechowywania danych transformacji lub proces.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Obliczenia bazy danych środowiskach obsługiwanych przez usługi fabryka danych Azure
 > [!NOTE]
@@ -51,7 +50,7 @@ Microsoft aktualizuje listę obsługiwanych wersji usługi HDInsight najnowsze s
 Po 15 grudnia 2017 r.:
 
 - Nie można utworzyć wersji 3.3 HDInsight opartych na systemie Linux (i starszych) klastrów za pomocą usługi HDInsight na żądanie połączonej usługi z fabryki danych w wersji 1. 
-- Jeśli [ **osType** i **wersji** właściwości](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nie są jawnie określone w definicji JSON dla istniejącej usługi HDInsight połączone na żądanie w wersji 1 usługi fabryka danych , wartością domyślną jest zmieniana z **wersji = 3.1, osType = Windows** do **wersji =\<najnowszej wersji domyślnej HDI\>(https://docs.microsoft.com/azure/hdinsight/ hdinsight-Component-Versioning#hadoop-Components-Available-with-different-hdinsight-Versions), osType = Linux**.
+- Jeśli [ **osType** i **wersji** właściwości](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nie są jawnie określone w definicji JSON dla istniejącej usługi HDInsight połączone na żądanie w wersji 1 usługi fabryka danych , wartością domyślną jest zmieniana z **wersji = 3.1, osType = Windows** do **wersji =\<najnowszej wersji domyślnej HDI\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType = Linux**.
 
 Po 31 lipca 2018:
 

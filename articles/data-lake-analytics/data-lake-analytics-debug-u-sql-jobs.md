@@ -1,8 +1,8 @@
 ---
-title: "Debugowania zdefiniowane przez użytkownika kodu C#, dla zadań zakończonych niepowodzeniem usługi Azure Data Lake U-SQL | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak można debugować wierzchołek nie powiodło się U-SQL przy użyciu usługi Azure Data Lake Tools dla programu Visual Studio."
+title: Debugowania zdefiniowane przez użytkownika kodu C#, dla zadań zakończonych niepowodzeniem usługi Azure Data Lake U-SQL | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak można debugować wierzchołek nie powiodło się U-SQL przy użyciu usługi Azure Data Lake Tools dla programu Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Debugowanie zdefiniowane przez użytkownika kodu C#, dla zadań U-SQL nie powiodło się
 
@@ -41,7 +41,7 @@ Po otwarciu zadanie zakończone niepowodzeniem w Azure Data Lake Tools dla progr
 
 1. Kliknij przycisk **Pobierz** do pobrania wszystkich wymaganych zasobów i strumienie wejściowe. Pobieranie nie zostało ukończone, kliknij przycisk **ponów**.
 
-2. Kliknij przycisk **Otwórz** po zakończeniu pobierania do generowania środowisku debugowania lokalnego. Nowe wystąpienie programu Visual Studio z rozwiązaniem do debugowania jest automatycznie utworzony i otwarty.
+2. Kliknij przycisk **Otwórz** po zakończeniu pobierania do generowania środowisku debugowania lokalnego. Nowe rozwiązanie debugowania zostanie otwarty, a jeśli masz istniejące rozwiązania otwarty w programie Visual Studio, sprawdź upewnij się, że Zapisz i zamknij je przed dokonaniem debugowania.
 
 ![Azure Data Lake Analytics U-SQL debugowania programu visual studio pobierania wierzchołków](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
@@ -109,7 +109,7 @@ Prześlij zadanie z błędem:
 
 3. Prześlij ponownie zadania skryptu U-SQL.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Podręcznik programowania U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Opracowywanie operatorów zdefiniowanych przez użytkownika U-SQL do zadania usługi Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)

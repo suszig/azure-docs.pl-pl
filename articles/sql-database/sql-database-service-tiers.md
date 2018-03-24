@@ -1,19 +1,19 @@
 ---
-title: "Usługa Azure SQL Database | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat warstwy usługi dla pojedynczej i baz danych puli zapewnienie poziomy wydajności i rozmiaru magazynu."
+title: Usługa Azure SQL Database | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat warstwy usługi dla pojedynczej i baz danych puli zapewnienie poziomy wydajności i rozmiaru magazynu.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Co to są warstwach usług bazy danych SQL Azure?
 
@@ -33,7 +33,8 @@ Wybór warstwy usług zależy przede wszystkim ciągłość prowadzenia działal
 |Procesor CPU|Małe|Niski, Średni, wysoki|Średni i wysoki|
 |Wydajność We/Wy (przybliżony) |2.5 IOPS dla jednostek dtu w warstwie  | 2.5 IOPS dla jednostek dtu w warstwie | 48 IOPS dla jednostek dtu w warstwie|
 |We/Wy, czas oczekiwania (w przybliżeniu)|ms 5 (odczyt), 10 ms (Zapisz)|ms 5 (odczyt), 10 ms (Zapisz)|ms 2 (odczyt/zapis)|
-|Indeksowanie magazynu kolumn i OLTP w pamięci|ND|ND|Obsługiwane|
+|Indeksowanie magazynu kolumn |ND|S3 i nowsze|Obsługiwane|
+|OLTP w pamięci|ND|ND|Obsługiwane|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Poziom wydajności i magazynu limity rozmiaru

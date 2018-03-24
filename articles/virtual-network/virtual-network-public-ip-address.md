@@ -1,11 +1,11 @@
 ---
 title: Tworzenie, zmienianie lub usuwanie Azure publicznego adresu IP | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak tworzenie, zmienianie lub usuwanie publicznego adresu IP."
+description: Dowiedz się, jak tworzenie, zmienianie lub usuwanie publicznego adresu IP.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Tworzenie, zmienianie lub usuwanie publicznego adresu IP
 
@@ -32,9 +32,9 @@ Więcej informacji na temat publiczny adres IP i tworzenie, zmienianie i usuną�
 Przed wykonaniem kroków w żadnej sekcji tego artykułu, należy wykonać następujące zadania:
 
 - Jeśli nie masz jeszcze konta platformy Azure, należy zarejestrować się w celu [bezpłatnego konta wersji próbnej](https://azure.microsoft.com/free).
-- Jeśli przy użyciu portalu, otwórz https://portal.azure.com i zaloguj się za pomocą konta platformy Azure.
-- Jeśli za pomocą poleceń programu PowerShell do wykonywania zadań w tym artykule, albo Uruchom polecenia w [powłoki chmury Azure](https://shell.azure.com/powershell), lub przez uruchomienie programu PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Ten samouczek wymaga programu Azure PowerShell w wersji modułu 5.2.0 lub nowszym. Uruchom `Get-Module -ListAvailable AzureRM` można odnaleźć zainstalowanej wersji. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure.
-- Jeśli za pomocą poleceń Azure interfejsu wiersza polecenia (CLI), aby wykonać zadania w tym artykule, albo Uruchom polecenia w [powłoki chmury Azure](https://shell.azure.com/bash), lub za pomocą interfejsu wiersza polecenia z tego komputera. Ten samouczek wymaga wiersza polecenia platformy Azure w wersji 2.0.26 lub nowszej. Uruchom `az --version` można odnaleźć zainstalowanej wersji. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia Azure lokalnie, należy uruchomić `az login` można utworzyć połączenia z platformą Azure.
+- Jeśli przy użyciu portalu, otwórz https://portal.azure.comi zaloguj się przy użyciu konta platformy Azure.
+- Jeśli za pomocą poleceń programu PowerShell do wykonywania zadań w tym artykule, albo Uruchom polecenia w [powłoki chmury Azure](https://shell.azure.com/powershell), lub przez uruchomienie programu PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Ten samouczek wymaga programu Azure PowerShell w wersji modułu 5.2.0 lub nowszym. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzureRmAccount`, aby utworzyć połączenie z platformą Azure.
+- Jeśli za pomocą poleceń Azure interfejsu wiersza polecenia (CLI), aby wykonać zadania w tym artykule, albo Uruchom polecenia w [powłoki chmury Azure](https://shell.azure.com/bash), lub za pomocą interfejsu wiersza polecenia z tego komputera. Ten samouczek wymaga wiersza polecenia platformy Azure w wersji 2.0.26 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia Azure lokalnie, należy uruchomić `az login` można utworzyć połączenia z platformą Azure.
 
 Publiczne adresy IP ma nominalnego opłat. Aby wyświetlić ceny, przeczytaj [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses) strony. 
 
@@ -46,7 +46,7 @@ Publiczne adresy IP ma nominalnego opłat. Aby wyświetlić ceny, przeczytaj [ce
 
     |Ustawienie|Wymagana?|Szczegóły|
     |---|---|---|
-    |SKU|Yes|Wszystkie publiczne adresy IP utworzone przed wprowadzeniem jednostki SKU **podstawowe** SKU publicznych adresów IP.  Jednostka SKU nie można zmienić po utworzeniu publicznego adresu IP. Autonomicznej maszyny wirtualnej, maszyn wirtualnych w zestawie dostępności lub zestawy skalowania maszyny wirtualnej można użyć, Basic lub Standard jednostki SKU.  Mieszanie jednostki SKU między maszynami wirtualnymi w obrębie zestawów dostępności lub zestawy skalowania jest niedozwolone. **Podstawowe** SKU: w przypadku tworzenia publicznego adresu IP w region, który obsługuje stref dostępności **strefy dostępności** mają ustawioną wartość *Brak* domyślnie. Można wybrać strefy dostępności, aby zagwarantować dla określonej strefy dla publicznego adresu IP. **Standardowe** SKU: A standardowy SKU publicznego adresu IP może być skojarzona z maszyną wirtualną lub fronton usługi równoważenia obciążenia. Jeśli tworzysz publicznego adresu IP w region, który obsługuje stref dostępności **strefy dostępności** mają ustawioną wartość *Strefowo nadmiarowy* domyślnie. Aby uzyskać więcej informacji na temat stref dostępności, zobacz **strefy dostępności** ustawienie. Standardowy SKU jest wymagany, jeśli można skojarzyć adres usługi równoważenia obciążenia standardowego. Aby dowiedzieć się więcej na temat równoważenia obciążenia standardowego, zobacz [modułu równoważenia obciążenia Azure standardowy SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Standardowy SKU jest w wersji zapoznawczej. Przed utworzeniem standardowy SKU publicznego adresu IP, należy najpierw wykonać kroki w [zarejestrować standardowe wersji zapoznawczej SKU](#register-for-the-standard-sku-preview) i tworzenie publicznego adresu IP w obsługiwanych lokalizacji (regionu). Aby uzyskać listę obsługiwanych lokalizacji, zobacz [dostępność w danym regionie](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) i monitorowanie [aktualizuje sieci wirtualnej Azure](https://azure.microsoft.com/updates/?product=virtual-network) strony region dodatkowego pomocy technicznej. Po przypisaniu standardowego publicznego adresu IP jednostki SKU do interfejsu sieciowego maszyny wirtualnej musisz jawnie zezwolić na ruch do miejsca przeznaczenia przy użyciu [sieciowej grupy zabezpieczeń](security-overview.md#network-security-groups). Próba komunikacji z zasobem będzie kończyć się niepowodzeniem do momentu utworzenia i skojarzenia sieciowej grupy zabezpieczeń, a następnie jawnego zezwolenia na żądany ruch.|
+    |SKU|Yes|Wszystkie publiczne adresy IP utworzone przed wprowadzeniem jednostki SKU **podstawowe** SKU publicznych adresów IP.  Jednostka SKU nie można zmienić po utworzeniu publicznego adresu IP. Autonomicznej maszyny wirtualnej, maszyn wirtualnych w zestawie dostępności lub zestawy skalowania maszyny wirtualnej można użyć, Basic lub Standard jednostki SKU.  Mieszanie jednostki SKU między maszynami wirtualnymi w obrębie zestawów dostępności lub zestawy skalowania jest niedozwolone. **Podstawowe** SKU: w przypadku tworzenia publicznego adresu IP w region, który obsługuje stref dostępności **strefy dostępności** mają ustawioną wartość *Brak* domyślnie. Można wybrać strefy dostępności, aby zagwarantować dla określonej strefy dla publicznego adresu IP. **Standardowe** SKU: A standardowy SKU publicznego adresu IP może być skojarzona z maszyną wirtualną lub fronton usługi równoważenia obciążenia. Jeśli tworzysz publicznego adresu IP w region, który obsługuje stref dostępności **strefy dostępności** mają ustawioną wartość *Strefowo nadmiarowy* domyślnie. Aby uzyskać więcej informacji na temat stref dostępności, zobacz **strefy dostępności** ustawienie. Standardowy SKU jest wymagany, jeśli można skojarzyć adres usługi równoważenia obciążenia standardowego. Aby dowiedzieć się więcej na temat równoważenia obciążenia standardowego, zobacz [modułu równoważenia obciążenia Azure standardowy SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Po przypisaniu standardowego publicznego adresu IP jednostki SKU do interfejsu sieciowego maszyny wirtualnej musisz jawnie zezwolić na ruch do miejsca przeznaczenia przy użyciu [sieciowej grupy zabezpieczeń](security-overview.md#network-security-groups). Próba komunikacji z zasobem będzie kończyć się niepowodzeniem do momentu utworzenia i skojarzenia sieciowej grupy zabezpieczeń, a następnie jawnego zezwolenia na żądany ruch.|
     |Name (Nazwa)|Yes|Nazwa musi być unikatowa w ramach grupy zasobów, którą wybierzesz.|
     |Wersji protokołu IP|Yes| Wybierz IPv4 lub IPv6. Podczas publicznych adresów IPv4 mogą być przypisane do wielu zasobów platformy Azure, publiczny adres IP protokołu IPv6 można przypisać tylko do modułu równoważenia obciążenia internetowy. Moduł równoważenia obciążenia można zrównoważeniu ruch IPv6 do maszyn wirtualnych platformy Azure. Dowiedz się więcej o [IPv6 ruchu do maszyn wirtualnych równoważenia obciążenia](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). W przypadku wybrania **standardowy SKU**, nie trzeba wybrać opcję *IPv6*. Można tworzyć tylko adresu IPv4 przy użyciu **standardowy SKU**.|
     |Przypisywanie adresów IP|Yes|**Dynamiczne:** dynamicznych adresów są przypisane tylko po publiczny adres IP jest skojarzony z karty sieciowej podłączonej do maszyny wirtualnej i maszynie wirtualnej jest uruchomiona po raz pierwszy. Jeśli interfejs sieciowy jest dołączony do maszyny wirtualnej zostanie zatrzymana (cofnięciu przydziału), można zmienić adresów dynamicznych. Adres jest taka sama, jeśli maszyna wirtualna jest ponowny rozruch lub zatrzymana (ale nie alokację). **Statyczne:** przypisywania adresów statycznych po utworzeniu publicznego adresu IP. Statyczne adresy nie należy zmieniać, nawet wtedy, gdy maszyna wirtualna przechodzi w stan zatrzymania (cofnięciu przydziału). Adres zwolnieniu tylko po usunięciu interfejsu sieciowego. Metoda przydziału można zmienić po utworzeniu interfejsu sieciowego. W przypadku wybrania *IPv6* dla **IP w wersji**, Metoda przydziału jest *dynamiczne*. W przypadku wybrania *standardowe* dla **SKU**, Metoda przydziału jest *statycznych*.|
@@ -67,7 +67,7 @@ Chociaż portalu udostępnia opcję, aby utworzyć dwa zasoby publicznych adres�
 
 |Narzędzie|Polecenie|
 |---|---|
-|Interfejs wiersza polecenia|[Tworzenie sieci az publicznego ip](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|Interfejs wiersza polecenia|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Wyświetlanie, zmieniać ustawienia lub usuwanie publicznego adresu IP
@@ -88,24 +88,6 @@ Chociaż portalu udostępnia opcję, aby utworzyć dwa zasoby publicznych adres�
 |---|---|
 |Interfejs wiersza polecenia|[AZ sieci publicznego adresu ip listy](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) publiczne adresy IP, [az sieci publicznego adresu ip Pokazywanie](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) pokazanie ustawień; [az sieci ip publicznego aktualizacji](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) zaktualizować; [usunąć publicznej sieci az ip](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) do usunięcia|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) można pobrać obiektu publiczny adres IP i wyświetlić jej ustawienia [AzureRmPublicIpAddress zestaw](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) można zaktualizować ustawień; [AzureRmPublicIpAddress Usuń](/powershell/module/azurerm.network/remove-azurermpublicipaddress) do usunięcia|
-
-## <a name="register-for-the-standard-sku-preview"></a>Zarejestruj się w celu standardowego Podgląd jednostki SKU
-
-> [!NOTE]
-> Funkcje w wersji zapoznawczej nie może mieć taki sam poziom dostępności i niezawodności, zgodnie z funkcji, które są zwykle dostępności wersji. Funkcje w wersji zapoznawczej nie są obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. 
-
-Przed utworzeniem standardowy SKU publiczny adres IP, najpierw należy zarejestrować skorzystania z wersji zapoznawczej. Wykonaj poniższe kroki, aby zarejestrować się w wersji zapoznawczej:
-
-1. Z programu PowerShell wpisz następujące polecenie, aby zarejestrować się w wersji zapoznawczej:
-   
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-2. Upewnij się, że są zarejestrowane dla wersji zapoznawczej, wprowadzając następujące polecenie:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="next-steps"></a>Kolejne kroki
 Podczas tworzenia następujących zasobów platformy Azure, przypisz publicznych adresów IP:

@@ -1,25 +1,25 @@
 ---
-title: "Unikatowy kluczy w usłudze Azure DB rozwiązania Cosmos | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak za pomocą unikatowy kluczy Azure DB rozwiązania Cosmos bazy danych."
+title: Unikatowy kluczy w usłudze Azure DB rozwiązania Cosmos | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak za pomocą unikatowy kluczy Azure DB rozwiązania Cosmos bazy danych.
 services: cosmos-db
 keywords: ograniczenia klucza UNIQUE, naruszenie ograniczenia klucza unique
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unikatowy kluczy w usłudze Azure DB rozwiązania Cosmos
 
@@ -58,7 +58,7 @@ Po utworzeniu kontenera z zasadą unikatowy kluczy zasady nie można zmienić, o
 
 Maksymalnie 16 wartościami ścieżki (na przykład /firstName, /lastName, /address/zipCode itp.) mogą zostać włączone w każdym Unikatowy klucz. 
 
-Każdy unikatowy kluczy zasad może mieć maksymalnie 10 ograniczeń klucza unique lub kombinacji. Tak poprzedniego przykładu, która używa imienia, nazwiska i adres e-mail jest tylko jedno ograniczenie i używa trzech 16 ścieżek możliwe dostępne. 
+Każdy unikatowy kluczy zasad mogą mieć maksymalnie 10 ograniczeń klucza unique lub kombinacji i połączone ścieżki dla wszystkich właściwości unikatowego indeksu nie może przekraczać 60 znaków. Tak poprzedniego przykładu, która używa imienia, nazwiska i adres e-mail jest tylko jedno ograniczenie i używa trzech 16 ścieżek możliwe dostępne. 
 
 Żądanie jednostki opłaty za tworzenie, aktualizowanie, i usunięciu elementu są nieco większe, gdy istnieje unikatowe zasady klucza w kontenerze. 
 
@@ -133,7 +133,7 @@ W poniższym przykładzie polecenie pokazuje, jak można utworzyć indeksu unika
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym artykule przedstawiono sposób tworzenia unikatowy kluczy dla elementów w bazie danych. W przypadku tworzenia kontenera po raz pierwszy, przejrzyj [partycjonowanie danych w usłudze Azure DB rozwiązania Cosmos](partition-data.md) jako unikatowy kluczy i kluczy partycji zależne od siebie nawzajem. 
 

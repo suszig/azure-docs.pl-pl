@@ -1,11 +1,11 @@
 ---
-title: "Jak skalować pamięć podręczna Azure Redis | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skalować swoich wystąpień w pamięci podręcznej Redis Azure"
+title: Jak skalować pamięć podręczna Azure Redis | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skalować swoich wystąpień w pamięci podręcznej Redis Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0cf0e41fe03bf3be7ecf2172cff3e6ab5f3eb65d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Jak skalować pamięć podręczna Azure Redis
 Pamięć podręczna Redis Azure ma inną pamięci podręcznej oferty, które zapewniają elastyczność w wyborze rozmiar pamięci podręcznej i funkcje. Po utworzeniu pamięci podręcznej można skalować rozmiar i warstwę cenową pamięci podręcznej w przypadku zmiany wymagań aplikacji. W tym artykule przedstawiono sposób skalowania pamięci podręcznej przy użyciu portalu Azure i narzędzi, takich jak Azure PowerShell i interfejsu wiersza polecenia Azure.
@@ -111,6 +111,7 @@ Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące pamię
 * [Spowoduje utratę danych z mojej pamięci podręcznej podczas skalowania?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Jest niestandardowe baz danych zmodyfikowane ustawienie podczas skalowania?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Moje pamięci podręcznej będzie dostępna podczas skalowania?](#will-my-cache-be-available-during-scaling)
+* [Z — replikacja geograficzna skonfigurowane, dlaczego nie mogę skalować Moje pamięci podręcznej lub zmienić odłamków w klastrze?](#scaling-limitations-with-geo-relication)
 * [Operacje, które nie są obsługiwane](#operations-that-are-not-supported)
 * [Jak długo skalowanie podąża?](#how-long-does-scaling-take)
 * [Jak sprawdzić, kiedy jest ukończone skalowania?](#how-can-i-tell-when-scaling-is-complete)
@@ -151,6 +152,12 @@ Chociaż standardowa i Premium pamięci podręcznych SLA 99,9%, dostępności, n
 * **Standardowe** i **Premium** pamięci podręcznych pozostają dostępne podczas operacji skalowania. Jednak blips połączenia może wystąpić podczas skalowania Standard i Premium pamięci podręcznej, a także podczas skalowania z podstawowego na standardowe pamięci podręcznych. Te połączenia blips powinny być małe i klientów pamięci podręcznej redis powinno być możliwe natychmiast ponownie ustanowić połączenia.
 * **Podstawowe** pamięci podręcznych są w trybie offline podczas skalowania na inny rozmiar operacji. Podstawowe pamięci podręcznych pozostają dostępne podczas skalowania z **podstawowe** do **standardowe** , ale mogą wystąpić blip małych połączenia. W przypadku blip połączenia klientów pamięci podręcznej redis powinno być możliwe natychmiast ponownie ustanowić połączenia.
 
+
+### <a name="scaling-limitations-with-geo-relication"></a>Skalowanie ograniczenia Geo relication
+
+Po dodaniu łącze — replikacja geograficzna między dwoma pamięci podręcznych, nie będzie zainicjowanie operacji skalowania lub zmień liczbę fragmentów w klastrze. Należy odłączyć pamięci podręcznej można wydawać następujące polecenia. Aby uzyskać więcej informacji, zobacz [replikacja geograficzna Konfiguruj](cache-how-to-geo-replication.md).
+
+
 ### <a name="operations-that-are-not-supported"></a>Operacje, które nie są obsługiwane
 * Nie można skalować z wyższej warstwy cenowej do dolnej warstwy cenowej.
   * Nie można skalować z **Premium** pamięci podręcznej w dół do **standardowe** lub **podstawowe** pamięci podręcznej.
@@ -160,6 +167,7 @@ Chociaż standardowa i Premium pamięci podręcznych SLA 99,9%, dostępności, n
 * Nie można skalować z większego rozmiaru w dół do **C0 (250 MB)** rozmiar.
 
 W przypadku niepowodzenia operacji skalowania usługa próbuje przywrócić działanie i pamięci podręcznej zostanie przywrócony oryginalny rozmiar.
+
 
 ### <a name="how-long-does-scaling-take"></a>Jak długo skalowanie podąża?
 Skalowanie trwa około 20 minut w zależności od tego, jak dużo danych jest w pamięci podręcznej.

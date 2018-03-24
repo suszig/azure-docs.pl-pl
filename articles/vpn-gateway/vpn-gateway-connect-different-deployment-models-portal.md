@@ -1,11 +1,11 @@
 ---
-title: "Połącz klasycznych sieci wirtualnych do sieci wirtualnych Menedżera zasobów Azure: Portal | Dokumentacja firmy Microsoft"
-description: "Kroki, aby połączyć klasycznych sieci wirtualnych do sieci wirtualnych Menedżera zasobów przy użyciu bramy sieci VPN i portalu"
+title: 'Połącz klasycznych sieci wirtualnych do sieci wirtualnych Menedżera zasobów Azure: Portal | Dokumentacja firmy Microsoft'
+description: Kroki, aby połączyć klasycznych sieci wirtualnych do sieci wirtualnych Menedżera zasobów przy użyciu bramy sieci VPN i portalu
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: ad6b33b5411d3e38f099726df01fcafc8dc90d38
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Nawiązywanie połączenia sieci wirtualnych z różne modele wdrażania przy użyciu portalu
 
@@ -216,7 +216,7 @@ W tych kroków Konfigurowanie połączenia z sieciami wirtualnymi Menedżera zas
 2. Kliknij przycisk **konfiguracji** i sprawdź, czy wartość adresu IP bramy sieci VPN w klasycznej sieci wirtualnej. Aktualizacja, w razie potrzeby, a następnie kliknij przycisk **zapisać**. Zamknij stronę.
 3. W **wszystkie zasoby**, kliknij przycisk Brama sieci lokalnej.
 4. Kliknij przycisk **połączeń** aby otworzyć stronę połączenia.
-5. Na **połączeń** kliknij przycisk  **+**  Aby dodać połączenie.
+5. Na **połączeń** kliknij przycisk **+** Aby dodać połączenie.
 6. Na **Dodaj połączenie** pozycję nazwę połączenia. Na przykład "RMtoClassic".
 7. **Lokacja-lokacja** jest już zaznaczone na tej stronie.
 8. Wybierz bramę sieci wirtualnej, które chcesz skojarzyć z tą lokacją.
@@ -301,7 +301,7 @@ Połączenia można sprawdzić za pomocą portalu Azure lub programu PowerShell.
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-###<a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Aby sprawdzić połączenie z sieci wirtualnej Menedżera zasobów klasycznych sieci wirtualnej
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Aby sprawdzić połączenie z sieci wirtualnej Menedżera zasobów klasycznych sieci wirtualnej
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

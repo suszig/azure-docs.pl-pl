@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Domain Services: Rozwiązywanie problemów z alertami | Dokumentacja firmy Microsoft"
-description: "Rozwiązywanie problemów z alerty dla usług domenowych Azure AD"
+title: 'Azure Active Directory Domain Services: Rozwiązywanie problemów z alertami | Dokumentacja firmy Microsoft'
+description: Rozwiązywanie problemów z alerty dla usług domenowych Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: e4b8f31fe3eb79f9b38ae01af598290582a2cde3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Usługi domenowe Azure AD — rozwiązywanie alertów
 Ten artykuł zawiera przewodniki dotyczące rozwiązywania problemów w ramach wszystkich alertów, które mogą występować w domenie zarządzanej.
@@ -34,7 +34,7 @@ Wybierz odpowiadające kroki rozwiązywania problemów do Identyfikatora lub kom
 | AADDS102 | *Wymagane dla usług domenowych Azure AD do prawidłowej nazwy głównej usługi został usunięty z katalogu usługi Azure AD. Ta konfiguracja ma wpływ na zdolność firmy Microsoft do monitorowania, zarządzania i poprawki i zsynchronizować domeny zarządzanej.* | [Brak nazwy głównej usługi](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Zakres adresów IP dla sieci wirtualnej, w której włączono usługi domenowe Azure AD jest w zakresie publicznego adresu IP. Usługi domenowe Azure AD musi być włączony w sieci wirtualnej z zakresu prywatnych adresów IP. Ta konfiguracja ma wpływ na zdolność firmy Microsoft do monitorowania, zarządzania i poprawki i zsynchronizować domeny zarządzanej.* | [Adres jest w zakresie publicznego adresu IP](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Firma Microsoft dokłada nawiązać kontrolery domeny dla tej domeny zarządzanej. Może się tak zdarzyć, jeśli grupa zabezpieczeń sieci (NSG) skonfigurowany na Twojej sieci wirtualnej blokuje dostęp do domeny zarządzanej. Inny możliwych przyczyn jest Brak trasy zdefiniowane przez użytkownika tego blokuje ruch przychodzący z Internetu.* | [Błąd sieci](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *Usługa podmiotu zabezpieczeń z Identyfikatorem aplikacji "d87dcbc6-a371-462e-88e3-28ad15ec4e64" została usunięta, a Microsoft był w stanie utworzyć go ponownie. Nazwy głównej usługi zarządza innej nazwy głównej usługi i aplikacji, które są używane do synchronizacji haseł. Podmiot zabezpieczeń zarządzanych usług i aplikacji nie są autoryzowane w obszarze nazwy głównej usługi nowo utworzony i staną się nieaktualne po wygaśnięciu certyfikatu synchronizacji. Oznacza to, że główną nowo utworzony usługi będzie mógł zaktualizować starego zarządzanych aplikacji i synchronizacji obiektów z usługi AAD zostaną zmienione.* | [Aplikacja synchronizacji haseł jest nieaktualny](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *Nazwy głównej usługi z Identyfikatorem aplikacji "d87dcbc6-a371-462e-88e3-28ad15ec4e64" został usunięty i następnie utworzony ponownie. Nazwy głównej usługi zarządza innej nazwy głównej usługi i aplikacji, które są używane do synchronizacji haseł. Nazwy głównej usługi zarządzanych i/lub aplikacji nie ma autoryzacji w obszarze nazwy głównej usługi nowo utworzony, nie mogą być zarządzane przez naszej usługi. Oznacza to, że główną nowo utworzony usługi będzie mógł zaktualizować starego zarządzanych aplikacji i będzie mieć wpływ na synchronizację haseł.* | [Aplikacja synchronizacji haseł jest nieaktualny](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *Domeny zarządzanej ostatniej synchronizacji z usługą Azure AD w dniu [Data]. Użytkownicy nie będą mogli logowania do domeny zarządzanej lub członkostwa w grupach nie mogą być zsynchronizowane z usługą Azure AD.* | [Synchronizacja nie wystąpiło za pewien czas](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Domeny zarządzanej utworzenia ostatniej kopii zapasowej w dniu [Data].* | [Kopia zapasowa nie podjęto za pewien czas](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Bezpiecznego certyfikatu LDAP do domeny zarządzanej wygaśnie XX.* | [Wygasa bezpiecznego certyfikatu LDAP](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

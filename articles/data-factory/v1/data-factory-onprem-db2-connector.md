@@ -1,11 +1,10 @@
 ---
-title: "Przenieść dane z bazy danych DB2 przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak przenieść dane z bazy danych DB2 lokalnie za pomocą działania kopiowania fabryki danych Azure"
+title: Przenieść dane z bazy danych DB2 przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak przenieść dane z bazy danych DB2 lokalnie za pomocą działania kopiowania fabryki danych Azure
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Przenieść dane z bazy danych DB2 za pomocą działania kopiowania fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +57,7 @@ Brama zarządzania danymi zawiera wbudowane sterownik bazy danych DB2, dzięki c
 
 > [!TIP]
 > Jeśli zostanie wyświetlony komunikat o błędzie "nie znaleziono pakietu odpowiadający żądania wykonania instrukcji SQL. SQLSTATE 51002 SQLCODE =-805, = "przyczyną jest potrzebny pakiet nie został utworzony dla zwykłego użytkownika w systemie operacyjnym. Aby rozwiązać ten problem, wykonaj następujące instrukcje dla danego typu serwera bazy danych DB2:
-> - Bazy danych DB2 dla i (AS400): umożliwia użytkownikowi zasilania utworzyć kolekcję dla zwykłego użytkownika przed uruchomieniem działanie kopiowania. Aby utworzyć kolekcję, użyj polecenia:`create collection <username>`
+> - Bazy danych DB2 dla i (AS400): umożliwia użytkownikowi zasilania utworzyć kolekcję dla zwykłego użytkownika przed uruchomieniem działanie kopiowania. Aby utworzyć kolekcję, użyj polecenia: `create collection <username>`
 > - Bazy danych DB2 z/OS lub LUW: Użyj konta z wysokim poziomie uprawnień — użytkownik zaawansowany lub administrator urzędów pakietu i powiązania, BINDADD, PRZYZNAĆ uprawnienia publiczne — do skopiowania raz EXECUTE. Potrzebny pakiet jest tworzony automatycznie podczas kopiowania. Możesz później, przejdź do zwykłego użytkownika dla sekwencji kolejnych kopii.
 
 ## <a name="getting-started"></a>Wprowadzenie
@@ -84,11 +83,11 @@ W poniższej tabeli wymieniono właściwości JSON, które są specyficzne dla u
 | --- | --- | --- |
 | **Typ** |Ta właściwość musi mieć ustawioną **OnPremisesDb2**. |Yes |
 | **server** |Nazwa serwera bazy danych DB2. |Yes |
-| **bazy danych** |Nazwa bazy danych DB2. |Yes |
+| **Bazy danych** |Nazwa bazy danych DB2. |Yes |
 | **schema** |Nazwa schematu bazy danych DB2. Ta właściwość jest rozróżniana wielkość liter. |Nie |
 | **authenticationType** |Typ uwierzytelniania używany do łączenia z bazą danych DB2. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Yes |
 | **Nazwa użytkownika** |Nazwa konta użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. |Nie |
-| **hasło** |Hasło dla konta użytkownika. |Nie |
+| **Hasło** |Hasło dla konta użytkownika. |Nie |
 | **gatewayName** |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych DB2. |Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
@@ -107,7 +106,7 @@ Dla działania kopiowania, gdy źródłem jest typu **RelationalSource** (która
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| **zapytania** |Użyj niestandardowych zapytania, aby odczytać danych. |Ciąg zapytania SQL. Na przykład: `"query": "select * from "MySchema"."MyTable""` |Nie (Jeśli **tableName** określono właściwości zestawu danych) |
+| **Zapytania** |Użyj niestandardowych zapytania, aby odczytać danych. |Ciąg zapytania SQL. Na przykład: `"query": "select * from "MySchema"."MyTable""` |Nie (Jeśli **tableName** określono właściwości zestawu danych) |
 
 > [!NOTE]
 > Nazwy schematu i tabeli jest rozróżniana wielkość liter. W instrukcji zapytania, ujmij nazw właściwości, za pomocą "" (podwójne cudzysłowy).
@@ -314,13 +313,13 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | BigInt |Int64 |
 | Real |Kawaler/panna |
 | Podwójnej precyzji |Podwójnej precyzji |
-| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
+| Float |Podwójnej precyzji |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | numeryczne |Decimal |
-| Date |Data/godzina |
+| Date |DateTime |
 | Time |TimeSpan |
-| Sygnatura czasowa |Data/godzina |
+| Sygnatura czasowa |DateTime |
 | Xml |Byte[] |
 | char |Ciąg |
 | VarChar |Ciąg |
@@ -340,13 +339,13 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | BigInt |Int64 |
 | Real |Kawaler/panna |
 | Podwójnej precyzji |Podwójnej precyzji |
-| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
+| Float |Podwójnej precyzji |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | numeryczne |Decimal |
-| Date |Data/godzina |
+| Date |DateTime |
 | Time |TimeSpan |
-| Sygnatura czasowa |Data/godzina |
+| Sygnatura czasowa |DateTime |
 | Xml |Byte[] |
 | char |Ciąg |
 

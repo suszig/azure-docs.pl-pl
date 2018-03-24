@@ -1,6 +1,6 @@
 ---
-title: "Uruchom partii zadań Azure obciążeń na maszynach wirtualnych, ekonomiczne niskiego priorytetu | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie obsługi administracyjnej maszyn wirtualnych niskiego priorytetu będzie zmniejszenie kosztów obciążeń partii zadań Azure."
+title: Uruchom partii zadań Azure obciążeń na maszynach wirtualnych, ekonomiczne niskiego priorytetu | Dokumentacja firmy Microsoft
+description: Informacje o sposobie obsługi administracyjnej maszyn wirtualnych niskiego priorytetu będzie zmniejszenie kosztów obciążeń partii zadań Azure.
 services: batch
 author: mscurrell
 manager: timlt
@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68240e29429b4c6321e8627b62ad65ce7ecb468e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Niskiego priorytetu maszyn wirtualnych za pomocą usługi partia zadań
 
@@ -26,12 +26,6 @@ Maszyny wirtualne niskiego priorytetu korzystać z nadwyżki zdolności produkcy
 Rozwiązanie dla przy użyciu niskiego priorytetu maszyny wirtualne nie mogą nie być dostępne do alokacji tych maszyn wirtualnych lub może być wywłaszczony w dowolnym momencie, w zależności od dostępnej pojemności. Z tego powodu niskiego priorytetu maszyny wirtualne są najbardziej odpowiednie dla pewnych typów obciążeń. Użyj maszyn wirtualnych niskiego priorytetu partii i przetwarzania asynchronicznego obciążeń, których czas ukończenia zadania są elastyczne i praca będzie rozmieszczona na wiele maszyn wirtualnych.
  
 Maszyny wirtualne niskiego priorytetu oferowanych w znacznie obniżonej cenie w porównaniu z dedykowanych maszyn wirtualnych. Aby uzyskać szczegółowe informacje o cenach, zobacz [cennik partii](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Maszyny wirtualne o niskim priorytecie są obecnie dostępne tylko dla obciążeń działających w partii. 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>Przypadki użycia dla maszyn wirtualnych o niskim priorytecie
 

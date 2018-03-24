@@ -1,11 +1,11 @@
 ---
-title: "Azure sesje komunikatów usługi Service Bus | Dokumentacja firmy Microsoft"
-description: "Obsługa sekwencji komunikatów usługi Azure Service Bus z sesji."
+title: Azure sesje komunikatów usługi Service Bus | Dokumentacja firmy Microsoft
+description: Obsługa sekwencji komunikatów usługi Azure Service Bus z sesji.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sesje komunikatów: pierwszy, najpierw FIFO 
 
@@ -53,13 +53,7 @@ Zwolnienia blokady podczas **zamknąć** lub **CloseAsync** są nazywane lub wyg
 
 Gdy wiele równoczesnych odbiorników ściąganie danych z kolejki, komunikaty należących do określonej sesji są wysyłane do określonego odbiornika, który aktualnie posiada blokady dla tej sesji. Z tej operacji strumienia komunikatów przeplotem znajdującej się w jednym kolejki lub subskrypcji cofnąć jest prawidłowo multipleksowany do różnych odbiorników i odbiorcy tych można również na żywo na komputerach z innego klienta, ponieważ Zarządzanie blokadą się stanie po stronie serwera, wewnątrz Usługa Service Bus.
 
-Kolejka jest jednak nadal kolejki: brak jest losowe dostępu. Wiele równoczesnych odbiorników poczekaj, aby zaakceptować określonej sesji lub zaczekaj na wiadomości z określonej sesji, jeśli ma wiadomości w górnej części kolejki należących do sesji, która odbiornik nie zostało jeszcze zażądane, wysyłki przytrzymaj, dopóki nie odbiornika sesji twierdzi, że sesji.
-
-Na poprzedniej ilustracji przedstawiono trzy odbiornikami równoczesnych sesji, które aktywnie należy wykonać wiadomości z kolejki dla każdego odbiornika postęp. Poprzedniej sesji z `SessionId` = 4 nie ma żadnych aktywnych, będący właścicielem klienta, co oznacza, że żadne komunikaty są dostarczane innym osobom do chwili podjęcia tej wiadomości przez nowo utworzony, będącej właścicielem, jeśli odbiornik sesji.
-
-Podczas wyświetlanych może być ograniczający, proces jednego odbiorcę może obsłużyć wiele równoczesnych sesji, szczególnie w przypadku, gdy są one zapisywane z kodem ściśle asynchroniczne; juggling kilka dozen równoczesnych sesji jest skutecznie automatycznie z modelem wywołania zwrotnego.
-
-Strategii obsługi wielu równoczesnych sesji, zgodnie z którymi każdej sesji tylko sporadycznie odbiera komunikaty, obsługi usunąć za jakiś czas bezczynności sesji i wznowić przetwarzania podczas sesji jest traktowany jako dociera do następnej sesji.
+Na poprzedniej ilustracji przedstawiono trzy odbiorniki równoczesnych sesji. Jedna sesja z `SessionId` = 4 nie ma żadnych aktywnych, będący właścicielem klienta, co oznacza, że żadne komunikaty są dostarczane z tej określonej sesji. Sesja działa na wiele sposobów, takich jak kolejki sub.
 
 Blokadzie sesją odbiornika sesji jest parasola blokad komunikatu używany przez *blokady peek* tryb rozliczeń. Odbiornik nie może jednocześnie mieć dwa komunikaty "w locie", ale komunikaty muszą być przetwarzane w kolejności. Nowy komunikat można uzyskać tylko w przypadku, gdy poprzednie wiadomości została wykonana lub lettered wiadomości. Porzucanie przyczyny wiadomości, takie same wiadomości ma być obsługiwana ponownie przy następnej operacji odbioru.
 

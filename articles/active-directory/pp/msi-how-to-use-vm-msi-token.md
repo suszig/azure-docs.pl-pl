@@ -1,11 +1,11 @@
 ---
-title: "Jak używać tożsamości usługi zarządzania przypisane przez użytkownika do uzyskania tokenu dostępu na maszynie Wirtualnej."
-description: "Krok po kroku instrukcje i przykłady korzystania przypisany użytkownik pliku MSI w maszynie Wirtualnej platformy Azure można uzyskać OAuth dostęp do tokenu."
+title: Jak używać tożsamości usługi zarządzania przypisane przez użytkownika do uzyskania tokenu dostępu na maszynie Wirtualnej.
+description: Krok po kroku instrukcje i przykłady korzystania przypisany użytkownik pliku MSI w maszynie Wirtualnej platformy Azure można uzyskać OAuth dostęp do tokenu.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Uzyskać token dostępu dla maszyny Wirtualnej, zarządzane tożsamości usługi (MSI) przypisany użytkownik
 
@@ -42,7 +42,9 @@ Aplikacja kliencka mogą żądać MSI [token dostępu tylko do aplikacji](~/arti
 | [Uzyskaj token przy użyciu programu CURL](#get-a-token-using-curl) | Przykład użycia punkt końcowy MSI REST w kliencie Bash/CURL |
 | [Obsługa wygaśnięcia tokenu](#handling-token-expiration) | Wskazówki dotyczące obsługi tokenów dostępu wygasły |
 | [Obsługa błędów](#error-handling) | Wskazówki dotyczące obsługi błędów HTTP zwrócony z punktu końcowego tokena MSI |
+| [Wskazówki dotyczące ograniczania przepustowości](#throttling-guidance) | Wskazówki dotyczące obsługi ograniczanie punktu końcowego tokena MSI |
 | [Identyfikatory zasobów dla usług Azure](#resource-ids-for-azure-services) | Skąd uzyskać identyfikatorów zasobów dla obsługiwanych usług platformy Azure |
+
 
 ## <a name="get-a-token-using-http"></a>Uzyskaj token za pośrednictwem protokołu HTTP 
 
@@ -155,7 +157,7 @@ W tej sekcji omówiono odpowiedzi może zawierać błąd. A "200 OK" stan to pom
 
 | Kod stanu | Błąd | Opis błędu | Rozwiązanie |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Niewłaściwe żądanie | invalid_resource | AADSTS50001: Aplikacja o nazwie  *\<URI\>*  nie znaleziono dzierżawy o nazwie  *\<identyfikator DZIERŻAWCY\>*. Może to nastąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub zgodę na każdy użytkownik w dzierżawie. Żądanie uwierzytelniania prawdopodobnie została wysłana do niewłaściwej dzierżawy. \ | (Tylko w systemie Linux) |
+| 400 Niewłaściwe żądanie | invalid_resource | AADSTS50001: Aplikacja o nazwie *\<URI\>* nie znaleziono dzierżawy o nazwie  *\<identyfikator DZIERŻAWCY\>*. Może to nastąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub zgodę na każdy użytkownik w dzierżawie. Żądanie uwierzytelniania prawdopodobnie została wysłana do niewłaściwej dzierżawy. \ | (Tylko w systemie Linux) |
 | 400 Niewłaściwe żądanie | bad_request_102 | Nie określono nagłówka wymagane metadane | Albo `Metadata` pola nagłówka żądania brakuje żądania lub jest niepoprawnie sformatowana. Wartość musi być określona jako `true`, w małe litery. Zobacz sekcję "przykładowe żądanie" w [pobrania tokenu przy użyciu protokołu HTTP](#get-a-token-using-http) sekcji, na przykład.|
 | 401 nieautoryzowane | unknown_source | Nieznane źródło  *\<identyfikatora URI\>* | Sprawdź, żądanie HTTP GET identyfikatora URI jest prawidłowo sformatowany. `scheme:host/resource-path` Części muszą być określone jako `http://169.254.169.254/metadata/identity/oath2/token` lub `http://localhost:50342/oauth2/token`. Zobacz sekcję "przykładowe żądanie" w [pobrania tokenu przy użyciu protokołu HTTP](#get-a-token-using-http) sekcji, na przykład.|
 |           | invalid_request | Żądania brakuje wymaganego parametru, obejmuje niepoprawna wartość parametru, zawiera więcej niż raz parametr lub w przeciwnym razie jest nieprawidłowo sformułowany. |  |
@@ -164,6 +166,16 @@ W tej sekcji omówiono odpowiedzi może zawierać błąd. A "200 OK" stan to pom
 |           | unsupported_response_type | Serwer autoryzacji nie obsługuje uzyskiwania tokenu dostępu przy użyciu tej metody. |  |
 |           | invalid_scope | Żądany zakres jest nieprawidłowy, nieznany lub źle skonstruowany. |  |
 | 500 Wewnętrzny błąd serwera | nieznane | Nie można pobrać tokenu z usługi Active directory. Szczegółowe informacje można znaleźć w dziennikach w  *\<ścieżka pliku\>* | Sprawdź, czy włączono MSI w maszynie Wirtualnej. Zobacz [skonfigurować maszyny Wirtualnej zarządzane usługi tożsamości (MSI) przy użyciu portalu Azure](msi-qs-configure-portal-windows-vm.md) Jeśli potrzebujesz pomocy w konfiguracji maszyny Wirtualnej.<br><br>Sprawdź także, czy żądanie HTTP GET identyfikatora URI jest prawidłowo sformatowane, szczególnie zasób, którego identyfikator URI określony w ciągu zapytania. Zobacz sekcję "przykładowe żądanie" w [pobrania tokenu przy użyciu protokołu HTTP](#get-a-token-using-http) sekcji, na przykład lub [uwierzytelniania pomocy technicznej usługi Azure AD z usług Azure](msi-overview.md#azure-services-that-support-azure-ad-authentication) listę usług i ich odpowiednich identyfikatorów zasobów.
+
+## <a name="throttling-guidance"></a>Wskazówki dotyczące ograniczania przepustowości 
+
+Ograniczenia przepustowości limity mają zastosowanie do liczby wywołań do punktu końcowego MSI IMDS. Po przekroczeniu progu ograniczania przepustowości punktu końcowego MSI IMDS ogranicza żadnych dalszych żądań przepustnicy w czasie działania. W tym okresie punktu końcowego MSI IMDS zwróci kod stanu HTTP 429 ("jest zbyt wiele żądań"), i Niepowodzenie żądania. 
+
+Ponów próbę zalecamy następujących strategii: 
+
+| **Strategia ponawiania prób** | **Ustawienia** | **Wartości** | **Jak to działa** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Liczba ponownych prób<br />Minimalna liczba wycofań<br />Maksymalna liczba wycofań<br />Różnica w liczbie wycofań<br />Pierwsze szybkie ponowienie |5<br />0 sek.<br />60 sek.<br />2 sek.<br />false |Próba 1 — opóźnienie 0 sek.<br />Próba 2 — opóźnienie ok. 2 sek.<br />Próba 3 — opóźnienie ok. 6 sek.<br />Próba 4 — opóźnienie ok. 14 sek.<br />Próba 5 — opóźnienie ok. 30 sek. |
 
 ## <a name="resource-ids-for-azure-services"></a>Identyfikatory zasobów dla usług Azure
 

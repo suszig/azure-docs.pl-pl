@@ -1,11 +1,11 @@
 ---
-title: "Wyświetl dane aplikacji Azure Application Insights | Dokumentacja firmy Microsoft"
-description: "Rozwiązanie Application Insights łącznika można użyć do diagnozowania problemów z wydajnością i zrozumieć, co zrobić użytkownicy, z aplikacji podczas monitorowania z usługą Application Insights."
+title: Wyświetl dane aplikacji Azure Application Insights | Dokumentacja firmy Microsoft
+description: Rozwiązanie Application Insights łącznika można użyć do diagnozowania problemów z wydajnością i zrozumieć, co zrobić użytkownicy, z aplikacji podczas monitorowania z usługą Application Insights.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Rozwiązania do zarządzania łącznika Insights aplikacji (wersja zapoznawcza)
 
@@ -88,12 +88,12 @@ Pulpit nawigacyjny zawiera bloki z tabelą. Każdy blok zawiera maksymalnie 10 e
 
 | **Kolumny** | **Opis** |
 | --- | --- |
-| Aplikacje — liczba aplikacji | Przedstawia liczbę aplikacji w zasobów aplikacji. Zawiera także listę nazw aplikacji i dla każdej liczby rekordów w aplikacji. Kliknij liczbę do uruchamiania wyszukiwania dziennika <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Kliknij nazwę aplikacji, aby uruchomić wyszukiwanie dziennika dla aplikacji, która zawiera rekordy aplikacji według hosta, rekordów typu telemetrii i wszystkie dane według typu (na podstawie ostatniego dnia). |
-| Ilość danych — obsługuje wysyłanie danych | Pokazuje liczbę komputerów hostów, które wysyłają dane. Zawiera także listę hostów komputera i liczba rekordów dla każdego hosta. Kliknij liczbę do uruchamiania wyszukiwania dziennika <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Kliknij nazwę komputera, aby uruchomić wyszukiwanie dziennika dla hosta, który zawiera rekordy aplikacji według hosta, rekordów typu telemetrii i wszystkie dane według typu (na podstawie ostatniego dnia). |
-| Dostępność — wyniki w teście sieci Web | Przedstawia wykres pierścieniowy dla wyników testu sieci web, wskazując pomyślnie lub niepowodzeniem. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Liczba błędy wszystkich testów i przebiegów w wynikach. Wszystkie aplikacje sieci Web z ruchem będzie wyświetlana w ciągu ostatniej minuty. Kliknij nazwę aplikacji, aby wyświetlić dziennik wyszukiwania zawierającego szczegóły testów sieci web nie powiodło się. |
-| Żądań serwera — żądań na godzinę | Przedstawia wykres liniowy żądań serwera na godzinę dla różnych aplikacji. Umieść kursor nad wiersza na wykresie, aby wyświetlić aplikacje 3 pierwszych odbierania żądań do punktu w czasie. Zawiera także listę aplikacji odbieranie żądań i liczba żądań dla wybranego okresu. <br><br>Kliknij wykres tak, aby uruchomić wyszukiwanie dziennika <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> który przedstawiono bardziej szczegółowe wykres liniowy żądań serwera na godzinę dla różnych aplikacji. <br><br> Kliknij na liście uruchamiania aplikacji wyszukiwania dziennika <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> który pokazuje listę żądań, wykresy żądań w czasie trwania czasu i żądania i listę żądania kody odpowiedzi.   |
-| Błędy — nieudane żądania na godzinę | Przedstawia wykres liniowy żądań aplikacji nie powiodło się na godzinę. Umieść wskaźnik myszy na wykresie, aby wyświetlać pierwsze 3 aplikacji z żądań zakończonych niepowodzeniem dla punktu w czasie. Zawiera także listę aplikacji o liczbie nieudanych żądań dla każdego. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> który przedstawiono bardziej szczegółowe wykres liniowy żądań aplikacji nie powiodło się. <br><br>Kliknij element na liście, aby uruchomić wyszukiwanie dziennika <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code> czy pokazuje nieudanych żądań, wykresy dla niepomyślnych żądań przez okres czasu i żądania i listę kodów odpowiedzi nieudanych żądań. |
-| Wyjątki — wyjątków na godzinę | Przedstawia wykres liniowy wyjątków na godzinę. Umieść wskaźnik myszy na wykresie, aby wyświetlać pierwsze 3 aplikacji wyjątków dla punktu w czasie. Zawiera także listę aplikacji za pomocą liczby wyjątków dla każdego. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> który przedstawiono bardziej szczegółowe wykres łącze wyjątków. <br><br>Kliknij element na liście, aby uruchomić wyszukiwanie dziennika <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> którym wyświetlana jest lista wyjątków, wykresy dotyczące wyjątków w czasie, jak i nieudane żądania i listę typów wyjątków.  |
+| Aplikacje — liczba aplikacji | Przedstawia liczbę aplikacji w zasobów aplikacji. Zawiera także listę nazw aplikacji i dla każdej liczby rekordów w aplikacji. Kliknij liczbę do uruchamiania wyszukiwania dziennika <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Kliknij nazwę aplikacji, aby uruchomić wyszukiwanie dziennika dla aplikacji, która zawiera rekordy aplikacji według hosta, rekordów typu telemetrii i wszystkie dane według typu (na podstawie ostatniego dnia). |
+| Ilość danych — obsługuje wysyłanie danych | Pokazuje liczbę komputerów hostów, które wysyłają dane. Zawiera także listę hostów komputera i liczba rekordów dla każdego hosta. Kliknij liczbę do uruchamiania wyszukiwania dziennika <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Kliknij nazwę komputera, aby uruchomić wyszukiwanie dziennika dla hosta, który zawiera rekordy aplikacji według hosta, rekordów typu telemetrii i wszystkie dane według typu (na podstawie ostatniego dnia). |
+| Dostępność — wyniki w teście sieci Web | Przedstawia wykres pierścieniowy dla wyników testu sieci web, wskazując pomyślnie lub niepowodzeniem. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Liczba błędy wszystkich testów i przebiegów w wynikach. Wszystkie aplikacje sieci Web z ruchem będzie wyświetlana w ciągu ostatniej minuty. Kliknij nazwę aplikacji, aby wyświetlić dziennik wyszukiwania zawierającego szczegóły testów sieci web nie powiodło się. |
+| Żądań serwera — żądań na godzinę | Przedstawia wykres liniowy żądań serwera na godzinę dla różnych aplikacji. Umieść kursor nad wiersza na wykresie, aby wyświetlić aplikacje 3 pierwszych odbierania żądań do punktu w czasie. Zawiera także listę aplikacji odbieranie żądań i liczba żądań dla wybranego okresu. <br><br>Kliknij wykres tak, aby uruchomić wyszukiwanie dziennika <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> który przedstawiono bardziej szczegółowe wykres liniowy żądań serwera na godzinę dla różnych aplikacji. <br><br> Kliknij na liście uruchamiania aplikacji wyszukiwania dziennika <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> który pokazuje listę żądań, wykresy żądań w czasie trwania czasu i żądania i listę żądania kody odpowiedzi.   |
+| Błędy — nieudane żądania na godzinę | Przedstawia wykres liniowy żądań aplikacji nie powiodło się na godzinę. Umieść wskaźnik myszy na wykresie, aby wyświetlać pierwsze 3 aplikacji z żądań zakończonych niepowodzeniem dla punktu w czasie. Zawiera także listę aplikacji o liczbie nieudanych żądań dla każdego. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> który przedstawiono bardziej szczegółowe wykres liniowy żądań aplikacji nie powiodło się. <br><br>Kliknij element na liście, aby uruchomić wyszukiwanie dziennika <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> czy pokazuje nieudanych żądań, wykresy dla niepomyślnych żądań przez okres czasu i żądania i listę kodów odpowiedzi nieudanych żądań. |
+| Wyjątki — wyjątków na godzinę | Przedstawia wykres liniowy wyjątków na godzinę. Umieść wskaźnik myszy na wykresie, aby wyświetlać pierwsze 3 aplikacji wyjątków dla punktu w czasie. Zawiera także listę aplikacji za pomocą liczby wyjątków dla każdego. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> który przedstawiono bardziej szczegółowe wykres łącze wyjątków. <br><br>Kliknij element na liście, aby uruchomić wyszukiwanie dziennika <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> którym wyświetlana jest lista wyjątków, wykresy dotyczące wyjątków w czasie, jak i nieudane żądania i listę typów wyjątków.  |
 
 ### <a name="view-the-application-insights-perspective-with-log-search"></a>Wyświetlanie z wyszukiwania dziennika perspektywy usługi Application Insights
 
@@ -117,7 +117,7 @@ Po kliknięciu dowolnej lokalizacji w **wyjątki** bloku, zobacz wizualizacji do
 
 ![Application Insights wyjątki bloku](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Niezależnie od tego, czy można kliknąć element jedną **Application Insights łącznik** pulpitu nawigacyjnego, poziomu **wyszukiwania** strony, każde zapytanie zwraca dane usługi Application Insights zawiera perspektywę usługi Application Insights. Na przykład, jeśli można przeglądać dane usługi Application Insights  **&#42;**  zapytanie wyświetla również karcie perspektywy, podobnie jak na poniższej ilustracji:
+Niezależnie od tego, czy można kliknąć element jedną **Application Insights łącznik** pulpitu nawigacyjnego, poziomu **wyszukiwania** strony, każde zapytanie zwraca dane usługi Application Insights zawiera perspektywę usługi Application Insights. Na przykład, jeśli można przeglądać dane usługi Application Insights **&#42;** zapytanie wyświetla również karcie perspektywy, podobnie jak na poniższej ilustracji:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 
@@ -140,12 +140,12 @@ Aby przestawić, kliknij przycisk wielokropka (**...** ) pojawi się na końcu k
 
 ### <a name="sample-corrected-data"></a>Poprawione próbki danych
 
-Usługa Application Insights udostępnia  *[próbkowania korekty](../application-insights/app-insights-sampling.md)*  Aby zmniejszyć ruch danych telemetrycznych. Po włączeniu próbkowania w aplikacji usługi Application Insights, możesz uzyskać zmniejszenie liczby wpisów przechowywanych zarówno w usłudze Application Insights i analizy dzienników. Gdy spójność danych jest zachowywana w **Application Insights łącznik** strony i perspektywy, należy ręcznie rozwiązać próbki danych dla zapytań niestandardowych.
+Usługa Application Insights udostępnia *[próbkowania korekty](../application-insights/app-insights-sampling.md)* Aby zmniejszyć ruch danych telemetrycznych. Po włączeniu próbkowania w aplikacji usługi Application Insights, możesz uzyskać zmniejszenie liczby wpisów przechowywanych zarówno w usłudze Application Insights i analizy dzienników. Gdy spójność danych jest zachowywana w **Application Insights łącznik** strony i perspektywy, należy ręcznie rozwiązać próbki danych dla zapytań niestandardowych.
 
 Oto przykład korekty próbkowania w kwerendzie wyszukiwania dziennika:
 
 ```
-Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
+ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
 **Próbkowany liczba** pole znajduje się w wszystkie wpisy i pokazuje liczbę punktów danych, które reprezentuje wpis. Jeśli włączysz próbkowania dla aplikacji usługi Application Insights, **próbkowany liczba** jest większa niż 1. Suma, aby liczba rzeczywista liczba wpisów, które generuje aplikacji, **próbkowany liczba** pola.

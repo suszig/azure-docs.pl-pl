@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Dodawanie dostawcy usług Salesforce SAML za pomocą niestandardowych zasad | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu tworzenia i zarządzania nimi w zasadach niestandardowych usługi Azure Active Directory B2C."
+title: 'Usługa Azure Active Directory B2C: Dodawanie dostawcy usług Salesforce SAML za pomocą niestandardowych zasad | Dokumentacja firmy Microsoft'
+description: Więcej informacji na temat sposobu tworzenia i zarządzania nimi w zasadach niestandardowych usługi Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 06/11/2017
-ms.author: parakhj
-ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Usługa Azure Active Directory B2C: Zaloguj się przy użyciu konta usług Salesforce za pośrednictwem SAML
 
@@ -252,6 +249,6 @@ Następnie zaktualizuj jednostki uzależnionej pliku strony (RP), który inicjuj
 
 Testowanie zasad niestandardowych, które przekazanym właśnie, w portalu Azure, przejdź do bloku zasady, a następnie kliknij przycisk **Uruchom teraz**. Jeśli nie powiedzie się, zobacz [Rozwiązywanie problemów dotyczących zasad niestandardowych](active-directory-b2c-troubleshoot-custom.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przekazywania informacji pozwalających na [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com).

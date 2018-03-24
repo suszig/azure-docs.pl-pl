@@ -1,11 +1,11 @@
 ---
-title: "Pojedynczy zarządzania logowania jednokrotnego dla aplikacji przedsiębiorstwa w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Zarządzanie ustawieniami pojedynczego logowania jednokrotnego dla aplikacji przedsiębiorstwa w obrębie organizacji z galerii aplikacji usługi Azure Active Directory"
+title: Pojedynczy zarządzania logowania jednokrotnego dla aplikacji przedsiębiorstwa w usłudze Azure Active Directory | Dokumentacja firmy Microsoft
+description: Zarządzanie ustawieniami pojedynczego logowania jednokrotnego dla aplikacji przedsiębiorstwa w obrębie organizacji z galerii aplikacji usługi Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: markvi
 ms.reviewer: asmalser
-ms.openlocfilehash: bb9c2e1fdf392e234e6c72e0728ab04d2fd88a81
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Zarządzanie logowanie jednokrotne dla aplikacji przedsiębiorstwa
 
@@ -88,7 +88,7 @@ Jeśli obsługiwane w przypadku aplikacji, wybierając tryb połączonego logowa
 
 ![Połączonego logowania jednokrotnego][5]
 
-##<a name="feedback"></a>Opinia
+## <a name="feedback"></a>Opinia
 
 Mamy nadzieję przy użyciu udoskonalone środowisko usługi Azure AD. Pamiętaj o opinie przesyłanych! Opinie i pomysły dotyczące poprawy **portalu administracyjnego** sekcji naszych [forum opinii](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Firma Microsoft jest podekscytowani, informacje o kompilowaniu chłodnych nowości codziennie i użyj wskazówek z kształtem i zdefiniować, co mamy utworzyć w następnej kolejności.
 

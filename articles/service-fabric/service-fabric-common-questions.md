@@ -1,11 +1,11 @@
 ---
-title: "Często zadawane pytania dotyczące usługi sieć szkieletowa usług Microsoft Azure | Dokumentacja firmy Microsoft"
-description: "Często zadawane pytania dotyczące usługi Service Fabric i odpowiedzi"
+title: Często zadawane pytania dotyczące usługi sieć szkieletowa usług Microsoft Azure | Dokumentacja firmy Microsoft
+description: Często zadawane pytania dotyczące usługi Service Fabric i odpowiedzi
 services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ecce5581e8f14a02ad0ad618a226f4671e92f4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Często zadawane pytania dotyczące sieci szkieletowej usług
 
@@ -89,17 +89,7 @@ Gdy pracujemy nad udoskonalone środowisko obecnie jest odpowiedzialny za uaktua
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Można zaszyfrować danych dołączonych dysków w typ węzła klastra (zestaw skali maszyny wirtualnej)?
 Tak.  Aby uzyskać więcej informacji, zobacz [utworzyć klaster z dysków dołączonych danych](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [szyfrowania dysków (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), i [szyfrowania dysków (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-## <a name="container-support"></a>Obsługa kontenerów
-
-### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Dlaczego są moje kontenerów, które są wdrażane rz nie może rozpoznać adresów DNS?
-
-Ten problem został zgłoszony w klastrach, które znajdują się na 5.6.204.9494 wersji 
-
-**Środki zaradcze**: wykonaj [tego dokumentu](service-fabric-dnsservice.md) Aby włączyć usługę DNS usługi sieci szkieletowej w klastrze.
-
-**Usuń**: uaktualnienie do wersji obsługiwanych klastra, która jest wyższa niż 5.6.204.9494, gdy jest ona dostępna. Jeśli klaster jest ustawiony na automatycznych uaktualnień, klaster automatycznie spowoduje uaktualnienie do wersji, który został rozwiązany problem.
-
-  
+ 
 ## <a name="application-design"></a>Aplikacja — projekt
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Co to jest najlepszym sposobem na zapytania o dane między partycjami niezawodnej kolekcji?
@@ -146,9 +136,11 @@ Kontenery oferują prosty sposób pakietu usług oraz ich zależności tak, aby 
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>Czy planowane jest open source sieci szkieletowej usług?
 
-Mamy zamierzają open source niezawodna usług i struktur niezawodnej złośliwych użytkowników w witrynie GitHub i zaakceptuj społeczność do tych projektów. Postępuj zgodnie z [blogu usługi sieć szkieletowa](https://blogs.msdn.microsoft.com/azureservicefabric/) Aby uzyskać więcej informacji, ponieważ są one anonsowania.
+Mamy powierzając jej ich konserwację Otwórz części sieci szkieletowej usług ([framework niezawodne usługi](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [framework niezawodnej podmiotów](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [bibliotek integracji platformy ASP.NET Core](https://github.com/Azure/service-fabric-aspnetcore), [ Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), i [interfejsu wiersza polecenia usługi sieć szkieletowa](https://github.com/Azure/service-fabric-cli)) w witrynie GitHub i zaakceptuj społeczność do tych projektów. 
 
-Są aktualnie nie planuje open source środowisko uruchomieniowe usługi sieć szkieletowa usług.
+Firma Microsoft [zapowiedziała niedawno](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) że firma Microsoft planuje open source środowisko uruchomieniowe usługi sieć szkieletowa usług. W tym momencie mamy [repozytorium usługi sieć szkieletowa](https://github.com/Microsoft/service-fabric/) nawet w serwisie GitHub z systemem Linux zbudowanie i przetestowanie narzędzia, co oznacza, można sklonować repozytorium, tworzenia sieci szkieletowej usług dla systemu Linux, uruchomienia podstawowych testów, otwórz problemów i przesyłanie żądań ściągnięcia. Ciężko pracujemy, środowiska kompilacji poddane również wraz z pełną środowiska elementu konfiguracji systemu Windows.
+
+Postępuj zgodnie z [blogu usługi sieć szkieletowa](https://blogs.msdn.microsoft.com/azureservicefabric/) Aby uzyskać więcej informacji, ponieważ są one anonsowania.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

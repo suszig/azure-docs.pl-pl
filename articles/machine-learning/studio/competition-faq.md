@@ -1,10 +1,11 @@
 ---
-title: "Cortana Intelligence konkursami — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Często zadawane pytania dotyczące programu Microsoft Cortana Intelligence konkursami."
+title: Cortana Intelligence konkursami — często zadawane pytania | Dokumentacja firmy Microsoft
+description: Często zadawane pytania dotyczące programu Microsoft Cortana Intelligence konkursami.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Konkursy dotyczące usługi Microsoft Cortana Intelligence — często zadawane pytania
 **Co to jest Cortana Intelligence konkursami?**
@@ -35,7 +35,7 @@ Pytania ogólne, można użyć [forum Microsoft Azure Machine Learning](https://
 
 **Sposób wprowadzania konkurencji?**
 
-Dostęp [konkursami](https://gallery.cortanaintelligence.com/competitions) strony głównej w [galerii Azure AI](https://gallery.cortanaintelligence.com/), lub przejdź do [http://aka.ms/CIComp](http://aka.ms/CIComp). Strona główna zawiera listę wszystkich konkursami, które są aktualnie uruchomione. Każdy konkurencji przedstawiono szczegółowe instrukcje i zasadami uczestnictwa, nagrody i czas trwania na stronie tworzenia konta.
+Dostęp [konkursami](https://gallery.cortanaintelligence.com/competitions) strony głównej w [galerii Azure AI](https://gallery.cortanaintelligence.com/), lub przejdź do [ http://aka.ms/CIComp ](http://aka.ms/CIComp). Strona główna zawiera listę wszystkich konkursami, które są aktualnie uruchomione. Każdy konkurencji przedstawiono szczegółowe instrukcje i zasadami uczestnictwa, nagrody i czas trwania na stronie tworzenia konta.
 
 1. Znajdź konkurencji, którą chcesz uczestniczyć w programie, zapoznaj się z instrukcjami i obejrzyj film samouczka. Następnie kliknij przycisk **wprowadź konkurencji** przycisk i skopiowany eksperymentu Starter z istniejącym obszarem roboczym usługi Azure Machine Learning. Jeśli masz już dostępu do obszaru roboczego, należy go utworzyć wcześniej. Uruchom eksperyment Starter, obserwować metryki wydajności, a następnie użyj na wyższy poziom kreatywności, aby poprawić wydajność modelu. Prawdopodobnie będziesz spędzają większość czasu w tym kroku.   
 
@@ -55,7 +55,7 @@ Uczestnicy konkurencji użyć usługi Azure Machine Learning Studio, oparte na c
 
 Nie. W rzeczywistości, firma Microsoft zachęca entuzjastów danych każdy zastanawiasz się, jak nauki danych i innych aspiring analityków danych, aby wprowadzić naszych kontekstem. Firma Microsoft zaprojektowany dokumenty, aby zezwolić wszystkim konkurować. Odbiorcy docelowi jest:
 
-* **Deweloperzy danych**, **analityków danych**, **BI** i **specjalistów Analytics**: tych, którzy są odpowiedzialni za tworzenie danych i ich analiza zawartość innym użytkownikom korzystać z
+* **Deweloperzy danych**, **analityków danych**, **BI** i **specjalistów Analytics**: tych, którzy są odpowiedzialni za tworzenie zawartości danych i ich analiza innym osobom korzystanie
 * **Stewards danych**: tych, którzy mają wiedzę o danych, co oznacza i jak jest przeznaczona do użycia i dla których cel
 * **Studenci** & **pracowników naukowo-badawczych:** osób uczenia i uzyskaniu umiejętności związanych z danymi za pomocą programów academic w uczelni lub uczestnikami ogromną Otwórz szkoleń w trybie Online (MOOCs)
 

@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych z programu SAP HANA przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z SAP HANA do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych Azure."
+title: Kopiowanie danych z programu SAP HANA przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z SAP HANA do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb1313ba729fdcc1ddcd98b2143932343f1db3e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 96d9da90114ae392c3a9e1c22d8e993fd787ada8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiowanie danych z programu SAP HANA przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -170,16 +170,16 @@ Podczas kopiowania danych z programu SAP HANA, następujące mapowania są używ
 | BLOB | Byte[] |
 | WARTOŚĆ LOGICZNA | Bajtów |
 | CLOB | Byte[] |
-| DATE | Data/godzina |
+| DATE | DateTime |
 | DECIMAL | Decimal |
 | O PODWÓJNEJ PRECYZJI | Kawaler/panna |
 | INT | Int32 |
 | NVARCHAR | Ciąg |
 | RZECZYWISTE | Kawaler/panna |
-| SECONDDATE | Data/godzina |
+| SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | CZAS | TimeSpan |
-| ZNACZNIK CZASU | Data/godzina |
+| ZNACZNIK CZASU | DateTime |
 | TINYINT | Bajtów |
 | VARCHAR | Ciąg |
 

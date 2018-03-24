@@ -1,24 +1,24 @@
 ---
-title: "Utwórz i Zarządzaj grupami akcji w portalu Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie tworzenia i obsługi grup działań w portalu Azure."
+title: Utwórz i Zarządzaj grupami akcji w portalu Azure | Dokumentacja firmy Microsoft
+description: Informacje o sposobie tworzenia i obsługi grup działań w portalu Azure.
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/12/2018
 ms.author: dukek
-ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Utwórz i Zarządzaj grupami akcji w portalu Azure
 ## <a name="overview"></a>Przegląd ##
@@ -29,7 +29,7 @@ Można skonfigurować listę akcji przy użyciu grup działań. Każdy alert, zd
 Grupy akcji może mieć maksymalnie 10 każdego typu akcji. Każda akcja składa się z następującymi właściwościami:
 
 * **Nazwa**: Unikatowy identyfikator grupy działań.  
-* **Typ akcji**: Wyślij wiadomość SMS, Wyślij wiadomość e-mail, wywołania elementu webhook, wysyłania danych do narzędzia Zarządzanie usługami IT —, wywołaj aplikację Azure lub uruchom element runbook usługi Automatyzacja.
+* **Typ akcji**: wysyłanie połączenie głosowe lub wiadomości SMS, Wyślij wiadomość e-mail, wywołania elementu webhook, wysyłania danych do narzędzia Zarządzanie usługami IT —, wywołać aplikację Azure lub uruchom element runbook usługi Automatyzacja.
 * **Szczegóły**: odpowiadającego phone numer, adres e-mail, identyfikator URI elementu webhook lub Zarządzanie usługami IT — szczegóły połączenia.
 
 Aby uzyskać informacje na temat sposobu konfigurowania grup akcji za pomocą szablonów usługi Azure Resource Manager, zobacz [szablony Menedżera zasobów grupy akcji](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,7 +56,7 @@ Aby uzyskać informacje na temat sposobu konfigurowania grup akcji za pomocą sz
 
     a. **Nazwa**: wprowadź unikatowy identyfikator dla tej akcji.
 
-    b. **Typ akcji**: Wybierz aplikacji poczty E-mail/SMS/platformy Azure, Webhook, zarządzanie usługami IT — lub elementu Runbook automatyzacji.
+    b. **Typ akcji**: Wybierz E-mail/SMS/wypychanej/głosu, Webhook, zarządzanie usługami IT — lub elementu Runbook automatyzacji.
 
     c. **Szczegóły**: oparte na typ akcji, wprowadź numer telefonu, adres e-mail, identyfikator URI elementu webhook, aplikację usługi Azure, zarządzanie usługami IT — połączenie lub elementu runbook automatyzacji. Zarządzanie usługami IT — akcji, należy również określić **elementu roboczego** i wymaga narzędzie Zarządzanie usługami IT — innych pól.
 

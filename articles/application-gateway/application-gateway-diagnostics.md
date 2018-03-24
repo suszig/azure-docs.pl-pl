@@ -1,6 +1,6 @@
 ---
-title: "Monitoruj dzienniki dostęp, Dzienniki wydajności kondycji zaplecza i metryki bramy aplikacji | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak włączyć i zarządzać Dzienniki wydajności i dzienników dostępu bramy aplikacji"
+title: Monitoruj dzienniki dostęp, Dzienniki wydajności kondycji zaplecza i metryki bramy aplikacji | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak włączyć i zarządzać Dzienniki wydajności i dzienników dostępu bramy aplikacji
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Kondycji zaplecza, dzienniki diagnostyczne i metryki bramy aplikacji
 
@@ -152,9 +152,9 @@ Rejestrowanie aktywności jest automatycznie włączona dla każdego zasobu usł
 
    ![Uruchamia proces konfiguracji][2]
 
-4. Wybierz istniejący obszar roboczy Operations Management Suite (OMS) lub Utwórz nową. W tym przykładzie użyto jednego z istniejących.
+4. Wybierz istniejący obszar roboczy analizy dzienników lub Utwórz nową. W tym przykładzie użyto jednego z istniejących.
 
-   ![Opcje dla obszarów roboczych OMS][3]
+   ![Opcje dla obszarów roboczych analizy dzienników][3]
 
 5. Potwierdź ustawienia, a następnie kliknij przycisk **zapisać**.
 
@@ -171,13 +171,13 @@ Dziennik dostępu jest generowany tylko wtedy, gdy włączono na każde wystąpi
 
 |Wartość  |Opis  |
 |---------|---------|
-|Identyfikator wystąpienia     | Wystąpienie bramy aplikacji, który obsłużył żądanie.        |
-|ClientIP     | Źródłowy adres IP dla żądania.        |
+|instanceId     | Wystąpienie bramy aplikacji, który obsłużył żądanie.        |
+|clientIP     | Źródłowy adres IP dla żądania.        |
 |clientPort     | Port źródłowy dla żądania.       |
 |HttpMethod     | Metoda HTTP używana przez żądanie.       |
 |requestUri     | Identyfikator URI odebrane żądanie.        |
 |RequestQuery     | **Serwer routingu**: wystąpienie puli zaplecza, którego wysłano żądanie. </br> **X-AzureApplicationGateway-dziennika-ID**: Identyfikator korelacji użytej w żądaniu. Może służyć do rozwiązywania problemów ruchu na serwerach wewnętrznych. </br>**Stan serwera**: kod odpowiedzi HTTP o bramy aplikacji otrzymanych od wewnętrznej.       |
-|Agent użytkownika     | Agent użytkownika z nagłówka żądania HTTP.        |
+|UserAgent     | Agent użytkownika z nagłówka żądania HTTP.        |
 |httpStatus     | Kod stanu HTTP zwrócona do klienta z bramy aplikacji.       |
 |Wersja_http     | Wersja protokołu HTTP żądania.        |
 |ReceivedBytes     | Rozmiar pakietów otrzymanych w bajtach.        |
@@ -215,11 +215,11 @@ Dziennik wydajności jest generowany tylko wtedy, gdy włączono na każde wyst�
 
 |Wartość  |Opis  |
 |---------|---------|
-|Identyfikator wystąpienia     |  Dla wydajności, które dane są generowane wystąpienia bramy aplikacji. Brama aplikacji w wielu wystąpień jest jeden wiersz dla każdego wystąpienia.        |
+|instanceId     |  Dla wydajności, które dane są generowane wystąpienia bramy aplikacji. Brama aplikacji w wielu wystąpień jest jeden wiersz dla każdego wystąpienia.        |
 |healthyHostCount     | Liczba hostów dobrej kondycji w puli zaplecza.        |
 |unHealthyHostCount     | Liczba hostów złej kondycji w puli zaplecza.        |
 |RequestCount     | Liczba żądań obsłużonych.        |
-|Czas oczekiwania | Czas oczekiwania (w milisekundach) żądań z wystąpienia zaplecza, która służy do żądania. |
+|opóźnienie | Czas oczekiwania (w milisekundach) żądań z wystąpienia zaplecza, która służy do żądania. |
 |failedRequestCount| Liczba żądań zakończonych niepowodzeniem.|
 |Przepływność| Średnia przepustowość od czasu ostatniego dziennika, mierzony w bajtach na sekundę.|
 
@@ -252,21 +252,21 @@ Dziennik zapory jest generowany tylko wtedy, gdy włączono dla każdej bramy ap
 
 |Wartość  |Opis  |
 |---------|---------|
-|Identyfikator wystąpienia     | Zapory, które dane są generowane wystąpienia bramy aplikacji. Brama aplikacji w wielu wystąpień jest jeden wiersz dla każdego wystąpienia.         |
+|instanceId     | Zapory, które dane są generowane wystąpienia bramy aplikacji. Brama aplikacji w wielu wystąpień jest jeden wiersz dla każdego wystąpienia.         |
 |clientIp     |   Źródłowy adres IP dla żądania.      |
 |clientPort     |  Port źródłowy dla żądania.       |
 |requestUri     | Adres URL odebrane żądanie.       |
 |ruleSetType     | Typ zestawu reguł. Dostępne wartości to OWASP.        |
 |ruleSetVersion     | Wersja używanego zestawu reguł. Dostępne wartości to 2.2.9 i 3.0.     |
-|RuleId     | Identyfikator reguły wyzwalająca zdarzenia.        |
-|Komunikat     | Przyjazny komunikat wyzwalająca zdarzenia. Bardziej szczegółowe informacje znajdują się w sekcji szczegółów.        |
-|Akcja     |  Działania podjęte w żądaniu. Dostępne wartości to zablokowany, a dozwolone.      |
-|Lokacji     | Witryna, dla którego wygenerowano dziennika. Obecnie tylko Global jest na liście, ponieważ reguły są globalne.|
-|Szczegóły     | Szczegóły wyzwalająca zdarzenia.        |
+|ruleId     | Identyfikator reguły wyzwalająca zdarzenia.        |
+|message     | Przyjazny komunikat wyzwalająca zdarzenia. Bardziej szczegółowe informacje znajdują się w sekcji szczegółów.        |
+|action     |  Działania podjęte w żądaniu. Dostępne wartości to zablokowany, a dozwolone.      |
+|witryna     | Witryna, dla którego wygenerowano dziennika. Obecnie tylko Global jest na liście, ponieważ reguły są globalne.|
+|szczegóły     | Szczegóły wyzwalająca zdarzenia.        |
 |details.Message     | Opis reguły.        |
-|details.Data     | Znaleziono żądania, które pasowało reguły określone dane.         |
-|details.File     | Plik konfiguracji zawiera reguły.        |
-|details.Line     | Numer wiersza w pliku konfiguracji, który wywołał zdarzenie.       |
+|details.data     | Znaleziono żądania, które pasowało reguły określone dane.         |
+|details.file     | Plik konfiguracji zawiera reguły.        |
+|details.line     | Numer wiersza w pliku konfiguracji, który wywołał zdarzenie.       |
 
 ```json
 {
@@ -354,7 +354,7 @@ Aby dowiedzieć się więcej na temat powiadomień o alertach, zobacz [otrzymywa
 
 Aby dowiedzieć się więcej o elementów webhook i sposobie ich użycia z alertami, odwiedź stronę [skonfigurować elementu webhook na alert metryki Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Wizualizuj w dziennikach zdarzeń i liczników przy użyciu [analizy dzienników](../log-analytics/log-analytics-azure-networking-analytics.md).
 * [Wizualizuj dziennik aktywności platformy Azure z usługi Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) wpis w blogu.

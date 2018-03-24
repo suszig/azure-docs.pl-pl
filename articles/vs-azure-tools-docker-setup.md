@@ -1,11 +1,11 @@
 ---
 title: Konfigurowanie hosta Docker z VirtualBox | Dokumentacja firmy Microsoft
-description: "Instrukcje krok po kroku, aby skonfigurować domyślne wystąpienie Docker przy użyciu rozwiązania Docker maszyny i VirtualBox"
+description: Instrukcje krok po kroku, aby skonfigurować domyślne wystąpienie Docker przy użyciu rozwiązania Docker maszyny i VirtualBox
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 0b1335a2-7720-42a8-8260-4e06fc00c9f6
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: e9465afb560a73d74f853c19094b3ee75b8c470c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11e238fa901a164df1dfd896e38df828601e650b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>Konfigurowanie hosta Docker z VirtualBox
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono Konfigurowanie domyślnego wystąpienia Docker przy użyciu rozwiązania Docker maszyny i VirtualBox. Jeśli używasz [Docker dla systemu Windows w wersji beta](http://beta.docker.com/), ta konfiguracja nie jest konieczne.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Następujące narzędzia muszą być zainstalowane.
 
-* [Przybornik docker](https://www.docker.com/products/overview#/docker_toolbox)
+* [Przybornik docker](https://github.com/docker/toolbox/releases)
 
 ## <a name="configuring-the-docker-client-with-windows-powershell"></a>Konfigurowanie klienta platformy Docker przy użyciu programu Windows PowerShell
 Aby skonfigurować klienta Docker, po prostu otwórz program Windows PowerShell i wykonaj następujące czynności:

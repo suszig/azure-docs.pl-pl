@@ -1,11 +1,11 @@
 ---
 title: Jak do odczytu lub zapisu na partycje danych w fabryce danych Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak odczytu lub zapisu danych podzielonej na partycje w fabryce danych Azure w wersji 2."
+description: Dowiedz się, jak odczytu lub zapisu danych podzielonej na partycje w fabryce danych Azure w wersji 2.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 3d65158a66ec16bd13ad4ad56af90c6fd28bfe7e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e3b6ccd1e7066ed86b3d6d2d85228688b06931c4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Jak do odczytu lub zapisu na partycje dane z fabryki danych Azure w wersji 2
 W wersji 1 usługi fabryka danych Azure obsługiwane odczytu lub zapisu danych podzielonej na partycje przy użyciu SliceStart/SliceEnd/WindowStart/WindowEnd zmienne systemowe. W wersji 2 to zachowanie można osiągnąć za pomocą parametru potoku i czas/zaplanowana godzina rozpoczęcia tego wyzwalacza jako wartość parametru. 

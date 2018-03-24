@@ -1,22 +1,22 @@
 ---
-title: "Organizowanie zasobów z grupami zarządzania platformy Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat grupy zarządzania i sposobu ich używania."
+title: Organizowanie zasobów z grupami zarządzania platformy Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat grupy zarządzania i sposobu ich używania.
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizowanie zasobów z grupami zarządzania Azure 
 
@@ -24,15 +24,13 @@ Jeśli Twoja organizacja ma wiele subskrypcji, może być konieczne sposobem wyd
 
 Funkcja grupy zarządzania jest dostępna w publicznej wersji zapoznawczej. Aby rozpocząć korzystanie z zarządzania grupy, zaloguj się do [portalu Azure](https://portal.azure.com) i wyszukaj **grup zarządzania** w **wszystkie usługi** sekcji. 
 
-Azure Obsługa zasad grupy zarządzania nie ma jeszcze w publicznej wersji zapoznawczej i będzie dostępna w następujące tygodnie.  
-
 Na przykład możesz zastosować zasady do grupy zarządzania, która ogranicza regiony dostępne na potrzeby tworzenia maszyny wirtualnej (VM). Te zasady będą stosowane do wszystkich grup zarządzania, subskrypcje i zasobów w ramach tej grupy zarządzania zezwalając tylko maszyny wirtualne mogą być tworzone w tym regionie.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarchia grup zarządzania i subskrypcji 
 
 Można tworzyć elastyczne struktury grupy zarządzania i subskrypcji do organizowania zasobów w hierarchii do ujednoliconego zasad i zarządzania dostępem. Na poniższym diagramie przedstawiono przykład hierarchii, które składa się z grupy zarządzania i subskrypcje są zorganizowane według działów.    
 
-![hierarchia](media/management-groups/MG_overview.png)
+![drzewa](media/management-groups/MG_overview.png)
 
 Tworząc hierarchii, które są grupowane według działów, to można przypisać [based kontroli dostępu (RBAC)](../active-directory/role-based-access-control-what-is.md) ról który *dziedziczą* do działów w ramach tej grupy zarządzania. Za pomocą grup zarządzania, można zmniejszyć obciążenie sieci i zmniejsza ryzyko błędu o konieczności tylko raz przypisanie roli. 
 
@@ -42,6 +40,14 @@ Tworząc hierarchii, które są grupowane według działów, to można przypisa�
     - To ograniczenie nie ma poziomu głównego lub na poziomie subskrypcji.
 - Każdej grupie zarządzania może obsługiwać tylko jeden obiekt nadrzędny.
 - Każdej grupie zarządzania może mieć wielu elementów podrzędnych. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Ograniczenie widoczności subskrypcji w wersji zapoznawczej 
+Obecnie jest to ograniczenie w wersji zapoznawczej gdzie nie jest możliwe wyświetlić subskrypcje, które zostały odziedziczone dostęp do. Dostęp jest dziedziczona do subskrypcji, ale usługi Azure Resource Manager nie jest w stanie przyjąć jeszcze dostępu dziedziczenia.  
+
+Przy użyciu interfejsu API REST, aby uzyskać informacje o subskrypcji zwraca szczegółowe informacje, masz dostęp, ale w portalu Azure i programu Azure Powershell subskrypcji nie są wyświetlane. 
+
+Ten element jest wykorzystywanej na i zostanie rozwiązany przed grup zarządzania anonsowanych jako "Ogólnej dostępności."  
+
 
 ## <a name="root-management-group-for-each-directory"></a>Grupa zarządzania głównego dla każdego katalogu
 

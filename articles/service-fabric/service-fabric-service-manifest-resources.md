@@ -1,11 +1,11 @@
 ---
-title: "Określanie punktów końcowych usługi sieć szkieletowa usług | Dokumentacja firmy Microsoft"
-description: "Jak opisano zasobów punktu końcowego w manifestu usługi, oraz o sposobie konfigurowania punktów końcowych HTTPS"
+title: Określanie punktów końcowych usługi sieć szkieletowa usług | Dokumentacja firmy Microsoft
+description: Jak opisano zasobów punktu końcowego w manifestu usługi, oraz o sposobie konfigurowania punktów końcowych HTTPS
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Określanie zasobów w manifeście usługi
 ## <a name="overview"></a>Przegląd
@@ -154,7 +154,7 @@ W przypadku klastrów systemu Linux **MY** wartości domyślne w folderze przech
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Zastępowanie punktów końcowych w pliku ServiceManifest.xml
 
-W ApplicationManifest Dodaj sekcję ResourceOverrides, co będzie równorzędny ConfigOverrides sekcji. W tej sekcji można określić zastąpienia dla sekcji punktów końcowych w sekcji zasobów określona w manifeście usługi.
+W ApplicationManifest Dodaj sekcję ResourceOverrides, co będzie równorzędny ConfigOverrides sekcji. W tej sekcji można określić zastąpienia dla sekcji punktów końcowych w sekcji zasobów określona w manifeście usługi. Przesłanianie punktów końcowych jest obsługiwane w środowisku uruchomieniowym 5.7.217/SDK 2.7.217 i wyższych.
 
 Aby zastąpić punktu końcowego w ServiceManifest przy użyciu ApplicationParameters Zmień ApplicationManifest następujący:
 

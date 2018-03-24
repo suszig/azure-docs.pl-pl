@@ -1,13 +1,13 @@
 ---
 title: Zaplanowane zdarzenia dla maszyn wirtualnych systemu Linux na platformie Azure | Dokumentacja firmy Microsoft
-description: "Planowanie zdarzeń za pomocą usługi metadanych platformy Azure dla maszyn wirtualnych systemu Linux."
+description: Planowanie zdarzeń za pomocą usługi metadanych platformy Azure dla maszyn wirtualnych systemu Linux.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c87dd5bdbdc87bf238f34d145bd7380a61b90cb6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Usługa Azure metadanych: Zaplanowanego zdarzenia dla maszyn wirtualnych systemu Linux
 
@@ -129,7 +129,7 @@ W przypadku w przypadku zaplanowanego zdarzenia odpowiedzi zawiera tablicę zdar
 | ResourceType | Typ zasobu, którego dotyczy to zdarzenie. <br><br> Wartości: <ul><li>`VirtualMachine`|
 | Zasoby| Lista zasobów, których dotyczy to zdarzenie. Listy jest gwarantowana zawiera maszyny z co najwyżej jeden [domeny aktualizacji](manage-availability.md), ale mogą nie zawierać wszystkich maszyn w UD. <br><br> Przykład: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Obiektu EventStatus | Stan tego zdarzenia. <br><br> Wartości: <ul><li>`Scheduled`: To zdarzenie jest zaplanowane do uruchomienia po upływie czasu określonego w `NotBefore` właściwości.<li>`Started`: To zdarzenie zostało rozpoczęte.</ul> Nie `Completed` lub podobne stan kiedykolwiek jest dostępne. Zdarzenie nie jest zwracana po zakończeniu zdarzenia.
-| Nie wcześniej niż| Czas, po którym można uruchomić tego zdarzenia. <br><br> Przykład: <br><ul><li> 2016-09-19T18:29:47Z  |
+| Nie wcześniej niż| Czas, po którym można uruchomić tego zdarzenia. <br><br> Przykład: <br><ul><li> Pon, 19 wrz 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Planowanie zdarzeń
 Zaplanowano każdego zdarzenia minimalna ilość czasu w przyszłości zależy od typu zdarzenia. Ten czas jest odzwierciedlone w zdarzeniu `NotBefore` właściwości. 

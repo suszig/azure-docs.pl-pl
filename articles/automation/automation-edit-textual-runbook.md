@@ -1,6 +1,6 @@
 ---
-title: "Edytowanie tekstową elementy runbook automatyzacji Azure"
-description: "Ten artykuł zawiera różne procedury dotyczące pracy z elementami runbook programu PowerShell i przepływ pracy programu PowerShell w automatyzacji Azure za pomocą edytora tekstową."
+title: Edytowanie tekstową elementy runbook automatyzacji Azure
+description: Ten artykuł zawiera różne procedury dotyczące pracy z elementami runbook programu PowerShell i przepływ pracy programu PowerShell w automatyzacji Azure za pomocą edytora tekstową.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 4fbb24f068092e4e256119b5e0288360dcef8fe0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb82971338f829667dfdc842e253ad4921865632
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edytowanie tekstową elementy runbook automatyzacji Azure
 Edytor tekstowy w automatyzacji Azure może służyć do edycji [elementy runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) i [elementach runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). To jest typowe funkcje innych edytory kodu, takie jak intellisense i kodowanie kolorami o dodatkowe funkcje specjalne ułatwi podczas uzyskiwania dostępu do zasobów typowych dla elementów runbook.  Ten artykuł zawiera szczegółowy opis kroków do wykonywania różnych funkcji z tego edytora.

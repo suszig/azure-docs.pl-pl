@@ -1,11 +1,10 @@
 ---
-title: "Przekształcanie danych za pomocą skryptu U-SQL - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się sposobu przetwarzania lub Przekształcanie danych za pomocą skryptów U-SQL w usłudze obliczeniowych Azure Data Lake Analytics."
+title: Przekształcanie danych za pomocą skryptu U-SQL - Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się sposobu przetwarzania lub Przekształcanie danych za pomocą skryptów U-SQL w usłudze obliczeniowych Azure Data Lake Analytics.
 services: data-factory
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: ff91a3da978fd027605b3674eae14d1d74b309cd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7861a3380ee330241f0c735ee6c5ed84f121e512
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych za pomocą skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,11 +48,11 @@ Poniższa tabela zawiera opisy ogólne właściwości używane w definicji JSON.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **Typ** |Powinien mieć ustawioną właściwość type: **AzureDataLakeAnalytics**. |Tak |
-| **Nazwa konta** |Nazwa konta usługi Azure Data Lake Analytics. |Tak |
-| **Element dataLakeAnalyticsUri** |Identyfikator URI, usługi Azure Data Lake Analytics. |Nie |
-| **Identyfikator subskrypcji** |Identyfikator subskrypcji platformy Azure |Nie (Jeśli nie zostanie określony, używany subskrypcji fabryki danych). |
-| **grupy zasobów o nazwie** |Nazwa grupy zasobów platformy Azure |Nie (Jeśli nie zostanie określony, używana grupa zasobów z fabryką danych). |
+| **Typ** |Powinien mieć ustawioną właściwość type: **AzureDataLakeAnalytics**. |Yes |
+| **accountName** |Nazwa konta usługi Azure Data Lake Analytics. |Yes |
+| **dataLakeAnalyticsUri** |Identyfikator URI, usługi Azure Data Lake Analytics. |Nie |
+| **subscriptionId** |Identyfikator subskrypcji platformy Azure |Nie (Jeśli nie zostanie określony, używany subskrypcji fabryki danych). |
+| **resourceGroupName** |Nazwa grupy zasobów platformy Azure |Nie (Jeśli nie zostanie określony, używana grupa zasobów z fabryką danych). |
 
 ### <a name="service-principal-authentication-recommended"></a>Uwierzytelnianie główna usługi (zalecane)
 Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w usłudze Azure Active Directory (Azure AD) i przyznać jej dostęp do usługi Data Lake Store. Aby uzyskać szczegółowe instrukcje, zobacz [do usługi uwierzytelniania](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Zwróć uwagę na następujące wartości, które służą do definiowania połączonej usługi:
@@ -65,9 +64,9 @@ Uwierzytelnianie usługi głównej przez określenie następujących właściwo�
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Określ identyfikator aplikacji klienta. | Tak |
-| **servicePrincipalKey** | Określ klucz aplikacji. | Tak |
-| **dzierżawy** | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Tak |
+| **servicePrincipalId** | Określ identyfikator aplikacji klienta. | Yes |
+| **servicePrincipalKey** | Określ klucz aplikacji. | Yes |
+| **Dzierżawy** | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Yes |
 
 **Przykład: Usługa podmiotu zabezpieczeń uwierzytelniania**
 ```json
@@ -93,8 +92,8 @@ Alternatywnie można uwierzytelnienia poświadczeń użytkownika dla usługi Dat
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| **autoryzacji** | Kliknij przycisk **autoryzacji** przycisk Edytor fabryki danych i wprowadź Twoje poświadczenia, który przypisuje do tej właściwości adresu URL autoryzacji wygenerowana automatycznie. | Tak |
-| **Identyfikator sesji** | Identyfikator sesji OAuth z sesji autoryzacji OAuth. Każdy identyfikator sesji jest unikatowy i mogą być użyte tylko raz. To ustawienie jest generowane automatycznie, gdy używasz Edytor fabryki danych. | Tak |
+| **Autoryzacji** | Kliknij przycisk **autoryzacji** przycisk Edytor fabryki danych i wprowadź Twoje poświadczenia, który przypisuje do tej właściwości adresu URL autoryzacji wygenerowana automatycznie. | Yes |
+| **sessionId** | Identyfikator sesji OAuth z sesji autoryzacji OAuth. Każdy identyfikator sesji jest unikatowy i mogą być użyte tylko raz. To ustawienie jest generowane automatycznie, gdy używasz Edytor fabryki danych. | Yes |
 
 **Przykład: Użytkownik poświadczeń uwierzytelniania**
 ```json
@@ -209,16 +208,16 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 
 | Właściwość            | Opis                              | Wymagane                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| type                | Właściwość type musi mieć ustawioną **DataLakeAnalyticsU SQL**. | Tak                                      |
-| linkedServiceName   | Odwołanie do usługi Azure Data Lake Analytics zarejestrowany jako połączonej usługi z fabryki danych | Tak                                      |
+| type                | Właściwość type musi mieć ustawioną **DataLakeAnalyticsU SQL**. | Yes                                      |
+| linkedServiceName   | Odwołanie do usługi Azure Data Lake Analytics zarejestrowany jako połączonej usługi z fabryki danych | Yes                                      |
 | scriptPath          | Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. | Nie (Jeśli używasz skryptu)                   |
-| Element scriptLinkedService | Połączonej usługi, która łączy magazynu, który zawiera skrypt do fabryki danych | Nie (Jeśli używasz skryptu)                   |
-| Skrypt              | Określ skrypt wbudowany zamiast określania scriptPath i scriptLinkedService. Na przykład: `"script": "CREATE DATABASE test"`. | Nie (Jeśli używasz scriptPath i scriptLinkedService) |
+| scriptLinkedService | Połączonej usługi, która łączy magazynu, który zawiera skrypt do fabryki danych | Nie (Jeśli używasz skryptu)                   |
+| skrypt              | Określ skrypt wbudowany zamiast określania scriptPath i scriptLinkedService. Na przykład: `"script": "CREATE DATABASE test"`. | Nie (Jeśli używasz scriptPath i scriptLinkedService) |
 | degreeOfParallelism | Maksymalna liczba węzłów jednocześnie użyta do uruchomienia zadania. | Nie                                       |
-| Priorytet            | Określa, które spośród wszystkich znajdujących się w kolejce zadań należy wybrać ma być uruchomiony. Im niższy numer, tym wyższy priorytet. | Nie                                       |
+| priorytet            | Określa, które spośród wszystkich znajdujących się w kolejce zadań należy wybrać ma być uruchomiony. Im niższy numer, tym wyższy priorytet. | Nie                                       |
 | parameters          | Parametry skryptu U-SQL          | Nie                                       |
 | runtimeVersion      | Wersja środowiska uruchomieniowego aparatu U-SQL do użycia | Nie                                       |
-| właściwość compilationMode     | <p>Tryb kompilacji U-SQL. Musi być jedną z następujących wartości:</p> <ul><li>**Semantycznej:** wykonywać tylko semantycznego kontroli i potrzeby związane z poprawnością kontroli.</li><li>**Pełna:** wykonania pełnej kompilacji, takich jak sprawdzanie składni, optymalizacja, generowania kodu, itp.</li><li>**SingleBox:** wykonania pełnej kompilacji, z ustawieniem TargetType do SingleBox.</li></ul><p>Jeśli nie określisz wartości dla tej właściwości, serwer określa tryb optymalne kompilacji. </p> | Nie                                       |
+| compilationMode     | <p>Tryb kompilacji U-SQL. Musi być jedną z następujących wartości:</p> <ul><li>**Semantycznej:** wykonywać tylko semantycznego kontroli i potrzeby związane z poprawnością kontroli.</li><li>**Pełna:** wykonania pełnej kompilacji, takich jak sprawdzanie składni, optymalizacja, generowania kodu, itp.</li><li>**SingleBox:** wykonania pełnej kompilacji, z ustawieniem TargetType do SingleBox.</li></ul><p>Jeśli nie określisz wartości dla tej właściwości, serwer określa tryb optymalne kompilacji. </p> | Nie                                       |
 
 Zobacz [definicji skryptu SearchLogProcessing.txt](#sample-u-sql-script) definicji skryptu. 
 
@@ -318,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Wartości  **@in**  i  **@out**  Parametry skryptu U-SQL są przekazywane dynamicznie przez ADF zgodnie z sekcją "parameters". Zobacz sekcję "parameters" w definicji potoku.
+Wartości **@in** i **@out** Parametry skryptu U-SQL są przekazywane dynamicznie przez ADF zgodnie z sekcją "parameters". Zobacz sekcję "parameters" w definicji potoku.
 
 Inne właściwości, takie jak degreeOfParallelism i priorytet można określić również w definicji potoku dla zadań, które są uruchamiane w usłudze Azure Data Lake Analytics.
 

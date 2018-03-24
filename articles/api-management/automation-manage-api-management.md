@@ -1,11 +1,11 @@
 ---
-title: "Zarządzanie Azure API Management przy użyciu usługi Automatyzacja Azure"
-description: "Więcej informacji na temat sposobu usługi Automatyzacja Azure może służyć do zarządzania usługi Azure API Management."
+title: Zarządzanie Azure API Management przy użyciu usługi Automatyzacja Azure
+description: Więcej informacji na temat sposobu usługi Automatyzacja Azure może służyć do zarządzania usługi Azure API Management.
 services: api-management, automation
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: eamono
-editor: 
+editor: ''
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 8bd251fa05e8e144471cd577cec607d91e5ab84c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10b483c70f7b5a3d767815306d8a690b1b9a5faf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Zarządzanie Azure API Management przy użyciu usługi Automatyzacja Azure
 W tym przewodniku przedstawiono usługi Automatyzacja Azure i jak on używany w celu uproszczenia zarządzania usługi Azure API Management.
@@ -31,7 +31,7 @@ Automatyzacja Azure umożliwia aparatowi wykonywania przepływów pracy wysoce n
 Obniżenie kosztów operacyjnych i zwolnić IT i pracownicy DevOps skupić się na pracy dodającego wartość biznesową przez przeniesienie zadań zarządzania chmury do automatycznego uruchamiania przez usługi Automatyzacja Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>Jak usługi Automatyzacja Azure ułatwia zarządzanie Azure API Management?
-Zarządzanie interfejsami API można zarządzać w automatyzacji Azure za pomocą [polecenia cmdlet programu Windows PowerShell dla interfejsu API usługi Azure API Management](https://azure.microsoft.com/updates/full-set-of-windows-powershell-cmdlets-for-azure-api-management-api/). W ramach usługi Automatyzacja Azure można napisać skrypty przepływu pracy programu PowerShell do wykonywania wielu zadań interfejsu API zarządzania przy użyciu polecenia cmdlet. Można również skojarzyć te polecenia cmdlet usługi Automatyzacja Azure, za pomocą poleceń cmdlet dla innych usług Azure, aby zautomatyzować złożone zadania 3 systemów firm i usług Azure.
+Zarządzanie interfejsami API można zarządzać w automatyzacji Azure za pomocą [polecenia cmdlet programu Windows PowerShell dla interfejsu API usługi Azure API Management](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0#api_management/). W ramach usługi Automatyzacja Azure można napisać skrypty przepływu pracy programu PowerShell do wykonywania wielu zadań interfejsu API zarządzania przy użyciu polecenia cmdlet. Można również skojarzyć te polecenia cmdlet usługi Automatyzacja Azure, za pomocą poleceń cmdlet dla innych usług Azure, aby zautomatyzować złożone zadania 3 systemów firm i usług Azure.
 
 Oto kilka przykładów użycia interfejsu API zarządzania przy użyciu automatyzacji:
 

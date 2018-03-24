@@ -1,24 +1,24 @@
 ---
-title: "Zarządzanie wystąpieniami w funkcjach trwałe - Azure"
-description: "Dowiedz się, jak zarządzać wystąpień w rozszerzeniu trwałe funkcji dla usługi Azure Functions."
+title: Zarządzanie wystąpieniami w funkcjach trwałe - Azure
+description: Dowiedz się, jak zarządzać wystąpień w rozszerzeniu trwałe funkcji dla usługi Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Zarządzanie wystąpieniami w funkcjach trwałe (usługi Azure Functions)
 
@@ -104,7 +104,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>Trwa przerywanie działania wystąpień
 
-Uruchomione wystąpienie można przerywać działanie przy użyciu [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metody [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasy. Są dwa parametry `instanceId` i `reason` ciąg, który będą zapisywane do dzienników i stan wystąpienia. Zakończone wystąpienia spowoduje zatrzymanie uruchomiony zaraz po dotarciu serwerów do następnej `await` punktu lub zostanie zakończona natychmiast, jeśli jest już włączone `await`.
+Uruchomione wystąpienie orchestration można przerywać działanie przy użyciu [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metody [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasy. Są dwa parametry `instanceId` i `reason` ciąg, który będą zapisywane do dzienników i stan wystąpienia. Zakończone wystąpienia spowoduje zatrzymanie uruchomiony zaraz po dotarciu serwerów do następnej `await` punktu lub zostanie zakończona natychmiast, jeśli jest już włączone `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -119,6 +119,9 @@ public static Task Run(
 
 > [!NOTE]
 > Przerwanie wystąpienia jest obecnie obsługiwany tylko w przypadku funkcji orchestrator C#.
+
+> [!NOTE]
+> Kończenie działania wystąpienia nie obecnie propaguje. Działania funkcji i podrzędne orchestrations będzie działać do zakończenia niezależnie od tego, czy wystąpienie aranżacji, które wywołuje ich zostało przerwane.
 
 ## <a name="sending-events-to-instances"></a>Wysyłanie zdarzeń do wystąpień
 

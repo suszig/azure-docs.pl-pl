@@ -1,24 +1,21 @@
 ---
-title: "Usługi Azure Active Directory B2C: Niestandardowe zasady | Dokumentacja firmy Microsoft"
-description: "Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C"
+title: 'Usługi Azure Active Directory B2C: Niestandardowe zasady | Dokumentacja firmy Microsoft'
+description: Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Usługi Azure Active Directory B2C: Zasady niestandardowe
 
@@ -37,7 +34,7 @@ Zasady niestandardowe to pliki konfiguracji definiujące zachowanie Twojej dzier
 |Dostosowywanie interfejsu użytkownika | Pełne dostosowywanie interfejsu użytkownika, w tym obsługi języka HTML, CSS i javascript (wymaga domeny niestandardowej)<br><br>Obsługa wielu języków z ciągami niestandardowe | tym samym |
 | Dostosowywanie atrybutu | Standardowe i niestandardowe atrybuty | tym samym |
 |Token i sesji zarządzania | Niestandardowy token i wiele opcji sesji | tym samym |
-|Dostawców tożsamości| **Dzisiaj**: wstępnie zdefiniowane lokalne, społecznościowych dostawcy<br><br>**Przyszłe**: OAuth opartych na standardach OIDC SAML, | **Dzisiaj**: SAML opartych na standardach OIDC OAUTH,<br><br>**Przyszłe**: WsFed |
+|Dostawcy tożsamości| **Dzisiaj**: wstępnie zdefiniowane lokalne, społecznościowych dostawcy<br><br>**Przyszłe**: OAuth opartych na standardach OIDC SAML, | **Dzisiaj**: SAML opartych na standardach OIDC OAUTH,<br><br>**Przyszłe**: WsFed |
 |Zadania tożsamości (przykłady) | Zarejestruj się lub zaloguj się przy użyciu wielu kont społecznościowych i lokalne<br><br>Samoobsługowe resetowanie haseł<br><br>Edycja profilu<br><br>Scenariusze uwierzytelniania wieloskładnikowego<br><br>Dostosowywanie tokeny i sesji<br><br>Przepływ tokenu dostępu | Wykonaj zadania tego samego jako wbudowanych zasad przy użyciu dostawcy tożsamości niestandardowej lub użyj zakresy niestandardowe<br><br>Ustanów użytkownika w innym systemie w czasie rejestracji<br><br>Wysyłania powitalnej wiadomości e-mail, przy użyciu własnego dostawcę usługi poczty e-mail<br><br>Użyj magazynu użytkowników spoza B2C<br><br>Sprawdzanie poprawności użytkownika informacje z zaufanego systemu za pomocą interfejsu API |
 
 ## <a name="policy-files"></a>Pliki zasad
@@ -92,9 +89,9 @@ Zasady niestandardowe jest reprezentowany jako jeden lub kilka plików w formaci
 
 | Typ pliku zasad | Nazwa pliku przykłady | Zalecane użycie | Dziedziczy |
 |---------------------|--------------------|-----------------|---------------|
-| PODSTAWA |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Zawiera podstawowe oświadczeń schematu, przekształcenia oświadczeń, dostawców oświadczeń i podróże użytkownika skonfigurowane przez firmę Microsoft<br><br>Minimalne zmiany tego pliku | Brak |
+| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Zawiera podstawowe oświadczeń schematu, przekształcenia oświadczeń, dostawców oświadczeń i podróże użytkownika skonfigurowane przez firmę Microsoft<br><br>Minimalne zmiany tego pliku | None |
 | Rozszerzenia (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Konsolidacja zmiany w tym miejscu pliku podstawowego<br><br>Dostawców oświadczeń zmodyfikowane<br><br>Podróże zmodyfikowanego użytkownika<br><br>Definicje własnych niestandardowych schematów | Pliku podstawowego |
-| Jednostka uzależniona (RP) | B2C_1A_sign_up_sign_in.XML| Ustawienia tokenu kształt i sesji tutaj| Plik Extensions(ext) |
+| Jednostka uzależniona (RP) | B2C_1A_sign_up_sign_in.xml| Ustawienia tokenu kształt i sesji tutaj| Plik Extensions(ext) |
 
 ### <a name="inheritance-model"></a>Model dziedziczenia
 
@@ -102,7 +99,7 @@ Po uruchomieniu pliku zasad planu odzyskiwania, Framework obsługi tożsamości 
 
 **Wbudowane zasady** w usłudze Azure AD B2C wykonaj wzorzec pliku 3 przedstawione powyżej, ale Deweloper widoczny jest tylko plik jednostki uzależnionej strony (RP) podczas portalu dokonuje zmian w tle w pliku EXTenstions.  Wszystkie usługi Azure AD B2C udostępnia podstawowe zasady plik podlega kontroli przez zespół Azure B2C jest często aktualizowana.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Wprowadzenie do zasad niestandardowych](active-directory-b2c-get-started-custom.md)

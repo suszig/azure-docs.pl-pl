@@ -1,23 +1,23 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Domo | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Domo."
+description: Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Domo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3fbfd8839b1a45c6927753a48d1ac617f2d34427
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7f74d3bd8a2f0173f8f3cc69c611696044875a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Samouczek: Integracji Azure Active Directory z Domo
 
@@ -110,7 +110,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-domo-tutorial/tutorial_domo_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.domo.com`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://<companyname>.domo.com`
 
     b. W **identyfikator** tekstowym, wpisz adres URL za pomocą następujących wzorców:     
 
@@ -139,8 +139,8 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     | Nazwa atrybutu | Wartość atrybutu |
     | ------------------- | -------------------- |    
-    | name | User.DisplayName |
-    | wyślij wiadomość e-mail | User.mail |
+    | name | user.displayname |
+    | e-mail | User.mail |
     
     a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
 
@@ -167,7 +167,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. Skonfigurować logowanie jednokrotne w **Domo** stronie, musisz wysłać pobrany **certyfikatu**, **identyfikator jednostki SAML**, **SAML pojedynczy znak na adres URL usługi** i **Sign-Out adres URL** do [Domo zespołem pomocy technicznej](mailto:support@domo.com). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
+9. Aby skonfigurować logowanie jednokrotne w **Domo** po stronie, przejdź do artykułu bazy wiedzy firmy Domo znaleziono [tutaj](http://knowledge.domo.com?cid=azuread)i postępuj zgodnie z instrukcjami.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -246,12 +246,10 @@ Po kliknięciu kafelka Domo w panelu dostępu użytkownik powinien pobrać autom
 
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

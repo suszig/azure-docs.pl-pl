@@ -1,11 +1,11 @@
 ---
-title: "Rozszerzenie maszyny wirtualnej Azure Agent obserwatorów sieci dla systemu Linux | Dokumentacja firmy Microsoft"
-description: "Wdróż agenta monitora sieci na maszynie wirtualnej systemu Linux przy użyciu rozszerzenia maszyny wirtualnej."
+title: Rozszerzenie maszyny wirtualnej Azure Agent obserwatorów sieci dla systemu Linux | Dokumentacja firmy Microsoft
+description: Wdróż agenta monitora sieci na maszynie wirtualnej systemu Linux przy użyciu rozszerzenia maszyny wirtualnej.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a51566148eec88f707b524346afc59606196e4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Rozszerzenie maszyny wirtualnej obserwatorów agenta sieciowe dla systemu Linux
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
-[Azure obserwatora sieciowego](https://review.docs.microsoft.com/azure/network-watcher/) jest sieci performance monitoring, Diagnostyka i analiza usługa, która umożliwia monitorowanie sieci platformy Azure. Rozszerzenie maszyny wirtualnej sieci obserwatorów agenta jest wymagane dla niektórych funkcji obserwatora sieciowego na maszynach wirtualnych Azure. Dotyczy to również Przechwytywanie ruchu sieciowego na żądanie i inne zaawansowane funkcje.
+[Azure obserwatora sieciowego](https://docs.microsoft.com/azure/network-watcher/) jest sieci performance monitoring, Diagnostyka i analiza usługa, która umożliwia monitorowanie sieci platformy Azure. Rozszerzenie maszyny wirtualnej sieci obserwatorów agenta jest wymagane dla niektórych funkcji obserwatora sieciowego na maszynach wirtualnych Azure. Dotyczy to również Przechwytywanie ruchu sieciowego na żądanie i inne zaawansowane funkcje.
 
 Ten dokument zawiera szczegóły dotyczące obsługiwanych platform i opcje wdrażania dla rozszerzenia maszyny wirtualnej sieci obserwatorów agenta dla systemu Linux.
 
@@ -40,7 +40,7 @@ Rozszerzenie Agent monitora sieci mogą być uruchamiane na tych dystrybucje sys
 | Ubuntu | 16.04 LTS, 14.04 LTS i 12.04 LTS |
 | Debian | 7 i 8 |
 | RedHat | 6.x i 7.x |
-| Oracle Linux | 7 x |
+| Oracle Linux | 7x |
 | SUSE | 11 i 12 |
 | OpenSuse | 7.0 |
 | CentOS | 7.0 |
@@ -75,10 +75,10 @@ Następujące JSON zawiera schemat rozszerzenia Agent monitora sieci. Rozszerzen
 
 ### <a name="property-values"></a>Wartości właściwości
 
-| Nazwa | Wartość / przykład |
+| Name (Nazwa) | Wartość / przykład |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Wydawcy | Microsoft.Azure.NetworkWatcher |
+| publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 

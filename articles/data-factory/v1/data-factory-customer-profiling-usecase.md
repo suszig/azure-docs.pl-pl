@@ -1,11 +1,10 @@
 ---
-title: "Przypadek użycia — profilowanie klientów"
-description: "Dowiedz się, jak fabryki danych Azure służy do tworzenia opartych na danych przepływu pracy (potoku) do profilu gier klientów."
+title: Przypadek użycia — profilowanie klientów
+description: Dowiedz się, jak fabryki danych Azure służy do tworzenia opartych na danych przepływu pracy (potoku) do profilu gier klientów.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: e07d55cf-8051-4203-9966-bdfa1035104b
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3a3c9c1d483ece71ecc38c7eaa364c35464d80f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e113d2b62311eae0eba091e59edd08ddb8582b1b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-case---customer-profiling"></a>Przypadek użycia — profilowanie klientów
 Fabryka danych Azure to jedna z wielu usług, używaną do zaimplementowania pakietu Cortana Intelligence Suite akceleratorów rozwiązania.  Aby uzyskać więcej informacji na temat Cortana Intelligence, odwiedź stronę [pakietu Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). W tym dokumencie opisano przypadek użycia prostego, aby pomóc Ci rozpocząć zrozumienie, jak fabryki danych Azure można rozwiązywania typowych problemów analytics.

@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z platformy w chmurze SAP | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i SAP platformy w chmurze."
+description: Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i SAP platformy w chmurze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Samouczek: Integracji Azure Active Directory z platformy w chmurze SAP
 
@@ -111,7 +111,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Adresy URL i SAP Cloud Platform domeny pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
-    a. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania się do sieci **platformy w chmurze SAP** aplikacji. To jest adres URL konta określonego zasobu chronionego w aplikacji platformy w chmurze SAP. Adres URL jest oparty na następujący wzór:`https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania się do sieci **platformy w chmurze SAP** aplikacji. To jest adres URL konta określonego zasobu chronionego w aplikacji platformy w chmurze SAP. Adres URL jest oparty na następujący wzór: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
      >To jest adres URL w aplikacji platformy w chmurze SAP, która wymaga uwierzytelnienia użytkownika.
@@ -218,7 +218,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |Imię |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |nazwisko |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |wyślij wiadomość e-mail |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mail |
    
      >[!NOTE]
      >Konfiguracja atrybutów, zależy od tego, jak aplikacje na punkt połączenia usługi są tworzone, oznacza to, które atrybutów oczekiwane w odpowiedzi SAML i w których nazwa (atrybut podmiotu zabezpieczeń) będą uzyskiwać dostęp do tego atrybutu w kodzie.
@@ -228,7 +228,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
  
     c. Nazwy i wartości dla **atrybut podmiotu zabezpieczeń** na zrzucie ekranu pokazano zależą od sposobu zaprojektowano w aplikacji. Istnieje możliwość, że aplikacja wymaga innego mapowania.
 
-###<a name="assertion-based-groups"></a>Grupy oparte na potwierdzenie
+### <a name="assertion-based-groups"></a>Grupy oparte na potwierdzenie
 
 Ten opcjonalny krok można skonfigurować grupy oparte na potwierdzenie dla usługi Azure Active Directory dostawcy tożsamości.
 
@@ -333,7 +333,7 @@ Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczeg
 Po kliknięciu kafelka SAP Cloud Platform w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji platformy w chmurze SAP.
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

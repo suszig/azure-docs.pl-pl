@@ -1,10 +1,10 @@
 ---
-title: "Azure DB rozwiązania Cosmos: Artykuły interfejsu API SQL | Dokumentacja firmy Microsoft"
-description: "Lista wszystkich artykułów określonych do tworzenia baz danych dokumentu przy użyciu interfejsu API SQL w usłudze Azure DB rozwiązania Cosmos."
+title: 'Azure DB rozwiązania Cosmos: Artykuły interfejsu API SQL | Dokumentacja firmy Microsoft'
+description: Lista wszystkich artykułów określonych do tworzenia baz danych dokumentu przy użyciu interfejsu API SQL w usłudze Azure DB rozwiązania Cosmos.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f30f089ea7a12ef54b255368f38c8ec11a8c11da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure rozwiązania Cosmos bazy danych: Dokumentacja interfejsu API SQL
 
@@ -34,7 +34,7 @@ Są to musi przeczytaj tematy i zasobów, aby uruchomić szkoleniowe dotyczące 
 - [Wprowadzenie do interfejsu API SQL](sql-api-introduction.md)
 - [Model zasobów bazy danych](sql-api-resources.md)
 - Witryny sieci Web: [Plac zabaw dla zapytań](https://www.documentdb.com/sql/demo)
-- Ściągawka: [gramatyki SQL](sql-api-sql-query-cheat-sheet.md)
+- Ściągawka: [gramatyki SQL](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>Przewodniki Szybki start
 

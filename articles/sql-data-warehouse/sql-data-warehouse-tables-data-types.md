@@ -1,11 +1,11 @@
 ---
-title: "Typy danych wskazówki - Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Zalecenia dotyczące Definiowanie typów danych, które są zgodne z usługą Magazyn danych SQL."
+title: Typy danych wskazówki - Azure SQL Data Warehouse | Dokumentacja firmy Microsoft
+description: Zalecenia dotyczące Definiowanie typów danych, które są zgodne z usługą Magazyn danych SQL.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 03/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 2bde5da8593c559e2afb33c9c4842695dc273ac3
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: dcdcb6eddf35fe3ec4754353452c68cd3e24f907
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Wskazówki dotyczące definiowania typów danych w przypadku tabel w usłudze SQL Data Warehouse
 Zalecenia te umożliwiają definiowanie typów danych tabeli, które są zgodne z usługą Magazyn danych SQL. Oprócz zgodności minimalizując rozmiar typów danych o poprawia wydajność kwerend.
@@ -55,21 +55,21 @@ Na poniższej liście przedstawiono typy danych nie obsługuje usługi SQL Data 
 
 | Nieobsługiwany typ danych | Obejście problemu |
 | --- | --- |
-| [Geometria][geometry] |[varbinary][varbinary] |
-| [Lokalizacja geograficzna][geography] |[varbinary][varbinary] |
+| [geometry][geometry] |[varbinary][varbinary] |
+| [geography][geography] |[varbinary][varbinary] |
 | [Identyfikator hierarchii][hierarchyid] |[nvarchar][nvarchar](4000) |
-| [Obraz][ntext,text,image] |[varbinary][varbinary] |
-| [tekst][ntext,text,image] |[varchar][varchar] |
+| [image][ntext,text,image] |[varbinary][varbinary] |
+| [Tekst][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Podziel kolumnę na kilka jednoznacznie kolumn. |
-| [Tabela][table] |Konwertuj do tabel tymczasowych. |
-| [Znacznik czasu][timestamp] |Zmian kodu w celu użycia [datetime2] [ datetime2] i `CURRENT_TIMESTAMP` funkcji.  Obsługiwane są tylko stałe jako domyślne, w związku z tym current_timestamp nie może być zdefiniowana jako ograniczenie domyślne. Jeśli trzeba migrować wartości wersji wierszy z typu kolumny znaczników czasu, użyj [BINARNE][BINARY](8) lub [VARBINARY][BINARY](8) dla nie wartość NULL lub Wiersz wersji wartości NULL. |
-| [XML][xml] |[varchar][varchar] |
+| [table][table] |Konwertuj do tabel tymczasowych. |
+| [timestamp][timestamp] |Zmian kodu w celu użycia [datetime2] [ datetime2] i `CURRENT_TIMESTAMP` funkcji.  Obsługiwane są tylko stałe jako domyślne, w związku z tym current_timestamp nie może być zdefiniowana jako ograniczenie domyślne. Jeśli trzeba migrować wartości wersji wierszy z typu kolumny znaczników czasu, użyj [BINARNE][BINARY](8) lub [VARBINARY][BINARY](8) dla nie wartość NULL lub Wiersz wersji wartości NULL. |
+| [xml][xml] |[varchar][varchar] |
 | [Typ zdefiniowany przez użytkownika][user defined types] |Przekonwertować typu danych natywnych, gdy jest to możliwe. |
 | wartości domyślne | Wartości domyślne obsługuje literały i tylko stałe.  Inne niż deterministyczne wyrażenia lub funkcje, takie jak `GETDATE()` lub `CURRENT_TIMESTAMP`, nie są obsługiwane. |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej, zobacz:
 
 - [Najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices]

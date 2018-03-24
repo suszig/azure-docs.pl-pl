@@ -1,23 +1,23 @@
 ---
-title: "Planowanie środowiska uruchomieniowego integracji Azure SSIS | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób tworzenia harmonogramu uruchamiania i zatrzymywania ze środowiska uruchomieniowego integracji Azure SSIS przy użyciu usługi Automatyzacja Azure i fabryki danych."
+title: Planowanie środowiska uruchomieniowego integracji Azure SSIS | Dokumentacja firmy Microsoft
+description: W tym artykule opisano sposób tworzenia harmonogramu uruchamiania i zatrzymywania ze środowiska uruchomieniowego integracji Azure SSIS przy użyciu usługi Automatyzacja Azure i fabryki danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Jak można zaplanować uruchamianie i zatrzymywanie środowiska uruchomieniowego integracji Azure SSIS 
 Uruchomiona środowiska uruchomieniowego integracji SSIS Azure (SQL Server Integration Services) (IR) ma opłat skojarzonych z nim. W związku z tym który chcesz uruchomić IR tylko wtedy, gdy jest to wymagane do uruchamiania pakietów SSIS na platformie Azure i zatrzymaj ją, gdy nie będzie potrzebny. Można użyć interfejsu użytkownika z fabryki danych lub Azure PowerShell do [ręcznie uruchomić lub zatrzymać IR SSIS Azure](manage-azure-ssis-integration-runtime.md)). W tym artykule opisano sposób tworzenia harmonogramu uruchamiania i zatrzymywania Azure SSIS integrację środowiska uruchomieniowego (IR) przy użyciu usługi Automatyzacja Azure i fabryki danych Azure. Poniżej przedstawiono ogólne kroki opisane w tym artykule:
@@ -340,7 +340,7 @@ Po utworzeniu i przetestować potoku utworzyć wyzwalacza harmonogram i skojarzy
 4. Połącz **procedury składowanej** działania do ostatniego **Web** działania.
 
     ![Pełna potoku](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-5. Sprawdź poprawność ustawień potoku, klikając **weryfikacji** na pasku narzędzi. Zamknij **raport weryfikacji potoku** klikając  **>>**  przycisku. 
+5. Sprawdź poprawność ustawień potoku, klikając **weryfikacji** na pasku narzędzi. Zamknij **raport weryfikacji potoku** klikając **>>** przycisku. 
 
     ![Weryfikowanie potoku](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 

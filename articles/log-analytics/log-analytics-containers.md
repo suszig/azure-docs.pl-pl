@@ -1,11 +1,11 @@
 ---
-title: "Rozwiązania monitorowanie kontenera Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Rozwiązanie monitorowania kontenera w Log Analytics pomaga wyświetlać i zarządzać Docker i Windows hostów kontenera w jednym miejscu."
+title: Rozwiązania monitorowanie kontenera Azure Log Analytics | Dokumentacja firmy Microsoft
+description: Rozwiązanie monitorowania kontenera w Log Analytics pomaga wyświetlać i zarządzać Docker i Windows hostów kontenera w jednym miejscu.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kontener rozwiązania monitorowanie analizy dzienników
 
@@ -100,7 +100,10 @@ Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiąz
     - W systemie Windows Server 2016 i Windows 10 zainstalować aparatem platformy Docker i klienta, a następnie połącz agenta w celu zbierania informacji oraz wysyłać je do analizy dzienników. Przegląd [zainstalować i skonfigurować hosty kontenera systemu Windows](#install-and-configure-windows-container-hosts) Jeśli środowisko systemu Windows.
   - Do aranżacji wielu hostów Docker:
     - Jeśli masz środowisko Red Hat OpenShift przejrzeć [skonfigurować agenta pakietu OMS dla Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-    - Jeśli masz klaster Kubernetes za pomocą usługi kontenera platformy Azure, przejrzyj [skonfigurować agenta pakietu OMS dla Kubernetes](#configure-an-oms-agent-for-kubernetes).
+    - Jeśli masz klaster Kubernetes za pomocą usługi kontenera platformy Azure:
+       - Przegląd [konfiguracji agenta pakietu OMS Linux pod kątem Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
+       - Przegląd [konfiguracji agenta pakietu OMS systemu Windows pod kątem Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Przegląd [Helm używany do wdrażania agenta pakietu OMS na systemie Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - W przypadku klastra usługi kontenera platformy Azure DC/OS więcej w [monitorować klastra usługi kontenera platformy Azure DC/OS w usłudze Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Jeśli masz środowisku trybu Docker Swarm, dowiedzieć się więcej o [skonfigurować agenta pakietu OMS dla rozwiązania Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
     - Jeśli masz klaster sieci szkieletowej usług dowiedzieć się więcej na [monitorować kontenery z analizy dzienników OMS](../service-fabric/service-fabric-diagnostics-oms-containers.md).
@@ -387,7 +390,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Konfigurowanie agenta pakietu OMS dla Kubernetes systemu Windows
+#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>Konfigurowanie agenta pakietu OMS systemu Windows dla Kubernetes
 Dla systemu Windows Kubernetes skrypt będzie używany do generowania kluczy tajnych yaml programu w pliku o identyfikator obszaru roboczego i klucz podstawowy zainstalować agenta pakietu OMS. W [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) są dostępne pliki korzystające z informacjami o poufne.  Musisz zainstalować agenta pakietu OMS oddzielnie dla węzłów master i agenta.  
 
 1. Do użycia przy użyciu tajnych informacji we wzorcu DaemonSet Agent pakietu OMS węzła, zaloguj się i najpierw utworzyć kluczy tajnych.

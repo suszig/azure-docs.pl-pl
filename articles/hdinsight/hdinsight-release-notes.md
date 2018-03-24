@@ -1,8 +1,8 @@
 ---
-title: "Informacje o wersji programu Składniki platformy Hadoop w usłudze Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Informacje o najnowszej wersji i wersje składników platformy Hadoop dla usługi Azure HDInsight. Uzyskać porad programistycznych i szczegóły Spark, R Server, Hive i inne."
+title: Informacje o wersji programu Składniki platformy Hadoop w usłudze Azure HDInsight | Dokumentacja firmy Microsoft
+description: Informacje o najnowszej wersji i wersje składników platformy Hadoop dla usługi Azure HDInsight. Uzyskać porad programistycznych i szczegóły Spark, R Server, Hive i inne.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
 author: nitinme
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf0bfa052c8cd7589af40972fda1e1802b4d1acb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Informacje o wersji dla składników platformy Hadoop w usłudze Azure HDInsight
 
@@ -29,9 +29,10 @@ Ten artykuł zawiera informacje na temat **najnowszych** Azure HDInsight wersji 
 > [!IMPORTANT]
 > Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz [artykułu przechowywanie wersji usługi HDInsight](hdinsight-component-versioning.md).
 
-## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Informacje o 03/08/2018 - wersji 2.2 platformy Spark w usłudze HDInsight 3,6
+## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Informacje o 03/20/2018 - wersji 2.2 platformy Spark w usłudze HDInsight 3,6
 
 - Spark 2.2.0 zwiększa stabilność Spark Core, SQL, ML i oferuje strukturalnych przesyłania strumieniowego GA stanu. Platforma Spark 2.2.0 jest teraz dostępna w usłudze HDInsight 3,6.
+
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Informacje o wersji 2017-08/01 usługi HDInsight
 

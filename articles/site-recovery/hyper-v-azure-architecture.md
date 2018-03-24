@@ -1,16 +1,16 @@
 ---
-title: "Funkcja Hyper-V architektura replikacji Azure w usłudze Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera omówienie składników i architektury używanych podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V (bez usługi VMM) do platformy Azure za pomocą usługi Azure Site Recovery."
+title: Funkcja Hyper-V architektura replikacji Azure w usłudze Azure Site Recovery | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera omówienie składników i architektury używanych podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V (bez usługi VMM) do platformy Azure za pomocą usługi Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 978d290287a4ff8875eea7e93f003c78e7177dae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Architektura Azure replikacji funkcji Hyper-V
 
@@ -28,7 +28,7 @@ Następujące tabeli i grafika Podaj ogólny widok składniki używane do replik
 **Składnik** | **Wymaganie** | **Szczegóły**
 --- | --- | ---
 **Azure** | Subskrypcja platformy Azure, konto magazynu Azure i sieć platformy Azure. | Replikowane dane z lokalnymi obciążeń maszyny Wirtualnej są przechowywane na koncie magazynu. Maszyny wirtualne platformy Azure są tworzone przy użyciu danych replikowanych obciążeń czasie pracy awaryjnej z lokacji lokalnej.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
-**Funkcja Hyper-V** | Podczas wdrażania usługi Site Recovery należy zebrać klastry i hosty funkcji Hyper-V w lokacji funkcji Hyper-V. Na każdej maszynie Hyper-V należy zainstalować dostawcę usługi Azure Site Recovery i agent usług odzyskiwania. | Dostawca koordynuje replikację za pomocą usługi Site Recovery przez Internet. Agent usługi Recovery Services obsługuje replikację danych.<br/><br/> Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
+**Funkcja Hyper-V** | Podczas wdrażania usługi Site Recovery należy zebrać klastry i hosty funkcji Hyper-V w lokacji funkcji Hyper-V. Agent dostawcy usługi Azure Site Recovery i usług odzyskiwania należy zainstalować na każdym hoście funkcji Hyper-V autonomiczne lub w każdym węźle klastra funkcji Hyper-V. | Dostawca koordynuje replikację za pomocą usługi Site Recovery przez Internet. Agent usługi Recovery Services obsługuje replikację danych.<br/><br/> Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
 **Maszyny wirtualne funkcji Hyper-V** | Co najmniej jeden uruchomionych maszyn wirtualnych funkcji Hyper-v. | Nic nie musi być jawnie zainstalowany na maszynach wirtualnych.
 
 
@@ -46,7 +46,7 @@ Następujące tabeli i grafika Podaj ogólny widok składniki używane do replik
 --- | --- | ---
 **Azure** | Subskrypcja platformy Azure, konto magazynu Azure i sieć platformy Azure. | Replikowane dane z lokalnymi obciążeń maszyny Wirtualnej są przechowywane na koncie magazynu. Maszyny wirtualne platformy Azure są tworzone przy użyciu zreplikowanych danych podczas pracy awaryjnej z lokacji lokalnej.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
 **Serwer VMM** | Serwer VMM ma co najmniej jedną chmurę zawierającą hosty funkcji Hyper-V. | Instalowanie dostawcy usługi Site Recovery na serwerze programu VMM w celu organizowania replikacji za pomocą usługi Site Recovery i Zarejestruj serwer w magazynie usług odzyskiwania.
-**Host funkcji Hyper-V** | Co najmniej jeden host/klaster funkcji Hyper-V zarządzany przez program VMM. |  Należy zainstalować agenta usług Recovery Services na każdej składowej będącej hostem lub klastrem.
+**Host funkcji Hyper-V** | Co najmniej jeden host/klaster funkcji Hyper-V zarządzany przez program VMM. |  W każdym węźle klastra lub hosta funkcji Hyper-V należy zainstalować agenta usług odzyskiwania.
 **Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna uruchomiona na serwerze hosta funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych.
 **Sieć** | Sieci logiczne i maszyn wirtualnych skonfigurowane na serwerze VMM. Sieć wirtualna powinna być połączona z siecią logiczną skojarzoną z chmurą. | Sieci maszyn wirtualnych są mapowane do sieci wirtualnych platformy Azure. Podczas tworzenia maszyn wirtualnych Azure po pracy awaryjnej, są one dodane do sieci platformy Azure, który jest zamapowany na sieć maszyny Wirtualnej.
 

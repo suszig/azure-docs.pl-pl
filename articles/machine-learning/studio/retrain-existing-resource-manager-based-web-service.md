@@ -1,12 +1,12 @@
 ---
-title: "Ponownie ucz istniejącej usługi sieci web predykcyjnej | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak ponownie ucz modelu i usługi sieci web, aby użyć nowo uczonego modelu w usłudze Azure Machine Learning aktualizacji."
+title: Ponownie ucz istniejącej usługi sieci web predykcyjnej | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak ponownie ucz modelu i usługi sieci web, aby użyć nowo uczonego modelu w usłudze Azure Machine Learning aktualizacji.
 services: machine-learning
-documentationcenter: 
-author: aashishb
-ms.author: aashishb
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: 
+editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 040b52ae41dc83f103762764b6f2ccea23d36983
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Ponownie ucz istniejącej usługi sieci web predykcyjnej
 W tym dokumencie opisano proces ponownego trenowania w następującym scenariuszu:
@@ -44,7 +44,7 @@ Począwszy od istniejącej usługi sieci web, a eksperymentów, musisz wykonaj n
    6. Aktualizuje usługę sieci web do nowej definicji usługi sieci web.
 
 ## <a name="deploy-the-training-experiment"></a>Wdrażanie eksperyment uczenia
-Aby wdrożyć eksperyment uczenia ponownego trenowania Usługa sieci web, należy dodać sieci web usługi wejściach i wyjściach do modelu. Łącząc *wyjście usługi sieci Web* modułu do eksperymentu  *[Train Model] [ train-model]*  moduł, możesz włączyć eksperyment uczenia utworzyć nowy model przeszkolone używanej w eksperymencie predykcyjnej. Jeśli masz *Evaluate Model* modułu, można także dołączyć dane wyjściowe usługi sieci web, aby uzyskać wyniki oceny jako dane wyjściowe.
+Aby wdrożyć eksperyment uczenia ponownego trenowania Usługa sieci web, należy dodać sieci web usługi wejściach i wyjściach do modelu. Łącząc *wyjście usługi sieci Web* modułu do eksperymentu *[Train Model] [ train-model]* moduł, możesz włączyć eksperyment uczenia utworzyć nowy model przeszkolone używanej w eksperymencie predykcyjnej. Jeśli masz *Evaluate Model* modułu, można także dołączyć dane wyjściowe usługi sieci web, aby uzyskać wyniki oceny jako dane wyjściowe.
 
 Aby zaktualizować eksperymentu uczenia:
 

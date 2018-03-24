@@ -1,11 +1,11 @@
 ---
-title: "Analiza ruchu Azure — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Odpowiedzi na niektóre często zadawane pytania dotyczące analizy ruchu."
+title: Analiza ruchu Azure — często zadawane pytania | Dokumentacja firmy Microsoft
+description: Odpowiedzi na niektóre często zadawane pytania dotyczące analizy ruchu.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b9090f91db11b5bde53f3652028030201f135fa5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu — często zadawane pytania
 
@@ -29,6 +29,18 @@ ms.lasthandoff: 03/09/2018
     - Dzienniki przepływu NSG włączona dla grupy NSG, który chcesz monitorować
     - Konto usługi Azure Storage do przechowywania raw flog dzienniki
     - Obszar roboczy analizy dzienników (OMS), z odczytu i zapisu
+    - Konto musi mieć przypisaną następujące czynności na dostawcę Microsoft.Network:
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  Regiony platformy Azure są dostępne w ruchu Analytics?
 
@@ -94,7 +106,7 @@ ms.lasthandoff: 03/09/2018
 
 14.  Jak kosztuje analizy ruchu
 
-        Nie opłaty są rozliczane podczas analizy ruchu w publicznej wersji zapoznawczej. Generowanie dzienników przepływu NSG i przechowywania danych w obszarze roboczym pakietu OMS są poddawane opłat stawkami opublikowane.
+        Analizy ruchu taryfowych wzmocnienia zmniejszenie dzienniki i zapisywania rozszerzonych dzienniki w obszarze roboczym analizy dzienników. W wersji zapoznawczej, analizy ruchu jest nie rozliczane wzmocnienia zmniejszenie dzienniki, jednak przechowywania danych w obszarze roboczym podlega rozliczeń stawkami opublikowanych. Tej odpowiedzi zostanie zaktualizowany po udostępnieniu ceny analizy ruchu.
 
 15.  Jak można przejść za pomocą klawiatury w widoku mapy geograficznie?
 

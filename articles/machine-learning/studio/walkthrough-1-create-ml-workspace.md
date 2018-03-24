@@ -1,10 +1,11 @@
 ---
-title: "Krok 1: Tworzenie obszaru roboczego usługi Machine Learning | Dokumentacja firmy Microsoft"
-description: "Krok 1 opracowanie wskazówki rozwiązanie predykcyjne: Dowiedz się, jak skonfigurować nowy obszar roboczy usługi Azure Machine Learning Studio."
+title: 'Krok 1: Tworzenie obszaru roboczego usługi Machine Learning | Dokumentacja firmy Microsoft'
+description: 'Krok 1 opracowanie wskazówki rozwiązanie predykcyjne: Dowiedz się, jak skonfigurować nowy obszar roboczy usługi Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 58b37cf8927926cb128928e4d0e438945074f6e5
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 88f928599f62cbb39d65cd29a978e3a9d25d863f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Przewodnik, krok 1. Tworzenie obszaru roboczego usługi Machine Learning
 Jest to pierwsze tego przewodnika, [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](walkthrough-develop-predictive-solution.md).
@@ -33,7 +33,7 @@ Jest to pierwsze tego przewodnika, [tworzenie rozwiązania analizy predykcyjnej 
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
-Aby korzystać z usługi Machine Learning Studio, należy mieć obszaru roboczego programu Microsoft Azure Machine Learning. Ten obszar roboczy zawiera narzędzia potrzebne do tworzenia, zarządzania i opublikować eksperymentów.  
+Aby korzystać z usługi Machine Learning Studio, należy mieć obszaru roboczego programu Microsoft Azure Machine Learning. Ten obszar roboczy zawiera narzędzia potrzebne do tworzenia i publikowania eksperymentów oraz zarządzania nimi.  
 
 Administrator dla subskrypcji platformy Azure musi utworzyć obszaru roboczego, a następnie dodać możesz jako właściciela lub współautora. Aby uzyskać więcej informacji, zobacz [tworzenie i udostępnianie obszaru roboczego uczenia maszynowego Azure](create-workspace.md).
 

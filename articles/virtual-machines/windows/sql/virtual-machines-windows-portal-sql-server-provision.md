@@ -1,5 +1,5 @@
 ---
-title: "Inicjowanie obsługi administracyjnej przewodnik dotyczący dla maszyn wirtualnych systemu Windows programu SQL Server w portalu Azure | Dokumentacja firmy Microsoft"
+title: Inicjowanie obsługi administracyjnej przewodnik dotyczący dla maszyn wirtualnych systemu Windows programu SQL Server w portalu Azure | Dokumentacja firmy Microsoft
 description: Ten przewodnik opisuje opcje tworzenia maszyn wirtualnych systemu Windows programu SQL Server 2017 w portalu Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Udostępnianie maszynę wirtualną systemu Windows programu SQL Server w portalu Azure
 
@@ -27,7 +27,7 @@ Ten przewodnik zawiera szczegółowe informacje o różnych opcjach dostępnych 
 Ten przewodnik umożliwia tworzenie własnych maszyn wirtualnych serwera SQL. Można również używać go jako odwołanie opcje dostępne w portalu Azure.
 
 > [!TIP]
-> Jeśli masz pytania dotyczące maszyn wirtualnych programu SQL Server, zobacz [— często zadawane pytania](virtual-machines-windows-sql-server-iaas-faq.md).
+> Jeśli masz pytania dotyczące maszyn wirtualnych programu SQL Server, zobacz [Często zadawane pytania](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -59,7 +59,7 @@ Podczas tworzenia maszyny wirtualnej programu SQL Server, można wybrać jeden z
    > Developer edition jest używany w tym przewodniku, ponieważ to oferujący wszystkie funkcje, bezpłatna wersja programu SQL Server do rozwoju testowania. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej. Jednak możesz mogą wybrać jeden z obrazów do użycia w tym przewodniku. Opis dostępnych obrazów, zobacz [omówienia maszyn wirtualnych systemu Windows Server SQL](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > Koszty licencjonowania programu SQL Server są włączone do ceny na minutę maszyny wirtualnej, Utwórz i zmienia się przez edition i rdzeni. Jednak program SQL Server Developer edition jest bezpłatna dla tworzenia/testowania (nie środowisko produkcyjne) i programu SQL Express jest bezpłatna dla lekkich obciążeń (mniej niż 1 GB pamięci, mniej niż 10 GB miejsca do magazynowania). Można również przełączyć your właścicielem licencji (BYOL) i płatności tylko dla maszyny Wirtualnej. Nazwy tych obrazów mają prefiks {BYOL}. 
+   > Koszty licencjonowania programu SQL Server są włączone do ceny na sekundę maszyny wirtualnej, Utwórz i zmienia się przez edition i rdzeni. Jednak program SQL Server Developer edition jest bezpłatna dla tworzenia/testowania (nie środowisko produkcyjne) i programu SQL Express jest bezpłatna dla lekkich obciążeń (mniej niż 1 GB pamięci, mniej niż 10 GB miejsca do magazynowania). Można również przełączyć your właścicielem licencji (BYOL) i płatności tylko dla maszyny Wirtualnej. Nazwy tych obrazów mają prefiks {BYOL}. 
    >
    > Aby uzyskać więcej informacji na temat tych opcji, zobacz [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 

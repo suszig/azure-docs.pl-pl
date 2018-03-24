@@ -1,13 +1,13 @@
 ---
-title: "Azure powiązania magazynu obiektów Blob dla usługi Azure Functions"
-description: "Zrozumienie, jak używać magazynu obiektów Blob platformy Azure Usługa wyzwalaczy i powiązań w usługi Azure Functions."
+title: Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
+description: Zrozumienie, jak używać magazynu obiektów Blob platformy Azure Usługa wyzwalaczy i powiązań w usługi Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "funkcje usługi Azure, funkcje, przetwarzania zdarzeń, dynamiczne obliczeń niekorzystającą architektury"
+editor: ''
+tags: ''
+keywords: funkcje usługi Azure, funkcje, przetwarzania zdarzeń, dynamiczne obliczeń niekorzystającą architektury
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
 
@@ -233,12 +233,12 @@ W języku C# i skryptu C# można użyć następujących typów parametru obiektu
 * `string`
 * `Byte[]`
 * POCO do serializacji w formacie JSON
-* `ICloudBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudBlockBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudPageBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudAppendBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
+<sup>1</sup> wymaga powiązania "inout" `direction` w *function.json* lub `FileAccess.ReadWrite` w bibliotece klas C#.
 
 Powiązanie z `string`, `Byte[]`, lub POCO zaleca się tylko wtedy, jeśli rozmiar obiektu blob jest mały, jako blob całej zawartości są ładowane do pamięci. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu. Aby uzyskać więcej informacji, zobacz [użycia pamięci i współbieżność](#trigger---concurrency-and-memory-usage) dalszej części tego artykułu.
 
@@ -364,7 +364,7 @@ Zapoznaj się z przykładem specyficzny dla języka:
 
 ### <a name="input---c-example"></a>Dane wejściowe — przykład C#
 
-Poniżej przedstawiono przykład [C# funkcja](functions-dotnet-class-library.md) używającą wyzwalacz kolejki i powiązanie blob danych wejściowych. Messagge kolejki zawiera nazwę obiektu blob, a funkcja rejestruje rozmiar obiektu blob.
+Poniżej przedstawiono przykład [C# funkcja](functions-dotnet-class-library.md) używającą wyzwalacz kolejki i powiązanie blob danych wejściowych. Komunikat z kolejki zawiera nazwę obiektu blob, a funkcja rejestruje rozmiar obiektu blob.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ W języku C# i skryptu C# można użyć następujących typów parametru dla pow
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudBlockBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudPageBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudAppendBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
+<sup>1</sup> wymaga powiązania "inout" `direction` w *function.json* lub `FileAccess.ReadWrite` w bibliotece klas C#.
 
 Powiązanie z `string` lub `Byte[]` jest zalecane tylko jeśli rozmiar obiektu blob jest mały, ponieważ zawartość obiektu blob całego są ładowane do pamięci. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu. Aby uzyskać więcej informacji, zobacz [użycia pamięci i współbieżność](#trigger---concurrency-and-memory-usage) we wcześniejszej części tego artykułu.
 
@@ -737,21 +736,23 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
 
-W języku C# i skryptu C#, można użyć następujących typów parametrów w obiekcie blob powiązania wyjściowego:
+W języku C# i skryptu C# można powiązać z następujących typów do zapisywania obiektów blob:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudBlockBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudPageBlob` (wymaga kierunek powiązania "inout" *function.json*)
-* `CloudAppendBlob` (wymaga kierunek powiązania "inout" *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
+<sup>1</sup> wymaga "powiązania w" `direction` w *function.json* lub `FileAccess.Read` w bibliotece klas C#.
+
+<sup>2</sup> wymaga powiązania "inout" `direction` w *function.json* lub `FileAccess.ReadWrite` w bibliotece klas C#.
 
 W funkcji asynchronicznych, użyj wartości zwracanej lub `IAsyncCollector` zamiast `out` parametru.
 

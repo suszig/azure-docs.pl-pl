@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych z bazy danych DB2 przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z bazy danych DB2 do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych Azure."
+title: Kopiowanie danych z bazy danych DB2 przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z bazy danych DB2 do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0ef1ce8b4949c908595473f0183f585a6fd3da80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiowanie danych z bazy danych DB2 przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ W szczególności ten łącznik DB2 obsługuje następujące platformy IBM DB2 i
 
 > [!TIP]
 > Jeśli zostanie wyświetlony komunikat o błędzie stwierdzający "nie znaleziono pakietu odpowiadający żądania wykonania instrukcji SQL. SQLSTATE = 51002 SQLCODE =-805 ", powodem jest wymagana pakietu nie został utworzony dla zwykłego użytkownika na takie systemu operacyjnego. Wykonaj te instrukcje, w zależności od typu serwera bazy danych DB2:
-> - Bazy danych DB2 dla i (AS400): umożliwia użytkownikowi zasilania utworzyć kolekcję dla logowania użytkownika przed użyciem działania kopiowania. Polecenie:`create collection <username>`
+> - Bazy danych DB2 dla i (AS400): umożliwia użytkownikowi zasilania utworzyć kolekcję dla logowania użytkownika przed użyciem działania kopiowania. polecenie: `create collection <username>`
 > - Bazy danych DB2 z/OS lub LUW: raz uruchomić działanie kopiowania za pomocą konta z wysokim poziomie uprawnień — użytkownik zaawansowany lub administrator z urzędów pakietu i powiązania BINDADD, uprawnienia GRANT wykonania do publicznego —, a następnie uruchomienie pakietu jest tworzony automatycznie podczas kopiowania. Możesz później, przejdź do zwykłego użytkownika dla sekwencji kolejnych kopii.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -198,7 +198,7 @@ Podczas kopiowania danych z bazy danych DB2, następujące mapowania są używan
 | Real |Kawaler/panna |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Sygnatura czasowa |Data/godzina |
+| Sygnatura czasowa |DateTime |
 | VarBinary |Byte[] |
 | VarChar |Ciąg |
 | VarGraphic |Ciąg |

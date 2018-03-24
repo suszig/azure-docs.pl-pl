@@ -1,11 +1,11 @@
 ---
-title: "Wprowadzenie do rozwiązywania problemów w obserwatora sieciowego Azure zasobów | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera omówienie funkcji rozwiązywania problemów z zasobów obserwatora sieciowego"
+title: Wprowadzenie do rozwiązywania problemów w obserwatora sieciowego Azure zasobów | Dokumentacja firmy Microsoft
+description: Ta strona zawiera omówienie funkcji rozwiązywania problemów z zasobów obserwatora sieciowego
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów w obserwatora sieciowego Azure zasobów
 
-Bramy sieci wirtualnej zapewniają łączność między zasobami lokalnymi i innych sieci wirtualnych w obrębie platformy Azure. Monitorowanie tych bram i ich połączeń jest bardzo istotne dla zapewnienia komunikacji nie jest uszkodzona. Obserwatora sieciowego umożliwia rozwiązywanie problemów z bramy sieci wirtualnej i połączenia. Można go wywołać za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST. Po wywołaniu obserwatora sieciowego diagnozuje kondycji bramy sieci wirtualnej lub połączenia i zwracają odpowiednie wartości. To żądanie jest długo działającą transakcję, wyniki są zwracane po zakończeniu diagnostyki.
+Bramy sieci wirtualnej zapewniają łączność między zasobami lokalnymi i innych sieci wirtualnych w obrębie platformy Azure. Ich połączeń i monitorowania bram są niezbędne do zapewnienia komunikacji nie jest uszkodzona. Obserwatora sieciowego umożliwia rozwiązywanie problemów z bram i połączeń. Ta funkcja może zostać wywołana za pośrednictwem portalu, programu PowerShell, interfejsu wiersza polecenia Azure lub interfejsu API REST. Wywołuje się, obserwatora sieciowego diagnozuje kondycji bramy lub połączenia i zwraca odpowiednie wyniki. Żądanie jest długo działającą transakcję. Wyniki są zwracane po zakończeniu diagnostyki.
 
 ![portal][2]
 
@@ -50,44 +50,44 @@ W poniższej tabeli przedstawiono typy inny błąd (identyfikator w obszarze wyn
 
 | Typ błędu | Przyczyna | Log|
 |---|---|---|
-| NoFault | Gdy błąd nie została wykryta. |Tak|
-| GatewayNotFound | Nie można odnaleźć bramy lub bramy nie jest obsługiwana administracyjnie. |Nie|
-| PlannedMaintenance |  Wystąpienie bramy jest w trakcie konserwacji.  |Nie|
-| UserDrivenUpdate | Gdy aktualizacja użytkownika jest w toku. Może to być operacji zmiany rozmiaru. | Nie |
-| VipUnResponsive | Nie można osiągnąć podstawowego wystąpienia bramy. Dzieje się tak, gdy badania kondycji nie powiodło się. | Nie |
+| NoFault | Po wykryciu bez błędu |Yes|
+| GatewayNotFound | Nie można odnaleźć bramy lub bramy nie zostanie zainicjowana. |Nie|
+| PlannedMaintenance |  Wystąpienie bramy jest w trakcie konserwacji  |Nie|
+| UserDrivenUpdate | Ten błąd występuje, gdy aktualizacja użytkownika jest w toku. Aktualizację można operacji zmiany rozmiaru. | Nie |
+| VipUnResponsive | Ten błąd występuje, gdy podstawowy wystąpienie bramy nie można połączyć się z powodu błędu sondy kondycji. | Nie |
 | PlatformInActive | Istnieje problem z platformą. | Nie|
 | ServiceNotRunning | Usługa podstawowy nie jest uruchomiona. | Nie|
-| NoConnectionsFoundForGateway | Połączenia nie istnieje w bramie. Jest to tylko ostrzeżenie.| Nie|
-| ConnectionsNotConnected | Połączenia nie są połączone. Jest to tylko ostrzeżenie.| Tak|
-| GatewayCPUUsageExceeded | Bieżące użycie procesora CPU bramy jest > 95%. | Tak |
+| NoConnectionsFoundForGateway | Połączenia nie istnieje w bramie. Ten błąd jest tylko ostrzeżenie.| Nie|
+| ConnectionsNotConnected | Połączenia nie są połączone. Ten błąd jest tylko ostrzeżenie.| Yes|
+| GatewayCPUUsageExceeded | Bieżące użycie procesora CPU bramy jest > 95%. | Yes |
 
 ### <a name="connection"></a>Połączenie
 
 | Typ błędu | Przyczyna | Log|
 |---|---|---|
-| NoFault | Gdy błąd nie została wykryta. |Tak|
-| GatewayNotFound | Nie można odnaleźć bramy lub bramy nie jest obsługiwana administracyjnie. |Nie|
-| PlannedMaintenance | Wystąpienie bramy jest w trakcie konserwacji.  |Nie|
-| UserDrivenUpdate | Gdy aktualizacja użytkownika jest w toku. Może to być operacji zmiany rozmiaru.  | Nie |
-| VipUnResponsive | Nie można osiągnąć podstawowego wystąpienia bramy. Zdarza się, gdy badania kondycji nie powiodło się. | Nie |
-| ConnectionEntityNotFound | Brak konfiguracji połączenia. | Nie |
-| ConnectionIsMarkedDisconnected | Połączenie jest oznaczony jako "odłączony". |Nie|
-| ConnectionNotConfiguredOnGateway | Podległej usłudze nie ma skonfigurowanego połączenia. | Tak |
-| ConnectionMarkedStandy | Podstawowe usługi jest oznaczony jako stan wstrzymania.| Tak|
-| Authentication | Niezgodność klucz wstępny. | Tak|
-| PeerReachability | Brama elementu równorzędnego nie jest dostępny. | Tak|
-| IkePolicyMismatch | Brama równorzędnej ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
-| Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika platformy filtrowania systemu Windows. |Tak|
+| NoFault | Po wykryciu bez błędu |Yes|
+| GatewayNotFound | Nie można odnaleźć bramy lub bramy nie zostanie zainicjowana. |Nie|
+| PlannedMaintenance | Wystąpienie bramy jest w trakcie konserwacji  |Nie|
+| UserDrivenUpdate | Ten błąd występuje, gdy aktualizacja użytkownika jest w toku. Aktualizację można operacji zmiany rozmiaru.  | Nie |
+| VipUnResponsive | Ten błąd występuje, gdy podstawowy wystąpienie bramy nie można połączyć się z powodu błędu sondy kondycji. | Nie |
+| ConnectionEntityNotFound | Brak konfiguracji połączenia | Nie |
+| ConnectionIsMarkedDisconnected | Połączenie zostało oznaczone jako "odłączony" |Nie|
+| ConnectionNotConfiguredOnGateway | Podległej usłudze nie ma skonfigurowanego połączenia. | Yes |
+| ConnectionMarkedStandy | Podstawowe usługi jest oznaczony jako stan wstrzymania.| Yes|
+| Authentication | Niezgodność klucza wstępnego | Yes|
+| PeerReachability | Brama elementu równorzędnego nie jest dostępny. | Yes|
+| IkePolicyMismatch | Brama równorzędnej ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Yes|
+| Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika platformy filtrowania systemu Windows. |Yes|
 
 ## <a name="supported-gateway-types"></a>Obsługiwane typy bramy
 
-Na poniższej liście przedstawiono obsługę Pokazuje połączenia i bram, które są obsługiwane w rozwiązywaniu problemów obserwatora sieciowego.
+W poniższej tabeli wymieniono połączenia i bram, które są obsługiwane w rozwiązywaniu problemów obserwatora sieciowego:
+
 |  |  |
 |---------|---------|
 |**Typy bramy**   |         |
 |Sieć VPN      | Obsługiwane        |
 |ExpressRoute | Nieobsługiwane |
-|Hypernet | Nieobsługiwane|
 |**Typy z siecią VPN** | |
 |Na podstawie trasy | Obsługiwane|
 |Na podstawie zasad | Nieobsługiwane|
@@ -95,7 +95,6 @@ Na poniższej liście przedstawiono obsługę Pokazuje połączenia i bram, któ
 |Protokół IPSec| Obsługiwane|
 |VNet2Vnet| Obsługiwane|
 |ExpressRoute| Nieobsługiwane|
-|Hypernet| Nieobsługiwane|
 |VPNClient| Nieobsługiwane|
 
 ## <a name="log-files"></a>Pliki dziennika
@@ -147,11 +146,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Wyczyszczona wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
 **Scrubbed wfpdiag.txt** plik dziennika zawiera dziennik platformy filtrowania systemu Windows. Ten dziennik zawiera rejestrowanie IKE/AuthIP błędy i listy pakietów.
 
-W poniższym przykładzie przedstawiono zawartość pliku Scrubbed wfpdiag.txt. W tym przykładzie klucza współużytkowanego połączenia jest niepoprawny, co wynika z 3 wiersza od dołu. Poniższy przykład się tylko fragment dziennika cały dziennik może być długi w zależności od tego problemu.
+W poniższym przykładzie przedstawiono zawartość pliku Scrubbed wfpdiag.txt. W tym przykładzie klucza współużytkowanego połączenia jest niepoprawny, co wynika z trzeciego wiersza od dołu. Poniższy przykład się tylko fragment dziennika cały dziennik może być długi w zależności od tego problemu.
 
 ```
 ...
@@ -210,7 +209,7 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak diagnozować bramy sieci VPN i połączeń za pośrednictwem portalu, odwiedzając [bramy Rozwiązywanie problemów — Azure portal](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->

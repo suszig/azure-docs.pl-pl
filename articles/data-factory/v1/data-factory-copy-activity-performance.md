@@ -1,11 +1,10 @@
 ---
-title: "Skopiuj wydajności działania i dostrajania przewodnik | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat kluczowych czynników wpływających na wydajność przepływu danych w fabryce danych Azure, korzystając z działania kopiowania."
+title: Skopiuj wydajności działania i dostrajania przewodnik | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat kluczowych czynników wpływających na wydajność przepływu danych w fabryce danych Azure, korzystając z działania kopiowania.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e8cb5df31a87f72c9947f78c25a41b74399b3727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Skopiuj wydajności działania i dostrajania przewodnik
 > [!NOTE]
@@ -261,7 +260,7 @@ Zaleca się, że należy wykonać następujące kroki w celu dostrojenia wydajno
      * [Skalowalność zarządzania bramy danych](data-factory-data-management-gateway-high-availability-scalability.md)
    * [Brama zarządzania danymi](#considerations-for-data-management-gateway)
    * [Źródło](#considerations-for-the-source)
-   * [Obiekt sink](#considerations-for-the-sink)
+   * [obiekt sink](#considerations-for-the-sink)
    * [Serializacja i deserializacja](#considerations-for-serialization-and-deserialization)
    * [Kompresja](#considerations-for-compression)
    * [Mapowanie kolumny](#considerations-for-column-mapping)

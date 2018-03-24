@@ -1,18 +1,18 @@
 ---
-title: "Przy użyciu Import/Eksport Azure na przesyłanie danych do i z usługi Azure Storage | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie tworzenia importowania i eksportowania zadania w portalu Azure do przesyłania danych do i z usługi Azure Storage."
+title: Przy użyciu Import/Eksport Azure na przesyłanie danych do i z usługi Azure Storage | Dokumentacja firmy Microsoft
+description: Informacje o sposobie tworzenia importowania i eksportowania zadania w portalu Azure do przesyłania danych do i z usługi Azure Storage.
 author: muralikk
 manager: syadav
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
 W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
@@ -151,7 +151,7 @@ Dla zadań eksportu po skopiowaniu danych na dyskach, usługa zostanie szyfrowan
 ### <a name="operating-system"></a>System operacyjny
 Jedną z następujących 64-bitowe systemy operacyjne umożliwia przygotowanie dysk twardy za pomocą narzędzia WAImportExport przed dostarczeniem dysk do platformy Azure:
 
-Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Wszystkie systemy operacyjne obsługują szyfrowanie dysków funkcją BitLocker.
+Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Wszystkie systemy operacyjne obsługują szyfrowanie dysków funkcją BitLocker.
 
 ### <a name="locations"></a>Lokalizacje
 Usługa Import/Eksport Azure obsługuje kopiowanie danych do i z wszystkich kont magazynu Azure publicznego. Mogą być dyski twarde do jednego z podanych lokalizacji. Jeśli Twoje konto magazynu znajduje się w lokalizacji publicznej platformy Azure, która nie jest określana w tym miejscu lokalizacji alternatywnej wysyłki zapewnia się podczas tworzenia zadania przy użyciu portalu Azure lub interfejsu API REST importu i eksportu.

@@ -1,24 +1,24 @@
 ---
 title: 'Szybki Start: Skalowanie obliczeniowych w magazynie danych SQL Azure - PowerShell | Dokumentacja firmy Microsoft'
-description: "Zadania programu PowerShell do skalowania w poziomie zasoby obliczeniowe przez dostosowanie wartości właściwości jednostki magazynu danych."
+description: Zadania programu PowerShell do skalowania w poziomie zasoby obliczeniowe przez dostosowanie wartości właściwości jednostki magazynu danych.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Szybki Start: Skali obliczeń w usłudze Azure SQL Data Warehouse w programie PowerShell
 
@@ -64,7 +64,7 @@ Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dla magazynu
 
     ![Nazwa i zasobów grupy serwerów](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Zanotuj nazwę magazynu danych, która będzie używana jako nazwa bazy danych. Również Zanotuj nazwę serwera i grupy zasobów. Będzie używane w wstrzymanie i wznowić poleceń.
+4. Zanotuj nazwę magazynu danych, która będzie używana jako nazwa bazy danych. Należy pamiętać, że magazyn danych jest jeden typ bazy danych. Również Zanotuj nazwę serwera i grupy zasobów. Będzie używane w wstrzymanie i wznowić poleceń.
 5. Jeśli serwer jest foo.database.windows.net, należy użyć pierwszej części jako nazwę serwera, polecenia cmdlet programu PowerShell. Na poprzedniej ilustracji pełną nazwę serwera jest NowySerwer 20171113.database.windows.net. Używamy **20171113 NowySerwer** jako nazwę serwera w poleceniu cmdlet programu PowerShell.
 
 ## <a name="scale-compute"></a>Skalowanie zasobów obliczeniowych
@@ -77,12 +77,13 @@ Aby zmienić jednostki magazynu danych, użyj [Set-AzureRmSqlDatabase](/powershe
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>Sprawdź stan bazy danych
+## <a name="check-data-warehouse-state"></a>Sprawdź stan magazynu danych
 
 Aby wyświetlić bieżący stan magazynu danych, użyj [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) polecenia cmdlet programu PowerShell. To pobiera stan **mySampleDataWarehouse** bazy danych w grupie zasobów **myResourceGroup** i serwer **mynewserver 20171113.database.windows.net**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 Czego skutkiem będzie podobny do następującego:
@@ -113,7 +114,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-Następnie można sprawdzić, zobacz **stan** bazy danych. W takim przypadku widać, że ta baza danych jest w trybie online.  Po uruchomieniu tego polecenia powinien otrzymać wartość stanu Online, wstrzymywanie, wznawianie, skalowanie lub wstrzymana.
+Widać **stan** bazy danych w danych wyjściowych. W takim przypadku widać, że ta baza danych jest w trybie online.  Po uruchomieniu tego polecenia powinien otrzymać wartość stanu Online, wstrzymywanie, wznawianie, skalowanie lub wstrzymana. 
+
+Aby wyświetlić stan samodzielnie, użyj następującego polecenia:
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## <a name="next-steps"></a>Kolejne kroki
 Teraz uzyskanych jak skalować obliczeń do magazynu danych. Aby dowiedzieć się więcej na temat usługi Azure SQL Data Warehouse, przejdź do samouczka na temat ładowania danych.

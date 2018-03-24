@@ -1,13 +1,13 @@
 ---
-title: "Kierować ruchem sieciowym - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak można kierować ruchem sieciowym z tabelą tras za pomocą wiersza polecenia platformy Azure."
+title: Kierować ruchem sieciowym - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak można kierować ruchem sieciowym z tabelą tras za pomocą wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 67bfc8ee677a14735174e9501fa5e10a69bd1ec7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Kierować ruchem sieciowym z tabelą tras za pomocą wiersza polecenia platformy Azure
 
@@ -207,7 +207,7 @@ Zwróć uwagę na **publicznego adresu IP**. Ten adres jest używany na dostęp 
 
 ## <a name="route-traffic-through-an-nva"></a>Kierować ruchem za pośrednictwem NVA
 
-Użyj następującego polecenia, aby utworzyć sesję SSH z *myVmPrivate* maszyny Wirtualnej. Zastąp * <publicIpAddress> * z publicznym adresem IP w sieci maszyny wirtualnej. W powyższym przykładzie adres IP jest *13.90.242.231*.
+Użyj następującego polecenia, aby utworzyć sesję SSH z *myVmPrivate* maszyny Wirtualnej. Zastąp *<publicIpAddress>* z publicznym adresem IP w sieci maszyny wirtualnej. W powyższym przykładzie adres IP jest *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -280,4 +280,4 @@ W tym artykule możesz utworzyć tabelę tras i skojarzone go do podsieci. Utwor
 Podczas wdrażania można wielu zasobów platformy Azure w ramach sieci wirtualnej, zasobów w przypadku niektórych usług Azure PaaS nie można wdrożyć w sieci wirtualnej. Możesz nadal ograniczyć dostęp do zasobów pewnych usług Azure PaaS ruch tylko z podsieci sieci wirtualnej jednak. Przejdź do następnego samouczkiem, aby dowiedzieć się, jak ograniczyć dostęp do sieci Azure PaaS zasobów.
 
 > [!div class="nextstepaction"]
-> [Ograniczenie dostępu do sieci do PaaS zasobów](virtual-network-service-endpoints-configure.md#azure-cli)
+> [Ograniczenie dostępu do sieci do PaaS zasobów](tutorial-restrict-network-access-to-resources-cli.md)

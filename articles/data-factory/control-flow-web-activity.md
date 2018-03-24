@@ -1,11 +1,11 @@
 ---
-title: "Działania w fabryce danych Azure w sieci Web | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak aktywności sieci Web, jeden z działaniami przepływu sterowania obsługiwane przez fabrykę danych umożliwia wywołanie punkt końcowy REST z potoku."
+title: Działania w fabryce danych Azure w sieci Web | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak aktywności sieci Web, jeden z działaniami przepływu sterowania obsługiwane przez fabrykę danych umożliwia wywołanie punkt końcowy REST z potoku.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 510f9ac95245580cb7f2f51487b5aeacc2a4825c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Działanie sieci Web w fabryce danych Azure
 Działanie WebActivity może być używane do wywoływania niestandardowego punktu końcowego REST z potoku usługi Data Factory. Można przekazywać zestawy danych i połączone usługi do zużycia i dostępu przez działanie. 
@@ -81,7 +81,7 @@ linkedServices | Lista usług połączonych przekazany do punktu końcowego. | T
 
 ## <a name="authentication"></a>Authentication
 
-### <a name="none"></a>Brak
+### <a name="none"></a>None
 Jeśli uwierzytelnianie nie jest wymagane, nie ma właściwości "uwierzytelnianie".
 
 ### <a name="basic"></a>Podstawowa

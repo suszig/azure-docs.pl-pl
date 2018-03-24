@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych z Eloqua Oracle przy użyciu fabryki danych Azure (wersja Beta) | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z Oracle Eloqua do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych Azure."
+title: Kopiowanie danych z Eloqua Oracle przy użyciu fabryki danych Azure (wersja Beta) | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z Oracle Eloqua do zbiornika obsługiwane magazyny danych za pomocą działania kopiowania w potoku fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: af1da8c77ebe499cb413168b3234c02db941c3d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b1540ccd8a80d1cb3e3cff7b0ee488dd58c48df5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Kopiowanie danych z Eloqua Oracle przy użyciu fabryki danych Azure (wersja Beta)
 

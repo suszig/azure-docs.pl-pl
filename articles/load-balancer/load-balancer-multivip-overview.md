@@ -1,34 +1,32 @@
 ---
-title: "Moduł równoważenia obciążenia wielu Frontends dla platformy Azure | Dokumentacja firmy Microsoft"
-description: "Omówienie Frontends wielu w module równoważenia obciążenia Azure"
+title: Moduł równoważenia obciążenia wielu Frontends dla platformy Azure | Dokumentacja firmy Microsoft
+description: Omówienie Frontends wielu w module równoważenia obciążenia Azure
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Wiele Frontends dla usługi równoważenia obciążenia Azure
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Moduł równoważenia obciążenia Azure pozwala załadować zrównoważyć usług w wielu portów i/lub wiele adresów IP. Definicje modułu równoważenia obciążenia publicznych oraz wewnętrznych umożliwia obciążenie przepływów saldo zestaw maszyn wirtualnych.
 
 W tym artykule opisano podstawowe informacje dotyczące tej możliwości, ważne pojęcia i ograniczeń. Jeśli planujesz do udostępnienia usług na jeden adres IP, można znaleźć uproszczony instrukcje dotyczące [publicznego](load-balancer-get-started-internet-portal.md) lub [wewnętrzny](load-balancer-get-started-ilb-arm-portal.md) konfiguracji usługi równoważenia obciążenia. Dodawanie wielu frontends jest przyrostowe konfiguracji pojedynczego serwera sieci Web. Przy użyciu pojęć, w tym artykule, możesz rozszerzyć uproszczona konfiguracja w dowolnym momencie.
 
-Podczas definiowania modułu równoważenia obciążenia Azure frontonu i wewnętrznej bazy danych konfiguracji są połączone z zasadami. Przywoływany przez regułę sondy kondycji służy do określania nowych przepływów są wysyłane do węzła w puli zaplecza. Fronton jest zdefiniowany przez konfigurację IP frontonu (alias VIP), czyli krotka 3 składającej się z adresu IP (wewnętrzny lub publiczny), protokół transportu (UDP lub TCP) i numer portu z reguły równoważenia obciążenia. DIP jest adresem IP na Azure wirtualną kartę Sieciową podłączoną do maszyn wirtualnych w puli zaplecza.
+Podczas definiowania modułu równoważenia obciążenia Azure frontonu i Konfiguracja puli wewnętrznej bazy danych są połączone z zasadami. Przywoływany przez regułę sondy kondycji służy do określania nowych przepływów są wysyłane do węzła w puli zaplecza. (Alias VIP) serwera sieci Web jest definiowany przez krotka 3 składającej się z adresu IP (wewnętrzny lub publiczny), protokół transportu (UDP lub TCP) i numer portu z reguły równoważenia obciążenia. Puli wewnętrznej bazy danych jest kolekcją konfiguracje adresów IP maszyny wirtualnej (część zasobów kart interfejsu Sieciowego), które odwołują się do puli zaplecza modułu równoważenia obciążenia.
 
 W poniższej tabeli przedstawiono niektóre przykładowe konfiguracje serwera sieci Web:
 
@@ -134,6 +132,10 @@ Typ reguły pływający adres IP jest podstawą kilka wzorców konfiguracji usł
 ## <a name="limitations"></a>Ograniczenia
 
 * Wiele konfiguracji serwera sieci Web są obsługiwane tylko z maszyn wirtualnych IaaS.
-* Z regułą pływającego adresu IP aplikacja musi być DIP przepływów wychodzących. Jeśli aplikacja jest powiązany z adresu IP frontonu, które są skonfigurowane dla interfejsu sprzężenia zwrotnego w system operacyjny gościa, następnie SNAT nie ma możliwości ponownego zapisywania przepływ wychodzący i przepływu nie powiodło się.
+* Z regułą pływającego adresu IP aplikacja musi używać podstawową konfigurację protokołu IP przepływów wychodzących. Jeśli aplikacja jest powiązany z adresu IP frontonu, które są skonfigurowane na sprzężenia zwrotnego interfejsu SNAT system operacyjny gościa, Azure w nie są dostępne do edycji przepływu wychodzącego, a przepływ nie powiedzie się.
 * Publiczne adresy IP mają wpływ na rozliczenia. Aby uzyskać więcej informacji, zobacz [cennik adresu IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Zastosuj limity subskrypcji. Aby uzyskać więcej informacji, zobacz [usługi limity](../azure-subscription-service-limits.md#networking-limits) szczegółowe informacje.
+
+## <a name="next-steps"></a>Kolejne kroki
+
+- Przegląd [połączeń wychodzących](load-balancer-outbound-connections.md) zrozumienie wpływu wielu frontends na zachowanie połączenia wychodzącego.

@@ -1,6 +1,6 @@
 ---
-title: "Replikacja danych w usłudze Azure Storage | Dokumentacja firmy Microsoft"
-description: "Dane na koncie usługi Magazyn Microsoft Azure jest replikowana na potrzeby trwałości i wysokiej dostępności. Opcje replikacji obejmują magazyn lokalnie nadmiarowy (LRS), Magazyn strefowo nadmiarowy (ZRS) magazynu geograficznie nadmiarowego (GRS) i dostęp do odczytu magazynu geograficznie nadmiarowego (RA-GRS)."
+title: Replikacja danych w usłudze Azure Storage | Dokumentacja firmy Microsoft
+description: Dane na koncie usługi Magazyn Microsoft Azure jest replikowana na potrzeby trwałości i wysokiej dostępności. Opcje replikacji obejmują magazyn lokalnie nadmiarowy (LRS), Magazyn strefowo nadmiarowy (ZRS) magazynu geograficznie nadmiarowego (GRS) i dostęp do odczytu magazynu geograficznie nadmiarowego (RA-GRS).
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Replikacja usługi Azure Storage
 
@@ -30,7 +30,7 @@ Podczas tworzenia konta magazynu można wybrać jedną z następujących opcji r
 * [Magazyn geograficznie nadmiarowy (GRS)](#geo-redundant-storage)
 * [Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)](#read-access-geo-redundant-storage)
 
-Dostęp do odczytu magazynu geograficznie nadmiarowego (RA-GRS) jest domyślną opcją podczas tworzenia konta magazynu.
+Magazyn lokalnie nadmiarowy (LRS) jest domyślną opcją podczas tworzenia konta magazynu.
 
 Poniższa tabela zapewnia szybki przegląd różnice między LRS, ZRS, GRS i RA-GRS. Kolejne sekcje w tym artykule dotyczą każdego typu replikacji bardziej szczegółowo.
 
@@ -54,9 +54,9 @@ Zobacz [cennik usługi Azure Storage](https://azure.microsoft.com/pricing/detail
 
 ### <a name="zrs-classic-accounts"></a>Magazyn ZRS klasycznych kont
 
-Istniejące możliwości ZRS jest teraz nazywany ZRS klasycznego. Magazyn ZRS klasycznych kont są dostępne tylko dla blokowych obiektów blob na kontach magazynu ogólnego przeznaczenia, V1. 
+Istniejące możliwości ZRS jest teraz nazywany ZRS klasycznego. Konta klasycznego magazynu ZRS są dostępne tylko dla blokowych obiektów blob w ramach kont magazynu ogólnego przeznaczenia w wersji 1. 
 
-Magazyn ZRS klasycznego replikuje dane asynchronicznie centrów w ramach jednej do dwóch regionach. Replika nie mogą być dostępne, o ile nie pomocniczym w tryb failover inicjuje firmy Microsoft. 
+Klasyczny magazyn ZRS replikuje dane asynchronicznie między centrami danych w jednym lub dwóch regionach. Replika może być niedostępna, chyba że firma Microsoft zainicjuje przejście w tryb failover do regionu pomocniczego. 
 
 Nie można przekonwertować ZRS klasycznych kont, do lub z LRS, GRS lub RA-GRS. Magazyn ZRS klasycznych kont nie obsługują również metryki lub rejestrowania.   
 
@@ -148,5 +148,5 @@ Gdy pierwszą strefę ulegnie awarii, ZRS kontynuuje zapis repliki danych na dw�
 * [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [Informacji o kontach magazynu Azure](../storage-create-storage-account.md)
 * [Azure cele wydajności i skalowalności magazynu](storage-scalability-targets.md)
-* [Microsoft Azure Storage nadmiarowość opcje i dostęp do odczytu z magazynu geograficznie nadmiarowego magazynu](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+* [Microsoft Azure Storage nadmiarowość opcje i dostęp do odczytu z magazynu geograficznie nadmiarowego magazynu ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP Paper - Azure Storage: Wysoce dostępna usługa magazynu w chmurze z wysoki poziom spójności](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

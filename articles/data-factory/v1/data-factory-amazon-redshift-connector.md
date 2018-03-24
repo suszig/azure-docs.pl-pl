@@ -1,11 +1,10 @@
 ---
-title: "Przenieść dane z usługi Amazon Redshift przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak przenieść dane z usługi Amazon Redshift za pomocą działania kopiowania fabryki danych Azure."
+title: Przenieść dane z usługi Amazon Redshift przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak przenieść dane z usługi Amazon Redshift za pomocą działania kopiowania fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Przenoszenie danych z Redshift Amazon przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,9 +65,9 @@ Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla usłu
 | **Typ** |Ta właściwość musi mieć ustawioną **AmazonRedshift**. |Yes |
 | **server** |IP adres lub nazwę hosta serwera Amazon Redshift. |Yes |
 | **port** |Numer portu TCP używany przez serwer Amazon Redshift do nasłuchiwania dla połączeń klienta. |Nie (wartość domyślna to 5439) |
-| **bazy danych** |Nazwa bazy danych Amazon Redshift. |Yes |
+| **Bazy danych** |Nazwa bazy danych Amazon Redshift. |Yes |
 | **Nazwa użytkownika** |Nazwa użytkownika, który ma dostęp do bazy danych. |Yes |
-| **hasło** |Hasło dla konta użytkownika. |Yes |
+| **Hasło** |Hasło dla konta użytkownika. |Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
@@ -88,7 +87,7 @@ Dla działania kopiowania, gdy źródłem jest typu **AmazonRedshiftSource**, s�
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **zapytania** | Użyj niestandardowych zapytania, aby odczytać danych. |Nie (Jeśli **tableName** określono właściwości zestawu danych) |
+| **Zapytania** | Użyj niestandardowych zapytania, aby odczytać danych. |Nie (Jeśli **tableName** określono właściwości zestawu danych) |
 | **redshiftUnloadSettings** | Zawiera grupę właściwości, używając Redshift **zwolnienie** polecenia. | Nie |
 | **s3LinkedServiceName** | Amazon S3, który ma być używana jako magazyn tymczasowy. Połączona usługa jest określana za pomocą nazwy typu fabryki danych Azure **AwsAccessKey**. | Wymagane, gdy usługa **redshiftUnloadSettings** właściwości |
 | **bucketName** | Wskazuje zasobnika Amazon S3 służące do przechowywania danych tymczasowych. Jeśli ta właściwość nie zostanie podany, działanie kopiowania auto generuje zasobnika. | Wymagane, gdy usługa **redshiftUnloadSettings** właściwości |
@@ -97,7 +96,7 @@ Alternatywnie można użyć **RelationalSource** typu, który obejmuje Amazon Re
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **zapytania** |Użyj niestandardowych zapytania, aby odczytać danych. | Nie (Jeśli **tableName** określono właściwości zestawu danych) |
+| **Zapytania** |Użyj niestandardowych zapytania, aby odczytać danych. | Nie (Jeśli **tableName** określono właściwości zestawu danych) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Umożliwia kopiowanie danych z usługi Amazon Redshift zwolnienia
 
@@ -340,8 +339,8 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | WARTOŚĆ LOGICZNA |Ciąg |
 | CHAR |Ciąg |
 | VARCHAR |Ciąg |
-| DATE |Data/godzina |
-| ZNACZNIK CZASU |Data/godzina |
+| DATE |DateTime |
+| ZNACZNIK CZASU |DateTime |
 | TEKST |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła

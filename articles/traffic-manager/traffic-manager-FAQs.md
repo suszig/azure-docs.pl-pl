@@ -1,24 +1,24 @@
 ---
-title: "Menedżer ruchu Azure — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Traffic Manager"
+title: Menedżer ruchu Azure — często zadawane pytania | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Często zadawane pytania (FAQ) Menedżera ruchu
 
@@ -123,9 +123,6 @@ Tak, tylko wersja interfejsu API 2017-03-01 i nowszej obsługuje routing geograf
 
 ## <a name="real-user-measurements"></a>Pomiary dotyczące prawdziwych użytkowników
 
->[!NOTE]
->Funkcja rzeczywiste pomiary użytkownika w usłudze Traffic Manager znajduje się w publicznej wersji zapoznawczej i nie może mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Funkcja nie jest obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich lokalizacjach Azure. Najbardziej aktualne powiadomień o dostępności i stan tej funkcji, sprawdź [aktualizacji usługi Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager) strony.
-
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Jakie są korzyści wynikające ze stosowania rzeczywiste pomiary użytkownika?
 Gdy używasz metody routingu wydajności usługi Traffic Manager wybiera najlepsze region platformy Azure dla użytkownika końcowego nawiązać sprawdzając źródłowy adres IP i podsieci klienta mechanizmów EDNS (jeśli przekazano) i obsługuje sprawdzanie go przed analizy opóźnienia sieci usługi. Rzeczywiste pomiary użytkownika podnosi poziom to dla podstawowej użytkownikowi końcowemu, ich korzystania przyczyniają się do tej tabeli opóźnienia Oprócz zapewniania, obejmującej tej tabeli można ją było właściwie sieci użytkownika końcowego, z którym użytkownicy końcowi połączenia z platformą Azure. Prowadzi to do zwiększenia dokładności routingu użytkowników końcowych.
 
@@ -140,7 +137,8 @@ Nie, należy ją włączyć raz na subskrypcję, wszystkie informacje opóźnien
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Jak wyłączyć rzeczywiste pomiary użytkownika dla mojej subskrypcji?
 Można wyłączyć Naliczanie opłat związanych z rzeczywiste pomiary użytkownika, gdy należy zatrzymać zbieranie i wysyłanie pomiarów opóźnienia wstecz od aplikacji klienta. Na przykład podczas pomiarów JavaScript osadzonych na stronach sieci web, można zatrzymać za pomocą tej funkcji, usuwając JavaScript lub wyłączając wywołania podczas renderowania strony.
-Inny sposób, aby wyłączyć rzeczywiste pomiary użytkownika jest można usunąć klucza. Po wykonaniu tej czynności, wszelkie pomiary wysyłane do usługi Traffic Manager z tego klucza, zostaną odrzucone.
+
+Rzeczywiste pomiary użytkownika można również wyłączyć przez usunięcie klucza. Po usunięciu klucza wszelkie pomiary wysyłane do usługi Traffic Manager z tego klucza zostaną odrzucone.
 
 ### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Rzeczywiste pomiary użytkownika można używać z aplikacjami klienckimi niż stron sieci web?
 Tak, rzeczywiste pomiary użytkownika zaprojektowano w celu pozyskiwania danych zbieranych za pośrednictwem innego typu klientów użytkownika końcowego. Często zadawane pytania zostaną zaktualizowane obsługiwana pobrać nowe typy aplikacji klienckich.
@@ -155,16 +153,16 @@ Nie, nie ma żadnego zaprogramowanych opóźnienia przed skrypt zostanie wywoła
 Nie, każdy razem, gdy jest wywoływana, skrypt rzeczywiste pomiary użytkownika mierzy zestaw sześciu regiony platformy Azure, określone przez usługę. To ustawienie zmiany między różnymi wywołaniami i gdy wystąpi dużej liczby takich wywołań, pokrycie pomiaru obejmuje w różnych regionach platformy Azure.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Można ograniczyć liczbę pomiarów do określonej liczby?
-Odpowiednią wartość JavaScript jest osadzony w ramach swojej stronie sieci Web i są w pełną kontrolę nad do rozpoczęcie i Zakończenie korzystania z niego. Tak długo, jak usługa Menedżer ruchu odbiera żądanie mierzone listy regiony platformy Azure, są zwracane zestawie regionów. Należy również pamiętać, że podczas okresu wersji zapoznawczej nie naliczania żadnych miar zgłoszony do usługi Traffic Manager
+Odpowiednią wartość JavaScript jest osadzony w ramach swojej stronie sieci Web i są w pełną kontrolę nad do rozpoczęcie i Zakończenie korzystania z niego. Tak długo, jak usługa Menedżer ruchu odbiera żądanie mierzone listy regiony platformy Azure, są zwracane zestawie regionów.
 
 ### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Może wyświetlać pomiary przez aplikację klienta jako część rzeczywiste pomiary użytkownika?
-Ponieważ logiki miary jest uruchamiany z aplikacji klienckiej, jesteś w pełnej kontroli z tego, co się stanie w tym wyświetlanie pomiarów opóźnienia. Menedżer ruchu nie raportuje zagregowany widok pomiarów odebrane w kluczu połączony z subskrypcją
+Ponieważ logiki miary jest uruchamiany z aplikacji klienckiej, jesteś w pełnej kontroli z tego, co się stanie w tym wyświetlanie pomiarów opóźnienia. Menedżer ruchu nie raportuje zagregowany widok pomiarów odebrane w kluczu połączony z subskrypcją.
 
 ### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Można zmodyfikować skrypt miar udostępnianych przez Menedżera ruchu?
 Podczas kontroli nad co to jest osadzony na stronie sieci web, firma Microsoft zdecydowanie zniechęcić możesz z wprowadzeniem jakichkolwiek zmian do skryptu pomiaru zapewnienie środków i poprawnie raporty opóźnienia.
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Będzie można rejestrować dla innych osób klucza używanego z rzeczywiste pomiary użytkownika?
-Po osadzeniu skryptu miary do strony sieci web będzie możliwe dla innych osób, skrypt i klucz rzeczywiste pomiary użytkownika (RUM). Jednak ważne jest, aby dowiedzieć się, że ten klucz jest inny niż identyfikator subskrypcji i jest generowany przez Menedżera ruchu ma być używany tylko w tym celu. Znajomość klucz rumu nie wpłynie na bezpieczeństwo Twojego konta platformy Azure
+Po osadzeniu skryptu miary do strony sieci web będzie możliwe dla innych osób, skrypt i klucz rzeczywiste pomiary użytkownika (RUM). Jednak ważne jest, aby dowiedzieć się, że ten klucz jest inny niż identyfikator subskrypcji i jest generowany przez Menedżera ruchu ma być używany tylko w tym celu. Znajomość klucz rumu nie wpłynie na bezpieczeństwo Twojego konta platformy Azure.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Inne nadużywanie mój klucz rumu?
 Jest możliwe w dla innych użytkowników do korzystania z klucza do wysyłania nieprawdziwych informacji do usługi Azure należy pamiętać, że kilka miar niewłaściwy nie spowoduje zmiany routingu, ponieważ jej jest brana pod uwagę wraz z innymi pomiarów się, że Otrzymaliśmy. Jeśli musisz zmienić klucze, można ponownie wygenerować klucz w takim przypadku staje się odrzucone starego klucza.
@@ -186,9 +184,6 @@ Jak wspomniano w poprzedniej odpowiedzi, składniki po stronie serwera rzeczywis
 
 ## <a name="traffic-view"></a>Widok ruchu
 
->[!NOTE]
->Funkcja widoku ruchu w usłudze Traffic Manager znajduje się w publicznej wersji zapoznawczej i nie może mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Funkcja nie jest obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich lokalizacjach Azure. Najbardziej aktualne powiadomień o dostępności i stan tej funkcji, sprawdź [aktualizacji usługi Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager) strony.
-
 ### <a name="what-does-traffic-view-do"></a>Do czego służy widok ruchu?
 Widok ruchu jest funkcją Menedżera ruchu, który pomaga w zrozumieniu więcej o użytkowników i sposób ich środowisko jest. Używa kwerend odebranych przez Menedżera ruchu i tabel analizy opóźnienia sieci, które obsługuje usługę dostarczają poniżej:
 - Regionach, gdzie użytkownicy są połączyć się z punktami końcowymi na platformie Azure.
@@ -196,7 +191,7 @@ Widok ruchu jest funkcją Menedżera ruchu, który pomaga w zrozumieniu więcej 
 - Regiony platformy Azure, do których są pobierania kierowane do.
 - Ich opóźnienia środowisko do tych regionów platformy Azure.
 
-Te informacje są dostępne, można korzystać za pośrednictwem widoku tabelarycznego w portalu, oprócz dostępne jako nieprzetworzone dane do pobrania.
+Te informacje są dostępne, można korzystać za pośrednictwem nakładki mapy geograficzne i widoków tabelarycznych w portalu, oprócz dostępne jako nieprzetworzone dane do pobrania.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>Jak mogą korzystać z widoku ruchu?
 
@@ -208,7 +203,7 @@ Monitor usługi Azure może służyć do zrozumienia agregacji na poziomie ruchu
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>Widok ruchu używa informacji o podsieci klienta mechanizmów EDNS?
 
-Widok ruchu należy traktować informacji o podsieci klienta mechanizmów EDNS podczas tworzenia dane wyjściowe. Używa adresu IP program rozpoznawania nazw DNS lokalnych użytkowników do grupowania ich.
+Zapytania DNS obsługiwanych przez usługę Azure Traffic Manager należy wziąć pod uwagę ECS informacje, aby zwiększyć jego dokładność routingu. Jednak podczas tworzenia pokazujący, gdy użytkownicy nawiązują połączenie z zestawu danych, widok ruchu przy użyciu tylko adresu IP program rozpoznawania nazw DNS.
 
 ### <a name="how-many-days-of-data-does-traffic-view-use"></a>Ile dni danych używa widoku ruchu?
 
@@ -219,15 +214,18 @@ Widok ruchu tworzy dane wyjściowe przez przetwarzanie danych z siedmiu dni popr
 Użyj zewnętrzne punkty końcowe spoza regiony platformy Azure w profilu usługi Traffic Manager można go mapować do regionu platformy Azure, która jest serwer proxy dla jego właściwości czas oczekiwania (jest to w rzeczywistości potrzebne użycie metody routingu wydajności). Jeśli jest to mapowanie region platformy Azure, metryki czas oczekiwania tego regionu Azure będzie używany podczas tworzenia widoku ruchu danych wyjściowych. Jeśli jest określony żaden region platformy Azure, informacje opóźnienia jest pusta w danych tych zewnętrzne punkty końcowe.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>Należy włączyć widok ruchu dla każdego profilu w mojej subskrypcji?
-W okresie podglądu widoku ruchu jest włączona na poziomie subskrypcji i jest dostępna dla wszystkich profilów usługi Traffic Manager w ramach tej subskrypcji.
 
-### <a name="how-can-i-turn-off-traffic-view"></a>Jak można wyłączyć widoku ruchu?
-W okresie Podgląd żąda, możesz utworzyć bilet pomocy technicznej, aby wyłączyć widok ruchu dla Twojej subskrypcji.
+W okresie podglądu widoku ruch został włączony na poziomie subskrypcji. W ramach ulepszeń, które wprowadziliśmy przed ogólnej dostępności umożliwiają teraz widoku ruchu na poziomie profilu, dzięki czemu może być bardziej szczegółowego włączenie tej funkcji. Domyślnie ruch widok zostanie wyłączony dla profilu.
+
+>[!NOTE]
+>Jeśli widok ruchu na poziomie subskrypcji jest włączone w czasie w wersji zapoznawczej, teraz należy ją ponownie włączyć dla każdego profilu w ramach tej subskrypcji.
+ 
+### <a name="how-can-i-turn-off-traffic-view"></a>Jak można wyłączyć widoku ruchu? 
+Widok ruchu można wyłączyć dla dowolnego profilu za pomocą portalu lub interfejsu API REST. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>Jak działa rozliczeń widoku ruchu?
 
 Ruch Wyświetl cennik zależy od liczby punktów danych używany do tworzenia danych wyjściowych. Typ danych tylko obsługiwane jest obecnie, zapytania, który odbiera profilu. Ponadto tylko są rozliczane do przetwarzania, które już zostały wykonane, jeśli masz widoku ruchu włączone. Oznacza to, że po włączeniu widoku ruchu dla niektórych przedziale czasu, w ciągu miesiąca i wyłączyć innych okresach, tylko te punkty danych przetwarzane, kiedy ma funkcję włączone liczba na rachunku.
-Podczas okresu zapoznawczego są nie naliczane opłaty za ruch widoku.
 
 ## <a name="traffic-manager-endpoints"></a>Punkty końcowe usługi Traffic Manager
 
@@ -368,11 +366,11 @@ W poniższej tabeli opisano zachowanie z Menedżera ruchu kondycji sprawdza, czy
 
 | Stan monitora profilowania podrzędne | Stan punktu końcowego Monitor nadrzędny | Uwagi |
 | --- | --- | --- |
-| Wyłączone. Wyłączono profil podrzędnych. |Zatrzymane |Stan punktu końcowego nadrzędnego jest zatrzymana, nie jest wyłączone. Stanem wyłączono jest zarezerwowana dla wskazujący wyłączono punktu końcowego w profilu nadrzędnej. |
+| Wyłączone. Wyłączono profil podrzędnych. |Zatrzymano |Stan punktu końcowego nadrzędnego jest zatrzymana, nie jest wyłączone. Stanem wyłączono jest zarezerwowana dla wskazujący wyłączono punktu końcowego w profilu nadrzędnej. |
 | Nieprawidłowe działanie. Co najmniej jeden element podrzędny punktu końcowego profilu jest w stanie obniżony. |Online: liczba Online punktów końcowych w profilu podrzędnych jest co najmniej wartość MinChildEndpoints.<BR>CheckingEndpoint: liczba Online oraz CheckingEndpoint punktów końcowych w profilu podrzędnych jest co najmniej wartość MinChildEndpoints.<BR>Ograniczone: inaczej. |Ruch jest kierowany do stanu CheckingEndpoint punktu końcowego. Jeśli zostanie ustawiona zbyt wysoka MinChildEndpoints, punkt końcowy jest zawsze znacznie mniej wydajna. |
 | Online. Co najmniej jeden element podrzędny punktu końcowego profilu jest w stanie Online. Żaden punkt końcowy jest w stanie obniżony. |Zobacz powyżej. | |
 | CheckingEndpoints. Co najmniej jeden element podrzędny punktu końcowego profilu jest "CheckingEndpoint". Brak punktów końcowych są "Online" lub "Ze spadkiem" |Taka sama jak powyżej. | |
-| Nieaktywne. Wszystkie punkty końcowe profilu podrzędne są wyłączone lub zatrzymana lub ten profil nie ma punktów końcowych. |Zatrzymane | |
+| Nieaktywne. Wszystkie punkty końcowe profilu podrzędne są wyłączone lub zatrzymana lub ten profil nie ma punktów końcowych. |Zatrzymano | |
 
 ## <a name="next-steps"></a>Następne kroki:
 - Dowiedz się więcej o Menedżerze ruchu [punkt końcowy monitorowania i automatycznej pracy awaryjnej](../traffic-manager/traffic-manager-monitoring.md).

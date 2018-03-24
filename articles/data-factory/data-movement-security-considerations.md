@@ -1,11 +1,11 @@
 ---
-title: "Zagadnienia dotyczące zabezpieczeń w fabryce danych Azure | Dokumentacja firmy Microsoft"
-description: "Opisuje infrastruktury podstawowych zabezpieczeń, który usługi przenoszenia danych z fabryki danych Azure używany do zabezpieczania danych."
+title: Zagadnienia dotyczące zabezpieczeń w fabryce danych Azure | Dokumentacja firmy Microsoft
+description: Opisuje infrastruktury podstawowych zabezpieczeń, który usługi przenoszenia danych z fabryki danych Azure używany do zabezpieczania danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dla ruchu danych w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ W tym artykule firma Microsoft analizuje zagadnienia dotyczące zabezpieczeń w 
 - **Scenariusza hybrydowego**: W tym scenariuszu źródła lub folderu docelowego jest za zaporą lub wewnątrz sieci firmowej lokalnymi. Lub magazynu danych jest w prywatnej sieci lub sieci wirtualnej (w większości przypadków źródła) i nie jest dostępny publicznie. W tym scenariuszu dzielą się również hostowanych na maszynach wirtualnych serwerów bazy danych.
 
 ## <a name="cloud-scenarios"></a>Scenariusze chmury
-### <a name="secure-data-store-credentials"></a>Poświadczenia magazynu danych
-- **Przechowywanie zaszyfrowane poświadczenia w magazynie zarządzanych fabryki danych Azure**. Fabryka danych chroni poświadczeń magazynu danych, szyfrując z certyfikatami zarządzany przez firmę Microsoft. Te certyfikaty są obracane (co obejmuje odnawiania certyfikatów oraz migracja poświadczenia) na dwa lata. Zaszyfrowane poświadczenia bezpiecznie są przechowywane w koncie magazynu platformy Azure zarządzanych przez usługi zarządzania fabryki danych Azure. Aby uzyskać więcej informacji o zabezpieczeniach usługi Azure Storage, zobacz [Omówienie zabezpieczeń usługi Azure Storage](../security/security-storage-overview.md).
 
+### <a name="securing-data-store-credentials"></a>Zabezpieczanie poświadczeń magazynu danych
+
+- **Przechowywanie zaszyfrowane poświadczenia w magazynie zarządzanych fabryki danych Azure**. Fabryka danych chroni poświadczeń magazynu danych, szyfrując z certyfikatami zarządzany przez firmę Microsoft. Te certyfikaty są obracane (co obejmuje odnawiania certyfikatów oraz migracja poświadczenia) na dwa lata. Zaszyfrowane poświadczenia bezpiecznie są przechowywane w koncie magazynu platformy Azure zarządzanych przez usługi zarządzania fabryki danych Azure. Aby uzyskać więcej informacji o zabezpieczeniach usługi Azure Storage, zobacz [Omówienie zabezpieczeń usługi Azure Storage](../security/security-storage-overview.md).
 - **Przechowywania poświadczeń w usłudze Azure Key Vault**. Można również przechowywać poświadczenia źródła danych w [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Fabryka danych pobiera poświadczeń podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [magazynu poświadczeń w usłudze Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Szyfrowanie danych podczas przesyłania
@@ -144,7 +145,7 @@ W poniższej tabeli przedstawiono wychodzący port i domeny wymagania dotyczące
 
 | Nazwy domen                  | Porty wyjściowe | Opis                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443, 80        | Wymagane przez siebie integrację środowiska uruchomieniowego do nawiązania połączenia usługi przenoszenia danych z fabryki danych. |
+| `*.servicebus.windows.net`    | 443            | Wymagane przez siebie integrację środowiska uruchomieniowego do nawiązania połączenia usługi przenoszenia danych z fabryki danych. |
 | `*.core.windows.net`          | 443            | Używane przez siebie integrację środowiska uruchomieniowego można połączyć z kontem magazynu platformy Azure, korzystając z [przemieszczane kopiowania](copy-activity-performance.md#staged-copy) funkcji. |
 | `*.frontend.clouddatahub.net` | 443            | Wymagane przez siebie integrację środowiska uruchomieniowego do nawiązania połączenia usługi fabryka danych. |
 | `*.database.windows.net`      | 1433           | (Opcjonalnie) Wymagany podczas kopiowania z lub do bazy danych SQL Azure lub usługi Azure SQL Data Warehouse. Funkcja kopiowania przemieszczanego skopiować dane do bazy danych SQL Azure lub usługi Azure SQL Data Warehouse, bez konieczności otwierania portu 1433. |

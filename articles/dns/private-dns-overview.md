@@ -1,24 +1,24 @@
 ---
-title: "Za pomocą usługi Azure DNS dla domen prywatnej | Dokumentacja firmy Microsoft"
-description: "Przegląd prywatnej DNS obsługującego usługę w systemie Microsoft Azure."
+title: Za pomocą usługi Azure DNS dla domen prywatnej | Dokumentacja firmy Microsoft
+description: Przegląd prywatnej DNS obsługującego usługę w systemie Microsoft Azure.
 services: dns
 documentationcenter: na
 author: KumudD
 manager: jennoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2017
+ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 95cf8ab2bd34e698e12452e062687219bad49eb6
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 7f1bd8cdcab7bdd61b3f006acf6090c53db8eda6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Za pomocą usługi Azure DNS dla domen prywatnych
 System nazw domen lub DNS, jest odpowiedzialny za tłumaczenia (lub rozpoznawania) nazwę usługi na adres IP. Usługa DNS platformy Azure to Usługa hostingu domen DNS, rozpoznawania nazw przy użyciu infrastruktury Microsoft Azure.  Oprócz internetowy domen DNS usługi Azure DNS teraz obsługuje również prywatnej domen DNS jako funkcja w wersji zapoznawczej.  
@@ -27,7 +27,7 @@ Usługa DNS platformy Azure zapewnia niezawodne, bezpieczne usługę DNS do zarz
 
 ![Omówienie systemu DNS](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ## <a name="benefits"></a>Korzyści
 
@@ -43,15 +43,41 @@ Usługa DNS platformy Azure zapewnia niezawodne, bezpieczne usługę DNS do zarz
 
 * **Obsługa w systemie DNS typu horizon podziału.** Usługa DNS platformy Azure umożliwia tworzenie stref o takiej samej nazwie, która rozwiązać do różnych odpowiedzi z sieci wirtualnej i z publicznej sieci Internet.  Typowy scenariusz w DNS typu horizon podziału jest zapewnienie dedykowanych wersji usługi do użytku w Twojej sieci wirtualnej.
 
+* **Dostępna we wszystkich regionach platformy Azure.** Strefy DNS prywatnego Azure jest dostępna we wszystkich regionach platformy Azure w chmurze publicznej Azure. 
+
+
+## <a name="capabilities"></a>Możliwości 
+* Automatyczna rejestracja maszyn wirtualnych z jednego sieci wirtualnej połączone prywatnej strefy jako rejestracji sieci wirtualnej. Maszyn wirtualnych będzie zarejestrowany (dodany) do strefy prywatnej jako rejestruje wskazujące ich prywatnych adresów IP. Ponadto podczas maszynę wirtualną w sieci wirtualnej zostaje usunięta rejestracji Azure również automatycznie usunie odpowiedniego rekordu DNS z połączonego strefy prywatnych. Należy pamiętać, że sieci wirtualne rejestracji również domyślnie pełnić rolę rozpoznawania sieci wirtualnych w tym rozpoznawania nazw DNS dla strefy będą działać na dowolnym maszyn wirtualnych w ramach sieci wirtualnej rejestracji. 
+* Przesyła obsługiwane w sieci wirtualne, które są połączone z prywatnej strefy jako sieci wirtualne rozpoznawania rozpoznawania nazw DNS. Dla sieci wirtualnej między rozpoznawania nazw DNS, nie istnieje żadne jawne zależności że sieci wirtualne można połączyć ze sobą za pomocą. Jednakże klienci mogą chcieć elementów równorzędnych sieci wirtualnych w innych sytuacjach (np: ruch HTTP).
+* Wyszukiwanie wsteczne DNS obsługiwane w zakresie sieci Wirtualnej. Wstecznego wyszukiwania DNS dla prywatnego adresu IP w sieci wirtualnej przypisane do strefy prywatnego zwróci nazwy FQDN, która zawiera nazwę hosta/rekordu, a także nazwę strefy jako sufiks. 
+
+
+## <a name="limitations"></a>Ograniczenia
+* Sieć wirtualna 1 rejestracji dla stref prywatnego
+* Sieci wirtualne maksymalnie 10 rozpoznawania dla stref prywatnych
+* Danej sieci wirtualnej może odnosić się tylko do jednej strefie prywatnego co sieć wirtualna rejestracji
+* Danej sieci wirtualnej może odnosić się do maksymalnie 10 stref prywatnego jako rozwiązania sieci wirtualnej
+* Jeżeli określono sieć wirtualną rejestracji, rekordy DNS dla maszyn wirtualnych z tej sieci wirtualnej, które są zarejestrowane do strefy prywatnych nie będą widoczne lub pobieranie z programu Powershell/CLI/interfejsów API, ale rekordów maszyny Wirtualnej w rzeczywistości są rejestrowane i zostanie rozwiązany pomyślnie
+* Wstecznego DNS działa tylko dla miejsca prywatnego adresu IP w sieci wirtualnej rejestracji
+* Reverse DNS dla prywatnego adresu IP, który nie jest zarejestrowany w strefie prywatnej (np: prywatnego adresu IP dla maszyny wirtualnej w sieci wirtualnej połączonego jako rozwiązania wirtualnej sieci prywatnej strefę) zwróci "internal.cloudapp.net" jako sufiks DNS, jednak ten sufiks nie jest rozpoznawana.   
+* Sieć wirtualna musi być pusta (tzn. żadne rekordy maszyny Wirtualnej) podczas początkowego (tj. po raz pierwszy) łączenia ze strefy prywatnej, co sieć wirtualna rejestracji bądź rozpoznawanie nazw. Jednak sieci wirtualnej można następnie niepustym przyszłych łączenia jako rejestracji bądź rozpoznawanie nazw sieci wirtualnej, do innych stref prywatnych. 
+* W tej chwili warunkowego przesyłania dalej nie jest obsługiwana, na przykład dotyczące włączania rozpoznawania między sieciami Azure i lokalnego programu. Dokumentację dotyczącą sposobu klientów można uzyskać w tym scenariuszu za pośrednictwem innych mechanizmów, zobacz [rozpoznawanie nazwy dla maszyn wirtualnych i wystąpień roli](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+
+Zalecamy również należy również przeczytanie w na [— często zadawane pytania](./dns-faq.md#private-dns) dla niektórych typowych pytań i odpowiedzi na prywatnego stref w usłudze Azure DNS, włączając określone zachowanie Rejestracja i rozpoznawanie DNS można oczekiwać, że na niektóre rodzaje operacji. 
+
 
 ## <a name="pricing"></a>Cennik
 
-Strefy DNS prywatnego jest bezpłatne zarządzanej wersji zapoznawczej. Podczas ogólnej dostępności tej funkcji będą używać opartej na użyciu modelu cenowego podobne do istniejącej usługi Azure DNS oferty. 
+Strefy DNS prywatnego jest bezpłatne w publicznej wersji zapoznawczej. Podczas ogólnej dostępności tej funkcji będą używać opartej na użyciu modelu cenowego podobne do istniejącej usługi Azure DNS oferty. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Dowiedz się, jak [utworzyć strefę DNS prywatnej](./private-dns-getstarted-powershell.md) w usłudze Azure DNS.
+Dowiedz się, jak utworzyć strefę prywatnego za pomocą usługi Azure DNS [PowerShell](./private-dns-getstarted-powershell.md) lub [interfejsu wiersza polecenia](./private-dns-getstarted-cli.md).
+
+Przeczytana niektórych typowych scenariuszy [scenariusze strefy prywatnego](./private-dns-scenarios.md) który można uzyskać z prywatnej stref w usłudze Azure DNS.
+
+Przeczytaj na [— często zadawane pytania](./dns-faq.md#private-dns) dla niektórych typowych pytań i odpowiedzi na prywatnego stref w usłudze Azure DNS, włączając określone zachowanie można oczekiwać, że na niektóre rodzaje operacji. 
 
 Więcej informacji na temat stref DNS i rekordy odwiedzając: [DNS strefy i rejestruje omówienie](dns-zones-records.md).
 

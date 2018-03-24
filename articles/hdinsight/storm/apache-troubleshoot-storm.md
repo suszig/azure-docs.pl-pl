@@ -1,12 +1,12 @@
 ---
-title: "Rozwiązywanie problemów z Storm przy użyciu usługi Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Odpowiedzi na często zadawane pytania dotyczące przy użyciu platformy Apache Storm w usłudze Azure HDInsight."
-keywords: "Azure HDInsight, Storm, często zadawane pytania, przewodnik, typowe problemy rozwiązywania problemów"
+title: Rozwiązywanie problemów z Storm przy użyciu usługi Azure HDInsight | Dokumentacja firmy Microsoft
+description: Odpowiedzi na często zadawane pytania dotyczące przy użyciu platformy Apache Storm w usłudze Azure HDInsight.
+keywords: Azure HDInsight, Storm, często zadawane pytania, przewodnik, typowe problemy rozwiązywania problemów
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Storm przy użyciu usługi Azure HDInsight
 
@@ -28,19 +28,19 @@ Więcej informacji na temat Najważniejsze problemy i ich rozwiązania do pracy 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Jak uzyskać dostęp do interfejsu użytkownika platformy Storm w klastrze?
 Masz dwie opcje do uzyskiwania dostępu do interfejsu użytkownika platformy Storm w przeglądarce:
 
-### <a name="ambari-ui"></a>interfejsu użytkownika usługi Ambari
+### <a name="ambari-ui"></a>Interfejs użytkownika narzędzia Ambari
 1. Przejdź do pulpitu nawigacyjnego narzędzia Ambari.
 2. Na liście usług wybierz **Storm**.
 3. W **szybkie linki** menu, wybierz opcję **interfejsu użytkownika platformy Storm**.
 
-### <a name="direct-link"></a>Bezpośrednie połączenie
+### <a name="direct-link"></a>Link bezpośredni
 Aby dostęp do interfejsu użytkownika platformy Storm z następującego adresu URL:
 
 https://\<nazwę klastra DNS\>/stormui
 
 Przykład:
 
- https://stormcluster.azurehdinsight.NET/stormui
+ https://stormcluster.azurehdinsight.net/stormui
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Jak przenieść informacje dotyczące punktu kontrolnego spout Centrum zdarzeń Storm od jednego topologii do innego
 
@@ -71,7 +71,7 @@ Polecenie export zapisuje metadanych na ścieżkę Apache Hadoop Distributed pli
     ```
 
 #### <a name="import-offset-metadata"></a>Importuj metadane przesunięcia
-1. Używanie protokołu SSH, aby przejść do dozorcy klastra w klastrze, w którym punktu kontrolnego przesunięcie musi być eksportowany.
+1. Używanie protokołu SSH, aby przejść do dozorcy klastra w klastrze, z którego punkt kontrolny przesunięcia musi zostać zaimportowane.
 2. Uruchom następujące polecenie (po zaktualizowaniu ciąg wersji HDP) do importowania danych przesunięcia dozorcy z /stormmetadata/zkdata ścieżki systemu plików HDFS do serwera dozorcy w klastrze docelowym:
 
     ```apache
@@ -79,7 +79,7 @@ Polecenie export zapisuje metadanych na ścieżkę Apache Hadoop Distributed pli
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Usuwanie metadanych przesunięcia tak, aby uruchomić topologie przetwarzania danych z początku lub sygnatury czasowej przez użytkownika
-1. Używanie protokołu SSH, aby przejść do dozorcy klastra w klastrze, w którym punktu kontrolnego przesunięcie musi być eksportowany.
+1. Używanie protokołu SSH, aby przejść do dozorcy klastra w klastrze, w którym punktu kontrolnego przesunięcia musi zostać usunięte.
 2. Uruchom następujące polecenie (po zaktualizowaniu ciąg wersji HDP), aby usunąć wszystkie dane przesunięcia dozorcy w bieżący klaster:
 
     ```apache

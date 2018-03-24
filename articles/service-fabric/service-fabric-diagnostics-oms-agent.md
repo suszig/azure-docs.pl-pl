@@ -1,31 +1,31 @@
 ---
-title: "Azure Service Fabric — Konfigurowanie monitorowania z agentem pakietu OMS | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować Agent pakietu OMS monitorowania kontenery i liczniki wydajności dla klastrów sieci szkieletowej usług Azure."
+title: Azure Service Fabric — Konfigurowanie monitorowania z agentem pakietu OMS | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skonfigurować Agent pakietu OMS monitorowania kontenery i liczniki wydajności dla klastrów sieci szkieletowej usług Azure.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4c4095071235dac7e8be3c16b614bdfa5b706a1c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Dodawanie Agent pakietu OMS do klastra
 
-W tym artykule opisano kroki, aby dodać Agent pakietu OMS jako skalowania maszyny wirtualnej ustawić rozszerzenia do klastra i łącząc go z istniejącym obszarem roboczym analizy dzienników OMS. Dzięki temu zbierania danych diagnostycznych o kontenerów, aplikacji i monitorowania wydajności. Dodając ją jako rozszerzenie, usługi Azure Resource Manager zapewnia, że pobiera zainstalowane na każdym węźle, nawet gdy skalowanie klastra.
+W tym artykule opisano kroki, aby dodać Agent pakietu OMS jako skalowania maszyny wirtualnej ustawić rozszerzenia do klastra i łącząc go z istniejącym obszarem roboczym usługi Analiza dzienników Azure. Dzięki temu zbierania danych diagnostycznych o kontenerów, aplikacji i monitorowania wydajności. Dodając ją jako rozszerzenie, usługi Azure Resource Manager zapewnia, że pobiera zainstalowane na każdym węźle, nawet gdy skalowanie klastra.
 
 > [!NOTE]
-> W tym artykule przyjęto założenie, że masz obszaru roboczego analizy dzienników OMS już skonfigurowane. Jeśli nie chcesz, przejdź do [Konfigurowanie OMS analizy dzienników](service-fabric-diagnostics-oms-setup.md)
+> W tym artykule przyjęto założenie, że obszarem roboczym usługi Analiza dzienników Azure już skonfigurowane. Jeśli nie chcesz, przejdź do [— Konfiguracja usługi Analiza dzienników Azure](service-fabric-diagnostics-oms-setup.md)
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Dodaj rozszerzenie agenta za pomocą wiersza polecenia platformy Azure
 
@@ -33,9 +33,9 @@ Najlepszy sposób, aby dodać do klastra Agent pakietu OMS ustawiono za pośredn
 
 1. Po zażądaniu powłoki chmury upewnij się, że pracujesz w tej samej subskrypcji co zasób. Sprawdź z `az account show` i upewnij się, że wartość "name" zgodny z subskrypcji z klastra.
 
-2. W portalu przejdź do grupy zasobów, w którym znajduje się obszar roboczy OMS. Kliknij przycisk do analizy dzienników zasoby (typ zasobu będzie analizy dzienników), prawy nawigacji, przewiń w dół i kliknij pozycję **właściwości**.
+2. W portalu przejdź do grupy zasobów, w którym znajduje się obszar roboczy analizy dzienników. Kliknij przycisk do analizy dzienników zasoby (typ zasobu będzie analizy dzienników), prawy nawigacji, przewiń w dół i kliknij pozycję **właściwości**.
 
-    ![Strona właściwości OMS](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
+    ![Strona właściwości analizy dzienników](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
 
     Zwróć uwagę na Twojej `workspaceId`. 
 
@@ -59,7 +59,14 @@ Najlepszy sposób, aby dodać do klastra Agent pakietu OMS ustawiono za pośredn
 
     ![Polecenia interfejsu wiersza polecenia agenta pakietu OMS](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
-    To powinno zająć mniej niż 15 min pomyślnie dodać agenta do węzłów. Możesz sprawdzić, czy agenci zostały dodane przy użyciu `az vmss extension list` interfejsu API:
+5. Uruchom polecenie, aby zastosować tę konfigurację do wystąpień maszyn wirtualnych, które już istnieją:  
+
+
+    ```sh
+    az vmss update-instances
+    ```
+
+To powinno zająć mniej niż 15 min pomyślnie dodać agenta do węzłów. Możesz sprawdzić, czy agenci zostały dodane przy użyciu `az vmss extension list` interfejsu API:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
@@ -67,11 +74,11 @@ Najlepszy sposób, aby dodać do klastra Agent pakietu OMS ustawiono za pośredn
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Dodanie agenta za pomocą szablonu usługi Resource Manager
 
-Jest dostępny dla Menedżera zasobów przykładowej szablonów, które wdrażanie obszaru roboczego analizy dzienników OMS i dodać agenta do każdego z węzłów [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) lub [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Jest dostępny dla Menedżera zasobów przykładowej szablonów, które wdrażanie obszarem roboczym usługi Analiza dzienników Azure i dodać agenta do każdego z węzłów [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) lub [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 Można pobrać i zmodyfikować tego szablonu można wdrożyć klaster, który najlepiej odpowiada Twoim potrzebom.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zbieranie odpowiednich [liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md). Aby skonfigurować agenta pakietu OMS do pobrania konkretnych licznikach wydajności, head portalu OMS (połączone w górnej części zasobów analizy dzienników OMS). Następnie kliknij polecenie **strona główna > Ustawienia > danych > liczników wydajności systemu Windows** lub **liczników wydajności systemu Linux** i wybierz liczniki, które chcesz zebrać.
-* Skonfiguruj OMS, aby skonfigurować [automatycznego alerty](../log-analytics/log-analytics-alerts.md) do pomocy w wykrywaniu i Diagnostyka
+* Zbieranie odpowiednich [liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md). Aby skonfigurować agenta pakietu OMS zbierać konkretnych licznikach wydajności, przejrzyj [Konfigurowanie źródeł danych](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
+* Konfigurowanie analizy dzienników, aby skonfigurować [automatycznego alerty](../log-analytics/log-analytics-alerts.md) do pomocy w wykrywaniu i Diagnostyka
