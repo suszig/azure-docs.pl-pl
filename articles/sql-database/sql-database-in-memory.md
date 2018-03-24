@@ -1,19 +1,19 @@
 ---
-title: "Technologie usługi Azure SQL bazy danych w pamięci | Dokumentacja firmy Microsoft"
-description: "Technologie usługi Azure SQL bazy danych w pamięci znacznie zwiększyć wydajność transakcyjne i obciążeń analizy."
+title: Technologie usługi Azure SQL bazy danych w pamięci | Dokumentacja firmy Microsoft
+description: Technologie usługi Azure SQL bazy danych w pamięci znacznie zwiększyć wydajność transakcyjne i obciążeń analizy.
 services: sql-database
 author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optymalizacja wydajności za pomocą technologii w pamięci w bazie danych SQL
 
@@ -104,7 +104,7 @@ Gdy używasz klastrowanych indeksów magazynu kolumn tabeli podstawowej jest nad
 
 Brak Nigdy nie wszelkie niezgodności lub inne problemy podczas uaktualniania do wyższej warstwy cenowej, takich jak Standard do wersji Premium. Dostępne funkcje i zasoby tylko zwiększyć.
 
-Jednak zmiana wersji na starszą warstwy cenowej może niekorzystnie wpłynąć na bazy danych. Wpływ są szczególnie widoczne, gdy można obniżyć z Premium Standard lub podstawowa, gdy baza danych zawiera obiekty OLTP w pamięci. Tabele zoptymalizowane pod kątem pamięci i indeksy magazynu kolumn są niedostępne po obniżania (nawet jeśli są one widoczne). Te same kwestie podczas opuszczania warstwy cenowej puli elastycznej, lub przenoszenia bazy danych z technologiami w pamięci w standardowej lub podstawowa puli elastycznej.
+Jednak zmiana wersji na starszą warstwy cenowej może niekorzystnie wpłynąć na bazy danych. Wpływ są szczególnie widoczne, gdy można obniżyć z Premium Standard lub podstawowa, gdy baza danych zawiera obiekty OLTP w pamięci. Tabele zoptymalizowane pod kątem pamięci są niedostępne po obniżania (nawet jeśli są one widoczne). Te same kwestie podczas opuszczania warstwy cenowej puli elastycznej, lub przenoszenia bazy danych z technologiami w pamięci w standardowej lub podstawowa puli elastycznej.
 
 ### <a name="in-memory-oltp"></a>Przetwarzanie OLTP w pamięci
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Indeksy magazynu kolumn
 
-*Zmiana wersji na starszą Basic lub Standard*: indeksy magazynu kolumn są obsługiwane tylko w warstwie cenowej Premium dostępne, a nie na warstwy standardowa lub Basic. Obniżyć bazy danych na standardowy lub podstawowa, indeksu magazynu kolumn staje się niedostępna. System przechowuje indeksu magazynu kolumn, ale nigdy nie wykorzystuje indeksu. Jeśli później uaktualnić do Premium, indeksu magazynu kolumn jest natychmiast gotowy do można użyć ponownie.
+*Zmiana wersji na starszą Basic lub Standard*: indeksy magazynu kolumn są obsługiwane tylko w warstwie cenowej Premium i w warstwie standardowa S3 i powyżej, a nie na warstwie podstawowej. Obniżyć bazy danych do warstwy nieobsługiwany lub poziom, indeksu magazynu kolumn staje się niedostępna. System przechowuje indeksu magazynu kolumn, ale nigdy nie wykorzystuje indeksu. Jeśli później uaktualnienie do warstwy obsługiwanych lub poziom indeksu magazynu kolumn jest od razu gotowy do można użyć ponownie.
 
-Jeśli masz **klastrowanych** indeksu magazynu kolumn po obniżania poziomu niedostępny całej tabeli. Dlatego zaleca się usunąć wszystkich *klastrowanych* indeksy magazynu kolumn przed obniżyć bazy danych poniżej warstwy Premium.
+Jeśli masz **klastrowanych** indeksu magazynu kolumn po obniżania niedostępny całej tabeli. Dlatego zaleca się usunąć wszystkich *klastrowanych* indeksy magazynu kolumn przed obniżyć bazy danych do warstwy nieobsługiwany lub poziom.
 
-*Zmiana wersji na starszą do dolnej warstwy Premium*: ten obniżenia poziomu zakończy się pomyślnie, jeśli całej bazy danych mieści się w obrębie maksymalny rozmiar bazy danych dla elementu docelowego warstwy cenowej lub w ramach dostępnej pojemności magazynu w puli elastycznej. Nie ma żadnego określonego wpływu z indeksów magazynu kolumn.
+*Powrót do dolnej warstwy obsługiwanych lub na poziomie subskrypcji*: ten obniżenia poziomu zakończy się pomyślnie, jeśli całej bazy danych mieści się w obrębie maksymalny rozmiar bazy danych dla elementu docelowego warstwy cenowej lub w ramach dostępnej pojemności magazynu w puli elastycznej. Nie ma żadnego określonego wpływu z indeksów magazynu kolumn.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

@@ -1,10 +1,11 @@
 ---
-title: "Ocena wydajności modelu w uczeniu maszynowym | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak do oceny wydajności modelu w usłudze Azure Machine Learning."
+title: Ocena wydajności modelu w uczeniu maszynowym | Dokumentacja firmy Microsoft
+description: Wyjaśniono, jak do oceny wydajności modelu w usłudze Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 48ce4584f7270d78b1d09b848bfdd305d03012b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf065d8e91bd4ebb4cc3932c0525cb091b26b38
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Ocenianie wydajności modelu w usłudze Azure Machine Learning
 W tym artykule przedstawiono sposób oceny wydajności modelu w usłudze Azure Machine Learning Studio i zawiera krótki opis dostępnych metryk dla tego zadania. Dostępne są trzy typowe scenariusze uczenia nadzorowanego: 
@@ -151,13 +151,13 @@ Połącz porty, jak pokazano poniżej na rysunku nr 10.
 
 Ustaw etykietę indeks kolumny [Train Model] [ train-model] modułu do 5. Element dataset nie zawiera żadnego wiersza nagłówka, ale wiemy, że etykiety klasy znajdują się w kolumnie piątej.
 
-Polecenie [i zaimportuj dane] [ import-data] moduł i zestaw *źródła danych* właściwości *adres URL sieci Web za pośrednictwem protokołu HTTP*i *adres URL* do http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Polecenie [Importuj dane] [ import-data] modułu i zestaw *źródła danych* właściwości *adres URL sieci Web za pośrednictwem protokołu HTTP*i *adresURL* do http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Ustaw ułamek wystąpień można użyć do trenowania w [podziału danych] [ split] modułu (0,7 na przykład).
 
 ![Ocena Wieloklasowej klasyfikatora](./media/evaluate-model-performance/10.png)
 
-Rysunek 10. Ocena Wieloklasowej klasyfikatora
+Figure 10. Ocena Wieloklasowej klasyfikatora
 
 ### <a name="inspecting-the-evaluation-results"></a>Sprawdzanie wyników oceny
 Uruchom eksperyment, a następnie kliknij port wyjściowy [Evaluate Model][evaluate-model]. Wyniki oceny są prezentowane w postaci macierzy pomyłek, w tym przypadku. Porównanie przewidywane wystąpień dla wszystkich klas 3 rzeczywistych pokazuje macierzy.
@@ -171,11 +171,11 @@ Jak wspomniano wcześniej, można wykonać powtarzane szkolenia, ocenianie i oce
 
 ![Krzyżowe sprawdzanie modelu Wieloklasowej klasyfikacji](./media/evaluate-model-performance/12.png)
 
-Rysunek 12. Weryfikowanie między modelu Wieloklasowej klasyfikacji.
+Figure 12. Weryfikowanie między modelu Wieloklasowej klasyfikacji.
 
 ![Wyników krzyżowego sprawdzania poprawności modelu Wieloklasowej klasyfikacji](./media/evaluate-model-performance/13.png)
 
-Rysunek 13. Wyników krzyżowego sprawdzania poprawności modelu Wieloklasowej klasyfikacji.
+Figure 13. Wyników krzyżowego sprawdzania poprawności modelu Wieloklasowej klasyfikacji.
 
 <!-- Module References -->
 [cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/

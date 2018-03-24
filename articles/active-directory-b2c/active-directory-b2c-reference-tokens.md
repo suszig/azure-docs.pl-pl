@@ -1,24 +1,21 @@
 ---
-title: "Token odwołanie — usługi Azure AD B2C | Dokumentacja firmy Microsoft"
-description: "Typy tokenów wystawionych w usłudze Azure Active Directory B2C"
+title: Token odwołanie — usługi Azure AD B2C | Dokumentacja firmy Microsoft
+description: Typy tokenów wystawionych w usłudze Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e5cc6a0974f9481491518779209ec5256870921f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Usługi Azure AD B2C: Odwołanie Token
 
@@ -71,12 +68,12 @@ Gdy używasz usługi Azure AD B2C, masz precyzyjną kontrolę nad zawartością 
 
 Należy pamiętać, że oświadczenia w tokenach identyfikator nie są zwracane w określonej kolejności. Ponadto oświadczeń nowy może zostać wprowadzony w tokeny Identyfikatora, w dowolnym momencie. Aplikacji nie powinna zostać podzielona na miarę wprowadzania nowych oświadczeń. Poniżej przedstawiono oświadczenia, które powinny być objęte tokenów dostępu i identyfikator wystawione przez usługi Azure AD B2C. Wszelkie dodatkowe oświadczenia są określone przez zasady. Praktyki, spróbuj sprawdzanie oświadczenia w tokenie identyfikator próbki przez wklejenie go do [jwt.ms](https://jwt.ms). Dalsze szczegóły można znaleźć w [OpenID Connect specyfikacji](http://openid.net/specs/openid-connect-core-1_0.html).
 
-| Nazwa | Claim | Przykładowa wartość | Opis |
+| Name (Nazwa) | Claim | Przykładowa wartość | Opis |
 | --- | --- | --- | --- |
 | Grupy odbiorców |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Oświadczenie odbiorców identyfikuje adresata tokenu. Dla usługi Azure AD B2C odbiorców jest identyfikator aplikacji dla danej aplikacji, przypisany do aplikacji w portalu rejestracji aplikacji. Aplikację należy sprawdzić tę wartość i odrzucenie tokenu, jeśli nie jest zgodny. |
 | Wystawca |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |To oświadczenie identyfikuje usługę tokenu zabezpieczającego (STS), które tworzy i zwraca token. Identyfikuje katalog usługi Azure AD, w którym użytkownik został uwierzytelniony. Aplikację należy zweryfikować oświadczenia wystawcy, aby upewnić się, że token pochodzi od punktu końcowego v2.0 usługi Azure Active Directory. |
 | wystawiony w |`iat` |`1438535543` |Oświadczenie to czas, jaką token został wystawiony, epoki czas. |
-| czas wygaśnięcia |`exp` |`1438539443` |Czas wygaśnięcia oświadczeń to czas, w którym token staje się nieprawidłowy, reprezentowane w czasie epoki. Aby sprawdzić ważność okres istnienia tokenu aplikacji należy użyć tego oświadczenia. |
+| Czas wygaśnięcia |`exp` |`1438539443` |Czas wygaśnięcia oświadczeń to czas, w którym token staje się nieprawidłowy, reprezentowane w czasie epoki. Aby sprawdzić ważność okres istnienia tokenu aplikacji należy użyć tego oświadczenia. |
 | nie wcześniej niż |`nbf` |`1438535543` |Oświadczenie to godzina, o której token prawidłową, w czasie epoki. Zazwyczaj jest taka sama jak czas, który został wystawiony token. Aby sprawdzić ważność okres istnienia tokenu aplikacji należy użyć tego oświadczenia. |
 | Wersja |`ver` |`1.0` |To jest wersja token Identyfikatora, zgodnie z definicją w usłudze Azure AD. |
 | Kod skrótu |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Skrót kodu jest uwzględnione w tokenie identyfikator, tylko wtedy, gdy token wystawiony wraz z kodu autoryzacji protokołu OAuth 2.0. Skrót kodu może służyć do zweryfikowania autentyczności kod autoryzacji. Aby uzyskać więcej informacji na temat sposobu tę weryfikację należy przeprowadzić, zobacz [OpenID Connect specyfikacji](http://openid.net/specs/openid-connect-core-1_0.html).  |
@@ -124,7 +121,7 @@ Usługa Azure AD B2C ma punkt końcowy metadanych OpenID Connect. Umożliwia to 
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com`to jest katalog B2C używany do uwierzytelniania użytkownika, i `b2c_1_sign_in` zasady używany do uzyskiwania tokenu. Aby określić zasady, które zostało użyte do podpisywania tokenu i gdzie można pobrać metadanych, dostępne są dwie opcje. Po pierwsze, nazwa zasady jest dołączona do `acr` oświadczenia w tokenie. Przez base-64 dekodowania treści i deserializacji ciągu JSON, który daje może przeanalizować składni oświadczeń poza treść tokenu JWT. `acr` Oświadczenia będą nazwę zasady, którego użyto do wystawiania tokenu.  Drugą opcją jest do kodowania zasad wartości `state` parametr podczas wystawiania żądania, a następnie dekodowania go, aby określić zasady, które zostało użyte. Każda metoda jest prawidłowa.
+`fabrikamb2c.onmicrosoft.com` to jest katalog B2C używany do uwierzytelniania użytkownika, i `b2c_1_sign_in` zasady używany do uzyskiwania tokenu. Aby określić zasady, które zostało użyte do podpisywania tokenu i gdzie można pobrać metadanych, dostępne są dwie opcje. Po pierwsze, nazwa zasady jest dołączona do `acr` oświadczenia w tokenie. Przez base-64 dekodowania treści i deserializacji ciągu JSON, który daje może przeanalizować składni oświadczeń poza treść tokenu JWT. `acr` Oświadczenia będą nazwę zasady, którego użyto do wystawiania tokenu.  Drugą opcją jest do kodowania zasad wartości `state` parametr podczas wystawiania żądania, a następnie dekodowania go, aby określić zasady, które zostało użyte. Każda metoda jest prawidłowa.
 
 Dokument metadanych jest obiekt JSON, który zawiera przydatne w kilku informacji. Obejmują one lokalizację punkty końcowe wymagane do przeprowadzenia uwierzytelniania OpenID Connect. Obejmuje to też `jwks_uri`, co daje lokalizacji zestawu kluczy publicznych które są używane do podpisywania tokenów. Tutaj podano lokalizacji, że najlepiej pobrać lokalizację dynamicznie za pomocą dokument metadanych i analizowania limit `jwks_uri`:
 
@@ -146,7 +143,7 @@ Gdy aplikację lub interfejsu API odbiera token Identyfikatora, jego również w
 
 Aby uzyskać pełną listę aplikacji należy wykonać sprawdzanie poprawności, zapoznaj się [OpenID Connect specyfikacji](https://openid.net). Szczegóły oczekiwanych wartości tych oświadczeń są zawarte w poprzednim [token sekcji](#types-of-tokens).  
 
-## <a name="token-lifetimes"></a>Okresy istnienia tokenu
+## <a name="token-lifetimes"></a>Czasy życia tokenu
 Następujące okresy tokenu są przekazywane do dalszego wiedzy użytkownika. One może pomóc podczas opracowywania i debugowania aplikacji. Należy pamiętać, że aplikacji nie powinna być zapisana oczekiwać żadnego z tych okresy istnienia pozostaje stała. Mogą i ulegnie zmianie. Przeczytaj więcej na temat [dostosowywania okresy istnienia tokenu](active-directory-b2c-token-session-sso.md) w usłudze Azure AD B2C.
 
 | Token | Cykl życia | Opis |

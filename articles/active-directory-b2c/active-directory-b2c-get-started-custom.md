@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Wprowadzenie do zasad niestandardowych | Dokumentacja firmy Microsoft"
-description: "Jak rozpocząć pracę z niestandardowych zasad usługi Azure Active Directory B2C"
+title: 'Usługa Azure Active Directory B2C: Wprowadzenie do zasad niestandardowych | Dokumentacja firmy Microsoft'
+description: Jak rozpocząć pracę z niestandardowych zasad usługi Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.author: davidmu
+ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Usługa Azure Active Directory B2C: Wprowadzenie do zasad niestandardowych
 
@@ -40,7 +37,7 @@ Przed kontynuowaniem upewnij się, że masz dzierżawę usługi Azure AD B2C, kt
 3. Utwórz B2C_1A_TokenSigningKeyContainer, jeśli nie istnieje:<br>
     a. Wybierz pozycję **Dodaj**. <br>
     b. Wybierz **Generowanie**.<br>
-    d. Aby uzyskać **nazwa**, użyj `TokenSigningKeyContainer`. <br> 
+    c. Aby uzyskać **nazwa**, użyj `TokenSigningKeyContainer`. <br> 
     Prefiks `B2C_1A_` mogą być dodawane automatycznie.<br>
     d. Aby uzyskać **typ klucza**, użyj **RSA**.<br>
     e. Aby uzyskać **dat**, użyj wartości domyślnych. <br>
@@ -49,7 +46,7 @@ Przed kontynuowaniem upewnij się, że masz dzierżawę usługi Azure AD B2C, kt
 4. Utwórz B2C_1A_TokenEncryptionKeyContainer, jeśli nie istnieje:<br>
  a. Wybierz pozycję **Dodaj**.<br>
  b. Wybierz **Generowanie**.<br>
- d. Aby uzyskać **nazwa**, użyj `TokenEncryptionKeyContainer`. <br>
+ c. Aby uzyskać **nazwa**, użyj `TokenEncryptionKeyContainer`. <br>
    Prefiks `B2C_1A`_ mogą być dodawane automatycznie.<br>
  d. Aby uzyskać **typ klucza**, użyj **RSA**.<br>
  e. Aby uzyskać **dat**, użyj wartości domyślnych.<br>
@@ -59,7 +56,7 @@ Przed kontynuowaniem upewnij się, że masz dzierżawę usługi Azure AD B2C, kt
 Jeśli masz już klucz tajny aplikacji Facebook, dodaj go jako klucz zasad dla Twojej dzierżawy. W przeciwnym razie należy utworzyć klucz o wartości symbolu zastępczego, aby zasad przeszedł pomyślnie weryfikacji.<br>
  a. Wybierz pozycję **Dodaj**.<br>
  b. Aby uzyskać **opcje**, użyj **ręcznego**.<br>
- d. Aby uzyskać **nazwa**, użyj `FacebookSecret`. <br>
+ c. Aby uzyskać **nazwa**, użyj `FacebookSecret`. <br>
  Prefiks `B2C_1A_` mogą być dodawane automatycznie.<br>
  d. W **klucz tajny** wprowadź FacebookSecret Twojego z developers.facebook.com lub `0` jako symbol zastępczy. *To nie jest identyfikatorem aplikacji usługi Facebook* <br>
  e. Aby uzyskać **użycie klucza**, użyj **podpisu**. <br>
@@ -143,7 +140,7 @@ Każdy pakiet początkowy zawiera:
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId`jest widoczny w portalu nazwę zasady i nazwy za pomocą którego ten plik zasad jest używany przez inne pliki zasad.
+   >`PolicyId` jest widoczny w portalu nazwę zasady i nazwy za pomocą którego ten plik zasad jest używany przez inne pliki zasad.
 
 5. Zapisz plik.
 6. Open TrustFrameworkExtensions.xml. Wprowadzenie identycznych zmian dwóch zastępując `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C. Należy tego samego zastąpienia w `<TenantId>` elementu dla wszystkich trzech zmian. Zapisz plik.

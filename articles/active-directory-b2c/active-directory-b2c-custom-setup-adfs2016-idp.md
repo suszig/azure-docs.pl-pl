@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Dodawanie usług AD FS jako dostawca tożsamości SAML za pomocą zasad niestandardowych"
-description: "Artykule na temat konfigurowania usług AD FS 2016 przy użyciu protokołu SAML i zasad niestandardowych"
+title: 'Usługa Azure Active Directory B2C: Dodawanie usług AD FS jako dostawca tożsamości SAML za pomocą zasad niestandardowych'
+description: Artykule na temat konfigurowania usług AD FS 2016 przy użyciu protokołu SAML i zasad niestandardowych
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: af102bbc3bc7608fe641db19f4af8c760907a564
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Usługa Azure Active Directory B2C: Dodawanie usług AD FS jako dostawca tożsamości SAML za pomocą zasad niestandardowych
 
@@ -63,7 +60,7 @@ Członkostwo w grupie **Administratorzy**, lub równoważnej na komputerze lokal
 7.  Na **Konfigurowanie adresu URL** wybierz pozycję **Włącz obsługę protokołu SAML 2.0 WebSSO** pole wyboru. W obszarze **URL usługi logowania jednokrotnego SAML 2.0 jednostki uzależnionej w strona**, wpisz adres URL punktu końcowego usługi Security (Assertion Markup Language SAML) dla tego zaufania jednostki uzależnionej, a następnie kliknij przycisk **dalej**.  Aby uzyskać **URL usługi logowania jednokrotnego SAML 2.0 jednostki uzależnionej w strona**, Wklej `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Zamień na nazwę swojej dzierżawy (na przykład contosob2c.onmicrosoft.com) {dzierżawa} i {zasad} Zamień na nazwę zasady rozszerzenia (na przykład B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
     >Nazwa zasady jest dziedziczący signup_or_signin zasady, w tym przypadku jest: `B2C_1A_TrustFrameworkExtensions`.
-    >Na przykład adres URL może być: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Na przykład adres URL może być: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![Jednostki uzależnionej adres URL strony logowania jednokrotnego SAML 2.0 usługi](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. Na **skonfiguruj identyfikatory** Określ ten sam adres URL co w poprzednim kroku, kliknij przycisk **Dodaj** dodać je do listy, a następnie kliknij przycisk **dalej**.
@@ -163,10 +160,10 @@ W tym momencie dostawcy tożsamości nie został skonfigurowany.  Jednak nie jes
 4.  Wklej całą zawartość `<UserJournesy>` węzła, który został skopiowany jako element podrzędny `<UserJourneys>` elementu.
 
 ### <a name="display-the-button"></a>Wyświetlany przycisk
-`<ClaimsProviderSelections>` Element definiuje listę opcje wyboru dostawcy oświadczeń i ich kolejność.  `<ClaimsProviderSelection>`element jest odpowiednikiem przycisku dostawcy tożsamości na stronie konta-konta/logowania. Jeśli dodasz `<ClaimsProviderSelection>` elementu dla konta usług AD FS, nowy przycisk zostaną wyświetlone po wyładowuje użytkownika na stronie. Aby dodać ten element:
+`<ClaimsProviderSelections>` Element definiuje listę opcje wyboru dostawcy oświadczeń i ich kolejność.  `<ClaimsProviderSelection>` element jest odpowiednikiem przycisku dostawcy tożsamości na stronie konta-konta/logowania. Jeśli dodasz `<ClaimsProviderSelection>` elementu dla konta usług AD FS, nowy przycisk zostaną wyświetlone po wyładowuje użytkownika na stronie. Aby dodać ten element:
 
 1.  Znajdź `<UserJourney>` węzła, który zawiera `Id="SignUpOrSignIn"` w podróży użytkownika, które zostały skopiowane.
-2.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera`Order="1"`
+2.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera `Order="1"`
 3.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsProviderSelections>` węzła:
 
 ```xml
@@ -206,7 +203,7 @@ Można również dodać dostawcy tożsamości konta usług AD FS do użytkownika
 ### <a name="display-the-button"></a>Wyświetlany przycisk
 1.  Otwórz plik rozszerzenia zasad (na przykład TrustFrameworkExtensions.xml).
 2.  Znajdź `<UserJourney>` węzła, który zawiera `Id="ProfileEdit"` w podróży użytkownika, które zostały skopiowane.
-3.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera`Order="1"`
+3.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera `Order="1"`
 4.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsProviderSelections>` węzła:
 
 ```xml

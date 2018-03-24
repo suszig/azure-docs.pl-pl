@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: Strona docelowa zasad niestandardowych | Microsoft Docs'
-description: "Tworzenie aplikacji dla użytkowników za pomocą usługi Azure Active Directory B2C i zasad niestandardowych"
+description: Tworzenie aplikacji dla użytkowników za pomocą usługi Azure Active Directory B2C i zasad niestandardowych
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f2079f53-a637-4f2d-b3a0-61a9647ad433
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 5/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 304500d2adc2d5093c3d053a1b982bac4da374bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: HT
+ms.author: davidmu
+ms.openlocfilehash: f3db8c80d6faef3af0909efb7306dd7aa0336ab0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: Rejestrowanie i logowanie użytkowników w aplikacjach za pomocą zasad niestandardowych
 Zasady niestandardowe to pliki konfiguracji definiujące zachowanie Twojej dzierżawy usługi Azure AD B2C. Mogą być w pełni edytowane przez dewelopera tożsamości, dzięki czemu mogą wykonywać niemal nieograniczoną liczbę zadań.
@@ -26,7 +23,7 @@ Zasady niestandardowe to pliki konfiguracji definiujące zachowanie Twojej dzier
 ## <a name="how-to-articles"></a>Instrukcje
 Informacje o sposobie korzystania z określonych funkcji usługi Azure Active Directory B2C:
 
-* [Wprowadzenie](active-directory-b2c-overview-custom.md)
+* [Rozpoczęcie pracy](active-directory-b2c-overview-custom.md)
 * Konfigurowanie dostawców uwierzytelniania OIDC, takich jak usługa [Azure AD](active-directory-b2c-setup-aad-custom.md).
 * Konfigurowanie dostawców uwierzytelniania SAML, takich jak usługa [Salesforce](active-directory-b2c-setup-sf-app-custom.md).
 * Integrowanie interfejsów API RESTful:

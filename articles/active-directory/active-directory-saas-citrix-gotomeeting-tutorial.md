@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z GoToMeeting | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i GoToMeeting."
+description: Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Samouczek: Integracji Azure Active Directory z GoToMeeting
 
@@ -108,77 +108,32 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Adresy URL i domeny GoToMeeting pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    W **identyfikator** tekstowym, wpisz adres URL:`https://login.citrixonline.com/saml/sp`
+    W **identyfikator** tekstowym, wpisz adres URL: `https://authentication.logmeininc.com/saml/sp`
 
-4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
+4. Kliknij przycisk **konfiguracji Pokaż zaawansowane adresu URL** i skonfigurować poniżej adresy URL
 
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **Zaloguj się na adres URL** (Zachowaj to puste)
+    
+    **Adres URL odpowiedzi**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - W przypadku użycia GoToMeeting aplikacji `https://global.gotomeeting.com`
+    
+    - GoToTraining można użyć `https://global.gototraining.com`
+    
+    - GoToWebinar można użyć `https://global.gotowebinar.com` 
+    
+    - GoToAssist można użyć `https://app.gotoassist.com`
+    
 5. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Aby wygenerować **metadanych** adres url, wykonaj następujące czynności:
+6. W oknie innej przeglądarki, zaloguj się do Twojego [Center organizacji GoToMeeting](https://organization.logmeininc.com/). Pojawi się monit o potwierdzenie, że IdP został zaktualizowany
 
-    a. Kliknij przycisk **rejestracji aplikacji**.
-    
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Kliknij przycisk **punkty końcowe** otworzyć **punkty końcowe** okno dialogowe.  
-    
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Włącz pole wyboru "Mój dostawcy tożsamości zostały zaktualizowane o nową domenę". Kliknij przycisk **zrobić** po zakończeniu.
 
-    d. Kliknij przycisk Kopiuj, aby skopiować **dokument METADANYCH usług FEDERACYJNYCH** adresu url i wklej go do Notatnika.
-    
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Teraz przejdź do strony właściwości **GoToMeeting** i skopiuj **identyfikator aplikacji** przy użyciu **kopiowania** przycisk i wklej go do Notatnika.
- 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Generowanie **adres URL metadanych** przy użyciu następującego wzorca:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. Na **konfiguracji GoToMeeting** , kliknij przycisk **skonfigurować GoToMeeting** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
-
-    ![Konfiguracja GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. W oknie innej przeglądarki, zaloguj się do Twojego [GoToMeeting organizacji Center](https://organization.logmeininc.com/)
-
-9. W obszarze **dostawcy tożsamości** kartę, można skonfigurować ustawienia usługi Azure albo przez podanie wygenerowany **adres URL metadanych** lub pobrany **pliku metadanych** lub **Ręcznego**.
-
-10. Aby uzyskać **adres URL metadanych** należy wykonać następujące czynności:
-
-    ![Konfiguracja GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. W **jak chcesz skonfigurować Twoje IDP SAML?**, wybierz pozycję **automatyczne** z listy rozwijanej.
-
-    b. Wklej **adres URL metadanych**, które zostały wygenerowane w poprzednich krokach w **adres URL metadanych** pola tekstowego.
-
-    d. Kliknij pozycję **Zapisz**.
-
-11. Aby uzyskać **pliku metadanych** należy wykonać następujące czynności:
-
-    ![Konfiguracja GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. W **jak chcesz skonfigurować Twoje IDP SAML?**, wybierz pozycję **SAML przekazać plik metadanych** z listy rozwijanej.
-
-    b. Aby przekazać plik metadanych pobranych, kliknij przycisk **przekazywania pliku metadanych**.
-
-    d. Kliknij pozycję **Zapisz**.
-
-12. Aby uzyskać **ręcznego** należy wykonać następujące czynności:
-
-    ![Konfiguracja GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  W **adres URL logowania strony** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
-
-    b.  W **adres URL strony wylogowania** pole tekstowe, Wklej wartość **Sign-Out URL** którego została skopiowana z portalu Azure.
-
-    d.  W **identyfikator jednostki dostawcy tożsamości** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
-
-    d. Wyodrębnij certyfikacie x 509 z pliku metadanych pobranych i przekaż certyfikat tego klikając **przekazywania certyfikatu**.
-
-    e. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -212,7 +167,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  

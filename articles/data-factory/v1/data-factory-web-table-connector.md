@@ -1,11 +1,10 @@
 ---
-title: "Przenoszenie danych z tabeli sieci Web przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu przenoszenia danych z tabeli na stronie sieci Web przy użyciu fabryki danych Azure."
+title: Przenoszenie danych z tabeli sieci Web przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat sposobu przenoszenia danych z tabeli na stronie sieci Web przy użyciu fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8f35a2bec410eccc59a19e5b82b9e109b15f0738
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Przenoszenie danych ze źródła tabeli sieci Web przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -76,7 +75,7 @@ Poniższa tabela zawiera opis elementów JSON specyficzne dla połączonej usłu
 | --- | --- | --- |
 | type |Właściwość type musi mieć ustawioną: **sieci Web** |Yes |
 | Url |Adres URL źródła w sieci Web |Yes |
-| Typ authenticationType |Anonimowe. |Yes |
+| authenticationType |Anonimowe. |Yes |
 
 ### <a name="using-anonymous-authentication"></a>Przy użyciu uwierzytelniania anonimowego
 
@@ -180,7 +179,7 @@ Poniższy przykład pokazuje, jak można skopiować danych z tabeli sieci Web do
 }
 ```
 
-**Wejściowy zestaw danych tabeli WebTable** ustawienie **zewnętrznych** do **true** usługi fabryka danych informuje, czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w danych fabryka.
+**Wejściowy zestaw danych tabeli WebTable** ustawienie **zewnętrznych** do **true** usługi fabryka danych informuje, czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych.
 
 > [!NOTE]
 > Zobacz [Get indeksu tabeli na stronie HTML](#get-index-of-a-table-in-an-html-page) sekcji, aby instrukcje dotyczące pobierania indeksu tabeli na stronie HTML.  
@@ -290,7 +289,7 @@ Zobacz [właściwości typu WebSource](#copy-activity-type-properties) listę ob
 2. Kliknij przycisk **nowe zapytanie** na pasku narzędzi, wskaż polecenie **z innych źródeł** i kliknij przycisk **z sieci Web**.
 
     ![Power Query menu](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. W **z sieci Web** okna dialogowego wprowadź **adres URL** można skorzystać w połączonej usłudze JSON (na przykład: https://en.wikipedia.org/wiki/) oraz ścieżkę należy określić dla zestawu danych (na przykład: AFI % 27s_ 100_Years... 100_Movies) i kliknij przycisk **OK**.
+3. W **z sieci Web** okna dialogowego wprowadź **adres URL** można skorzystać w połączonej usłudze JSON (na przykład: https://en.wikipedia.org/wiki/) oraz ścieżkę należy określić dla zestawu danych (na przykład: AFI % 27s_100_Years... 100_Movies) i kliknij przycisk **OK**.
 
     ![Z okna dialogowego sieci Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Apache Storm zapisu do przechowywania/Data Lake Store - Azure HDInsight | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak zapisywanie zgodnego systemem plików HDFS magazynu dla usługi HDInsight przy użyciu platformy Apache Storm. Azure magazynu lub usługi Azure Data Lake Store zapewnienia magazynu dla systemu plików HDFS comptabile dla usługi HDInsight. Ten dokument i skojarzone przykład pokazują, jak składnika HdfsBolt może służyć do zapisu w magazynie domyślne platformy Storm w klastrze usługi HDInsight."
+description: Dowiedz się, jak zapisywanie zgodnego systemem plików HDFS magazynu dla usługi HDInsight przy użyciu platformy Apache Storm. Azure magazynu lub usługi Azure Data Lake Store zapewnienia magazynu dla systemu plików HDFS comptabile dla usługi HDInsight. Ten dokument i skojarzone przykład pokazują, jak składnika HdfsBolt może służyć do zapisu w magazynie domyślne platformy Storm w klastrze usługi HDInsight.
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2310894e7257d0ddb919406a8f297089189a9484
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Zapis do systemu plików HDFS z systemu Apache Storm w usłudze HDInsight
 
-Dowiedz się, jak używać systemu Storm do zapisu danych do magazynu zgodny z systemem plików HDFS używane przez Apache Storm w usłudze HDInsight. HDInsight można użyć zarówno usługi Azure Storage i Azure Data Lake przechowywane jako magazyn comptabile systemu plików HDFS. STORM udostępnia [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) składnik, który zapisuje dane do systemu plików HDFS. Ten dokument zawiera informacje o pisaniu do dowolnego typu magazynu z HdfsBolt. 
+Dowiedz się, jak używać systemu Storm do zapisu danych do magazynu zgodny z systemem plików HDFS używane przez Apache Storm w usłudze HDInsight. HDInsight można użyć zarówno usługi Azure Storage i Azure Data Lake przechowywane jako magazyn zgodnego systemem plików HDFS. STORM udostępnia [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) składnik, który zapisuje dane do systemu plików HDFS. Ten dokument zawiera informacje o pisaniu do dowolnego typu magazynu z HdfsBolt. 
 
 > [!IMPORTANT]
 > Przykładową topologię używane w tym dokumencie polega na składnikach, które są dołączone do systemu Storm w usłudze HDInsight. Może wymagać modyfikacji do pracy z usługi Azure Data Lake Store w przypadku użycia z innych klastrów platformy Apache Storm.
 
 ## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-Projekt zawierający Ta topologia jest dostępny do pobrania z [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
+Projekt zawierający Ta topologia jest dostępny do pobrania z [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 Aby skompilować ten projekt, należy następującej konfiguracji dla swojego środowiska programowania:
 
@@ -134,7 +134,7 @@ Ta yaml programu definiuje następujące elementy:
 * `rotationPolicy`: Określa, kiedy do obracania plików. W tym przykładzie jest wykonywane bez obrotu.
 * `hdfs-bolt`: Używa poprzednie składniki jako parametry konfiguracji `HdfsBolt` klasy.
 
-Aby uzyskać więcej informacji w ramach strumienia, zobacz [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Aby uzyskać więcej informacji w ramach strumienia, zobacz [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
 
 ## <a name="configure-the-cluster"></a>Konfigurowanie klastra
 
@@ -148,7 +148,7 @@ Aby uzyskać informacji na temat używania tego skryptu z klastrem, zobacz [HDIn
 
 ## <a name="build-and-package-the-topology"></a>Tworzenie i pakietu topologii
 
-1. Pobierz przykładowy projekt z [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) w środowisku deweloperskim.
+1. Pobierz przykładowy projekt z [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) w środowisku deweloperskim.
 
 2. Z wiersza polecenia terminala lub skorupach sesji, zmień katalogi na katalog główny pobranego projektu. Aby skompilować i pakiet topologii, użyj następującego polecenia:
    

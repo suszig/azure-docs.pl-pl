@@ -1,25 +1,25 @@
 ---
-title: "Kopiowanie danych z i do usługi Dynamics CRM lub Dynamics 365 przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z programu Microsoft Dynamics CRM, Microsoft Dynamics 365 obsługiwany obiekt sink magazyny danych lub z obsługiwane magazyny danych źródła do usługi Dynamics CRM lub Dynamics 365 za pomocą działania kopiowania w potoku fabryki danych."
+title: Kopiowanie danych z i do usługi Dynamics CRM lub Dynamics 365 (typowe danych usługa) przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z programu Microsoft Dynamics CRM, Microsoft Dynamics 365 (typowe usługi danych) do obsługiwanych sink magazyny danych lub z obsługiwane magazyny danych źródła do usługi Dynamics CRM lub Dynamics 365 za pomocą działania kopiowania w potoku fabryki danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/16/2018
 ms.author: jingwang
-ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiowanie danych z i do Dynamics 365 lub usługi Dynamics CRM przy użyciu fabryki danych Azure
+# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiowanie danych z i do Dynamics 365 (typowe Usługa danych) lub usługi Dynamics CRM przy użyciu fabryki danych Azure
 
 W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z i do programu Microsoft Dynamics 365 lub Microsoft Dynamics CRM. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
 
@@ -28,7 +28,7 @@ W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych 
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-Możesz skopiować dane z Dynamics 365 lub usługi Dynamics CRM żadnych obsługiwanych ujścia magazynu danych. Możesz również skopiować danych z dowolnego magazynu danych źródła obsługiwanych Dynamics 365 lub usługi Dynamics CRM. Lista magazynów danych obsługiwane jako źródła lub wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
+Możesz skopiować dane z Dynamics 365 (typowe Usługa danych) lub usługi Dynamics CRM żadnych obsługiwanych ujścia magazynu danych. Możesz również skopiować danych z dowolnego magazynu danych źródła obsługiwanych Dynamics 365 (typowe Usługa danych) lub usługi Dynamics CRM. Lista magazynów danych obsługiwane jako źródła lub wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
 
 Ten łącznik Dynamics obsługuje następujące wersje programu Dynamics i typy uwierzytelniania. (IFD jest skrót wdrożenia internetowy).
 

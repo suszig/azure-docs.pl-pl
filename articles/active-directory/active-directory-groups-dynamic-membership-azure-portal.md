@@ -1,26 +1,26 @@
 ---
-title: "Na podstawie atrybutów dynamiczne członkostwo w grupie w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Tworzenie zaawansowanych reguł w tym członkostwa grupy dynamicznej obsługiwane wyrażenie operatorami reguł i parametry."
+title: Na podstawie atrybutów dynamiczne członkostwo w grupie w usłudze Azure Active Directory | Dokumentacja firmy Microsoft
+description: Tworzenie zaawansowanych reguł w tym członkostwa grupy dynamicznej obsługiwane wyrażenie operatorami reguł i parametry.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 8a52d80f32f822691be862d566c17c84efc73c26
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 22fdb448dda1c824ae5e1fee6f9b2e7377680d6b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Utwórz zasady na podstawie atrybutów dynamiczne członkostwo w grupie w usłudze Azure Active Directory
 W usłudze Azure Active Directory (Azure AD) można utworzyć reguł zaawansowanych, aby włączyć złożonych opartych na atrybutach dynamiczne zarządzanie członkostwem w grupach. W tym artykule szczegółowo atrybuty i składni, aby utworzyć reguły członkostwa dynamicznych dla użytkowników lub urządzeń.
@@ -106,11 +106,11 @@ Poniżej przedstawiono wszystkie operatory na pierwszeństwo z niższym wyższy.
 Wszystkich operatorów można używać z lub bez prefiksu łącznik. Nawiasy są wymagane tylko wtedy, gdy priorytet nie spełnia wymagań.
 Na przykład:
 ```
-   user.department –eq "Marketing" –and user.country –eq "US"
+   user.department -eq "Marketing" -and user.country -eq "US"
 ```
 odpowiada to:
 ```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
+   (user.department -eq "Marketing") -and (user.country -eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>Przy użyciu w i notIn — operatory
 

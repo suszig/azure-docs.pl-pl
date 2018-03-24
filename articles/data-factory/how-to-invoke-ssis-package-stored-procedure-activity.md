@@ -1,23 +1,23 @@
 ---
-title: "Wywołanie pakietów SSIS przy użyciu fabryki danych Azure - działania dotyczącego procedury składowanej | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak można wywołać z potoku fabryki danych Azure za pomocą działania dotyczącego procedury składowanej pakiet SQL Server Integration Services (SSIS)."
+title: Wywołanie pakietów SSIS przy użyciu fabryki danych Azure - działania dotyczącego procedury składowanej | Dokumentacja firmy Microsoft
+description: W tym artykule opisano, jak można wywołać z potoku fabryki danych Azure za pomocą działania dotyczącego procedury składowanej pakiet SQL Server Integration Services (SSIS).
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 89eb2e567e06660efa5feddce1db0fcdb47792f3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dba1accbedf32099cc92be820d0937f3573746a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Wywołanie pakietów SSIS za pomocą działania procedury składowanej w fabryce danych Azure
 W tym artykule opisano sposób wywołania pakietów SSIS z potoku fabryki danych Azure za pomocą działania procedury składowanej. 
@@ -39,7 +39,7 @@ W tej sekcji służy do utworzyć potok fabryki danych z działaniem procedury s
 ### <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 Pierwszym krokiem jest tworzenie fabryki danych przy użyciu portalu Azure. 
 
-1. Uruchom **Microsoft Edge** lub **Google Chrome** przeglądarki sieci web. Obecnie interfejsu użytkownika z fabryki danych jest obsługiwane wyłącznie w przeglądarkach sieci web Microsoft Edge i przeglądarki Google Chrome.
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 2. Przejdź do witryny [Azure Portal](https://portal.azure.com). 
 3. Kliknij przycisk **Nowy** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij pozycję **Data Factory**. 
    
@@ -122,7 +122,7 @@ W tej sekcji wyzwalanie wykonywania potoku, a następnie monitorować go.
 1. Aby wyzwolić potoku uruchamiania, kliknij przycisk **wyzwalacza** na pasku narzędzi, a następnie kliknij przycisk **uruchomić teraz**. 
 
     ![Wyzwól teraz](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. W **uruchomić potoku** wybierz **Zakończ**. 
+2. W oknie **Uruchomienie potoku** wybierz pozycję **Zakończ**. 
 3. Przejdź do karty **Monitorowanie** po lewej stronie. Zostanie wyświetlony potoku uruchamiania i jego stan oraz innych informacji (na przykład czas uruchomienia Start). Aby odświeżyć widok, kliknij przycisk **Odśwież**.
 
     ![Uruchomienia potoków](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)

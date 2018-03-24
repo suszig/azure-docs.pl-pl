@@ -1,24 +1,24 @@
 ---
-title: "Wdrażanie aplikacji Node.js, która używa bazy danych MongoDB | Dokumentacja firmy Microsoft"
-description: "Przewodnik dotyczący sposobu pakietu wiele plików wykonywalnych gościa do wdrożenia klastra usługi sieć szkieletowa usług Azure"
+title: Wdrażanie aplikacji Node.js, która używa bazy danych MongoDB sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft
+description: Przewodnik dotyczący sposobu pakietu wiele plików wykonywalnych gościa do wdrożenia klastra usługi sieć szkieletowa usług Azure
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: msfussell;mikhegn
-ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 4987cc271a3e3d8a1a69c4c7fbd213d73ca2eb96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>Wdrażanie wielu aplikacji wykonywalnych gości
 W tym artykule przedstawiono sposób pakietów i wdrożyć wiele plików wykonywalnych gościa sieć szkieletowa usług Azure. Umożliwiające tworzenie i wdrażanie pojedynczego pakietu sieci szkieletowej usług przeczytać artykuł dotyczący sposobu do [wdrażanie pliku wykonywalnego gościa sieci szkieletowej usług](service-fabric-deploy-existing-app.md).
@@ -32,7 +32,7 @@ Visual Studio można użyć do utworzenia pakietu aplikacji, która zawiera wiel
 * [Przykład dwóch gościa pliki wykonywalne (C# i nodejs) podczas komunikacji za pośrednictwem usługi nazw za pomocą usługi REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Ręcznie pakietu wielu aplikacja wykonywalna gościa
-Można też ręcznie pakietu pliku wykonywalnego gościa. Dla pakietów ręcznego, w tym artykule używa narzędzia pakowania sieci szkieletowej usług, które jest dostępne w [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+Można też ręcznie pakietu pliku wykonywalnego gościa. Dla pakietów ręcznego, w tym artykule używa narzędzia pakowania sieci szkieletowej usług, które jest dostępne w [ http://aka.ms/servicefabricpacktool ](http://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Pakowanie aplikacji Node.js
 W tym artykule przyjęto założenie, że Node.js nie jest zainstalowany w węzłach klastra sieci szkieletowej usług. W rezultacie musisz dodać Node.exe do katalogu głównego aplikacji węzeł przed opakowania. Struktura katalogów aplikacji Node.js (przy użyciu aparatu Jade szablonu i platforma sieci web Express) powinien wyglądać podobnie do poniższego:
@@ -72,7 +72,7 @@ Poniżej znajduje się opis parametrów, które są używane:
 * **/ target** definiuje katalogu, w którym można utworzyć pakietu. Ten katalog musi być inny niż katalog źródłowy.
 * **elementów/appname** definiuje nazwę istniejącej aplikacji w aplikacji. Należy zrozumieć przekłada nazwy usługi w manifeście, a nie nazwę aplikacji sieci szkieletowej usług.
 * **/exe** definiuje plik wykonywalny, który można uruchomić w tym przypadku powinien sieci szkieletowej usług `node.exe`.
-* **/ma** definiuje argumentu, który jest używany do uruchomienia pliku wykonywalnego. Ponieważ nie zainstalowano środowiska Node.js, sieć szkieletowa usług musi uruchomić serwera sieci web Node.js, wykonując `node.exe bin/www`.  `/ma:'bin/www'`informuje narzędzie tworzenia pakietów do użycia `bin/www` jako argument dla node.exe.
+* **/ma** definiuje argumentu, który jest używany do uruchomienia pliku wykonywalnego. Ponieważ nie zainstalowano środowiska Node.js, sieć szkieletowa usług musi uruchomić serwera sieci web Node.js, wykonując `node.exe bin/www`.  `/ma:'bin/www'` informuje narzędzie tworzenia pakietów do użycia `bin/www` jako argument dla node.exe.
 * **/ Typ aplikacji** definiuje nazwę typu sieci szkieletowej usług aplikacji.
 
 Po przejściu do katalogu, który został określony w parametrze/TARGET, można wyświetlić, narzędzie utworzył pełni funkcjonalnej pakietu sieci szkieletowej usług w sposób przedstawiony poniżej:
@@ -214,7 +214,7 @@ Aby dodać kolejną usługę do aplikacji utworzonej już przy użyciu polecenia
 1. Zmień katalog na katalog główny istniejącej aplikacji.  Na przykład wpisz polecenie `cd ~/YeomanSamples/MyApplication`, jeśli aplikacja `MyApplication` to aplikacja utworzona przez narzędzie Yeoman.
 2. Uruchom `yo azuresfguest:AddService` i podaj odpowiednie szczegóły.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o wdrażaniu kontenerów [sieci szkieletowej usług i kontenery — omówienie](service-fabric-containers-overview.md)
 * [Przykład dla pakowanie i wdrażanie pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Przykład dwóch gościa pliki wykonywalne (C# i nodejs) podczas komunikacji za pośrednictwem usługi nazw za pomocą usługi REST](https://github.com/Azure-Samples/service-fabric-containers)

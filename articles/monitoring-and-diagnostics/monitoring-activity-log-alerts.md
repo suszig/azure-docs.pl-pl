@@ -1,33 +1,32 @@
 ---
-title: "Utwórz działanie alertów dziennika | Dokumentacja firmy Microsoft"
-description: "Otrzymasz powiadomienie w wiadomości SMS, webhook i wiadomości e-mail po wystąpieniu określonego zdarzenia w dzienniku aktywności."
+title: Utwórz działanie klasycznego alerty dziennika | Dokumentacja firmy Microsoft
+description: Otrzymasz powiadomienie w wiadomości SMS, webhook i wiadomości e-mail po wystąpieniu określonego zdarzenia w dzienniku aktywności.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Utwórz działanie alertów dziennika
+# <a name="create-activity-log-alerts-classic"></a>Utwórz działanie alertów dziennika (klasyczne)
 
 ## <a name="overview"></a>Przegląd
 Alerty dziennika aktywności są alerty, które aktywować po wystąpieniu nowe zdarzenie dziennika aktywności, która spełnia warunki określone w alercie. Są one zasobów platformy Azure, dlatego mogą być tworzone za pomocą szablonu usługi Azure Resource Manager. One również może być utworzone, zaktualizowane lub usunięte w portalu Azure. W tym artykule przedstawiono pojęć dotyczących alertów dotyczących działań w dzienniku. Go następnie przedstawiono sposób ustawiania alertu na zdarzenia dziennika aktywności za pomocą portalu Azure.
 
 > [!NOTE]
 
->  [Alerty (wersja zapoznawcza)](monitoring-overview-unified-alerts.md) obecnie udostępnia udoskonalone środowisko podczas tworzenia i zarządzania dziennikami działania.  [Dowiedz się więcej](monitoring-activity-log-alerts-new-experience.md).
+>  Nowy [alerty](monitoring-overview-unified-alerts.md) środowisko zastąpił tej procedury. W tym artykule jest dostępna jako odwołanie dla poprzedniego środowisko. [Dowiedz się więcej](monitoring-activity-log-alerts-new-experience.md).
 
 Zazwyczaj w celu utworzenia działania alerty dziennika, aby otrzymywać powiadomienia po:
 
@@ -59,11 +58,11 @@ Aby dowiedzieć się więcej o grupach akcji, zobacz [tworzenia grup działań w
 
 Aby dowiedzieć się więcej na temat powiadomień o kondycji usługi, zobacz [odbierzesz alerty dziennika działania dotyczące powiadomień o kondycji usługi](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Utwórz alert na zdarzenie dziennika działania z nową grupą akcji przy użyciu portalu Azure
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Utwórz alert (klasyczne) na zdarzenie dziennika działania z nową grupą akcji przy użyciu portalu Azure
 1. W [portal](https://portal.azure.com), wybierz pozycję **Monitor**.
 
     ![Usługa "Monitora"](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. W **dziennik aktywności** zaznacz **alerty**.
+2. W **dziennik aktywności** zaznacz **alertów (klasyczne)**.
 
     ![Karta "Alertów"](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Wybierz **alert dziennika aktywności Dodaj**, a następnie wypełnij pola.

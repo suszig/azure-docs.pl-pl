@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych z programu MySQL przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat łącznika MySQL w fabryce danych Azure, która umożliwia kopiowanie danych z bazy danych MySQL w magazynie danych są obsługiwane jako zbiorniku."
+title: Kopiowanie danych z programu MySQL przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat łącznika MySQL w fabryce danych Azure, która umożliwia kopiowanie danych z bazy danych MySQL w magazynie danych są obsługiwane jako zbiorniku.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ecbf2b2e144885159ae6d6e3a82b4d6063a3d23
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiowanie danych z programu MySQL przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

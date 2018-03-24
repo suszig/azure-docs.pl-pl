@@ -1,8 +1,8 @@
 ---
-title: "Wprowadzenie do języka R Server w usłudze Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać R Server w usłudze HDInsight do tworzenia aplikacji do analizy danych big data."
+title: Wprowadzenie do języka R Server w usłudze Azure HDInsight | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak używać R Server w usłudze HDInsight do tworzenia aplikacji do analizy danych big data.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 2106e5f0c9b6a27da3747bc67aad0937f2356873
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Wprowadzenie do języka R Server i open source możliwości R w usłudze HDInsight
+# <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Wprowadzenie do języka R Server i open source możliwości R w usłudze HDInsight
 
 Serwer R firmy Microsoft jest dostępny jako opcję wdrażania, podczas tworzenia klastrów usługi HDInsight w systemie Azure. Ta nowa funkcja zapewnia analityków danych, chi i programistom R dostęp na żądanie do skalowalnych, rozproszonych metody analizy w usłudze HDInsight.
 
@@ -53,7 +53,7 @@ Można również nawiązać serwerem R w wierszu polecenia przy użyciu protoko�
 ## <a name="develop-and-run-r-scripts"></a>Tworzenie i uruchamianie skryptów R
 Tworzenie i uruchamianie skryptów R można użyć dowolnego z pakietów typu open source R 8000 + oprócz procedury zrównoleglone i rozproszone dostępne w bibliotece ScaleR. Ogólnie rzecz biorąc skrypt, który jest uruchamiany z serwerem R w węźle krawędzi jest uruchamiany w ramach interpreter języka R w tym węźle. Wyjątki są te kroki, które należy wywołać funkcję ScaleR z kontekstem obliczeń, który jest ustawiony do Hadoop mapy Zmniejsz (RxHadoopMR) lub Spark (RxSpark). W takim przypadku funkcja działa w sposób rozproszonych w tych węzłów danych (zadania) klastra, które są skojarzone z danych, do których odwołuje się. Aby uzyskać więcej informacji na temat opcji kontekstu obliczeń różnych zobacz [obliczeniowe kontekstu opcje serwera R w usłudze HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>Operacjonalizuj modelu
+## <a name="operationalize-a-model"></a>Operacjonalizowanie modelu
 Po zakończeniu Twojej modelowania danych, aby operacjonalizować modelu w celu tworzenia prognoz dotyczących nowych danych z platformy Azure i lokalnymi. Ten proces jest nazywany oceniania. Ocenianie może odbywać się w HDInsight, uczenie maszynowe Azure lub lokalnie.
 
 ### <a name="score-in-hdinsight"></a>Wynik w usłudze HDInsight

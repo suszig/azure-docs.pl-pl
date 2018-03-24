@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie modułu integracji usługi Automatyzacja Azure"
-description: "Samouczek, który przeprowadzi Cię przez proces tworzenia, testowania i przykładowego użycia modułów integracji w usłudze Azure Automation."
+title: Tworzenie modułu integracji usługi Automatyzacja Azure
+description: Samouczek, który przeprowadzi Cię przez proces tworzenia, testowania i przykładowego użycia modułów integracji w usłudze Azure Automation.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e1bcdb2938d1dcb2743b4c1c523ccefb322dd428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b7aa09776045705ce98a472adbbe2f36d827ccc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Moduły integracji usługi Azure Automation
 Program PowerShell to podstawowa technologia używana w usłudze Azure Automation. Ponieważ usługa Azure Automation jest zbudowana w oparciu o program PowerShell, moduły tego programu stanowią podstawę możliwości rozszerzania usługi Azure Automation. W tym artykule firma Microsoft przedstawiono szczegółowe informacje na temat stosowania automatyzacji Azure moduły programu PowerShell, określany jako "Moduły integracji" i najlepsze rozwiązania dotyczące tworzenia moduły programu PowerShell upewnij się, że działają jako moduły integracji w systemie Azure Automatyzacja. 

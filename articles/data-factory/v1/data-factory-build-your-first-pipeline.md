@@ -1,11 +1,11 @@
 ---
 title: 'Data Factory samouczek: pierwszy potok danych | Dokumentacja firmy Microsoft'
-description: "W tym samouczku fabryki danych Azure przedstawiono sposób tworzenia i planowania fabryki danych, który przetwarza dane za pomocą skryptu Hive na klastra usługi Hadoop."
+description: W tym samouczku fabryki danych Azure przedstawiono sposób tworzenia i planowania fabryki danych, który przetwarza dane za pomocą skryptu Hive na klastra usługi Hadoop.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 374eebfe35207f6e5264159dcb72abddc6de4598
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fc9c0a823f48446f98fe9686242b8500462427b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Samouczek: Tworzenie swój pierwszy potok do przekształcania danych przy użyciu klastra usługi Hadoop
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
-> * [Witryna Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Program Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Szablon usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -85,7 +85,7 @@ Przed rozpoczęciem tego samouczka wymagane są następujące wymagania wstępne
 
 1. **Subskrypcja platformy Azure** — Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Zobacz [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) artykuł, w jaki sposób można uzyskać bezpłatne konto próbne.
 2. **Usługa Azure Storage** — używasz konta magazynu Azure do przechowywania danych w tym samouczku. Jeśli nie masz konta magazynu platformy Azure, zobacz [Utwórz konto magazynu](../../storage/common/storage-create-storage-account.md#create-a-storage-account) artykułu. Po utworzeniu konta magazynu należy zanotować **nazwa konta** i **klucz dostępu**. Zobacz [widoku, kopiowania i regenerate magazynu klucze dostępu](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Pobierz i przejrzyj plik zapytania Hive (**HQL**) w lokalizacji: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). To zapytanie przy użyciu danych wejściowych, które wygenerowało danych wyjściowych. 
+3. Pobierz i przejrzyj plik zapytania Hive (**HQL**) w lokalizacji: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). To zapytanie przy użyciu danych wejściowych, które wygenerowało danych wyjściowych. 
 4. Pobierz i przejrzyj przykładowy plik wejściowy (**input.log**) w lokalizacji: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Tworzenie kontenera obiektów blob o nazwie **adfgetstarted** w magazynie obiektów Blob Azure. 
 6. Przekaż **partitionweblogs.hql** pliku **skryptu** folderu w **adfgetstarted** kontenera. Użyj narzędzia takiego jak [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com/). 

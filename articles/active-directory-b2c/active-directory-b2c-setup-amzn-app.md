@@ -1,28 +1,25 @@
 ---
-title: "Usługa Azure Active Directory B2C: Amazon konfiguracji | Dokumentacja firmy Microsoft"
-description: "Umożliwiają tworzenie kont i logowania użytkowników z kontami usługi Amazon w aplikacjach, które są zabezpieczone przez usługi Azure Active Directory B2C."
+title: 'Usługa Azure Active Directory B2C: Amazon konfiguracji | Dokumentacja firmy Microsoft'
+description: Umożliwiają tworzenie kont i logowania użytkowników z kontami usługi Amazon w aplikacjach, które są zabezpieczone przez usługi Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: df69b075717e6b4311e336f5bd2d385c5f0e1f52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a2989baa61e7b69534fe5703b2501d62a4f8aa94
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: Umożliwiają tworzenie kont i logowania użytkowników z kontami usługi Amazon
 ## <a name="create-an-amazon-application"></a>Tworzenie aplikacji usługi Amazon
-Aby używać usługi Amazon funkcję dostawcy tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy utworzyć aplikację usługi Amazon i dostarczyć prawo parametrów. Musisz mieć konto Amazon, w tym celu. Jeśli nie masz, możesz pobrać go w [http://www.amazon.com/](http://www.amazon.com/).
+Aby używać usługi Amazon funkcję dostawcy tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy utworzyć aplikację usługi Amazon i dostarczyć prawo parametrów. Musisz mieć konto Amazon, w tym celu. Jeśli nie masz, możesz pobrać go w [ http://www.amazon.com/ ](http://www.amazon.com/).
 
 1. Przejdź do [Centrum deweloperów firmy Amazon](https://login.amazon.com/) i zaloguj się przy użyciu poświadczeń konta Amazon.
 2. Jeśli nie zostało to jeszcze zrobione, kliknij przycisk **Utwórz konto**, wykonaj kroki rejestracji deweloperów i zaakceptuj zasady.

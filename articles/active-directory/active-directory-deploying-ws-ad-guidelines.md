@@ -1,24 +1,24 @@
 ---
-title: "Wskazówki dotyczące wdrażania systemu Windows serwer usługi Active Directory na maszynach wirtualnych Azure | Dokumentacja firmy Microsoft"
-description: "Jeśli wiesz, jak wdrażać usługi domenowe AD i usługi federacyjnej AD lokalnie, Dowiedz się, jak działają na maszynach wirtualnych Azure."
+title: Wskazówki dotyczące wdrażania systemu Windows serwer usługi Active Directory na maszynach wirtualnych Azure | Dokumentacja firmy Microsoft
+description: Jeśli wiesz, jak wdrażać usługi domenowe AD i usługi federacyjnej AD lokalnie, Dowiedz się, jak działają na maszynach wirtualnych Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Wskazówki dotyczące wdrażania usługi Active Directory systemu Windows Server na maszynach wirtualnych Azure
 W tym artykule opisano istotne różnice między wdrażanie systemu Windows serwera usług domenowych Active Directory (AD DS) i Active Directory Federation Services (AD FS) lokalnie i wdrażania ich na maszynach wirtualnych Microsoft Azure.
@@ -71,8 +71,10 @@ Zobacz [sieci wirtualnej](http://azure.microsoft.com/documentation/services/virt
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Statyczne adresy IP musi być skonfigurowany przy użyciu programu Azure PowerShell.
-Dynamiczne adresy są przydzielane domyślnie, ale można przypisać statycznego adresu IP, zamiast tego należy użyć polecenia cmdlet Set-AzureStaticVNetIP. Które ustawia statyczny adres IP, który będzie aktualny za pośrednictwem naprawą usługi i zamykania maszyny Wirtualnej ponownego uruchomienia komputera. Aby uzyskać więcej informacji, zobacz [statyczny adres IP wewnętrznego dla maszyn wirtualnych](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>Statyczne adresy IP można skonfigurować za pomocą programu Azure PowerShell
+Dynamiczne adresy są przydzielane domyślnie, ale jeśli chcesz przypisać statyczny adres IP zamiast tego należy użyć polecenia cmdlet Set-AzureStaticVNetIP. To polecenie cmdlet ustawia statyczny adres IP, który będzie aktualny za pośrednictwem naprawą usługi i zamykania maszyny Wirtualnej ponownego uruchomienia komputera. Aby uzyskać więcej informacji, zobacz [statyczny adres IP wewnętrznego dla maszyn wirtualnych](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). Można również skonfigurować statyczny adres IP podczas tworzenia maszyny Wirtualnej w portalu Azure, jak pokazano poniżej. Aby uzyskać więcej informacji, zobacz [utworzyć Maszynę wirtualną za pomocą statycznego publicznego adresu IP przy użyciu portalu Azure](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![Zrzut ekranu przedstawiający krok, aby dodać statyczny adres IP, podczas tworzenia maszyny Wirtualnej](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>— Warunki
 Poniżej przedstawiono listę niepełna postanowień dotyczących różnych technologii platformy Azure, które zostanie dodane odwołanie w tym artykule.
@@ -408,7 +410,7 @@ Należy wybrać, czy do wdrożenia kontrolerów domeny tylko do odczytu lub zapi
 
 Azure nie stanowi zagrożenia dla bezpieczeństwa fizycznego oddziału firmy, ale kontrolery RODC nadal mogą okazać się bardziej ekonomiczne, ponieważ funkcje, które zapewniają są odpowiednie do tych środowisk, choć bardzo różnych powodów. Na przykład kontrolery RODC ma nie replikację wychodzącą i można selektywnie wypełnić klucze tajne (hasła). Wadą interfejsu Brak tych kluczy tajnych może wymagać ruch wychodzący na żądanie do zweryfikowania ich jako użytkownik lub komputer uwierzytelnia. Ale kluczy tajnych można selektywnie wstępnie i pamięci podręcznej.
 
-Kontrolery RODC zapewniają dodatkowe korzyści i w jego pobliżu problemów o dużym znaczeniu Biznesowym, a dane osobowe, ponieważ można dodać zestawu atrybutów (FAS) filtrowane atrybutów, które zawierają dane poufne na kontrolerze RODC. FAS to dostosowywalne zestaw atrybutów, które nie są replikowane do kontrolera RODC. W przypadku, gdy nie są dozwolone lub nie chcesz przechowywać dane osobowe lub o dużym znaczeniu Biznesowym na platformie Azure, można użyć FAS ze względów bezpieczeństwa. Aby uzyskać więcej informacji zobacz [kontrolera RODC filtrowane atrybutu [(https://technet.microsoft.com/library/cc753459)].
+Kontrolery RODC zapewniają dodatkowe korzyści i w jego pobliżu problemów o dużym znaczeniu Biznesowym, a dane osobowe, ponieważ można dodać zestawu atrybutów (FAS) filtrowane atrybutów, które zawierają dane poufne na kontrolerze RODC. FAS to dostosowywalne zestaw atrybutów, które nie są replikowane do kontrolera RODC. W przypadku, gdy nie są dozwolone lub nie chcesz przechowywać dane osobowe lub o dużym znaczeniu Biznesowym na platformie Azure, można użyć FAS ze względów bezpieczeństwa. Aby uzyskać więcej informacji, zobacz [kontrolera RODC filtrowane ustawiony atrybut [(https://technet.microsoft.com/library/cc753459)].
 
 Upewnij się, że aplikacje będą zgodne z kontrolera RODC ma być używany. Wiele aplikacji z obsługą usługi Active Directory systemu Windows Server działają prawidłowo w przypadku kontrolera RODC, ale niektóre aplikacje można wykonać Niewydajne lub się nie powieść, jeśli nie mają dostępu do zapisywalnego kontrolera domeny. Aby uzyskać więcej informacji, zobacz [Podręcznik zgodności aplikacji kontrolerów domeny tylko do odczytu](https://technet.microsoft.com/library/cc755190).
 

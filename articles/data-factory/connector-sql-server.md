@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych do/z programu SQL Server przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu przenoszenia danych z bazy danych programu SQL Server działa lokalnie lub w maszynie Wirtualnej platformy Azure przy użyciu fabryki danych Azure."
+title: Kopiowanie danych do/z programu SQL Server przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat sposobu przenoszenia danych z bazy danych programu SQL Server działa lokalnie lub w maszynie Wirtualnej platformy Azure przy użyciu fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f46917731ef64290816870b6abd14679dd465211
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b845f3112d96838454653dcd742b950009206bf4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiowanie danych do i z programu SQL Server przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -485,9 +485,9 @@ Podczas kopiowania danych z/do programu SQL Server, z typów danych programu SQL
 | Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| data |Data/godzina |
-| Data/godzina |Data/godzina |
-| datetime2 |Data/godzina |
+| data |DateTime |
+| Data/godzina |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atrybut FILESTREAM (varbinary(max)) |Byte[] |
@@ -501,7 +501,7 @@ Podczas kopiowania danych z/do programu SQL Server, z typów danych programu SQL
 | nvarchar |Ciąg, Char] |
 | rzeczywiste |Kawaler/panna |
 | ROWVERSION |Byte[] |
-| smalldatetime |Data/godzina |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |

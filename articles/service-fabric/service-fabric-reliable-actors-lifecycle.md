@@ -1,6 +1,6 @@
 ---
-title: "Przegląd cyklu życia na podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono niezawodnego aktora sieci szkieletowej usługi cyklu życia, wyrzucanie elementów bezużytecznych i ręcznego usuwania złośliwych użytkowników i ich stan"
+title: Przegląd cyklu życia na podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft
+description: Wyjaśniono niezawodnego aktora sieci szkieletowej usługi cyklu życia, wyrzucanie elementów bezużytecznych i ręcznego usuwania złośliwych użytkowników i ich stan
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cykl życia aktora, automatyczne wyrzucanie elementów bezużytecznych i ręcznego usuwania
 Aktor jest uaktywniany przy pierwszym uruchomieniu połączenie jest nawiązywane w przypadku dowolnej metody. Aktor jest dezaktywowany (odzyskiwanie zebranych przez środowisko uruchomieniowe złośliwych użytkowników), jeśli nie jest on używany przez można skonfigurować czas. Aktor i stanu można również zostaną usunięte ręcznie w dowolnym momencie.
@@ -112,37 +112,8 @@ W przykładzie wpływ wywołania metody aktora, przypomnienia i czasomierze na o
 
 Aktor nigdy nie będą bezużytecznych podczas wykonywania jednej z metod, niezależnie od tego, ile czas podczas wykonywania tej metody. Jak wspomniano wcześniej, wykonywanie metod interfejsu aktora i wywołania zwrotne monitu zapobiega wyrzucanie elementów bezużytecznych resetując czas bezczynności aktora na 0. Wykonywanie wywołań zwrotnych czasomierza nie powoduje resetowania czas bezczynności na 0. Wyrzucanie elementów bezużytecznych aktora jest jednak opóźnione aż do zakończenia wykonywania wywołanie zwrotne czasomierza.
 
-## <a name="deleting-actors-and-their-state"></a>Usuwanie złośliwych użytkowników i ich stan
-Wyrzucanie elementów bezużytecznych dezaktywowane podmiotów tylko czyści obiektu aktora, ale nie powoduje usunięcia danych przechowywanych w Menedżerze stanu aktora. Aktor jest ponowna aktywacja, jego dane ponownie się dostępne za pośrednictwem Menedżera stanu. W przypadku gdy podmiotów przechowywania danych w Menedżerze stanu i są dezaktywowane ale nigdy aktywowany ponownie może być konieczne wyczyścić swoje dane.
-
-[Usługi aktora](service-fabric-reliable-actors-platform.md) udostępnia funkcję usuwania złośliwych użytkowników z zdalnego procesu wywołującego:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-Usuwanie aktora ma następujące skutki w zależności od tego, czy aktora jest obecnie aktywna:
-
-* **Aktywne aktora**
-  * Aktora zostanie usunięty z listy active złośliwych użytkowników, a jest nieaktywne.
-  * Jego stan jest trwale usunięte.
-* **Nieaktywne aktora**
-  * Jego stan jest trwale usunięte.
-
-Należy pamiętać, że nie można wywołać aktora usunąć na samym sobie z jednego z jego metody aktora, ponieważ aktora nie można usunąć podczas wykonywania w kontekście wywołań aktora, w którym środowiska uruchomieniowego uzyskał blokady wokół wymuszenia dostępu jednowątkowe wywołanie aktora.
+## <a name="manually-deleting-actors-and-their-state"></a>Ręczne usuwanie złośliwych użytkowników i ich stan
+Wyrzucanie elementów bezużytecznych dezaktywowane podmiotów tylko czyści obiektu aktora, ale nie powoduje usunięcia danych przechowywanych w Menedżerze stanu aktora. Aktor jest ponowna aktywacja, jego dane ponownie się dostępne za pośrednictwem Menedżera stanu. W przypadku gdy podmiotów przechowywania danych w Menedżerze stanu i są dezaktywowane ale nigdy aktywowany ponownie może być konieczne wyczyścić swoje dane.  Przykłady sposobu usuwania uczestników, przeczytaj [usunąć złośliwych użytkowników i ich stan](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
 * [Czasomierze aktora i przypomnieniami](service-fabric-reliable-actors-timers-reminders.md)

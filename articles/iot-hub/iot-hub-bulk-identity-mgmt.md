@@ -1,11 +1,11 @@
 ---
-title: "Import Eksport tożsamości urządzenia Azure IoT Hub | Dokumentacja firmy Microsoft"
-description: "Jak używać usługi Azure IoT zestawu SDK w celu wykonania operacji zbiorczej przed rejestru tożsamości w celu importowania i eksportowania tożsamości urządzenia. Operacje importowania umożliwiają tworzenie, aktualizowanie i usuwanie tożsamości urządzenia w partii."
+title: Import Eksport tożsamości urządzenia Azure IoT Hub | Dokumentacja firmy Microsoft
+description: Jak używać usługi Azure IoT zestawu SDK w celu wykonania operacji zbiorczej przed rejestru tożsamości w celu importowania i eksportowania tożsamości urządzenia. Operacje importowania umożliwiają tworzenie, aktualizowanie i usuwanie tożsamości urządzenia w partii.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Zarządzanie tożsamościami urządzenia IoT Hub zbiorcze
 
@@ -193,9 +193,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
-> Można również użyć **GetDevicesAsync** metody **RegistryManager** klasy można pobrać listy urządzeń. Jednak takie podejście charakteryzuje się twardych limit 1000 liczby obiektów urządzeń, które są zwracane. W przypadku użycia oczekiwanego **GetDevicesAsync** metoda do scenariusze deweloperskie, umożliwiające pomocy debugowania i nie jest zalecane w przypadku obciążeń produkcyjnych.
 
 ## <a name="import-devices"></a>Importuj urządzeń
 

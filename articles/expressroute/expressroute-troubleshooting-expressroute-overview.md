@@ -1,12 +1,12 @@
 ---
-title: "Weryfikowanie łączności: ExpressRoute Azure przewodnik rozwiązywania problemów | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje dotyczące rozwiązywania problemów i weryfikowanie łączności kompleksowe obwodu usługi ExpressRoute."
+title: 'Weryfikowanie łączności: ExpressRoute Azure przewodnik rozwiązywania problemów | Dokumentacja firmy Microsoft'
+description: Ta strona zawiera instrukcje dotyczące rozwiązywania problemów i weryfikowanie łączności kompleksowe obwodu usługi ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>Sprawdzanie połączenia ExpressRoute
 ExpressRoute, który rozciąga się sieci lokalnej do firmy Microsoft w chmurze prywatnej połączenie, które umożliwiają to dostawca połączenia, obejmuje następujące trzy strefy odrębnych sieci:
@@ -68,7 +68,7 @@ Aby sprawdzić poprawność obwodu usługi ExpressRoute, następujące czynnośc
 
 Więcej operacji sprawdzania poprawności i kontroli zostaną dodane w przyszłości, zajrzyj tu co miesiąc!
 
-##<a name="validate-circuit-provisioning-and-state"></a>Sprawdź poprawność aprowizacji obwodów i stanu
+## <a name="validate-circuit-provisioning-and-state"></a>Sprawdź poprawność aprowizacji obwodów i stanu
 Niezależnie od tego modelu łączności obwodu usługi ExpressRoute musi być utworzony i w związku z tym wygenerowany klucz usługi dla aprowizacji obwodów. Inicjowanie obsługi administracyjnej obwodu usługi ExpressRoute ustanawia nadmiarowych połączeń warstwy 2 między PE-MSEEs (4) i MSEEs (5). Aby uzyskać więcej informacji na temat sposobu tworzenia, modyfikowania, udostępnić i sprawdzić obwodu usługi ExpressRoute, zobacz artykuł [tworzenia i modyfikowania obwodu usługi expressroute][CreateCircuit].
 
 >[!TIP]
@@ -76,7 +76,7 @@ Niezależnie od tego modelu łączności obwodu usługi ExpressRoute musi być u
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Weryfikacja za pomocą portalu Azure
+### <a name="verification-via-the-azure-portal"></a>Weryfikacja za pomocą portalu Azure
 W portalu Azure można sprawdzić stan obwodu usługi ExpressRoute, wybierając ![2][2] w menu po lewej stronie paska i wybierając obwodu usługi expressroute. Wybieranie ExpressRoute obwodu wymienione w obszarze "Wszystkie zasoby" spowoduje otwarcie bloku obwodu usługi ExpressRoute. W ![3][3] bloku ExpressRoute essentials przedstawiono, jak pokazano na poniższym zrzucie ekranu:
 
 ![4][4]    
@@ -90,7 +90,7 @@ Dla obwodu usługi ExpressRoute działać *obwodu stan* musi być *włączone* i
 >
 >
 
-###<a name="verification-via-powershell"></a>Weryfikacja za pomocą programu PowerShell
+### <a name="verification-via-powershell"></a>Weryfikacja za pomocą programu PowerShell
 Aby wyświetlić listę wszystkich obwody usługi ExpressRoute w grupie zasobów, użyj następującego polecenia:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ Aby upewnić się, jeśli działa obwodu usługi ExpressRoute, zwracając szczeg
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>Weryfikacja za pomocą programu PowerShell (klasyczne)
+### <a name="verification-via-powershell-classic"></a>Weryfikacja za pomocą programu PowerShell (klasyczne)
 Aby wyświetlić listę wszystkich obwody usługi ExpressRoute w ramach subskrypcji, użyj następującego polecenia:
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ Aby upewnić się, jeśli działa obwodu usługi ExpressRoute, zwracając szczeg
 >
 >
 
-##<a name="validate-peering-configuration"></a>Sprawdź poprawność konfiguracji komunikacji równorzędnej
+## <a name="validate-peering-configuration"></a>Sprawdź poprawność konfiguracji komunikacji równorzędnej
 Po zakończeniu dostawcę usługi obwodu ExpressRoute inicjowania obsługi routingu konfiguracji mogą być tworzone za pośrednictwem obwodu ExpressRoute między MSEE-PRs (4) i MSEEs (5). Każdy obwód usługi ExpressRoute może mieć jedną, dwie lub trzy konteksty routingu włączona: prywatnej komunikacji równorzędnej platformy Azure (ruch do prywatnej sieci wirtualnych na platformie Azure), publicznej komunikacji równorzędnej platformy Azure (ruch na publiczne adresy IP na platformie Azure) i komunikacji równorzędnej firmy Microsoft (ruch do usługi Office 365 i Dynamics 365). Aby uzyskać więcej informacji na temat sposobu tworzenia i modyfikowania konfiguracji routingu, zobacz artykuł [tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering].
 
-###<a name="verification-via-the-azure-portal"></a>Weryfikacja za pomocą portalu Azure
+### <a name="verification-via-the-azure-portal"></a>Weryfikacja za pomocą portalu Azure
 
 >[!NOTE]
 >Jeśli warstwy 3 jest udostępniany przez dostawcę usług i komunikacji równorzędnych znajdują się w portalu, odświeżanie konfiguracji obwodu za pomocą przycisku Odśwież na protal. Ta operacja zostanie przeprowadzona odpowiednią konfigurację routingu na obwodu. 
@@ -188,7 +188,7 @@ W poprzednim przykładzie jako dostrzeżone Azure prywatnej komunikacji równorz
 >
 >
 
-###<a name="verification-via-powershell"></a>Weryfikacja za pomocą programu PowerShell
+### <a name="verification-via-powershell"></a>Weryfikacja za pomocą programu PowerShell
 Aby uzyskać Azure prywatnej komunikacji równorzędnej szczegółów konfiguracji, użyj następujących poleceń:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ W poniższym przykładzie przedstawiono odpowiedzi polecenia dla komunikacji ró
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>Sprawdź statystyki ruchu
+## <a name="check-the-traffic-statistics"></a>Sprawdź statystyki ruchu
 Aby uzyskać statystyki ruchu połączone ścieżki podstawowego i pomocniczego — bajtów i wylogowywanie — kontekstu komunikacji równorzędnej, użyj następującego polecenia:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

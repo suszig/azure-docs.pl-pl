@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie autonomicznego konta usługi Azure Automation"
-description: "W tym artykule przedstawiono kroki tworzenia, testowania i przy użyciu przykład zabezpieczeń podmiotu zabezpieczeń uwierzytelniania w usłudze Automatyzacja Azure."
+title: Tworzenie autonomicznego konta usługi Azure Automation
+description: W tym artykule przedstawiono kroki tworzenia, testowania i przy użyciu przykład zabezpieczeń podmiotu zabezpieczeń uwierzytelniania w usłudze Automatyzacja Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ca00736c6c42223a0fe6259da5ee2531c287de18
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
-W tym artykule przedstawiono sposób utworzyć konto usługi Automatyzacja Azure w portalu Azure. Portal konta automatyzacji można użyć do oceny i więcej informacji na temat automatyzacji bez korzystania z rozwiązania do zarządzania dodatkowe i integracja z usługi Analiza dzienników Azure w Operations Management Suite (OMS). Można dodać te rozwiązania do zarządzania lub zintegrować z analizy dzienników dla zaawansowanego monitorowania zadań elementu runbook w dowolnym momencie w przyszłości. 
+W tym artykule przedstawiono sposób utworzyć konto usługi Automatyzacja Azure w portalu Azure. Portal konta automatyzacji można użyć do oceny i więcej informacji na temat automatyzacji bez korzystania z rozwiązania do zarządzania dodatkowe i integracja z usługi Analiza dzienników Azure. Można dodać te rozwiązania do zarządzania lub zintegrować z analizy dzienników dla zaawansowanego monitorowania zadań elementu runbook w dowolnym momencie w przyszłości. 
 
 Przy użyciu konta automatyzacji elementów runbook mogą uwierzytelniać za zarządzanie zasobami w usłudze Azure Resource Manager lub w klasycznym modelu wdrażania.
 

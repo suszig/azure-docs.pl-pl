@@ -1,11 +1,11 @@
 ---
-title: "Aktualizowanie modeli uczenia komputera przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób tworzenia tworzenie potoków predykcyjnej przy użyciu fabryki danych Azure oraz uczenia maszynowego"
+title: Aktualizowanie modeli uczenia komputera przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Opisuje sposób tworzenia tworzenie potoków predykcyjnej przy użyciu fabryki danych Azure oraz uczenia maszynowego
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: d4f7df5ceadf8c6219901af6e516453a88aeece7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f84bb3546260622eec921684be8e2492adcdcd52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aktualizowanie modeli uczenia maszynowego Azure za pomocą działania aktualizacji zasobów
 Główne fabryki danych Azure - artykułu integracji usługi Azure Machine Learning uzupełnia w tym artykule: [tworzenie potoków predykcyjnej przy użyciu usługi Azure Machine Learning i fabryki danych Azure](transform-data-using-machine-learning.md). Jeśli nie zostało to jeszcze zrobione, należy przeczytać artykuł głównego przed odczytaniem za pośrednictwem tego artykułu. 

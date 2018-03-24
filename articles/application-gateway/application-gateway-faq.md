@@ -1,6 +1,6 @@
 ---
-title: "Często zadawane pytania dotyczące usługi Azure Application Gateway | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące bramy aplikacji Azure"
+title: Często zadawane pytania dotyczące usługi Azure Application Gateway | Dokumentacja firmy Microsoft
+description: Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące bramy aplikacji Azure
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Często zadawane pytania dotyczące bramy aplikacji
 
@@ -84,7 +84,7 @@ Tak, brama aplikacji w wstawia nagłówków x przekazywane do, x przekazywane pr
 
 Nowe wdrożenia bramy aplikacji może potrwać maksymalnie 20 minut do udostępniania. Zmiany liczby rozmiar wystąpień nie są zakłócenie i brama pozostaje aktywna w tym czasie.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 **Q. Brama aplikacji zawsze wdrożonej w sieci wirtualnej?**
 
@@ -135,10 +135,6 @@ Niestandardowe sond nie obsługują symboli wieloznacznych i wyrażeń regularny
 **Q. Jak są przetwarzane reguły**
 
 Reguły są przetwarzane w kolejności ich konfiguracji. Zaleca się, że obejmujący wiele lokacji skonfigurowanych reguł przed podstawowych reguł, aby zmniejszyć prawdopodobieństwo, że ruch jest kierowany do nieodpowiednie wewnętrznej bazy danych jako podstawowe reguły będzie zgodny z ruchu na podstawie portu przed Trwa obliczanie reguły obejmujący wiele lokacji.
-
-**Q. Jak są przetwarzane reguły**
-
-Reguły są przetwarzane w kolejności ich utworzenia. Zaleca się, że przed podstawowych reguł skonfigurowanych reguł obejmujący wiele lokacji. Konfigurując odbiorników obejmujący wiele lokacji najpierw, ta konfiguracja zmniejsza ryzyko, że ruch jest kierowany do nieodpowiednie wewnętrznej bazy danych. Ten problem routingu mogą występować podstawowe reguły spowoduje dopasowanie ruchu na podstawie portu przed Trwa obliczanie reguły obejmujący wiele lokacji.
 
 **Q. Co to oznaczającego pole hosta dla niestandardowych sond?**
 
@@ -274,7 +270,7 @@ Tak, można dostosowywać, aby uzyskać więcej informacji na temat sposobu Dost
 
 **Q. Jakie reguły są obecnie dostępne?**
 
-Zapory aplikacji sieci Web obsługuje obecnie CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) i [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), które zapewniają planu bazowego zabezpieczeń przed większość 10 pierwszych luk w zabezpieczeniach przez otwarty sieci Web aplikacji zabezpieczeń projektu (OWASP) znaleźć tutaj [OWASP pierwszych 10 luk w zabezpieczeniach](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
+Zapory aplikacji sieci Web obsługuje obecnie CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) i [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), które zapewniają planu bazowego zabezpieczeń przed większość 10 pierwszych luk w zabezpieczeniach przez otwarty sieci Web aplikacji zabezpieczeń projektu (OWASP) znaleźć tutaj [ OWASP 10 pierwszych luk w zabezpieczeniach](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
 * Ochrona przed atakami polegającymi na iniekcji SQL
 
@@ -301,7 +297,7 @@ Nie, zapory aplikacji sieci Web nie ma DDoS zapobiegania.
 Istnieją trzy dzienniki dostępne dla bramy aplikacji. Aby uzyskać więcej informacji na te dzienniki i inne funkcje diagnostyczne, odwiedź stronę [zaplecza kondycji, dzienników diagnostyki i metryki bramy aplikacji](application-gateway-diagnostics.md).
 
 - **ApplicationGatewayAccessLog** — dziennik dostępu zawiera każdego żądania przesłane do serwera sieci Web Application Gateway. Dane obejmują wywołującego IP, adres URL żądanego, czas oczekiwania na odpowiedź, i wylogowywanie zwracają kod, bajtów. Dziennik dostępu są gromadzone co 300 sekund. Ten dziennik zawiera jeden rekord dla każdego wystąpienia bramy aplikacji.
-- **ApplicationGatewayPerformanceLog** — dziennik wydajności przechwytuje informacje dotyczące wydajności na podstawie wystąpienia na tym całkowita liczba żądań obsłużonych, przepływność w bajtów, całkowita liczba żądań liczbę żądań obsługiwane, nie powiodło się, liczba wystąpień zaplecza dobrej kondycji i złej kondycji.
+- **ApplicationGatewayPerformanceLog** — dziennik wydajności znajdują się informacje o wydajności dla poszczególnych wystąpień całkowita liczba żądań podawana, w tym przepływność w bajtach, całkowita liczba żądań obsłużonych, liczba nieudanych żądań, zaplecza dobrej kondycji i złej kondycji Liczba wystąpień.
 - **ApplicationGatewayFirewallLog** — dziennik zapory zawiera żądań, które są rejestrowane za pomocą wykrywania i zapobiegania tryb bramę aplikacji, który jest skonfigurowany z zapory aplikacji sieci web.
 
 **Q. Jak sprawdzić, czy Moje elementy członkowskie puli zaplecza są w dobrej kondycji?**

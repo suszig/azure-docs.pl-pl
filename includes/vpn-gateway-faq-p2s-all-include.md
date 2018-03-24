@@ -1,3 +1,19 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 735d6f51dee8e88bec2210717a11d6707686415f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="supportedclientos"></a>Których systemów operacyjnych klienta można używać z połączeniami typu punkt-lokacja?
 
 Obsługiwane są następujące systemy operacyjne klientów:
@@ -59,8 +75,8 @@ Do przygotowywania systemu Windows 10 lub Server 2016 dla protokołu IKEv2:
 
   | Wersja systemu operacyjnego | Date | Number/Link |
   |---|---|---|---|
-  | Windows Server 2016<br>Windows 10 w wersji 1607 | 17 stycznia 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Wersja systemu Windows 10 1703 | 17 stycznia 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  | Windows Server 2016<br>Windows 10 w wersji 1607 | 17 stycznia 2018 r. | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Wersja systemu Windows 10 1703 | 17 stycznia 2018 r. | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
   |  |  |  |  |
 
 2. Ustaw wartość klucza rejestru. Utwórz lub ustawić REG_DWORD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" klucza rejestru na wartość 1.

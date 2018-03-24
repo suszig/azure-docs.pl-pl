@@ -1,7 +1,7 @@
 ---
-title: "Wdrażanie aplikacji SaaS podzielonej wielodostępne bazy danych, który używa usługi Azure SQL Database | Dokumentacja firmy Microsoft"
-description: "Wdrażanie i Eksploruj podzielonej Wingtip biletów wielodostępne bazy danych aplikacji SaaS, prezentującą wzorce SaaS przy użyciu bazy danych SQL Azure."
-keywords: "samouczek usługi sql database"
+title: Wdrażanie aplikacji SaaS podzielonej wielodostępne bazy danych, który używa usługi Azure SQL Database | Dokumentacja firmy Microsoft
+description: Wdrażanie i Eksploruj podzielonej Wingtip biletów wielodostępne bazy danych aplikacji SaaS, prezentującą wzorce SaaS przy użyciu bazy danych SQL Azure.
+keywords: samouczek usługi sql database
 services: sql-database
 author: MightyPen
 manager: craigg
@@ -11,11 +11,11 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Wdrażanie i Eksploruj podzielonej aplikacji wielodostępnych, która używa bazy danych SQL Azure
 
@@ -172,7 +172,7 @@ Początkowe wdrożenie obejmuje trzy próbki dzierżaw w *Tenants1* bazy danych.
 2. Naciśnij klawisz **F5** (nie **F8**) do uruchomienia skryptu (pozostaw wartości domyślne dla teraz).
 
    > [!NOTE]
-   > Należy uruchamiać skrypty programu PowerShell, tylko przez naciśnięcie przycisku **F5** klucza nie naciskając **F8** do uruchomienia wybranej części skryptu. Problem z **F8** jest to, że *$PSScriptRoot* zmienna nie jest obliczane. Ta zmienna jest wymagane przez wiele skryptów Przejdź folderów, lub inne skrypty wywołania lub zaimportuj moduły.
+   > Należy uruchamiać skrypty programu PowerShell, tylko przez naciśnięcie przycisku **F5** klucza nie naciskając **F8** do uruchomienia wybranej części skryptu. Problem z **F8** jest to, że *$PSScriptRoot* zmienna nie jest obliczane. Ta zmienna jest wymagana przez wiele skryptów do przeglądania folderów, wywołaj inne skrypty lub zaimportuj moduły.
 
 Nowej dzierżawy Racing czerwony klon jest dodawany do *Tenants1* bazy danych i zarejestrowane w wykazie. Na nowym dzierżawcą sprzedaży biletów **zdarzenia** lokacji otwiera w przeglądarce:
 

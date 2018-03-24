@@ -1,24 +1,24 @@
 ---
 title: 'Szybki Start: Skalowanie obliczeniowych w magazynie danych SQL Azure - T-SQL | Dokumentacja firmy Microsoft'
-description: "Polecenia T-SQL do skalowania zasoby obliczeniowe przez dostosowanie wartości dwu."
+description: Polecenia T-SQL do skalowania zasoby obliczeniowe przez dostosowanie wartości dwu.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1591192c72f5bf201dbbef80acc5895c8324fca4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Szybki Start: Skalowanie możliwości obliczeniowych w magazynie danych SQL Azure za pomocą T-SQL
 
@@ -101,18 +101,9 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 ;
 ```
 
-## <a name="check-database-state"></a>Sprawdź stan bazy danych
+## <a name="check-data-warehouse-state"></a>Sprawdź stan magazynu danych
 
-Aby sprawdzić stan bazy danych, uruchom następujące zapytanie **wzorca** bazy danych.
-
-```sql
-SELECT name AS "Database Name", state_desc AS "Status" 
-FROM sys.databases db
-WHERE db.name = 'mySampleDataWarehouse'
-;
-```
-
-Po uruchomieniu tego polecenia powinien otrzymać wartość stanu Online, wstrzymywanie, wznawianie, skalowanie lub wstrzymana.
+Wstrzymanie magazynu danych nie można nawiązać połączenia go z T-SQL. Aby wyświetlić bieżący stan magazynu danych, można użyć polecenia cmdlet programu PowerShell. Na przykład zobacz [Sprawdź stan magazynu danych - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state). 
 
 ## <a name="check-operation-status"></a>Sprawdź stan operacji
 

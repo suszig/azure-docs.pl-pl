@@ -1,12 +1,13 @@
 ---
-title: "Informacje o sposobie zarządzania przy użyciu interfejsu API zarządzania usługami sieci web uczenie maszynowe Azure | Dokumentacja firmy Microsoft"
-description: "Przewodnik pokazujący sposób zarządzania przy użyciu interfejsu API zarządzania usługami sieci web uczenie maszynowe Azure."
-keywords: "uczenia maszynowego, zarządzanie interfejsami api"
+title: Informacje o sposobie zarządzania przy użyciu interfejsu API zarządzania usługami sieci web uczenie maszynowe Azure | Dokumentacja firmy Microsoft
+description: Przewodnik pokazujący sposób zarządzania przy użyciu interfejsu API zarządzania usługami sieci web uczenie maszynowe Azure.
+keywords: uczenia maszynowego, zarządzanie interfejsami api
 services: machine-learning
-documentationcenter: 
-author: roalexan
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: roalexan
-ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Dowiedz się, jak zarządzać usługami sieci Web Azure ML za pomocą usługi API Management
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym przewodniku przedstawiono sposób szybkie rozpoczęcie pracy przy użyciu interfejsu API zarządzania do zarządzania usługami sieci web uczenie maszynowe Azure.
 
 ## <a name="what-is-azure-api-management"></a>Co to jest usługa Azure API Management?
@@ -149,7 +149,7 @@ Operacje można wywołać bezpośrednio z portalu dla deweloperów, które oferu
 
 2. Kliknij przycisk **interfejsów API** z menu u góry, a następnie kliknij przycisk **API pokaz uczenie maszynowe Azure** Aby wyświetlić dostępne operacje.
 
-   ![Interfejs api demoazureml](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
 3. Wybierz **wykonania rekordy zasobów** dla tej operacji. Kliknij przycisk **wypróbuj**.
 
@@ -161,7 +161,7 @@ Operacje można wywołać bezpośrednio z portalu dla deweloperów, które oferu
 
    Aby uzyskać **treść żądania**, typ `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 
-   ![uczenie maszynowe Azure pokaz api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
 5. Kliknij przycisk **wysyłania**.
 
@@ -169,7 +169,7 @@ Operacje można wywołać bezpośrednio z portalu dla deweloperów, które oferu
 
 Po wywołaniu operacji portalu dla deweloperów Wyświetla **żądany adres URL** usługi zaplecza **stanu odpowiedzi**, **nagłówki odpowiedzi**, natomiast dla ustawienia **zawartości odpowiedzi**.
 
-![Stan odpowiedzi](./media/manage-web-service-endpoints-using-api-management/response-status.png)
+![response-status](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Dodatek A — tworzenie i testowanie prostego uczenie maszynowe Azure usługi sieci web
 ### <a name="creating-the-experiment"></a>Tworzenie eksperymentu
@@ -179,13 +179,13 @@ Poniżej przedstawiono procedurę tworzenia prostego eksperymentu uczenie maszyn
 | --- | --- |
 | Jest to dobry dzień |1 1 2 2 0 2 0 1 |
 
-Po pierwsze, za pomocą przeglądarki wybranych przez użytkownika, przejdź do: [https://studio.azureml.net/](https://studio.azureml.net/) i wprowadź swoje poświadczenia, aby się zalogować. Następnie należy utworzyć nowy eksperyment puste.
+Po pierwsze, za pomocą przeglądarki wybranych przez użytkownika, przejdź do: [ https://studio.azureml.net/ ](https://studio.azureml.net/) i wprowadź swoje poświadczenia, aby się zalogować. Następnie należy utworzyć nowy eksperyment puste.
 
 ![Wyszukiwanie — eksperymentu — szablony](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
 Zmienić jego nazwę na **SimpleFeatureHashingExperiment**. Rozwiń węzeł **zapisane zestawów danych** i przeciągnij **przeglądami książki z Amazon** na eksperymentu.
 
-![prosty — funkcja mieszania eksperymentu](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
+![simple-feature-hashing-experiment](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
 Rozwiń węzeł **transformacji danych** i **manipulowania** i przeciągnij **Select Columns in Dataset** na eksperymentu. Połącz **skoroszyt z usługi Amazon przeglądami** do **Wybieranie kolumn w zestawie danych**.
 
@@ -197,7 +197,7 @@ Kliknij przycisk **Select Columns in Dataset** , a następnie kliknij przycisk *
 
 Rozwiń węzeł **Analiza tekstu** i przeciągnij **Tworzenie skrótu funkcji** na eksperymentu. Połącz **Wybieranie kolumn w zestawie danych** do **Tworzenie skrótu funkcji**.
 
-![Connect--kolumny projektu](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
+![connect-project-columns](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
 Typ **3** dla **mieszania bitsize**. Spowoduje to utworzenie 8 (23) kolumny.
 
@@ -207,25 +207,25 @@ W tym momencie można kliknąć przycisk **Uruchom** do testowania eksperymentu.
 
 ![Uruchom](./media/manage-web-service-endpoints-using-api-management/run.png)
 
-### <a name="create-a-web-service"></a>Tworzenie usługi sieci Web
+### <a name="create-a-web-service"></a>Tworzenie usługi internetowej
 Teraz Utwórz usługę sieci web. Rozwiń węzeł **usługi sieci Web** i przeciągnij **dane wejściowe** na eksperymentu. Połącz **dane wejściowe** do **Tworzenie skrótu funkcji**. Przeciągnij również **dane wyjściowe** na eksperymentu. Połącz **dane wyjściowe** do **Tworzenie skrótu funkcji**.
 
 ![dane wyjściowe do-— Tworzenie skrótu funkcji](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
 Kliknij przycisk **opublikować usługi sieci web**.
 
-![Publikowanie — Usługa sieci web](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
+![publish-web-service](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
 Kliknij przycisk **tak** publikowania eksperymentu.
 
-![tak aby opublikować](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
+![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testowanie usługi sieci web
 Usługi sieci web uczenie maszynowe Azure składa się z punktów końcowych (usługi wykonywania wsadowego) BES i RSS (żądania/odpowiedzi usługi). Funkcja RSS jest synchroniczne wykonywania. BES jest do wykonywania zadań asynchronicznych. Aby przetestować usługi sieci web ze źródłem Python próbki poniżej, konieczne może być Pobierz i zainstaluj zestaw Azure SDK dla języka Python (zobacz: [sposób instalowania Python](../../python-how-to-install.md)).
 
 Należy również **obszaru roboczego**, **usługi**, i **api_key** eksperymentu źródła próbki poniżej. Obszar roboczy i usługi można znaleźć, klikając opcję **żądanie/odpowiedź** lub **Batch Execution** swojego eksperymentu w pulpicie nawigacyjnym usługi sieci web.
 
-![Znajdź obszar roboczy i usługi](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
+![find-workspace-and-service](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
 Można znaleźć **api_key** klikając eksperymentu w pulpicie nawigacyjnym usługi sieci web.
 
@@ -239,11 +239,11 @@ Można znaleźć **api_key** klikając eksperymentu w pulpicie nawigacyjnym usł
 
 Typ **to dobry dzień** dla **col2**. Kliknij znacznik wyboru.
 
-![Wprowadź dane](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
+![enter-data](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
 
 Zobaczysz ekran podobny do
 
-![Przykładowe wyniki](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
+![sample-output](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
 ##### <a name="sample-code"></a>Przykładowy kod
 Innym sposobem sprawdzenia Twoje rekordy zasobów jest z kodu klienta. Jeśli klikniesz przycisk **żądania/odpowiedzi** na pulpicie nawigacyjnym i przewiń w dół, zostanie wyświetlone przykładowego kodu dla C#, Python i R. Można również wyświetlić składnię żądania rekordów zasobów, w tym żądaniu identyfikatora URI, nagłówków i treść.

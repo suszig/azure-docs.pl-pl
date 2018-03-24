@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Dodawanie Google + funkcję dostawcy tożsamości OAuth2 przy użyciu zasad niestandardowych"
-description: "Przykładowe przy użyciu usługi Google + jako dostawca tożsamości za pomocą protokołu OAuth2"
+title: 'Usługa Azure Active Directory B2C: Dodawanie Google + funkcję dostawcy tożsamości OAuth2 przy użyciu zasad niestandardowych'
+description: Przykładowe przy użyciu usługi Google + jako dostawca tożsamości za pomocą protokołu OAuth2
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Usługa Azure Active Directory B2C: Dodawanie Google + funkcję dostawcy tożsamości OAuth2 przy użyciu zasad niestandardowych
 
@@ -48,7 +45,7 @@ Aby użyć Google + jako dostawca tożsamości w usłudze Azure Active Directory
 
     ![Google + konto — wybierz projekt](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
 
-4.  Polecenie  **+**  przycisku.
+4.  Polecenie **+** przycisku.
 
     ![Google + konto — Utwórz nowy projekt](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
@@ -178,10 +175,10 @@ Dostawca tożsamości nie został skonfigurowany.  Jednak nie jest dostępna w �
 4.  Wklej całą zawartość `<UserJourney>` węzła, który został skopiowany jako element podrzędny `<UserJourneys>` elementu.
 
 ### <a name="display-the-button"></a>Wyświetlany przycisk
-`<ClaimsProviderSelections>` Element definiuje listę opcje wyboru dostawcy oświadczeń i ich kolejność.  `<ClaimsProviderSelection>`element jest odpowiednikiem przycisku dostawcy tożsamości na stronie konta-konta/logowania. Jeśli dodasz `<ClaimsProviderSelection>` elementu dla konta Google + nowy przycisk zostaną wyświetlone po wyładowuje użytkownika na stronie. Aby dodać ten element:
+`<ClaimsProviderSelections>` Element definiuje listę opcje wyboru dostawcy oświadczeń i ich kolejność.  `<ClaimsProviderSelection>` element jest odpowiednikiem przycisku dostawcy tożsamości na stronie konta-konta/logowania. Jeśli dodasz `<ClaimsProviderSelection>` elementu dla konta Google + nowy przycisk zostaną wyświetlone po wyładowuje użytkownika na stronie. Aby dodać ten element:
 
 1.  Znajdź `<UserJourney>` węzła, który zawiera `Id="SignUpOrSignIn"` w podróży użytkownika, które zostały skopiowane.
-2.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera`Order="1"`
+2.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera `Order="1"`
 3.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsProviderSelections>` węzła:
 
 ```xml
@@ -229,7 +226,7 @@ Można również dodać dostawcy tożsamości konta Google + do użytkownika `Pr
 ### <a name="display-the-button"></a>Wyświetlany przycisk
 1.  Otwórz plik rozszerzenia zasad (na przykład TrustFrameworkExtensions.xml).
 2.  Znajdź `<UserJourney>` węzła, który zawiera `Id="ProfileEdit"` w podróży użytkownika, które zostały skopiowane.
-3.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera`Order="1"`
+3.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera `Order="1"`
 4.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsProviderSelections>` węzła:
 
 ```xml

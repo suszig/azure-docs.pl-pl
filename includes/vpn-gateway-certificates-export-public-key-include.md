@@ -1,3 +1,19 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 7e19837c1d16ddeea185f340305a0c9c52ce23ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/23/2018
+---
 Po utworzeniu certyfikatu głównego z podpisem własnym należy wyeksportować plik .cer klucza publicznego certyfikatu głównego (nie klucz prywatny). Później możesz przekazać ten plik na platformie Azure. Poniższe kroki ułatwiają wyeksportować plik cer dla certyfikatu z podpisem własnym głównego:
 
 1. Aby uzyskać plik cer z certyfikatu, otwórz okno **Zarządzaj certyfikatami użytkowników**. Zlokalizuj certyfikat główny z podpisem własnym — zwykle znajduje się w katalogu „Certyfikaty - bieżący użytkownik\Osobisty\Certyfikat” — a następnie kliknij go prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania**, a następnie kliknij pozycję **Eksportuj**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**.

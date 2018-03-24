@@ -1,6 +1,6 @@
 ---
-title: "Hybrydowy proces roboczy elementu runbook usługi Azure Automation (Linux)"
-description: "Ten artykuł zawiera informacje na temat instalowania Azure hybrydowego procesu roboczego Runbook automatyzacji, który służy do uruchamiania elementów runbook na komputerach opartych na systemie Linux w lokalnym centrum danych lub w środowisku chmury."
+title: Hybrydowy proces roboczy elementu runbook usługi Azure Automation (Linux)
+description: Ten artykuł zawiera informacje na temat instalowania Azure hybrydowego procesu roboczego Runbook automatyzacji, który służy do uruchamiania elementów runbook na komputerach opartych na systemie Linux w lokalnym centrum danych lub w środowisku chmury.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b68e8f7e67f767cff19e57f5864db89d6f059316
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6278583c288a9a28bda53748e2f9f6fd83ed6c7f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Jak wdrożyć procesu roboczego elementu Runbook dla hybrydowych w systemie Linux
 
@@ -32,13 +30,13 @@ Każdy hybrydowy proces roboczy elementu Runbook jest członkiem grupy hybrydowe
 Po uruchomieniu elementu runbook na hybrydowy proces roboczy elementu Runbook można określić grupy, do której jest uruchamiany na. Członkowie grupy określają, które procesu roboczego obsługującym żądanie. Nie można określić określonego procesu roboczego.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Instalowanie systemu Linux hybrydowego Runbook Worker
-Aby zainstalować i skonfigurować hybrydowy proces roboczy elementu Runbook na komputerze z systemem Linux, należy wykonać proces bezpośrednio do przodu, aby ręcznie zainstalować i skonfigurować rolę. Wymaga to włączenia **automatyzacji hybrydowy proces roboczy** rozwiązania w obszarze roboczym pakietu OMS i ponownie uruchomić zestaw poleceń, aby zarejestrować komputer jako proces roboczy, a następnie dodaj go do nowej lub istniejącej grupy. 
+Aby zainstalować i skonfigurować hybrydowy proces roboczy elementu Runbook na komputerze z systemem Linux, należy wykonać proces bezpośrednio do przodu, aby ręcznie zainstalować i skonfigurować rolę. Wymaga to włączenia **automatyzacji hybrydowy proces roboczy** rozwiązania w obszarze roboczym analizy dzienników i ponownie uruchomić zestaw poleceń, aby zarejestrować komputer jako proces roboczy, a następnie dodaj go do nowej lub istniejącej grupy. 
 
 Przed kontynuowaniem należy pamiętać obszaru roboczego analizy dzienników, z którą połączony jest Twoje konto usługi Automatyzacja, a także klucz podstawowy dla konta automatyzacji. Oba z portalu można znaleźć konta automatyzacji, a zaznaczając **obszaru roboczego** dla identyfikator obszaru roboczego i wybierając **klucze** klucza podstawowego.  
 
-1.  Włącz rozwiązanie "Automatyzacji hybrydowy proces roboczy" w OMS. Można to zrobić przez:
+1.  Włącz rozwiązanie "Automatyzacji hybrydowy proces roboczy" na platformie Azure. Można to zrobić przez:
 
-   1. Z poziomu galerii rozwiązań w [portalu OMS](https://mms.microsoft.com), Włącz **automatyzacji hybrydowy proces roboczy** rozwiązania
+   1. Dodaj **automatyzacji hybrydowy proces roboczy** rozwiązania do subskrypcji przy użyciu procedury na [rozwiązań do zarządzania dodać analizy dzienników do swojego obszaru roboczego](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
    2. Uruchom następujące polecenie cmdlet:
 
         ```powershell
@@ -48,16 +46,16 @@ Przed kontynuowaniem należy pamiętać obszaru roboczego analizy dzienników, z
 2.  Uruchom następujące polecenie, zmiana wartości parametrów *-w*, *-k*, *-g*, i *-e*. Aby uzyskać *-g* parametru Zamień wartość nazwę grupy hybrydowego procesu roboczego elementu Runbook, w której powinien dołączyć nowy Linux hybrydowy proces roboczy. Jeśli nazwa nie istnieje już na Twoim koncie automatyzacji, nowej grupy hybrydowego procesu roboczego elementu Runbook jest nawiązywane o tej nazwie.
     
     ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. Po zakończeniu polecenia bloku hybrydowego procesu roboczego grupy w portalu Azure zostaną wyświetlone nowe grupy i liczby elementów członkowskich lub jeśli istniejącą grupę, do liczby elementów członkowskich jest zwiększany. Można zaznaczyć grupę z listy na **hybrydowego procesu roboczego grupy** bloku, a następnie wybierz **hybrydowych procesów roboczych** kafelka. Na **hybrydowych procesów roboczych** bloku, zobacz każdego członka grupy na liście.  
 
 
 ## <a name="turning-off-signature-validation"></a>Wyłączenie sprawdzania poprawności podpisu 
-Domyślnie Linux hybrydowymi elementami roboczymi Runbook wymaga weryfikacji podpisu. Jeśli pracownik wykonywane bez znaku elementu runbook, zostanie wyświetlony błąd zawierający "Walidacja podpisu nie powiodła się". Aby wyłączyć sprawdzanie poprawności podpisu, uruchom następujące polecenie, zastępując drugi parametr Identyfikatora obszar roboczy OMS:
+Domyślnie Linux hybrydowymi elementami roboczymi Runbook wymaga weryfikacji podpisu. Jeśli pracownik wykonywane bez znaku elementu runbook, zostanie wyświetlony błąd zawierający "Walidacja podpisu nie powiodła się". Aby wyłączyć sprawdzanie poprawności podpisu, uruchom następujące polecenie, zastępując drugi parametr swój identyfikator obszaru roboczego analizy dzienników:
 
     ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
     ```
 
 ## <a name="supported-runbook-types"></a>Typy obsługiwane elementu runbook

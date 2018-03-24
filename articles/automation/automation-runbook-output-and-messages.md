@@ -1,6 +1,6 @@
 ---
-title: "Element Runbook danych wyjściowych i komunikatów w usłudze Automatyzacja Azure"
-description: "Opisuje sposób tworzenia i pobrać dane wyjściowe i błąd komunikaty z elementów runbook automatyzacji Azure."
+title: Element Runbook danych wyjściowych i komunikatów w usłudze Automatyzacja Azure
+description: Opisuje sposób tworzenia i pobrać dane wyjściowe i błąd komunikaty z elementów runbook automatyzacji Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Element Runbook danych wyjściowych i komunikatów w usłudze Automatyzacja Azure
 Większość elementów runbook automatyzacji Azure ma dane wyjściowe, np. komunikat o błędzie dla użytkownika lub obiekt złożony przeznaczony do użycia przez inny przepływ pracy. Środowisko Windows PowerShell udostępnia [wiele strumieni](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) do wysyłania danych wyjściowych w skrypcie lub przepływ pracy. Automatyzacja Azure działa z każdym z tych strumieni inaczej, a należy stosować najlepsze rozwiązania dotyczące sposobu używania każdej podczas tworzenia elementu runbook.
@@ -204,8 +204,8 @@ Z poprzednim zrzucie ekranu widać, gdy jest włączone pełne rejestrowanie i �
    
    ![Graficzny tworzenia rejestrowania i śledzenia bloku](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Analiza dzienników programu Microsoft Operations Management Suite (OMS)
-Automatyzacja może wysyłać runbook strumieni zadania stanu i zadania do swojego obszaru roboczego analizy dzienników programu Microsoft Operations Management Suite (OMS). Za pomocą analizy dzienników można,
+### <a name="microsoft-azure-log-analytics"></a>Analiza dzienników Microsoft Azure
+Automatyzacja może wysyłać runbook strumieni zadania stanu i zadania do swojego obszaru roboczego analizy dzienników. Za pomocą analizy dzienników można,
 
 * Uzyskiwanie wglądu w zadaniach automatyzacji 
 * Wyzwalacz poczty e-mail lub alertu oparte na stan zadania elementu runbook (na przykład nie powiodło się lub wstrzymane) 
@@ -213,7 +213,7 @@ Automatyzacja może wysyłać runbook strumieni zadania stanu i zadania do swoje
 * Korelowanie zadań na konta automatyzacji 
 * Wizualizuj historię zadania wraz z upływem czasu    
 
-Aby uzyskać więcej informacji na temat konfigurowania integracji z analizy dzienników do zbierania, korelowania i działają na dane zadania, zobacz [przekazuj strumienie zadania i stan zadania z automatyzacji analizy dzienników (OMS)](automation-manage-send-joblogs-log-analytics.md).
+Aby uzyskać więcej informacji na temat konfigurowania integracji z analizy dzienników do zbierania, korelowania i działają na dane zadania, zobacz [przekazywania strumienie zadania i stan zadania z automatyzacji do analizy dzienników](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, sposobie monitorowania zadań elementów Runbook i innych szczegółach technicznych, zobacz [Track a runbook job](automation-runbook-execution.md) (Śledzenie zadania elementu Runbook)

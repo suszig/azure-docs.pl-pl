@@ -1,11 +1,11 @@
 ---
-title: "Informacje pomocy technicznej usługi Azure IoT Hub MQTT | Dokumentacja firmy Microsoft"
-description: "Przewodnik dewelopera — Obsługa urządzeń nawiązujących połączenie z punktu końcowego Centrum IoT uwzględniającym urządzenia przy użyciu protokołu MQTT. Zawiera informacje o wbudowanych MQTT obsługuje urządzenia Azure IoT zestawów SDK."
+title: Informacje pomocy technicznej usługi Azure IoT Hub MQTT | Dokumentacja firmy Microsoft
+description: Przewodnik dewelopera — Obsługa urządzeń nawiązujących połączenie z punktu końcowego Centrum IoT uwzględniającym urządzenia przy użyciu protokołu MQTT. Zawiera informacje o wbudowanych MQTT obsługuje urządzenia Azure IoT zestawów SDK.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d119cc4c4053a737e48739c17ae586abd51f3efa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikować się z Centrum IoT przy użyciu protokołu MQTT
 
@@ -181,7 +181,7 @@ Do odbierania wiadomości z Centrum IoT, urządzenie powinno Subskrybuj przy uż
 
 Urządzenie nie odbiera komunikaty z Centrum IoT, aż pomyślnie subskrybowanych do punktu końcowego specyficzne dla urządzenia, reprezentowany przez `devices/{device_id}/messages/devicebound/#` filtr tematu. Po ustanowieniu subskrypcji urządzenie odbiera wiadomości chmury do urządzenia, które zostały wysłane do niej po godzinie subskrypcji. Jeśli urządzenie łączy się z **CleanSession** ustawić flagi **0**, subskrypcja jest trwała dla różnych sesji. W takim przypadku przy następnym urządzenie łączy się z usługą **CleanSession 0** odbiera komunikaty oczekujące wysyłane do niego odłączeniu. Jeśli urządzenie korzysta **CleanSession** ustawić flagi **1** , nie otrzyma komunikaty z Centrum IoT dopóki subskrybuje punktu końcowego urządzenia.
 
-Centrum IoT dostarcza wiadomości z **nazwa tematu** `devices/{device_id}/messages/devicebound/`, lub `devices/{device_id}/messages/devicebound/{property_bag}` przypadku właściwości wiadomości. `{property_bag}` zawiera pary klucz wartość zakodowane w adresie url właściwości komunikatu. Tylko właściwości aplikacji i użytkownika można ustawić właściwości (takie jak **messageId** lub **correlationId**) znajdują się w zbiorze właściwości. Nazwy właściwości systemu posiada przypisany odpowiedni prefiks  **$** , właściwości aplikacji za pomocą oryginalna nazwa właściwości nie ma prefiksu.
+Centrum IoT dostarcza wiadomości z **nazwa tematu** `devices/{device_id}/messages/devicebound/`, lub `devices/{device_id}/messages/devicebound/{property_bag}` przypadku właściwości wiadomości. `{property_bag}` zawiera pary klucz wartość zakodowane w adresie url właściwości komunikatu. Tylko właściwości aplikacji i użytkownika można ustawić właściwości (takie jak **messageId** lub **correlationId**) znajdują się w zbiorze właściwości. Nazwy właściwości systemu posiada przypisany odpowiedni prefiks **$**, właściwości aplikacji za pomocą oryginalna nazwa właściwości nie ma prefiksu.
 
 Gdy aplikacja urządzenia subskrybuje temat z **QoS 2**, Centrum IoT przyznaje maksymalny poziom QoS 1 w **SUBACK** pakietów. Po tym Centrum IoT dostarcza wiadomości na urządzenie, używając QoS 1.
 
@@ -300,7 +300,7 @@ Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer

@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych do/z usługi Azure SQL Data Warehouse przy użyciu fabryki danych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z magazynów obsługiwanych źródłowych do usługi Azure SQL Data Warehouse (lub) z magazynu danych SQL sklepów zbiornika obsługiwane przy użyciu fabryki danych."
+title: Kopiowanie danych do/z usługi Azure SQL Data Warehouse przy użyciu fabryki danych | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z magazynów obsługiwanych źródłowych do usługi Azure SQL Data Warehouse (lub) z magazynu danych SQL sklepów zbiornika obsługiwane przy użyciu fabryki danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -375,10 +375,10 @@ Dowiedz się więcej na temat korzystania z programu PolyBase do załadowania do
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Użyj programu PolyBase, aby załadować dane do magazynu danych SQL Azure
 
-Przy użyciu  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  jest wydajny sposób ładowania dużych ilości danych do magazynu danych SQL Azure z wysokiej przepływności. Przy użyciu programu PolyBase zamiast domyślnego mechanizmu BULKINSERT widać duże korzyści w przepływności. Zobacz [skopiuj numer odwołania wydajności](copy-activity-performance.md#performance-reference) z szczegółowe porównanie. Aby uzyskać wskazówki z przypadkiem użycia, zobacz [załadować 1 TB do usługi Azure SQL Data Warehouse z fabryką danych Azure w obszarze 15 minut](connector-azure-sql-data-warehouse.md).
+Przy użyciu **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** jest wydajny sposób ładowania dużych ilości danych do magazynu danych SQL Azure z wysokiej przepływności. Przy użyciu programu PolyBase zamiast domyślnego mechanizmu BULKINSERT widać duże korzyści w przepływności. Zobacz [skopiuj numer odwołania wydajności](copy-activity-performance.md#performance-reference) z szczegółowe porównanie. Aby uzyskać wskazówki z przypadkiem użycia, zobacz [załadować 1 TB do usługi Azure SQL Data Warehouse z fabryką danych Azure w obszarze 15 minut](connector-azure-sql-data-warehouse.md).
 
-* Jeśli źródło danych jest w **obiektów Blob platformy Azure lub usługi Azure Data Lake Store**i format jest zgodny z PolyBase, można skopiować bezpośrednio do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase. Zobacz  **[bezpośrednich kopii przy użyciu programu PolyBase](#direct-copy-using-polybase)**  ze szczegółami.
-* Jeśli Twoje źródła magazynu danych i format nie jest początkowo obsługiwana przez aparat PolyBase, możesz użyć  **[przemieszczane kopiowania przy użyciu programu PolyBase](#staged-copy-using-polybase)**  funkcji zamiast tego. Udostępnia również możesz lepszą przepustowość automatycznie konwersji danych do formatu zgodnego PolyBase i przechowywanie danych w magazynie obiektów Blob platformy Azure. Następnie ładuje dane do usługi SQL Data Warehouse.
+* Jeśli źródło danych jest w **obiektów Blob platformy Azure lub usługi Azure Data Lake Store**i format jest zgodny z PolyBase, można skopiować bezpośrednio do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase. Zobacz **[bezpośrednich kopii przy użyciu programu PolyBase](#direct-copy-using-polybase)** ze szczegółami.
+* Jeśli Twoje źródła magazynu danych i format nie jest początkowo obsługiwana przez aparat PolyBase, możesz użyć **[przemieszczane kopiowania przy użyciu programu PolyBase](#staged-copy-using-polybase)** funkcji zamiast tego. Udostępnia również możesz lepszą przepustowość automatycznie konwersji danych do formatu zgodnego PolyBase i przechowywanie danych w magazynie obiektów Blob platformy Azure. Następnie ładuje dane do usługi SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Uwaga PolyBase obsługuje tylko authentcation SQL magazynu danych SQL Azure, ale nie uwierzytelniania usługi Azure Active Directory.
@@ -395,7 +395,7 @@ Jeśli nie zostały spełnione wymagania, fabryki danych Azure sprawdza ustawien
 1. **Źródło połączona usługa** jest typu: **AzureStorage** lub **AzureDataLakeStore** z uwierzytelnianiem główną usługi.
 2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStoreFile**i wpisz w formacie `type` właściwości **OrcFormat** , **ParquetFormat**, lub **TextFormat** z następujących konfiguracji:
 
-   1. `rowDelimiter` musi być  **\n** .
+   1. `rowDelimiter` musi być **\n**.
    2. `nullValue` ustawiono **pusty ciąg** (""), lub `treatEmptyAsNull` ustawiono **true**.
    3. `encodingName` ustawiono **utf-8**, która jest **domyślne** wartość.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, i `skipLineCount` nie zostały określone.
@@ -510,7 +510,7 @@ Jeśli masz dane źródłowe z wierszami o rozmiarze większym niż 1 MB, można
 
 ### <a name="sql-data-warehouse-resource-class"></a>Klasa zasobów magazynu danych SQL
 
-Aby uzyskać najlepsze możliwe przepływności, należy wziąć pod uwagę można przypisać większą klasa zasobów do użytkownika używane do ładowania danych do usługi SQL Data Warehouse przy użyciu programu PolyBase. Dowiedz się, jak to zrobić, postępując [zmienić przykład klasy zasobów użytkownika](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+Aby uzyskać najlepsze możliwe przepływności, należy wziąć pod uwagę przypisywanie większych klasa zasobów do użytkownika używane do ładowania danych do usługi SQL Data Warehouse przy użyciu programu PolyBase.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName w magazynie danych SQL Azure
 

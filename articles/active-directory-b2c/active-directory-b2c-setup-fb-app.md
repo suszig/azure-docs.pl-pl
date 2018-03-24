@@ -1,28 +1,25 @@
 ---
-title: "Usługa Azure Active Directory B2C: Konfiguracja usługi Facebook | Dokumentacja firmy Microsoft"
-description: "Umożliwiają tworzenie kont i logowania użytkowników z kontami usługi Facebook w aplikacjach, które są zabezpieczone przez usługi Azure Active Directory B2C."
+title: 'Usługa Azure Active Directory B2C: Konfiguracja usługi Facebook | Dokumentacja firmy Microsoft'
+description: Umożliwiają tworzenie kont i logowania użytkowników z kontami usługi Facebook w aplikacjach, które są zabezpieczone przez usługi Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: sromeroz
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: sromeroz
-ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 8/7/2017
-ms.author: sromeroz
-ms.openlocfilehash: 7f551a7ba9b7ddbb373e6b6418ab43fe7ce9be36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 899677500b0d33b5f98807a341449199b6b3dcac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: Umożliwiają tworzenie kont i logowania użytkowników z kontami usługi Facebook
 ## <a name="create-a-facebook-application"></a>Tworzenie aplikacji usługi Facebook
-Aby korzystać z usługi Facebook jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy utworzyć aplikację usługi Facebook i dostarczyć parametry prawo. Należy to zrobić przy użyciu konta serwisu Facebook. Jeśli nie masz, możesz pobrać go w [https://www.facebook.com/](https://www.facebook.com/).
+Aby korzystać z usługi Facebook jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy utworzyć aplikację usługi Facebook i dostarczyć parametry prawo. Należy to zrobić przy użyciu konta serwisu Facebook. Jeśli nie masz, możesz pobrać go w [ https://www.facebook.com/ ](https://www.facebook.com/).
 
 1. Przejdź do [Facebook dla deweloperów](https://developers.facebook.com/) poświadczenia konta witryny sieci Web i zaloguj się przy użyciu Twojej usługi Facebook.
 2. Jeśli nie zostało to jeszcze zrobione, należy zarejestrować jako deweloper usługi Facebook. Aby to zrobić, kliknij przycisk **zarejestrować** (w prawym górnym rogu strony), Zaakceptuj zasady w serwisie Facebook, a następnie wykonaj kroki rejestracji.

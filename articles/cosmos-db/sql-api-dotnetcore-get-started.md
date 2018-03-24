@@ -1,11 +1,11 @@
 ---
-title: "Azure DB rozwiązania Cosmos: Wprowadzenie do korzystania z samouczka .NET Core interfejsu API SQL | Dokumentacja firmy Microsoft"
-description: "Samouczek, który powoduje utworzenie bazy danych w trybie online i aplikacji konsolowej C# za pomocą usługi Azure rozwiązania Cosmos bazy danych SQL interfejsu API platformy .NET Core SDK."
+title: 'Azure DB rozwiązania Cosmos: Wprowadzenie do korzystania z samouczka .NET Core interfejsu API SQL | Dokumentacja firmy Microsoft'
+description: Samouczek, który powoduje utworzenie bazy danych w trybie online i aplikacji konsolowej C# za pomocą usługi Azure rozwiązania Cosmos bazy danych SQL interfejsu API platformy .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 460b963f09384e246d914cd7c4aeca046da83dd3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure rozwiązania Cosmos bazy danych: Wprowadzenie do korzystania z interfejsu API SQL i .NET Core
 > [!div class="op_single_selector"]
@@ -51,9 +51,6 @@ Ten samouczek obejmuje:
 Nie masz czasu? Nie martw się! Kompletne rozwiązanie jest dostępne w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Przeskocz do sekcji [Pobieranie kompletnego rozwiązania](#GetSolution), aby uzyskać krótkie instrukcje.
 
 Chcesz tworzyć Xamarin iOS, Android lub formularzy aplikacji przy użyciu interfejsu API SQL i .NET Core SDK? Zobacz [tworzenie aplikacji dla urządzeń przenośnych dzięki platformie Xamarin i usłudze Azure DB rozwiązania Cosmos](mobile-apps-with-xamarin.md).
-
-> [!NOTE]
-> Rozwiązania Cosmos DB .NET Core zestaw SDK usługi Azure używana w tym samouczku nie jest jeszcze zgodne z aplikacjami systemu Windows platformy Uniwersalnej. Aby uzyskać wersję zapoznawczą zestawu SDK dla platformy .NET Core obsługującą aplikacje platformy UWP, wyślij w wiadomość e-mail na adres [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 Teraz do dzieła!
 

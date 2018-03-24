@@ -1,12 +1,12 @@
 ---
 title: Zainstaluj serwer kopii zapasowej systemu Azure w wersji 2 | Dokumentacja firmy Microsoft
-description: "Azure v2 Utwórz kopię zapasową serwera udostępnia udoskonalone funkcje tworzenia kopii zapasowej ochrony maszyn wirtualnych, plików i folderów oraz obciążeń. Informacje o sposobie instalacji lub uaktualnienia do serwera usługi Kopia zapasowa Azure w wersji 2."
+description: Azure v2 Utwórz kopię zapasową serwera udostępnia udoskonalone funkcje tworzenia kopii zapasowej ochrony maszyn wirtualnych, plików i folderów oraz obciążeń. Informacje o sposobie instalacji lub uaktualnienia do serwera usługi Kopia zapasowa Azure w wersji 2.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Zainstaluj serwer kopii zapasowej systemu Azure w wersji 2
 
@@ -36,7 +36,7 @@ Utwórz kopię zapasową serwera v2 można zainstalować w systemie Windows Serv
 ## <a name="upgrade-backup-server-to-v2"></a>Utwórz kopię zapasową serwera uaktualnienia do wersji 2
 Aby uaktualnić v1 Utwórz kopię zapasową serwera do serwera kopii zapasowej w wersji 2, upewnij się, że instalacji jest wymagane aktualizacje:
 
-- [Aktualizowanie agentów ochrony](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) na chronionych serwerach.
+- [Aktualizowanie agentów ochrony](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) na chronionych serwerach.
 - Uaktualnienie systemu Windows Server 2012 R2 do systemu Windows Server 2016.
 - Uaktualnij administratora zdalnego serwera kopii zapasowej platformy Azure na wszystkich serwerach produkcyjnych.
 - Upewnij się, że kopie zapasowe są ustawione, aby kontynuować bez ponownego uruchomienia serwera produkcyjnego.
@@ -74,7 +74,7 @@ Aby uaktualnić v1 Utwórz kopię zapasową serwera do serwera kopii zapasowej w
 
   ![Instalator Instalatora — Sprawdź ustawienia SQL i przycisk Zainstaluj](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-8. Na **ustawienia instalacji** strony, wprowadź zmiany do lokalizacji, w którym zainstalowano Utwórz kopię zapasową serwera lub do lokalizacji przechowywania plików tymczasowych. Wybierz **dalej**.
+8. Na **ustawienia instalacji** strony, wprowadź zmiany do lokalizacji, w którym zainstalowano Utwórz kopię zapasową serwera lub do lokalizacji przechowywania plików tymczasowych. Wybierz opcję **Dalej**.
 
   ![Instalator Instalatora — strona Ustawienia instalacji](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
@@ -115,7 +115,7 @@ Aby dodać wolumin w konsoli administratora:
 
 Utwórz kopię zapasową serwera, należy określić w obciążeń, które są przypisane do woluminów. Na przykład można ustawić kosztowne woluminów, które obsługują dużej liczby operacji wejścia/wyjścia na sekundę (IOPS) do przechowywania tylko w przypadku obciążeń, które wymagają częstego, dużej liczby kopii zapasowych. Przykładem jest program SQL Server z dzienników transakcji.
 
-#### <a name="update-dpmdiskstorage"></a>DPMDiskStorage aktualizacji
+#### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
 Aby zaktualizować właściwości woluminu w puli magazynu w serwerze kopii zapasowej, użyj polecenia cmdlet programu PowerShell DPMDiskStorage aktualizacji.
 
@@ -143,12 +143,12 @@ Aby utworzyć grupy ochrony:
 
   ![Kreator tworzenia nowej grupy ochrony](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
-3. Na **powitalnej** wybierz pozycję **dalej**.
+3. Na **stronie powitalnej** wybierz pozycję **Dalej**.
 4. Na **wybierz typ grupy ochrony** wybierz typ grupy ochrony, które chcesz utworzyć, a następnie wybierz **dalej**.
 
   ![Strona Typ wybierz grupę ochrony](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. Na **Wybierz członków grupy** strony w **dostępni członkowie** okienka, członków z ochrony agenci są wyświetlane. Na przykład wybierz wolumin D:\ i E:\ i dodaj je do **wybranych składników** okienka. Wybierz **dalej**.
+5. Na **Wybierz członków grupy** strony w **dostępni członkowie** okienka, członków z ochrony agenci są wyświetlane. Na przykład wybierz wolumin D:\ i E:\ i dodaj je do **wybranych składników** okienka. Wybierz opcję **Dalej**.
 
   ![Wybierz grupy elementów członkowskich strony](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
@@ -276,10 +276,10 @@ Azure backup wykonaj polecenie DPMSYNC-SYNC
 ## <a name="new-powershell-cmdlets-in-v2"></a>Nowe polecenia cmdlet programu PowerShell w wersji 2
 
 Po zainstalowaniu serwera usługi Kopia zapasowa Azure w wersji 2, dostępne są dwa nowe polecenia cmdlet: 
-* [DPMRecoveryPoint instalacji](https://technet.microsoft.com/library/mt787159.aspx)
-* [Odinstalowywanie DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
+* [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
+* [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak przygotować serwer lub Włącz ochronę obciążenia:
 - [Przygotowanie serwera kopii zapasowej obciążeń](backup-azure-microsoft-azure-backup.md)

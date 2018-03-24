@@ -1,6 +1,6 @@
 ---
 title: Obraz Docker wypychania do prywatnego rejestru Azure
-description: "Wypychanie i ściąganie obrazów platformy Docker do prywatnego rejestru kontenerów na platformie Azure za pomocą interfejsu wiersza polecenia platformy Docker"
+description: Wypychanie i ściąganie obrazów platformy Docker do prywatnego rejestru kontenerów na platformie Azure za pomocą interfejsu wiersza polecenia platformy Docker
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do prywatnego rejestru kontenerów platformy Docker za pomocą interfejsu wiersza polecenia platformy Docker
 
@@ -40,7 +40,7 @@ Możesz także zalogować się przy użyciu [logowania docker](https://docs.dock
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Oba polecenia zwracają `Login Succeeded` po ukończeniu. Jeśli używasz `docker login`, może być również wyświetlany ostrzeżenie o zabezpieczeniach rekomendowania stosowania `--password-stdin` parametru. Gdy wykorzystanie przez niego wykracza poza zakres tego artykułu, zaleca się po tym najlepszym rozwiązaniem. Aby uzyskać więcej informacji, zobacz [logowania docker](https://docs.docker.com/engine/reference/commandline/login/) poleceń.
+Oba polecenia zwracają `Login Succeeded` po ukończeniu. Jeśli używasz `docker login`, może być również wyświetlany ostrzeżenie o zabezpieczeniach rekomendowania stosowania `--password-stdin` parametru. Użycie tego parametru wykracza poza zakres tego artykułu, jednak zalecamy zastosowanie tego najlepszego rozwiązania. Aby uzyskać więcej informacji, zobacz [logowania docker](https://docs.docker.com/engine/reference/commandline/login/) poleceń.
 
 > [!TIP]
 > Zawsze Określ nazwę FQDN rejestru (tylko małe litery) korzystając `docker login` i gdy oznaczenia obrazów do wypychania do rejestru. W przykładach w niniejszym artykule jest w pełni kwalifikowana nazwa *myregistry.azurecr.io*.
@@ -121,6 +121,10 @@ Aby usunąć obrazy z rejestru kontenera platformy Azure, możesz użyć polecen
 az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Teraz, gdy znasz już podstawy wszystko jest gotowe rozpocząć korzystanie z rejestru! Na przykład wdrożyć kontener obrazów z rejestru w celu [usługi kontenera platformy Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md) klastra.
+Teraz, gdy znasz już podstawy wszystko jest gotowe rozpocząć korzystanie z rejestru! Wdrażanie obrazów kontenera z rejestru na:
+
+* [Usługa kontenera platformy Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Wystąpień kontenera platformy Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Spacio | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Spacio."
+description: Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Spacio.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: faf4b2ff24ef733b740a5b65864941a10de64ed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Samouczek: Integracji Azure Active Directory z Spacio
 
@@ -112,18 +112,32 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     > [!NOTE] 
     > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta Spacio](mailto:support@spac.io) uzyskać te wartości. 
- 
 
-
-4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
-
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. Kliknij przycisk **zapisać** przycisku.
+4. Kliknij przycisk **Zapisz**.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. Skonfigurować logowanie jednokrotne w **Spacio** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej Spacio](mailto:support@spac.io). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
+5. Aby wygenerować **adres URL metadanych**, wykonaj następujące czynności:
+
+    a. Kliknij przycisk **rejestracji aplikacji**.
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
+   
+    b. Kliknij przycisk **punkty końcowe** otworzyć **punkty końcowe** okno dialogowe.  
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+
+    c. Kliknij przycisk **kopiowania** przycisk, aby skopiować **dokument METADANYCH usług FEDERACYJNYCH** adresu URL i wklej go do Notatnika.
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
+     
+    d. Teraz przejdź do strony właściwości **Spacio** i skopiuj **identyfikator aplikacji** przy użyciu **kopiowania** przycisk i wklej go do Notatnika.
+ 
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
+
+    e. Generowanie **adres URL metadanych** przy użyciu następującego wzorca: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+6. Aby skonfigurować logowanie jednokrotne w **Spacio** stronie, musisz wysłać wygenerowany **adres URL metadanych** do [Spacio zespołem pomocy technicznej](mailto:support@spac.io). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

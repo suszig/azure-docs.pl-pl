@@ -1,24 +1,24 @@
 ---
-title: "Tworzenie obrazów maszyn wirtualnych Windows Azure z pakujący | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać pakujący do tworzenia obrazów maszyn wirtualnych systemu Windows na platformie Azure"
+title: Tworzenie obrazów maszyn wirtualnych Windows Azure z pakujący | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak używać pakujący do tworzenia obrazów maszyn wirtualnych systemu Windows na platformie Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Jak używać pakujący do tworzenia obrazów systemu Windows maszyny wirtualnej na platformie Azure
 Każda maszyna wirtualna (VM) na platformie Azure jest tworzony z obrazu, który definiuje dystrybucji systemu Windows i wersji systemu operacyjnego. Obrazy mogą obejmować wstępnie zainstalowane aplikacje i konfiguracje. Portalu Azure Marketplace zawiera wiele obrazów pierwszy i innych firm dla najbardziej typowych systemu operacyjnego i środowisk aplikacji albo można utworzyć własne niestandardowe obrazy dostosowane do potrzeb użytkownika. W tym artykule szczegółowo przedstawiają, jak korzystać z narzędzia typu open source [pakujący](https://www.packer.io/) do definiowania i tworzenie niestandardowych obrazów na platformie Azure.
@@ -27,7 +27,7 @@ Każda maszyna wirtualna (VM) na platformie Azure jest tworzony z obrazu, który
 ## <a name="create-azure-resource-group"></a>Tworzenie grupy zasobów platformy Azure
 Podczas procesu tworzenia pakujący tworzy tymczasowy zasobów Azure zbudował źródłowej maszyny Wirtualnej. Aby przechwycić tego źródła do użycia jako obraz maszyny Wirtualnej, należy zdefiniować grupę zasobów. Dane wyjściowe z procesu tworzenia pakujący znajduje się w tej grupie zasobów.
 
-Utwórz nową grupę zasobów o [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* lokalizacji:
+Utwórz nową grupę zasobów o [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). W poniższym przykładzie pokazano tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -59,17 +59,17 @@ Korzystając z tych dwóch identyfikatorów w następnym kroku.
 
 
 ## <a name="define-packer-template"></a>Zdefiniuj szablon pakujący
-Aby tworzyć obrazy, należy utworzyć szablon w formacie JSON. W szablonie należy zdefiniować producentów i provisioners wykonujące procesu tworzenia rzeczywistych. Ma pakujący [administracyjnej dla platformy Azure](https://www.packer.io/docs/builders/azure.html) który można zdefiniować zasobów platformy Azure, takich jak poświadczenia główne usługi utworzony w poprzednim kroku.
+Aby tworzyć obrazy, należy utworzyć szablon w formacie JSON. W szablonie należy zdefiniować producentów i provisioners wykonujące procesu tworzenia rzeczywistych. Ma pakujący [konstruktora dla platformy Azure](https://www.packer.io/docs/builders/azure.html) który można zdefiniować zasobów platformy Azure, takich jak poświadczenia główne usługi utworzony w poprzednim kroku.
 
 Utwórz plik o nazwie *windows.json* i wklej następującą zawartość. Wprowadź własne wartości dla następujących elementów:
 
 | Parametr                           | Gdzie można uzyskać |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Identyfikator podmiotu zabezpieczeń usługi widoku z`$sp.applicationId` |
-| *client_secret*                     | Hasło określone w`$securePassword` |
+| *client_id*                         | Identyfikator podmiotu zabezpieczeń usługi widoku z `$sp.applicationId` |
+| *client_secret*                     | Hasło określone w `$securePassword` |
 | *tenant_id*                         | Dane wyjściowe z `$sub.TenantId` polecenia |
 | *IDENTYFIKATOR_SUBSKRYPCJI*                   | Dane wyjściowe z `$sub.SubscriptionId` polecenia |
-| *Identyfikator obiektu*                         | Identyfikator obiekt główny usługi widoku z`$sp.Id` |
+| *object_id*                         | Identyfikator obiekt główny usługi widoku z `$sp.Id` |
 | *managed_image_resource_group_name* | Nazwa grupy zasobów, utworzonego w pierwszym kroku |
 | *managed_image_name*                | Nazwa obrazu dysków zarządzanych w tworzonym |
 
@@ -110,8 +110,8 @@ Utwórz plik o nazwie *windows.json* i wklej następującą zawartość. Wprowad
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
-      "if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force}",
-      "& $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /shutdown /quiet"
+      "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
+      "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
   }]
 }
@@ -281,7 +281,7 @@ Trwa kilka minut, aby utworzyć maszynę Wirtualną z obrazu pakujący.
 
 
 ## <a name="test-vm-and-iis"></a>Test maszyny Wirtualnej i IIS
-Publiczny adres IP maszyny wirtualnej z [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Poniższy przykład uzyskuje adres IP dla *myPublicIP* utworzony wcześniej:
+Uzyskaj publiczny adres IP maszyny wirtualnej za pomocą polecenia [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). W poniższym przykładzie uzyskano utworzony wcześniej adres IP *myPublicIP*:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -289,7 +289,7 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIP" | select "IpAddress"
 ```
 
-Następnie można wprowadzić publicznego adresu IP w przeglądarce sieci web.
+Następnie możesz wprowadzić publiczny adres IP w przeglądarce internetowej.
 
 ![Domyślna witryna usług IIS](./media/build-image-with-packer/iis.png) 
 

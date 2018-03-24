@@ -1,8 +1,8 @@
 ---
-title: "Tworzenie rozwiązania IoT przy użyciu usługi Stream Analytics | Dokumentacja firmy Microsoft"
-description: "Samouczka wprowadzającego dla scenariusza budki rozwiązania IoT analiza strumienia"
-keywords: "rozwiązania iot, funkcje okna"
-documentationcenter: 
+title: Tworzenie rozwiązania IoT przy użyciu usługi Stream Analytics | Dokumentacja firmy Microsoft
+description: Samouczka wprowadzającego dla scenariusza budki rozwiązania IoT analiza strumienia
+keywords: rozwiązania iot, funkcje okna
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Tworzenie rozwiązania IoT przy użyciu usługi analiza strumienia
 
@@ -41,8 +41,7 @@ Następujące wymagania wstępne do ukończenia tego samouczka jest potrzebne:
 * Visual Studio 2017 r 2015 lub wolnych [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * [Subskrypcji platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Uprawnienia administracyjne na komputerze
-* Pobieranie [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) z Centrum pobierania Microsoft
-* Opcjonalnie: Źródła dla generatora zdarzeń TollApp w [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Pobierz kod źródłowy do analizy danych czujnika TollApp z [repozytorium GitHub analiza strumienia azure.](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). To repozytorium zawiera przykładowych danych i zapytania, które będą używane w kolejnych sekcjach. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Wprowadzenie do scenariusza: "tekst Hello, przez!"
 Stacja przez jest zjawiskiem wspólnej. Wystąpią ich na wielu trasy szybkiego ruchu, mostki i tunele całym świecie. Każda stacja przez ma wiele kabiny przez. Ręczne kabiny można zatrzymać na rzecz przez opiekun. Na automatyczne kabiny czujnik u góry każdego stoisku skanuje karty RFID, który jest umieszczony szyby Twojego pojazdów przy przesuwaniu stoisku przez. Jest łatwy do wizualizacji przejście pojazdów przez te stacje przez jako strumień zdarzeń, w którym interesujące operacje mogą być wykonywane.

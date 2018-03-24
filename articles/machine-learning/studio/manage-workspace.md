@@ -1,10 +1,11 @@
 ---
-title: "Zarządzanie obszaru roboczego usługi Machine Learning | Dokumentacja firmy Microsoft"
-description: "Zarządzanie dostępem do usługi Azure Machine Learning obszary robocze oraz wdrażania i zarządzania nimi usług sieci web interfejsu API uczenia Maszynowego"
+title: Zarządzanie obszaru roboczego usługi Machine Learning | Dokumentacja firmy Microsoft
+description: Zarządzanie dostępem do usługi Azure Machine Learning obszary robocze oraz wdrażania i zarządzania nimi usług sieci web interfejsu API uczenia Maszynowego
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.author: garye
-ms.openlocfilehash: 2e4b2869b6eac9670853832d58bc37f1cb0ed001
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4d971d75424f85bb07c0be779b9dfedb1ef41c1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Zarządzanie obszarem roboczym usługi Azure Machine Learning
 
@@ -51,5 +51,5 @@ Aby zarządzać usługami sieci web skojarzony z tym obszarem roboczym, należy 
 > 
 >Aby uzyskać więcej informacji o ustawianiu uprawnień dostępu, zobacz [Wyświetl przypisania dostępu dla użytkowników i grup w portalu Azure](../../active-directory/role-based-access-control-manage-assignments.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [wdrażanie uczenie maszynowe Azure Resource Manager szablony](deploy-with-resource-manager-template.md). 

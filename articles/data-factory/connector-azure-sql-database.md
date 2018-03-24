@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych do/z bazy danych SQL Azure przy użyciu fabryki danych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z obsługiwanej źródłowej baz danych do usługi Azure SQL Database (lub) z bazy danych SQL do zbiornika obsługiwanych magazynów danych przy użyciu fabryki danych."
+title: Kopiowanie danych do/z bazy danych SQL Azure przy użyciu fabryki danych | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z obsługiwanej źródłowej baz danych do usługi Azure SQL Database (lub) z bazy danych SQL do zbiornika obsługiwanych magazynów danych przy użyciu fabryki danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: a4d2ccb4b4ba27983537f26e66b5c279f427d466
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 12f673a8d3ca9c0bb03b9cd2d8c33ae866039289
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych do lub z bazą danych SQL Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

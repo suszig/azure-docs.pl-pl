@@ -1,28 +1,25 @@
 ---
-title: "Usługa Azure Active Directory B2C: Google + konfiguracji | Dokumentacja firmy Microsoft"
-description: "Podaj rejestracji i logowania klientom korzystającym z konta Google + w aplikacjach, które są zabezpieczone przez usługi Azure Active Directory B2C."
+title: 'Usługa Azure Active Directory B2C: Google + konfiguracji | Dokumentacja firmy Microsoft'
+description: Podaj rejestracji i logowania klientom korzystającym z konta Google + w aplikacjach, które są zabezpieczone przez usługi Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 93589352094fdd556811ba906ee27e7b8ac1d8b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: db3044754e0c1316b49eda0600d41e3009c1ba16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Usługa Azure Active Directory B2C: Umożliwiają rejestracji i logowania użytkowników z konta Google +
 ## <a name="create-a-google-application"></a>Tworzenie aplikacji Google +
-Aby użyć Google + jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy do utworzenia aplikacji Google + i dostarczyć prawo parametrów. Musisz mieć konto Google + w tym celu. Jeśli nie masz, możesz pobrać go w [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+Aby użyć Google + jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy do utworzenia aplikacji Google + i dostarczyć prawo parametrów. Musisz mieć konto Google + w tym celu. Jeśli nie masz, możesz pobrać go w [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
 
 1. Przejdź do [konsoli deweloperów Google](https://console.developers.google.com/) i zaloguj się przy użyciu poświadczeń konta Google +.
 2. Kliknij przycisk **Tworzenie projektu**, wprowadź **Nazwa projektu**, a następnie kliknij przycisk **Utwórz**.

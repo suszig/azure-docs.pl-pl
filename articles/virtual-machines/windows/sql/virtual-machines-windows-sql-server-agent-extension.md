@@ -1,11 +1,11 @@
 ---
-title: "Automatyzacji zadań zarządzania na maszynach wirtualnych SQL (Resource Manager) | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób zarządzania rozszerzenie agenta programu SQL Server, który automatyzuje określonych zadań administracyjnych programu SQL Server. Obejmują one automatyczna usługa Backup, automatyczne stosowanie poprawek i integracji magazynu kluczy Azure."
+title: Automatyzacji zadań zarządzania na maszynach wirtualnych SQL (Resource Manager) | Dokumentacja firmy Microsoft
+description: W tym artykule opisano sposób zarządzania rozszerzenie agenta programu SQL Server, który automatyzuje określonych zadań administracyjnych programu SQL Server. Obejmują one automatyczna usługa Backup, automatyczne stosowanie poprawek i integracji magazynu kluczy Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/07/2018
+ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: dd32975e085a0f67d66f2949d4757a974bd9a616
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d9cb4a3bdc5776c4ac70ac376d8b839193e3fc3d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatyzacji zadań zarządzania na maszynach wirtualnych Azure z rozszerzeniem agenta serwera SQL (Resource Manager)
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 > [!IMPORTANT]
 > Jeśli rozszerzenie nie jest już zainstalowany, instalowania rozszerzenia uruchamia ponownie usługę SQL Server.
 
-Istnieje również możliwość zainstalować rozszerzenie agenta IaaS serwera SQL na maszynie wirtualnej tylko do systemu operacyjnego Windows Server. To ustawienie jest obsługiwane tylko, jeśli ręcznie zainstalowano program SQL Server na tym komputerze. Następnie zainstaluj rozszerzenie ręcznie przy użyciu takie same **AzureVMSqlServerExtension zestaw** polecenia cmdlet programu PowerShell.
+Istnieje również możliwość zainstalować rozszerzenie agenta IaaS serwera SQL na maszynie wirtualnej tylko do systemu operacyjnego Windows Server. To ustawienie jest obsługiwane tylko, jeśli ręcznie zainstalowano program SQL Server na tym komputerze. Następnie zainstaluj rozszerzenie ręcznie przy użyciu takie same **AzureRmVMSqlServerExtension zestaw** polecenia cmdlet programu PowerShell.
 
 > [!NOTE]
 > Jeśli rozszerzenie agenta programu SQL Server IaaS można ręcznie zainstalować na maszynie Wirtualnej tylko do systemu operacyjnego Windows Server, nie można zarządzać ustawienia konfiguracji programu SQL Server za pośrednictwem portalu Azure. W tym scenariuszu należy wszystkie zmiany przy użyciu programu PowerShell.
@@ -82,7 +82,7 @@ Jest jednym ze sposobów Sprawdź, czy rozszerzenie jest zainstalowane, aby wyś
 
 ![Rozszerzenie agenta programu SQL Server IaaS w portalu Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-Można również użyć **Get-AzureVMSqlServerExtension** polecenia cmdlet programu Azure PowerShell.
+Można również użyć **Get-AzureRmVMSqlServerExtension** polecenia cmdlet programu Azure PowerShell.
 
     Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 

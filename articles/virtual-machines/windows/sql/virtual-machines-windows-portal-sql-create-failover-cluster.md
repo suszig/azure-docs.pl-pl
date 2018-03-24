@@ -1,6 +1,6 @@
 ---
 title: Program SQL Server FCI - maszyn wirtualnych platformy Azure | Dokumentacja firmy Microsoft
-description: "W tym artykule opisano sposób tworzenia wystąpienia klastra trybu Failover programu SQL Server na maszynach wirtualnych platformy Azure."
+description: W tym artykule opisano sposób tworzenia wystąpienia klastra trybu Failover programu SQL Server na maszynach wirtualnych platformy Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Skonfiguruj wystąpienie klastra pracy awaryjnej programu SQL Server na maszynach wirtualnych Azure
 
@@ -46,6 +46,18 @@ Na powyższym diagramie przedstawiono:
 Aby uzyskać szczegółowe informacje o S2D, zobacz [systemu Windows Server 2016 Datacenter edition bezpośrednie miejsca do magazynowania \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D obsługuje dwa typy architektury - konwergentnej i hiperkonwergentnych. Architektura w tym dokumencie jest hiperkonwergentnych. Na tych samych serwerów obsługujących aplikacji klastrowanej infrastrukturze hiperkonwergentnych umieszczone magazynu. W ramach tej architektury magazynu jest w każdym węźle SQL Server FCI.
+
+## <a name="licensing-and-pricing"></a>Licencjonowania i cen
+
+Na maszynach wirtualnych platformy Azure można licencji programu SQL Server przy użyciu płatności zgodnie z rzeczywistym użyciem (między) lub użycie własnej licencji obrazów maszyn wirtualnych (BYOL). Typ obrazu, który można wybrać ma wpływ na sposób naliczane są opłaty.
+
+Z między licencjonowania, wystąpienia klastra trybu failover (FCI dla) programu SQL Server na maszynach wirtualnych Azure zostaną naliczone opłaty powiązane dla wszystkich węzłów infrastruktury klasyfikacji plików, łącznie z węzły pasywne. Aby uzyskać więcej informacji, zobacz [programu SQL Server Enterprise maszyn wirtualnych cennik](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Klienci z umowy Enterprise Agreement z Software Assurance mają prawa do używania jednej bezpłatnej Węzeł pasywny infrastruktury klasyfikacji plików dla każdego aktywnego węzła. Aby móc korzystać z tego korzyści w Azure, obrazy BYOL maszyny Wirtualnej, a następnie użyj tego samego licencji na aktywnym i pasywnym węzłów infrastruktury klasyfikacji plików. Aby uzyskać więcej informacji, zobacz [umowy Enterprise Agreement](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Aby porównać między i BYOL licencjonowania programu SQL Server na maszynach wirtualnych Azure zobacz [wprowadzenie do maszyn wirtualnych SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Aby uzyskać pełne informacje na temat licencjonowania programu SQL Server, zobacz [cennik](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Przykład szablonu Azure
 
@@ -91,7 +103,7 @@ Z tych wymagań wstępnych w miejscu można kontynuować tworzenie klastra trybu
 
    Jeśli nie utworzono grupy zasobów dla maszyn wirtualnych, należy to zrobić, podczas tworzenia zestawu dostępności Azure. Jeśli używasz portalu Azure do utworzenia zestawu dostępności, wykonaj następujące czynności:
 
-   - W portalu Azure kliknij  **+**  do otwierania portalu Azure Marketplace. Wyszukaj **zestawu dostępności**.
+   - W portalu Azure kliknij **+** do otwierania portalu Azure Marketplace. Wyszukaj **zestawu dostępności**.
    - Kliknij przycisk **zestawu dostępności**.
    - Kliknij przycisk **Utwórz**.
    - Na **tworzenia zestawu dostępności** bloku, ustaw następujące wartości:
@@ -123,7 +135,7 @@ Z tych wymagań wstępnych w miejscu można kontynuować tworzenie klastra trybu
 
    Wybierz obraz prawym zgodnie z jak chcesz zapłacić za licencji programu SQL Server:
 
-   - **Należy zwrócić na użycie licencjonowania**: koszt na minutę tych obrazów obejmuje licencjonowania programu SQL Server:
+   - **Należy zwrócić na użycie licencjonowania**: koszt na sekundę tych obrazów obejmuje licencjonowania programu SQL Server:
       - **SQL Server 2016 przedsiębiorstwa w systemie Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard w systemie Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer w systemie Windows Server Datacenter 2016**

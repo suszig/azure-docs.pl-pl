@@ -1,6 +1,6 @@
 ---
-title: "Monitorowanie działań, zdarzenia i liczniki dla usługi równoważenia obciążenia | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak włączyć zdarzenia alertu i sondy kondycji stanu rejestrowania dla usługi równoważenia obciążenia Azure"
+title: Monitorowanie działań, zdarzenia i liczniki dla usługi równoważenia obciążenia | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak włączyć zdarzenia alertu i sondy kondycji stanu rejestrowania dla usługi równoważenia obciążenia Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Analiza dzienników dotyczących usługi Azure Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>Usługa Azure Load Balancer obsługuje dwie warstwy: Podstawowa i Standardowa. W tym artykule omówiono usługę Load Balancer w warstwie Podstawowa. Aby uzyskać więcej informacji na temat standardowe usługi równoważenia obciążenia, zobacz [Omówienie usługi równoważenia obciążenia standardowego](load-balancer-standard-overview.md).
 
 Różne typy dzienników Azure umożliwia zarządzanie i rozwiązywanie problemów z usługi równoważenia obciążenia. Niektóre z tych dzienników jest możliwy za pośrednictwem portalu. Wszystkie dzienniki można wyodrębnić z magazynu obiektów blob platformy Azure i wyświetlane w różnych narzędzi, takich jak program Excel i Power BI. Możesz można dowiedzieć się więcej o różnych typach dzienników z poniższej listy.
 

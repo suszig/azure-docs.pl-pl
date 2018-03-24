@@ -1,11 +1,12 @@
 ---
-title: "Poproś danych zapytania mogą odpowiadać - danych nauki problemów — usługi Azure Machine Learning | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak sformułować pytanie nauki sharp danych w nauce danych dla początkujących 3 wideo. Zawiera porównanie pytania klasyfikacji i regresji."
-keywords: "dane nauki problemów, pytania dotyczące analizy danych, sformułować pytania, pytania regresji, klasyfikacji pytania, sharp zapytania"
+title: Poproś danych zapytania mogą odpowiadać - danych nauki problemów — usługi Azure Machine Learning | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak sformułować pytanie nauki sharp danych w nauce danych dla początkujących 3 wideo. Zawiera porównanie pytania klasyfikacji i regresji.
+keywords: dane nauki problemów, pytania dotyczące analizy danych, sformułować pytania, pytania regresji, klasyfikacji pytania, sharp zapytania
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 2f3d8d5c2e7cf1ebc88dc1ff1d7d03bf85383884
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 225414082c447016cdfdfd1a9e5dbe5e5fbcfaec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Zadawanie pytań, na które można odpowiedzieć za pomocą danych
 ## <a name="video-3-data-science-for-beginners-series"></a>Wideo 3: Nauki danych serii dla początkujących

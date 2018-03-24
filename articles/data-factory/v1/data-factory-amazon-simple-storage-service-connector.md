@@ -1,11 +1,10 @@
 ---
-title: "Przenoszenie danych z usługi magazynowania proste Amazon przy użyciu fabryki danych | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu przenoszenia danych z usługi magazynowania proste Amazon (S3) przy użyciu fabryki danych Azure."
+title: Przenoszenie danych z usługi magazynowania proste Amazon przy użyciu fabryki danych | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat sposobu przenoszenia danych z usługi magazynowania proste Amazon (S3) przy użyciu fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 455c1247ee68c4841647d942a1ac210b1b91694a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Przenoszenia danych z usługi magazynowania proste Amazon przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,8 +35,8 @@ Możesz skopiować dane z usługi Amazon S3 żadnych obsługiwanych ujścia maga
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 Aby skopiować dane z usługi Amazon S3, upewnij się, że przyznano następujące uprawnienia:
 
-* `s3:GetObject`i `s3:GetObjectVersion` Amazon S3 obiektu operacji.
-* `s3:ListBucket`operacjach Amazon S3 zasobnika. Jeśli używasz kreatora kopiowania fabryki danych `s3:ListAllMyBuckets` jest również wymagany.
+* `s3:GetObject` i `s3:GetObjectVersion` Amazon S3 obiektu operacji.
+* `s3:ListBucket` operacjach Amazon S3 zasobnika. Jeśli używasz kreatora kopiowania fabryki danych `s3:ListAllMyBuckets` jest również wymagany.
 
 Aby uzyskać więcej informacji o pełną listę uprawnień Amazon S3, zobacz [określanie uprawnień w zasadach](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

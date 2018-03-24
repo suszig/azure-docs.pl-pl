@@ -1,20 +1,20 @@
 ---
-title: "Opis raportów zarządzania koszt zarządzania koszt Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł pomaga w zrozumieniu Cloudyn kosztów zarządzania raportów podstawowej struktury i funkcji."
+title: Opis raportów zarządzania koszt zarządzania koszt Azure | Dokumentacja firmy Microsoft
+description: Ten artykuł pomaga w zrozumieniu Cloudyn kosztów zarządzania raportów podstawowej struktury i funkcji.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Raporty zarządzania koszt opis
 

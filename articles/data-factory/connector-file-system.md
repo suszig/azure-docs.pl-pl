@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych z/do systemu plików przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z systemu plików do zbiornika obsługiwanych magazynów danych (lub) z obsługiwanych źródłowych baz danych do systemu plików przy użyciu fabryki danych Azure."
+title: Kopiowanie danych z/do systemu plików przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z systemu plików do zbiornika obsługiwanych magazynów danych (lub) z obsługiwanych źródłowych baz danych do systemu plików przy użyciu fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ff8fb061a5a5108e574860fa26d0d983ef5ffe99
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e765c5b0240eb1b0311210dc466d1bc0a43ae58f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopiowanie danych z systemu plików lub przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

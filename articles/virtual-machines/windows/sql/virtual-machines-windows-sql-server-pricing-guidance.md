@@ -1,13 +1,13 @@
 ---
-title: "Efektywne zarządzanie kosztami dla programu SQL Server na maszynach wirtualnych Azure | Dokumentacja firmy Microsoft"
-description: "Zawiera najlepsze rozwiązania dotyczące wybierania model cenowy prawo maszyny wirtualnej programu SQL Server."
+title: Efektywne zarządzanie kosztami dla programu SQL Server na maszynach wirtualnych Azure | Dokumentacja firmy Microsoft
+description: Zawiera najlepsze rozwiązania dotyczące wybierania model cenowy prawo maszyny wirtualnej programu SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Wskazówek dotyczących ceny dla maszyn wirtualnych Azure, programu SQL Server
 
@@ -63,7 +63,7 @@ Dostępne są dwie opcje w celu opłacenia licencjonowania programu SQL Server d
 
 ### <a name="pay-per-usage"></a>Należy zwrócić na użycie
 
-**Płatności licencji programu SQL Server na użycie** oznacza, że koszt na minutę maszyny Wirtualnej Azure zawiera koszt licencji programu SQL Server. Cennik o różnych wersjach programu SQL Server (sieci Web, Standard i Enterprise) można zobaczyć w [maszyny Wirtualnej Azure cennikiem](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Koszt jest taka sama dla wszystkich wersji programu SQL Server (2012 z dodatkiem SP3 2017). Podobnie jak w przypadku licencjonowania programu SQL Server ogólnie rzecz biorąc, kosztów licencjonowania na minutę zależy od liczby rdzeni maszyny Wirtualnej.
+**Płatności licencji programu SQL Server na użycie** oznacza, że koszt na sekundę maszyny Wirtualnej Azure zawiera koszt licencji programu SQL Server. Cennik o różnych wersjach programu SQL Server (sieci Web, Standard i Enterprise) można zobaczyć w [maszyny Wirtualnej Azure cennikiem](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Koszt jest taka sama dla wszystkich wersji programu SQL Server (2012 z dodatkiem SP3 2017). Podobnie jak w przypadku licencjonowania programu SQL Server ogólnie rzecz biorąc, kosztów licencjonowania na sekundę zależy od liczby rdzeni maszyny Wirtualnej.
 
 Płatności programu SQL Server licencjonowania na użycie jest zalecane w przypadku:
 
@@ -113,7 +113,7 @@ Aby utworzyć maszyny Wirtualnej Azure SQL Server 2016 z jednym z tych obrazów 
 > Trafić w ciągu 10 dni liczbę licencji programu SQL Server będzie używany na platformie Azure. Łącza do poprzedniego obrazy mają instrukcje jak to zrobić.
 
 > [!NOTE]
-> Nie można zmienić modelu licencjonowania maszyny wirtualnej z programem SQL Server opłacanej za minuty użycia na własną licencję. W takim przypadku należy utworzyć nową maszynę wirtualną w modelu BYOL i zmigrować bazy danych do tej nowej maszyny wirtualnej. 
+> Nie jest możliwa zmiana licencjonowania model płatności na sekundę maszyny Wirtualnej serwera SQL, aby użyć własnej licencji. W takim przypadku należy utworzyć nową maszynę wirtualną w modelu BYOL i zmigrować bazy danych do tej nowej maszyny wirtualnej. 
 
 ## <a name="avoid-unnecessary-costs"></a>Unikaj niepotrzebnych kosztów
 

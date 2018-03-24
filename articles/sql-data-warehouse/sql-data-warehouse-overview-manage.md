@@ -1,11 +1,11 @@
 ---
-title: "Zarządzanie bazami danych w usłudze Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Omówienie zarządzania bazami danych magazynu danych SQL. Obejmuje narzędzia do zarządzania, jednostek dwu i wydajność skalowania w poziomie, rozwiązywanie problemów z wydajność zapytań, ustanawiania zasad zabezpieczeń dobrej i przywracanie bazy danych z uszkodzenie danych lub regionalnej awarii."
+title: Zarządzanie bazami danych w usłudze Azure SQL Data Warehouse | Dokumentacja firmy Microsoft
+description: Omówienie zarządzania bazami danych magazynu danych SQL. Obejmuje narzędzia do zarządzania, jednostek dwu i wydajność skalowania w poziomie, rozwiązywanie problemów z wydajność zapytań, ustanawiania zasad zabezpieczeń dobrej i przywracanie bazy danych z uszkodzenie danych lub regionalnej awarii.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Zarządzanie bazami danych w magazynie danych SQL Azure
 Usługa SQL Data Warehouse automatyzuje wiele aspektów Zarządzanie bazami danych. Na przykład do skalowania wydajności tylko należy dostosować i opłacać odpowiedni poziom zasoby obliczeniowe, a następnie zezwolić wykonywać wszystkie zadania, skalowanie w poziomie oraz skalowanie wstecz usługi SQL Data Warehouse.

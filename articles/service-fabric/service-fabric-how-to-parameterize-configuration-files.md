@@ -1,10 +1,10 @@
 ---
-title: "Jak parametryzacja pliki konfiguracji w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
-description: "Pokazuje, jak parametryzacja pliki konfiguracji w sieci szkieletowej usług"
+title: Jak parametryzacja pliki konfiguracji w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft
+description: Pokazuje, jak parametryzacja pliki konfiguracji w sieci szkieletowej usług
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1e7d59ecb231440711b8ed3dc0b27a2b105890c4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 14fbdf27b8735bb3f2dc91ce0891711e9aaf2af3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Jak parametryzacja pliki konfiguracji w sieci szkieletowej usług
 
@@ -59,7 +59,7 @@ W tym przykładzie można zastąpić wartości konfiguracji we wdrożeniu aplika
       </Parameters>
     ```
 
-1. I zdefiniuj`DefaultValue`
+1. I zdefiniuj `DefaultValue`
 
     ```xml
       <Parameters>
@@ -71,8 +71,6 @@ W tym przykładzie można zastąpić wartości konfiguracji we wdrożeniu aplika
 > W przypadku których dodawane ConfigOverride sieci szkieletowej usług zawsze wybiera parametry aplikacji lub wartość domyślna określona w manifeście aplikacji.
 >
 >
-
-Podczas publikowania aplikacji w programie Visual Studio przy użyciu Cloud.xml profilu publikowania usługi jest skonfigurowany do używania portu 80. W przypadku wdrożenia aplikacji bez określenia parametru MyWebAPI_PortNumber, usługa korzysta z portu 8080.
 
 ## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat niektórych podstawowych pojęciach, które zostały omówione w tym artykule, zobacz [zarządzania aplikacjami dla wielu artykułach środowisk](service-fabric-manage-multiple-environment-app-configuration.md).

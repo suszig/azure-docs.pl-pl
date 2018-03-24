@@ -1,24 +1,24 @@
 ---
-title: "Połączeń wychodzących na platformie Azure | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak Azure umożliwia maszyny wirtualne do komunikowania się z publicznej usługi internetowe."
+title: Połączeń wychodzących na platformie Azure | Dokumentacja firmy Microsoft
+description: W tym artykule opisano, jak Azure umożliwia maszyny wirtualne do komunikowania się z publicznej usługi internetowe.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 32661ad4d647f266273c4c94a5ba177a348c5431
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3fc9810f2f7f86b4c795a7f008e8e1bd174a84db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Połączeń wychodzących na platformie Azure
 
@@ -26,6 +26,9 @@ ms.lasthandoff: 03/16/2018
 > Standardowy SKU usługi równoważenia obciążenia jest obecnie w przeglądzie. Podczas udostępniania wersji zapoznawczej funkcja może nie mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Użyj ogólnie dostępna [podstawowy SKU usługi równoważenia obciążenia](load-balancer-overview.md) dla usług produkcji. Do użycia [Podgląd stref dostępności](https://aka.ms/availabilityzones) w tej wersji zapoznawczej wymaga [oddzielne rejestracji](https://aka.ms/availabilityzones), oprócz skorzystania z usługi równoważenia obciążenia [standardowe Podgląd](#preview-sign-up).
 
 Platforma Azure udostępnia łączność wychodząca wdrożeń klienta za pomocą kilku różnych mechanizmów. W tym artykule opisano scenariusze są, gdy mają one zastosowanie, jak działają i jak nimi zarządzać.
+
+>[!NOTE] 
+>W tym artykule opisano tylko wdrożenia usługi Resource Manager. Przegląd [połączenia wychodzące (klasyczne)](load-balancer-outbound-connections-classic.md) dla wszystkich scenariuszy wdrożenia klasycznego na platformie Azure.
 
 Wdrażanie na platformie Azure mogą komunikować się z punktami końcowymi poza Azure w ramach publicznej przestrzeni adresów IP. Gdy wystąpienie inicjuje przepływu wychodzącego do miejsca docelowego w publicznej przestrzeni adresów IP, Azure dynamicznie mapuje prywatnego adresu IP do publicznego adresu IP. Po utworzeniu tego mapowania zwracany ruchu dla tego ruchu wychodzącego przepływu zdalnych zapewnia także łączność prywatnego adresu IP pochodzenie przepływu.
 
@@ -38,11 +41,7 @@ Dostępnych jest wiele [scenariusze wychodzących](#scenarios). W razie potrzeby
 
 ## <a name="scenarios"></a>Omówienie scenariusza
 
-Platforma Azure ma dwa modele wdrażania najważniejszych: usługi Azure Resource Manager i model klasyczny. Moduł równoważenia obciążenia Azure i powiązane zasoby są jawnie zdefiniowane podczas korzystania z [usługi Azure Resource Manager](#arm). W przypadku wdrożeń klasycznych abstrakcyjnej pojęcie usługi równoważenia obciążenia i express podobną funkcję za pomocą definicji punktów końcowych [usługi w chmurze](#classic). Zastosowanie [scenariusze](#scenarios) dla danego wdrożenia zależą od modelu wdrażania używasz.
-
-### <a name="arm"></a>Azure Resource Manager
-
-Platforma Azure udostępnia obecnie trzech różnych metod na osiągnięcie łączność wychodząca dla zasobów usługi Azure Resource Manager. [Klasycznym](#classic) wdrożenia mają podzbiór tych scenariuszy.
+Moduł równoważenia obciążenia Azure i powiązane zasoby są jawnie zdefiniowane podczas korzystania z [usługi Azure Resource Manager](#arm).  Platforma Azure udostępnia obecnie trzech różnych metod na osiągnięcie łączność wychodząca dla zasobów usługi Azure Resource Manager. 
 
 | Scenariusz | Metoda | Opis |
 | --- | --- | --- |
@@ -51,14 +50,6 @@ Platforma Azure udostępnia obecnie trzech różnych metod na osiągnięcie łą
 | [3. Maszyna wirtualna autonomiczne (Brak usługi równoważenia obciążenia, żaden adres publiczny adres IP na poziomie wystąpienia)](#defaultsnat) | SNAT z portu maskaradę (PAT) | Azure automatycznie wyznacza publicznego adresu IP dla SNAT współużytkuje ten publiczny adres IP z wielu prywatnych adresów IP zestawu dostępności i używa porty efemeryczne ten publiczny adres IP. Jest to rezerwowy scenariusz dla powyższych scenariuszy. Firma Microsoft nie zaleca, aby uzyskać wgląd i większą kontrolę. |
 
 Jeśli nie chcesz maszyny Wirtualnej do komunikowania się z punktami końcowymi poza Azure w ramach publicznej przestrzeni adresów IP, można użyć grup zabezpieczeń sieci (NSG) w celu zablokowania dostępu zgodnie z potrzebami. Sekcja [uniemożliwia nawiązanie połączenia wychodzącego](#preventoutbound) omówiono bardziej szczegółowo grup NSG. Wskazówki dotyczące projektowania, wdrażania i zarządzania nimi sieci wirtualnej bez żadnych wychodzący dostęp wykracza poza zakres tego artykułu.
-
-### <a name="classic"></a>Klasyczny (usługi w chmurze)
-
-Scenariusze, które są dostępne w przypadku wdrożeń klasycznych są podzbiorem dostępne dla scenariuszy [usługi Azure Resource Manager](#arm) wdrożeń i podstawowa usługi równoważenia obciążenia.
-
-Klasycznym maszyna wirtualna ma tego samego trzy podstawowe scenariusze, zgodnie z opisem dla zasobów usługi Azure Resource Manager ([1](#ilpip), [2](#lb), [3](#defaultsnat)). Rola proces roboczy klasycznych sieci web ma tylko dwa scenariusze ([2](#lb), [3](#defaultsnat)). [Środki zaradcze strategii](#snatexhaust) również mieć tego samego różnice.
-
-Algorytm używany do [przydzielone porty efemeryczne](#ephemeralprots) PAWEŁ w przypadku wdrożeń klasycznych jest taka sama jak w przypadku wdrożenia zasobów usługi Azure Resource Manager.  
 
 ### <a name="ilpip"></a>Scenariusz 1: Maszyna wirtualna adres publiczny adres IP na poziomie wystąpienia
 
@@ -97,15 +88,11 @@ Są wstępnie przydzielonych portów SNAT, zgodnie z opisem w [SNAT zrozumienia 
 
 ### <a name="combinations"></a>Łączna scenariuszy z wieloma,
 
-Możesz łączyć scenariuszy opisanych w poprzednich sekcjach, aby osiągnąć określony wynik. Występują wiele scenariuszy, w kolejności zastosowanie: [scenariusz 1](#ilpip) ma pierwszeństwo przed [Scenariusz 2](#lb) i [3](#defaultsnat) (tylko usługi Azure Resource Manager). [Scenariusz 2](#lb) zastępuje [Scenariusz 3](#defaultsnat) (usługi Azure Resource Manager i model klasyczny).
+Możesz łączyć scenariuszy opisanych w poprzednich sekcjach, aby osiągnąć określony wynik. Występują wiele scenariuszy, w kolejności zastosowanie: [scenariusz 1](#ilpip) ma pierwszeństwo przed [Scenariusz 2](#lb) i [3](#defaultsnat). [Scenariusz 2](#lb) zastępuje [Scenariusz 3](#defaultsnat).
 
 Przykładem jest wdrożenie usługi Azure Resource Manager, gdzie aplikacja opiera się głównie na połączenia wychodzące do ograniczonej liczby miejsc docelowych, ale także odebrał przepływów przychodzących za pośrednictwem frontonu modułu równoważenia obciążenia. W takim przypadku można łączyć scenariusze 1 i 2 do zwolnienia. Dodatkowe wzorce, można przejrzeć [wyczerpania Zarządzanie SNAT](#snatexhaust).
 
 ### <a name="multife"></a> Frontends wiele przepływów wychodzących
-
-#### <a name="load-balancer-basic"></a>Basic modułu równoważenia obciążenia
-
-Podstawowe usługi równoważenia obciążenia wybierze pojedynczego serwera sieci Web do zastosowania w przypadku przepływów wychodzących po [wiele frontends IP (publicznymi)](load-balancer-multivip-overview.md) nadają się do przepływów wychodzących. To pole wyboru nie można skonfigurować, należy rozważyć być losowy algorytm zaznaczenia. Określony adres IP dla przepływów wychodzących można wyznaczyć, zgodnie z opisem w [wielu łączyć scenariusze](#combinations).
 
 #### <a name="load-balancer-standard"></a>Usługa Load Balancer w warstwie Standardowa
 
@@ -122,6 +109,10 @@ Można pominąć adresu IP frontonu używanych dla połączenia wychodzące z no
 ```
 
 Zazwyczaj domyślnie ta opcja _false_ i wskazuje, czy ta reguła programy SNAT wychodzącego skojarzone maszyn wirtualnych w puli zaplecza reguły równoważenia obciążenia.  Można to zmienić na _true_ zapobiegające moduł równoważenia obciążenia dla połączeń wychodzących dla maszyny Wirtualnej przy użyciu adresu IP frontonu skojarzonego elementu w puli zaplecza tej reguły równoważenia obciążenia.  I nadal można wyznaczyć określonego adresu IP do przepływów wychodzących, zgodnie z opisem w [wielu łączyć scenariusze](#combinations) również.
+
+#### <a name="load-balancer-basic"></a>Basic modułu równoważenia obciążenia
+
+Podstawowe usługi równoważenia obciążenia wybierze pojedynczego serwera sieci Web do zastosowania w przypadku przepływów wychodzących po [wiele frontends IP (publicznymi)](load-balancer-multivip-overview.md) nadają się do przepływów wychodzących. To pole wyboru nie można skonfigurować, należy rozważyć być losowy algorytm zaznaczenia. Określony adres IP dla przepływów wychodzących można wyznaczyć, zgodnie z opisem w [wielu łączyć scenariusze](#combinations).
 
 ### <a name="az"></a> Dostępność strefy
 
@@ -147,7 +138,12 @@ Wzorce ograniczyć warunki, które często doprowadzić do wyczerpania portu SNA
 
 Azure używa algorytmu, aby określić liczbę SNAT wstępnie przydzielonych portów dostępnych na podstawie rozmiaru puli wewnętrznej bazy danych przy użyciu portu zamaskowana SNAT ([PAT](#pat)). Porty SNAT są porty efemeryczne, które są dostępne dla określonego adresu źródłowego publicznego adresu IP.
 
-Azure preallocates SNAT portów z konfiguracją protokołu IP karty sieciowej z każdej maszyny Wirtualnej. Po dodaniu konfiguracji IP do puli, porty SNAT są wstępnie przydzielonych dla tej konfiguracji IP na podstawie rozmiaru puli wewnętrznej bazy danych. Role proces roboczy klasycznych sieci web jest przydziału dla każdego wystąpienia roli. Po utworzeniu przepływów wychodzących [PAT](#pat) dynamicznie zużywa (w granicach przydzielonych wstępnie) i zwalnia te porty, po zamknięciu przepływ lub [limitów czasu bezczynności](#ideltimeout) stanie.
+Taką samą liczbę portów SNAT są odpowiednio wstępnie przydzielonych dla protokołów UDP i TCP i niezależnie zużytych według adresu IP, protokół transportu. 
+
+>[!IMPORTANT]
+>Standardowe SNAT SKU programowania na protokół transportu IP ani pochodzi z reguły równoważenia obciążenia.  Jeśli tylko istnieje reguła równoważenia obciążenia TCP, SNAT jest dostępna tylko dla protokołu TCP. Jeśli masz tylko TCP reguły równoważenia obciążenia i wymagają SNAT wychodzący protokołu UDP dla, należy utworzyć regułę z tego samego serwera sieci Web do tej samej puli wewnętrznej bazy danych z równoważeniem obciążenia UDP.  To spowoduje wyzwolenie SNAT programowania dla protokołu UDP.  Sonda reguły lub kondycji pracy nie jest wymagane.  Podstawowy SKU SNAT zawsze programów SNAT zarówno protokołu transportowego IP, niezależnie od protokołu transportu określone w regułę równoważenia obciążenia.
+
+Azure preallocates SNAT portów z konfiguracją protokołu IP karty sieciowej z każdej maszyny Wirtualnej. Po dodaniu konfiguracji IP do puli, porty SNAT są wstępnie przydzielonych dla tej konfiguracji IP na podstawie rozmiaru puli wewnętrznej bazy danych. Po utworzeniu przepływów wychodzących [PAT](#pat) dynamicznie zużywa (w granicach przydzielonych wstępnie) i zwalnia te porty, po zamknięciu przepływ lub [limitów czasu bezczynności](#ideltimeout) stanie.
 
 W poniższej tabeli przedstawiono preallocations portu SNAT warstw rozmiary puli wewnętrznej bazy danych:
 
@@ -168,6 +164,18 @@ Należy pamiętać, że liczba dostępnych portów SNAT nie przekłada się bezp
 Zmiana rozmiaru puli wewnętrznej bazy danych może mieć wpływ na niektóre przepływów ustalonych. Jeśli rozmiar puli wewnętrznej bazy danych zwiększa się i przechodzi do następnej warstwy, połowy Twojej przydzielony wstępnie porty SNAT odzyskane podczas przejścia do następnej warstwy większych puli wewnętrznej bazy danych. Przepływów, które są skojarzone z portem SNAT regeneracji limit czasu i należy ustanowić. Próbie nowy przepływ przepływ powiedzie się natychmiast tak długo, jak są dostępne porty przydzielony wstępnie.
 
 Jeśli zmniejsza rozmiar puli wewnętrznej bazy danych i zwiększyć liczbę dostępnych portów SNAT przejścia do dolnej warstwy. W takim przypadku istniejące przydzielonych SNAT portów i nie ma wpływu na ich odpowiednich przepływów.
+
+SNAT porty są protokół transportu IP określonego (TCP i UDP są przechowywane osobno) i są wydawane w następujących warunkach:
+
+### <a name="tcp-snat-port-release"></a>Wersja port TCP SNAT
+
+- Jeśli zarówno klient/serwer wysyła potwierdzenia/w wynikach wyszukiwania, SNAT port zostaną wydane 240 sekund.
+- Jeśli występuje RST, SNAT port zostaną wydane po 15 sekund.
+- Osiągnięto limit czasu bezczynności
+
+### <a name="udp-snat-port-release"></a>Wersja portu UDP SNAT
+
+- Osiągnięto limit czasu bezczynności
 
 ## <a name="problemsolving"></a> Rozwiązywanie problemów 
 
@@ -208,9 +216,19 @@ Podczas korzystania z publicznej standardowy moduł równoważenia obciążenia,
 >[!NOTE]
 >W większości przypadków wyczerpania SNAT portów jest znak zły projektu.  Upewnij się, że zrozumienie, dlaczego są wyczerpujące porty przed użyciem więcej frontends można dodać SNAT portów.  Może być maskowania problemu, co może prowadzić do awarii później.
 
+#### <a name="scaleout"></a>Skalowanie w poziomie
+
+[Wstępnie przydzielonych portów](#preallocatedports) są przypisywane na podstawie rozmiaru puli wewnętrznej bazy danych i grupowanych do warstwy, aby zminimalizować zakłócenia, gdy niektóre z portów przydzielić, aby zmieścił się w następnej warstwy rozmiar większy puli wewnętrznej bazy danych.  Masz opcję, aby zwiększyć intensywność SNAT użycie portu dla danego serwera sieci Web przez skalowanie pulę zaplecza do maksymalnego rozmiaru w danej warstwie.  Wymaga to dla aplikacji, aby efektywnie skalować w poziomie.
+
+Na przykład 2 maszyn wirtualnych w puli zaplecza musi 1024 SNAT portów dostępnych dla konfiguracji adresów IP, co łącznie 2048 SNAT portów dla wdrożenia.  Gdyby wdrożenia można zwiększyć do 50 wirtualnych maszyny, nawet wtedy, gdy liczba wstępnie przydzielonych portów pozostaje stała na maszynę wirtualną, łącznie z 51,200 (50 x 1024) SNAT porty mogą posłużyć wdrożenia.  Jeśli chcesz skalowania wdrożenia Sprawdź liczbę [wstępnie przydzielonych portów](#preallocatedports) na warstwę, aby upewnić się, że kształt Twojej skalowania w poziomie do maksymalnej dla odpowiednich warstwy.  W przykładzie poprzedzających, jeżeli wybrano skalować w poziomie do 51 zamiast 50 wystąpień użytkownika czy postępu do następnej warstwy i na końcu się z mniej SNAT portów dla maszyny Wirtualnej oraz jak Suma.
+
+Z drugiej strony skalowania w poziomie do następnego większych wewnętrznej bazy danych puli rozmiar warstwy potencjalnie wychodzących połączeń Jeśli przydzielonych portów ma odbiorczego.  Jeśli nie ma to miejsce, należy kształtu wdrożenia do rozmiaru warstwy.  Lub aplikacji mogą wykrywać i ponów próbę wykonania niezbędne.  TCP keepalives może pomóc w Wykryj, kiedy SNAT już porty funkcji z powodu przydzielany.
+
 ### <a name="idletimeout"></a>Użyj keepalives, aby zresetować wychodzącego limit czasu bezczynności
 
-Połączenia wychodzące mieć 4-minutowy limit czasu bezczynności. Tego limitu czasu nie jest zmieniane. Jednak aby odświeżyć przepływu bezczynności i zresetować ten limit czasu bezczynności, w razie potrzeby mogą używać transportu (na przykład keepalives TCP) lub keepalives warstwy aplikacji.
+Połączenia wychodzące mieć 4-minutowy limit czasu bezczynności. Tego limitu czasu nie jest zmieniane. Jednak aby odświeżyć przepływu bezczynności i zresetować ten limit czasu bezczynności, w razie potrzeby mogą używać transportu (na przykład keepalives TCP) lub keepalives warstwy aplikacji.  
+
+Przy użyciu TCP keepalives, wystarczy je włączyć na jednej stronie połączenia. Na przykład wystarczy włączyć je po stronie serwera tylko do resetowania czasomierza bezczynności przepływu i nie jest konieczne po obu stronach inicjowane keepalives TCP.  Istnieją podobne pojęcia warstwy aplikacji, w tym konfiguracji klient serwer bazy danych.  Sprawdź po stronie serwera, na jakie opcje istnieje dla keepalives określonych aplikacji.
 
 ## <a name="discoveroutbound"></a>Odnajdywanie publicznego adresu IP, który korzysta z maszyny Wirtualnej
 Istnieje wiele sposobów, aby określić źródłowy publiczny adres IP połączeń wychodzących. OpenDNS zapewnia usługę, które mogą być prezentowane z publicznego adresu IP maszyny Wirtualnej. 
@@ -231,6 +249,7 @@ Jeśli grupy NSG blokuje żądania sondy kondycji z AZURE_LOADBALANCER domyślny
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-- Dowiedz się więcej o [podstawowe usługi równoważenia obciążenia](load-balancer-overview.md).
+- Dowiedz się więcej o [modułu równoważenia obciążenia](load-balancer-overview.md).
+- Dowiedz się więcej o [standardowego modułu równoważenia obciążenia](load-balancer-standard-overview.md).
 - Dowiedz się więcej o [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md).
 - Dowiedz się więcej o niektóre inne kluczowe [możliwości w zakresie obsługi](../networking/networking-overview.md) na platformie Azure.

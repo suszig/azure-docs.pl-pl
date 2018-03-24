@@ -1,11 +1,12 @@
 ---
-title: "Machine learning algorytmu ściągawka | Dokumentacja firmy Microsoft"
-description: "Maszynę do druku arkusz ze wskazówkami dotyczącymi Algorytm uczenia pomaga wybrać prawa algorytmu dla modelu predykcyjnego w usłudze Azure Machine Learning Studio."
-keywords: "Algorytm przydatną ściągawkę, przydatną ściągawkę, algorytmu uczenia maszynowego"
+title: Machine learning algorytmu ściągawka | Dokumentacja firmy Microsoft
+description: Maszynę do druku arkusz ze wskazówkami dotyczącymi Algorytm uczenia pomaga wybrać prawa algorytmu dla modelu predykcyjnego w usłudze Azure Machine Learning Studio.
+keywords: Algorytm przydatną ściągawkę, przydatną ściągawkę, algorytmu uczenia maszynowego
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
@@ -14,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2fd42ba47b9cfc81c17078dc9d36c7650fbc6317
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Ściągawka dotycząca algorytmu uczenia maszynowego w usłudze Microsoft Azure Machine Learning Studio
 **Microsoft Azure Machine Learning algorytmu Cheat arkusza** pomaga wybrać prawa algorytmu dla modelu analizy predykcyjnej.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) ma dużej biblioteki algorytmów z ***regresji***, ***klasyfikacji***, ***klastrowanie***, i ***wykrywania anomalii*** rodziny. Każda jest przeznaczona do innego typu machine learning problemu adresów.
+[Azure Machine Learning Studio](https://studio.azureml.net/) ma dużej biblioteki algorytmów z ***regresji***, ***klasyfikacji***, ***klastrowanie***, i  ***wykrywanie anomalii*** rodziny. Każda jest przeznaczona do innego typu machine learning problemu adresów.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Pobieranie: Machine learning algorytmu ściągawka
 **Pobierz arkusz ze wskazówkami w tym miejscu: [Learning Algorithm Cheat arkuszu maszyny (11 x 17 cali)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**

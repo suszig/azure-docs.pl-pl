@@ -1,24 +1,21 @@
 ---
-title: "Usługi Azure Active Directory B2C: Wbudowane zasady | Dokumentacja firmy Microsoft"
-description: "Temat w ramach rozszerzalnych zasad usługi Azure Active Directory B2C i o sposobach tworzenia różnych typów zasad"
+title: 'Usługi Azure Active Directory B2C: Wbudowane zasady | Dokumentacja firmy Microsoft'
+description: Temat w ramach rozszerzalnych zasad usługi Azure Active Directory B2C i o sposobach tworzenia różnych typów zasad
 services: active-directory-b2c
-documentationcenter: 
-author: sama
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: sama
-ms.openlocfilehash: f0aa3d19e15837b75888293f0cd19683b7621a6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 35b31c46b350474caa1472829d705b4d068d9642
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Usługi Azure Active Directory B2C: Wbudowane zasady
 
@@ -63,9 +60,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Aby uzyskać więcej informacji na temat framework zasad, zobacz [ten wpis w blogu dotyczące usługi Azure AD B2C na Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
-
-## <a name="create-a-sign-up-or-sign-in-policy"></a>Tworzenie zasad rejestracji i logowania
+## <a name="create-a-sign-up-or-sign-in-policy"></a>Tworzenie zasad rejestracji lub logowania
 
 Ta zasada obsługuje zarówno konsumenta rejestracji i logowania, korzystając z pojedynczą konfiguracją. Konsumenci są doprowadziło do prawej ścieżki (rejestracji lub logowania), w zależności od kontekstu. Omówiono także zawartość tokenów, które otrzymają aplikacji po pomyślnej napędza rejestracje lub logowania.  Przykład kodu dla zasad rejestracji i logowania jest [dostępne tutaj](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Jest zalecane w przypadku użycia tej zasady protokołu zasad rejestracji i logowania zasad.  
 
@@ -79,11 +74,11 @@ Ta zasada obsługuje zarówno konsumenta rejestracji i logowania, korzystając z
 
 [!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
 
-## <a name="create-a-profile-editing-policy"></a>Utwórz profil edytowanie zasad
+## <a name="create-a-profile-editing-policy"></a>Tworzenie zasad edytowania profilów
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-## <a name="create-a-password-reset-policy"></a>Utwórz zasady resetowania hasła
+## <a name="create-a-password-reset-policy"></a>Tworzenie zasad resetowania haseł
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
@@ -92,7 +87,7 @@ Ta zasada obsługuje zarówno konsumenta rejestracji i logowania, korzystając z
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Jak połączyć zasady rejestracji lub logowania za pomocą zasad resetowania hasła
 Podczas tworzenia zasady rejestracji i logowania (za pomocą kont lokalnych), zobacz **nie pamiętam hasła?** łącza na pierwszej stronie środowisko. Kliknięcie tego łącza nie automatycznie wyzwalacza hasła zasady resetowania. 
 
-Zamiast tego kodu błędu  **`AADB2C90118`**  jest zwracana do aplikacji. Twoja aplikacja powinna obsługiwać tego kodu błędu za pomocą zasad resetowania hasła określone. Aby uzyskać więcej informacji, zobacz [przykład przedstawiający metodę łączenia zasad](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+Zamiast tego kodu błędu **`AADB2C90118`** jest zwracana do aplikacji. Twoja aplikacja powinna obsługiwać tego kodu błędu za pomocą zasad resetowania hasła określone. Aby uzyskać więcej informacji, zobacz [przykład przedstawiający metodę łączenia zasad](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Należy użyć zasad rejestracji i logowania lub zasad rejestracji i logowania zasady?
 Zalecane jest użycie zasad rejestracji lub logowania za pośrednictwem zasad rejestracji i logowania zasad.  
@@ -101,7 +96,7 @@ Zasady rejestracji i logowania ma więcej możliwości niż zasad logowania. Ró
 
 Nie należy do zlokalizowania zasad tylko potrzeby znakowania możliwości personalizacji i mają hasła, zaleca się zasad logowania resetowania wbudowanych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Token sesji i konfiguracji rejestracji jednokrotnej](active-directory-b2c-token-session-sso.md)
 * [Wyłączyć weryfikację wiadomości e-mail podczas tworzenia konta użytkownika](active-directory-b2c-reference-disable-ev.md)
 

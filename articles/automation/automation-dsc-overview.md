@@ -1,24 +1,19 @@
 ---
-title: "Przegląd usługi Konfiguracja DSC automatyzacji Azure | Dokumentacja firmy Microsoft"
-description: "Omówienie programu żądanego stanu konfiguracji (Konfiguracja DSC automatyzacji Azure), jego warunki i znane problemy"
+title: Przegląd usługi Konfiguracja DSC automatyzacji Azure
+description: Omówienie programu żądanego stanu konfiguracji (Konfiguracja DSC automatyzacji Azure), jego warunki i znane problemy
+keywords: PowerShell dsc, konfiguracji żądanego stanu, azure dsc środowiska powershell
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "PowerShell dsc, konfiguracji żądanego stanu, azure dsc środowiska powershell"
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Przegląd usługi Konfiguracja DSC automatyzacji Azure
 
@@ -45,8 +40,8 @@ Z portalu Azure lub programu PowerShell można zarządzać wszystkie Twoje DSC k
 ### <a name="import-reporting-data-into-log-analytics"></a>Importowanie danych raportowania do analizy dzienników
 
 Węzły, które są zarządzane w usłudze Konfiguracja DSC automatyzacji Azure wysyłać szczegółowe dane raportów o stanie do serwera ściągania wbudowanych.
-Można skonfigurować do wysyłania tych danych do swojego obszaru roboczego analizy dzienników programu Microsoft Operations Management Suite (OMS), konfiguracja DSC automatyzacji Azure.
-Aby dowiedzieć się, jak wysyłać dane o stanie DSC do obszaru roboczego analizy dzienników, zobacz [do przodu Konfiguracja DSC automatyzacji Azure raportowania danych do analizy dzienników OMS](automation-dsc-diagnostics.md).
+Można skonfigurować do wysyłania tych danych do swojego obszaru roboczego analizy dzienników usługi Konfiguracja DSC automatyzacji Azure.
+Aby dowiedzieć się, jak wysyłać dane o stanie DSC do obszaru roboczego analizy dzienników, zobacz [do przodu Konfiguracja DSC automatyzacji Azure raportowania danych do analizy dzienników](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Wideo z wprowadzeniem
 
@@ -58,7 +53,7 @@ Wolisz obejrzeć film niż przeczytać artykuł? Ma wygląd w poniższym klipie 
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się, aby dodać węzły mają być zarządzane w usłudze Konfiguracja DSC automatyzacji Azure, zobacz temat [dołączania komputerów do zarządzania przez Konfiguracja DSC automatyzacji Azure](automation-dsc-onboarding.md)
 * Aby rozpocząć korzystanie z usługi Konfiguracja DSC automatyzacji Azure, zobacz [wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-getting-started.md)

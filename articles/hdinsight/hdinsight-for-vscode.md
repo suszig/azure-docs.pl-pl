@@ -1,14 +1,14 @@
 ---
-title: "Narzędzia HDInsight Azure - Użyj Visual Studio Code Hive, LLAP lub pySpark | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak za pomocą narzędzi HDInsight Azure dla programu Visual Studio Code tworzenie i przesyłanie zapytań i skryptów."
+title: Narzędzia HDInsight Azure - Użyj Visual Studio Code Hive, LLAP lub pySpark | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak za pomocą narzędzi HDInsight Azure dla programu Visual Studio Code tworzenie i przesyłanie zapytań i skryptów.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7567ce516e6d08a458ff96f4554d9e92934408f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Użyj narzędzia Azure HDInsight dla kodu programu Visual Studio
 
@@ -120,7 +120,7 @@ Można połączyć normalne klastra przy użyciu Ambari zarządzane username, ta
 
    ![połączone klastra](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. Możesz również odłączyć klastra przez inputing **HDInsight: odłączyć klastra** z palety polecenia.
+4. Również można odłączyć klastra przez wprowadzanie **HDInsight: odłączyć klastra** z palety polecenia.
 
 ## <a name="list-hdinsight-clusters"></a>Lista klastrów usługi HDInsight
 

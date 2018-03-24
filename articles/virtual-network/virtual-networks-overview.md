@@ -1,11 +1,11 @@
 ---
-title: "Sieć wirtualna platformy Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat pojęć sieci wirtualnej platformy Azure i funkcje."
+title: Sieć wirtualna platformy Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat pojęć sieci wirtualnej platformy Azure i funkcje.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Co to jest Azure Virtual Network?
 
@@ -32,7 +32,7 @@ Sieć wirtualna platformy Azure oferuje następujące szerokie możliwości:
 - **[Połączenie wirtualnej sieci:](#connect-vnets)**  sieci wirtualnej mogą zostać połączone ze sobą, włączanie zasobów w dowolnej sieci wirtualnej do komunikowania się z zasobami w dowolnej sieci wirtualnej.
 - **[Połączenie lokalne:](#connect-on-premises)**  sieci wirtualnej możliwe połączenie się z siecią lokalną, włączanie zasobów do komunikacji między sobą.
 - **[Filtrowanie ruchu:](#filtering)**  można filtrować ruch sieciowy do i z zasobów w sieci wirtualnej przez źródłowy adres IP i port docelowy adres IP i portu i protokołu.
-- **[Routing:](#routing)**  Opcjonalnie można zastąpić routingu przez skonfigurowanie własnego trasy domyślnej platformy Azure lub przez propagowanie BGP kieruje za pośrednictwem bramy sieci.
+- **[Routing:](#routing)**  można opcjonalnie zastąpić domyślne Azure routingu przez konfigurowanie własnego trasy lub propagowanie protokołu border gateway protocol (BGP) tras za pośrednictwem bramy sieci.
 
 ## <a name = "isolation"></a>Izolacja sieci i segmentacji
 

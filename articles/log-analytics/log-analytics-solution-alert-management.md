@@ -1,8 +1,8 @@
 ---
-title: "Alert rozwiązania do zarządzania w Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Rozwiązanie zarządzania alertami w Log Analytics pomaga analizować wszystkie alerty w danym środowisku.  Oprócz Konsolidacja alertów wygenerowanych w analizy dzienników jego importuje alerty z połączonych grup zarządzania programu System Center Operations Manager do analizy dzienników."
+title: Alert rozwiązania do zarządzania w Azure Log Analytics | Dokumentacja firmy Microsoft
+description: Rozwiązanie zarządzania alertami w Log Analytics pomaga analizować wszystkie alerty w danym środowisku.  Oprócz Konsolidacja alertów wygenerowanych w analizy dzienników jego importuje alerty z połączonych grup zarządzania programu System Center Operations Manager do analizy dzienników.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Alert rozwiązania do zarządzania w Analiza dzienników Azure
 
@@ -109,28 +109,15 @@ Rozwiązanie zaimportować alerty z programu System Center Operations Manager i 
 W poniższej tabeli przedstawiono przykładowy dziennik wyszukuje rekordy alertów zebranych przez to rozwiązanie: 
 
 | Zapytanie | Opis |
-|:--- |:--- |
-| Typ alertu SourceSystem = = OpsManager AlertSeverity = błąd TimeRaised > teraz 24 godzin |Alerty krytyczne zgłoszone w ciągu ostatnich 24 godzin |
-| Typ alertu AlertSeverity = = ostrzeżenie TimeRaised > teraz 24 godzin |Alerty ostrzegawcze zgłoszone w ciągu ostatnich 24 godzin |
-| Typ alertu SourceSystem = = OpsManager stan alertu! = TimeRaised zamkniętego > teraz 24 godzin &#124; Miara count() jako liczba wg SourceDisplayName |Źródła z aktywnymi alertami zgłoszonymi w ciągu ostatnich 24 godzin |
-| Typ alertu SourceSystem = = OpsManager AlertSeverity = błąd TimeRaised > teraz - 24-GODZINNY stan alertu! = zamknięty |Alerty krytyczne zgłoszone w ciągu ostatnich 24 godzin, które są nadal aktywne |
-| Typ alertu SourceSystem = OpsManager TimeRaised = > teraz - 24-GODZINNY stan alertu = zamknięte |Alerty zgłoszone w ciągu ostatnich 24 godzin, które teraz są zamknięte |
-| Typ alertu SourceSystem = OpsManager TimeRaised = > teraz - 1 dzień &#124; Miara count() jako liczba wg AlertSeverity |Alerty zgłoszone w ciągu ostatniej doby pogrupowane według ważności |
-| Typ alertu SourceSystem = OpsManager TimeRaised = > teraz - 1 dzień &#124; Sortowanie RepeatCount desc |Alerty zgłoszone w ciągu ostatniej doby posortowane według wartości liczby powtórzeń |
-
-
->[!NOTE]
-> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie zmienić poprzedniego zapytania następujące:
->
->| Zapytanie | Opis |
 |:---|:---|
 | Alert &#124; gdzie SourceSystem == "OpsManager" i AlertSeverity == "error" i TimeRaised > ago(24h) |Alerty krytyczne zgłoszone w ciągu ostatnich 24 godzin |
 | Alert &#124; gdzie AlertSeverity == "ostrzeżenie" i TimeRaised > ago(24h) |Alerty ostrzegawcze zgłoszone w ciągu ostatnich 24 godzin |
-| Alert &#124; gdzie SourceSystem == "OpsManager" i stan alertu! = "Zamknięte" i TimeRaised > ago(24h) &#124; Podsumuj Count = count() przez SourceDisplayName |Źródła z aktywnymi alertami zgłoszonymi w ciągu ostatnich 24 godzin |
+| Alertu &#124; gdzie SourceSystem == "OpsManager" i stan alertu! = "Zamknięte" i TimeRaised > ago(24h) &#124; Podsumuj Count = count() przez SourceDisplayName |Źródła z aktywnymi alertami zgłoszonymi w ciągu ostatnich 24 godzin |
 | Alert &#124; gdzie SourceSystem == "OpsManager" i AlertSeverity == "error" i TimeRaised > ago(24h) i stan alertu! = "Zamknięte" |Alerty krytyczne zgłoszone w ciągu ostatnich 24 godzin, które są nadal aktywne |
 | Alert &#124; gdzie SourceSystem == "OpsManager" i TimeRaised > ago(24h) i stan alertu == "Zamknięte" |Alerty zgłoszone w ciągu ostatnich 24 godzin, które teraz są zamknięte |
 | Alert &#124; gdzie SourceSystem == "OpsManager" i TimeRaised > ago(1d) &#124; Podsumuj Count = count() przez AlertSeverity |Alerty zgłoszone w ciągu ostatniej doby pogrupowane według ważności |
 | Alert &#124; gdzie SourceSystem == "OpsManager" i TimeRaised > ago(1d) &#124; Sortuj według RepeatCount desc |Alerty zgłoszone w ciągu ostatniej doby posortowane według wartości liczby powtórzeń |
+
 
 
 ## <a name="next-steps"></a>Kolejne kroki

@@ -1,27 +1,27 @@
 ---
-title: "Co to jest oparte na grupach Licencjonowanie w usłudze Azure Active Directory? | Microsoft Docs"
-description: "Opis usługi Azure Active Directory na podstawie grupy licencji, jak działa i najlepsze rozwiązania"
+title: Co to jest oparte na grupach Licencjonowanie w usłudze Azure Active Directory? | Microsoft Docs
+description: Opis usługi Azure Active Directory na podstawie grupy licencji, jak działa i najlepsze rozwiązania
 services: active-directory
-keywords: "Licencjonowanie usługi Azure AD"
-documentationcenter: 
+keywords: Licencjonowanie usługi Azure AD
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2017
+ms.date: 03/20/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 9cfa8c42c1f3955adad5e4ce596d96c4e98e40a1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d4151d6c00da618cc008257bcdad4607f8fec49
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Na podstawie grupy podstawy licencjonowania w usłudze Azure Active Directory
 
@@ -55,7 +55,7 @@ Oto główne funkcje na podstawie grupy licencji:
 
 Jeśli masz żądania opinii lub funkcji, można udostępniać je z nami za pomocą [tym forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o innych scenariuszy zarządzania licencji za pomocą licencjonowania na podstawie grupy, zobacz:
 

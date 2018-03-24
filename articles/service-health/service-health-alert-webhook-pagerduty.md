@@ -1,12 +1,12 @@
 ---
-title: "Skonfiguruj alerty dotyczące kondycji usługi platformy Azure z PagerDuty | Dokumentacja firmy Microsoft"
-description: "Pobierz spersonalizowany powiadomień dotyczących zdarzeń usługi kondycji do Twojego wystąpienia PagerDuty."
+title: Skonfiguruj alerty dotyczące kondycji usługi platformy Azure z PagerDuty | Dokumentacja firmy Microsoft
+description: Pobierz spersonalizowany powiadomień dotyczących zdarzeń usługi kondycji do Twojego wystąpienia PagerDuty.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 9edcb727b9f0af348cacd5533523c4f2e8214703
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6e9fcf20d368e270f9af4551c539acd873335498
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Skonfiguruj alerty dotyczące kondycji usługi z PagerDuty
 
@@ -79,7 +79,7 @@ W tym artykule przedstawiono sposób konfigurowania powiadomień o kondycji usł
 5. Wybierz **zapisać** na koniec można zaktualizować grupy działań.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testowanie za pomocą żądania HTTP POST integracją elementu webhook
-1. Utwórz ładunku usługi kondycji, który chcesz wysłać. Można znaleźć przykład kondycja usługi elementu webhook ładunku w [elementów Webhook dla działania Azure rejestrowania alertów](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Utwórz ładunku kondycji usługi, który chcesz wysłać. Można znaleźć przykład usługi kondycji elementu webhook ładunku w [elementów Webhook dla działania Azure rejestrowania alertów](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Utwórz żądanie HTTP POST w następujący sposób:
 
@@ -88,13 +88,13 @@ W tym artykule przedstawiono sposób konfigurowania powiadomień o kondycji usł
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Powinien zostać wyświetlony `202 Accepted` komunikat zawierający identyfikatora"zdarzenia"
 
 4. Przejdź do [PagerDuty](https://www.pagerduty.com/) aby upewnić się, że integracją zostało pomyślnie skonfigurowane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się, jak [skonfigurować powiadomienia elementu webhook dla istniejących systemów zarządzania problem](service-health-alert-webhook-guide.md).
 - Przegląd [schemat alertu elementu webhook dziennika aktywności](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
 - Dowiedz się więcej o [usługi powiadomień o kondycji](../monitoring-and-diagnostics/monitoring-service-notifications.md).

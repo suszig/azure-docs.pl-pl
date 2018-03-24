@@ -1,13 +1,13 @@
 ---
-title: "Najlepsze rozwiązania dotyczące funkcji platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się najlepsze rozwiązania i wzorce dla usługi Azure Functions."
+title: Najlepsze rozwiązania dotyczące funkcji platformy Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się najlepsze rozwiązania i wzorce dla usługi Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "środowisko Azure functions, wzorce, najlepszym rozwiązaniem, funkcji, przetwarzania elementów webhook, dynamiczne obliczeń, architektura niekorzystającą zdarzeń"
+editor: ''
+tags: ''
+keywords: środowisko Azure functions, wzorce, najlepszym rozwiązaniem, funkcji, przetwarzania elementów webhook, dynamiczne obliczeń, architektura niekorzystającą zdarzeń
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optymalizuj wydajność i niezawodność usługi Azure Functions
 
@@ -99,7 +99,7 @@ Programowanie asynchroniczne jest zalecanym najlepszym rozwiązaniem. Jednak zaw
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Komunikaty w partii, jeśli to możliwe
 
-Niektóre wyzwalaczy, takich jak Centrum zdarzeń Włącz odbieranie partii komunikatów w jednym wywołaniu.  Tworzenie partii komunikatów ma znacznie większą wydajność.  Można skonfigurować rozmiar maksymalny partii w `functions.json` plików zgodnie z opisem w [host.json dokumentacji](functions-host-json.md)
+Niektóre wyzwalaczy, takich jak Centrum zdarzeń Włącz odbieranie partii komunikatów w jednym wywołaniu.  Tworzenie partii komunikatów ma znacznie większą wydajność.  Można skonfigurować rozmiar maksymalny partii w `host.json` plików zgodnie z opisem w [host.json dokumentacji](functions-host-json.md)
 
 C# funkcji można zmienić typ na silnie typizowaną tablicę.  Na przykład zamiast z `EventData sensorEvent` podpis metody może być `EventData[] sensorEvent`.  Dla innych języków, musisz jawnie ustawić właściwość cardinality Twojej `function.json` do `many` Aby włączyć przetwarzanie wsadowe [w sposób pokazany poniżej](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 

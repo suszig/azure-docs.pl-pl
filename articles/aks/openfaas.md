@@ -1,6 +1,6 @@
 ---
-title: "OpenFaaS za pomocą usługi kontenera platformy Azure (AKS)"
-description: "Wdrażanie i użytkowanie OpenFaaS z usługi kontenera platformy Azure (AKS)"
+title: OpenFaaS za pomocą usługi kontenera platformy Azure (AKS)
+description: Wdrażanie i użytkowanie OpenFaaS z usługi kontenera platformy Azure (AKS)
 services: container-service
 author: justindavies
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 06706450d8af6f571f002789815290f75da9623d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Za pomocą OpenFaaS na AKS
 
@@ -230,7 +230,7 @@ Można również sprawdzić funkcji w Interfejsie użytkownika OpenFaaS.
 
 ![tekst alternatywny](media/container-service-serverless/OpenFaaSUI.png)
 
-# <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Domyślnym wdrożeniu programu OpenFaas musi być zablokowany dla bramy OpenFaaS i funkcje. [Wpis w blogu Ellis Alexowi](https://blog.alexellis.io/lock-down-openfaas/) zawiera dodatkowe informacje na temat opcji konfiguracji bezpiecznego. 
 

@@ -1,12 +1,12 @@
 ---
-title: "Rozwiązywanie problemów z usługą równoważenia obciążenia Azure | Dokumentacja firmy Microsoft"
-description: "Rozwiązywanie problemów z znane problemy z modułem równoważenia obciążenia Azure"
+title: Rozwiązywanie problemów z usługą równoważenia obciążenia Azure | Dokumentacja firmy Microsoft
+description: Rozwiązywanie problemów z znane problemy z modułem równoważenia obciążenia Azure
 services: load-balancer
 documentationcenter: na
 author: RamanDhillon
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Rozwiązywanie problemów z usługą równoważenia obciążenia Azure
 
@@ -54,7 +54,7 @@ Jeśli maszyna wirtualna jest w dobrej kondycji, ale nie odpowiada na żądania 
 3. Jeśli stan portu nie jest wymieniony jako **LISTENING**, skonfigurować odpowiednie port. 
 4. Można także wybrać innego portu, który jest wymieniony jako **LISTENING**i zaktualizuj odpowiednio załadować konfiguracji usługi równoważenia.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Przyczyny 3: Zapora lub grupy zabezpieczeń sieci jest zablokowanie portu w puli zaplecza modułu równoważenia obciążenia maszyn wirtualnych  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Przyczyny 3: Zapora lub grupy zabezpieczeń sieci jest zablokowanie portu w puli zaplecza modułu równoważenia obciążenia maszyn wirtualnych  
 Jeśli zapora na maszynie Wirtualnej blokuje port sondy lub co najmniej jedna sieć grupy zabezpieczeń skonfigurowane w podsieci lub na maszynie Wirtualnej, nie zezwala na sondowanie nawiązać połączenia z portem, maszyny Wirtualnej nie może odpowiadać na sondy kondycji.          
 
 **Sprawdzanie poprawności i rozwiązania**
@@ -131,7 +131,7 @@ Jeśli zdecydujesz się otwieranie sprawy pomocy technicznej, należy zebrać na
 - Umożliwia testowanie odpowiedzi port sondy TCPing z jednej z maszyn wirtualnych w ramach sieci wirtualnej wewnętrznej bazy danych (przykład: 10.0.0.4:3389 narzędzia psping) i zanotować wyniki.
 - Jeśli odpowiedź nie zostanie odebrana w tych testów ping, należy uruchomić jednoczesnych Netsh trace na wewnętrznej bazy danych maszyny Wirtualnej i testowej sieci wirtualnej maszyny Wirtualnej podczas uruchamiania narzędzia PsPing następnie Zatrzymaj śledzenie Netsh. 
   
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli powyższe czynności nie rozwiązać ten problem, otwórz [obsługuje biletu](https://azure.microsoft.com/support/options/).
 

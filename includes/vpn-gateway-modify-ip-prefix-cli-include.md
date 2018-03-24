@@ -1,3 +1,19 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 9b168231669c50c8f00d3527288fd03ab3bf9ce8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="noconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — brak połączenia bramy
 
 Jeśli nie masz połączenia bramy i chcesz dodać lub usunąć prefiksy adresów IP, możesz użyć tego samego polecenia, za pomocą którego utworzono bramę sieci lokalnej: [az network local-gateway create](https://docs.microsoft.com/cli/azure/network/local-gateway#az_network_local_gateway_create). To polecenie umożliwia również zaktualizowanie adresu IP bramy dla urządzenia sieci VPN. W celu zastąpienia bieżących ustawień użyj istniejącej nazwy bramy sieci lokalnej. Jeśli użyjesz innej nazwy, utworzysz nową bramę sieci lokalnej, a nie zastąpisz istniejącej.

@@ -1,11 +1,11 @@
 ---
-title: "Aparat dopasowania warunki zasady usługi Azure CDN | Dokumentacja firmy Microsoft"
-description: "Dokumentacja referencyjna dla usługi Azure Content Delivery Network zasady warunków dopasowania aparatu."
+title: Aparat dopasowania warunki zasady usługi Azure CDN | Dokumentacja firmy Microsoft
+description: Dokumentacja referencyjna dla usługi Azure Content Delivery Network zasady warunków dopasowania aparatu.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Pasujące aparatu reguł usługi Azure CDN 
 W tym artykule przedstawiono szczegółowe opisy warunki dopasowania dostępne dla usługi Azure sieci dostarczania zawartości (CDN) [aparatu reguł](cdn-rules-engine.md).
@@ -322,7 +322,7 @@ W poniższej tabeli wymieniono możliwości WURFL oraz ich zmienne dla aparatu r
 Możliwości | Zmienna | Opis | Przykładowe wartości
 -----------|----------|-------------|----------------
 Nazwa marki | %{wurfl_cap_brand_name} | Ciąg, który wskazuje nazwę urządzenia. | Samsung
-System operacyjny urządzenia | %{wurfl_cap_device_os} | Ciąg, który wskazuje system operacyjny zainstalowany na urządzeniu. | IOS
+System operacyjny urządzenia | %{wurfl_cap_device_os} | Ciąg, który wskazuje system operacyjny zainstalowany na urządzeniu. | iOS
 Wersja systemu operacyjnego urządzenia | %{wurfl_cap_device_os_version} | Ciąg, który wskazuje numer wersji systemu operacyjnego zainstalowanego na urządzeniu. | 1.0.1
 Podwójna orientacji | %{wurfl_cap_dual_orientation} | Wartość logiczna, która wskazuje, czy urządzenie obsługuje dwa orientacji. | true
 HTML preferowane DTD | %{wurfl_cap_html_preferred_dtd} | Ciąg, który wskazuje definicja typu dokumentu preferowanych urządzeń przenośnych (DTD) dla zawartości HTML. | brak<br/>xhtml_basic<br/>html5
@@ -526,15 +526,15 @@ Informacje o kluczu:
 
      Na przykład: https:\//&lt;punktu końcowego&gt;.azureedge.net/**MójFolder**/index.htm 
 
-     Ten adres URL wskazuje następujące hosta Verizon CDN: http:\//wpc.0001.&lt; Domeny&gt;/800001/myorigin/**MójFolder**/index.htm
+     Ten adres URL wskazuje następujące hosta Verizon CDN: http:\//wpc.0001.&lt; domeny&gt;/800001/myorigin/**MójFolder**/index.htm
 
 - Krawędź CNAME adres URL jest napisany od nowa do adresu URL usługi CDN przed porównania adresu URL.
 
     Na przykład obu następujących adresów URL wskaż danego elementu zawartości i dlatego mają taką samą ścieżkę adresu URL.
-    - Adres URL usługi CDN: http:\//wpc.0001.&lt; Domeny&gt;/800001/CustomerOrigin/path/asset.htm
+    - Adres URL usługi CDN: http:\//wpc.0001.&lt; domeny&gt;/800001/CustomerOrigin/path/asset.htm
     
     - Adres URL CNAME krawędzi: http:\//&lt;punktu końcowego&gt;.azureedge.net/path/asset.htm
-
+    
     Dodatkowe informacje:
     - Domena niestandardowa: https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ Informacje o kluczu:
     Następujące wartości są dostępne dla **względem** opcji:
      - **Główny**: wskazuje, że adres URL punktu porównania rozpoczyna się bezpośrednio po hosta CDN.
 
-       Na przykład: http:\//wpc.0001.&lt; Domeny&gt;/**800001/myorigin/myfolder/index.htm**
+       Na przykład: http:\//wpc.0001.&lt; domeny&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Pochodzenie**: wskazuje, że adres URL punktu porównania rozpoczyna się po punkt dostępu do zawartości (na przykład /000001 lub/800001/myorigin). Ponieważ \*. azureedge.net CNAME jest tworzony domyślnie względem katalogu pochodzenia na hosta Verizon CDN, Azure CDN użytkownicy powinni używać **pochodzenia** wartość. 
 
        Na przykład: https:\//&lt;punktu końcowego&gt;.azureedge.net/**myfolder/index.htm**
 
-     Ten adres URL wskazuje następujące hosta Verizon CDN: http:\//wpc.0001.&lt; Domeny&gt;/800001/myorigin/**myfolder/index.htm**
+     Ten adres URL wskazuje następujące hosta Verizon CDN: http:\//wpc.0001.&lt; domeny&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Krawędź CNAME adres URL jest napisany od nowa do adresu URL usługi CDN przed porównaniem adresu URL.
 
-   Na przykład obu następujących adresów URL wskaż danego elementu zawartości i dlatego mają taką samą ścieżkę adresu URL:
-    - Adres URL usługi CDN: http:\//wpc.0001.&lt; Domeny&gt;/800001/CustomerOrigin/path/asset.htm
+    Na przykład obu następujących adresów URL wskaż danego elementu zawartości i dlatego mają taką samą ścieżkę adresu URL:
+    - Adres URL usługi CDN: http:\//wpc.0001.&lt; domeny&gt;/800001/CustomerOrigin/path/asset.htm
     - Adres URL CNAME krawędzi: http:\//&lt;punktu końcowego&gt;.azureedge.net/path/asset.htm
-
-   Dodatkowe informacje:
+    
+    Dodatkowe informacje:
     
     - Ścieżka adresu URL (względem katalogu głównego): /800001/CustomerOrigin/path/asset.htm
    
@@ -662,7 +662,7 @@ Informacje o kluczu:
 
 - Ciągi zapytania w adresie URL są ignorowane.
 - Użyj **Ignoruj przypadku** opcji w celu sterowania czy odbywa się porównania z uwzględnieniem wielkości liter.
-- Wartość określona dla tego warunku dopasowania będzie porównywana ścieżki względnej dokładne żądania przez klienta.
+- Wartość określona dla tego warunku dopasowanie jest porównywana ścieżki względnej dokładne żądania przez klienta.
 
 - Aby uwzględnić wszystkie żądania kierowane do określonego katalogu, należy użyć [adresu URL ścieżki katalogu](#url-path-directory) lub [symbolu wieloznacznego ścieżki adresu URL](#url-path-wildcard) dopasować stan.
 
@@ -681,13 +681,13 @@ Porównuje ścieżki adresu URL żądania do określonego [wyrażenie regularne]
 Informacje o kluczu:
 - Krawędź CNAME adres URL jest napisany od nowa do adresu URL usługi CDN przed porównania adresu URL. 
  
-   Na przykład oba adresy URL wskaż danego elementu zawartości i dlatego mają taką samą ścieżkę adresu URL.
+    Na przykład oba adresy URL wskaż danego elementu zawartości i dlatego mają taką samą ścieżkę adresu URL.
 
-     - Adres URL usługi CDN: http:\//wpc.0001.&lt; Domeny&gt;/800001/CustomerOrigin/path/asset.htm
+     - Adres URL usługi CDN: http:\//wpc.0001.&lt; domeny&gt;/800001/CustomerOrigin/path/asset.htm
 
      - Adres URL CNAME krawędzi: http:\//my.domain.com/path/asset.htm
-
-   Dodatkowe informacje:
+    
+    Dodatkowe informacje:
     
      - Ścieżka adresu URL: /800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ Informacje o kluczu:
    Ta opcja może mieć następujące wartości:
      - **Główny**: wskazuje, że adres URL punktu porównania rozpoczyna się bezpośrednio po hosta CDN.
 
-       Na przykład: http:\//wpc.0001.&lt; Domeny&gt;/**800001/myorigin/myfolder/index.htm**
+       Na przykład: http:\//wpc.0001.&lt; domeny&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Pochodzenie**: wskazuje, że adres URL punktu porównania rozpoczyna się po punkt dostępu do zawartości (na przykład /000001 lub/800001/myorigin). Ponieważ \*. azureedge.net CNAME jest tworzony domyślnie względem katalogu pochodzenia na hosta Verizon CDN, Azure CDN użytkownicy powinni używać **pochodzenia** wartość. 
 
        Na przykład: https:\//&lt;punktu końcowego&gt;.azureedge.net/**myfolder/index.htm**
 
-     Ten adres URL wskazuje następujące hosta Verizon CDN: http:\//wpc.0001.&lt; Domeny&gt;/800001/myorigin/**myfolder/index.htm**
+     Ten adres URL wskazuje następujące hosta Verizon CDN: http:\//wpc.0001.&lt; domeny&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Krawędź CNAME adres URL jest napisany od nowa do adresu URL usługi CDN przed porównania adresu URL.
 
-   Na przykład obu następujących adresów URL wskaż danego elementu zawartości i dlatego mają taką samą ścieżkę adresu URL:
-     - Adres URL usługi CDN: http://wpc.0001. &lt;Domeny&gt;/800001/CustomerOrigin/path/asset.htm
+    Na przykład obu następujących adresów URL wskaż danego elementu zawartości i dlatego mają taką samą ścieżkę adresu URL:
+     - Adres URL usługi CDN: http://wpc.0001. &lt;domeny&gt;/800001/CustomerOrigin/path/asset.htm
      - Adres URL CNAME krawędzi: http:\//&lt;punktu końcowego&gt;.azureedge.net/path/asset.htm
-
-   Dodatkowe informacje:
+    
+    Dodatkowe informacje:
     
      - Ścieżka adresu URL (względem katalogu głównego): /800001/CustomerOrigin/path/asset.htm
     
@@ -757,7 +757,7 @@ Wartość                   | Względem    | Wynik
 / 80ABCD/pochodzenia/tekstu / *   | Katalog główny           | Ten wzorzec jest zgodny, gdy żądanych zasobów spełnia następujące kryteria: <br />-Musi znajdować się w źródle klienta o nazwie "origin". <br />— Ścieżka względna musi rozpoczynać się od folder o nazwie "text". Oznacza to żądanych zasobów albo może znajdować się w folderze "text" lub jednej z jego podfolderach cyklicznego.
 */CSS/* */js/*          | Główny lub punkt początkowy | Ten wzorzec jest uwzględniony przez wszystkie CDN lub krawędzi adresy URL CNAME, który zawiera folder css i js.
 *.jpg *.gif *.png       | Główny lub punkt początkowy | Ten wzorzec jest uwzględniony przez wszystkie CDN lub krawędzi CNAME adresy URL kończą się ciągiem jpg, GIF lub PNG. Alternatywny sposób Określ ten wzorzec jest z [rozszerzenie ścieżki adresu URL zgodne z warunkiem](#url-path-extension).
-/ obrazów / * / media / *      | Origin         | Ten wzorzec jest uwzględniony przez CDN lub krawędzi CNAME adresów URL, którego ścieżka względna rozpoczyna się od "obrazy" lub "nośnika" folder. <br />-Adres URL CDN: http:\//wpc.0001.&lt; Domeny&gt;/800001/myorigin/images/sales/event1.png<br />-Przykładowe krawędzi CNAME adresu URL: http:\//cdn.mydomain.com/images/sales/event1.png
+/ obrazów / * / media / *      | Origin         | Ten wzorzec jest uwzględniony przez CDN lub krawędzi CNAME adresów URL, którego ścieżka względna rozpoczyna się od "obrazy" lub "nośnika" folder. <br />-Adres URL CDN: http:\//wpc.0001.&lt; domeny&gt;/800001/myorigin/images/sales/event1.png<br />-Przykładowe krawędzi CNAME adresu URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ Informacje o kluczu:
 #### <a name="sample-scenarios"></a>Przykładowe scenariusze
 W poniższym przykładzie pokazano, jak ta opcja działa w następujących sytuacjach:
 
-Name (Nazwa)      | Wartość |  Wynik
-----------|-------|--------
-Użytkownik      | Jan   | Ten wzorzec jest zgodny, gdy ciąg zapytania dla żądanego adresu URL jest "? użytkownika = Jan."
-Użytkownik      | *     | Ten wzorzec jest zgodny, gdy parametr użytkownika zawiera ciąg zapytania dla żądanego adresu URL.
-Jan poczty e-mail | *     | Ten wzorzec jest zgodny, jeśli ciąg zapytania dla żądanego adresu URL zawiera parametr poczty E-mail, który rozpoczyna się od "Jan".
+Name (Nazwa)  | Wartość |  Wynik
+------|-------|--------
+Użytkownik  | Jan   | Ten wzorzec jest zgodny, gdy ciąg zapytania dla żądanego adresu URL jest "? użytkownika = Jan."
+Użytkownik  | *     | Ten wzorzec jest zgodny, gdy parametr użytkownika zawiera ciąg zapytania dla żądanego adresu URL.
+Adres e-mail | Jan\* | Ten wzorzec jest zgodny, jeśli ciąg zapytania dla żądanego adresu URL zawiera parametr poczty E-mail, który rozpoczyna się od "Jan".
 
 [Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Informacje o kluczu:
    Wartość | Interpretowane jako 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ten warunek dopasowania jest niezgodny z następujących funkcji:
    - Zakończenie wypełnienie pamięci podręcznej
@@ -970,7 +970,7 @@ user=joe              | Ten wzorzec jest zgodny, gdy ciąg zapytania dla żądan
 
 ## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie usługi Azure Content Delivery Network](cdn-overview.md)
-* [Odwołanie do aparatu reguł](cdn-rules-engine-reference.md)
+* [Dokumentacja aparatu reguł](cdn-rules-engine-reference.md)
 * [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
 * [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)

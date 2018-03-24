@@ -1,24 +1,24 @@
 ---
-title: "Grupy komputerów w Azure Log Analytics dziennika wyszukiwania | Dokumentacja firmy Microsoft"
-description: "Grupy komputerów w analizy dzienników umożliwiają zakres wyszukiwania dziennika do określonego zestawu komputerów.  W tym artykule opisano różne metody używanej do tworzenia grup komputerów i sposobu ich używania w wyszukiwaniu dziennika."
+title: Grupy komputerów w Azure Log Analytics dziennika wyszukiwania | Dokumentacja firmy Microsoft
+description: Grupy komputerów w analizy dzienników umożliwiają zakres wyszukiwania dziennika do określonego zestawu komputerów.  W tym artykule opisano różne metody używanej do tworzenia grup komputerów i sposobu ich używania w wyszukiwaniu dziennika.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Zaloguj się wyszukiwanie grup komputerów w analizy dzienników
 
@@ -49,7 +49,7 @@ W poniższej tabeli opisano właściwości, które definiują grupę komputerów
 | Nazwa wyświetlana   | Nazwa wyszukiwania, które mają być wyświetlane w portalu. |
 | Kategoria       | Kategoria do organizowania wyszukiwania w portalu. |
 | Zapytanie          | Zapytanie dla grupy komputerów. |
-| Alias — funkcja | Unikatowego aliasu używany do identyfikowania grupy komputerów w zapytaniu. |
+| Alias funkcji | Unikatowego aliasu używany do identyfikowania grupy komputerów w zapytaniu. |
 
 Poniższa procedura umożliwia utworzenie grupy komputerów z dziennika wyszukiwania w portalu Azure.
 
@@ -66,12 +66,6 @@ Poniższa procedura umożliwia utworzenie grupy komputerów z dziennika wyszukiw
 5. Podaj wartość dla każdej właściwości grupy komputerów. 
 
 
->[!NOTE]
-> Jeśli nadal używa obszaru roboczego [języka zapytań starszej wersji analizy dzienników](log-analytics-log-search-upgrade.md) , a następnie użyć tej samej procedury tworzenia grupy komputerów, ale należy użyć składni języka kwerend starszej wersji.
-
-
-### <a name="log-search-api"></a>Dziennik wyszukiwania interfejsu API
-Grupy komputerów utworzone za pomocą interfejsu API Search dziennika są takie same jak wyszukiwania utworzonych za pomocą wyszukiwania dziennika.  Aby uzyskać więcej informacji na temat tworzenia grupy komputerów przy użyciu interfejsu API Search dziennika zobacz [grup komputerów w dzienniku analizy dzienników wyszukiwania interfejsu API REST](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Usługa Active Directory
 Podczas konfigurowania analizy dzienników do zaimportowania członkostwa w grupach usługi Active Directory, analizuje członkostwo w grupie komputerów przyłączonych do domeny z agentem pakietu OMS.  Grupa komputerów jest tworzony w analizy dzienników dla każdej grupy zabezpieczeń w usłudze Active Directory, a każdy komputer jest dodawany do odpowiadającego do grupy zabezpieczeń, które są oni członkami grupy komputerów.  To członkostwo jest stale aktualizowany co 4 godziny.  
@@ -131,30 +125,18 @@ Następujące zapytanie zwróci UpdateSummary rekordów tylko komputery w domeni
 
 
 
-  
-
->[!NOTE]
-> Jeśli nadal używa obszaru roboczego [języka zapytań starszej wersji analizy dzienników](log-analytics-log-search-upgrade.md)>, a następnie użyj następującej składni w odwołaniu do grupy komputerów w wyszukiwaniu dziennika.  Określanie **kategorii** > jest opcjonalny i tylko wymagane, jeśli masz grupy komputerów o takiej samej nazwie w różnych kategoriach. 
->
->    `$ComputerGroups[Category: Name]`
->
->Grupy komputerów są zazwyczaj używane z **IN** klauzuli w wyszukiwania dziennika, jak w poniższym przykładzie:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
-
-
 
 ## <a name="computer-group-records"></a>Rekordów grupy komputerów
 Zostaje utworzony rekord w obszarze roboczym analizy dzienników dla każdego członkostwa grup komputerów utworzone na podstawie usługi Active Directory lub usług WSUS.  Te rekordy mieć typu **Grupa_komputerów** i mieć właściwości w poniższej tabeli.  Rekordy nie są tworzone dla grup komputerów opartych na dziennik wyszukiwania.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Typ |*Grupa_komputerów* |
+| Typ |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |
 | Computer (Komputer) |Nazwa komputera członkowskiego. |
 | Grupa |Nazwa grupy. |
 | GroupFullName |Pełna ścieżka do grupy, takie jak źródło i nazwa źródła. |
-| GroupSource |Źródło tej grupy zostały zebrane z. <br><br>Polecenie cmdlet<br>PROGRAM WSUS<br>WSUSClientTargeting |
+| GroupSource |Źródło tej grupy zostały zebrane z. <br><br>Polecenie cmdlet<br>WSUS<br>WSUSClientTargeting |
 | GroupSourceName |Nazwa źródła, które zostały zebrane grupy.  Dla usługi Active Directory jest to nazwa domeny. |
 | ManagementGroupName |Nazwa grupy zarządzania agentów SCOM.  W przypadku innych agentów jest AOI -\<identyfikator obszaru roboczego\> |
 | TimeGenerated |Data i godzina utworzenia lub aktualizacji grupy komputerów. |

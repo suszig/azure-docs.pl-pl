@@ -1,6 +1,6 @@
 ---
-title: "Rozpocznij pracę z usługą Azure Automation"
-description: "Ten artykuł zawiera omówienie usługi Automatyzacja Azure. Zapoznaje się projekt i implementację szczegółów w ramach przygotowania do dołączenia do oferty w witrynie Azure Marketplace."
+title: Rozpocznij pracę z usługą Azure Automation
+description: Ten artykuł zawiera omówienie usługi Automatyzacja Azure. Zapoznaje się projekt i implementację szczegółów w ramach przygotowania do dołączenia do oferty w witrynie Azure Marketplace.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: dab404178b45828732e137835213046cedaf0d03
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 961b783b44b95a871c98f96d3783f3429636f295
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Rozpocznij pracę z usługą Azure Automation
 

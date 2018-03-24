@@ -1,11 +1,11 @@
 ---
-title: "Zespół Azure prowadzić do zespołu zestawu danych nauki procesu zadania — | Dokumentacja firmy Microsoft"
-description: "Konspekt zadań dla zespołu prowadzić na projektu zespołowego analizy danych."
-documentationcenter: 
+title: Zespół Azure prowadzić do zespołu zestawu danych nauki procesu zadania — | Dokumentacja firmy Microsoft
+description: Konspekt zadań dla zespołu prowadzić na projektu zespołowego analizy danych.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 995ad557eb06e545b1813e1f4631e243a98830b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="team-lead-tasks"></a>Zespół realizacji zadań
 
@@ -208,7 +208,7 @@ Po zakończeniu klonowania dwa katalogi **MyTeamProjectTemplate** (D3) i **MyTea
 
 Aby skopiować zawartość lokalnej **GroupProjectTemplate** (D1) folderu do lokalnej **MyTeamProjectTemplate** (D3), uruchom jedno z poniższych skryptów powłoki: 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>Z wiersza polecenia dla systemu Windows PowerShell        
+#### <a name="from-the-powershell-command-line-for-windows"></a>Z wiersza polecenia dla systemu Windows PowerShell       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ Aby skopiować zawartość lokalnej **GroupProjectTemplate** (D1) folderu do lok
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>W przypadku systemu Linux **DSVM systemu Linux**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>W przypadku systemu Linux **DSVM systemu Linux**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +388,7 @@ Upewnij się, że nowy dysk F został pomyślnie zainstalowany na tym komputerze
 
 **Jak ręcznie wprowadzić informacje o magazyn plików Azure:** , jeśli nie ma danych magazyn plików Azure w pliku tekstowym, możesz postępuj zgodnie z instrukcjami na ekranie następujące do typu w subskrypcji wymagane konta magazynu i Azure informacje o pliku magazynu:
 
-- Dane wejściowe  **n** .
+- Dane wejściowe **n**.
 - Wybierz indeks Nazwa subskrypcji, w którym magazyn plików Azure została utworzona w poprzednim kroku:
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)
@@ -408,7 +408,7 @@ Na serwerze programu VSTS grupy strony głównej, kliknij **koło zębate ikonę
 
 ![44](./media/team-lead-tasks/team-leads-44-add-team-members.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Oto łącza do bardziej szczegółowe opisy ról i zadań zdefiniowanych przez proces nauki danych zespołu:
 

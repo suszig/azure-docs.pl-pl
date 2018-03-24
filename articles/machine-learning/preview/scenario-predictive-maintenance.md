@@ -1,6 +1,6 @@
 ---
 title: Konserwacji predykcyjnej w rzeczywistych scenariuszach | Dokumentacja firmy Microsoft
-description: "Konserwacji predykcyjnej w rzeczywistych scenariuszach przy użyciu PySpark"
+description: Konserwacji predykcyjnej w rzeczywistych scenariuszach przy użyciu PySpark
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Konserwacji predykcyjnej, do rzeczywistych scenariuszy
 
@@ -25,7 +25,7 @@ W tym scenariuszu Eksploruje stosunkowo [na dużą skalę symulowane zestawu dan
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Repozytorium Cortana Intelligence Gallery GitHub
 
-Cortana Intelligence Gallery samouczek PM jest publicznego repozytorium GitHub ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) gdzie Zgłoś problemy i upewnij udziały.
+Cortana Intelligence Gallery samouczek PM jest publicznego repozytorium GitHub ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) gdzie zgłaszania problemów i utworzyć udziały.
 
 
 ## <a name="use-case-overview"></a>Omówienie przypadków użycia
@@ -49,8 +49,8 @@ Model operationalization została wykonana za pomocą wersji 0.1.0a22 z interfej
 ## <a name="create-a-new-workbench-project"></a>Utwórz nowy projekt Workbench
 
 Utwórz nowy projekt, korzystając z tego przykładu jako szablon:
-1.  Otwórz Workbench uczenia maszynowego.
-2.  Na **projekty** wybierz pozycję  **+** , a następnie wybierz **nowy projekt**.
+1.  Otwórz aplikację Machine Learning Workbench.
+2.  Na **projekty** wybierz pozycję **+**, a następnie wybierz **nowy projekt**.
 3.  W **Utwórz nowy projekt** okienka, wypełnij informacje dla nowego projektu.
 4.  W **szablony projektów wyszukiwania** polu wyszukiwania wpisz "Konserwacji predykcyjnej", wybierz **konserwacji predykcyjnej** szablonu.
 5.  Wybierz pozycję **Utwórz**.

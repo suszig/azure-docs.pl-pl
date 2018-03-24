@@ -2,9 +2,10 @@
 title: Konkursami AI galerii Azure | Dokumentacja firmy Microsoft
 description: Wykryj konkursami w galerii Azure AI.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d12da450fe929361b32ea607a09d3afbbd2639b9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Odnajdywanie konkursami w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/03/2018
 Aby uzyskać odpowiedzi na często zadawane pytania dotyczące konkursami, zobacz [często zadawane pytania dotyczące programu Microsoft Cortana Intelligence konkursami](competition-faq.md).
 
 ## <a name="discover"></a>Wykrywanie
-**[Konkursami](https://gallery.cortanaintelligence.com/competitions)**  strony ([aka.ms/CIComp](http://aka.ms/CIComp)) zostanie wyświetlona lista najpopularniejszych konkursami.
+**[Konkursami](https://gallery.cortanaintelligence.com/competitions)** strony ([aka.ms/CIComp](http://aka.ms/CIComp)) zostanie wyświetlona lista najpopularniejszych konkursami.
 
 ![Wybierz konkursami z galerii strony głównej](./media/gallery-competitions/select-competitions-in-gallery.png)
 
@@ -50,7 +50,7 @@ Jeśli konkurencji jest otwarty, na stronie Szczegóły stanu jest **Active**. A
 
 Jeżeli konkurencji została zakończona, wyświetlana jest lista zwycięzców.
 
-**[PRZEJDŹ DO GALERII >>](http://gallery.cortanaintelligence.com)**
+**[PRZEJDŹ DO GALERII &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

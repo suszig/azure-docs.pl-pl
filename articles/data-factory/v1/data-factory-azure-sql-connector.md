@@ -1,11 +1,10 @@
 ---
 title: Kopiowanie danych do/z bazy danych SQL Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak skopiować dane z bazy danych SQL Azure przy użyciu fabryki danych Azure."
+description: Dowiedz się, jak skopiować dane z bazy danych SQL Azure przy użyciu fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 484f735b-8464-40ba-a9fc-820e6553159e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5718cfdca4e12edcb98e79807ffe86d7be16b07
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bf47ad3f401abced4e74260dc9180413d69268c3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych do i z bazy danych SQL Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -642,13 +641,13 @@ Podczas przenoszenia danych do i z bazy danych SQL Azure, następujące mapowani
 | Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| data |Data/godzina |
-| Data/godzina |Data/godzina |
-| datetime2 |Data/godzina |
+| data |DateTime |
+| Data/godzina |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atrybut FILESTREAM (varbinary(max)) |Byte[] |
-| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
+| Float |Podwójnej precyzji |
 | Obraz |Byte[] |
 | int |Int32 |
 | oszczędność pieniędzy |Decimal |
@@ -658,7 +657,7 @@ Podczas przenoszenia danych do i z bazy danych SQL Azure, następujące mapowani
 | nvarchar |Ciąg, Char] |
 | rzeczywiste |Kawaler/panna |
 | ROWVERSION |Byte[] |
-| smalldatetime |Data/godzina |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |

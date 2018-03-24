@@ -1,6 +1,6 @@
 ---
-title: "Learning przepływu pracy programu PowerShell dla usługi Automatyzacja Azure"
-description: "Ten artykuł dotyczy jako szybki lekcji dla autorów doświadczenia w obsłudze programu PowerShell zrozumienie określonych różnic między środowiska PowerShell i przepływ pracy programu PowerShell i pojęcia mające zastosowanie do elementów runbook automatyzacji."
+title: Learning przepływu pracy programu PowerShell dla usługi Automatyzacja Azure
+description: Ten artykuł dotyczy jako szybki lekcji dla autorów doświadczenia w obsłudze programu PowerShell zrozumienie określonych różnic między środowiska PowerShell i przepływ pracy programu PowerShell i pojęcia mające zastosowanie do elementów runbook automatyzacji.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b8d78d6dfd258fb51e7b30832b6c214c67ac0fec
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 32f991f0b0017e673828b1ceb832511e118efa92
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Nauka podstawowych pojęć przepływu pracy środowiska Windows PowerShell dla elementów runbook automatyzacji 
 Elementy Runbook automatyzacji Azure są zaimplementowane jako przepływy pracy Windows PowerShell.  Przepływu pracy środowiska Windows PowerShell jest podobny do skryptu programu Windows PowerShell, ale ma pewne istotne różnice, które mogą być mylące dla nowego użytkownika.  Gdy ten artykuł dotyczy ułatwia pisanie elementów runbook za pomocą przepływu pracy programu PowerShell, zaleca się zapisu elementów runbook za pomocą programu PowerShell, chyba że potrzebne punkty kontrolne.  Istnieje kilka różnic składni podczas tworzenia elementów runbook przepływu pracy programu PowerShell i różnice te wymaga nieco więcej pracy pisanie przepływów pracy skuteczne.  

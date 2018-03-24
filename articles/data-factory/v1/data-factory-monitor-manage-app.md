@@ -1,11 +1,10 @@
 ---
-title: "Monitorowanie i zarządzanie nimi w potokach danych - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak monitorować i zarządzać nimi fabryki danych Azure i potoki przy użyciu aplikacji zarządzania i monitorowania."
+title: Monitorowanie i zarządzanie nimi w potokach danych - Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak monitorować i zarządzać nimi fabryki danych Azure i potoki przy użyciu aplikacji zarządzania i monitorowania.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5aae5057cccdf8dfbe2a42a39da5b9e70b9166f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie i zarządzanie nimi potoki fabryki danych Azure przy użyciu aplikacji monitorowanie i zarządzanie
 > [!div class="op_single_selector"]
@@ -212,7 +211,7 @@ Działanie systemu windows może być w jednym z następujących stanów:
 <td>Pominięto</td><td>-</td><td>Okno działania nie został przetworzony.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Okno działania miał poprzednio inny stan, ale został zresetowany.</td>
+<td>Brak</td><td>-</td><td>Okno działania miał poprzednio inny stan, ale został zresetowany.</td>
 </tr>
 </table>
 

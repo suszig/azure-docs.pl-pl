@@ -1,24 +1,24 @@
 ---
-title: "Połączeń wychodzących na platformie Azure (klasyczne) | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak Azure umożliwia usługi do komunikacji z publicznego internetowych usług w chmurze."
+title: Połączeń wychodzących na platformie Azure (klasyczne) | Dokumentacja firmy Microsoft
+description: W tym artykule opisano, jak Azure umożliwia usługi do komunikacji z publicznego internetowych usług w chmurze.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8a24987ae3423a02647b1dd246b40179be100c06
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="outbound-connections-classic"></a>Połączenia wychodzące (klasyczne)
 
@@ -123,6 +123,18 @@ Zmiana rozmiaru wdrożenia może mieć wpływ na niektóre przepływów ustalony
 
 Jeśli zmniejsza rozmiar wdrożenia i zwiększyć liczbę dostępnych portów SNAT przejścia do dolnej warstwy. W takim przypadku istniejące przydzielonych SNAT portów i nie ma wpływu na ich odpowiednich przepływów.
 
+SNAT porty są protokół transportu IP określonego (TCP i UDP są przechowywane osobno) i są wydawane w następujących warunkach:
+
+### <a name="tcp-snat-port-release"></a>Wersja port TCP SNAT
+
+- Jeśli zarówno klient/serwer wysyła potwierdzenia/w wynikach wyszukiwania, SNAT port zostaną wydane 240 sekund.
+- Jeśli występuje RST, SNAT port zostaną wydane po 15 sekund.
+- Osiągnięto limit czasu bezczynności
+
+### <a name="udp-snat-port-release"></a>Wersja portu UDP SNAT
+
+- Osiągnięto limit czasu bezczynności
+
 ## <a name="problemsolving"></a> Rozwiązywanie problemów 
 
 Ta sekcja jest przeznaczona do zmniejszenia wyczerpania SNAT i innych scenariuszy, które mogą wystąpić w przypadku połączeń wychodzących na platformie Azure.
@@ -170,3 +182,4 @@ Za pomocą polecenia nslookup, możesz wysłać zapytanie DNS dla nazwy myip.ope
 ## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [modułu równoważenia obciążenia](load-balancer-overview.md) używane w przypadku wdrożeń usługi Resource Manager.
+- Więcej informacji na temat trybu [wychodzące połączenie](load-balancer-outbound-connections.md) scenariusze dostępne w przypadku wdrożeń usługi Resource Manager.

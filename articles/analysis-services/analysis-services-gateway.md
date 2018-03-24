@@ -1,25 +1,25 @@
 ---
 title: Brama danych lokalnych | Dokumentacja firmy Microsoft
-description: "Jest to konieczne, jeśli serwer usług Analysis Services na platformie Azure zostaną podłączone do lokalnych źródeł danych brama lokalnego."
+description: Jest to konieczne, jeśli serwer usług Analysis Services na platformie Azure zostaną podłączone do lokalnych źródeł danych brama lokalnego.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/19/2018
 ms.author: owend
-ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Łączenie z lokalnych źródeł danych z bramą danych lokalnych Azure
 Brama danych lokalna działa jako mostka zapewnianie bezpiecznego transferu danych między lokalnych źródeł danych i serwerów usług Azure Analysis Services w chmurze. Oprócz Praca z wieloma serwerami usług Azure Analysis Services, w tym samym regionie, najnowszą wersję bramy współdziała również z usługi Azure Logic Apps, usługi Power BI aplikacje zasilania i Flow firmy Microsoft. Wiele usług w tym samym regionie można skojarzyć z pojedynczą bramą. 
@@ -36,7 +36,7 @@ Pobieranie Instalatora z bramą po raz pierwszy jest procesem czteroczęściową
 
 Aby rozpocząć pracę od razu, zobacz [Zainstaluj i skonfiguruj bramę danych lokalnych](analysis-services-gateway-install.md).
 
-## <a name="how-it-works"></a>Jak to działa
+## <a name="how-it-works"> </a>Jak to działa
 Bramy, zainstalować na komputerze w organizacji działa jako usługa systemu Windows, **bramy danych lokalnych**. Ta usługa lokalna jest zarejestrowany z usługi bramy w chmurze za pomocą usługi Azure Service Bus. Następnie można utworzyć zasobu bramy usługi bramy w chmurze dla subskrypcji platformy Azure. Serwery usług Azure Analysis Services są następnie podłączone do zasobu bramy. Jeśli modele na serwerze muszą połączyć się z lokalnymi danymi źródła dla zapytań lub przetwarzania, przechodzi przez przepływu zapytań i danych zasobów bramy, usługi Azure Service Bus, Usługa bramy lokalnej lokalnymi danymi i źródeł danych. 
 
 ![Jak to działa](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -50,18 +50,18 @@ Zapytania i przepływ danych:
 5. Brama wysyła zapytanie do źródła danych do wykonania.
 6. Wyniki są wysyłane ze źródła danych, wróć do bramy, a następnie na usługę w chmurze i serwer.
 
-## <a name="windows-service-account"></a>Konta usługi systemu Windows
+## <a name="windows-service-account"> </a>Konto usługi systemu Windows
 Brama danych lokalnych jest skonfigurowana do używania *NT SERVICE\PBIEgwService* dla poświadczeń logowania usługi systemu Windows. Domyślnie ma uprawnienie do logowania jako usługa; w kontekście urządzenia, na którym instalujesz bramę na. To poświadczenie nie jest kontem używanym do łączenia się ze źródłami danych lokalnych lub konta platformy Azure.  
 
 Jeśli wystąpią problemy z serwerem proxy z powodu uwierzytelniania, można zmienić konto usługi systemu Windows dla użytkownika domeny lub konta usługi zarządzanego.
 
-## <a name="ports"></a>Portów
+## <a name="ports"> </a>Porty
 Brama tworzy wychodzące połączenie do usługi Azure Service Bus. Komunikuje się ona portów wychodzących: TCP 443 (ustawienie domyślne), 5671, 5672, 9350 za pośrednictwem 9354.  Brama nie jest wymagane porty dla ruchu przychodzącego.
 
 Firma Microsoft zaleca dozwolonych adresów IP w Twoim regionie danych w zaporze. Możesz pobrać [listy Microsoft Azure Datacenter IP](https://www.microsoft.com/download/details.aspx?id=41653). Ta lista jest aktualizowana co tydzień.
 
 > [!NOTE]
-> Adresy IP na liście adresów IP centrum danych Azure na liście znajdują się w notacji CIDR. Na przykład 10.0.0.0/24 oznacza 10.0.0.0 za pośrednictwem 10.0.0.24. Dowiedz się więcej o [notacji CIDR](http://whatismyipaddress.com/cidr).
+> Adresy IP na liście adresów IP centrum danych Azure na liście znajdują się w notacji CIDR. Aby dowiedzieć się więcej, zobacz [Bezklasowego routingu międzydomenowego](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -141,7 +141,7 @@ Można użyć aplikacji Azure szybkości testowanie narzędzia innej firmy by zm
 **Q**: co to jest korzyść klucz odzyskiwania? <br/>
 **A**: klucz odzyskiwania pozwala przeprowadzić migrację lub odzyskiwanie po awarii ustawienia bramy.
 
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
+## <a name="troubleshooting"> </a>Rozwiązywanie problemów
 
 **Q**: Dlaczego nie widzę mojego bramy na liście wystąpieniach bramy podczas próby utworzenia zasobu bramy na platformie Azure? <br/>
 **A**: istnieją dwie możliwe przyczyny. Najpierw jest już utworzony zasób dla bramy w bieżącej lub niektóre z innej subskrypcji. Aby wyeliminować tej możliwości, wyliczyć zasobów typu **bram danych lokalnych** z portalu. Upewnij się wybrać wszystkie subskrypcje podczas wyliczania wszystkich zasobów. Po utworzeniu zasobu bramy nie znajdują się na liście wystąpienie bramy w portalu środowisko tworzenia zasobu bramy. Druga możliwość jest to użytkownik zalogowany do portalu Azure usługi Azure AD tożsamości użytkownika, który zainstalował bramy. Aby rozwiązać, zaloguj się do portalu jako użytkownik, który zainstalował bramy przy użyciu tego samego konta.

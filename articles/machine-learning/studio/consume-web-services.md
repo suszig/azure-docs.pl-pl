@@ -1,10 +1,11 @@
 ---
-title: "Jak korzystać z usługi sieci Web Azure Machine Learning | Dokumentacja firmy Microsoft"
-description: "Po wdrożeniu usługi uczenia maszynowego, usługę sieci Web RESTFul, który ma zostać udostępnione mogą być używane jako usługa w czasie rzeczywistym żądanie odpowiedź lub jako usługę wykonywania wsadowego."
+title: Jak korzystać z usługi sieci Web Azure Machine Learning | Dokumentacja firmy Microsoft
+description: Po wdrożeniu usługi uczenia maszynowego, usługę sieci Web RESTFul, który ma zostać udostępnione mogą być używane jako usługa w czasie rzeczywistym żądanie odpowiedź lub jako usługę wykonywania wsadowego.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: efb23500d8c718ff1dc7b59c4cfb2b2d5cdfaccb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Jak korzystać z usługi Azure Machine Learning w sieci Web
 
@@ -32,7 +32,7 @@ Można znaleźć więcej informacji na temat sposobu tworzenia i wdrażania usł
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W usłudze Azure Machine Learning w sieci Web aplikacji zewnętrznej komunikuje się z modelem oceniania uczenia maszynowego przepływu pracy w czasie rzeczywistym. Wywołanie usługi Machine Learning Web zwraca wyniki prognozowania do aplikacji zewnętrznej. Aby wywołać usługi Machine Learning w sieci Web, należy przekazać klucz interfejsu API, który jest tworzony podczas wdrażania prognozowania. Usługa Machine Learning w sieci Web jest oparta na REST, wybór popularnych Architektura programowania projektów sieci Web.
 
 Usługa Azure Machine Learning udostępnia dwa typy usług:

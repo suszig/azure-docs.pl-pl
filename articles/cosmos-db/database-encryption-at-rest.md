@@ -1,11 +1,11 @@
 ---
-title: "Szyfrowanie bazy danych magazynowanych: bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak bazy danych rozwiązania Cosmos Azure udostępnia domyślne szyfrowanie wszystkich danych."
+title: 'Szyfrowanie bazy danych magazynowanych: bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft'
+description: Dowiedz się, jak bazy danych rozwiązania Cosmos Azure udostępnia domyślne szyfrowanie wszystkich danych.
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure DB rozwiązania Cosmos szyfrowania bazy danych w stanie spoczynku
 
@@ -53,7 +53,6 @@ Odpowiedź: Microsoft ma zestaw wewnętrzne wytyczne dotyczące obrotu klucza sz
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>Pytanie: czy można użyć własnych kluczy szyfrowania?
 A: rozwiązania cosmos bazy danych jest usługą PaaS i firma Microsoft pracy niezbędne do zachowania usługi łatwy w użyciu. Zauważyliśmy, że to pytanie jest często zadawane jako serwer proxy pytanie najlepiej spełniającej wymagania zgodności, takie jak PCI-DSS. W ramach tworzenia tej funkcji firma Microsoft we współpracy z audytorów zgodności, aby upewnić się, że klienci korzystający z rozwiązania Cosmos DB wymagań ich bez konieczności zarządzania kluczami samodzielnie.
-W związku z tym obecnie nie oferujemy użytkowników opcję obciążać same z zarządzania kluczami.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>Pytanie: jakie regiony z włączonym szyfrowaniem?
 Odpowiedź: rozwiązania Cosmos Azure DB regiony z szyfrowania włączona dla wszystkich danych użytkownika.

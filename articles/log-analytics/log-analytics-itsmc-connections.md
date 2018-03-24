@@ -1,10 +1,10 @@
 ---
-title: "Obsługiwane połączenia z łącznikiem zarządzania usługi IT w Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera informacje o sposobie łączenia z IT usługi zarządzania łącznika (ITSMC) w OMS Log Analytics, aby centralnie monitorować i zarządzać nimi elementy robocze Zarządzanie usługami IT — zarządzanie usługami IT — produktów/usług."
-documentationcenter: 
+title: Obsługiwane połączenia z łącznikiem zarządzania usługi IT w Azure Log Analytics | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera informacje o sposobie łączenia z IT usługi zarządzania łącznika (ITSMC) w OMS Log Analytics, aby centralnie monitorować i zarządzać nimi elementy robocze Zarządzanie usługami IT — zarządzanie usługami IT — produktów/usług.
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Zarządzanie usługami IT — produktów/usług Uzyskuj dostęp do łącznika zarządzania usługi IT
 Ten artykuł zawiera informacje o tym, jak skonfigurować połączenie między Zarządzanie usługami IT — produktu/usługi i IT usługi zarządzania łącznika (ITSMC) w analizy dzienników do centralnego zarządzania elementami pracy. Aby uzyskać więcej informacji o ITSMC, zobacz [omówienie](log-analytics-itsmc-overview.md).
@@ -200,7 +200,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne:
 - Zainstaluj aplikację użytkownika integracji OMS firmy Microsoft (usługi ServiceNow aplikacji). [Dowiedz się więcej](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Utworzenie roli użytkownika integracji dla zainstalowanej aplikacji użytkownika. Informacje dotyczące sposobu tworzenia roli użytkownika integracji [tutaj](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>Procedura połączenia
+### <a name="connection-procedure"></a>**Procedura połączenia**
 Użyj poniższej procedury, aby utworzyć połączenie usługi ServiceNow:
 
 
@@ -271,13 +271,7 @@ Po pomyślnym utworzeniu użytkownika, stan **Sprawdź listę kontrolną instala
 
 > [!NOTE]
 
-> Aby zezwolić użytkownikowi na tworzenie **alerty** i **zdarzenia** w usługi ServiceNow z platformy Azure:
-
-> - Upewnij się, że moduł zarządzania zdarzeniami zainstalowane w wystąpieniu usługi ServiceNow.
-
-> - Dodaj następujące role użytkownika integracji:
->      - evt_mgmt_integration
->      - evt_mgmt_operator  
+> Zarządzanie usługami IT — łącznika można wysłać zdarzenia do usługi ServiceNow bez inne moduły zainstalowane w wystąpieniu usługi ServiceNow. Jeśli używasz modułu EventManagement wystąpienia usługi ServiceNow i chcesz utworzyć zdarzenia lub alerty za pomocą łącznika usługi ServiceNow, Dodaj następujące role użytkownika integracji: - evt_mgmt_integration - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Połącz Provance usługi IT łącznika zarządzania na platformie Azure

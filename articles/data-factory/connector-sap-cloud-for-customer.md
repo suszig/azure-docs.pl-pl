@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych z/do chmury SAP dla klienta przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane z chmury SAP dla klienta do zbiornika obsługiwanych magazynów danych (lub) z obsługiwanych źródłowych baz danych do chmury SAP dla klienta przy użyciu fabryki danych."
+title: Kopiowanie danych z/do chmury SAP dla klienta przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane z chmury SAP dla klienta do zbiornika obsługiwanych magazynów danych (lub) z obsługiwanych źródłowych baz danych do chmury SAP dla klienta przy użyciu fabryki danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 571c77a0de4bb30f5476f1bc79a7d4bd8d1cd322
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiowanie danych z chmury SAP dla klienta (C4C) przy użyciu fabryki danych Azure
 
@@ -118,7 +118,7 @@ Aby skopiować dane z programu SAP chmury dla klienta, należy ustawić typ źr�
 | type | Właściwość type musi mieć ustawioną: **SapCloudForCustomerSource**  | Yes |
 | query | Określ niestandardowe zapytania OData do odczytu danych. | Nie |
 
-Przykładowe zapytanie można pobrać danych dla określonego dnia:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
+Przykładowe zapytanie można pobrać danych dla określonego dnia: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
 **Przykład:**
 
@@ -210,7 +210,7 @@ Podczas kopiowania danych z chmury SAP dla odbiorcy, następujące mapowania są
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Wartość logiczna |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | Data/godzina |
+| Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Podwójnej precyzji |
 | Edm.Single | Kawaler/panna |

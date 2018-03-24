@@ -1,11 +1,11 @@
 ---
-title: "Kondycja zasobów platformy Azure — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Przegląd kondycji zasobów platformy Azure"
+title: Kondycja zasobów platformy Azure — często zadawane pytania | Dokumentacja firmy Microsoft
+description: Przegląd kondycji zasobów platformy Azure
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5155faac6051f5a586255148f77a52a90745673e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-faq"></a>Kondycja zasobów platformy Azure — często zadawane pytania
 Informacje o odpowiedzi na często zadawane pytania dotyczące kondycji zasobów platformy Azure.
@@ -81,12 +81,12 @@ Kondycja zasobu jest dostępna w we wszystkich obszarach geograficznych Azure, z
 - Niemcy Środkowe
 - Niemcy Północno-Wschodnie
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Jak kondycja zasobu jest inna niż powiadomienia usługi portalu Azure lub pulpit nawigacyjny kondycji usługi?
-Informacje dostarczane przez kondycja zasobu jest bardziej szczegółowy niż dostarczanych przez pulpit nawigacyjny kondycji usługi platformy Azure.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Jak kondycja zasobu jest inny niż stan Azure lub pulpit nawigacyjny kondycji usługi
+Informacje dostarczane przez kondycja zasobu jest bardziej szczegółowy niż dostarczanych przez stan Azure lub pulpit nawigacyjny kondycji usługi.
 
-Podczas gdy [stan Azure](https://status.azure.com) i powiadomień usługi portalu informuje o problemach usługi, które mają wpływ na szerokiego zakresu klientów (na przykład region platformy Azure), kondycja zasobów przedstawia bardziej szczegółowego zdarzenia, które mają zastosowanie tylko w określonego zasobu. Na przykład jeśli host nieoczekiwanie uruchamiany ponownie, kondycja zasobu alerty tylko tych klientów, w której maszyny wirtualne zostały uruchomione na tym hoście.
+Podczas gdy [Azure stanu](https://status.azure.com) i na pulpicie nawigacyjnym kondycji usługi informuje o problemach usługi, które mają wpływ na szerokiego zakresu klientów (na przykład region platformy Azure), kondycja zasobów przedstawia bardziej szczegółowego zdarzenia, które mają zastosowanie tylko w określonego zasobu. Na przykład jeśli host nieoczekiwanie uruchamiany ponownie, kondycja zasobu alerty tylko tych klientów, w której maszyny wirtualne zostały uruchomione na tym hoście.
 
-Ważne jest, aby Zwróć uwagę, że zapewnienie widoczne zdarzeń wpływu na zasoby, kondycja zasobów udostępnia również zdarzenia opublikowane w powiadomieniach usługi i pulpit nawigacyjny kondycji usługi.
+Ważne jest, aby Zwróć uwagę, że zapewnienie widoczne zdarzeń wpływu na zasoby, kondycja zasobów udostępnia również zdarzenia opublikowane w pulpicie nawigacyjnym kondycji usługi.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Należy uaktywnić kondycja zasobów dla każdego zasobu?
 Nie, informacje o kondycji są dostępne dla wszystkich typów zasobów dostępne za pośrednictwem kondycja zasobów. 

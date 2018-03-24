@@ -1,12 +1,12 @@
 ---
-title: "Omówienie usługi Azure Media Services przesyłania strumieniowego punktu końcowego | Dokumentacja firmy Microsoft"
-description: "Ten temat zawiera omówienie usługi Azure Media Services punkty końcowe przesyłania strumieniowego."
+title: Omówienie usługi Azure Media Services przesyłania strumieniowego punktu końcowego | Dokumentacja firmy Microsoft
+description: Ten temat zawiera omówienie usługi Azure Media Services punkty końcowe przesyłania strumieniowego.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 writer: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f923a2fb328ee62ce4dc73669fd922f275ba34a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Omówienie punktów końcowych przesyłania strumieniowego 
 
-##<a name="overview"></a>Przegląd
+## <a name="overview"></a>Przegląd
 
 W programie Microsoft Azure Media Services (AMS), **punktu końcowego przesyłania strumieniowego** reprezentuje przesyłania strumieniowego usługa, która może dostarczać zawartość bezpośrednio do aplikacji klienckich odtwarzacza lub do Content Delivery Network (CDN) w celu dalszej dystrybucji. Usługa Media Services udostępnia również bezproblemową integrację usługi Azure CDN. Strumienia wychodzącego z usługi StreamingEndpoint może być strumień na żywo, wideo na żądanie lub pobierania progresywnego zawartości na koncie usługi Media Services. Każde konto usługi Azure Media Services zawiera domyślne StreamingEndpoint. Dodatkowe punkty końcowe mogą być tworzone w ramach konta. Istnieją dwie wersje punkty końcowe, 1.0 i 2.0. Począwszy od stycznia 2017 10, wszystkie nowo utworzonego konta usługi AMS zostaną uwzględnione w wersji 2.0 **domyślne** StreamingEndpoint. Dodatkowe punktów końcowych przesyłania strumieniowego dodanych do tego konta będą również w wersji 2.0. Ta zmiana nie ma wpływu na istniejące konta; istniejące punkty końcowe będą w wersji 1.0, a można uaktualnić do wersji 2.0. Ta zmiana będzie zmiany zachowania, rozliczeń i funkcji (Aby uzyskać więcej informacji, zobacz **przesyłania strumieniowego, typy i wersje** sekcji opisane poniżej).
 

@@ -1,31 +1,31 @@
 ---
-title: "Rejestrowanie Diganostic dla usług Azure Analysis Services | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat konfigurowania rejestrowania diagnostycznego dla usług Azure Analysis Services."
+title: Rejestrowanie Diganostic dla usług Azure Analysis Services | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat konfigurowania rejestrowania diagnostycznego dla usług Azure Analysis Services.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Ustawienia rejestrowania diagnostycznego
 
-Ważnym elementem od wszelkich rozwiązań do usług Analysis Services jest monitorowanie, jak działają serwery. Z [dzienników diagnostycznych zasobów platformy Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), można monitorować i wysłać dzienniki, aby [usługi Azure Storage](https://azure.microsoft.com/services/storage/), ich do strumienia [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)oraz eksportowanie ich do [dziennika Analiza](https://azure.microsoft.com/services/log-analytics/), część z [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Ważnym elementem od wszelkich rozwiązań do usług Analysis Services jest monitorowanie, jak działają serwery. Z [dzienników diagnostycznych zasobów platformy Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), można monitorować i wysłać dzienniki, aby [usługi Azure Storage](https://azure.microsoft.com/services/storage/), ich do strumienia [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)oraz eksportowanie ich do [dziennika Analiza](https://azure.microsoft.com/services/log-analytics/), usługi z [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
-![Rejestrowania diagnostycznego do magazynu, usługa Event Hubs lub Operations Management Suite za pomocą analizy dzienników](./media/analysis-services-logging/aas-logging-overview.png)
+![Rejestrowania diagnostycznego do magazynu usługi Event Hubs i analizy dzienników](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>Co to jest rejestrowane?
@@ -171,7 +171,7 @@ W **typu**, kliknij przycisk **AzureDiagnostics**, a następnie kliknij przycisk
 
 Kliknij przycisk **EventClass\_s** lub jedną z nazw zdarzeń i analizy dzienników nadal konstruowanie zapytania. Pamiętaj zapisać zapytania do późniejszego.
 
-Pamiętaj zobaczyć Operations Management Suite, który zapewnia witryny sieci Web z rozszerzoną zapytania, dashboarding i możliwości alertów na danych analizy dzienników.
+Pamiętaj zobaczyć analizy dzienników, która zapewnia witryny sieci Web z rozszerzoną zapytania, dashboarding i możliwości alertów w zebranych danych.
 
 ### <a name="queries"></a>Zapytania
 

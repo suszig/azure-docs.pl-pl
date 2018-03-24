@@ -1,11 +1,11 @@
 ---
-title: "Pojemność i wydajność rozwiązania Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Użyj rozwiązania pojemność i wydajność w analizy dzienników ułatwią zrozumienie wydajności serwerów funkcji Hyper-V."
+title: Pojemność i wydajność rozwiązania Azure Log Analytics | Dokumentacja firmy Microsoft
+description: Użyj rozwiązania pojemność i wydajność w analizy dzienników ułatwią zrozumienie wydajności serwerów funkcji Hyper-V.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planowanie pojemności maszyn wirtualnych funkcji Hyper-V z rozwiązaniem pojemność i wydajność (wersja zapoznawcza)
 
@@ -120,29 +120,17 @@ Podsumowując, rozwiązania zbiera dane pojemności i wydajności z różnych ź
 
 W poniższej tabeli przedstawiono przykładowy dziennik wyszukuje pojemność i wydajność danych zebranych i obliczana na podstawie tego rozwiązania.
 
+
 | Zapytanie | Opis |
-|---|---|
-| Wszystkie konfiguracje pamięci hosta | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Wszystkie konfiguracje pamięci maszyny Wirtualnej | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Podział całkowita IOPS dysku na wszystkich maszynach wirtualnych | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Podział całkowitą przepływność dysku na wszystkich maszynach wirtualnych | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Podział całkowita IOPS przez wszystkie woluminy CSV | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Podział ogólnej przepustowości przez wszystkie woluminy CSV | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Podział łączny czas oczekiwania przez wszystkie woluminy CSV | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań usługi Log Analytics](log-analytics-log-search-upgrade.md), powyższe zapytania zmienią się w następujący sposób.
-
-> | Zapytanie | Opis |
 |:--- |:--- |
-| Wszystkie konfiguracje pamięci hosta | Wydajności &#124; Gdzie ObjectName == "Pojemności i wydajności" i CounterName == "Host MB pamięci przypisanej" &#124; Podsumuj MB = avg(CounterValue) przez InstanceName |
-| Wszystkie konfiguracje pamięci maszyny Wirtualnej | Wydajności &#124; Gdzie ObjectName == "Pojemności i wydajności" i CounterName == "Maszyny Wirtualnej przypisanej pamięć (MB)" &#124; Podsumuj MB = avg(CounterValue) przez InstanceName |
-| Podział całkowita IOPS dysku na wszystkich maszynach wirtualnych | Wydajności &#124; Gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "Wirtualnego dysku twardego odczyty/s" albo CounterName == "Wirtualnego dysku twardego zapisy/s") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
-| Podział całkowitą przepływność dysku na wszystkich maszynach wirtualnych | Wydajności &#124; Gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "Wirtualnego dysku twardego odczytu MB/s" albo CounterName == "MB/s zapisu dysku VHD") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
-| Podział całkowita IOPS przez wszystkie woluminy CSV | Wydajności &#124; Gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "CSV odczyty/s" albo CounterName == "CSV zapisy/s") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
-| Podział ogólnej przepustowości przez wszystkie woluminy CSV | Wydajności &#124; Gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "CSV odczyty/s" albo CounterName == "CSV zapisy/s") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
-| Podział łączny czas oczekiwania przez wszystkie woluminy CSV | Wydajności &#124; Gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "Opóźnienie odczytu CSV" lub CounterName == "Opóźnienie zapisu CSV") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
+| Wszystkie konfiguracje pamięci hosta | Wydajności &#124; gdzie ObjectName == "Pojemności i wydajności" i CounterName == "Hosta przypisane pamięć (MB)" &#124; Podsumuj MB = avg(CounterValue) przez InstanceName |
+| Wszystkie konfiguracje pamięci maszyny Wirtualnej | Wydajności &#124; gdzie ObjectName == "Pojemności i wydajności" i CounterName == "MB pamięci przypisana maszyny Wirtualnej" &#124; Podsumuj MB = avg(CounterValue) przez InstanceName |
+| Podział całkowita IOPS dysku na wszystkich maszynach wirtualnych | Wydajności &#124; gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "Wirtualnego dysku twardego odczyty/s" albo CounterName == "Wirtualnego dysku twardego zapisy/s") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
+| Podział całkowitą przepływność dysku na wszystkich maszynach wirtualnych | Wydajności &#124; gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "Wirtualnego dysku twardego odczytu MB/s" albo CounterName == "MB/s zapisu dysku VHD") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
+| Podział całkowita IOPS przez wszystkie woluminy CSV | Wydajności &#124; gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "CSV odczyty/s" albo CounterName == "CSV zapisy/s") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
+| Podział ogólnej przepustowości przez wszystkie woluminy CSV | Wydajności &#124; gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "CSV odczyty/s" albo CounterName == "CSV zapisy/s") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
+| Podział łączny czas oczekiwania przez wszystkie woluminy CSV | Wydajności &#124; gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "Opóźnienie odczytu CSV" lub CounterName == "Opóźnienie zapisu CSV") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>Kolejne kroki
-* Użyj [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-searches.md) Aby wyświetlić szczegółowe dane pojemność i wydajność.
+* Użyj [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-search.md) Aby wyświetlić szczegółowe dane pojemność i wydajność.

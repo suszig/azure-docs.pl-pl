@@ -1,11 +1,11 @@
 ---
-title: "Zasady usługi Azure CDN aparat funkcji | Dokumentacja firmy Microsoft"
-description: "Dokumentacja referencyjna dla usługi Azure CDN zasady warunków dopasowania aparatu i funkcje."
+title: Zasady usługi Azure CDN aparat funkcji | Dokumentacja firmy Microsoft
+description: Dokumentacja referencyjna dla usługi Azure CDN zasady warunków dopasowania aparatu i funkcje.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Zasady usługi Azure CDN aparat funkcji
 W tym artykule przedstawiono szczegółowe opisy funkcji dostępnych dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
@@ -46,28 +46,28 @@ Te funkcje są przeznaczone do dostosowania, kiedy i jak zawartość jest buforo
 Name (Nazwa) | Przeznaczenie
 -----|--------
 [Parametry przepustowości](#bandwidth-parameters) | Określa, czy parametry ograniczania przepustowości (na przykład ec_rate i ec_prebuf) są aktywne.
-[Ograniczanie przepustowości](#bandwidth-throttling) | Ogranicza przepustowość dla odpowiedzi udostępniane przez serwery krawędzi.
+[Ograniczanie przepustowości](#bandwidth-throttling) | Ogranicza przepustowość dla odpowiedzi dostarczonych przez punkt z — obecności (POP).
 [Pomiń pamięć podręczną](#bypass-cache) | Określa, czy żądanie należy pominąć buforowanie.
-[Traktowanie nagłówek Cache-Control](#cache-control-header-treatment) | Kontroluje Generowanie `Cache-Control` nagłówki przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
+[Traktowanie nagłówek Cache-Control](#cache-control-header-treatment) | Kontroluje Generowanie `Cache-Control` nagłówki przez POP, gdy funkcja zewnętrznych Max-Age jest aktywny.
 [Cache-Key Query String](#cache-key-query-string) | Określa, czy klucz pamięci podręcznej zawiera, czy wyklucza parametrów ciągu zapytania skojarzonego z żądaniem.
 [Cache-Key Rewrite](#cache-key-rewrite) | Ponownie zapisuje klucz pamięci podręcznej skojarzonej z żądaniem.
-[Zakończenie wypełnienie pamięci podręcznej](#complete-cache-fill) | Określa, co się stanie, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe na serwer graniczny.
+[Zakończenie wypełnienie pamięci podręcznej](#complete-cache-fill) | Określa, co się stanie, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe na punktu obecności.
 [Kompresuj typów plików](#compress-file-types) | Definiuje formatach plików, które są kompresowane na serwerze.
-[Max-Age wewnętrzny domyślne](#default-internal-max-age) | Określa domyślny interwał maksymalny wiek serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
-[Wygasa traktowania nagłówka](#expires-header-treatment) | Kontroluje Generowanie `Expires` nagłówki przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
-[Max-Age zewnętrznych](#external-max-age) | Określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi.
-[Wymuszanie wewnętrznych Max-Age.](#force-internal-max-age) | Określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
+[Max-Age wewnętrzny domyślne](#default-internal-max-age) | Określa domyślny interwał maksymalny wiek dla punktu obecności ponowna Walidacja buforu serwera pochodzenia.
+[Wygasa traktowania nagłówka](#expires-header-treatment) | Kontroluje Generowanie `Expires` nagłówki przez POP, gdy funkcja zewnętrznych Max-Age jest aktywny.
+[Max-Age zewnętrznych](#external-max-age) | Określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu POP.
+[Wymuszanie wewnętrznych Max-Age.](#force-internal-max-age) | Określa interwał maksymalny wiek dla punktu obecności ponowna Walidacja buforu serwera pochodzenia.
 [Obsługa H.264 (pobierania progresywnego HTTP)](#h264-support-http-progressive-download) | Określa typy H.264 formatów plików, które mogą służyć do strumieniowego przesyłania zawartości.
 [Honoruj No-Cache żądania](#honor-no-cache-request) | Określa, czy klient HTTP żądań pamięci podręcznej nie są przekazywane do serwera pochodzenia.
 [Ignoruj pochodzenia No-Cache](#ignore-origin-no-cache) | Określa, czy usługa CDN ignoruje niektórych dyrektyw z serwera pochodzenia.
 [Ignoruj Unsatisfiable zakresów](#ignore-unsatisfiable-ranges) | Określa odpowiedź, które są zwracane do klientów, gdy żądanie generuje kod stanu żądany zakres nie niewłaściwego 416.
-[Wewnętrzny odświeżona maksymalna](#internal-max-stale) | Określa, jak długo późniejsza niż godzina wygaśnięcia normalne, który zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
+[Wewnętrzny odświeżona maksymalna](#internal-max-stale) | Formanty, jak długo późniejsza niż godzina wygaśnięcia normalne zasobów pamięci podręcznej mogą być udostępniane przez punktu obecności podczas POP nie będzie mógł ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
 [Udostępnianie częściowe pamięci podręcznej](#partial-cache-sharing) | Określa, czy żądanie może wygenerować częściowo buforowaną zawartość.
 [Prevalidate zawartości w pamięci podręcznej](#prevalidate-cached-content) | Określa, czy zawartość z pamięci podręcznej kwalifikuje się do wcześniejszego ponowna Walidacja przed wygaśnięciem wartość TTL.
-[Odśwież Zero bajtów pamięci podręcznej plików](#refresh-zero-byte-cache-files) | Określa, jak żądania klienta HTTP dla zawartości pamięci podręcznej 0 bajtów jest obsługiwany przez serwery krawędzi.
+[Odśwież Zero bajtów pamięci podręcznej plików](#refresh-zero-byte-cache-files) | Określa sposób obsługi żądania klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez punkty obecności.
 [Kody stanu Buforowalnej zestawu](#set-cacheable-status-codes) | Definiuje zestaw kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
 [Stałe dostarczanie zawartości w przypadku błędu](#stale-content-delivery-on-error) | Określa, czy ważność zawartości w pamięci podręcznej jest dostarczany w przypadku wystąpienia błędu podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia klienta.
-[Nieaktualne podczas Revalidate](#stale-while-revalidate) | Zwiększa wydajność, umożliwiając serwery krawędzi do obsługi starych klienta do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
+[Nieaktualne podczas Revalidate](#stale-while-revalidate) | Zwiększa wydajność, umożliwiając POP do obsługi starych klienta do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
 
 ## <a name="comment-feature"></a>Funkcja komentarza
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ Te funkcje zostały zaprojektowane do kontrolowania sposobu CDN komunikuje się 
 Name (Nazwa) | Przeznaczenie
 -----|--------
 [Maksymalna liczba żądań Keep-Alive](#maximum-keep-alive-requests) | Określa maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
-[Serwer proxy specjalnych nagłówków](#proxy-special-headers) | Definiuje zestaw nagłówków żądania specyficzne dla usługi CDN, które są przekazywane na serwerze krawędzi do serwera pochodzenia.
+[Serwer proxy specjalnych nagłówków](#proxy-special-headers) | Definiuje zestaw specyficzne dla usługi CDN nagłówków żądania, które są przekazywane z punktu obecności na serwerze źródłowym.
 
 
 ## <a name="specialty-features"></a>Funkcje specjalne
@@ -201,8 +201,8 @@ Parametry ograniczania przepustowości określają, czy szybkość transferu dan
 
 Wartość|Wynik
 --|--
-Enabled (Włączony)|Umożliwia serwerom krawędzi uwzględnić żądania ograniczania przepustowości.
-Disabled (Wyłączony)|Powoduje, że serwery krawędzi zignorować parametry ograniczania przepustowości. Żądana zawartość jest zwykle obsługiwany (czyli bez ograniczania przepustowości).
+Enabled (Włączony)|Umożliwia POP uwzględnić przepustowości żądania.
+Disabled (Wyłączony)|Powoduje, że POP zignorować parametry ograniczenia przepustowości. Żądana zawartość jest zwykle obsługiwany (czyli bez ograniczania przepustowości).
 
 **Domyślne zachowanie:** włączone.
  
@@ -212,14 +212,14 @@ Disabled (Wyłączony)|Powoduje, że serwery krawędzi zignorować parametry ogr
 
 ---
 ### <a name="bandwidth-throttling"></a>Ograniczanie przepustowości
-**Cel:** ogranicza przepustowość dla odpowiedzi udostępniane przez serwery krawędzi.
+**Cel:** ogranicza przepustowość dla odpowiedzi dostarczonych przez lokalizacji POP.
 
 Obie z poniższych opcji, należy zdefiniować Aby poprawnie skonfigurować ograniczanie przepustowości.
 
 Opcja|Opis
 --|--
 KB na sekundę|Ustaw tę opcję, aby maksymalnej przepustowości (Kb na sekundę), które mogą być używane w celu dostarczenia odpowiedzi.
-Prebuf sekund|Ustaw tę opcję na liczbę sekund dla serwerów krawędzi, poczekać, aż przepustowości jest ograniczany. Przepustowości nieograniczony okres ten ma na celu uniemożliwić Windows media player występują problemy z przestoje w odtwarzaniu lub buforowania z powodu ograniczania przepustowości.
+Prebuf sekund|Ustaw tę opcję na liczbę sekund POP poczekać, aż przepustowości jest ograniczany. Przepustowości nieograniczony okres ten ma na celu uniemożliwić Windows media player występują problemy z przestoje w odtwarzaniu lub buforowania z powodu ograniczania przepustowości.
 
 **Domyślne zachowanie:** wyłączone.
 
@@ -233,8 +233,8 @@ Prebuf sekund|Ustaw tę opcję na liczbę sekund dla serwerów krawędzi, poczek
 
 Wartość|Wynik
 --|--
-Enabled (Włączony)|Powoduje, że wszystkie żądania przejść do serwera pochodzenia nawet, jeśli zawartość wcześniej była buforowana na serwerach krawędzi.
-Disabled (Wyłączony)|Powoduje, że serwery krawędzi do pamięci podręcznej zasobów zgodnie z zasadami pamięci podręcznej określonych w jego nagłówków odpowiedzi.
+Enabled (Włączony)|Powoduje, że wszystkie żądania przejść do serwera pochodzenia nawet, jeśli zawartość była wcześniej buforowane na POP.
+Disabled (Wyłączony)|Powoduje, że POP do pamięci podręcznej zasobów zgodnie z zasadami pamięci podręcznej określonych w jego nagłówków odpowiedzi.
 
 **Domyślne zachowanie:**
 
@@ -289,7 +289,7 @@ Informacje o kluczu:
 
 ---
 ### <a name="cache-control-header-treatment"></a>Traktowanie nagłówek Cache-Control
-**Cel:** kontroluje Generowanie `Cache-Control` nagłówki przez serwer graniczny, gdy zewnętrzne funkcji Max-Age jest aktywny.
+**Cel:** kontroluje Generowanie `Cache-Control` nagłówki przez POP, gdy zewnętrzne funkcji Max-Age jest aktywny.
 
 Najprostszym sposobem uzyskania tego typu konfiguracji jest można umieścić w tej samej instrukcji zewnętrznych maksymalny wiek i funkcji do przetwarzania nagłówek Cache-Control.
 
@@ -415,9 +415,9 @@ Informacje o kluczu:
 
 ---
 ### <a name="complete-cache-fill"></a>Zakończenie wypełnienie pamięci podręcznej
-**Cel:** Określa, co się dzieje, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe, na serwerze granicznym.
+**Cel:** Określa, co się dzieje, gdy żądanie powoduje Chybienie częściowe pamięci podręcznej na punktu obecności.
 
-Chybienia pamięci podręcznej częściowe opisuje stan pamięci podręcznej dla zasobu, który nie został całkowicie pobrana do serwer graniczny. W przypadku zasobów są tylko częściowo buforowane na serwerze granicznym, następnie następnego żądania dla tego zasobu zostanie przekazany ponownie do serwera pochodzenia.
+Chybienia pamięci podręcznej częściowe opisuje stan pamięci podręcznej dla zasobu, który nie został całkowicie pobrana do punktu obecności. W przypadku zasobów są tylko częściowo buforowane na POP, następnie następnego żądania dla tego zasobu zostanie przekazany ponownie do serwera pochodzenia.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone
 
 Wartość|Wynik
 --|--
-Enabled (Włączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest wymuszenie serwer graniczny, aby zainicjować pobieranie w tle zasobu z serwera pochodzenia. Po upływie którego będzie elementu zawartości w lokalnej pamięci podręcznej serwera granicznego.
-Disabled (Wyłączony)|Serwer graniczny uniemożliwia wykonywanie pobieranie w tle dla elementu zawartości. Wynik jest, że przy następnym żądaniu dla tego zasobu z tego regionu powoduje, że serwer graniczny żądania do serwera pochodzenia klienta.
+Enabled (Włączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest wymuszenie POP, aby zainicjować pobieranie w tle zasobu z serwera pochodzenia. Po upływie którego będzie elementu zawartości w lokalnej pamięci podręcznej punktu obecności.
+Disabled (Wyłączony)|POP uniemożliwia wykonywanie pobieranie w tle dla elementu zawartości. Wynik jest, że przy następnym żądaniu dla tego zasobu z tego regionu powoduje POP żądania do serwera pochodzenia klienta.
 
 **Domyślne zachowanie:** włączone.
 
@@ -523,14 +523,14 @@ Disabled (Wyłączony)|Nagłówka X-WE-Debug odpowiedzi zostaną wykluczone z od
 
 ---
 ### <a name="default-internal-max-age"></a>Max-Age wewnętrzny domyślne
-**Cel:** określa maksymalny wiek domyślny interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed serwer graniczny sprawdzi, czy buforowanych zasobów zgodny zasobów przechowywanych na serwerze źródłowym.
+**Cel:** określa maksymalny wiek domyślny interwał dla punktu obecności, ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed punktu obecności sprawdzi, czy buforowanych zasobów zgodny zasobów przechowywanych na serwerze źródłowym.
 
 Informacje o kluczu:
 
 - Ta akcja ma miejsce tylko dla odpowiedzi z serwera pochodzenia, które nie zostały przypisane oznaczenie maksymalny wiek w `Cache-Control` lub `Expires` nagłówka.
 - Ta akcja nie zostanie przeprowadzone zasobów, które nie są uważane za buforowalnej.
-- Ta akcja nie ma wpływu na przeglądarce revalidations pamięci podręcznej serwera krawędzi. Tego rodzaju revalidations są określane przez `Cache-Control` lub `Expires` nagłówki wysyłany do przeglądarki, które można dostosować za pomocą funkcji Max-Age zewnętrznych.
-- Wyniki tej akcji nie mają zauważalne wpływ na nagłówki odpowiedzi i zwraca zawartość z serwerów krawędzi dla zawartości, ale może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z serwerów krawędzi do serwera pochodzenia.
+- Ta akcja nie ma wpływu na przeglądarce POP revalidations pamięci podręcznej. Tego rodzaju revalidations są określane przez `Cache-Control` lub `Expires` nagłówki wysyłany do przeglądarki, które można dostosować za pomocą funkcji Max-Age zewnętrznych.
+- Wyniki tej akcji nie mają zauważalne wpływ na nagłówki odpowiedzi i zawartość zwróconą z POP dla zawartości, ale może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z POP do serwera pochodzenia.
 - Konfigurowanie tej funkcji przez:
     - Wybieranie kod stanu, dla którego można zastosować domyślnego wewnętrzny max wieku.
     - Określanie wartość całkowitą, a następnie wybierając jednostkę żądany czas (na przykład sekundy, minuty, godziny itd.). Ta wartość Określa domyślny interwał maksymalny wiek wewnętrznego.
@@ -571,7 +571,7 @@ Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem j
 
 ---
 ### <a name="expires-header-treatment"></a>Wygasa traktowania nagłówka
-**Cel:** kontroluje Generowanie `Expires` nagłówki przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
+**Cel:** kontroluje Generowanie `Expires` nagłówki przez POP, gdy funkcja zewnętrznych Max-Age jest aktywny.
 
 Najprostszym sposobem uzyskania tego typu konfiguracji jest umieścić zewnętrznych maksymalny wiek i funkcje wygasa traktowania nagłówka w tej samej instrukcji.
 
@@ -590,15 +590,15 @@ Remove| Zapewnia, że `Expires` nagłówka nie jest dołączony do odpowiedzi na
 
 ---
 ### <a name="external-max-age"></a>Max-Age zewnętrznych
-**Cel:** określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi. Innymi słowy nowej wersji zasób z serwer graniczny sprawdzić ilość czasu, jaki upłynie przed przeglądarki.
+**Cel:** określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu POP. Innymi słowy ilość czasu, jaki upłynie przed przeglądarką można sprawdzić nową wersję elementu zawartości z punktu obecności.
 
-Włączenie tej funkcji spowoduje wygenerowanie `Cache-Control: max-age` i `Expires` nagłówków z serwerów krawędzi i wysyłać je do klienta HTTP. Domyślnie te nagłówki spowoduje zastąpienie utworzone przez serwer pochodzenia. Jednak traktowania nagłówek Cache-Control i funkcje wygasa traktowania nagłówka pozwala zmienić to zachowanie.
+Włączenie tej funkcji spowoduje wygenerowanie `Cache-Control: max-age` i `Expires` nagłówków z lokalizacji POP i wysyłać je do klienta HTTP. Domyślnie te nagłówki spowoduje zastąpienie utworzone przez serwer pochodzenia. Jednak traktowania nagłówek Cache-Control i funkcje wygasa traktowania nagłówka pozwala zmienić to zachowanie.
 
 Informacje o kluczu:
 
-- Ta akcja nie wpływa na serwer graniczny do revalidations pamięci podręcznej serwera pochodzenia. Tego rodzaju revalidations są określane przez `Cache-Control` i `Expires` nagłówki otrzymany z serwera pochodzenia i można dostosować za pomocą domyślnych wewnętrznych Max-Age i funkcji Force wewnętrzny Max-Age.
+- Ta akcja nie wpływa na POP do revalidations pamięci podręcznej serwera pochodzenia. Tego rodzaju revalidations są określane przez `Cache-Control` i `Expires` nagłówki otrzymany z serwera pochodzenia i można dostosować za pomocą domyślnych wewnętrznych Max-Age i funkcji Force wewnętrzny Max-Age.
 - Tej funkcji można skonfigurować, określając wartość całkowitą i wybierając jednostkę żądany czas (na przykład sekundy, minuty, godziny itd.).
-- Ustawienie tej funkcji na wartość ujemna powoduje serwerów krawędzi wysłać `Cache-Control: no-cache` i `Expires` czas, które są ustawione w przeszłości z każdym odpowiedzi do przeglądarki. Mimo że klient HTTP nie będzie buforować odpowiedzi, to ustawienie nie wpłynie na serwery krawędzi możliwość buforowania odpowiedzi z serwera pochodzenia.
+- Ustawienie tej funkcji na wartość ujemna powoduje POP wysłać `Cache-Control: no-cache` i `Expires` czas, które są ustawione w przeszłości z każdym odpowiedzi do przeglądarki. Mimo że klient HTTP nie będzie buforować odpowiedzi, to ustawienie nie wpłynie POP możliwość buforowania odpowiedzi z serwera pochodzenia.
 - Ustawienie jednostkę czasu na wartość "Off" spowoduje wyłączenie tej funkcji. `Cache-Control` i `Expires` nagłówków pamięci podręcznej z odpowiedzią serwera pochodzenia mają być przekazywane do przeglądarki.
 
 **Domyślne zachowanie:** wyłączone
@@ -628,13 +628,13 @@ Disabled (Wyłączony)|Nie będzie można przekierować żądania.
 
 ---
 ### <a name="force-internal-max-age"></a>Wymuszanie wewnętrznych Max-Age.
-**Cel:** określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed serwer graniczny można sprawdzić, czy zasób pamięci podręcznej odpowiada zasobów przechowywanych na serwerze źródłowym.
+**Cel:** Określa interwał maksymalny wiek dla punktu obecności, ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed punktu obecności można sprawdzić, czy zasób pamięci podręcznej odpowiada zasobów przechowywanych na serwerze źródłowym.
 
 Informacje o kluczu:
 
 - Ta funkcja spowoduje zastąpienie interwału maksymalny wiek zdefiniowane w `Cache-Control` lub `Expires` nagłówki wygenerowane z serwera pochodzenia.
-- Ta funkcja nie ma wpływu na przeglądarce revalidations pamięci podręcznej serwera krawędzi. Tego rodzaju revalidations są określane przez `Cache-Control` lub `Expires` nagłówki wysyłany do przeglądarki.
-- Ta funkcja nie ma efektu zauważalne w odpowiedzi dostarczonych przez serwer graniczny do zleceniodawcy. Jednak może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z serwerów krawędzi, z serwerem źródłowym.
+- Ta funkcja nie ma wpływu na przeglądarce POP revalidations pamięci podręcznej. Tego rodzaju revalidations są określane przez `Cache-Control` lub `Expires` nagłówki wysyłany do przeglądarki.
+- Ta funkcja nie ma efektu zauważalne w odpowiedzi dostarczonych przez punkt obecności do zleceniodawcy. Jednak może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z lokalizacji POP do serwera pochodzenia.
 - Konfigurowanie tej funkcji przez:
     - Wybieranie kod stanu, dla których zostaną zastosowane wewnętrzny wieku max.
     - Określanie całkowitą i wybierając jednostkę żądany czas (na przykład sekundy, minuty, godziny itd.). Ta wartość Określa interwał maksymalny wiek żądania.
@@ -678,10 +678,10 @@ Informacje o kluczu:
 
 Wartość|Wynik
 --|--
-Enabled (Włączony)|Umożliwia żądania klienta HTTP pamięci podręcznej nie mają być przekazywane do serwera pochodzenia i serwera pochodzenia zwróci nagłówki odpowiedzi i treści przez serwer graniczny do klienta HTTP.
+Enabled (Włączony)|Umożliwia żądania klienta HTTP pamięci podręcznej nie mają być przekazywane do serwera pochodzenia i serwera pochodzenia zwróci nagłówki odpowiedzi i treści za pośrednictwem protokołu POP do klienta HTTP.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest aby zapobiec żądań pamięci podręcznej nie są przekazywane do serwera pochodzenia.
 
-Dla całego ruchu w środowisku produkcyjnym zaleca pozostaw tę funkcję w stanie domyślnym wyłączone. W przeciwnym razie pochodzenia serwery będą nie można włączyć osłony od użytkowników końcowych, którzy mogą przypadkowo wyzwalać wiele żądań pamięci podręcznej nie podczas odświeżania strony sieci web lub z wielu odtwarzacze multimedialne popularnych, które są zakodowane na wysyłaj nagłówek nie pamięci podręcznej z każdym żądaniem wideo. Niemniej jednak ta funkcja może być przydatne do zastosowania do niektórych nieprodukcyjnych przemieszczania lub testowania katalogów, aby umożliwić nowej zawartości na żądanie pobrania z serwera pochodzenia.
+Dla całego ruchu w środowisku produkcyjnym zaleca pozostaw tę funkcję w stanie domyślnym wyłączone. W przeciwnym razie pochodzenia serwery będą nie można włączyć osłony użytkowników końcowych, którzy mogą przypadkowo wyzwalać wiele żądań pamięci podręcznej nie podczas odświeżania strony sieci web lub z wielu odtwarzacze multimedialne popularnych, które są zakodowane na wysyłaj nagłówek nie pamięci podręcznej z każdym żądaniem wideo. Niemniej jednak ta funkcja może być przydatne do zastosowania do niektórych nieprodukcyjnych przemieszczania lub testowania katalogów, aby umożliwić nowej zawartości na żądanie pobrania z serwera pochodzenia.
 
 Stan pamięci podręcznej, która będzie zgłaszana dla żądania, który może być przekazywane do serwera pochodzenia z powodu ta funkcja jest TCP_Client_Refresh_Miss. Raport stany pamięci podręcznej, który jest dostępny w podstawowej modułu raportowania, informacje statystyczne według stanu pamięci podręcznej. Dzięki temu można śledzić liczbę i odsetek żądań, które są przesyłane do serwera pochodzenia z powodu tej funkcji.
 
@@ -724,11 +724,11 @@ Informacje o kluczu:
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignoruj Unsatisfiable zakresów 
 **Cel:** określa odpowiedź, który będzie zwracanych do klientów, gdy żądanie generuje 416 żądany zakres nie niewłaściwego kod stanu.
 
-Domyślnie ten kod stanu jest zwracany podczas żądania zakresu bajtów nie mogą być spełnione przez serwer graniczny i nie określono pola nagłówka żądania If-Range.
+Domyślnie ten kod stanu jest zwracany podczas żądania zakresu bajtów nie mogą być spełnione przez punkt obecności i nie określono pola nagłówka żądania If-Range.
 
 Wartość|Wynik
 -|-
-Enabled (Włączony)|Serwery krawędzi zapobiega odpowiada na żądania nieprawidłowy zakres bajtów z 416 żądany zakres nie niewłaściwego kodem stanu. Zamiast tego serwery dostarczyć żądanych zasobów i zwrócić 200 OK do klienta.
+Enabled (Włączony)|Zapobiega lokalizacji POP odpowiada na żądania nieprawidłowy zakres bajtów z 416 żądany zakres nie niewłaściwego kodem stanu. Zamiast tego serwery dostarczyć żądanych zasobów i zwrócić 200 OK do klienta.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest uwzględnić 416 żądany zakres nie niewłaściwego kod stanu.
 
 **Domyślne zachowanie:** wyłączone.
@@ -739,15 +739,15 @@ Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem je
 
 ---
 ### <a name="internal-max-stale"></a>Wewnętrzny odświeżona maksymalna
-**Cel:** kontroli, jak długo późniejsza niż godzina wygaśnięcia normalne, zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
+**Cel:** kontroli, jak długo późniejsza niż godzina wygaśnięcia normalne, zasobów pamięci podręcznej mogą być udostępniane przez punktu obecności, gdy POP nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
 
-Zwykle po upływie czasu maksymalny wiek zasobów, serwer graniczny wyśle żądanie ponownego sprawdzania poprawności do serwera pochodzenia. Ze źródła — wersja serwera zostanie następnie odpowiedź z obu 304 niezmodyfikowane umożliwiają serwer graniczny świeża dzierżawy w pamięci podręcznej zasobów lub z 200 OK zapewnienie serwer graniczny zaktualizowaną wersję elementu zawartości pamięci podręcznej.
+Zwykle po upływie czasu maksymalny wiek zasobów, punktu obecności wyśle żądanie ponownego sprawdzania poprawności do serwera pochodzenia. Ze źródła — wersja serwera zostanie następnie odpowiedź z obu 304 nie zmodyfikowane w celu nadać POP świeża dzierżawy w pamięci podręcznej zasobów lub z 200 OK zapewnienie POP zaktualizowaną wersję elementu zawartości pamięci podręcznej.
 
-Jeśli serwer graniczny nie może nawiązać połączenia z serwerem pochodzenia Podczas próby ponowna Walidacja, tej funkcji wewnętrznej odświeżona Max kontroluje, czy i jak długo Edge serwera mogą nadal służyć zasobów obecnie przestarzały.
+W przypadku nie można nawiązać połączenia z serwerem pochodzenia Podczas próby takich ponownego sprawdzania poprawności, a następnie ta funkcja wewnętrzny odświeżona Max Określa, czy i jak długo POP, punktu obecności mogą nadal służyć zasobów obecnie przestarzały.
 
 Należy pamiętać, że dany interwał czasu zaczyna się po wygaśnięciu wieku max elementu zawartości, nie, jeśli nie powiodło się ponowna Walidacja występuje. Dlatego maksymalny okres, w którym mogą być przekazywane zasób bez pomyślnego ponownego sprawdzania poprawności jest określone przez kombinację maksymalny wiek plus odświeżona maksymalny czas. Na przykład jeśli zasób był buforowany 9:00, maksymalny wiek 30 minut i max przestarzały 15 minut, następnie ponowna Walidacja nie powiodło się próba 9:44 w rezultacie użytkownik końcowy odbieranie starych zasobów pamięci podręcznej, podczas ponownego sprawdzania poprawności nie powiodło się próba 9:46 spowodowałoby en Użytkownik d odbieranie 504 Limit czasu bramy.
 
-Dowolna wartość skonfigurowane dla tej funkcji są zastępowane przez `Cache-Control: must-revalidate` lub `Cache-Control: proxy-revalidate` nagłówki otrzymany z serwera pochodzenia. Odebranie jednej z tych nagłówków z serwera pochodzenia kiedy zasób początkowo są buforowane, następnie serwer graniczny nie będzie obsługiwać starych zasobów pamięci podręcznej. W takim przypadku jeśli serwer graniczny nie może ponownie zatwierdzać ze źródła, gdy wygaśnie interwał maksymalny wiek zasobów, serwer graniczny zwraca 504 błąd upływu limitu czasu bramy.
+Dowolna wartość skonfigurowane dla tej funkcji są zastępowane przez `Cache-Control: must-revalidate` lub `Cache-Control: proxy-revalidate` nagłówki otrzymany z serwera pochodzenia. Odebranie jednej z tych nagłówków z serwera pochodzenia kiedy zasób początkowo są buforowane, następnie POP nie będzie obsługiwać starych zasobów pamięci podręcznej. W takim przypadku jeśli POP nie będzie mógł ponownie zatwierdzać ze źródła, gdy wygaśnie interwał maksymalny wiek elementu zawartości, punktu obecności zwraca 504 błąd upływu limitu czasu bramy.
 
 Informacje o kluczu:
 
@@ -828,7 +828,7 @@ Informacje o kluczu:
     - CACHE-CONTROL
     - cachE-Control
 - Podczas określania nazwy nagłówka, należy użyć tylko znaki alfanumeryczne, łączniki lub podkreślenia.
-- Usuwanie nagłówka będą zapobiegać jej przekazywane do serwera pochodzenia przez serwery krawędzi.
+- Usuwanie nagłówka będą zapobiegać jej są przekazywane do serwera pochodzenia przez lokalizacji POP.
 - Następujące nagłówki są zarezerwowane i nie można modyfikować za pomocą tej funkcji:
     - przekazany
     - host
@@ -848,7 +848,7 @@ Każda odpowiedź zawiera zestaw opisujące go nagłówków odpowiedzi. Ta funkc
 - Dołącz lub zastąpić wartość przypisana do nagłówka odpowiedzi. Jeśli określonego nagłówka odpowiedzi nie istnieje, następnie ta funkcja zostanie dodane do odpowiedzi.
 - Usuń nagłówek odpowiedzi z odpowiedzi.
 
-Domyślnie wartości nagłówka odpowiedzi są definiowane przez serwer pochodzenia i serwery krawędzi.
+Domyślnie wartości nagłówka odpowiedzi są definiowane przez serwer pochodzenia i lokalizacji POP.
 
 W nagłówku odpowiedzi można wykonać jedną z następujących czynności:
 
@@ -912,7 +912,7 @@ Zdefiniuj czas przed wygaśnięciem TTL żądanej zawartości, w którym będzie
 
 Informacje o kluczu:
 
-- Wybieranie "Off" jako jednostka czasu wymaga ponownego sprawdzania poprawności została wykonana po zawartości pamięci podręcznej TTL utracił ważność. Nie należy określać czas i zostaną zignorowane.
+- Wybieranie "Off" jako jednostka czasu wymaga ponownego sprawdzania poprawności została wykonana po zawartości pamięci podręcznej TTL utracił ważność. Czas nie należy określać i jest ignorowana.
 
 **Domyślne zachowanie:** Off. Ponowna Walidacja może mieć miejsce tylko, po upływie czas wygaśnięcia zawartości pamięci podręcznej.
 
@@ -922,7 +922,7 @@ Informacje o kluczu:
 
 ---
 ### <a name="proxy-special-headers"></a>Serwer proxy specjalnych nagłówków
-**Cel:** definiuje zestaw specyficzne dla usługi CDN nagłówków żądań, które serwer graniczny zostaną natychmiast przekazane do serwera pochodzenia.
+**Cel:** definiuje zestaw specyficzne dla sieci CDN w warstwie nagłówków żądań, które będą przesyłane z punktu obecności do serwera pochodzenia.
 
 Informacje o kluczu:
 
@@ -937,15 +937,15 @@ Informacje o kluczu:
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Odśwież Zero bajtów pamięci podręcznej plików
-**Cel:** określa sposób obsługi żądań klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez serwery krawędzi.
+**Cel:** określa sposób obsługi żądań klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez punkty obecności.
 
 Prawidłowe wartości to:
 
 Wartość|Wynik
 --|--
-Enabled (Włączony)|Powoduje, że serwer krawędzi refetch zasobów z serwera pochodzenia.
+Enabled (Włączony)|Powoduje, że POP do refetch zasobów z serwera pochodzenia.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest do obsługi się zasoby prawidłowy pamięci podręcznej na żądanie.
-Ta funkcja nie jest wymagany do buforowania poprawne i dostarczania zawartości, ale może służyć jako obejście tego problemu. Na przykład dynamiczne generatory zawartości na serwerach pochodzenia przypadkowo może spowodować 0 bajtów odpowiedzi są wysyłane do serwerów krawędzi. Tych typów odpowiedzi, zazwyczaj są buforowane przez serwery krawędzi. Jeśli wiesz, że odpowiedź 0-bajtowych nigdy nie jest prawidłowa odpowiedź 
+Ta funkcja nie jest wymagany do buforowania poprawne i dostarczania zawartości, ale może służyć jako obejście tego problemu. Na przykład dynamiczne generatory zawartości na serwerach pochodzenia przypadkowo może spowodować 0 bajtów odpowiedzi są wysyłane do lokalizacji POP. Tych typów odpowiedzi są buforowane w lokalizacji POP. Jeśli wiesz, że odpowiedź 0-bajtowych nigdy nie jest prawidłowa odpowiedź 
 
 takie zawartości następnie tej funkcji uniemożliwia tych typów zasobów jest obsługiwane dla klientów.
 
@@ -1016,12 +1016,12 @@ Disabled (Wyłączony)|Błąd na serwerze źródłowym jest przekazywany do zlec
 
 ---
 ### <a name="stale-while-revalidate"></a>Nieaktualne podczas Revalidate
-**Cel:** zwiększa wydajność, zezwalając serwerów krawędzi, z obsługą starych zawartości do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
+**Cel:** zwiększa wydajność, zezwalając POP, które udostępniają zawartość zleceniodawca podczas ponownego sprawdzania poprawności ma miejsce.
 
 Informacje o kluczu:
 
 - Zachowanie tej funkcji zależy od jednostki wybrana wartość czasu.
-    - **Jednostka czasu:** określ długość czasu, a następnie wybierz jednostki czasu (na przykład sekundy, minuty, godziny, itp.) umożliwia starych dostarczania zawartości. Ten typ Instalatora umożliwia CDN rozszerzenie czas, który może zostać zawartości przed wymaganiem weryfikacji według następującego wzoru:**TTL** + **opcję czas starych podczas Sprawdź poprawność ponownie** 
+    - **Jednostka czasu:** określ długość czasu, a następnie wybierz jednostki czasu (na przykład sekundy, minuty, godziny, itp.) umożliwia starych dostarczania zawartości. Ten typ Instalatora umożliwia CDN rozszerzenie czas, który może zostać zawartości przed wymaganiem weryfikacji według następującego wzoru: **TTL** + **opcję czas starych podczas Sprawdź poprawność ponownie** 
     - **OFF:** wybierz pozycję "wyłączone" Aby wymagać ponownego sprawdzania poprawności, zanim żądanie dla może zostać wyświetlona zawartość.
         - Nie określaj długość czasu, ponieważ nie ma zastosowania i zostaną zignorowane.
 
@@ -1109,7 +1109,7 @@ Prawidłowe wartości to:
 
 Wartość|Wynik
 ---|----
-Enabled (Włączony)|Powoduje, że serwer graniczny ignorowanie wielkości liter podczas porównywania adresów URL dla uwierzytelniania opartego na tokenie parametrów.
+Enabled (Włączony)|Powoduje, że POP ignorowanie wielkości liter podczas porównywania adresów URL dla uwierzytelniania opartego na tokenie parametrów.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest adres URL porównania dla tokenu uwierzytelniania będzie uwzględniana wielkość liter.
 
 **Domyślne zachowanie:** wyłączone.
@@ -1149,7 +1149,7 @@ Opcja|Opis
 -|-
 Kod|Wybierz kod odpowiedzi, który zostanie zwrócony do zleceniodawcy.
 Wzorzec & źródła| Te ustawienia definiują wzorzec identyfikatora URI żądania, który identyfikuje typ żądania, które mogą zostać przekierowane. Nastąpi przekierowanie tylko żądania, którego adres URL spełnia oba następujące kryteria: <br/> <br/> **Źródło (lub punktu dostępu do zawartości):** wybierz ścieżkę względną, którą identyfikuje serwer pochodzenia. Jest to sekcja "/XXXX/" i nazwa punktu końcowego. <br/> **Źródło (wzorzec):** wzorca, który identyfikuje żądania za pomocą ścieżki względnej musi być zdefiniowany. Ten wzorzec wyrażenia regularnego musi definiować ścieżki, która rozpoczyna się bezpośrednio po poprzednio wybranego dostępu do zawartości punktu (zobacz powyżej). <br/> -Upewnij się, że żądanie identyfikatora URI kryteria (to znaczy źródła & wzorzec) wcześniej zdefiniowane nie koliduje to z warunkom dopasowania zdefiniowane dla tej funkcji. <br/> -Określ wzorzec; Jeśli wartość pusta jest używany jako wzorzec, wszystkie ciągi są dopasowywane.
-Element docelowy| Zdefiniuj adres URL, do którego zostanie przekierowany żądań powyżej. <br/> Dynamicznie utworzyć przy użyciu tego adresu URL: <br/> -Wzorzec wyrażenia regularnego <br/>-Zmienne HTTP <br/> Zastąp wartości przechwytywane we wzorcu źródła do wzorca docelowego przy użyciu $ _n_  gdzie  _n_  identyfikuje wartość według kolejności, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość przechwycone we wzorcu źródła, podczas gdy druga wartość reprezentuje $2. <br/> 
+Element docelowy| Zdefiniuj adres URL, do którego zostanie przekierowany żądań powyżej. <br/> Dynamicznie utworzyć przy użyciu tego adresu URL: <br/> -Wzorzec wyrażenia regularnego <br/>-Zmienne HTTP <br/> Zastąp wartości przechwytywane we wzorcu źródła do wzorca docelowego przy użyciu $_n_ gdzie _n_ identyfikuje wartość według kolejności, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość przechwycone we wzorcu źródła, podczas gdy druga wartość reprezentuje $2. <br/> 
 Zdecydowanie zaleca się używania bezwzględnego adresu URL. Użycie względny adres URL może przekierować CDN adresy URL do nieprawidłowej ścieżki.
 
 **Przykładowy scenariusz**
@@ -1191,8 +1191,8 @@ Informacje o kluczu:
 Opcja|Opis
 -|-
  Wzorzec & źródła | Te ustawienia definiują wzorzec identyfikatora URI żądania, który identyfikuje typ żądania, które mogą być napisany od nowa. Zostanie ponownego napisania tylko żądania, którego adres URL spełnia oba następujące kryteria: <br/>     - **Źródło (lub punktu dostępu do zawartości):** wybierz ścieżkę względną, którą identyfikuje serwer pochodzenia. Jest to sekcja "/XXXX/" i nazwa punktu końcowego. <br/> - **Źródło (wzorzec):** wzorca, który identyfikuje żądania za pomocą ścieżki względnej musi być zdefiniowany. Ten wzorzec wyrażenia regularnego musi definiować ścieżki, która rozpoczyna się bezpośrednio po poprzednio wybranego dostępu do zawartości punktu (zobacz powyżej). <br/> Sprawdź, czy żądanie identyfikatora URI kryteria (to znaczy źródła & wzorzec) wcześniej zdefiniowane nie koliduje to z jednego z warunków dopasowania zdefiniowane dla tej funkcji. Określ wzorzec; Jeśli wartość pusta jest używany jako wzorzec, wszystkie ciągi są dopasowywane. 
- Element docelowy  |Określ względny adres URL, do którego powyżej żądania będą ulegną przez: <br/>    1. Wybieranie punktu dostępu do zawartości, który identyfikuje serwer pochodzenia. <br/>    2. Definiowanie za pomocą ścieżki względnej: <br/>        -Wzorzec wyrażenia regularnego <br/>        -Zmienne HTTP <br/> <br/> Zastąp wartości przechwytywane we wzorcu źródła do wzorca docelowego przy użyciu $ _n_  gdzie  _n_  identyfikuje wartość według kolejności, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość przechwycone we wzorcu źródła, podczas gdy druga wartość reprezentuje $2. 
- Ta funkcja umożliwia serwerom krawędzi ponowne zapisywanie adresów URL bez wykonywania tradycyjnych przekierowania. Oznacza to, osoby żądającej otrzyma ten sam kod odpowiedzi tak, jakby zażąda ponownie zapisane adresu URL.
+ Element docelowy  |Określ względny adres URL, do którego powyżej żądania będą ulegną przez: <br/>    1. Wybieranie punktu dostępu do zawartości, który identyfikuje serwer pochodzenia. <br/>    2. Definiowanie za pomocą ścieżki względnej: <br/>        -Wzorzec wyrażenia regularnego <br/>        -Zmienne HTTP <br/> <br/> Zastąp wartości przechwytywane we wzorcu źródła do wzorca docelowego przy użyciu $_n_ gdzie _n_ identyfikuje wartość według kolejności, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość przechwycone we wzorcu źródła, podczas gdy druga wartość reprezentuje $2. 
+ Ta funkcja umożliwia POP zmodyfikować adres URL bez wykonywania tradycyjnych przekierowania. Oznacza to, osoby żądającej otrzyma ten sam kod odpowiedzi tak, jakby zażąda ponownie zapisane adresu URL.
 
 **Przykładowy scenariusz 1**
 
@@ -1248,8 +1248,8 @@ Ta funkcja obejmuje spełniających kryteria, które muszą zostać spełnione, 
 </br>
 
 ## <a name="next-steps"></a>Następne kroki
-* [Odwołanie do aparatu reguł](cdn-rules-engine-reference.md)
+* [Dokumentacja aparatu reguł](cdn-rules-engine-reference.md)
 * [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
-* [Warunki uzgadniania aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
+* [Warunki dopasowań aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
 * [Zastąpienie zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)
 * [Omówienie usługi Azure CDN](cdn-overview.md)

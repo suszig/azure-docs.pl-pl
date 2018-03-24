@@ -1,11 +1,12 @@
 ---
-title: "Czy Twoje dane są gotowe na analizę danych? Ocena danych - Azure Machine Learning | Dokumentacja firmy Microsoft"
-description: "Cztery kryteria danych trzeba spełnić, aby być gotowa do analizy danych. Ten plik wideo ma konkretnego przykłady ułatwiające oceny podstawowe dane."
-keywords: "odpowiednie dane oceny danych, należy przygotować danych kryteria danych, danych gotowe"
+title: Czy Twoje dane są gotowe na analizę danych? Ocena danych - Azure Machine Learning | Dokumentacja firmy Microsoft
+description: Cztery kryteria danych trzeba spełnić, aby być gotowa do analizy danych. Ten plik wideo ma konkretnego przykłady ułatwiające oceny podstawowe dane.
+keywords: odpowiednie dane oceny danych, należy przygotować danych kryteria danych, danych gotowe
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 2d9c66d89b82c63561b147f3d2537ba6ad07c511
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Czy Twoje dane są gotowe na analizę danych?
 ## <a name="video-2-data-science-for-beginners-series"></a>Wideo 2: Nauki danych serii dla początkujących
@@ -47,25 +47,23 @@ Aby uzyskać wykorzystanie serii, obejrzyj je wszystkie. [Przejdź do listy film
 Przed nauki danych można nadać odpowiedzi, który ma, należy nadać mu niektórych materiałów raw wysokiej jakości do pracy z. Podobnie jak wprowadzenie składników rozpoczęcia z lepsze produktu końcowego pizza, tym lepiej. 
 
 ## <a name="criteria-for-data"></a>Kryteria dla danych
-Tak w przypadku analizy danych, ma niektórych składników, które należy do scalenia.
-
-Potrzebujemy dane, które są:
+W nauce danych istnieją niektórych składników, które muszą być pobierane razem w tym:
 
 * Odpowiednie
-* Połączone
+* Połączony
 * Dokładne
 * Aby pracować z
 
 ## <a name="is-your-data-relevant"></a>Dotyczy danych?
-Potrzebujemy pierwszy składnik — dane, które są odpowiednie.
+Pierwszy składnik — należy więc dane.
 
 ![Istotne dane, a dane nie ma znaczenia — oceny danych](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Szukaj w tabeli po lewej stronie. Firma Microsoft spełnione siedmiu osób poza paski Boston, mierzony poziom alkohol krwi, Sox czerwony średnią batting ich ostatniego gry, w i cen mleka w najbliższej sklepie.
+Po lewej stronie tabela przedstawia poziom alkohol krwi siedmiu osób przetestowane poza pasek Boston, Sox czerwony średnią batting ich ostatniego gry, w i cen mleka w najbliższej sklepie.
 
-To są wszystkie dane doskonale uzasadnionych. Błąd tylko jego jest, że nie jest odpowiedni. Nie ma żadnej oczywiste zależności między te liczby. Jeśli po otwarciu bieżącej ceny i średnia batting Sox czerwony, nie istnieje sposób można odgadnąć Moja zawartość alkoholu krwi.
+To są wszystkie dane doskonale uzasadnionych. Błąd tylko jego jest, że nie jest odpowiedni. Nie ma żadnej oczywiste zależności między te liczby. Jeśli określono bieżącej ceny i średnia batting Sox czerwony, nie istnieje sposób można odgadnąć ich zawartość alkoholu krwi.
 
-Teraz wyglądać w tabeli po prawej stronie. Teraz możemy mierzony każda osoba body masowej i zliczane liczba napojów one właśnie.  Numery w każdym wierszu teraz mają zastosowanie do siebie. Jeśli I udostępniła Ci Moje treści masowej oraz liczby Margaritas I właśnie, można utworzyć wynik w mojej krwi alkohol zawartości.
+Teraz wyglądać w tabeli po prawej stronie. Tym razem treści każda osoba masowej zmierzono oraz liczbę napojów one właśnie.  Numery w każdym wierszu teraz mają zastosowanie do siebie. Jeśli I udostępniła Ci Moje treści masowej oraz liczby Margaritas I właśnie, można utworzyć wynik w mojej krwi alkohol zawartości.
 
 ## <a name="do-you-have-connected-data"></a>Czy nawiązano połączenie danych?
 Następny składnik jest połączonych danych.
@@ -76,35 +74,35 @@ Oto niektóre dane dotyczące jakości hamburgers: kraty temperatury, waga patty
 
 Brak niektórych wartości większość zestawów danych. Jest często mają luk w następujący sposób i sposoby ich obejścia. Jednak jeśli istnieje za dużo Brak, dane rozpocznie się wyglądały jak ser Szwajcaria.
 
-Jeśli Szukaj w tabeli po lewej stronie ma tak dużo brakujące dane, trudno jest opracowywane dowolnego rodzaju relacji między rusztem temperatury i patty wagi. To jest przykład bez połączenia danych.
+Jeśli Szukaj w tabeli po lewej stronie ma tak dużo brakujące dane, trudno jest opracowywane dowolnego rodzaju relacji między rusztem temperatury i patty wagi. Ten przykład przedstawia bez połączenia danych.
 
 Tabeli po prawej stronie, jednak jest zapełniony i ukończenia — przykład połączonych danych.
 
 ## <a name="is-your-data-accurate"></a>Dane są dokładne?
-Następny składnik, potrzebne jest dokładności. Poniżej przedstawiono cztery obiektów docelowych, które chcielibyśmy trafień za pomocą strzałek.
+Następny składnik jest dokładności. Poniżej przedstawiono cztery miejsc docelowych trafień.
 
 ![Dokładne dane a niedokładne dane — kryteria danych](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Szukaj w celu, w prawym górnym rogu. Mamy ścisłej grupowania prawo wokół oka byków. Oczywiście jest dokładna. Dziwnie danego języka nauki danych naszych wydajności z prawej strony docelowej poniżej jest traktowana jako dokładne.
+Szukaj w celu, w prawym górnym rogu. Brak ścisłej grupowania prawo wokół oka byków. Oczywiście jest dokładna. Dziwnie danego języka nauki danych wydajności z prawej strony docelowej poniżej jest traktowana jako dokładne.
 
-Jeśli do mapowania Centrum te strzałki, zobaczysz, że bardzo jest bliski oka byków. Strzałki są rozproszone wszystkie wokół docelowej, więc są traktowane jako nieprecyzyjna, ale jest wyśrodkowywana wokół oka byków, są traktowane jako dokładne.
+Jeśli zmapowaniu Centrum te strzałki, zobaczysz, że bardzo jest bliski oka byków. Strzałki są rozproszone wszystkie wokół docelowej, więc są traktowane jako nieprecyzyjna, ale jest wyśrodkowywana wokół oka byków, są traktowane jako dokładne.
 
-Teraz wyglądać w lewym górnym docelowej. W tym miejscu naszych strzałki bardzo blisko siebie osiągnęła ścisłej grupowania. Są one dokładne, ale są one nieprawidłowe, ponieważ Centrum jest sposób poza oka byków. I oczywiście strzałki w lewym dolnym rogu docelowej są niedokładne i niedokładna. Ten archer wymaga więcej rozwiązań.
+Teraz wyglądać w lewym górnym docelowej. W tym miejscu strzałki bardzo blisko siebie osiągnęła ścisłej grupowania. Są one dokładne, ale są one nieprawidłowe, ponieważ Centrum jest sposób poza oka byków. Strzałki w lewym dolnym rogu docelowej są nieprawidłowe i niedokładna. Ten archer wymaga więcej rozwiązań.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Masz za mało danych do pracy z?
-Na koniec składnik #4 - musimy mieć wystarczającej ilości danych.
+Na koniec składnik #4 jest wystarczającą ilość danych.
 
 ![Masz za mało danych do analizy? Ocena danych](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Pomyśl o każdego punktu danych w tabeli jako pędzla w malowania. Jeśli masz tylko niektóre z nich może być dość rozmytego rysowania — jest stwierdzić, co to jest.
+Pomyśl o każdego punktu danych w tabeli jako pędzla w malowania. Jeśli masz tylko niektóre z nich może być niewyraźny rysowania — jest stwierdzić, co to jest.
 
 Jeśli dodasz kilka więcej pociągnięć Twojej rysowania uruchamia uzyskać nieco ostrzejszy.
 
-Jeśli masz prawie za mało pociągnięć widać niektóre szerokie decyzje, aby. Jest to miejsce, które można znaleźć? Wygląda na to jasny, to wygląda czystej wody — tak, będącą, gdzie użyjemy na urlop.
+Jeśli masz pociągnięć prawie za mało widoczne są tylko do niektórych szerokie decyzje. Jest to miejsce, które można znaleźć? Wygląda na to jasny, to wygląda czystej wody — tak, będącą, gdzie użyjemy na urlop.
 
-Jak dodać więcej danych obraz staje się jaśniejszy i bardziej szczegółowe decyzje. Teraz można przyjrzeć trzy hotels na lewym bank. Znasz, naprawdę jak z architektury funkcje co na pierwszym planie. I będzie pozostać, trzeci piętra.
+Jak dodać więcej danych obraz staje się jaśniejszy i bardziej szczegółowe decyzje. Teraz można przyjrzeć się trzy hotels na lewym bank. Można zauważyć architektury funkcje co na pierwszym planie. Można nawet pozostać na trzeci floor z powodu widoku.
 
-Z danych, które jest odpowiednie, połączony, dokładne i wystarczająco, firma Microsoft ma wszystkich składników należy wykonać niektóre nauki wysokiej jakości danych.
+Dane, które jest odpowiednie, połączony, dokładne i wystarczająco, należy mieć wszystkie składniki wymagane do wykonania niektórych nauki wysokiej jakości danych.
 
 Należy koniecznie zapoznaj się z czterech wideo w *nauki danych dla początkujących* z Microsoft Azure Machine Learning.
 

@@ -1,24 +1,24 @@
 ---
-title: "Historia wersji łącznika | Dokumentacja firmy Microsoft"
-description: "Ten temat zawiera listę wszystkich wersji łączników dla programu Forefront Identity Manager (FIM) i Microsoft Identity Manager (MIM)"
+title: Historia wersji łącznika | Dokumentacja firmy Microsoft
+description: Ten temat zawiera listę wszystkich wersji łączników dla programu Forefront Identity Manager (FIM) i Microsoft Identity Manager (MIM)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>Historia wersji łącznika
 Łączników programu Forefront Identity Manager (FIM) i Microsoft Identity Manager (MIM) są często aktualizowane.
@@ -34,9 +34,26 @@ Linki pokrewne:
 * [Pobierz najnowsze łączników](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Ogólny łącznik LDAP](active-directory-aadconnectsync-connector-genericldap.md) odwołania dokumentacji
 * [Ogólny Łącznik usług SQL](active-directory-aadconnectsync-connector-genericsql.md) odwołania dokumentacji
-* [Łącznik usług Web](http://go.microsoft.com/fwlink/?LinkID=226245) odwołania dokumentacji
+* [Łącznik usług Web](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) odwołania dokumentacji
 * [Łącznik programu PowerShell](active-directory-aadconnectsync-connector-powershell.md) odwołania dokumentacji
 * [Łącznika programu Lotus Domino](active-directory-aadconnectsync-connector-domino.md) odwołania dokumentacji
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>Rozwiązane problemy:
+* Rozwiązany System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning) ConnectorsLog
+* W tej wersji łączników, należy zaktualizować przekierowania powiązania z 3.3.0.0-4.1.3.0 do 4.1.4.0 w miiserver.exe.config
+* Usługi sieci Web ogólne:
+    * Nie można zapisać rozpoznać odpowiedzi poprawne dane JSON w narzędzia do konfiguracji
+* Ogólny SQL:
+    * Eksport zawsze generuje tylko aktualizacji zapytania dla operacji usuwania. Dodane do generowania zapytanie delete
+    * Zapytanie SQL, który pobiera obiektów dla operacji importu zmian, jeśli "Delta strategii" jest "Śledzenia zmian" został rozwiązany. W tej implementacji znane ograniczenia: Import zmian w trybie "Śledzenia zmian" nie śledzi zmiany w wielowartościowych atrybutach
+    * Dodano możliwość Generowanie zapytanie delete dla przypadku, gdy należy usunąć ostatnią wartość atrybutu wielowartościowego, a ten wiersz nie zawiera innych danych, z wyjątkiem wartości, które należy usunąć.
+    * Parametry wyjściowe przez SP zaimplementowana System.ArgumentException podczas obsługi 
+    * Nieprawidłowe zapytanie Aby operacja eksportu do pola, które jest typu varbinary(max)
+    * Problem ze zmienną Listaparametrów został zainicjowany dwukrotnie (w funkcji ExportAttributes i GetQueryForMultiValue)
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -79,7 +96,9 @@ Linki pokrewne:
 * Usługi sieci Web ogólne:
   * Narzędzie Wsconfig nie zostały przekonwertowane poprawnie tablicy Json z "przykładowe żądanie" dla metody usługi REST. Przyczyną problemów z serializacji tej tablicy Json dla żądania REST.
   * Narzędzie konfiguracji łącznika usług sieci Web nie obsługuje użycia miejsca symboli w nazwach atrybutów JSON 
-    * Wzorzec podstawienia można dodać ręcznie do pliku WSConfigTool.exe.config, np.```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Wzorzec podstawienia można dodać ręcznie do pliku WSConfigTool.exe.config, np. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> Wymagany jest klucz JSONSpaceNamePattern, jak eksportu zostanie wyświetlony następujący błąd: komunikat: pusta nazwa jest niedozwolona. 
 
 * Program Lotus Notes:
   * Gdy opcja **Zezwalaj na niestandardowe wydających świadectwa dla jednostki organizacyjnej/organizacji** jest wyłączony łącznik zakończy się niepowodzeniem podczas eksportu (aktualizacja) po przepływu eksportu wszystkie atrybuty zostaną wyeksportowane do Domino, ale w czasie eksportu KeyNotFoundException jest zwracana do synchronizacji. 

@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ee75af9b1d7b77799fe02d87da257ff73bc567e6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 21f8eb795aa1675e2bbd5284f88b39c76ad59228
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Bazy danych platformy Azure dla PostgreSQL warstw cenowych
 
@@ -21,8 +21,8 @@ Baza danych Azure dla serwera PostgreSQL mogą być tworzone w jednym z trzech r
 
 |    | **Podstawowa** | **Ogólnego przeznaczenia** | **Zoptymalizowana pod kątem pamięci** |
 |:---|:----------|:--------------------|:---------------------|
-| Generowanie obliczeniowe | Gen 4, 5 Gen | Gen 4, 5 Gen | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| Generowanie obliczeniowe | Gen 4, 5 Gen | Gen 4, 5 Gen | 5. generacja |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Ilość pamięci na vCore | 1x | 2 x Basic | 2 x ogólnego przeznaczenia |
 | Rozmiar magazynu | 5 GB do 1 TB | 5 GB do 1 TB | 5 GB do 1 TB |
 | Typ magazynu | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -40,7 +40,32 @@ Po utworzeniu serwera liczba vCores można zmienić w górę lub w dół w ciąg
 
 ## <a name="compute-generations-vcores-and-memory"></a>Generacje obliczeń, vCores i pamięci
 
-Zasoby obliczeniowe są dostarczane jako vCores reprezentujący Procesora logicznego podstawowej sprzętu. Obecnie dwie generacje obliczeń Gen 4 i Gen 5 są dostępne do wyboru z. Logiczne procesory CPU 4. generacji wykorzystują procesory Intel E5-2673 v3 (Haswell) z zegarem 2,4 GHz. Logiczne procesory CPU 5. generacji wykorzystują procesory Intel E5-2673 v4 (Broadwell) z zegarem 2,3 GHz.
+Zasoby obliczeniowe są dostarczane jako vCores reprezentujący Procesora logicznego podstawowej sprzętu. Obecnie dwie generacje obliczeń Gen 4 i Gen 5 są dostępne do wyboru z. Logiczne procesory CPU 4. generacji wykorzystują procesory Intel E5-2673 v3 (Haswell) z zegarem 2,4 GHz. Logiczne procesory CPU 5. generacji wykorzystują procesory Intel E5-2673 v4 (Broadwell) z zegarem 2,3 GHz. Gen 4 i Gen 5 są dostępne w następujących regionach ("X" oznacza dostępne): 
+
+| **Azure Region** | **Generowanie 4** | **Generowanie 5** |
+|:---|:----------:|:--------------------:|
+| Środkowe stany USA |  | X |
+| Wschodnie stany USA | X | X |
+| Wschodnie stany USA 2 | X |  |
+| Środkowo-północne stany USA | X |  |
+| Środkowo-południowe stany USA | X |  |
+| Zachodnie stany USA | X | X |
+| Zachodnie stany USA 2 |  | X |
+| Kanada Środkowa | X | X |
+| Kanada Wschodnia | X | X |
+| Brazylia Południowa | X |  |
+| Europa Północna | X | X |
+| Europa Zachodnia | X | X |
+| Zachodnie Zjednoczone Królestwo |  | X |
+| Południowe Zjednoczone Królestwo |  | X |
+| Azja Wschodnia | X |  |
+| Azja Południowo-Wschodnia | X |  |
+| Australia Wschodnia |  | X |
+| Indie Środkowe | X |  |
+| Indie Zachodnie | X |  |
+| Japonia Wschodnia | X |  |
+| Japonia Zachodnia | X |  |
+| Korea Południowa |  | X |
 
 W zależności od warstwy cenowej każdego vCore jest udostępniane z określoną ilością pamięci. Gdy zwiększyć lub zmniejszyć liczbę vCores serwera, ilość pamięci zwiększa lub zmniejsza proporcjonalnie. Warstwa ogólnego przeznaczenia zapewnia podwójne ilość pamięci na vCore w porównaniu do warstwy podstawowa. Warstwa zoptymalizowanych pod kątem pamięci miejsce double ilość pamięci w porównaniu do warstwy ogólnego przeznaczenia.
 

@@ -1,11 +1,11 @@
 ---
-title: "Zarządzanie stanem Reliable Actors | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób Reliable Actors stanu jest zarządzany, utrwalenia i replikacji wysokiej dostępności."
+title: Zarządzanie stanem Reliable Actors | Dokumentacja firmy Microsoft
+description: Opisuje sposób Reliable Actors stanu jest zarządzany, utrwalenia i replikacji wysokiej dostępności.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d5d38e7fa80db3484c397d9840bbc6092e4f18bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="reliable-actors-state-management"></a>Zarządzanie stanem podmiotów niezawodnej
 Reliable Actors są jednowątkowych obiektów hermetyzacji zarówno logiki i stanu. Ponieważ podmioty są uruchamiane na niezawodne usługi, ich niezawodnie zachowują stan, przy użyciu tego samego stanu trwałego i mechanizmów replikacji. W ten sposób złośliwych użytkowników nie utracili ich stanu po awariach po ponownej aktywacji po wyrzucanie elementów bezużytecznych lub po przeniesieniu ich między węzłami w klastrze równoważenia zasobów lub uaktualnień.
@@ -111,299 +111,7 @@ Menedżer stanu klucze muszą być ciągami. Wartości są ogólne i mogą być 
 
 Menedżer stanu przedstawia stan podobne do tych znaleziony w słowniku niezawodnej zarządzania typowe metody słownika.
 
-## <a name="accessing-state"></a>Uzyskiwanie dostępu do stanu
-Stan jest możliwy za pośrednictwem Menedżera stanu według klucza. Metody menedżera stanu są wszystkie asynchronicznego, ponieważ może wymagać We/Wy dysku, gdy podmiotów utrwalonych stanu. Po pierwszym dostępie obiekty stanu są buforowane w pamięci. Powtórz uzyskiwanie dostępu do operacji dostępu do obiektów bezpośrednio z pamięci i zwracany synchronicznie, bez ponoszenia We/Wy dysku lub asynchroniczne przełączania kontekstu. Obiekt stanu zostanie usunięty z pamięci podręcznej w następujących przypadkach:
-
-* Metoda aktora zgłasza nieobsługiwany wyjątek, po jego pobiera obiekt przez menedżera stanu.
-* Uaktywnieniu aktora, po dezaktywowany lub po awarii.
-* Dostawca stanu strony stanu na dysku. To zachowanie zależy od implementacji dostawcy stanu. Domyślny dostawca stanu dla `Persisted` ma to zachowanie.
-
-Stan można pobrać za pomocą standardowego *uzyskać* operacja, która zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java), jeśli wpis nie istnieje dla klucza:
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task<int> GetCountAsync()
-    {
-        return this.StateManager.GetStateAsync<int>("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().getStateAsync("MyState");
-    }
-}
-```
-
-Stan można również pobrać za pomocą *TryGet* metodę, która nie zgłasza, jeśli wpis nie istnieje dla klucza:
-
-```csharp
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task<int> GetCountAsync()
-    {
-        ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
-        if (result.HasValue)
-        {
-            return result.Value;
-        }
-
-        return 0;
-    }
-}
-```
-```Java
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
-            if (result.hasValue()) {
-                return result.getValue();
-            } else {
-                return 0;
-            });
-    }
-}
-```
-
-## <a name="saving-state"></a>Zapisywanie stanu
-Metody pobierania stanu Menedżera zwraca odwołanie do obiektu w pamięci lokalnej. Modyfikowanie tego obiektu w pamięci lokalnej wyłącznie nie powoduje jego zapisania trwałym. Gdy obiekt jest pobierane z Menedżera stanu i modyfikować, należy ponownie wstawić do przez menedżera stanu można zapisać trwałym.
-
-Stan można wstawić za pomocą bezwarunkowe *ustawić*, który jest odpowiednikiem `dictionary["key"] = value` składni:
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task SetCountAsync(int value)
-    {
-        return this.StateManager.SetStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture setCountAsync(int value)
-    {
-        return this.stateManager().setStateAsync("MyState", value);
-    }
-}
-```
-
-Stan można dodać za pomocą *Dodaj* metody. Ta metoda zgłasza `InvalidOperationException`(C#) lub `IllegalStateException`(Java) próbuje dodać klucz już istnieje.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task AddCountAsync(int value)
-    {
-        return this.StateManager.AddStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
-    }
-}
-```
-
-Stan można również dodać za pomocą *TryAdd* metody. Ta metoda nie zgłasza, gdy próbuje dodać klucz już istnieje.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task AddCountAsync(int value)
-    {
-        bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
-
-        if (result)
-        {
-            // Added successfully!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
-            if(result)
-            {
-                // Added successfully!
-            }
-        });
-    }
-}
-```
-
-Na końcu metody aktora Menedżer stanu automatycznie zapisuje wartości, które zostały dodane lub zmodyfikowane przez operacji insert lub update. "Zapisz" może zawierać przechowywanie na dysku i replikacji, w zależności od ustawienia używane. Wartości, które nie zostały zmodyfikowane nie są zachowywane lub replikowane. Jeśli wartości nie zostały zmodyfikowane, Zapisz działania nie działają. Jeśli zapiszesz kończy się niepowodzeniem, zostanie odrzucony stanu modyfikacji i załadowaniu oryginalnego stanu.
-
-Można także zapisać stan ręcznie przez wywołanie metody `SaveStateAsync` metody na podstawie aktora:
-
-```csharp
-async Task IMyActor.SetCountAsync(int count)
-{
-    await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
-
-    await this.SaveStateAsync();
-}
-```
-```Java
-interface MyActor {
-    CompletableFuture setCountAsync(int count)
-    {
-        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
-
-        this.stateManager().saveStateAsync().thenApply();
-    }
-}
-```
-
-## <a name="removing-state"></a>Usuwanie stanu
-Możesz usunąć stan trwale z Menedżer stanu aktora wywołując *Usuń* metody. Ta metoda zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java) podczas próby usunięcia klucz, który nie istnieje.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task RemoveCountAsync()
-    {
-        return this.StateManager.RemoveStateAsync("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().removeStateAsync("MyState");
-    }
-}
-```
-
-Można również usunąć stan trwale przy użyciu *TryRemove* metody. Ta metoda nie zgłasza podczas próby usunięcia klucza, który nie istnieje.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task RemoveCountAsync()
-    {
-        bool result = await this.StateManager.TryRemoveStateAsync("MyState");
-
-        if (result)
-        {
-            // State removed!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
-            if(result)
-            {
-                // State removed!
-            }
-        });
-    }
-}
-```
+Przykłady zarządzania stanu aktora odczytu [dostępu, zapisywania i usuwania stanu Reliable Actors](service-fabric-reliable-actors-access-save-remove-state.md).
 
 ## <a name="best-practices"></a>Najlepsze praktyki
 Poniżej przedstawiono niektóre sugerowane rozwiązania i wskazówki dotyczące rozwiązywania problemów związanych z zarządzaniem Nazwa stanu aktora.
@@ -412,7 +120,7 @@ Poniżej przedstawiono niektóre sugerowane rozwiązania i wskazówki dotyczące
 Jest to szczególnie ważne, wydajności i użycia zasobów aplikacji. Zawsze, gdy istnieje zapisu/zaktualizowanie "o nazwie stanu" aktora, całe wartością odpowiadającą temu Państwu"o nazwie" jest serializowany i przesyłane przez sieć w replikach pomocniczych.  Pomocnicze zapisu na dysku lokalnym i odpowiedzi do repliki podstawowej. Gdy podstawowy otrzyma potwierdzeń z kworum replik pomocniczych, zapisuje stan do jego dysku lokalnym. Na przykład załóżmy, że wartość jest klasa, która ma 20 elementów członkowskich i o rozmiarze 1 MB. Nawet wtedy, gdy jeden z elementów członkowskich klasy, które jest tylko zmodyfikowane rozmiarze 1 KB, koniec się zwracając koszt serializacji i zapisy sieci i dysku do pełnej 1 MB. Podobnie jeśli wartość jest kolekcji (na przykład listy, tablicy lub słownika), płacisz koszt pełną kolekcję nawet wtedy, gdy jeden z jego elementów członkowskich zmodyfikować. Interfejs zabezpiecza klasy aktora jest podobne do słownika. Należy zawsze modelu struktury danych reprezentujący stanu aktora u góry tego słownika.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Poprawnie Zarządzanie cyklem życia aktora
-Należy dobrze wyczyść zasad dotyczących zarządzania rozmiar stanu w każdej partycji usługi aktora. Usługi aktora powinny mieć stała liczba uczestników i użyj ich ponownie bardzo, jak to możliwe. Jeśli stale utworzyć nowych podmiotów, należy je usunąć po zakończeniu pracy. Framework aktora przechowuje niektóre metadane dotyczące każdego aktora, czy istnieje. Usunięcie stanu aktora nie powoduje usunięcia metadane dotyczące tego aktora. Należy usunąć aktora (zobacz [Usuwanie złośliwych użytkowników i ich stan](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) do usunięcia wszystkich informacji o ona przechowywana w systemie. Jako dodatkowe wyboru, należy wysłać zapytania do usługi aktora (zobacz [wyliczania podmiotów](service-fabric-reliable-actors-platform.md)) okazjonalnie, aby upewnić się, liczba uczestników są oczekiwanego zakresu.
+Należy dobrze wyczyść zasad dotyczących zarządzania rozmiar stanu w każdej partycji usługi aktora. Usługi aktora powinny mieć stała liczba uczestników i użyj ich ponownie bardzo, jak to możliwe. Jeśli stale utworzyć nowych podmiotów, należy je usunąć po zakończeniu pracy. Framework aktora przechowuje niektóre metadane dotyczące każdego aktora, czy istnieje. Usunięcie stanu aktora nie powoduje usunięcia metadane dotyczące tego aktora. Należy usunąć aktora (zobacz [Usuwanie złośliwych użytkowników i ich stan](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) do usunięcia wszystkich informacji o ona przechowywana w systemie. Jako dodatkowe wyboru, należy wysłać zapytania do usługi aktora (zobacz [wyliczania podmiotów](service-fabric-reliable-actors-platform.md)) okazjonalnie, aby upewnić się, liczba uczestników są oczekiwanego zakresu.
  
 Jeśli kiedykolwiek widać, że rozmiar pliku bazy danych usługi aktora zwiększa się poza oczekiwanym rozmiarem, upewnij się, po poprzednim wytyczne. Jeśli są następujące wskazówki i są nadal bazy danych problemów z rozmiarem plików, należy [Otwórz bilet pomocy technicznej](service-fabric-support.md) zespołowi produktu, aby uzyskać pomoc.
 

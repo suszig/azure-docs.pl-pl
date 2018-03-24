@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Informacje o wersji agenta usługi Azure File Sync (wersja zapoznawcza)
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Instalacje systemów Windows Server są przekształcane w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -93,11 +93,12 @@ Następujące elementy nie są synchronizowane, ale reszta systemu nadal normaln
 - Punkt końcowy serwera nie może być na woluminie systemowym. Na przykład ścieżka C:\MojFolder nie jest dopuszczalna, chyba że C:\MojFolder jest punktem instalacji.
 - Klaster trybu failover jest obsługiwany tylko z dyskami klastrowanymi, ale nie z udostępnionymi woluminami klastra (CSV).
 - Punktu końcowego serwera nie można zagnieżdżać. Może on współistnieć na tym samym woluminie równolegle z innym punktem końcowym.
-- Jednorazowe usuwanie dużej liczby (ponad 10 000) katalogów z serwera może powodować błędy synchronizacji. Katalogi należy usuwać partiami zawierającymi mniej niż 10 000 katalogów. Przed usunięciem następnej partii należy się upewnić, że poprzednia operacja usuwania została pomyślnie zsynchronizowana.
 - W tej wersji dodano obsługę katalogu głównego synchronizacji będącego katalogiem głównym woluminu.
 - Nie należy przechowywać pliku stronicowania systemu operacyjnego lub aplikacji w ramach punktu końcowego serwera.
 - Zmiany w tej wersji: dodano nowe zdarzenia do śledzenia całkowitego czasu wykonania dla obsługi warstw w chmurze (EventID: 9016); postęp przekazywania synchronizacji (EventID: 9302); lista plików, które nie zostały zsynchronizowane (EventID: 9900).
-- Zmiany w tej wersji: wydajność szybkiej synchronizacji przestrzeni nazw odzyskiwania po awarii została znacznie zwiększona.
+- Ulepszone w tej wersji: 
+- Znacznie zwiększa się wydajność synchronizacji szybkiego DR przestrzeni nazw.
+- Usuwanie katalogów dużą liczbą (ponad 10 000) nie musi być przeprowadzane w partiach o v2 *.
  
 ### <a name="cloud-tiering"></a>Obsługa warstw w chmurze
 - Zmiany względem poprzedniej wersji: nowe pliki są organizowane w warstwy w ciągu 1 godziny (wcześniej w ciągu 32 godzin). To ustawienie zasad obsługi warstw można zmieniać. Udostępniono też polecenie cmdlet programu PowerShell służące do umieszczania w warstwie na żądanie. Dzięki temu poleceniu cmdlet możliwa jest bardziej wydajna obsługa warstw bez konieczności oczekiwania na proces w tle.

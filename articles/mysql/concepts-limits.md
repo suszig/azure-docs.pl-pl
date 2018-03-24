@@ -1,6 +1,6 @@
 ---
-title: "Ograniczenia dotyczące bazy danych platformy Azure dla programu MySQL"
-description: "W tym artykule opisano ograniczenia w bazie danych Azure dla programu MySQL, takie jak liczba połączeń i opcje aparatu magazynu."
+title: Ograniczenia dotyczące bazy danych platformy Azure dla programu MySQL
+description: W tym artykule opisano ograniczenia w bazie danych Azure dla programu MySQL, takie jak liczba połączeń i opcje aparatu magazynu.
 services: mysql
 author: kamathsun
 ms.author: sukamat
@@ -8,42 +8,41 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Ograniczenia dotyczące bazy danych platformy Azure dla programu MySQL
-Jest bazą danych Azure dla usługi MySQL w publicznej wersji zapoznawczej. W poniższych sekcjach opisano pojemności, magazynu aparat obsługę, uprawnień, obsługi instrukcji manipulacji danych oraz limity funkcjonalności usługi bazy danych. Zobacz też [ogólne ograniczenia](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) mające zastosowanie do aparatu bazy danych MySQL.
+W poniższych sekcjach opisano pojemności, magazynu aparat obsługę, uprawnień, obsługi instrukcji manipulacji danych oraz limity funkcjonalności usługi bazy danych. Zobacz też [ogólne ograniczenia](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) mające zastosowanie do aparatu bazy danych MySQL.
 
 ## <a name="service-tier-maximums"></a>Maksymalne wartości warstwy usługi
 Bazy danych platformy Azure dla programu MySQL ma wiele warstw do wyboru podczas tworzenia serwera. Aby uzyskać więcej informacji, zobacz [bazy danych Azure dla programu MySQL warstw cenowych](concepts-pricing-tiers.md).  
 
-Jest maksymalna liczba połączeń, obliczeniowe jednostek i magazynu w poszczególnych warstwach usług wersji zapoznawczej, następująca: 
+Istnieje maksymalna liczba połączeń, obliczeniowe jednostek i magazynu w poszczególnych warstwach usług w następujący sposób: 
 
 |**Warstwa cenowa**| **Generowanie obliczeniowe**|**vCore(s)**| **Maksymalna liczba połączeń**|
 |---|---|---|---|
-|Podstawowa| Gen 4| 1| 50|
-|Podstawowa| Gen 4| 2| 100|
-|Podstawowa| Gen 5| 1| 50|
-|Podstawowa| Gen 5| 2| 100|
-|Ogólne zastosowanie| Gen 4| 2| 200|
-|Ogólne zastosowanie| Gen 4| 4| 400|
-|Ogólne zastosowanie| Gen 4| 8| 800|
-|Ogólne zastosowanie| Gen 4| 16| 1600|
-|Ogólne zastosowanie| Gen 4| 32| 3200|
-|Ogólne zastosowanie| Gen 5| 2| 200|
-|Ogólne zastosowanie| Gen 5| 4| 400|
-|Ogólne zastosowanie| Gen 5| 8| 800|
-|Ogólne zastosowanie| Gen 5| 16| 1600|
-|Ogólne zastosowanie| Gen 5| 32| 3200|
-|Pamięć| Gen 5| 2| 600|
-|Pamięć| Gen 5| 4| 1250|
-|Pamięć| Gen 5| 8| 2500|
-|Pamięć| Gen 5| 16| 5000|
-|Pamięć| Gen 5| 32| 10 000| 
+|Podstawowa| 4. generacja| 1| 50|
+|Podstawowa| 4. generacja| 2| 100|
+|Podstawowa| 5. generacja| 1| 50|
+|Podstawowa| 5. generacja| 2| 100|
+|Ogólne zastosowanie| 4. generacja| 2| 300|
+|Ogólne zastosowanie| 4. generacja| 4| 625|
+|Ogólne zastosowanie| 4. generacja| 8| 1250|
+|Ogólne zastosowanie| 4. generacja| 16| 2500|
+|Ogólne zastosowanie| 4. generacja| 32| 5000|
+|Ogólne zastosowanie| 5. generacja| 2| 300|
+|Ogólne zastosowanie| 5. generacja| 4| 625|
+|Ogólne zastosowanie| 5. generacja| 8| 1250|
+|Ogólne zastosowanie| 5. generacja| 16| 2500|
+|Ogólne zastosowanie| 5. generacja| 32| 5000|
+|Pamięć| 5. generacja| 2| 600|
+|Pamięć| 5. generacja| 4| 1250|
+|Pamięć| 5. generacja| 8| 2500|
+|Pamięć| 5. generacja| 16| 5000|
 
 Po osiągnięciu zbyt wiele połączeń, może zostać wyświetlony następujący błąd:
 > Błąd 1040 (08004): Zbyt wiele połączeń
@@ -74,7 +73,7 @@ Po osiągnięciu zbyt wiele połączeń, może zostać wyświetlony następując
 ### <a name="unsupported"></a>Nieobsługiwane
 - WYBIERZ... DO PLIKWYJŚCIOWY
 
-## <a name="preview-functional-limitations"></a>Ograniczenia funkcjonalności wersji zapoznawczej
+## <a name="functional-limitations"></a>Ograniczenia funkcjonalności
 
 ### <a name="scale-operations"></a>Operacje skalowania
 - Dynamiczne skalowanie serwerów między warstwa cenowa nie jest obecnie obsługiwane. Oznacza to przełączaniu między Basic, ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci, warstw cenowych.

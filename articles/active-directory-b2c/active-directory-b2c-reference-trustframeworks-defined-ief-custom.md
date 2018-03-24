@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Odwołanie - zaufania struktur | Dokumentacja firmy Microsoft"
-description: "Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C i platforma obsługi tożsamości"
+title: 'Usługa Azure Active Directory B2C: Odwołanie - zaufania struktur | Dokumentacja firmy Microsoft'
+description: Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C i platforma obsługi tożsamości
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 6dd9039520ec9bfadb358262dad7ebcdb67f6344
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 0cd64e90ac1b6c87008b2a16ca3afa273b9c9d56
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definiowanie relacji zaufania platformy Framework obsługi tożsamości usługi Azure AD B2C
 

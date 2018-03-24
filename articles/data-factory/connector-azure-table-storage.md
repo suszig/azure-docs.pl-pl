@@ -1,11 +1,11 @@
 ---
-title: "Kopiowanie danych do i z magazynem tabel Azure przy użyciu fabryki danych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skopiować dane ze sklepów obsługiwanych źródłowych do magazynu tabel Azure lub z magazynu tabel do zbiornika obsługiwanych magazynów przy użyciu fabryki danych."
+title: Kopiowanie danych do i z magazynem tabel Azure przy użyciu fabryki danych | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak skopiować dane ze sklepów obsługiwanych źródłowych do magazynu tabel Azure lub z magazynu tabel do zbiornika obsługiwanych magazynów przy użyciu fabryki danych.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ef43037ff33b693256c82459eec2e4b3beab4d9a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiowanie danych do i z magazynem tabel Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Wersja 1 - ogólnie dostępna](v1/data-factory-azure-table-connector.md)
+> * [Wersja 1 — ogólnie dostępna](v1/data-factory-azure-table-connector.md)
 > * [Wersja 2 — wersja zapoznawcza](connector-azure-table-storage.md)
 
 Ten artykuł przedstawia sposób użycia działanie kopiowania w fabryce danych Azure można skopiować danych do i z magazynem tabel Azure. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
@@ -271,7 +271,7 @@ Podczas przenoszenia danych do i z tabel Azure, następujące [mapowania zdefini
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Tablica bajtów do 64 KB. |
 | Edm.Boolean |bool |Wartość logiczna. |
-| Edm.DateTime |Data/godzina |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Północy, 1 stycznia, 1601 r. N.E. rozpoczyna się obsługiwanym zakresem daty i godziny (C.E.), UTC. Zakres kończy się 31 grudnia 9999 r. |
+| Edm.DateTime |DateTime |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Północy, 1 stycznia, 1601 r. N.E. rozpoczyna się obsługiwanym zakresem daty i godziny (C.E.), UTC. Zakres kończy się 31 grudnia 9999 r. |
 | Edm.Double |O podwójnej precyzji |64-bitowej zmiennej punktu wartości. |
 | Edm.Guid |Identyfikator GUID |Globalnie unikatowy identyfikator 128-bitowego. |
 | Edm.Int32 |Int32 |32-bitową liczbę całkowitą. |

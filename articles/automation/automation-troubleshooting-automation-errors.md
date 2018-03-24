@@ -1,26 +1,20 @@
 ---
-title: "Rozwiązywanie typowych problemów z usługi Automatyzacja Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera informacje ułatwiające rozwiązywanie problemów i Rozwiąż typowe błędy usługi Automatyzacja Azure."
+title: Rozwiązywanie typowych problemów z usługi Automatyzacja Azure | Dokumentacja firmy Microsoft
+description: Ten artykuł zawiera informacje ułatwiające rozwiązywanie problemów i Rozwiąż typowe błędy usługi Automatyzacja Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-tags: top-support-issue
-keywords: "Błąd automatyzacji, rozwiązywania problemów, problem"
-ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: sngun; v-reagie
-ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+tags: top-support-issue
+keywords: Błąd automatyzacji, rozwiązywania problemów, problem
+ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Rozwiązywanie typowych problemów w usłudze Automatyzacja Azure 
 Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić w automatyzacji Azure, a także sugeruje możliwe rozwiązania, aby je rozwiązać.
@@ -33,7 +27,7 @@ Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić 
 
 **Porady dotyczące rozwiązywania problemów:** w celu ustalenia przyczyny problemu, wykonaj następujące czynności:  
 
-1. Upewnij się, że nie masz żadnych znaków specjalnych, w tym  **@**  znak w nazwie zasobów poświadczenie automatyzacji, używanej do połączenia z platformą Azure.  
+1. Upewnij się, że nie masz żadnych znaków specjalnych, w tym **@** znak w nazwie zasobów poświadczenie automatyzacji, używanej do połączenia z platformą Azure.  
 2. Sprawdź, czy można użyć nazwy użytkownika i hasła, które są przechowywane w poświadczenia usługi Automatyzacja Azure w Edytorze lokalnych PowerShell ISE. Można to zrobić, uruchamiając następujące polecenia cmdlet w programie PowerShell ISE:  
 
         $Cred = Get-Credential  
@@ -133,7 +127,7 @@ Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić 
 
 **Porady dotyczące rozwiązywania problemów:** żadnego z następujących rozwiązania problemu:
 
-* Upewnij się, że moduł postępuje następujący format: ModuleName.Zip  **->**  Nazwa_modułu lub numer wersji  **->**  (ModuleName.psm1, ModuleName.psd1)
+* Upewnij się, że moduł postępuje następujący format: ModuleName.Zip **->** Nazwa_modułu lub numer wersji **->** (ModuleName.psm1, ModuleName.psd1)
 * Otwórz plik psd1 i sprawdzić, czy moduł ma zależności. Jeśli tak, Przekaż te moduły do konta automatyzacji.
 * Upewnij się, czy wszystkie biblioteki przywoływanego znajdują się w folderze modułu.
 
@@ -171,7 +165,7 @@ Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić 
 ### <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a>Scenariusz: Nie można użyć poświadczeń w konfiguracji DSC
 **Błąd:** zadania kompilacji DSC zostało wstrzymane z powodu błędu: "Błąd System.InvalidOperationException właściwość poświadczenia i typ przetwarzania ``<some resource name>``: konwertowanie i przechowywanie zaszyfrowane hasło jako zwykły tekst jest dozwolone tylko wtedy, gdy PSDscAllowPlainTextPassword jest ustawiona na true ".
 
-**Przyczyną tego błędu:** zostały użyte poświadczenia w konfiguracji, ale nie dostarczył prawidłowego **ConfigurationData** można ustawić **PSDscAllowPlainTextPassword** na wartość true dla każdej konfiguracji węzła.
+**Przyczyną tego błędu:** zostały użyte poświadczenia w konfiguracji, ale nie dostarczył prawidłowego **ConfigurationData** można ustawić **PSDscAllowPlainTextPassword** na wartość true dla każdego węzła Konfiguracja.
 
 **Porady dotyczące rozwiązywania problemów:**
 

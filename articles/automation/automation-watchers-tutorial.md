@@ -1,24 +1,17 @@
 ---
-title: "Tworzenie zadania obserwatora w ramach konta usługi Automatyzacja Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć zadanie obserwatora w ramach konta usługi Automatyzacja Azure, aby obejrzeć dla nowych plików utworzonych w folderze."
+title: Tworzenie zadania obserwatora w ramach konta usługi Automatyzacja Azure
+description: Dowiedz się, jak utworzyć zadanie obserwatora w ramach konta usługi Automatyzacja Azure, aby obejrzeć dla nowych plików utworzonych w folderze.
 services: automation
-documentationcenter: 
-author: eamonoreilly
-manager: 
-editor: 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/11/2017
+author: eamonoreilly
 ms.author: eamono
-ms.openlocfilehash: 294faa48f9840919b087594835706bad8048d45b
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.topic: article
+ms.date: 03/19/2017
+ms.openlocfilehash: 8cd5f77d9711ffc95e6a55e97297a23fd87c6bb7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Utwórz zadania można śledzić zmiany w pliku na komputerze lokalnym obserwatora usługi Automatyzacja Azure
 
@@ -36,7 +29,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka wymagane są następujące elementy:
+Do wykonania czynności przedstawionych w tym samouczku są wymagane następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Konto automatyzacji](automation-offering-get-started.md) do przechowywania obserwatora i działań elementów runbook i zadania obserwatora.

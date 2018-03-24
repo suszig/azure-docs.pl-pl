@@ -4,7 +4,7 @@ description: Informacje o wersji zestawu Azure SDK dla platformy .NET 3.0
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/07/2017
 ms.author: juliako
-ms.openlocfilehash: eea4e569ac2d0192ed7872d2fcb9bed03614832b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 207aa137b25e44baf73e7f481ebc8b6362dfa245
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Informacje o wersji zestawu Azure SDK for .NET 3.0
 
 Ten temat zawiera informacje o wersji dla wersji 3.0 zestawu Azure SDK dla platformy .NET.
 
-##<a name="azure-sdk-for-net-30-release-summary"></a>Zestaw Azure SDK dla wersji .NET 3.0 podsumowania
+## <a name="azure-sdk-for-net-30-release-summary"></a>Zestaw Azure SDK dla wersji .NET 3.0 podsumowania
 
 Data wydania: 2017-03/07
  
@@ -48,7 +48,7 @@ W tej wersji zostały wprowadzone żadne zmiany podziału 3.0 SDK platformy Azur
 - Azure .NET SDK 3.0 wprowadzono wystąpił problem podczas usuwania programu Visual Studio 2017 w konfiguracji obok siebie z programem Visual Studio 2015.  Jeśli masz zainstalowany program Visual Studio 2015 zestaw SDK usługi Azure Emulator magazynu Microsoft Azure i Microsoft Azure obliczeniowe emulatora zostaną usunięte, po odinstalowaniu programu Visual Studio 2017 r.  Spowoduje to utworzenie wystąpił błąd podczas tworzenia i debugowanie nowe projekty usługi w chmurze w programie Visual Studio 2015. Aby rozwiązać ten problem, ponownie zainstaluj zestaw Azure SDK z Instalatora platformy sieci Web.  Problem zostanie rozwiązany w przyszłej aktualizacji programu Visual Studio 2017 r.  .
 
  
-### <a name="azure-in-role-cache"></a>Pamięć podręczna na roli Azure 
+### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
 
 - Obsługę pamięci podręcznej na roli Azure została zakończona w dniu 30 listopada 2016 r. Aby uzyskać więcej informacji, kliknij przycisk [tutaj](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 

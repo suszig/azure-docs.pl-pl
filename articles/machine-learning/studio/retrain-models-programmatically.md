@@ -1,11 +1,11 @@
 ---
 title: Ponownie ucz modele uczenia maszynowego programowo | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak programowo retrain modelu i usługi sieci web, aby użyć nowo uczonego modelu w usłudze Azure Machine Learning aktualizacji."
+description: Dowiedz się, jak programowo retrain modelu i usługi sieci web, aby użyć nowo uczonego modelu w usłudze Azure Machine Learning aktualizacji.
 services: machine-learning
-documentationcenter: 
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a986d8c500eb994af81ad535568fbbd8364f4244
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 276ee051cf927197c026b0fb0850239a048ace41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Programowe ponowne trenowanie modeli usługi Machine Learning
 W tym przewodniku dowiesz się, jak programowo ponownie ucz Azure Machine Learning usługi sieci Web przy użyciu języka C# i usługę wykonywania wsadowego usługi Machine Learning.
@@ -61,7 +61,7 @@ Następnie należy utworzyć eksperyment Predicative.
 > Aby wdrożyć nową usługę sieci web musi masz wystarczające uprawnienia do subskrypcji, do którego należy wdrożyć usługę sieci web. Aby uzyskać więcej informacji, zobacz [zarządzania usługi sieci Web przy użyciu portalu usługi sieci Web systemu Azure Machine Learning](manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Wdrażanie eksperyment uczenia jako usługę sieci web szkolenia
-Aby ponownie ucz trenowanego modelu, należy wdrożyć eksperyment uczenia, utworzony jako usługę sieci web Retraining. Ta usługa sieci web musi *wyjście usługi sieci Web* modułu połączony  *[Train Model] [ train-model]*  modułu, aby można było tworzyć nowe modele przeszkolone.
+Aby ponownie ucz trenowanego modelu, należy wdrożyć eksperyment uczenia, utworzony jako usługę sieci web Retraining. Ta usługa sieci web musi *wyjście usługi sieci Web* modułu połączony *[Train Model] [ train-model]* modułu, aby można było tworzyć nowe modele przeszkolone.
 
 1. Aby powrócić do eksperyment uczenia, kliknij ikonę eksperymenty w okienku po lewej stronie, a następnie kliknij eksperyment o nazwie modelu spisu.  
 2. W polu wyszukiwania elementów eksperymentu wyszukiwania wpisz usługi sieci web. 

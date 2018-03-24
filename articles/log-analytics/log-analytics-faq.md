@@ -1,24 +1,24 @@
 ---
-title: "Zaloguj się Analytics — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Odpowiedzi na często zadawane pytania dotyczące usługi Analiza dzienników Azure."
+title: Zaloguj się Analytics — często zadawane pytania | Dokumentacja firmy Microsoft
+description: Odpowiedzi na często zadawane pytania dotyczące usługi Analiza dzienników Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-faq"></a>Log Analytics — często zadawane pytania
 Ta FAQ firmy Microsoft znajduje się lista często zadawane pytania dotyczące analizy dzienników platformy Microsoft Azure. Jeśli masz dodatkowe pytania dotyczące analizy dzienników, przejdź do [forum dyskusyjne](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) i opublikuj swoje pytania. Po zadawane pytania możemy dodać ją do tego artykułu, aby można je znaleźć szybkie i łatwe.
@@ -51,19 +51,21 @@ Odpowiedź: nie. Analiza dzienników to usługa w chmurze skalowalne, przetwarza
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Jak rozwiązywać Jeśli analizy dzienników nie zbiera danych?
 
-A. Jeśli są na wolnych warstwy cenowej i zostały wysłane więcej niż 500 MB danych w ciągu dnia, gromadzenie danych zatrzymuje się do końca dnia. Osiągnięcia dziennego limitu jest typową przyczyną analizy dzienników zatrzymuje zbieranie danych lub dane są prawdopodobnie brakuje.
+A. Jeśli są na wolnych warstwy cenowej i zostały wysłane więcej niż 500 MB danych w ciągu dnia, gromadzenie danych zatrzymuje się do końca dnia. Osiągnięcia dziennego limitu jest typową przyczyną analizy dzienników zatrzymuje zbieranie danych lub dane są prawdopodobnie brakuje.  
 
-Analiza dzienników tworzy zdarzenie typu *operacji* podczas zbierania danych uruchamiania i zatrzymywania. 
+Analiza dzienników tworzy zdarzenie typu *pulsu* i może służyć do określenia, czy zatrzymania zbierania danych. 
 
-W polu wyszukiwania, aby sprawdzić, czy osiągnięcia dziennego limitu i brakujące dane, należy uruchomić następujące zapytanie:`Type=Operation OperationCategory="Data Collection Status"`
+W polu wyszukiwania, aby sprawdzić, czy osiągnięcia dziennego limitu i brakujące dane, należy uruchomić następujące zapytanie: `Heartbeat | summarize max(TimeGenerated)`
 
-Po zatrzymaniu zbierania danych *OperationStatus* jest **ostrzeżenie**. Podczas uruchamiania zbierania danych, *OperationStatus* jest **zakończyło się pomyślnie**. 
+Aby sprawdzić określonego komputera, uruchom następujące zapytanie: `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+Po zatrzymaniu zbierania danych, w zależności od zakresu czasu wybrane, nie będą widzieć żadnych rekordów zwróconych.   
 
 W poniższej tabeli opisano przyczyn, które zatrzymania zbierania danych i zalecaną akcję umożliwiającą wznowienie zbierania danych:
 
 | Zatrzymuje zbieranie danych z powodu                       | Wznowienie zbierania danych |
 | -------------------------------------------------- | ----------------  |
-| Osiągnięty dzienny limit dane w warstwie bezpłatna<sup>1</sup>       | Zaczekaj do następnego dnia dla kolekcji do automatycznego ponownego uruchamiania lub<br> Zmień na płatną warstwy cenowej |
+| Osiągnięto limit dane w warstwie bezpłatna<sup>1</sup>       | Poczekaj, aż do następnego miesiąca dla kolekcji do automatycznego ponownego uruchamiania lub<br> Zmień na płatną warstwy cenowej |
 | Subskrypcja platformy Azure jest w stanie wstrzymania ze względu na: <br> Bezpłatna wersja próbna została zakończona <br> Ważność Azure — dostęp próbny <br> Osiągnięto limit wydatków co miesiąc (na przykład na subskrypcję MSDN lub Visual Studio)                          | Konwertuj na płatną subskrypcję <br> Konwertuj na płatną subskrypcję <br> Usuń limit lub poczekaj na zresetowanie limitu |
 
 <sup>1</sup> czy obszaru roboczego znajduje się na warstwę cenową bezpłatna, jest ograniczona do wysyłania do usługi 500 MB danych na dzień. Po osiągnięciu dzienny limit gromadzenie danych zatrzymuje się do następnego dnia. Dane wysyłane podczas zatrzymania zbierania danych nie jest indeksowana i nie jest dostępny do wyszukiwania. Po wznowieniu pracy zbierania danych, przetwarzanie odbywa się tylko w przypadku nowych danych wysyłane. 
@@ -77,16 +79,15 @@ Odpowiedź: wykonaj kroki opisane w [Tworzenie reguły alertu](log-analytics-ale
 Podczas tworzenia alertu dla po zatrzymaniu zbierania danych należy skonfigurować:
 - **Nazwa** do *zatrzymać zbieranie danych*
 - **Ważność** na *Ostrzeżenie*
-- **Zapytanie wyszukiwania** na `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Przedział czasu** do *2 godziny*.
-- **Częstotliwość alertów** na jedną godzinę, ponieważ dane użycia są aktualizowane tylko raz na godzinę.
+- **Zapytanie wyszukiwania** na `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+- **Przedział czasu** do *30 minut*.
+- **Alert częstotliwości** do każdego *dziesięć* minut.
 - **Generuj alert w oparciu o** na *Liczba wyników*
 - **Liczba wyników** na *Większa niż 0*
 
-Wykonaj kroki opisane w sekcji dotyczącej [dodawania akcji do reguł alertów](log-analytics-alerts-actions.md) i skonfiguruj wiadomość e-mail, element webhook lub akcję runbook dla reguły alertu.
+Ten alert zostanie zastosowana, gdy kwerenda zwraca wyniki tylko wtedy, gdy pulsu Brak więcej niż 15 minut.  Wykonaj kroki opisane w sekcji dotyczącej [dodawania akcji do reguł alertów](log-analytics-alerts-actions.md) i skonfiguruj wiadomość e-mail, element webhook lub akcję runbook dla reguły alertu.
 
-
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Czy można zmienić nazwę tabeli/blobcontainer używany do odczytu z diagnostyki Azure (WAD)?
 
 A. Nie, nie jest obecnie możliwa do odczytu z dowolnego tabel lub kontenerów w magazynie Azure.
@@ -141,9 +142,9 @@ Upewnij się, że masz uprawnienia w obu subskrypcji platformy Azure.
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. Ilość danych można wysyłać agenta w celu analizy dzienników? Istnieje już maksymalna ilość danych klienta?
 A. Planu free Ustawia dzienny limit 500 MB na obszar roboczy. Plany warstwy standardowa i premium ma żadnego limitu ilości danych, który jest przekazywany. Usługa w chmurze, analizy dzienników zaprojektowano w celu automatycznego skalowania do uchwytu woluminu pochodzące z klientem — nawet jeśli jest ona terabajtów na dzień.
 
-Agent Log Analytics została zaprojektowana w celu upewnij się, że ma ona niewielkie rozmiary. Jednym z naszych klientów zapisano blog o testów, które są wykonane względem naszego agenta i jak wrażeniem były. Ilość danych w zależności od rozwiązania, które można włączyć. Możesz znaleźć szczegółowe informacje na temat ilość danych i rozpad przez rozwiązanie w [użycia](log-analytics-usage.md) strony.
+Agent Log Analytics została zaprojektowana w celu upewnij się, że ma ona niewielkie rozmiary. Ilość danych w zależności od rozwiązania, które można włączyć. Można znaleźć szczegółowe informacje na temat ilość danych i zobaczyć podział przez rozwiązanie w [użycia](log-analytics-usage.md) strony.
 
-Aby uzyskać więcej informacji można znaleźć [blogu klienta](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) o niewielki rozmiar agenta pakietu OMS.
+Aby uzyskać więcej informacji można znaleźć [blogu klienta](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) o niewielkie rozmiary OMS agenta.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Jaka przepustowość sieci jest używany przez program Microsoft Management Agent (MMA) podczas wysyłania danych do analizy dzienników?
 
@@ -165,5 +166,5 @@ Dla komputerów, które można uruchomić agenta WireData Użyj następującego 
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wprowadzenie do analizy dzienników](log-analytics-get-started.md) Dowiedz się więcej na temat analizy dzienników i rozpocząć pracę w minutach.

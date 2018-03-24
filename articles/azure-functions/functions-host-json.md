@@ -1,12 +1,12 @@
 ---
-title: "Dokumentacja host.JSON dla usługi Azure Functions"
-description: "Dokumentacja referencyjna dla pliku host.json usługi Azure Functions."
+title: Dokumentacja host.JSON dla usługi Azure Functions
+description: Dokumentacja referencyjna dla pliku host.json usługi Azure Functions.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Dokumentacja host.JSON dla usługi Azure Functions
 
-*Host.json* pliku metadanych zawiera opcje konfiguracji globalne, które mają wpływ na wszystkie funkcje dla aplikacji funkcja. W tym artykule wymieniono ustawienia, które są dostępne. Schematu JSON jest na http://json.schemastore.org/host.
+*Host.json* pliku metadanych zawiera opcje konfiguracji globalne, które mają wpływ na wszystkie funkcje dla aplikacji funkcja. W tym artykule wymieniono ustawienia, które są dostępne. Schematu JSON jest w http://json.schemastore.org/host.
 
 Istnieją inne opcje konfiguracji globalnej w [ustawień aplikacji](functions-app-settings.md) i [local.settings.json](functions-run-local.md#local-settings-file) pliku.
 
@@ -139,7 +139,7 @@ Formanty [funkcji próbkowania w usłudze Application Insights](functions-monito
 
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
-|IsEnabled|fałsz|Włącza lub wyłącza próbkowania.| 
+|IsEnabled|false|Włącza lub wyłącza próbkowania.| 
 |maxTelemetryItemsPerSecond|5|Rozpoczyna się progu, w których próbkowania.| 
 
 ## <a name="eventhub"></a>eventHub
@@ -186,7 +186,7 @@ Ustawienia konfiguracji dla [monitor kondycji hosta](https://github.com/Azure/az
 
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
-|enabled|prawda|Określa, czy ta funkcja jest włączona. | 
+|enabled|true|Określa, czy ta funkcja jest włączona. | 
 |healthCheckInterval|10 sekund|Odstęp czasu między kondycji tła okresowo sprawdza. | 
 |healthCheckWindow|2 minuty|Wysuwane okno czasu używany w połączeniu z `healthCheckThreshold` ustawienie.| 
 |healthCheckThreshold|6|Maksymalna dopuszczalna liczba operacji sprawdzania kondycji może zakończyć się niepowodzeniem przed odtworzenia hosta jest inicjowana.| 
@@ -201,6 +201,9 @@ Ustawienia konfiguracji dla [http wyzwalaczy i powiązań](functions-bindings-ht
 ## <a name="id"></a>id
 
 Unikatowy identyfikator dla hosta zadania. Małe litery identyfikatora GUID z kreskami usunięciem. Wymagany w przypadku uruchomionej na komputerze lokalnym. Podczas działania w funkcji platformy Azure, identyfikator jest generowane automatycznie, jeśli `id` zostanie pominięty.
+
+Jeśli konto magazynu możesz udostępnić wielu aplikacjom funkcji, upewnij się, że każda aplikacja funkcji ma inną `id`. Można pominąć `id` właściwości lub ręcznie ustawić każdej funkcji aplikacji `id` innej wartości. Wyzwalacza czasomierza używa blokady magazynu, aby upewnić się, że będą istnieć tylko jedno wystąpienie czasomierza podczas aplikacji funkcji skaluje się do wielu wystąpień. Jeśli dwie aplikacje funkcja mają takie same `id` i każda używa wyzwalacza bazującego na czasomierzu, tylko jeden czasomierz będzie uruchamiany.
+
 
 ```json
 {

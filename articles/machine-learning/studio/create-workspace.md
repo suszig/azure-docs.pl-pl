@@ -1,29 +1,28 @@
 ---
 title: Tworzenie obszaru roboczego Studio uczenia maszynowego | Dokumentacja firmy Microsoft
-description: "Tworzenie obszaru roboczego dla usługi Azure Machine Learning Studio"
+description: Tworzenie obszaru roboczego dla usługi Azure Machine Learning Studio
 services: machine-learning
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: garye
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
-ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8da10e474c62868ca109a44e7c66dc11ee62b6de
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Tworzenie obszaru roboczego usługi Azure Machine Learning i zarządzanie nim
 To menu łącza do tematów opisujących sposób konfigurowania różnych środowiskach nauki danych używany przez proces Analytics Cortana (CAP).
 
 [!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
 
-Aby korzystać z usługi Azure Machine Learning Studio, musisz mieć obszaru roboczego uczenia maszynowego. Ten obszar roboczy zawiera narzędzia potrzebne do tworzenia, zarządzania i opublikować eksperymentów.
+Aby korzystać z usługi Azure Machine Learning Studio, musisz mieć obszaru roboczego uczenia maszynowego. Ten obszar roboczy zawiera narzędzia potrzebne do tworzenia i publikowania eksperymentów oraz zarządzania nimi.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -41,7 +40,7 @@ Aby korzystać z usługi Azure Machine Learning Studio, musisz mieć obszaru rob
 
 4. Wprowadź informacje obszaru roboczego:
 
-    - *Nazwa obszaru roboczego* może mieć maksymalnie 260 znaków, nie kończy się spacją. Nazwa nie może zawierać następujących znaków:`< > * % & : \ ? + /`
+    - *Nazwa obszaru roboczego* może mieć maksymalnie 260 znaków, nie kończy się spacją. Nazwa nie może zawierać następujących znaków: `< > * % & : \ ? + /`
     - *Plan usługi sieci web* możesz wybrać (lub Utwórz), oraz skojarzone *warstwy cenowej* wybrać, jest używany w przypadku wdrożenia usługi sieci web z obszaru roboczego.
 
     ![Tworzenie nowego obszaru roboczego](./media/create-workspace/create-new-workspace.png)
@@ -50,7 +49,7 @@ Aby korzystać z usługi Azure Machine Learning Studio, musisz mieć obszaru rob
 
 Po wdrożeniu obszaru roboczego, możesz otworzyć go w usłudze Machine Learning Studio.
 
-1. Przejdź do usługi Machine Learning Studio w [https://studio.azureml.net/](https://studio.azureml.net/).
+1. Przejdź do usługi Machine Learning Studio w [ https://studio.azureml.net/ ](https://studio.azureml.net/).
 
 2. Wybierz obszar roboczy w prawej górnym rogu.
 

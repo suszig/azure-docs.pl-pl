@@ -1,11 +1,11 @@
 ---
 title: Tworzenie wyzwalaczy okno wirowania w fabryce danych Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć wyzwalacza w fabryce danych Azure, uruchamianego potoku na okno wirowania."
+description: Dowiedz się, jak utworzyć wyzwalacza w fabryce danych Azure, uruchamianego potoku na okno wirowania.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 1f026683ebc9b3d2bc935cd78aa9d16684e7db40
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 312072a5de21ff1c6b602fed93b77c564b15a9f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Utwórz wyzwalacz, który działa na okno wirowania potoku
 Ten artykuł zawiera kroki, aby utworzyć, uruchomić i monitorować wyzwalacz okno wirowania. Aby uzyskać ogólne informacje o wyzwalaczy i obsługiwane typy, zobacz [potoku wykonywania i wyzwalaczy](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
-> Ten artykuł dotyczy usługi fabryka danych Azure w wersji 2, który jest obecnie w wersji zapoznawczej. Jeśli używasz usługi fabryka danych Azure w wersji 1, która jest ogólnie dostępna (GA), zobacz [Rozpoczynanie pracy z fabryką danych Azure w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Ten artykuł dotyczy usługi Azure Data Factory w wersji 2, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz usługi fabryka danych Azure w wersji 1, która jest ogólnie dostępna (GA), zobacz [Rozpoczynanie pracy z fabryką danych Azure w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Windows wirowania są serii o stałym rozmiarze, nienakładających i ciągłe interwałów. Wyzwalacz okno wirowania ma relacje jeden do jednego z potokiem i może się odwoływać tylko do pojedynczej potoku.
+Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Okna wirowania to ciągłe, nienakładające się na siebie serie odstępów czasu o stałych rozmiarach. Wyzwalacz okno wirowania ma relacje jeden do jednego z potokiem i może się odwoływać tylko do pojedynczej potoku.
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Właściwości typu wyzwalacza okno wirowania
 Okno wirowania ma następujące właściwości typu wyzwalacza:
@@ -72,14 +72,14 @@ Okno wirowania ma następujące właściwości typu wyzwalacza:
 
 Poniższa tabela zawiera omówienie głównych elementów JSON, które są powiązane z cyklu i planowania wyzwalacza okno wirowania:
 
-| JSON element | Opis | Typ | Dozwolone wartości | Wymagane |
+| Element JSON | Opis | Typ | Dozwolone wartości | Wymagane |
 |:--- |:--- |:--- |:--- |:--- |
 | **Typ** | Typ wyzwalacza. Typ jest wartością stałą "TumblingWindowTrigger." | Ciąg | "TumblingWindowTrigger" | Yes |
 | **runtimeState** | Bieżący stan czasu wykonywania wyzwalacza.<br/>**Uwaga**: ten element jest \<tylko do odczytu >. | Ciąg | "Uruchomiona", "zatrzymana," "Wyłączone" | Yes |
-| **częstotliwość** | Ciąg, który reprezentuje jednostkę częstotliwość (w minutach lub godzinach) powtarzania wyzwalacza. Jeśli **startTime** wartości daty są bardziej szczegółowego niż **częstotliwość** wartość **startTime** daty są traktowane jako, gdy są obliczane granice okna. Na przykład jeśli **częstotliwość** wartość to co godzinę i **startTime** wartość jest 2016-04-01T10:10:10Z, pierwsze okno jest (2017 — 09 — 01T10:10:10Z, 2017-09 — 01T11:10:10Z). | Ciąg | "minute", "Godzina"  | Yes |
-| **interval** | Dodatnia liczba całkowita, która określa interwał **częstotliwość** wartość, która określa, jak często uruchamia wyzwalacz. Na przykład jeśli **interwał** 3 i **częstotliwość** to "Godzina", wyzwalacz wystąpi co 3 godziny. | Liczba całkowita | Dodatnia liczba całkowita. | Yes |
-| **startTime**| Pierwsze wystąpienie, które mogą znajdować się w przeszłości. Pierwszy interwał wyzwalacza (**startTime**, **startTime** + **interwał**). | Data/godzina | Wartość daty i godziny. | Yes |
-| **endTime**| Ostatnie wystąpienie, które mogą znajdować się w przeszłości. | Data/godzina | Wartość daty i godziny. | Yes |
+| **frequency** | Ciąg, który reprezentuje jednostkę częstotliwość (w minutach lub godzinach) powtarzania wyzwalacza. Jeśli **startTime** wartości daty są bardziej szczegółowego niż **częstotliwość** wartość **startTime** daty są traktowane jako, gdy są obliczane granice okna. Na przykład jeśli **częstotliwość** wartość to co godzinę i **startTime** wartość jest 2016-04-01T10:10:10Z, pierwsze okno jest (2017 — 09 — 01T10:10:10Z, 2017-09 — 01T11:10:10Z). | Ciąg | "minute", "Godzina"  | Yes |
+| **interval** | Dodatnia liczba całkowita oznaczająca interwał wartości właściwości **frequency**, która określa częstotliwość uruchamiania wyzwalacza. Na przykład jeśli **interwał** 3 i **częstotliwość** to "Godzina", wyzwalacz wystąpi co 3 godziny. | Liczba całkowita | Dodatnia liczba całkowita. | Yes |
+| **startTime**| Pierwsze wystąpienie, które mogą znajdować się w przeszłości. Pierwszy interwał wyzwalacza (**startTime**, **startTime** + **interwał**). | DateTime | Wartość daty i godziny. | Yes |
+| **endTime**| Ostatnie wystąpienie, które mogą znajdować się w przeszłości. | DateTime | Wartość daty i godziny. | Yes |
 | **delay** | Ilość czasu opóźnienie przetwarzania danych w oknie. Uruchom potoku została uruchomiona po oczekiwany czas wykonywania oraz ilość **opóźnienie**. **Opóźnienie** określa czas oczekiwania wyzwalacza późniejsza niż godzina ukończenia, aby mogło nastąpić wyzwolenie nowy przebieg. **Opóźnienie** nie powoduje zmian okna **startTime**. Na przykład **opóźnienie** wartość 00:10:00 oznacza 10 minutach. | Zakres czasu  | Wartość czasu, gdy wartość domyślna to 00:00:00. | Nie |
 | **maxConcurrency** | Liczba uruchomień jednoczesnych wyzwalacza, które są uruchamiane dla systemu windows, które są gotowe. Na przykład kopii wypełnienia co godzinę trwający wczoraj powoduje 24 systemu windows. Jeśli **maxConcurrency** = 10, wyzwalacz zdarzenia są generowane tylko dla systemu windows 10 pierwszych (00:00-01:00 - 09:00-10:00). Po zakończeniu 10 pierwszych uruchamia wyzwalanych potoku uruchamia wyzwalacz są uruchamiane dla kolejnych 10 systemu windows (10:00-11:00-19:00-20:00). Kontynuowanie z tym przykładem **maxConcurrency** = 10, jeśli istnieją 10 systemu windows, które są gotowe, istnieją 10 uruchamia całkowita potoku. Jeśli istnieje tylko 1 okno gotowy, jest tylko 1 wykonywania potoku. | Liczba całkowita | Liczba całkowita od 1 do 50. | Yes |
 | **retryPolicy: Count** | Liczba ponownych prób przed uruchomieniem potoku jest oznaczony jako "Nieudane".  | Liczba całkowita | Liczba całkowita, gdzie wartość domyślna to 0 (brak ponownych prób). | Nie |

@@ -1,11 +1,11 @@
 ---
 title: Tworzenie harmonogramu wyzwalaczy w fabryce danych Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć wyzwalacza w fabryce danych Azure z systemem potoku zgodnie z harmonogramem."
+description: Dowiedz się, jak utworzyć wyzwalacza w fabryce danych Azure z systemem potoku zgodnie z harmonogramem.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 51e2dddbe66ca372d89fc8efeb24bdab9fe6a442
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Utwórz wyzwalacz uruchamia potoku zgodnie z harmonogramem
 Ten artykuł zawiera informacje o wyzwalacza harmonogramu oraz instrukcje umożliwiające tworzenie, uruchomić i monitorować wyzwalacz harmonogramu. Dla innych typów wyzwalaczy, zobacz [potoku wykonywania i wyzwalaczy](concepts-pipeline-execution-triggers.md).
@@ -25,11 +25,11 @@ Ten artykuł zawiera informacje o wyzwalacza harmonogramu oraz instrukcje umożl
 Podczas tworzenia harmonogramu wyzwalacza należy określić harmonogram (rozpoczęcie cyklu, końcowa data itp.) dla wyzwalacza i skojarz z potokiem. Między potokami i wyzwalaczami występuje relacja wiele-do-wielu. Wiele wyzwalaczy może uruchomić jeden potok. Jeden wyzwalacz może uruchamiać wiele potoków.
 
 > [!NOTE]
-> Ten artykuł dotyczy usługi fabryka danych Azure w wersji 2, który jest obecnie w wersji zapoznawczej. Jeśli używasz usługi fabryka danych Azure w wersji 1, która jest ogólnie dostępna (GA), zobacz [Rozpoczynanie pracy z fabryką danych Azure w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Ten artykuł dotyczy usługi Azure Data Factory w wersji 2, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz usługi fabryka danych Azure w wersji 1, która jest ogólnie dostępna (GA), zobacz [Rozpoczynanie pracy z fabryką danych Azure w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Poniższe sekcje zawierają kroki, aby utworzyć harmonogram wyzwalacza w inny sposób. 
 
-## <a name="data-factory-ui"></a>Fabryka danych interfejsu użytkownika
+## <a name="data-factory-ui"></a>Interfejs użytkownika usługi Data Factory
 Można utworzyć **wyzwalacza harmonogram** można zaplanować potoku do uruchamiania okresowo (co godzinę, codziennie, itp.). 
 
 > [!NOTE]
@@ -306,101 +306,101 @@ Poniższe definicji JSON przedstawia sposób tworzenia harmonogramu wyzwalacza z
 ```
 
 > [!IMPORTANT]
->  **Parametry** właściwość jest właściwością obowiązkowe **potoki** elementu. Planowaną nie przyjmuje żadnych parametrów, należy dołączyć pusta definicja JSON **parametry** właściwości.
+>  Właściwość **parameters** jest obowiązkową wartością elementu właściwości **pipelines**. Jeśli potok nie przyjmuje żadnych parametrów, należy dodać pustą definicję JSON dla właściwości **parameters**.
 
 
 ### <a name="schema-overview"></a>Przegląd schematu
-Poniższa tabela zawiera omówienie elementów głównych schematu, które są powiązane z cyklu i planowania wyzwalacza:
+Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnoszących się do powtarzania i planowania wyzwalacza:
 
 | Właściwość JSON | Opis |
 |:--- |:--- |
-| **startTime** | Wartość daty i godziny. Proste harmonogramów, wartość **startTime** właściwość jest stosowana do pierwszego wystąpienia. Złożone harmonogramów wyzwalacz uruchamia nie wcześniej niż określona **startTime** wartość. |
-| **endTime** | Data i godzina zakończenia dla wyzwalacza. Wyzwalacz nie jest wykonywana po określonej daty i godziny zakończenia. Wartość właściwości nie może przypadać w przeszłości. Ta właściwość jest opcjonalna. |
-| **timeZone** | Strefa czasowa. Aktualnie obsługiwana jest tylko strefę czasową UTC. |
-| **cyklu** | Obiekt cyklu, który określa cyklu reguły dla wyzwalacza. Obiekt cyklu obsługuje **częstotliwość**, **interva**l, **endTime**, **liczba**, i **harmonogram**elementów. Po zdefiniowaniu obiektu cyklu **częstotliwość** element jest wymagany. Inne elementy obiektu cyklu są opcjonalne. |
-| **częstotliwość** | Jednostka częstotliwość powtarzania wyzwalacza. Obsługiwane wartości to m.in. "min", "Godzina", "day", "tydzień" i "miesiąc". |
-| **interval** | Dodatnia liczba całkowita, która określa interwał **częstotliwość** wartość, która określa, jak często uruchamia wyzwalacz. Na przykład jeśli **interwał** 3 i **częstotliwość** jest "tydzień" wyzwalacza wystąpi co 3 tygodni. |
-| **schedule** | Harmonogram cyklu dla wyzwalacza. Wyzwalacz z określonym **częstotliwość** wartość zmienia jego cyklu na podstawie harmonogramu cyklu. **Harmonogram** właściwość zawiera zmiany cyklu, które są oparte na minuty, godziny, dni tygodnia, dni miesiąca i numer tygodnia.
+| **startTime** | Wartość daty i godziny. W przypadku prostych harmonogramów wartość właściwości **startTime** dotyczy pierwszego wystąpienia. W przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany wcześniej niż określona wartość właściwości **startTime**. |
+| **endTime** | Data i godzina zakończenia wyzwalacza. Wyzwalacz nie jest wykonywany po określonej dacie i godzinie zakończenia. Wartość właściwości nie może odnosić się do przeszłości. Ta właściwość jest opcjonalna. |
+| **timeZone** | Strefa czasowa. Obecnie jest obsługiwana tylko strefa czasowa UTC. |
+| **recurrence** | Obiekt cyklu określający reguły powtarzania wyzwalacza. Obiekt cyklu obsługuje **częstotliwość**, **interva**l, **endTime**, **liczba**, i **harmonogram**elementów. Po zdefiniowaniu obiektu cyklu wymagany jest element właściwości **frequency**. Inne elementy obiektu cyklu są opcjonalne. |
+| **frequency** | Jednostka częstotliwości powtarzania wyzwalacza. Obsługiwane wartości to „minute” („minuta”), „hour” („godzina”), „day” („dzień”), „week” („tydzień”) i „month” („miesiąc”). |
+| **interval** | Dodatnia liczba całkowita oznaczająca interwał wartości właściwości **frequency**, która określa częstotliwość uruchamiania wyzwalacza. Jeśli na przykład właściwość **interval** ma wartość 3, a właściwość **frequency** ma wartość „week” („tydzień”), wyzwalacz jest powtarzany co 3 tygodnie. |
+| **schedule** | Harmonogram cyklu wyzwalacza. Wyzwalacz z określoną wartością właściwości **frequency** zmienia swój cykl na podstawie harmonogramu cyklu. Właściwość **schedule** zawiera modyfikacje cyklu oparte na minutach, godzinach, dniach tygodnia, dniach miesiąca i numerze tygodnia.
 
 
-### <a name="schema-defaults-limits-and-examples"></a>Wartości domyślne schematu, ograniczenia i przykłady
+### <a name="schema-defaults-limits-and-examples"></a>Wartości domyślne, limity i przykłady harmonogramów
 
 | Właściwość JSON | Typ | Wymagane | Wartość domyślna | Prawidłowe wartości | Przykład |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Ciąg | Yes | None | Daty i godziny ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **cyklu** | Obiekt | Yes | None | Obiekt cyklu | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Liczba | Nie | 1 | 1 do 1000. | `"interval":10` |
-| **endTime** | Ciąg | Yes | Brak | Wartość daty i godziny, który reprezentuje czas w przyszłości. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **startTime** | Ciąg | Yes | Brak | Daty i godziny ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Obiekt | Yes | None | Obiekt cyklu | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **interval** | Liczba | Nie | 1 | Od 1 do 1000 | `"interval":10` |
+| **endTime** | Ciąg | Yes | Brak | Wartość daty i godziny reprezentująca godzinę w przyszłości. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Obiekt | Nie | Brak | Obiekt harmonogramu | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Właściwość startTime
-Poniższej tabeli przedstawiono sposób **startTime** właściwość określa wyzwalacz uruchomienia:
+W poniższej tabeli przedstawiono, w jaki sposób właściwość **startTime** kontroluje uruchamianie wyzwalacza:
 
 | Wartość startTime | Cykl bez harmonogramu | Cykl z harmonogramem |
 |:--- |:--- |:--- |
-| Godzina rozpoczęcia w przeszłości | Oblicza przyszłych wykonywania po raz pierwszy po czasie rozpoczęcia i działa w tym czasie.<br/><br/>Uruchamiany podczas kolejnych wykonań kodu oparte na obliczanie od czasu ostatniego wykonania.<br/><br/>Zobacz przykład znajdujący się pod tabelą. | Wyzwalacz uruchamia _nie sooner niż_ określonym czasie rozpoczęcia. Pierwsze wystąpienie opiera się na harmonogram, który jest obliczana na podstawie czasu rozpoczęcia.<br/><br/>Uruchamiany podczas kolejnych wykonań kodu na podstawie harmonogramu cyklu. |
-| Godzina rozpoczęcia w przyszłości lub obecna | Uruchamia jeden raz o określonym czasie rozpoczęcia.<br/><br/>Uruchamiany podczas kolejnych wykonań kodu oparte na obliczanie od czasu ostatniego wykonania. | Wyzwalacz uruchamia _nie wcześniej_ niż określony czas rozpoczęcia. Pierwsze wystąpienie opiera się na harmonogram, który jest obliczana na podstawie czasu rozpoczęcia.<br/><br/>Uruchamiany podczas kolejnych wykonań kodu na podstawie harmonogramu cyklu. |
+| Godzina rozpoczęcia w przeszłości | Oblicza pierwszy przyszły czas wykonania po czasie rozpoczęcia i uruchamia wyzwalacz w tym czasie.<br/><br/>Uruchamia kolejne wykonania w oparciu o obliczenia wykonane na podstawie ostatniego czasu wykonania.<br/><br/>Zobacz przykład znajdujący się pod tabelą. | Wyzwalacz jest uruchamiany _nie wcześniej niż_ w określonym czasie rozpoczęcia. Pierwsze wystąpienie opiera się na harmonogramie obliczonym na podstawie czasu rozpoczęcia.<br/><br/>Kolejne wykonania opierają na harmonogramie cyklu. |
+| Godzina rozpoczęcia w przyszłości lub obecna | Uruchamiany raz o określonym czasie rozpoczęcia.<br/><br/>Uruchamia kolejne wykonania w oparciu o obliczenia wykonane na podstawie ostatniego czasu wykonania. | Wyzwalacz jest uruchamiany _nie wcześniej niż_ w określonym czasie rozpoczęcia. Pierwsze wystąpienie opiera się na harmonogramie obliczonym na podstawie czasu rozpoczęcia.<br/><br/>Kolejne wykonania opierają na harmonogramie cyklu. |
 
-Zobacz przykład co się stanie, jeśli czas rozpoczęcia przypada w przeszłości, cyklu, ale bez harmonogramu. Załóżmy, że bieżący czas jest `2017-04-08 13:00`, godzina rozpoczęcia jest `2017-04-07 14:00`, i cykl to dwa dni. ( **Cyklu** wartość jest definiowana przez ustawienie **częstotliwość** dla właściwości "day" i **interwał** właściwości do 2.) Zwróć uwagę, że **startTime** wartość przypada w przeszłości i występuje przed bieżącym czasem.
+Zobaczmy przykład zdarzeń w przypadku, gdy czas rozpoczęcia przypada w przeszłości, z cyklem, ale bez harmonogramu. Załóżmy, że obecna data i godzina to `2017-04-08 13:00`, czas rozpoczęcia to `2017-04-07 14:00`, a cykl jest określony na 2 dni. (Wartość właściwości **recurrence** definiuje się, ustawiając właściwość **frequency** na wartość „day” („dzień”) i właściwość **interval** na wartość 2). Zwróć uwagę, że wartość właściwości **startTime** dotyczy przeszłej daty i następuje przed aktualną godziną.
 
-W tych warunkach pierwsze wykonanie następuje o `2017-04-09 at 14:00`. Aparat harmonogramu oblicza wystąpienia wykonania od czasu rozpoczęcia. Wszystkie wystąpienia w przeszłości są odrzucane. Aparat wykorzystuje następne wystąpienie, które ma miejsce w przyszłości. W tym scenariuszu, godzina rozpoczęcia jest `2017-04-07 at 2:00pm`, więc następne wystąpienie jest dwa dni po tym czasie, czyli `2017-04-09 at 2:00pm`.
+W tych warunkach pierwsze wykonanie następuje o `2017-04-09 at 14:00`. Aparat harmonogramu oblicza wystąpienia wykonania od czasu rozpoczęcia. Wszystkie wystąpienia w przeszłości są odrzucane. Aparat wykorzystuje następne wystąpienie, które ma miejsce w przyszłości. W tym przypadku czas rozpoczęcia to `2017-04-07 at 2:00pm`, w związku z czym kolejne wystąpienie ma miejsce 2 dni po tym czasie, czyli `2017-04-09 at 2:00pm`.
 
-Wykonanie po raz pierwszy jest tym samym, nawet jeśli **startTime** wartość jest `2017-04-05 14:00` lub `2017-04-01 14:00`. Po wykonaniu pierwszej podczas kolejnych wykonań kodu są obliczane na podstawie harmonogramu. W związku z tym podczas kolejnych wykonań kodu są `2017-04-11 at 2:00pm`, następnie `2017-04-13 at 2:00pm`, następnie `2017-04-15 at 2:00pm`i tak dalej.
+Czas pierwszego wykonania jest identyczny, nawet jeśli właściwość **startTime** ma wartość `2017-04-05 14:00` lub `2017-04-01 14:00`. Po pierwszym wykonaniu kolejne wykonania są obliczane przy użyciu harmonogramu. W związku z tym kolejne wykonania zostaną uruchomione `2017-04-11 at 2:00pm`, `2017-04-13 at 2:00pm`, `2017-04-15 at 2:00pm` itd.
 
-Na koniec po godzinach i minutach nie są ustawione w harmonogramie wyzwalaczy, godzinach i minutach pierwszy wykonywania są używane jako ustawienia domyślne.
+Gdy z kolei w harmonogramie wyzwalacza nie ustawiono godzin lub minut, wartością domyślną będą godziny lub minuty pierwszego wykonania.
 
-### <a name="schedule-property"></a>Właściwość harmonogramu
-Z jednej strony Użyj harmonogramu można ograniczyć Liczba wykonań wyzwalacza. Na przykład jeśli wyzwalacz z miesięcznej częstotliwości jest zaplanowane do uruchomienia tylko na dzień 31, wyzwalacz działa tylko w tych miesięcy, przez które mają 31 dni.
+### <a name="schedule-property"></a>Wartość schedule
+Użycie harmonogramu może ograniczyć liczbę wykonań wyzwalacza. Jeśli na przykład uruchomienie wyzwalacza z częstotliwością miesięczną zaplanowano na 31. dzień, wyzwalacz będzie uruchamiany tylko w miesiącach, której mają 31 dni.
 
-Harmonogram może także zwiększyć liczbę wykonań wyzwalacza. Na przykład wyzwalacz z miesięcznej częstotliwości, który zostało zaplanowane do uruchomienia na dni miesiąca 1 i 2 jest uruchamiane na 1 i 2 dni miesiąca, zamiast raz w miesiącu.
+Harmonogram może także zwiększyć liczbę wykonań wyzwalacza. Na przykład wyzwalacz z częstotliwością miesięczną, którego uruchomienie zaplanowano na 1. i 2. dzień miesiąca, będzie uruchamiany 1. i 2. dnia miesiąca, a nie raz na miesiąc.
 
-Jeśli wiele **harmonogram** elementy są określone, kolejności oceny od największej do najmniejszej ustawienia harmonogramu. Oceny rozpoczyna się od tygodnia numer, a następnie miesiąc, dzień, dzień tygodnia, godzinę i na koniec minutę.
+W przypadku określenia wielu elementów właściwości **schedule** ocena następuje od największego do najmniejszego elementu. Ocena jest wykonywana w następującej kolejności: numer tygodnia, dzień miesiąca, dzień tygodnia, godzina i minuta.
 
-W poniższej tabeli opisano **harmonogram** elementy szczegółowo:
+W poniższej tabeli opisano szczegółowo elementy właściwości **schedule**:
 
 
-| JSON element | Opis | Prawidłowe wartości |
+| Element JSON | Opis | Prawidłowe wartości |
 |:--- |:--- |:--- |
-| **minut** | Minuty godziny, o których uruchamiany jest wyzwalacz. | <ul><li>Liczba całkowita</li><li>Tablica liczb całkowitych</li></ul>
-| **godziny** | Godziny dnia, o których uruchamiany jest wyzwalacz. | <ul><li>Liczba całkowita</li><li>Tablica liczb całkowitych</li></ul> |
-| **dni tygodnia** | Dni tygodnia, w którym uruchamia wyzwalacz. Wartość można określić tylko co tydzień częstotliwość. | <ul><li>Poniedziałek, Wtorek, środę, czwartek, piątek, sobota, niedziela</li><li>Tablica wartości dzień (rozmiar maksymalny tablicy wynosi 7)</li><li>Wartości dzień nie jest rozróżniana wielkość liter</li></ul> |
-| **monthlyOccurrences** | Dni miesiąca, na którym jest uruchomiony wyzwalacza. Można określić wartość z tylko miesięcznej częstotliwości. | <ul><li>Tablica **monthlyOccurence** obiektów: `{ "day": day,  "occurrence": occurence }`.</li><li>**Dzień** atrybut jest dzień tygodnia, na którym jest uruchomiony wyzwalacza. Na przykład **monthlyOccurrences** właściwości o **dzień** wartość `{Sunday}` oznacza niedzielę każdego miesiąca. **Dzień** atrybut jest wymagany.</li><li>**Wystąpienie** atrybutu jest wystąpienie określonego **dzień** w miesiącu. Na przykład **monthlyOccurrences** właściwości o **dzień** i **wystąpienie** wartości `{Sunday, -1}` oznacza niedzielę ostatniego dnia miesiąca. **Wystąpienie** atrybutu jest opcjonalny.</li></ul> |
-| **monthDays** | Dzień miesiąca, na którym jest uruchomiony wyzwalacza. Można określić wartość z tylko miesięcznej częstotliwości. | <ul><li>Dowolna wartość <= -1 i >= -31</li><li>Dowolna wartość >= 1 i <= 31</li><li>Tablica wartości</li></ul> |
+| **minutes** | Minuty godziny, o których uruchamiany jest wyzwalacz. | <ul><li>Liczba całkowita</li><li>Tablica liczb całkowitych</li></ul>
+| **hours** | Godziny dnia, o których uruchamiany jest wyzwalacz. | <ul><li>Liczba całkowita</li><li>Tablica liczb całkowitych</li></ul> |
+| **weekDays** | Dni tygodnia, w których uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością tygodniową. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday lub Sunday</li><li>Tablica wartości dni (maksymalny rozmiar tablicy to 7)</li><li>W wartościach dni nie są uwzględniane wielkości liter</li></ul> |
+| **monthlyOccurrences** | Dni miesiąca, w których uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością miesięczną. | <ul><li>Tablica obiektów **monthlyOccurence**: `{ "day": day,  "occurrence": occurence }`.</li><li>Atrybut **day** jest dniem tygodnia, w którym uruchamiany jest wyzwalacz. Na przykład właściwość **monthlyOccurrences** o wartości **day** wynoszącej `{Sunday}` oznacza każdą niedzielę miesiąca. Atrybut **day** jest wymagany.</li><li>Atrybut **occurence** jest wystąpieniem określonej wartości **day** w miesiącu. Na przykład właściwość **monthlyOccurrences** o wartościach **day** i **occurence** wynoszących `{Sunday, -1}` oznacza ostatnią niedzielę miesiąca. Atrybut **occurence** jest opcjonalny.</li></ul> |
+| **monthDays** | Dzień miesiąca, w którym uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością miesięczną. | <ul><li>Dowolna wartość <= -1 i >= -31</li><li>Dowolna wartość >= 1 i <= 31</li><li>Tablica wartości</li></ul> |
 
 
-## <a name="examples-of-trigger-recurrence-schedules"></a>Przykłady harmonogramy cyklu wyzwalacza
-Ta sekcja zawiera przykłady cyklu harmonogramów i koncentruje się na **harmonogram** obiekt i jego elementów.
+## <a name="examples-of-trigger-recurrence-schedules"></a>Przykłady harmonogramów cyklu wyzwalaczy
+Ta sekcja zawiera przykłady harmonogramów cyklu i koncentruje się na obiekcie właściwości **schedule** oraz jego elementach.
 
-Przykłady przyjęto założenie, że **interwał** wartość to 1 i który **częstotliwość** wartość jest prawidłowa zgodnie z definicją harmonogramu. Na przykład nie może mieć **częstotliwość** wartość "day", a także mieć modyfikację "monthDays" w **harmonogram** obiektu. Ograniczenia, takie jak te są wymienione w tabeli w poprzedniej sekcji.
+W przykładach założono, ze wartość właściwości **interval** wynosi 1 oraz że wartość właściwości **frequency** jest prawidłowa i zgodna z definicją harmonogramu. Na przykład nie można mieć właściwości **frequency** o wartości „day” i jednocześnie modyfikacji „monthDays” w obiekcie **schedule**. Tego typu ograniczenia są wymienione w tabeli w poprzedniej sekcji.
 
 | Przykład | Opis |
 |:--- |:--- |
-| `{"hours":[5]}` | Uruchom o 5:00 każdego dnia. |
-| `{"minutes":[15], "hours":[5]}` | Jednocześnie 5:15:00 każdego dnia. |
-| `{"minutes":[15], "hours":[5,17]}` | Uruchom w 5:15:00 a 17:15:00 każdego dnia. |
-| `{"minutes":[15,45], "hours":[5,17]}` | Uruchom na 5:15:00, 5:45:00, 17:15:00 i 5:45 PM każdego dnia. |
-| `{"minutes":[0,15,30,45]}` | Uruchom co 15 minut. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Uruchom co godzinę. Ten wyzwalacz jest uruchamiany co godzinę. Protokoły są kontrolowane przez **startTime** wartość, gdy określona jest wartość. Jeśli nie określono wartości, protokoły są kontrolowane przez czas utworzenia. Na przykład, jeśli czas rozpoczęcia i godzina utworzenia (którekolwiek ma zastosowanie) jest godzina 12:25, wyzwalacz uruchamia się na 00:25, 01:25 02:25,... i 23:25.<br/><br/>Ten harmonogram jest odpowiednikiem o wyzwalacza z **częstotliwość** wartość "godzin," **interwał** wartość 1, a nie **harmonogram**.  Ten harmonogram może być używany z różnych **częstotliwość** i **interwał** wartości, aby utworzyć inne wyzwalaczy. Na przykład, jeśli **częstotliwość** wartość to "miesiąc", uruchamia harmonogram każdego dnia, a nie tylko raz w miesiącu po **częstotliwość** wartość to "dzień". |
-| `{"minutes":[0]}` | Uruchom co godzinę w ciągu godziny. Tego wyzwalacza jest uruchamiana co godzinę, począwszy od 00:00:00, 1:00:00, 2:00 AM, godzinę i tak dalej.<br/><br/>Ten harmonogram jest odpowiednikiem wyzwalacza z **częstotliwość** wartość "Godzina" i **startTime** wartość zero minut lub nie **harmonogram** , ale **częstotliwości**  wartość "day". Jeśli **częstotliwość** wartość to "week" lub "month", harmonogram wykonuje jeden dzień tygodnia lub jeden dzień w miesiącu tylko, odpowiednio. |
-| `{"minutes":[15]}` | Uruchom 15 minut po co godzinę. Tego wyzwalacza jest uruchamiana co godzinę na 15 minut po pełnej godzinie, zaczynając od 00:15 AM, 1:15:00, 2:15 AM i tak dalej i kończący się na 23:15:00. |
-| `{"hours":[17], "weekDays":["saturday"]}` | Uruchom na 5:00 PM soboty co tydzień. |
-| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Jednocześnie 17:00:00 w poniedziałek, środę i piątek co tydzień. |
-| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Jednocześnie 17:15:00 a: 45 17 w poniedziałek, środę i piątek co tydzień. |
-| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Uruchom co 15 minut na dni tygodnia. |
-| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Uruchom co 15 minut w dni robocze między 9:00 AM a 4:45 PM. |
-| `{"weekDays":["tuesday", "thursday"]}` | Uruchom we wtorki i czwartki o określonym czasie rozpoczęcia. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Uruchom o 6:00 w dniu 28 co miesiąc (przy założeniu **częstotliwość** wartość "miesiąc"). |
-| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Uruchom o 6:00:00 ostatniego dnia miesiąca. Aby uruchomić wyzwalacz ostatniego dnia miesiąca, należy użyć zamiast dnia 28, 29, 30 i 31 -1. |
-| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Uruchom godzinie 6:00 pierwszy i ostatni dzień każdego miesiąca. |
-| `{monthDays":[1,14]}` | Uruchamianie pierwszej i 14 dnia każdego miesiąca w określonym czasie rozpoczęcia. |
-| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Uruchom w pierwszym piątek każdego miesiąca o godzinie 5:00:00. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Uruchom w pierwszym piątek miesiąca w określonym czasie rozpoczęcia. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Uruchom na trzeci poniedziałek od końca miesiąca, co miesiąc, w określonym czasie rozpoczęcia. |
-| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Uruchom na pierwszy i ostatni piątek miesiąca w 5:15:00. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Uruchom na pierwszy i ostatni piątek miesiąca w określonym czasie rozpoczęcia. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Uruchom w piątym piątek miesiąca w określonym czasie rozpoczęcia. Gdy w miesiącu nie ma żadnych piątej piątek, potoku nie działa, ponieważ zostało zaplanowane do uruchomienia tylko na piątki piątego. Aby uruchomić wyzwalacz ostatniego wystąpienia piątek miesiąca, rozważ użycie -1 zamiast 5 dla **wystąpienie** wartość. |
-| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Uruchom co 15 minut na ostatni piątek miesiąca. |
-| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Uruchom na 5:15:00, 5:45:00, 17:15:00 i 5:45 PM trzecią środę każdego miesiąca. |
+| `{"hours":[5]}` | Uruchamiany o godz. 5:00 każdego dnia. |
+| `{"minutes":[15], "hours":[5]}` | Uruchamiany o godz. 5:15 każdego dnia. |
+| `{"minutes":[15], "hours":[5,17]}` | Uruchamiany o godz. 5:15 i 17:15 każdego dnia. |
+| `{"minutes":[15,45], "hours":[5,17]}` | Uruchamiany o godz. 5:15, 5:45, 17:15 i 17:45 każdego dnia. |
+| `{"minutes":[0,15,30,45]}` | Uruchamiany co 15 minut. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Uruchamiany co godzinę. Ten wyzwalacz jest uruchamiany co godzinę. Minuty są kontrolowane przez wartość właściwości **startTime**, gdy wartość jest określona. Jeśli wartość nie jest określona, minuty są kontrolowane przez czas utworzenia. Jeśli na przykład czas rozpoczęcia lub czas utworzenia (zależnie od sytuacji) to 12:25, wyzwalacz jest uruchamiany o godzinie 0:25, 1:25, 2:25, ..., 23:25.<br/><br/>Ten harmonogram jest odpowiednikiem wyzwalacza z właściwością **frequency** o wartości „hour”, właściwością **interval** o wartości 1 i bez właściwości **schedule**.  Tego harmonogramu można także używać z innymi wartościami właściwości **frequency** i **interval** do tworzenia innych wyzwalaczy. Gdy na przykład właściwość **frequency** ma wartość „month”, harmonogram jest uruchamiany tylko raz w miesiącu, a nie każdego dnia, gdy właściwość **frequency** ma wartość „day”. |
+| `{"minutes":[0]}` | Uruchamiany co godzinę o pełnej godzinie. Ten wyzwalacz jest uruchamiany co godzinę o pełnej godzinie począwszy od godz. 0:00, a następnie o 1:00, 2:00 itd.<br/><br/>Ten harmonogram jest odpowiednikiem wyzwalacza z właściwością **frequency** o wartości „hour” i właściwością **startTime** o wartości 0 minut lub bez właściwości **schedule**, ale z właściwością **frequency** o wartości „day”. Jeśli wartość właściwości **frequency** to „week” lub „month”, harmonogram jest wykonywany odpowiednio tylko raz w tygodniu lub raz w miesiącu. |
+| `{"minutes":[15]}` | Uruchamiany 15 minut po pełnej godzinie. Ten wyzwalacz jest uruchamiany 15 minut po pełnej godzinie począwszy od godz. 0:15, a następnie o 1:15, 2:15 itd. aż do 23.15. |
+| `{"hours":[17], "weekDays":["saturday"]}` | Uruchamiany o godz. 17:00 w każdą sobotę. |
+| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Uruchamiany o godz. 17:00 w każdy poniedziałek, środę i piątek. |
+| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Uruchamiany o godz. 17:15 i 17:45 w każdy poniedziałek, środę i piątek. |
+| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Uruchamiany co 15 minut w dni robocze. |
+| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Uruchamiany co 15 minut w dni robocze, między godz. 9:00 a 16:45. |
+| `{"weekDays":["tuesday", "thursday"]}` | Uruchamiany we wtorki i czwartki o określonej godzinie. |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Uruchamiany o godz. 6:00 28. dnia każdego miesiąca (zakładając, że właściwość **frequency** ma wartość „month”). |
+| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Uruchamiany o godz. 6:00 ostatniego dnia miesiąca. Aby uruchomić wyzwalacz ostatniego dnia miesiąca, użyj wartości -1 zamiast 28, 29, 30 lub 31. |
+| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Uruchamiany o godz. 6:00 pierwszego i ostatniego dnia każdego miesiąca. |
+| `{monthDays":[1,14]}` | Uruchamiany 1. i 14. dnia każdego miesiąca o określonej godzinie. |
+| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Uruchamiany w pierwszy piątek każdego miesiąca o godz. 5:00. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Uruchamiany w pierwszy piątek każdego miesiąca o określonej godzinie. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Uruchamiany w trzeci piątek od końca każdego miesiąca o określonej godzinie. |
+| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Uruchamiany w pierwszy i ostatni piątek każdego miesiąca o godz. 5:00. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Uruchamiany w pierwszy i ostatni piątek każdego miesiąca o określonej godzinie. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Uruchamiany w piąty piątek każdego miesiąca o określonej godzinie. Jeśli miesiąc nie ma piątego piątku, potok nie jest uruchamiany, ponieważ jego harmonogram określa uruchamianie tylko w piąty piątek. Aby uruchomić wyzwalacz w ostatni piątek miesiąca, rozważ użycie wartości -1 zamiast 5 dla właściwości **occurrence**. |
+| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Uruchamiany co 15 minut w ostatni piątek miesiąca. |
+| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Uruchamiany o godz. 5:15, 5:45, 17:15 i 17:45 w trzecią środę każdego miesiąca. |
 
 
 ## <a name="next-steps"></a>Kolejne kroki

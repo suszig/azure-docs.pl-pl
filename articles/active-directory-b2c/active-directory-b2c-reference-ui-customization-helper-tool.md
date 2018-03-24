@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Narzędzie Pomocnik dostosowania strony interfejsu użytkownika | Dokumentacja firmy Microsoft"
-description: "Narzędzie Pomocnik, używany do przedstawiania funkcji dostosowywania interfejsu użytkownika strony w usłudze Azure Active Directory B2C"
+title: 'Usługa Azure Active Directory B2C: Narzędzie Pomocnik dostosowania strony interfejsu użytkownika | Dokumentacja firmy Microsoft'
+description: Narzędzie Pomocnik, używany do przedstawiania funkcji dostosowywania interfejsu użytkownika strony w usłudze Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Usługa Azure Active Directory B2C: Pomocnika narzędzie służące do prezentacja funkcji dostosowywania interfejsu użytkownika strony
 W tym artykule jest dodatek do [główny artykuł dostosowania interfejsu użytkownika](active-directory-b2c-reference-ui-customization.md) w usłudze Azure Active Directory (Azure AD) B2C. W poniższych krokach opisano sposób wykonywania przy użyciu zawartość HTML i CSS przykładową, która przygotowaliśmy dostosowywanie funkcji interfejsu użytkownika strony.
@@ -26,7 +23,7 @@ W tym artykule jest dodatek do [główny artykuł dostosowania interfejsu użytk
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Uzyskiwanie dzierżawy usługi Azure AD B2C
 Przed dostosowaniem niczego, konieczne będzie [uzyskać dzierżawę usługi Azure AD B2C](active-directory-b2c-get-started.md) Jeśli nie został wcześniej.
 
-## <a name="create-a-sign-up-or-sign-in-policy"></a>Tworzenie zasad rejestracji i logowania
+## <a name="create-a-sign-up-or-sign-in-policy"></a>Tworzenie zasad rejestracji lub logowania
 Przykłady przygotowaliśmy może służyć do customze dwóch stron w [zasad rejestracji i logowania](active-directory-b2c-reference-policies.md): [ujednoliconego strony logowania](active-directory-b2c-reference-ui-customization.md) i [strony własnym potwierdzona atrybutów](active-directory-b2c-reference-ui-customization.md). Gdy [tworzenia zasad dotyczących tworzenia konta lub logowanie](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy), Dodaj konta lokalnego (adres e-mail), Facebook, Google i Microsoft jako **dostawców tożsamości**. Są to tylko IDPs, akceptujących naszej próbki zawartość HTML.  Jeśli chcesz, możesz także dodać podzbiór tych IDPs.
 
 ## <a name="register-an-application"></a>Rejestrowanie aplikacji
@@ -80,7 +77,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 To repozytorium zawiera `sample_templates\wingtip` katalogu, który zawiera przykład HTML, CSS i obrazy. Te szablony do odwołania konta magazynu obiektów Blob Azure należy edytować pliki HTML. Otwórz `unified.html` i `selfasserted.html` i Zastąp wszystkie wystąpienia `https://localhost` z adresem URL własnych kontenera zapisaną w poprzednich krokach. Ścieżka bezwzględna plików HTML należy użyć, ponieważ w takim przypadku HTML zostanie obsłużona przez usługę Azure AD w domenie `https://login.microsoftonline.com`.
 
 ### <a name="upload-the-sample-files"></a>Przekaż przykładowe pliki
-W tym samym repozytorium, Rozpakuj `B2CAzureStorageClient.zip` i uruchom `B2CAzureStorageClient.exe` pliku w ciągu. Ten program będzie po prostu Przekaż wszystkie pliki w katalogu wskazanym na koncie magazynu i włączyć CORS dostęp do tych plików. Jeśli kroki powyżej zostały wykonane, pliki HTML i CSS będzie teraz wskazuje konta magazynu. Należy pamiętać, że nazwa konta magazynu części poprzedzający `blob.core.windows.net`, na przykład `contoso`. Możesz sprawdzić, czy zawartość, został przesłany poprawnie przez próby uzyskania dostępu do `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` w przeglądarce. Również użyć [http://test-cors.org/](http://test-cors.org/) aby upewnić się, czy zawartość jest teraz włączone CORS. (Wyszukaj "stan XHR: 200" w wyniku.)
+W tym samym repozytorium, Rozpakuj `B2CAzureStorageClient.zip` i uruchom `B2CAzureStorageClient.exe` pliku w ciągu. Ten program będzie po prostu Przekaż wszystkie pliki w katalogu wskazanym na koncie magazynu i włączyć CORS dostęp do tych plików. Jeśli kroki powyżej zostały wykonane, pliki HTML i CSS będzie teraz wskazuje konta magazynu. Należy pamiętać, że nazwa konta magazynu części poprzedzający `blob.core.windows.net`, na przykład `contoso`. Możesz sprawdzić, czy zawartość, został przesłany poprawnie przez próby uzyskania dostępu do `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` w przeglądarce. Również użyć [ http://test-cors.org/ ](http://test-cors.org/) aby upewnić się, czy zawartość jest teraz włączone CORS. (Wyszukaj "stan XHR: 200" w wyniku.)
 
 ### <a name="customize-your-policy-again"></a>Dostosuj zasady, ponownie
 Teraz, gdy zawartość przykładową przekazanego do konta magazynu, należy edytować zasadach rejestracji do utworzenia odwołania. Powtórz kroki od ["Dostosować zgodnie z zasadami"](#customize-your-policy) sekcji powyżej, przy użyciu adresów URL swoje konto magazynu. Na przykład lokalizację użytkownika `unified.html` plik może być `<url-of-your-container>/wingtip/unified.html`.

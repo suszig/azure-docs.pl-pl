@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure Machine Learning Model zarządzania instalacja i Konfiguracja | Dokumentacja firmy Microsoft"
-description: "W tym dokumencie opisano kroki i pojęcia związane z w instalowaniu i konfigurowaniu modelu zarządzania w usłudze Azure Machine Learning."
+title: Usługa Azure Machine Learning Model zarządzania instalacja i Konfiguracja | Dokumentacja firmy Microsoft
+description: W tym dokumencie opisano kroki i pojęcia związane z w instalowaniu i konfigurowaniu modelu zarządzania w usłudze Azure Machine Learning.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0859031ac26b061861aa51dce1093f2fe4350935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="model-management-setup"></a>Model konfiguracji zarządzania
 
@@ -154,12 +154,9 @@ Aby użyć istniejącego konta, użyj następującego polecenia:
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### <a name="deploy-your-model"></a>Wdróż model
-Teraz można przystąpić do wdrażania modelu zapisane w postaci usługi sieci web. 
-
-```azurecli
-az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
-```
+W wyniku tego procesu środowisko jest gotowe, a konto zarządzania model został utworzony w celu udostępnia funkcje niezbędne do zarządzania i wdrażania modeli uczenia maszynowego (zobacz [Azure Machine Learning Model zarządzania](model-management-overview.md) dla Przegląd).
 
 ## <a name="next-steps"></a>Kolejne kroki
-Wypróbuj jedną z wielu próbek w galerii.
+
+* Dla instrukcji na temat wdrażania usług sieci web do uruchomienia na komputerze lokalnym lub w klastrze w dalszym ciągu na [wdrażania modelu uczenia maszynowego, usługa sieci Web](model-management-service-deploy.md).
+* Wypróbuj jedną z wielu próbek w galerii.

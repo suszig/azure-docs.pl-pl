@@ -1,12 +1,12 @@
 ---
-title: "PowerShell w chmurze Azure powłoki (wersja zapoznawcza) — Szybki Start | Dokumentacja firmy Microsoft"
-description: "Szybki Start dla środowiska PowerShell w chmurze powłoki"
+title: PowerShell w chmurze Azure powłoki (wersja zapoznawcza) — Szybki Start | Dokumentacja firmy Microsoft
+description: Szybki Start dla środowiska PowerShell w chmurze powłoki
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b0831173212d3324c851ad1bd04ec443a9face5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Szybki Start dla środowiska PowerShell w powłoce chmury Azure (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Ten dokument zawiera szczegóły dotyczące używania programu PowerShell w chmu
 
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. Wybierz z listy rozwijanej środowiska PowerShell i będzie dysku platformy Azure`(Azure:)`
+2. Wybierz z listy rozwijanej środowiska PowerShell i będzie dysku platformy Azure `(Azure:)`
 
   ![](media/quickstart-powershell/environment-ps.png)
 
@@ -62,7 +62,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd`do preferowanego subskrypcji
+ 2. `cd` do preferowanego subskrypcji
 
     ``` PowerShell
     PS Azure:\> cd MySubscriptionName
@@ -118,7 +118,7 @@ Jednak zawsze można użyć `dir -Force` można pobrać nowe dane.
 
 ### <a name="navigate-storage-resources"></a>Przejdź do zasobów magazynu
     
-Wprowadzając w `StorageAccounts` folderze można łatwo przejść zasobów magazynu
+Wprowadzając w `StorageAccounts` katalogu można łatwo przejść zasobów magazynu
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -227,7 +227,7 @@ Można także przechodzić do `VirtualMachines` katalogu pierwszej i uruchom `En
 
 ### <a name="discover-webapps"></a>Odnajdywanie WebApps
 
-Wprowadzając w `WebApps` folderze można łatwo przejść zasobów aplikacji sieci web
+Wprowadzając w `WebApps` katalogu można łatwo przejść zasobów aplikacji sieci web
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ Na potrzeby uwierzytelniania na serwerach lub maszyn wirtualnych przy użyciu pr
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Przy użyciu niestandardowego profilu w celu utrzymania ustawień usługi GIT i SSH
 
-Ponieważ sesje nie zostaną utrwalone po wylogowania, Zapisz z `$env:USERPROFILE\.ssh` folder `CloudDrive` lub utworzyć łącza symbolicznego, gdy uruchamiana pobiera powłoki chmury.
+Ponieważ sesje nie zostaną utrwalone po wylogowania, Zapisz z `$env:USERPROFILE\.ssh` do katalogu `CloudDrive` lub utworzyć łącza symbolicznego, gdy uruchamiana pobiera powłoki chmury.
 Dodaj następujący fragment kodu w Twojej profile.ps1 do utworzenia łącza symbolicznego do CloudDrive.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Następnym razem, kiedy używać środowiska PowerShell w chmurze powłoki, `helloworld.ps1` pliku będzie istnieć w obszarze `CloudDrive` folderu, który instaluje na udział plików Azure.
+Następnym razem, kiedy używać środowiska PowerShell w chmurze powłoki, `helloworld.ps1` pliku będzie istnieć w obszarze `CloudDrive` katalogu, który instaluje na udział plików Azure.
 
 ## <a name="use-custom-profile"></a>Użyj profilu niestandardowego
 

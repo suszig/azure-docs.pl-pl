@@ -1,23 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: KMSI | Dokumentacja firmy Microsoft'
-description: "Pokazuje sposób konfigurowania \"zachowuje wylogowuj mnie\" tematu"
+description: Pokazuje sposób konfigurowania "zachowuje wylogowuj mnie" tematu
 services: active-directory-b2c
-documentationcenter: 
-author: vigunase
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.assetid: 926e9711-71c0-49e8-b658-146ffb7386c0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
-ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 073ba8eef7f2f42d1c308fb20d3bfdbfc8d321b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Usługa Azure Active Directory B2C: Włącz "Wylogowuj mnie (KMSI)"  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -94,7 +92,7 @@ Możesz zdefiniować Rejestrowanie konta lokalnego dostawcy oświadczeń, aby `<
 
 Dodaj identyfikatory aplikacji do pliku rozszerzenia (`TrustFrameworkExtensions.xml`):
 
-1. W pliku rozszerzenia (TrustFrameworkExtensions.xml), Znajdź element `<TechnicalProfile Id="login-NonInteractive">` i`<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. W pliku rozszerzenia (TrustFrameworkExtensions.xml), Znajdź element `<TechnicalProfile Id="login-NonInteractive">` i `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
 2. Zastąp wszystkie wystąpienia `IdentityExperienceFrameworkAppId` z Identyfikatorem aplikacji Framework obsługi tożsamości aplikacji zgodnie z opisem w [wprowadzenie](active-directory-b2c-get-started-custom.md). Oto przykład:
 
@@ -166,11 +164,11 @@ Następnie zaktualizuj jednostki uzależnionej pliku strony (RP), który inicjuj
 
 4. KMSI jest skonfigurowany w `UserJourneyBehaviors`. 
 
-5. **`KeepAliveInDays`**Określa, jak długo użytkownik pozostanie zalogowany. W poniższym przykładzie sesji KMSI automatycznie wygaśnie po 14 dniach niezależnie od tego, jak często użytkownik wykonuje uwierzytelnianie w trybie dyskretnym.
+5. **`KeepAliveInDays`** Określa, jak długo użytkownik pozostanie zalogowany. W poniższym przykładzie sesji KMSI automatycznie wygaśnie po 14 dniach niezależnie od tego, jak często użytkownik wykonuje uwierzytelnianie w trybie dyskretnym.
 
    Ustawienie `KeepAliveInDays` wartość na 0 spowoduje wyłączenie funkcji KMSI. Domyślnie ta wartość wynosi 0
 
-6. Jeśli  **`SessionExpiryType`**  jest *stopniowych*, a następnie sesji KMSI zostanie rozszerzony przez 14 dni za każdym razem, gdy użytkownik wykonuje uwierzytelnianie w trybie dyskretnym.  Jeśli *stopniowych* jest zaznaczone, zaleca się zachować do minimum liczbę dni. 
+6. Jeśli **`SessionExpiryType`** jest *stopniowych*, a następnie sesji KMSI zostanie rozszerzony przez 14 dni za każdym razem, gdy użytkownik wykonuje uwierzytelnianie w trybie dyskretnym.  Jeśli *stopniowych* jest zaznaczone, zaleca się zachować do minimum liczbę dni. 
 
        <RelyingParty>
        <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />

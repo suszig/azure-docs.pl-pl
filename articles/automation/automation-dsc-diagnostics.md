@@ -1,6 +1,6 @@
 ---
-title: "Przekazuj Konfiguracja DSC automatyzacji Azure raportowania danych do analizy dzienników"
-description: "W tym artykule przedstawiono sposób wysyłania żądanego stanu konfiguracji (DSC) raportowania danych do analizy dzienników dostarczać dodatkowe szczegółowe dane i zarządzania."
+title: Przekazuj Konfiguracja DSC automatyzacji Azure raportowania danych do analizy dzienników
+description: W tym artykule przedstawiono sposób wysyłania żądanego stanu konfiguracji (DSC) raportowania danych do analizy dzienników dostarczać dodatkowe szczegółowe dane i zarządzania.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Przekazywanie danych raportów DSC usługi Azure Automation do usługi OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Przekazuj Konfiguracja DSC automatyzacji Azure raportowania danych do analizy dzienników
 
-Automatyzacja może wysyłać dane stanu węzła DSC do obszaru roboczego analizy dzienników programu Microsoft Operations Management Suite (OMS).  
+Automatyzacja może wysyłać dane stanu węzła DSC do obszaru roboczego analizy dzienników.  
 Stan zgodności jest widoczny w portalu Azure lub programu PowerShell, dla węzłów i dla poszczególnych zasobów DSC w konfiguracji węzła. Analiza dzienników można:
 
 * Pobierz informacje o zgodności dla węzłów zarządzanych i pojedynczych zasobów
@@ -34,7 +32,7 @@ Aby rozpocząć wysyłanie raportów usługi Konfiguracja DSC automatyzacji do a
 * Wydanie listopada 2016 lub nowszy [programu Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 * Konto usługi Azure Automation. Aby uzyskać więcej informacji, zobacz [wprowadzenie do korzystania z usługi Automatyzacja Azure](automation-offering-get-started.md)
 * Obszar roboczy analizy dzienników z **Automatyzacja i kontrola** oferty usługi. Aby uzyskać więcej informacji, zobacz [wprowadzenie do analizy dzienników](../log-analytics/log-analytics-get-started.md).
-* Co najmniej jeden węzeł Konfiguracja DSC automatyzacji Azure. Aby uzyskać więcej informacji, zobacz [dołączania komputerów do zarządzania przez Konfiguracja DSC automatyzacji Azure](automation-dsc-onboarding.md) 
+* Co najmniej jeden węzeł Konfiguracja DSC automatyzacji Azure. Aby uzyskać więcej informacji, zobacz [dołączania komputerów do zarządzania przez Konfiguracja DSC automatyzacji Azure](automation-dsc-onboarding.md)
 
 ## <a name="set-up-integration-with-log-analytics"></a>Konfigurowanie integracji z analizy dzienników
 
@@ -191,5 +189,5 @@ Analiza dzienników zapewnia lepszą widoczność operacyjnej do danych usługi 
 
 * Aby dowiedzieć się więcej na temat sposobu konstruowania różne zapytania i przejrzyj dzienniki usługi Konfiguracja DSC automatyzacji z analizy dzienników, zobacz [Zaloguj wyszukiwania analizy dzienników](../log-analytics/log-analytics-log-searches.md)
 * Aby dowiedzieć się więcej o korzystaniu z usługi Konfiguracja DSC automatyzacji Azure, zobacz [wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-getting-started.md)
-* Aby dowiedzieć się więcej o usłudze OMS Log Analytics i źródłach zbierania danych, zobacz [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md) (Zbieranie danych magazynu platformy Azure w usłudze Log Analytics — omówienie)
+* Aby dowiedzieć się więcej na temat analizy dzienników i źródeł danych kolekcji, zobacz [Azure zbierania danych magazynu w omówieniu analizy dzienników](../log-analytics/log-analytics-azure-storage.md)
 

@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Odwołanie: Dostosowywanie interfejsu użytkownika w podróży użytkownika z zasady niestandardowe | Dokumentacja firmy Microsoft"
-description: "Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C"
+title: 'Usługa Azure Active Directory B2C: Odwołanie: Dostosowywanie interfejsu użytkownika w podróży użytkownika z zasady niestandardowe | Dokumentacja firmy Microsoft'
+description: Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: davidmu
+ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Dostosowywanie interfejsu użytkownika w podróży użytkownika przy użyciu zasad niestandardowych
 
@@ -153,7 +150,7 @@ W poniższej tabeli opisano przeznaczenie stron HTML5.
 
 Można dodać łącza do szablonów HTML5/CSS do podróży użytkownika bezpośrednio edytując zasadę niestandardową.
 
-Szablony niestandardowe HTML5/CSS do użycia w podróży użytkownika ma określonych na liście zawartości definicje, które mogą być używane w podróży tych użytkowników. W tym celu opcjonalny  *<ContentDefinitions>*  — element XML musi być zadeklarowana w obszarze  *<BuildingBlocks>*  sekcji w pliku XML zasady niestandardowe.
+Szablony niestandardowe HTML5/CSS do użycia w podróży użytkownika ma określonych na liście zawartości definicje, które mogą być używane w podróży tych użytkowników. W tym celu opcjonalny *<ContentDefinitions>* — element XML musi być zadeklarowana w obszarze *<BuildingBlocks>* sekcji w pliku XML zasady niestandardowe.
 
 W poniższej tabeli opisano zestaw identyfikatorów definicji rozpoznał tożsamości usługi Azure AD B2C może wystąpić aparatu i typ strony, które odnoszą się do nich zawartości.
 

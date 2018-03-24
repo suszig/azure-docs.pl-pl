@@ -1,11 +1,12 @@
 ---
-title: "Nauki 5 danych pytania - nauki danych dla początkujących — usługi Azure Machine Learning | Dokumentacja firmy Microsoft"
-description: "Połączenie analiz danych dla początkujących użytkowników jest zawiera podstawowe pojęcia związane z 5 krótkie wideo, zaczynając od 5 pytania dotyczące danych nauki odpowiedzi. Z uczenia maszynowego Azure."
-keywords: "podczas analizy danych, dla początkujących analizy danych, analizy danych dla początkujących podstaw analizy danych, pytania dotyczące danych nauki, wideo analizy danych, wprowadzenie nauki danych"
+title: Nauki 5 danych pytania - nauki danych dla początkujących — usługi Azure Machine Learning | Dokumentacja firmy Microsoft
+description: Połączenie analiz danych dla początkujących użytkowników jest zawiera podstawowe pojęcia związane z 5 krótkie wideo, zaczynając od 5 pytania dotyczące danych nauki odpowiedzi. Z uczenia maszynowego Azure.
+keywords: podczas analizy danych, dla początkujących analizy danych, analizy danych dla początkujących podstaw analizy danych, pytania dotyczące danych nauki, wideo analizy danych, wprowadzenie nauki danych
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 494c8293a1dbfccbfe2df1e2f48f770edb6452dc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Wideo 1: analiza danych dla początkujących — 5 pytań, na które analiza danych daje odpowiedzi
 Pobierz szybkie wprowadzenie do analizy danych z *nauki danych dla początkujących* w pięciu krótkie filmy wideo z naukowca danych najwyższego. Tych klipów wideo są podstawowy, ale przydatne, czy interesują Cię wykonywania analizy danych lub pracować z analityków danych.

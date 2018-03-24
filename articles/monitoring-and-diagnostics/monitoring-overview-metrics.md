@@ -1,9 +1,9 @@
 ---
-title: "Omówienie metryk w Microsoft Azure | Dokumentacja firmy Microsoft"
-description: "Omówienie metryki i ich użycie w Microsoft Azure"
-author: johnkemnetz
+title: Omówienie metryk w Microsoft Azure | Dokumentacja firmy Microsoft
+description: Omówienie metryki i ich użycie w Microsoft Azure
+author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: johnkem
-ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/19/2018
+ms.author: ancav
+ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Omówienie metryk w Microsoft Azure
 W tym artykule opisano metryki są platformie Microsoft Azure, ich zalety oraz sposób rozpocząć korzystanie z nich.  
@@ -38,9 +38,9 @@ Metryki są cenne źródła danych telemetrycznych i umożliwiają wykonywanie n
 ## <a name="what-are-the-characteristics-of-metrics"></a>Co to są właściwości metryk?
 Metryki mają następującą charakterystykę:
 
-* Wszystkie metryki ma **częstotliwość co minutę**. Pojawi się wartość metryki co minutę z zasobu, umożliwiając niemal w czasie rzeczywistym wgląd w stan i kondycja zasobu.
+* Wszystkie metryki ma **częstotliwość co minutę** (chyba że określono inaczej w definicji Metryka). Pojawi się wartość metryki co minutę z zasobu, umożliwiając niemal w czasie rzeczywistym wgląd w stan i kondycja zasobu.
 * Metryki są **dostępne natychmiast**. Nie musisz włączyć lub skonfigurować dodatkowe diagnostyki.
-* Dostęp można uzyskać **30 dni historii** dla każdego metryki. Można szybko przyjrzeć się ostatnie i miesięczne trendów wydajności lub kondycji zasobu.
+* Dostęp można uzyskać **93 dni historii** dla każdego metryki. Można szybko przyjrzeć się ostatnie i miesięczne trendów wydajności lub kondycji zasobu.
 * Niektóre metryki mogą mieć atrybuty pary nazwa wartość o nazwie **wymiary**. Umożliwiają one dodatkowo podzielić i eksplorowania metrykę w sposób bardziej zrozumiałej.
 
 Możesz również:
@@ -93,7 +93,7 @@ Metryki Azure są dostępne za pośrednictwem interfejsów API usługi Azure mon
 * Użyj [interfejsu API REST Azure Monitor metryki](https://docs.microsoft.com/rest/api/monitor/metrics) segmentu, filtrować i uzyskać dostęp do danych rzeczywistych metryki.
 
 > [!NOTE]
-> W tym artykule opisano metryki za pośrednictwem [nowy interfejs API dla metryki](https://docs.microsoft.com/rest/api/monitor/) dla zasobów platformy Azure. Wersja interfejsu API dla nowych definicji metryk i metryki interfejsów API jest 2017-05-01-preview. Starsze definicji metryk i metryki jest możliwy przy użyciu interfejsu API w wersji 2014-04-01.
+> W tym artykule opisano metryki za pośrednictwem [nowy interfejs API dla metryki](https://docs.microsoft.com/rest/api/monitor/) dla zasobów platformy Azure. Wersja interfejsu API dla nowych definicji metryk i metryki interfejsów API jest 2018-01-01. Starsze definicji metryk i metryki jest możliwy przy użyciu interfejsu API w wersji 2014-04-01.
 >
 >
 

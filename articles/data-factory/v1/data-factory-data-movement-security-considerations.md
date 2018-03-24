@@ -1,11 +1,10 @@
 ---
-title: "Zagadnienia dotyczące zabezpieczeń dla ruchu danych w fabryce danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat zabezpieczania przenoszenia danych z fabryki danych Azure."
+title: Zagadnienia dotyczące zabezpieczeń dla ruchu danych w fabryce danych Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat zabezpieczania przenoszenia danych z fabryki danych Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Fabryka danych Azure — zagadnienia dotyczące zabezpieczeń dla przepływu danych
 
@@ -48,7 +47,7 @@ W tym artykule firma Microsoft analizuje zagadnienia dotyczące zabezpieczeń w 
 - **Scenariusza hybrydowego**— w tym scenariuszu źródłowe lub docelowe znajduje się za zaporą lub wewnątrz sieci firmowej lokalnymi lub dane magazynu jest w sieci prywatnej / wirtualnych sieci (w większości przypadków źródła) i nie jest dostępny publicznie. W tym scenariuszu dzielą się również hostowanych na maszynach wirtualnych serwerów bazy danych.
 
 ## <a name="cloud-scenarios"></a>Scenariusze chmury
-###<a name="securing-data-store-credentials"></a>Zabezpieczanie poświadczeń magazynu danych
+### <a name="securing-data-store-credentials"></a>Zabezpieczanie poświadczeń magazynu danych
 Fabryka danych Azure chroni poświadczeń magazynu danych przez **szyfrowania** je za pomocą **certyfikaty zarządzany przez firmę Microsoft**. Te certyfikaty są obracane co **dwuletni** (w tym migracja poświadczeń i odnawiania certyfikatów). Te zaszyfrowane poświadczenia są bezpiecznie przechowywane w **magazyn Azure zarządzanych przez usługi zarządzania fabryki danych Azure**. Aby uzyskać więcej informacji na temat zabezpieczeń usługi Azure Storage można znaleźć [Omówienie zabezpieczeń magazynu Azure](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Szyfrowanie danych podczas przesyłania

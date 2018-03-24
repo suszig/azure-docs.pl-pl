@@ -1,25 +1,25 @@
 ---
-title: "Utwórz publiczny obciążenia standardowego równoważenia z strefowo nadmiarowy frontonu adres publiczny adres IP za pomocą programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć publiczny standardowe usługi równoważenia obciążenia z strefowo nadmiarowy frontonu adres publiczny adres IP za pomocą programu PowerShell"
+title: Utwórz publiczny obciążenia standardowego równoważenia z strefowo nadmiarowy frontonu adres publiczny adres IP za pomocą programu PowerShell | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak utworzyć publiczny standardowe usługi równoważenia obciążenia z strefowo nadmiarowy frontonu adres publiczny adres IP za pomocą programu PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: abe970eb72be5ea6944acc253c2c3d9008b20c56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2849ef9b862b4471f348ac83a4a18eb9a3a4d42a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>Utwórz publiczny obciążenia standardowego równoważenia z strefowo nadmiarowy frontonu adres publiczny adres IP za pomocą programu PowerShell
 
@@ -27,17 +27,12 @@ W tym artykule opisano przez proces tworzenia publiczny [standardowe usługi ró
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>Zarejestruj się, aby Podgląd standardowe strefy dostępności, standardowe usługi równoważenia obciążenia i publicznego adresu IP
+## <a name="register-for-availability-zones-preview"></a>Zarejestruj się, aby Podgląd stref dostępności
 
 W tym artykule wymaga wersji 4.4.0 lub wyższej modułu AzureRM zainstalowane. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `Get-Module -ListAvailable AzureRM`. Aby zainstalować lub uaktualnić należy zainstalować najnowszą wersję modułu AzureRM z [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
->[!NOTE]
-[Standardowy SKU usługi równoważenia obciążenia](https://aka.ms/azureloadbalancerstandard) jest obecnie w przeglądzie. W okresie obowiązywania wersji zapoznawczej ta funkcja może nie oferować dostępności i niezawodności na tym samym poziomie, co funkcje w wersji ogólnodostępnej. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Użyj ogólnie dostępna [podstawowy SKU usługi równoważenia obciążenia](load-balancer-overview.md) dla usług produkcji. 
-
 > [!NOTE]
 > Dostępność strefy są w wersji zapoznawczej i są gotowe do programowania i testowania scenariuszy. Obsługa jest dostępna dla wybierz zasobów platformy Azure i regiony i rodziny rozmiar maszyny Wirtualnej. Więcej informacji na temat rozpocząć, które zasobów platformy Azure, regiony i rodziny rozmiar maszyny Wirtualnej można spróbować stref dostępności przy, zobacz [Przegląd stref dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview). Aby uzyskać pomoc techniczną, możesz skorzystać z witryny [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) lub [otworzyć bilet pomocy technicznej platformy Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-
-Przed wybraniem strefy lub strefowo nadmiarowy opcję frontonu publicznego adresu IP usługi równoważenia obciążenia, należy najpierw wykonać kroki w [zarejestrować w wersji zapoznawczej stref dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 

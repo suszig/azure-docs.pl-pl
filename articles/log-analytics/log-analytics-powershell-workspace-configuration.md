@@ -1,11 +1,11 @@
 ---
-title: "Tworzenie i konfigurowanie obszaru roboczego analizy dzienników przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Rejestrowanie danych dotyczących Analytics korzysta z serwerów w sieci lokalnej lub w chmurze infrastruktury. Można zbierać dane maszyny z usługi Azure storage, gdy generowane przez diagnostycznych platformy Azure."
+title: Tworzenie i konfigurowanie obszaru roboczego analizy dzienników przy użyciu programu PowerShell | Dokumentacja firmy Microsoft
+description: Rejestrowanie danych dotyczących Analytics korzysta z serwerów w sieci lokalnej lub w chmurze infrastruktury. Można zbierać dane maszyny z usługi Azure storage, gdy generowane przez diagnostycznych platformy Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Zarządzanie usługą Log Analytics przy użyciu programu PowerShell
 Można użyć [poleceń cmdlet programu PowerShell analizy dziennika](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) do wykonywania różnych funkcji w analizy dzienników przy użyciu wiersza polecenia lub w ramach skryptu.  Przykłady zadania, które można wykonać przy użyciu programu PowerShell:
@@ -145,7 +145,7 @@ foreach ($solution in $Solutions) {
     Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
-#List enabled solutions
+# List enabled solutions
 (Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches
@@ -191,24 +191,24 @@ Bez agenta monitorowania zasobów platformy Azure, zasoby muszą mieć Diagnosty
 
 | Typ zasobu | Dzienniki | Metryki |
 | --- | --- | --- |
-| Bramy Application Gateway    | Tak | Tak |
-| Konta usługi Automation     | Tak | |
-| Konta usługi partia zadań          | Tak | Tak |
-| Data Lake analytics     | Tak | | 
-| Data Lake store         | Tak | |
-| Puli elastycznej SQL        |     | Tak |
-| Przestrzeń nazw Centrum zdarzeń     |     | Tak |
-| Centra IoT                |     | Tak |
-| Usługa Key Vault               | Tak | |
-| Moduły równoważenia obciążenia          | Tak | |
-| Logic Apps              | Tak | Tak |
-| Grupy zabezpieczeń sieci | Tak | |
-| Pamięć podręczna Redis             |     | Tak |
-| Usługi wyszukiwania         | Tak | Tak |
-| Przestrzeń nazw magistrali usług   |     | Tak |
-| SQL (v12)               |     | Tak |
-| Witryny sieci Web               |     | Tak |
-| Farmach serwerów sieci Web        |     | Tak |
+| Bramy Application Gateway    | Yes | Yes |
+| Konta usługi Automation     | Yes | |
+| Konta usługi Batch          | Yes | Yes |
+| Data Lake analytics     | Yes | | 
+| Data Lake store         | Yes | |
+| Puli elastycznej SQL        |     | Yes |
+| Przestrzeń nazw centrum zdarzeń     |     | Yes |
+| Centra IoT Hub                |     | Yes |
+| Usługa Key Vault               | Yes | |
+| Moduły równoważenia obciążenia          | Yes | |
+| Logic Apps              | Yes | Yes |
+| Grupy zabezpieczeń sieci | Yes | |
+| Pamięć podręczna Redis             |     | Yes |
+| Usługi wyszukiwania         | Yes | Yes |
+| Przestrzeń nazw magistrali usług   |     | Yes |
+| SQL (v12)               |     | Yes |
+| Witryny sieci Web               |     | Yes |
+| Farmach serwerów sieci Web        |     | Yes |
 
 Aby uzyskać szczegółowe informacje dostępne metryki, zapoznaj się [obsługiwane metryki z monitorem Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -263,6 +263,6 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 Powyższy skrypt umożliwia również zbieranie dzienników z kont magazynu w ramach różnych subskrypcji. Skrypt jest w stanie działać w subskrypcjach, ponieważ udostępniasz identyfikator zasobu konta magazynu i odpowiedniego klucza dostępu. Jeśli zmienisz klawisz dostępu, należy zaktualizować wiedzę magazynu do nowego klucza.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Przegląd poleceń cmdlet programu PowerShell analizy dziennika](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) dodatkowe informacje na temat konfiguracji analizy dzienników przy użyciu programu PowerShell.
 

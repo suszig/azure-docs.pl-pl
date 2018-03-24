@@ -1,11 +1,11 @@
 ---
 title: Azure aplikacji sieci web AD Node.js wprowadzenie | Dokumentacja firmy Microsoft
-description: "Informacje o sposobie tworzenia aplikacji sieci web Node.js Express MVC, która integruje się z usługą Azure AD dla logowania."
+description: Informacje o sposobie tworzenia aplikacji sieci web Node.js Express MVC, która integruje się z usługą Azure AD dla logowania.
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 477056581b847693ae115f94c2f6466036add765
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Wprowadzenie aplikacji sieci web AD Node.js Azure
 W tym miejscu możemy użyć usługi Passport:
@@ -402,7 +402,7 @@ Teraz `app.js` została ukończona. Należy dodać trasy i widoki, które zawier
     </html>
     ```
 
-##<a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Na koniec Skompiluj i uruchom aplikację. Uruchom `node app.js`, a następnie przejdź do `http://localhost:3000`.
 
 Zaloguj się za pomocą osobistego konta Microsoft lub konta służbowego i zwróć uwagę, jak tożsamość użytkowników jest odzwierciedlone na liście /account. Masz teraz zabezpieczone przy użyciu standardowych protokołach branżowych, uwierzytelniających użytkowników przy użyciu ich osobistych i pracy/służbowego konta aplikacji sieci web.

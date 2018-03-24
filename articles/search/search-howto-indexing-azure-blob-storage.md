@@ -1,24 +1,24 @@
 ---
-title: "Indeksowanie magazynu obiektów Blob Azure o usłudze Azure Search"
-description: "Dowiedz się, jak indeksu usługi Azure Blob Storage i Wyodrębnij tekst z dokumentów za pomocą usługi Azure Search"
+title: Indeksowanie magazynu obiektów Blob Azure o usłudze Azure Search
+description: Dowiedz się, jak indeksu usługi Azure Blob Storage i Wyodrębnij tekst z dokumentów za pomocą usługi Azure Search
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indeksowanie dokumentów w magazynie obiektów Blob Azure o usłudze Azure Search
 W tym artykule przedstawiono sposób użycia usługi Azure Search w celu indeksowania dokumentów (takich jak PDF, dokumentów Microsoft Office i kilka innych typowych formatach) przechowywanych w magazynie obiektów Blob platformy Azure. Po pierwsze wyjaśniono podstawowe informacje o instalowaniu i konfigurowaniu indeksatora obiektu blob. Następnie zapewnia lepszą badań zachowania i scenariusze jest prawdopodobnie mogą wystąpić.
@@ -31,7 +31,7 @@ Indeksator obiektu blob można wyodrębnić tekst z dokumentu w następujących 
 ## <a name="setting-up-blob-indexing"></a>Konfigurowanie indeksowanie obiektów blob
 Można skonfigurować indeksator usługi Azure Blob Storage za pomocą:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * Usługa Azure Search [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Usługa Azure Search [zestawu .NET SDK](https://aka.ms/search-sdk)
 
@@ -230,9 +230,9 @@ Jeśli oba `indexedFileNameExtensions` i `excludedFileNameExtensions` parametró
 
 Można kontrolować, które części obiektów blob są indeksowane przy użyciu `dataToExtract` parametru konfiguracji. Przyjmuje następujące wartości:
 
-* `storageMetadata`— Określa, że tylko [właściwości standardowych obiektów blob i metadanych określonych przez użytkownika](../storage/blobs/storage-properties-metadata.md) są indeksowane.
-* `allMetadata`— Określa, że metadane magazynu i [metadane specyficzne dla typu zawartości](#ContentSpecificMetadata) wyodrębniony z obiektu blob są indeksowane zawartości.
-* `contentAndMetadata`— Określa, że wszystkie metadane i zawartość tekstową wyodrębniony z obiektu blob są indeksowane. Jest to wartość domyślna.
+* `storageMetadata` — Określa, że tylko [właściwości standardowych obiektów blob i metadanych określonych przez użytkownika](../storage/blobs/storage-properties-metadata.md) są indeksowane.
+* `allMetadata` — Określa, że metadane magazynu i [metadane specyficzne dla typu zawartości](#ContentSpecificMetadata) wyodrębniony z obiektu blob są indeksowane zawartości.
+* `contentAndMetadata` — Określa, że wszystkie metadane i zawartość tekstową wyodrębniony z obiektu blob są indeksowane. Jest to wartość domyślna.
 
 Na przykład aby indeksu tylko metadane magazynu, należy użyć:
 
@@ -271,6 +271,10 @@ Domyślnie indeksatora blob zatrzymuje zaraz po napotkaniu obiektu blob o nieobs
 Dla niektórych obiektów blob usługi Azure Search nie może określić typu zawartości lub nie można przetworzyć typu dokumentu w przeciwnym razie obsługiwany typ zawartości. Ignorowanie tego trybu awaryjnego, ustaw `failOnUnprocessableDocument` wartość false parametru konfiguracji:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Usługa wyszukiwanie Azure ogranicza rozmiar obiektów blob, które są indeksowane. Ograniczenia te są udokumentowane w artykule [ograniczenia usługi w usłudze Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Zbyt duże obiekty BLOB są traktowane jako błędy domyślnie. Jednak można nadal indeksowanie metadanych magazynu obiektów blob zbyt duży Jeśli ustawisz `indexStorageMetadataOnlyForOversizedDocuments` parametru konfiguracji true: 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 Możesz także kontynuować indeksowania Jeśli błędy w dowolnym momencie przetwarzania, podczas analizowania obiektów blob lub podczas dodawania dokumenty do indeksu. Ignoruje określoną liczbę błędów, należy ustawić `maxFailedItems` i `maxFailedItemsPerBatch` parametry konfiguracji, aby odpowiednie wartości. Na przykład:
 

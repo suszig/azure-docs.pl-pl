@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Dostosowania interfejsu użytkownika (UI) usługi Azure AD B2C dynamicznie za pomocą zasad niestandardowych"
-description: "Obsługuje wiele środowisk znakowania z zawartością HTML5/CSS, która zmienia się dynamicznie w czasie wykonywania."
+title: 'Usługa Azure Active Directory B2C: Dostosowania interfejsu użytkownika (UI) usługi Azure AD B2C dynamicznie za pomocą zasad niestandardowych'
+description: Obsługuje wiele środowisk znakowania z zawartością HTML5/CSS, która zmienia się dynamicznie w czasie wykonywania.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Usługa Azure Active Directory B2C: Konfigurowanie interfejsu użytkownika z dynamiczną zawartością za pomocą zasad niestandardowych
 Za pomocą usługi Azure Active Directory B2C zasad niestandardowych (Azure AD B2C), możesz wysłać parametr w ciągu zapytania. Przez przekazanie parametru do punktu końcowego HTML, można dynamicznie zmieniać zawartość strony. Na przykład można zmienić obraz tła w witrynie usługi Azure AD B2C zapisywania się lub zaloguj się na podstawie parametru, który jest przekazywany z sieci web lub aplikacji mobilnej. 
@@ -121,7 +118,7 @@ Szablon HTML5 niestandardowy jest oparty na wbudowanych szablonów usługi Azure
 
 ### <a name="step-23-change-the-background-image"></a>Krok 2.3: Zmień obraz tła
 
-Zlokalizuj `<img>` element, który zawiera `ID` wartość *background_background_image*, a następnie zastąp `src` wartości z **https://kbdevstorage1.blob.core.windows.net/ obiekty BLOB zasobów/19889_en_1** lub innego obrazu tła, którego chcesz użyć.
+Zlokalizuj `<img>` element, który zawiera `ID` wartość *background_background_image*, a następnie zastąp `src` wartości z **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** lub innych obraz tła, który ma być używany.
 
 ![Zmiana tła strony](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
@@ -323,7 +320,7 @@ W przypadku wybrania **Zamów teraz** łącze na stronie logowania w przeglądar
 
     b. Skopiuj zawartość pliku.
 
-    d. Utwórz nowy widok *selfasserted*.
+    c. Utwórz nowy widok *selfasserted*.
 
     d. Dodaj *selfasserted* do **Home** kontrolera.
 

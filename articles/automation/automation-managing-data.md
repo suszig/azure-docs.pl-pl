@@ -1,24 +1,18 @@
 ---
-title: "Zarządzanie danymi usługi Automatyzacja Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera wiele tematów do zarządzania środowiskiem usługi Automatyzacja Azure.  Obecnie obejmuje przechowywanie danych i tworzenie kopii zapasowej odzyskiwania po awarii usługi Automatyzacja Azure w automatyzacji Azure."
+title: Zarządzanie danymi usługi Azure Automation
+description: Ten artykuł zawiera wiele tematów do zarządzania środowiskiem usługi Automatyzacja Azure.  Obecnie obejmuje przechowywanie danych i tworzenie kopii zapasowej odzyskiwania po awarii usługi Automatyzacja Azure w automatyzacji Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 Ten artykuł zawiera wiele tematów do zarządzania środowiskiem usługi Automatyzacja Azure.
@@ -43,7 +37,7 @@ W poniższej tabeli przedstawiono zasady przechowywania dla różnych zasobów.
 
 Zasady przechowywania ma zastosowanie do wszystkich użytkowników i obecnie nie można dostosować.
 
-Jednak jeśli chcesz zachować dane przez dłuższy okres czasu, można przesyłać dalej elementu runbook do analizy dzienników z dziennikami zadań.  Aby uzyskać więcej informacji, przejrzyj [przekazuj dane zadanie usługi Automatyzacja Azure do analizy dzienników OMS](automation-manage-send-joblogs-log-analytics.md).   
+Jednak jeśli chcesz zachować dane przez dłuższy okres czasu, można przesyłać dalej elementu runbook do analizy dzienników z dziennikami zadań.  Aby uzyskać więcej informacji, przejrzyj [przekazują dane zadanie usługi Automatyzacja Azure Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Tworzenie kopii zapasowych usługi Azure Automation
 Podczas usuwania konta automatyzacji w systemie Microsoft Azure, wszystkie obiekty w ramach konta są usuwane w tym elementów runbook, modułów, konfiguracji, ustawienia, zadania i zasoby. Nie można odzyskać obiektów, po usunięciu konta.  Poniższe informacje służy do kopii zapasowej zawartość Twoje konto usługi Automatyzacja przed jego usunięciem. 

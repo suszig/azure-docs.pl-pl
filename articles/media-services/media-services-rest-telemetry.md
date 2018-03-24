@@ -1,11 +1,11 @@
 ---
-title: "Konfigurowanie usługi Azure Media Services dane telemetryczne z POZOSTAŁĄ | Dokumentacja firmy Microsoft"
-description: "W tym artykule przedstawiono sposób użycia telemetrii usługi Azure Media Services przy użyciu interfejsu API REST..."
+title: Konfigurowanie usługi Azure Media Services dane telemetryczne z POZOSTAŁĄ | Dokumentacja firmy Microsoft
+description: W tym artykule przedstawiono sposób użycia telemetrii usługi Azure Media Services przy użyciu interfejsu API REST...
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd093a0b8408e9dcffd4eb9765a767f78fd6fc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurowanie usługi Azure Media Services telemetrii REST
 
@@ -45,7 +45,7 @@ Czynności opisane w tym temacie są następujące:
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Pobierz konta magazynu skojarzone z kontem usługi Media Services
 
-###<a name="request"></a>Żądanie
+### <a name="request"></a>Żądanie
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -73,7 +73,7 @@ Czynności opisane w tym temacie są następujące:
 
 ## <a name="get-the-notification-endpoints"></a>Pobierz punktów końcowych powiadomienia
 
-###<a name="request"></a>Żądanie
+### <a name="request"></a>Żądanie
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -83,7 +83,7 @@ Czynności opisane w tym temacie są następujące:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>Odpowiedź
+### <a name="response"></a>Odpowiedź
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -106,7 +106,7 @@ Czynności opisane w tym temacie są następujące:
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Tworzenie punktu końcowego powiadomienia do monitorowania
 
-###<a name="request"></a>Żądanie
+### <a name="request"></a>Żądanie
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -125,9 +125,9 @@ Czynności opisane w tym temacie są następujące:
     }
 
 >[!NOTE]
->Należy pamiętać zmienić wartość "https://telemetryvalidationstore.table.core.windows.net" do konta magazynu.
+>Nie zapomnij zmienić "https://telemetryvalidationstore.table.core.windows.net" wartość do swojego konta magazynu.
 
-###<a name="response"></a>Odpowiedź
+### <a name="response"></a>Odpowiedź
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -158,7 +158,7 @@ Czynności opisane w tym temacie są następujące:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>Odpowiedź
+### <a name="response"></a>Odpowiedź
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -221,7 +221,7 @@ Czynności opisane w tym temacie są następujące:
 
 ## <a name="stop-telemetry"></a>Zatrzymaj telemetrii
 
-###<a name="request"></a>Żądanie
+### <a name="request"></a>Żądanie
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13
@@ -236,7 +236,7 @@ Czynności opisane w tym temacie są następujące:
 
 Informacji o odbierającą telemetrii, zobacz [to](media-services-telemetry-overview.md) tematu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

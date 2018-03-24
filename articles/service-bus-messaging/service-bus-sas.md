@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus kontrolą dostępu przy użyciu sygnatury dostępu współdzielonego | Dokumentacja firmy Microsoft"
-description: "Omówienie usługi Service Bus kontroli dostępu przy użyciu sygnatury dostępu współdzielonego Przegląd, szczegółowe informacje o autoryzacji SAS z usługi Azure Service Bus."
+title: Azure Service Bus kontrolą dostępu przy użyciu sygnatury dostępu współdzielonego | Dokumentacja firmy Microsoft
+description: Omówienie usługi Service Bus kontroli dostępu przy użyciu sygnatury dostępu współdzielonego Przegląd, szczegółowe informacje o autoryzacji SAS z usługi Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Kontrola dostępu usługi Service Bus przy użyciu sygnatury dostępu współdzielonego
 
@@ -273,6 +273,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane przez różne operacje
 | Wiadomości utraconych wiadomości |Nasłuchuj |Każdy adres prawidłową kolejką |
 | Pobierz stan skojarzony z sesją kolejki komunikatów |Nasłuchuj |Każdy adres prawidłową kolejką |
 | Ustaw stan skojarzony z sesją kolejki komunikatów |Nasłuchuj |Każdy adres prawidłową kolejką |
+| Harmonogram wiadomości w celu późniejszego dostarczenia; na przykład [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Nasłuchuj | Każdy adres prawidłową kolejką
 | **Temat** | | |
 | Tworzenie tematu |Zarządzanie |Każdy adres przestrzeni nazw |
 | Usunięcie tematu |Zarządzanie |Każdy adres nieprawidłowy temat |
@@ -290,7 +291,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane przez różne operacje
 | Wiadomości utraconych wiadomości |Nasłuchuj |.. /myTopic/Subscriptions/mySubscription |
 | Pobierz stan skojarzony z sesją tematu |Nasłuchuj |.. /myTopic/Subscriptions/mySubscription |
 | Ustaw stan skojarzony z sesją tematu |Nasłuchuj |.. /myTopic/Subscriptions/mySubscription |
-| Reguły | | |
+| **Reguły** | | |
 | Utwórz regułę |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
 | Usuwanie reguły |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
 | Wyliczanie zasad |Zarządzanie lub nasłuchiwania |.. /myTopic/Subscriptions/mySubscription/Rules 

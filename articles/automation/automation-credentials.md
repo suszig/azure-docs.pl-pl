@@ -1,6 +1,6 @@
 ---
-title: "Zasoby poświadczeń usługi Automatyzacja Azure"
-description: "Zasoby poświadczeń usługi Automatyzacja Azure zawierają poświadczenia zabezpieczeń, które mogą służyć do uwierzytelniania na zasoby używane przez element runbook lub konfiguracji DSC. W tym artykule opisano sposób tworzenia zasoby poświadczeń i używać ich w element runbook lub konfiguracji DSC."
+title: Zasoby poświadczeń usługi Automatyzacja Azure
+description: Zasoby poświadczeń usługi Automatyzacja Azure zawierają poświadczenia zabezpieczeń, które mogą służyć do uwierzytelniania na zasoby używane przez element runbook lub konfiguracji DSC. W tym artykule opisano sposób tworzenia zasoby poświadczeń i używać ich w element runbook lub konfiguracji DSC.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: bb6aec41813930cbf74ab989cc4ce6b526b9c6b6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c56758012fc09287d0abb887db9148bd093a678a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Zasoby poświadczeń usługi Automatyzacja Azure
 Zawiera zasób poświadczenia usługi automatyzacja [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) obiekt zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Konfiguracje elementów Runbook i DSC może używać poleceń cmdlet, które akceptuje obiekt PSCredential uwierzytelniania lub ich może wyodrębnić nazwy użytkownika i hasła obiektu PSCredential zapewnienie niektórych aplikacja lub usługa wymaga uwierzytelnienia. Właściwości dla poświadczenia są bezpiecznie przechowywane w usłudze Automatyzacja Azure i jest dostępny w element runbook lub Konfiguracja DSC o [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) działania.

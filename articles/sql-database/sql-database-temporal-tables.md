@@ -1,19 +1,19 @@
 ---
 title: Wprowadzenie do tabel danych czasowych w bazie danych Azure SQL | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak rozpocząć używanie tabel danych czasowych w bazie danych SQL Azure."
+description: Dowiedz się, jak rozpocząć używanie tabel danych czasowych w bazie danych SQL Azure.
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Wprowadzenie do tabel danych czasowych w bazie danych Azure SQL
 Tabele danych czasowych są nową funkcją programowalności bazy danych SQL Azure, umożliwiające śledzić i analizować pełną historię zmian danych, bez konieczności pisania kodu niestandardowego. Tabele danych czasowych Zachowaj dane ściśle związane z kontekstu czasu, aby przechowywane dane mogą być interpretowane jako prawidłowy tylko w określonym okresie. Ta właściwość tabel danych czasowych umożliwia wydajne analizy na podstawie czasu i pobierania wgląd w dane dotyczące zmiany danych.
@@ -64,7 +64,7 @@ Towarzyszący tabeli historii z domyślnej konfiguracji jest tworzony automatycz
 W tym przypadku firma Microsoft Staraj się wykonywać analizy trendów na podstawie czasu za pośrednictwem dłużej historii danych i większych zestawów danych, dlatego wybór magazynu dla tabeli historii jest klastrowany indeks magazynu kolumn. Klastrowanego magazynu kolumn zawiera bardzo dobre kompresji i wydajności dla zapytań analitycznych. Tabele danych czasowych umożliwiają skonfigurowanie indeksów w tabelach bieżących i danych czasowych całkowicie niezależnie. 
 
 > [!NOTE]
-> Indeksy magazynu kolumn są dostępne tylko w warstwie usług premium.
+> Indeksy magazynu kolumn są dostępne w warstwie Premium i w warstwie standardowa S3 i powyżej.
 >
 
 Poniższy skrypt pokazuje, jak można zmienić domyślny indeks w tabeli historii do klastrowanego magazynu kolumn:

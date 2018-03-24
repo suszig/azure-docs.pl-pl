@@ -1,10 +1,11 @@
 ---
-title: "Analizowanie danych churn odbiorcy — przy użyciu usługi Machine Learning | Dokumentacja firmy Microsoft"
+title: Analizowanie danych churn odbiorcy — przy użyciu usługi Machine Learning | Dokumentacja firmy Microsoft
 description: Analiza przypadku powstania zintegrowanego modelu do analizowania i oceniania przenoszenie klienta
 services: machine-learning
-documentationcenter: 
-author: jeannt
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -13,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: jeannt
-ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6c64444fc8d42782065d42ed5ee0c193678bb1f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analizowanie zmienności klientów przy użyciu usługi Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analizowanie danych churn odbiorcy — za pomocą usługi Azure Machine Learning
 ## <a name="overview"></a>Przegląd
 Ten artykuł przedstawia wdrożenie odwołanie do projektu analizy przenoszenie klienta skompilowanego za pomocą usługi Azure Machine Learning. W tym artykule omówiono skojarzone ogólnego modeli całościowe rozwiązanie problemu przenoszenie przemysłowych klienta. Firma Microsoft również mierzenia dokładności modeli, które są tworzone za pomocą uczenia maszynowego i ocenić instrukcjami w celu dalszego rozwijania.  
 
-### <a name="acknowledgements"></a>Potwierdzeń
+### <a name="acknowledgements"></a>Potwierdzenia
 Tego eksperymentu został opracowany i przetestowane przez Serge Berger naukowca danych podmiot zabezpieczeń w firmie Microsoft i Roger Barga, wcześniej produktu programu Microsoft Azure Machine Learning. Zespół Azure dokumentacji gratefully uznaje ich wiedzy i Dziękujemy je do udostępniania tego oficjalny dokument.
 
 > [!NOTE]

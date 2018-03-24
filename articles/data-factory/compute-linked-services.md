@@ -1,22 +1,22 @@
 ---
-title: "Obliczeniowe środowiskach obsługiwanych przez usługi fabryka danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat środowiska obliczeniowego, w których można użyć w potokach fabryki danych Azure (np. Azure HDInsight) do przechowywania danych transformacji lub proces."
+title: Obliczeniowe środowiskach obsługiwanych przez usługi fabryka danych Azure | Dokumentacja firmy Microsoft
+description: Więcej informacji na temat środowiska obliczeniowego, w których można użyć w potokach fabryki danych Azure (np. Azure HDInsight) do przechowywania danych transformacji lub proces.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: f242a8a15334818d83651cf0af55e8ec39bce212
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 99d10cfd9e1e0eb078d1f90396a87e5e5dc4a7a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Obliczenia bazy danych środowiskach obsługiwanych przez usługi fabryka danych Azure
 W tym artykule opisano różne środowiska obliczeniowe, w których można użyć do procesu lub przekształcenia danych. Podano również szczegółowe informacje o różnych konfiguracjach (na żądanie i użycie własnego) obsługiwane przez fabrykę danych podczas konfigurowania usług połączonych łączenia tych obliczeniowe środowisk do fabryki danych Azure.
@@ -148,7 +148,7 @@ Uwierzytelnianie usługi głównej przez określenie następujących właściwo�
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Określ identyfikator aplikacji klienta.     | Yes      |
 | **servicePrincipalKey** | Określ klucz aplikacji.           | Yes      |
-| **dzierżawy**              | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Yes      |
+| **Dzierżawy**              | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Yes      |
 
 ### <a name="advanced-properties"></a>Zaawansowane właściwości
 

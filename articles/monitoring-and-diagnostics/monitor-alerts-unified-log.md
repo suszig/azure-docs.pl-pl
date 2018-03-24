@@ -1,9 +1,9 @@
 ---
-title: "Dziennik alerty w programie Azure Monitor — alerty (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
-description: "Wyzwalanie wiadomości e-mail, powiadomienia, należy wywołać adresów URL witryny sieci Web (elementy webhook) lub automatyzacji, po spełnieniu warunków złożonego zapytania, które określisz alertów Azure (wersja zapoznawcza)."
+title: Rejestrowania alertów w monitorze Azure - alerty | Dokumentacja firmy Microsoft
+description: Wyzwalanie wiadomości e-mail, powiadomienia, należy wywołać adresów URL witryny sieci Web (elementy webhook) lub automatyzacji, po spełnieniu warunków złożonego zapytania, które określisz Azure alertów.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
-ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5928bbcec08d6ba4ac0b0d03b66fa4bfc8f5e3d7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Dziennik alerty w programie Azure Monitor — alerty (wersja zapoznawcza)
-Ten artykuł zawiera szczegółowe informacje, jak alertu reguł w pracach zapytania analityka w alertach Azure (wersja zapoznawcza) i opisano różnice między różnych typów reguł alertów dziennika. Aby uzyskać więcej informacji o alertach Metryka przy użyciu dzienników, zapoznaj się [niemal alerty metryki czasu rzeczywistego](monitoring-near-real-time-metric-alerts.md)
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Alerty dziennika w monitorze Azure - alertów 
+Ten artykuł zawiera szczegółowe informacje, jak alertu reguł w pracach zapytania analityka w alertach Azure i opisano różnice między różnych typów reguł alertów dziennika. Aby uzyskać więcej informacji o alertach Metryka przy użyciu dzienników, zapoznaj się [niemal alerty metryki czasu rzeczywistego](monitoring-near-real-time-metric-alerts.md)
 
-Obecnie alerty Azure (wersja zapoznawcza), obsługuje rejestrowania alertów dla zapytań z [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) i [usługi Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+Obecnie alerty Azure obsługuje rejestrowania alertów dla zapytań z [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) i [usługi Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
 
-> Obecnie alert dziennika w alertach Azure (wersja zapoznawcza) nie obsługuje zapytań między roboczym lub wielu aplikacji.
+> Obecnie alert dziennika w alertach Azure nie obsługuje zapytań między roboczym lub wielu aplikacji. I alerty dziennika dla usługi Application Insights jest w wersji zapoznawczej — funkcje i środowisko użytkownika może ulec zmianie.
 
-Ponadto użytkownicy mogą doskonała ich zapytania w platformie analizy wyboru na platformie Azure, a następnie *zaimportować je do użycia w alertach (wersja zapoznawcza) po zapisaniu zapytania*. Kroki do wykonania:
+Ponadto użytkownicy mogą doskonała ich zapytania w platformie analizy wyboru na platformie Azure, a następnie *zaimportować je do użycia w alerty po zapisaniu zapytania*. Kroki do wykonania:
 - Dla usługi Application Insights: Portal analityka przejdź do weryfikacji zapytań i ich wyników. Następnie zapisz o unikatowej nazwie w *udostępnione zapytania*.
 - W celu wykonania analizy dziennika: Przejdź do wyszukiwania dziennika, kwerendy i wyniki sprawdzenia. Następnie użyj zapisanie o unikatowej nazwie w każdej kategorii.
 
-Następnie po [tworzenia alertu dziennika alertów (wersja zapoznawcza)](monitor-alerts-unified-usage.md), zobacz zapisanego zapytania, które są wyświetlane jako typ sygnału **dziennika (zapisane zapytanie)**; jak pokazano w poniższym przykładzie: ![zapisanego zapytania, które są importowane do alertów](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+Następnie po [tworzenia alertu dziennika w alertach ](monitor-alerts-unified-usage.md), zobacz zapisanego zapytania, które są wyświetlane jako typ sygnału **dziennika (zapisane zapytanie)**; jak pokazano w poniższym przykładzie: ![zapisanego zapytania, które są importowane do alertów](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
 > Przy użyciu **dziennika (zapisane zapytanie)** wynikiem importowania do alertów. Dlatego wszelkie zmiany dokonywane po w module analiz nie będzie odbicia w zapisanych reguł alertów i na odwrót.
 
 ## <a name="log-alert-rules"></a>Reguły alertów dziennika
 
-Alerty są tworzone dzięki alertom w usłudze Azure (wersja zapoznawcza), aby automatycznie uruchomić dziennika zapytań w regularnych odstępach czasu.  Jeśli wyniki zapytania dziennika spełniających kryteria określonego, tworzony jest rekord alertu. Reguła następnie automatycznie uruchomić co najmniej jednej akcji do aktywnego powiadomienia o alercie lub wywołanie innego procesu, takie jak wysyłanie danych do aplikacji zewnętrznych za pomocą [json na podstawie elementu webhook](monitor-alerts-unified-log-webhook.md)za pomocą [grupy akcji](monitoring-action-groups.md). Różnych typów reguł alertów używać różnych logikę do wykonywania tej analizy.
+Alerty są tworzone przez Azure alerty do automatycznego uruchamiania kwerend dziennika w regularnych odstępach czasu.  Jeśli wyniki zapytania dziennika spełniających kryteria określonego, tworzony jest rekord alertu. Reguła następnie automatycznie uruchomić co najmniej jednej akcji do aktywnego powiadomienia o alercie lub wywołanie innego procesu, takie jak wysyłanie danych do aplikacji zewnętrznych za pomocą [json na podstawie elementu webhook](monitor-alerts-unified-log-webhook.md)za pomocą [grupy akcji](monitoring-action-groups.md). Różnych typów reguł alertów używać różnych logikę do wykonywania tej analizy.
 
 Reguły alertów są określone przez następujące informacje:
 
@@ -118,7 +118,7 @@ W tym przykładzie oddzielne alerty zostałyby utworzone dla srv02 i srv03, poni
 
 ## <a name="next-steps"></a>Kolejne kroki
 * Zrozumienie [Akcje elementu Webhook dla dziennika alertów](monitor-alerts-unified-log-webhook.md)
-* [Zapoznaj się z omówieniem alerty Azure (wersja zapoznawcza)](monitoring-overview-unified-alerts.md)
-* Dowiedz się więcej o [za pomocą alertów Azure (wersja zapoznawcza)](monitor-alerts-unified-usage.md)
+* [Omówienie usługi Azure alertów ](monitoring-overview-unified-alerts.md)
+* Dowiedz się więcej o [przy użyciu usługi Azure alertów ](monitor-alerts-unified-usage.md)
 * Dowiedz się więcej o [usługi Application Insights](../application-insights/app-insights-analytics.md)
 * Dowiedz się więcej o [analizy dzienników](../log-analytics/log-analytics-overview.md).    

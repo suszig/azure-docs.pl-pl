@@ -1,6 +1,6 @@
 ---
-title: "Włączanie rejestrowania diagnostyki dla aplikacji sieci web w usłudze aplikacji Azure"
-description: "Dowiedz się, jak włączyć rejestrowanie diagnostyczne i dodać Instrumentacji do aplikacji, a także sposobu uzyskania dostępu do informacji rejestrowane przez platformę Azure."
+title: Włączanie rejestrowania diagnostyki dla aplikacji sieci web w usłudze aplikacji Azure
+description: Dowiedz się, jak włączyć rejestrowanie diagnostyczne i dodać Instrumentacji do aplikacji, a także sposobu uzyskania dostępu do informacji rejestrowane przez platformę Azure.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c39a8fafef9a45f5e80d00f8cbc75833201df150
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostyki dla aplikacji sieci web w usłudze aplikacji Azure
 ## <a name="overview"></a>Przegląd
@@ -120,7 +120,7 @@ To polecenie zapisuje dzienniki dla aplikacji sieci web, określony przez **— 
 ### <a name="download-with-azure-command-line-interface"></a>Pobierz z interfejsu wiersza polecenia platformy Azure
 Aby pobrać pliki dziennika przy użyciu interfejsu wiersza polecenia Azure, otwórz nowy wiersz polecenia, programu PowerShell, Bash lub sesję terminala i wprowadź następujące polecenie:
 
-    azure site log download webappname
+    az webapp log download --name webappname
 
 To polecenie zapisuje dzienniki dla aplikacji sieci web o nazwie "webappname" w pliku o nazwie **diagnostics.zip** w bieżącym katalogu.
 

@@ -1,24 +1,24 @@
 ---
-title: "Zainstaluj usługi Azure AD Connect, korzystając z uprawnień administratora delegowanego SQL | Dokumentacja firmy Microsoft"
-description: "W tym temacie opisano aktualizację do usługi Azure AD Connect, która służy do instalacji, używając konta, które ma tylko uprawnienia dbo programu SQL."
-documentationcenter: 
+title: Zainstaluj usługi Azure AD Connect, korzystając z uprawnień administratora delegowanego SQL | Dokumentacja firmy Microsoft
+description: W tym temacie opisano aktualizację do usługi Azure AD Connect, która służy do instalacji, używając konta, które ma tylko uprawnienia dbo programu SQL.
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalowanie programu Azure AD Connect przy użyciu SQL delegowane uprawnienia administratora
 Przed ostatniej kompilacji Azure AD Connect administracyjne delegowania, wdrażając konfiguracje, które wymagane SQL, nie jest obsługiwana.  Użytkownicy, którzy chcieli zainstalować program Azure AD Connect potrzebne do mają uprawnienia administratora serwera na serwerze SQL.
@@ -51,6 +51,8 @@ Do udostępniania bazy danych poza pasmem i instalowanie Azure AD Connect przy u
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 Po zainicjowaniu obsługi bazy danych, administrator usługi Azure AD Connect można zainstalować i skonfigurować synchronizację lokalnej ich wygodne.  
+
+**/UseExistingDatabase** flaga jest wymagany, gdy przy użyciu wstępnie utworzonej bazy danych.  Go tylko nieużywane w sytuacji odzyskiwania.
 
 Oprócz obsługi nowych instalacji programu Azure AD Connect, ta funkcja umożliwia także delegowania związanej z żadnym scenariuszu **/UseExistingDatabase** flagi.  Aby uzyskać więcej informacji na temat instalowania Azure AD Connect z istniejącej bazy danych, zobacz [instalowania programu Azure AD Connect przy użyciu istniejącej bazy danych ADSync](active-directory-aadconnect-existing-database.md)
 

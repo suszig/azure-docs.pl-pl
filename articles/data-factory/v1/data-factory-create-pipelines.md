@@ -1,11 +1,10 @@
 ---
-title: "Utwórz/harmonogram potoki, łańcucha działań w fabryce danych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się utworzyć dane potok w fabryce danych Azure, aby przenieść i przekształcania danych. Utworzenie przepływu pracy opartych na danych wygenerowało gotowe do użycia informacji."
+title: Utwórz/harmonogram potoki, łańcucha działań w fabryce danych | Dokumentacja firmy Microsoft
+description: Dowiedz się utworzyć dane potok w fabryce danych Azure, aby przenieść i przekształcania danych. Utworzenie przepływu pracy opartych na danych wygenerowało gotowe do użycia informacji.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: be071c8138a6782ad144a42d52d737f248ff7a7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działań w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

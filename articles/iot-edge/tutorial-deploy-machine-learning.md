@@ -1,19 +1,19 @@
 ---
-title: "Wdrażanie usługi Azure Machine Learning Azure IoT krawędzi | Dokumentacja firmy Microsoft"
-description: "Wdrażanie usługi Azure Machine Learning jako moduł do urządzenia"
+title: Wdrażanie usługi Azure Machine Learning Azure IoT krawędzi | Dokumentacja firmy Microsoft
+description: Wdrażanie usługi Azure Machine Learning jako moduł do urządzenia
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Wdrażanie usługi Azure Machine Learning jako moduł krawędzi IoT — w wersji preview
 
@@ -44,7 +44,7 @@ Na komputerze z programem modułu zarządzania dla usługi Azure ML, Pobierz i Z
 Umożliwia utworzenie kontenera, w którym można wdrożyć do urządzenia IoT brzegowe trenowanego modelu. Użyj następującego polecenia, aby:
 
    * Zarejestruj modelu.
-   * Utwórz manafest.
+   * Utwórz manifest.
    * Tworzenie kontenera Docker obrazu o nazwie *machinelearningmodule*.
    * Wdróż obraz do klastra usługi kontenera platformy Azure (AKS).
 

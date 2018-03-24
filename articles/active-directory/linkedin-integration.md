@@ -1,23 +1,23 @@
 ---
-title: "Włącz połączenia LinkedIn dla usług w usłudze Azure Active Directory i aplikacji firmy Microsoft | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak włączyć lub wyłączyć LinkedIn konto połączenia dla aplikacji firmy Microsoft w usłudze Azure Active Directory"
+title: Włącz połączenia LinkedIn dla usług w usłudze Azure Active Directory i aplikacji firmy Microsoft | Dokumentacja firmy Microsoft
+description: Wyjaśniono, jak włączyć lub wyłączyć LinkedIn konto połączenia dla aplikacji firmy Microsoft w usłudze Azure Active Directory
 services: active-directory
 author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>LinkedIn konto połączenia dla usług i aplikacji firmy Microsoft
 W tym artykule możesz dowiedzieć się, jak do zarządzania połączeniami konta LinkedIn dla dzierżawy w Centrum administracyjnym usługi Azure Active Directory (Azure AD). 
@@ -56,9 +56,9 @@ Funkcja połączenia konta LinkedIn jest domyślnie całego dzierżawy. Można w
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Włącz lub wyłącz LinkedIn konta połączenia w przypadku aplikacji pakietu Office 2016 w organizacji za pomocą zasad grupy
 
 1. Pobierz [plików szablonów administracyjnych pakietu Office 2016 (ADMX/ŚILS)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Wyodrębnij **ADMX** pliki i skopiuj je do Twojej **centralnym repozytorium**.
+2. Wyodrębnij **ADMX** pliki i skopiuj je do centralnego magazynu.
 3. Zarządzanie zasadami grupy Otwórz.
-4. Utwórz obiekt zasad grupy z następującymi ustawieniami: **Konfiguracja użytkownika** > **Szablony administracyjne** > **Microsoft Office 2016**  >  **Różne** > **umożliwiają integrację LinkedIn**.
+4. Utwórz obiekt zasad grupy z następującymi ustawieniami: **Konfiguracja użytkownika** > **Szablony administracyjne** > **Microsoft Office 2016**  >  **Różne** > **funkcji Pokaż LinkedIn w aplikacjach pakietu Office**.
 5. Wybierz **włączone** lub **wyłączone**.
   * Gdy zasady są **włączone**, **funkcji Pokaż LinkedIn w aplikacjach pakietu Office** znaleźć w oknie dialogowym Opcje pakietu Office 2016 jest włączone. Oznacza to również użytkowników w organizacji można użyć funkcji LinkedIn w swoich aplikacjach pakietu Office.
   * Gdy zasady są **wyłączone**, **funkcji Pokaż LinkedIn w aplikacjach pakietu Office** znaleziono ustawienia w opcjach programu Office 2016 okna dialogowego ustawiono stan wyłączone, a użytkownicy końcowi nie można zmienić tego ustawienia. Użytkownicy w Twojej organizacji nie można użyć funkcji LinkedIn w aplikacjach pakietu Office 2016. 

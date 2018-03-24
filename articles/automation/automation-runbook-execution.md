@@ -1,6 +1,6 @@
 ---
 title: Wykonanie elementu Runbook automatyzacji Azure
-description: "W tym artykule opisano szczegółowe informacje o przetwarzaniu elementu runbook automatyzacji Azure."
+description: W tym artykule opisano szczegółowe informacje o przetwarzaniu elementu runbook automatyzacji Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonanie elementu Runbook automatyzacji Azure
 Po uruchomieniu elementu runbook w automatyzacji Azure tworzone jest zadanie. Zadanie jest pojedynczym wystąpieniem wykonania elementu runbook. Pracownik usługi Automatyzacja Azure jest przypisany do każdego zadania. Pracownicy są współużytkowane przez wiele kont platformy Azure, są odizolowane od siebie zadań z różnych kont automatyzacji. Możesz nie mieć kontroli za pośrednictwem których procesu roboczego obsługującym żądanie dla zadania. Pojedynczy element runbook może mieć wiele zadań została uruchomiona w tym samym czasie.  Może być ponownie używane środowiska wykonania zadań z tego samego konta automatyzacji. Podczas wyświetlania listy elementów runbook w portalu Azure, wyświetla stan wszystkich zadań, które zostały uruchomione dla każdego elementu runbook. Aby śledzić stan każdego z nich, można wyświetlić listę zadań dla każdego elementu runbook. Opis stany różne zadania [stany zadania](#job-statuses).
@@ -46,7 +46,7 @@ W poniższej tabeli opisano różne stany, które są możliwe w dla zadania.
 | Wstrzymywanie |System próbuje zawiesić zadanie na żądanie użytkownika. Element runbook musi dotrzeć do swojego następnego punktu kontrolnego, zanim może zostać zawieszone. Jeśli przekazany już ostatni punkt kontrolny, a następnie jego zakończenie przed może zostać zawieszone.  Dotyczy [graficzny i przepływ pracy programu PowerShell elementów runbook](automation-runbook-types.md) tylko. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Wyświetlanie stanu zadań z portalu Azure
-Możesz wyświetlić podsumowanie stanu wszystkich zadań elementu runbook lub przejście do szczegółów określonego zadania elementu runbook w portalu Azure lub konfigurowania integracji z obszaru roboczego analizy dzienników programu Microsoft Operations Management Suite (OMS) do przekazywania strumienia zadania stanu i zadania elementu runbook.  Aby uzyskać więcej informacji na temat integracji z analizy dzienników OMS, zobacz [przekazuj strumienie zadania i stan zadania z automatyzacji analizy dzienników (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+Możesz wyświetlić podsumowanie stanu wszystkich zadań elementu runbook lub przejście do szczegółów określonego zadania elementu runbook w portalu Azure lub konfigurowania integracji z obszaru roboczego analizy dzienników do przekazywania strumienia zadania stanu i zadania elementu runbook.  Aby uzyskać więcej informacji na temat integracji z analizy dzienników, zobacz [przekazywania strumienie zadania i stan zadania z automatyzacji do analizy dzienników](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Podsumowanie zadań elementu runbook automatyzacji
 Po prawej stronie wybrane konto automatyzacji wyświetlane podsumowanie wszystkich zadań elementu runbook do wybranego konta automatyzacji w ramach **statystyki zadania** kafelka.<br><br> ![Kafelek statystyki zadania](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Ten Kafelek Wyświetla graficzną reprezentację stanu zadania dla wszystkich zadań wykonywanych i liczba.  

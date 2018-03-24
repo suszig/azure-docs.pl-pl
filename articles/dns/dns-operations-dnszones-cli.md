@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie strefami DNS w usłudze Azure DNS - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Możesz zarządzać stref DNS używa interfejsu wiersza polecenia platformy Azure w wersji 2.0. W tym artykule pokazano, jak aktualizowanie, usuwanie i tworzenie stref DNS w usłudze Azure DNS."
+title: Zarządzanie strefami DNS w usłudze Azure DNS - Azure CLI 2.0 | Dokumentacja firmy Microsoft
+description: Możesz zarządzać stref DNS używa interfejsu wiersza polecenia platformy Azure w wersji 2.0. W tym artykule pokazano, jak aktualizowanie, usuwanie i tworzenie stref DNS w usłudze Azure DNS.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Jak zarządzać stref DNS w usłudze Azure DNS za pomocą 2.0 interfejsu wiersza polecenia platformy Azure
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 
 
 W tym przewodniku pokazano, jak zarządzać stref DNS przy użyciu wiersza polecenia platformy Azure i platform, która jest dostępna dla systemu Windows, Mac i Linux. Można również zarządzać stref DNS przy użyciu [programu Azure PowerShell](dns-operations-dnszones.md) lub w portalu Azure.
+
+Ten przewodnik dotyczy w szczególności stref w publicznym systemie DNS. Aby uzyskać informacje dotyczące zarządzania strefami prywatnych w usłudze Azure DNS za pomocą interfejsu wiersza polecenia Azure, zobacz [wprowadzenie stref DNS prywatnego Azure za pomocą Azure CLI 2.0](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -45,7 +47,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi eleme
 
 ### <a name="sign-in-to-your-azure-account"></a>Zaloguj się do swojego konta platformy Azure
 
-Otwórz okno konsoli i uwierzytelnij się przy użyciu swoich poświadczeń. Aby uzyskać więcej informacji, zobacz Log in to Azure from the Azure CLI (Logowanie do platformy Azure z poziomu interfejsu wiersza polecenia platformy Azure).
+Otwórz okno konsoli i uwierzytelnij się przy użyciu swoich poświadczeń. Aby uzyskać więcej informacji, zobacz [Log in to Azure from the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest) (Logowanie do platformy Azure z poziomu wiersza polecenia platformy Azure)
 
 ```
 az login
@@ -64,6 +66,12 @@ Wybierz subskrypcję platformy Azure do użycia.
 ```azurecli
 az account set --subscription "subscription name"
 ```
+
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Opcjonalnie: Do użycia instalacji stref DNS prywatnego Azure funkcji (publicznej wersji zapoznawczej)
+Funkcja strefy DNS prywatnego Azure jest wydane w publicznej wersji zapoznawczej za pośrednictwem rozszerzenia dla wiersza polecenia platformy Azure. Zainstaluj rozszerzenie interfejsu wiersza polecenia Azure "dns" 
+```
+az extension add --name dns
+``` 
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

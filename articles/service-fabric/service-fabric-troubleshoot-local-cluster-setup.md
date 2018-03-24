@@ -1,24 +1,24 @@
 ---
-title: "Rozwiązywanie problemów z ustawienia lokalnego klastra usługi sieć szkieletowa | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano zestaw sugestie dotyczące rozwiązywania problemów z lokalnego klastra projektowego"
+title: Rozwiązywanie problemów z ustawienia lokalnego klastra usługi sieć szkieletowa usług Azure | Dokumentacja firmy Microsoft
+description: W tym artykule opisano zestaw sugestie dotyczące rozwiązywania problemów z lokalnego klastra projektowego
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 6879a24df434d5bf69c9ba14aa00cdc9cd67df57
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Rozwiązywanie problemów z konfiguracji klastra lokalnego rozwoju
 Jeśli napotkasz problem podczas interakcji z lokalnym klastrem programowanie sieć szkieletowa usług Azure, przejrzyj poniższe sugestie potencjalnych rozwiązań.
@@ -26,7 +26,7 @@ Jeśli napotkasz problem podczas interakcji z lokalnym klastrem programowanie si
 ## <a name="cluster-setup-failures"></a>Błędy instalacji klastra
 ### <a name="cannot-clean-up-service-fabric-logs"></a>Nie można wyczyścić dzienniki sieci szkieletowej usług
 #### <a name="problem"></a>Problem
-Podczas uruchamiania skryptu DevClusterSetup, zostanie wyświetlony błąd w następujący sposób:
+Podczas uruchamiania skryptu DevClusterSetup, zostanie wyświetlony następujący błąd:
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
     At line:1 char:1 + .\DevClusterSetup.ps1
@@ -39,17 +39,6 @@ Podczas uruchamiania skryptu DevClusterSetup, zostanie wyświetlony błąd w nas
 Zamknij bieżące okno programu PowerShell i otworzyć nowe okno programu PowerShell jako administrator. Teraz można pomyślnie uruchomić skryptu.
 
 ## <a name="cluster-connection-failures"></a>Liczba błędów połączenia klastra
-### <a name="service-fabric-powershell-cmdlets-are-not-recognized-in-azure-powershell"></a>Polecenia cmdlet programu PowerShell usługi Service Fabric nie są rozpoznawane w programie Azure PowerShell
-#### <a name="problem"></a>Problem
-Jeśli zostanie podjęta próba uruchomienia dowolnych poleceniach cmdlet programu PowerShell usługi Service Fabric, takich jak `Connect-ServiceFabricCluster` w oknie programu PowerShell usługi Azure jej nie powiedzie się, informujący o tym, że polecenie cmdlet nie została rozpoznana. Przyczyną jest używany 32-bitowej wersji środowiska Windows PowerShell (nawet na 64-bitowe wersje systemu operacyjnego), programu Azure PowerShell poleceń cmdlet usługi sieć szkieletowa tylko pracy w środowiskach 64-bitowych.
-
-#### <a name="solution"></a>Rozwiązanie
-Zawsze uruchamiaj polecenia cmdlet usługi sieć szkieletowa bezpośrednio z programu Windows PowerShell.
-
-> [!NOTE]
-> Najnowszą wersję programu Azure PowerShell nie tworzy specjalne skrót, więc nie powinno to nastąpić.
-> 
-> 
 
 ### <a name="type-initialization-exception"></a>Wyjątek inicjowania typu
 #### <a name="problem"></a>Problem
@@ -70,14 +59,14 @@ Wywołanie Connect-ServiceFabricCluster zakończy się niepowodzeniem z powodu b
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
 #### <a name="solution"></a>Rozwiązanie
-Zamknij bieżące okno programu PowerShell i otworzyć nowe okno programu PowerShell jako administrator. Teraz można nawiązywać połączeń.
+Zamknij bieżące okno programu PowerShell i otworzyć nowe okno programu PowerShell jako administrator.
 
 ### <a name="fabric-connection-denied-exception"></a>Wyjątek odmowa połączenia sieci szkieletowej
 #### <a name="problem"></a>Problem
 Podczas debugowania w programie Visual Studio, otrzymasz komunikat o błędzie FabricConnectionDeniedException.
 
 #### <a name="solution"></a>Rozwiązanie
-Ten błąd występuje zazwyczaj, gdy użytkownik próbuje uruchomić proces hosta usługi ręcznie, zamiast stosowanie środowiska uruchomieniowego platformy Service Fabric ją uruchomić za.
+Ten błąd występuje zazwyczaj, gdy użytkownik próbuje ręcznie uruchomić proces hosta usługi.
 
 Upewnij się, że nie masz żadnych projektów usług Ustaw jako projekty startowe w rozwiązaniu. Tylko projekty aplikacji sieci szkieletowej usług powinna być ustawiona jako projekty startowe.
 
@@ -86,7 +75,7 @@ Upewnij się, że nie masz żadnych projektów usług Ustaw jako projekty starto
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie i rozwiązywanie problemów klastra za pomocą raportów o kondycji systemu](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 

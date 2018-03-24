@@ -1,10 +1,11 @@
 ---
 title: 'Krok 4: Nauczanie i Ewaluacja modeli predykcyjnych analityczne | Dokumentacja firmy Microsoft'
-description: "Krok 4 opracowanie wskazówki rozwiązanie predykcyjne: pociągu, wynik i ocena wielu modeli w usłudze Azure Machine Learning Studio."
+description: 'Krok 4 opracowanie wskazówki rozwiązanie predykcyjne: pociągu, wynik i ocena wielu modeli w usłudze Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f722fa314b42501e0f6144f71b9d74c0a9127e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Przewodnik, krok 4. Uczenie i ocenianie modeli do analizy predykcyjnej
 Ten temat zawiera wskazówki, czwarty krok [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -71,7 +71,7 @@ Teraz musimy sprawdzić [Train Model] [ train-model] modułu czy chcemy model do
 
 1. Wybierz [Train Model] [ train-model] modułu. W **właściwości** okienku, kliknij przycisk **Uruchom selektor kolumn**.
 
-2. W **wybrać pojedynczą kolumnę** okna dialogowego, wpisz "ryzyko kredytowe" w polu wyszukiwania w obszarze **dostępne kolumny**, wybierz "Ryzyko kredytowe" poniżej i kliknij przycisk strzałki w prawo ( **>** ) aby przenieść "Ryzyka kredytowego" **wybrane kolumny**. 
+2. W **wybrać pojedynczą kolumnę** okna dialogowego, wpisz "ryzyko kredytowe" w polu wyszukiwania w obszarze **dostępne kolumny**, wybierz "Ryzyko kredytowe" poniżej i kliknij przycisk strzałki w prawo (**>**) aby przenieść "Ryzyka kredytowego" **wybrane kolumny**. 
 
     ![Wybierz kolumnę ryzyka kredytowego modułu Train Model][0]
 

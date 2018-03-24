@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Domain Services: Rozwiązywania problemów z konfiguracją nazwy głównej usługi | Dokumentacja firmy Microsoft"
-description: "Rozwiązywania problemów z konfiguracją nazwy głównej usługi dla usług domenowych Azure AD"
+title: 'Azure Active Directory Domain Services: Rozwiązywania problemów z konfiguracją nazwy głównej usługi | Dokumentacja firmy Microsoft'
+description: Rozwiązywania problemów z konfiguracją nazwy głównej usługi dla usług domenowych Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Rozwiązywanie problemów z nieprawidłową konfigurację nazwy głównej usługi dla domeny zarządzanej
 
@@ -93,7 +93,7 @@ Wykonaj następujące kroki, jeśli nazwy głównej usługi o identyfikatorze ``
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alert AADDS105: Aplikacja synchronizacji haseł jest nieaktualny
 
-**Komunikat alertu:** nazwy głównej usługi z Identyfikatorem aplikacji "d87dcbc6-a371-462e-88e3-28ad15ec4e64" został usunięty i Microsoft był w stanie utworzyć go ponownie. Nazwy głównej usługi zarządza innej nazwy głównej usługi i aplikacji, które są używane do synchronizacji haseł. Podmiot zabezpieczeń zarządzanych usług i aplikacji nie są autoryzowane w obszarze nazwy głównej usługi nowo utworzony i staną się nieaktualne po wygaśnięciu certyfikatu synchronizacji. Oznacza to, że główną nowo utworzony usługi będzie mógł zaktualizować starego zarządzanych aplikacji i synchronizacji obiektów z usługi AAD zostaną zmienione.
+**Komunikat alertu:** nazwy głównej usługi z Identyfikatorem aplikacji "d87dcbc6-a371-462e-88e3-28ad15ec4e64" został usunięty i następnie utworzony ponownie. Nazwy głównej usługi zarządza innej nazwy głównej usługi i aplikacji, które są używane do synchronizacji haseł. Nazwy głównej usługi zarządzanych i/lub aplikacji nie ma autoryzacji w obszarze nazwy głównej usługi nowo utworzony, nie mogą być zarządzane przez naszej usługi. Oznacza to, że główną nowo utworzony usługi będzie mógł zaktualizować starego zarządzanych aplikacji i będzie mieć wpływ na synchronizację haseł.
 
 
 **Rozwiązanie:** należy wykonać te kroki programu Azure AD PowerShell. Aby uzyskać informacje na temat instalowania programu Azure AD PowerShell, zobacz [w tym artykule](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
@@ -108,7 +108,7 @@ Aby rozwiązać ten problem, wpisz następujące polecenia w oknie programu Powe
 2. Usuń stare aplikacji i obiektu przy użyciu następujących poleceń programu PowerShell
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

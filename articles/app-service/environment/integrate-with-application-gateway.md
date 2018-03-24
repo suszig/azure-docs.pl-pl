@@ -1,6 +1,6 @@
 ---
-title: "Integracja środowiska usługi aplikacji ILB z bramy aplikacji"
-description: "Przewodnik dotyczący sposobu integracji aplikacji w środowisku usługi aplikacji ILB z bramy aplikacji"
+title: Integracja środowiska usługi aplikacji ILB z bramy aplikacji
+description: Przewodnik dotyczący sposobu integracji aplikacji w środowisku usługi aplikacji ILB z bramy aplikacji
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Integracja środowiska usługi aplikacji ILB z bramy aplikacji #
 
-[Środowiska usługi aplikacji dla rozwiązania PowerApps](./intro.md) wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure klienta. Może on zostać wdrożony z punktu końcowego publicznej lub prywatnej w celu uzyskania dostępu do aplikacji. Wdrożenie środowiska usługi aplikacji z punktem końcowym prywatne (to znaczy wewnętrznego modułu równoważenia obciążenia) jest nazywany ILB środowiska usługi aplikacji.  
+[Środowiska usługi aplikacji](./intro.md) wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure klienta. Może on zostać wdrożony z punktu końcowego publicznej lub prywatnej w celu uzyskania dostępu do aplikacji. Wdrożenie środowiska usługi aplikacji z punktem końcowym prywatne (to znaczy wewnętrznego modułu równoważenia obciążenia) jest nazywany ILB środowiska usługi aplikacji.  
 
 Brama aplikacji Azure jest urządzenie wirtualne, które oferuje usługa równoważenia obciążenia warstwy 7, odciążanie protokołu SSL i ochrony (WAF) zapory aplikacji sieci web. Można go nasłuchiwać na publiczny adres i trasy ruch pakietów IP punktu końcowego aplikacji. 
 
@@ -69,7 +69,7 @@ Ponadto nie można umieścić bramy w podsieci, która używa środowiska usług
 
    b. Aby uzyskać **warstwy**, wybierz pozycję **WAF**.
 
-   d. Aby uzyskać **subskrypcji**, wybrać tej samej subskrypcji, która używa sieci wirtualnej środowiska usługi aplikacji.
+   c. Aby uzyskać **subskrypcji**, wybrać tej samej subskrypcji, która używa sieci wirtualnej środowiska usługi aplikacji.
 
    d. Aby uzyskać **grupy zasobów**, Utwórz lub wybierz grupę zasobów.
 
@@ -83,7 +83,7 @@ Ponadto nie można umieścić bramy w podsieci, która używa środowiska usług
 
    b. Aby uzyskać **podsieci**, wybierz podsieć, w którym musi zostać wdrożony bramy aplikacji. Nie używaj GatewaySubnet, ponieważ uniemożliwi tworzenie bramy sieci VPN.
 
-   d. Aby uzyskać **typ adresu IP**, wybierz pozycję **publicznego**.
+   c. Aby uzyskać **typ adresu IP**, wybierz pozycję **publicznego**.
 
    d. Aby uzyskać **publicznego adresu IP**, wybierz publiczny adres IP. Jeśli nie istnieje, utwórz je.
 

@@ -1,12 +1,12 @@
 ---
-title: "Synchronizacja programu Azure AD Connect: Zmiana konta usługi Azure AD Connect synchronizacji | Dokumentacja firmy Microsoft"
-description: "Dokument ten temat opisuje oraz klucz szyfrowania został on porzucony po zmianie hasła."
+title: 'Synchronizacja programu Azure AD Connect: Zmiana konta usługi Azure AD Connect synchronizacji | Dokumentacja firmy Microsoft'
+description: Dokument ten temat opisuje oraz klucz szyfrowania został on porzucony po zmianie hasła.
 services: active-directory
-keywords: "Konto usługi synchronizacji programu Azure AD, hasło"
-documentationcenter: 
+keywords: Konto usługi synchronizacji programu Azure AD, hasło
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Zmiana hasła konta usługi synchronizacji Azure AD Connect
 Jeśli zmienisz hasło konta usługi synchronizacji Azure AD Connect, usługi synchronizacji nie będzie możliwe start poprawnie dopiero po klucz szyfrowania porzucone i ponownie zainicjować hasło konta usługi synchronizacji Azure AD Connect. 
@@ -30,7 +30,7 @@ Klucz szyfrowania używany jest zabezpieczone przy użyciu [ochrony danych syste
 
 Jeśli musisz zmienić hasło konta usługi można użyć procedury [porzucanie klucz szyfrowania synchronizacji Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) w tym celu.  Te procedury należy również Jeśli musisz porzucić klucz szyfrowania dla dowolnej przyczyny.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Problemy, które wynikają z zmiany hasła
+## <a name="issues-that-arise-from-changing-the-password"></a>Problemy, które wynikają z zmiany hasła
 Istnieją dwie czynności, które należy wykonać, gdy zmieniasz hasło konta usługi.
 
 Najpierw należy zmienić hasło w obszarze Menedżer sterowania usługami systemu Windows.  Dopóki ten problem zostanie rozwiązany, zostaną wyświetlone następujące błędy:
@@ -72,9 +72,9 @@ Porzuć istniejący klucz szyfrowania, można utworzyć tego nowego klucza szyfr
 
 2. Rozpocznij nową sesję programu PowerShell.
 
-3. Przejdź do folderu:`$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Przejdź do folderu: `$env:Program Files\Microsoft Azure AD Sync\bin\`
 
-4. Uruchom polecenie:`./miiskmu.exe /a`
+4. Uruchom polecenie: `./miiskmu.exe /a`
 
 ![Narzędzie klucza szyfrowania synchronizacji programu Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key5.png)
 

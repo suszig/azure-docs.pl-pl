@@ -1,11 +1,11 @@
 ---
-title: "Wizualne monitorować fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak monitorować wizualnie fabryki danych Azure"
+title: Wizualne monitorować fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak monitorować wizualnie fabryki danych Azure
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b67c384ffd04176653ad434d39361ee67dc1ffea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Wizualne monitorować fabryki danych Azure
 Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
@@ -29,7 +29,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Monitorowanie potoki v2 fabryki danych
 
-1. Uruchom **Microsoft Edge** lub **Google Chrome** przeglądarki sieci web. Obecnie interfejsu użytkownika z fabryki danych jest obsługiwane wyłącznie w przeglądarkach sieci web Microsoft Edge i przeglądarki Google Chrome.
+1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 2. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 3. Przejdź do bloku fabryki danych utworzonych w portalu Azure, a następnie kliknij Kafelek 'Monitor i Zarządzaj'. Spowoduje to uruchomienie ADF v2 visual funkcji monitorowania.
 

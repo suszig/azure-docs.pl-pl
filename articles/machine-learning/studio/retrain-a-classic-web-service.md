@@ -1,12 +1,12 @@
 ---
-title: "Usługi sieci web klasycznego retrain | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak programowo retrain modelu i usługi sieci web, aby użyć nowo uczonego modelu w usłudze Azure Machine Learning aktualizacji."
+title: Usługi sieci web klasycznego retrain | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak programowo retrain modelu i usługi sieci web, aby użyć nowo uczonego modelu w usłudze Azure Machine Learning aktualizacji.
 services: machine-learning
-documentationcenter: 
-author: aashishb
-ms.author: aashishb
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: 
+editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 7adc5995b830d049c8dd6412415bd5987e60fe08
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d0c40d952008f58f9b99c1c44d06e971a1e60c3b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Ponowne szkolenie klasycznej usługi internetowej
 Usługa sieci Web predykcyjnych, wdrożone jest domyślnego punktu końcowego oceniania. Domyślne punkty końcowe są utrzymywane w synchronizacji z oryginalnego szkolenia i oceniania eksperymentów, a w związku z tym nie można zamienić trenowanego modelu dla domyślnego punktu końcowego. Aby ponownie ucz usługi sieci web, należy dodać nowy punkt końcowy usługi sieci web. 

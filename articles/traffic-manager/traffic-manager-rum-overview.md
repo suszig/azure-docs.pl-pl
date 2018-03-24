@@ -1,31 +1,28 @@
 ---
-title: "Pomiary rzeczywistego użytkownika w usługi Azure Traffic Manager | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie do pomiarów rzeczywistego użytkownika w usłudze Traffic Manager"
+title: Pomiary rzeczywistego użytkownika w usługi Azure Traffic Manager | Dokumentacja firmy Microsoft
+description: Wprowadzenie do pomiarów rzeczywistego użytkownika w usłudze Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Omówienie rzeczywiste pomiary użytkownika Menedżera ruchu
-
->[!NOTE]
->Funkcja rzeczywiste pomiary użytkownika w usłudze Traffic Manager znajduje się w publicznej wersji zapoznawczej i nie może mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Funkcja nie jest obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich lokalizacjach Azure. Najbardziej aktualne powiadomień o dostępności i stan tej funkcji, sprawdź [aktualizacji usługi Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager) strony.
 
 Po skonfigurowaniu profilu usługi Traffic Manager przy użyciu metody routingu wydajności usługi analizuje gdzie żądań zapytań DNS pochodzą z i podejmuje decyzje dotyczące routingu do kierowania tych komputerom zgłaszającym żądania do regionu Azure, co umożliwia im uzyskać najmniejsze opóźnienia. Jest to osiągane przez wykorzystanie analizy opóźnienia sieci, które obsługuje Menedżera ruchu dla innego użytkownika końcowego sieci.
 
@@ -41,7 +38,7 @@ Wraz z upływem czasu dzieje się wiele razy, a w wielu sieciach prowadzące do 
 
 Gdy używasz rzeczywiste pomiary użytkownika są rozliczane na podstawie liczby pomiarów wysyłane do usługi Traffic Manager. Aby uzyskać więcej informacji o cenach, odwiedź stronę [cennikiem usługi Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się, jak używać [rzeczywiste pomiary użytkownika ze stronami sieci web](traffic-manager-create-rum-web-pages.md)
 - Dowiedz się [działania Menedżera ruchu](traffic-manager-overview.md)
 - Dowiedz się więcej o [Mobile Center](https://docs.microsoft.com/mobile-center/)

@@ -1,11 +1,10 @@
 ---
-title: "Przenoszenie danych za pomocą działania kopiowania | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat przenoszenia danych w potokach fabryki danych: migracji danych między magazynami chmury, a także między magazynem lokalnym i magazynu w chmurze. Użyj działania kopiowania."
+title: Przenoszenie danych za pomocą działania kopiowania | Dokumentacja firmy Microsoft
+description: 'Więcej informacji na temat przenoszenia danych w potokach fabryki danych: migracji danych między magazynami chmury, a także między magazynem lokalnym i magazynu w chmurze. Użyj działania kopiowania.'
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dff87d41df2bdb5439785846c9653f2f0be2b40d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 09b35483b5ace1523c88576cfe37dfc313b93036
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-by-using-copy-activity"></a>Przenoszenie danych za pomocą działania kopiowania
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +28,7 @@ ms.lasthandoff: 12/05/2017
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [działanie kopiowania w wersji 2](../copy-activity-overview.md).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W fabryce danych Azure, umożliwia działanie kopiowania kopiowanie danych między lokalnymi i w chmurze magazynów danych. Po skopiowaniu danych można go dalej transformacji i analizy. Działanie kopiowania umożliwia także publikowanie transformacji i wyniki analizy do analizy biznesowej (BI) i użycie aplikacji.
 
 ![Rola działanie kopiowania](media/data-factory-data-movement-activities/copy-activity.png)
@@ -212,6 +211,6 @@ Magazyny danych różnych ma inny typ macierzysty systemów. Działanie kopiowan
 
 Mapowanie system typu macierzystego typu .NET dla magazynu danych znajduje się w artykule magazynu odpowiednich danych. (Kliknij łącze w [obsługiwane magazyny danych](#supported-data-stores) tabeli). Te mapowania umożliwia określanie typów odpowiednie podczas tworzenia tabel, dzięki czemu prawo konwersje wykonuje działanie kopiowania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Więcej informacji o działaniu kopiowania zobacz [skopiowanie danych z magazynu obiektów Blob platformy Azure do usługi Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Aby dowiedzieć się więcej na temat przenoszenia danych z lokalnego magazynu danych w magazynie danych w chmurze, zobacz [przenoszenia danych z lokalnymi do chmury magazyny danych](data-factory-move-data-between-onprem-and-cloud.md).

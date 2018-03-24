@@ -1,11 +1,10 @@
 ---
-title: "Ładowanie terabajtów danych do usługi SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Pokazuje, jak 1 TB danych mogą być ładowane do usługi Azure SQL Data Warehouse z fabryką danych Azure w obszarze 15 minut"
+title: Ładowanie terabajtów danych do usługi SQL Data Warehouse | Dokumentacja firmy Microsoft
+description: Pokazuje, jak 1 TB danych mogą być ładowane do usługi Azure SQL Data Warehouse z fabryką danych Azure w obszarze 15 minut
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3266e4b571878eb55c55e235ecb10995cbd58439
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Ładowanie 1 TB do usługi Azure SQL Data Warehouse w obszarze 15 minut przy użyciu fabryki danych
 > [!NOTE]

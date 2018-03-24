@@ -1,18 +1,18 @@
 ---
 title: Uaktualnij rejestru kontenera Classic Azure
-description: "Korzystać z rozwiniętym zestaw funkcji podstawowa, standardowa i Premium zarządza uaktualniania niezarządzane rejestru kontenera Classic rejestrów kontenera."
+description: Korzystać z rozwiniętym zestaw funkcji podstawowa, standardowa i Premium zarządza uaktualniania niezarządzane rejestru kontenera Classic rejestrów kontenera.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Uaktualnij rejestru kontenera Classic
 
@@ -27,16 +27,18 @@ Rejestry organizacji IANA zarządzanych zawierają:
 * Integracja usługi Azure Active Directory dla [poszczególnych logowania](container-registry-authentication.md#individual-login-with-azure-ad)
 * Obsługa usuwania obrazu i tagów
 * [Geo-replication](container-registry-geo-replication.md) (Replikacja geograficzna)
-* [Elementów Webhook](container-registry-webhook.md)
+* [elementów webhook](container-registry-webhook.md)
 
-Najbardziej, rejestru Classic zależy od konta magazynu tego Azure automatycznie udostępniane w ramach subskrypcji platformy Azure, podczas tworzenia rejestru. Z kolei podstawowa, standardowa i Premium jednostki SKU zalet *zarządzanego magazynu*. Oznacza to, że Azure zarządza niewidocznie magazynu obrazów dla Ciebie — oddzielnego konta magazynu nie została utworzona w ramach własnej subskrypcji.
+Najbardziej, rejestru Classic zależy od konta magazynu, że Azure będzie automatycznie przepisów w Twojej subskrypcji platformy Azure, podczas tworzenia rejestru. Z kolei podstawowa, standardowa i Premium jednostki SKU korzystać z platformy Azure [zaawansowane funkcje magazynu](container-registry-storage.md) w sposób niewidoczny dla obsługi magazynu obrazów. W ramach własnej subskrypcji oddzielnego konta magazynu nie zostanie utworzony.
 
 Magazyn zarządzany rejestru zapewnia następujące korzyści:
 
-* Kontener obrazów są [szyfrowane, gdy](../storage/common/storage-service-encryption.md).
-* Obrazy są przechowywane przy użyciu [magazynu geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage), jego kopii zapasowej z replikacji w przypadku obrazów.
+* Kontener obrazów są [szyfrowane, gdy](container-registry-storage.md#encryption-at-rest).
+* Obrazy są przechowywane przy użyciu [magazynu geograficznie nadmiarowego](container-registry-storage.md#geo-redundant-storage), jego kopii zapasowej z replikacji w przypadku obrazów.
 * Możliwość za darmo [przechodzenie między jednostki SKU](container-registry-skus.md#changing-skus), włączanie wyższej przepustowości, po wybraniu SKU wyższego poziomu. Każdej jednostki SKU ACR można spełnia wymagania dotyczące przepływności zwiększania potrzeb.
 * Model zabezpieczeń ujednoliconego rejestru i jej magazynu zapewnia uproszczony rights management. Możesz zarządzać uprawnienia tylko do rejestru kontenera, bez konieczności również zarządzać uprawnieniami do oddzielnego konta magazynu.
+
+Aby uzyskać więcej informacji na temat przechowywania obrazów w ACR, zobacz [kontenera magazynu obrazu w rejestrze kontenera Azure](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Zagadnienia dotyczące migracji
 

@@ -1,6 +1,6 @@
 ---
-title: "Często zadawane pytania — VMware do platformy Azure replikacji z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "W tym artykule przedstawiono często zadawane pytania podczas replikowania lokalnych maszyn wirtualnych VMware do platformy Azure przy użyciu usługi Azure Site Recovery"
+title: Często zadawane pytania — VMware do platformy Azure replikacji z usługą Azure Site Recovery | Dokumentacja firmy Microsoft
+description: W tym artykule przedstawiono często zadawane pytania podczas replikowania lokalnych maszyn wirtualnych VMware do platformy Azure przy użyciu usługi Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Często zadawane pytania — VMware do platformy Azure replikacji
 
@@ -48,6 +48,13 @@ Jeśli jesteś administratorem subskrypcji, masz uprawnienia do replikacji, któ
 
 ### <a name="what-do-i-need-on-premises"></a>Czego potrzebuję lokalnej?
 Na lokalnych należy zainstalowane na jednej maszynie Wirtualnej VMware składniki usługi Site Recovery. Infrastruktury VMware, należy również z co najmniej jednego hosta ESXi, a firma Microsoft zaleca serwer vCenter. Ponadto należy przynajmniej jednej maszyny wirtualnej VMware do replikacji. [Dowiedz się więcej](vmware-azure-architecture.md) o VMware do platformy Azure architektury.
+
+Serwer konfiguracji lokalnej można wdrożyć w jednej z dwóch sposobów
+
+1. Wdróż je za pomocą szablonu maszyny Wirtualnej, który został wstępnie zainstalowany serwer konfiguracji. [Przeczytaj więcej tutaj](vmware-azure-tutorial.md#download-the-vm-template).
+2. Wdróż je przy użyciu instalacji na komputerze z systemem Windows Server 2016 wybranych przez użytkownika. [Przeczytaj więcej tutaj](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+Aby dowiedzieć się wprowadzenie kroki wdrażania serwera konfiguracji na własnych maszynach systemu Windows Server, w celu ochrony włączania ochrony, wybierz **do platformy Azure > nie zwirtualizowanych/inne**.
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Gdzie lokalnych maszyn wirtualnych są replikowane do?
 Dane są replikowane do magazynu Azure. Po uruchomieniu trybu failover Usługa Site Recovery automatycznie tworzy maszynach wirtualnych platformy Azure z konta magazynu.

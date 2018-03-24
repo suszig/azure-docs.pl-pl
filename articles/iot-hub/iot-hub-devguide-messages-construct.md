@@ -1,24 +1,24 @@
 ---
 title: Zrozumienie format komunikatu Centrum IoT Azure | Dokumentacja firmy Microsoft
-description: "Przewodnik dewelopera — w tym formacie i oczekiwanej zawartości wiadomości Centrum IoT."
+description: Przewodnik dewelopera — w tym formacie i oczekiwanej zawartości wiadomości Centrum IoT.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Tworzenie i odczytywanie wiadomości Centrum IoT
 
@@ -45,11 +45,12 @@ Poniższa lista zawiera zbiór właściwości systemu w komunikatach Centrum IoT
 | ExpiryTimeUtc |Data i godzina wygaśnięcia wiadomości. |
 | EnqueuedTime |Data i godzina [chmury do urządzenia] [ lnk-c2d] wiadomość została odebrana przez Centrum IoT. |
 | CorrelationId |Właściwości ciągu w komunikacie odpowiedzi, zazwyczaj zawierający identyfikator komunikatu żądania wzorce żądanie odpowiedź. |
-| UserId |Identyfikator używany do określenia pochodzenia wiadomości. Komunikaty są generowane przez Centrum IoT, jest ustawiona `{iot hub name}`. |
+| Nazwa użytkownika |Identyfikator używany do określenia pochodzenia wiadomości. Komunikaty są generowane przez Centrum IoT, jest ustawiona `{iot hub name}`. |
 | ACK. |Generator komunikat opinii. Ta właściwość jest używana w komunikatach chmury do urządzenia do Centrum IoT można wygenerować opinii komunikaty w wyniku użycia komunikatu żądania przez urządzenie. Możliwe wartości: **Brak** (domyślnie): żaden komunikat opinii jest generowany, **dodatnią**: Jeśli wiadomość została ukończona, wyświetlony komunikat opinii **ujemna**: odbierania wiadomość wygasł (lub osiągnięto dostarczania maksymalna liczba) bez przez urządzenia, lub **pełne**: zarówno dodatnie i ujemne. Aby uzyskać więcej informacji, zobacz [komunikatu opinii][lnk-feedback]. |
 | ConnectionDeviceId |Identyfikator ustawione przez Centrum IoT na wiadomości urządzenia do chmury. Zawiera on **deviceId** urządzenia wysyłającego wiadomość. |
 | ConnectionDeviceGenerationId |Identyfikator ustawione przez Centrum IoT na wiadomości urządzenia do chmury. Zawiera on **generationId** (zgodnie [właściwości tożsamości urządzenia][lnk-device-properties]) urządzenia, która wysłała wiadomość. |
 | ConnectionAuthMethod |Metoda uwierzytelniania, ustawione przez Centrum IoT na wiadomości urządzenia do chmury. Ta właściwość zawiera informacje na temat metody uwierzytelniania używany do uwierzytelniania urządzeń wysyłania wiadomości. Aby uzyskać więcej informacji, zobacz [urządzenia do chmury ochrony przed fałszowaniem][lnk-antispoofing]. |
+| CreationTimeUtc | Data i godzina utworzenia komunikatu na urządzeniu. Urządzenie musi jawnie ustaw tę wartość. |
 
 ## <a name="message-size"></a>Rozmiar komunikatu
 

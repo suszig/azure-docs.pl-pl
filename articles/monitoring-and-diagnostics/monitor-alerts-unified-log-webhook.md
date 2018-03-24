@@ -1,12 +1,12 @@
 ---
-title: "Akcje elementu Webhook dla dziennika alertów w alertach Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak reguły alertu dziennika przy użyciu dziennika analityka lub application insights przeprowadzi wypychanie danych jako elementu webhook HTTP i szczegóły różne dostosowania możliwe."
+title: Akcje elementu Webhook dla dziennika alertów w alertach Azure | Dokumentacja firmy Microsoft
+description: W tym artykule opisano, jak reguły alertu dziennika przy użyciu dziennika analityka lub application insights przeprowadzi wypychanie danych jako elementu webhook HTTP i szczegóły różne dostosowania możliwe.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Akcje elementu Webhook dla dziennika reguły alertów
-Gdy [alert jest tworzony na platformie Azure (wersja zapoznawcza)](monitor-alerts-unified-usage.md), masz możliwość [konfigurowania za pomocą grup akcji](monitoring-action-groups.md) do wykonywania co najmniej jednej akcji.  W tym artykule opisano webhook różne akcje, które są dostępne i szczegółowe informacje na temat konfigurowania niestandardowego elementu webhook opartych na formacie JSON.
+Gdy [alert jest tworzony na platformie Azure ](monitor-alerts-unified-usage.md), masz możliwość [konfigurowania za pomocą grup akcji](monitoring-action-groups.md) przeprowadzenie jedną lub więcej akcji.  W tym artykule opisano webhook różne akcje, które są dostępne i szczegółowe informacje na temat konfigurowania niestandardowego elementu webhook opartych na formacie JSON.
 
 
 ## <a name="webhook-actions"></a>Akcje elementu Webhook
@@ -33,7 +33,7 @@ Akcje elementu Webhook wymagają właściwości w poniższej tabeli:
 | Właściwość | Opis |
 |:--- |:--- |
 | Adres URL elementu Webhook |Adres URL elementu webhook. |
-| Niestandardowy ładunek JSON |Niestandardowy ładunek do wysłania z elementu webhook, po wybraniu tej opcji podczas tworzenia alertu. Szczegóły dostępne pod adresem [Zarządzanie alertami korzystanie z alertów Azure (wersja zapoznawcza)](monitor-alerts-unified-usage.md) |
+| Niestandardowy ładunek JSON |Niestandardowy ładunek do wysłania z elementu webhook, po wybraniu tej opcji podczas tworzenia alertu. Szczegóły dostępne pod adresem [Zarządzanie alertami korzystanie z alertów Azure ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > Testowanie przycisk elementu Webhook obok *Uwzględnij niestandardowy ładunek JSON dla elementu webhook* opcja dla dziennika alertu, wyzwoli fikcyjny wywołanie test adresu URL elementu webhook. Nie zawiera danych rzeczywistych i przedstawiciela używany w przypadku alertów dziennika schematu JSON. 
@@ -157,6 +157,8 @@ Oto ładunku próbki dla elementu webhook standardowe *bez niestandardowych opcj
     }
     }
 
+> [!NOTE]
+> Wpisy dziennika do usługi Application Insights jest obecnie publiczny Podgląd - funkcjonalność i środowisko użytkownika mogą ulec zmianie.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Alert dziennika z niestandardowy ładunek JSON
 Na przykład aby utworzyć niestandardowy ładunek, zawierający tylko nazwę alertu i wyniki wyszukiwania, można użyć następujących czynności: 
@@ -194,7 +196,7 @@ Poniżej przedstawiono przykładowe ładunku dla akcji niestandardowej elementu 
 
 
 ## <a name="next-steps"></a>Kolejne kroki
-- Dowiedz się więcej o [alerty dziennika w alertach Azure (wersja zapoznawcza)](monitor-alerts-unified-log.md)
+- Dowiedz się więcej o [rejestrowania alertów w alertach Azure ](monitor-alerts-unified-log.md)
 - Tworzenie i zarządzanie nimi [grupy akcji na platformie Azure](monitoring-action-groups.md)
 - Dowiedz się więcej o [usługi Application Insights](../application-insights/app-insights-analytics.md)
 - Dowiedz się więcej o [analizy dzienników](../log-analytics/log-analytics-overview.md). 

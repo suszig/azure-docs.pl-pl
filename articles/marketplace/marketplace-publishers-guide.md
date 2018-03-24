@@ -1,24 +1,24 @@
 ---
 title: Przewodnik AppSource wydawcy i portalu Azure Marketplace
-description: "Krok po kroku przewodnik i publikowanie list kontrolnych dla wydawców nowego portalu Azure Marketplace"
+description: Krok po kroku przewodnik i publikowanie list kontrolnych dla wydawców nowego portalu Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Przewodnik AppSource wydawcy i portalu Azure Marketplace
 
@@ -34,7 +34,7 @@ Witamy w [witrynę Azure Marketplace](https://azuremarketplace.microsoft.com) i 
 - Jak tworzyć wydawcy
 - Gdzie można tworzyć i publikować oferuje
 - Jak zoptymalizować listy i korzystać z zasobów przejdź na rynek wpływ dysku
-- Gdzie można uzyskać pomoc i obsługę pytania dotyczące portalu Azure Marketplace, AppSource, lub ten podręcznik publikowania, skontaktuj się z zespołem Marketplace, w  **cloudmarketplace@microsoft.com** . 
+- Gdzie można uzyskać pomoc i obsługę pytania dotyczące portalu Azure Marketplace, AppSource, lub ten podręcznik publikowania, skontaktuj się z zespołem Marketplace, w **cloudmarketplace@microsoft.com**. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Korzyści z uczestnictwa w witrynie marketplace
 
@@ -59,10 +59,10 @@ Sklepy marketplace są wyrównane do odbiorców i produktów w chmurze firmy Mic
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Odbiorcy docelowi     |Informatycy i deweloperzy (role specjalistyczne obejmują DBAs, SecOP, metodyki DevOps itp.)    | Wiersz decydentów Business (role specjalistyczne obejmują zamówień, produkcyjnym, ewidencjonowanie aktywności itp.)      |
-|Skompilowany, albo aby rozszerzyć     |Azure         | Azure, Dynamics 365 usługi Office 365, usługa Power BI i aplikacje zasilania       |
+|Skompilowany, albo aby rozszerzyć     |Azure         | Azure, Dynamics 365, Office 365, Power BI i Power Apps       |
 |Typy rozwiązania i usługi     |  Rozwiązania dla infrastruktury i usług   | Zakończono wiersza aplikacji biznesowych w chmurze, usługi Office 365 dodatków oraz usług professional        |
 |Opcje publikowania     |  Skontaktować się ze mną, usługi konsultingowe oferują, wersji próbnej, maszyny wirtualnej, szablony rozwiązań i zarządzanych aplikacjach       |  Bezpłatna wersja próbna i Pobierz teraz, testowanie, skontaktuj się z pomocą, mnie konsultacji oferty usługi      |
-|Udostępnia środowisko w aplikacji użytkownikom dostępu do aplikacji i usług w kontekście aplikacji  | Portalu Azure i interfejsu wiersza polecenia         | Usługi Office 365, Dynamics 365 usługi Power BI, aplikacje klienckie pakietu Office       |
+|Udostępnia środowisko w aplikacji użytkownikom dostępu do aplikacji i usług w kontekście aplikacji  | Witryna Azure Portal i interfejs wiersza polecenia         | Office 365, Dynamics 365, Power BI, aplikacje klienta pakietu Office       |
 
 ## <a name="leveraging-these-storefronts"></a>Wykorzystanie tych sklepy
 
@@ -112,9 +112,9 @@ W tej sekcji opisano za pomocą opcji dostępnych dla Ciebie w obu sklepy.
 
 |**Opcja publikowania**  | **Typ oferty** | **Sklepu**  |
 |---------|---------|---------|
-|**Lista**    |    Skontaktować się ze mną konsultacji usługi     |  Azure Marketplace, AppSource       |
-|**Wersja próbna**   |     W warstwie bezpłatna wersja próbna, wersja próbna SaaS, pokaz interaktywny, testowanie    |  Azure Marketplace, AppSource       |
-|**Transact**     |   Maszyna wirtualna, szablon rozwiązania zarządzanych aplikacji      |    Azure Marketplace     |
+|**Lista**    |    Kontakt ze mną, usługa doradcza     |  Azure Marketplace, AppSource       |
+|**Wersja próbna**   |     Bezpłatna wersja próbna, wersja próbna SaaS, pokaz interaktywny, wersja testowa    |  Azure Marketplace, AppSource       |
+|**Transact**     |   Maszyna wirtualna, szablon rozwiązania, szablon rozwiązania, aplikacja zarządzana      |    Azure Marketplace     |
 
 ### <a name="list"></a>LISTA
 
@@ -259,8 +259,8 @@ Każdy klient mający umowę Enterprise Agreement może dodać do niej opcję ko
 
 |**Wymaganie**  |**Szczegóły** |**Opcja publikowania**  |
 |---------|---------|---------|
-|**Rozliczenia i pomiarów**    |  Maszyny wirtualnej musi obsługiwać albo Bring Your Own License lub opartej na użyciu, co miesiąc rozliczeń.       |    Transact    |
-|**Azure zgodnego wirtualnego dysku twardego (VHD)**     |   Maszyny wirtualne muszą zostać skompilowane na [systemu Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) lub () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Rozliczenia i pomiarów**    |  Maszyny wirtualnej musi obsługiwać albo Bring Your Own License lub opartej na użyciu, co miesiąc rozliczeń.       |    Transakcja    |
+|**Azure zgodnego wirtualnego dysku twardego (VHD)**     |   Maszyny wirtualne muszą zostać skompilowane na [systemu Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) lub () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transakcja      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Wymagania wstępne dotyczące do konsultacji Publikowanie usług
 
@@ -308,7 +308,7 @@ Istnieje wiele opcji dla pojedynczej dzierżawy aplikacji:
 - Tworzenie dla klienta "Test dysk"
 - Tworzenie wielodostępnych przykładową aplikację pokaz logowania jednokrotnego
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Procesy publikowania produktu dla pakietu Office, Dynamics i usługi Power BI
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Procesy publikowania produktu dla pakietu Office, Dynamics i usługi Power BI
 W przypadku aplikacji AppSource rozszerzających pakietu Office, Dynamics i usługi Power BI możesz dowiedzieć się więcej określone wymagania w dokumentacji produktu określonych w tej sekcji. 
 
 
@@ -519,7 +519,7 @@ Aby uzyskać więcej informacji o wytycznych konta dewelopera dodatkowe i zabezp
 
 Twoje konto firmowe mogą federacyjnego, przy użyciu [usługi Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/), i zwrócą błąd przy próbie utworzenia Identyfikatora Microsoft za pomocą adresu e-mail firmy. Jeśli wystąpi błąd, najpierw skontaktuj się z zespołu IT w celu upewnij się, że jest to możliwe. Jest to znany problem i pracujemy nad rozwiązania. Obejście jest następujący:
 
-Firma Microsoft zaleca, Utwórz nowy adres e-mail w  **@outlook.com**  domeny. Wykonaj następujące kroki:
+Firma Microsoft zaleca, Utwórz nowy adres e-mail w **@outlook.com** domeny. Wykonaj następujące kroki:
 
 1. Przejdź do [ https://signup.live.com/signup ](https://signup.live.com/signup) i wybierz **Pobierz nowy adres e-mail**
 

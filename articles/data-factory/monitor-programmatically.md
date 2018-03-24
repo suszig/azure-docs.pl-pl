@@ -1,11 +1,11 @@
 ---
-title: "Programowo monitorować fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak monitorować potok w fabryce danych przy użyciu różnych software development Kit (SDK)."
+title: Programowo monitorować fabryki danych Azure | Dokumentacja firmy Microsoft
+description: Dowiedz się, jak monitorować potok w fabryce danych przy użyciu różnych software development Kit (SDK).
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Programowo monitorować fabryki danych Azure
 W tym artykule opisano, jak monitorować potok w fabryce danych przy użyciu różnych software development Kit (SDK). 
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [monitorowanie i zarządzanie nimi potoków w fabryce danych version1](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="data-range"></a>Zakres danych
+
+Fabryka danych przechowuje dane tylko potoku Uruchom danych 45 dni. Można pobrać programowo dla danych dotyczących uruchamia potoku fabryki danych — na przykład przy użyciu polecenia programu PowerShell `Get-AzureRmDataFactoryV2PipelineRun` -Brak maksymalnej dat dla opcjonalnego `LastUpdatedAfter` i `LastUpdatedBefore` parametrów. Ale jeśli zapytania dotyczące danych przez ostatni rok, na przykład zapytanie nie zwraca błąd, ale zwraca tylko potoku wykonywania dane z ostatnich 45 dni.
+
+Jeśli chcesz utrwalić potoku Uruchom danych przez więcej niż 45 dni, skonfigurować własne rejestrowania diagnostycznego z [Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
 Aby uzyskać pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu .NET SDK, zobacz [tworzenie fabryki danych i przy użyciu platformy .NET w potoku](quickstart-create-data-factory-dot-net.md).

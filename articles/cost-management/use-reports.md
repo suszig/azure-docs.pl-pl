@@ -1,24 +1,24 @@
 ---
-title: "Użyj raportów dotyczących zarządzania koszt w Azure kosztów zarządzania | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób używania różnych raportach kosztów zarządzania w portalu Cloudyn."
+title: Użyj raportów dotyczących zarządzania koszt w Azure kosztów zarządzania | Dokumentacja firmy Microsoft
+description: W tym artykule opisano sposób używania różnych raportach kosztów zarządzania w portalu Cloudyn.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: fa263a4b6f41e2b31328f46b8d1341d0d74c9a85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-cost-management-reports"></a>Korzystanie z raportów rozwiązania Cost Management
 
-W tym artykule opisano sposób używania różnych raportach kosztów zarządzania w portalu Cloudyn. Większość raportów Cloudyn są intuicyjne i zapewnia jednolite wyglądu i działania. Aby uzyskać ogólne informacje o raportach Cloudyn, zobacz [opis koszt raporty](understading-cost-reports.md). Artykuł opisuje również różne opcje i pola używane w większości raportów.
+W tym artykule opisano sposób używania różnych raportach kosztów zarządzania w portalu Cloudyn. Większość raportów Cloudyn są intuicyjne i zapewnia jednolite wyglądu i działania. Aby uzyskać ogólne informacje o raportach Cloudyn, zobacz [opis koszt raporty](understanding-cost-reports.md). Artykuł opisuje również różne opcje i pola używane w większości raportów.
 
 ## <a name="cost-analysis-reports"></a>Raporty analizy kosztów
 

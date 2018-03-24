@@ -1,26 +1,26 @@
 ---
 title: Azure monitorowanie i aktualizowanie maszyn wirtualnych systemu Windows i | Dokumentacja firmy Microsoft
-description: "Samouczek — monitorowania i aktualizowania maszyny wirtualnej systemu Windows przy użyciu programu Azure PowerShell"
+description: Samouczek — monitorowania i aktualizowania maszyny wirtualnej systemu Windows przy użyciu programu Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94151008f0aba6020786e65c60cec66285f310c4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Monitorowanie i aktualizowanie maszyny wirtualnej systemu Windows przy użyciu programu Azure PowerShell
 
@@ -33,14 +33,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Wyświetlanie diagnostyki rozruchu
 > * Wyświetlaj metryki hosta maszyny Wirtualnej
 > * Zainstaluj rozszerzenie diagnostyki
-> * Wyświetlaj metryki maszyny Wirtualnej
+> * Wyświetlanie metryki maszyny wirtualnej
 > * Utwórz alert
 > * Zarządzanie aktualizacjami systemu Windows
-> * Skonfiguruj zaawansowane monitorowanie
+> * Konfigurowanie zaawansowanego monitorowania
 
 Dla tego samouczka jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Aby ukończyć przykład, w tym samouczku, musi mieć istniejącej maszyny wirtualnej. Jeśli to konieczne, to [przykładowym skrypcie](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) można utworzyć. Podczas pracy z samouczkiem, Zastąp grupy zasobów, nazwę maszyny Wirtualnej i lokalizację w razie potrzeby.
+Do utworzenia przykładu przedstawionego w tym samouczku potrzebna jest istniejąca maszyna wirtualna. W razie potrzeby [ten przykładowy skrypt](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) pomoże Ci go utworzyć. Podczas pracy z samouczkiem, Zastąp grupy zasobów, nazwę maszyny Wirtualnej i lokalizację w razie potrzeby.
 
 ## <a name="view-boot-diagnostics"></a>Wyświetlanie diagnostyki rozruchu
 
@@ -52,100 +52,100 @@ Można uzyskać danych diagnostycznych rozruchu z [Get-AzureRmVMBootDiagnosticsD
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
 ```
 
-## <a name="view-host-metrics"></a>Wyświetlaj metryki hosta
+## <a name="view-host-metrics"></a>Wyświetlanie metryki hosta
 
 Maszyny Wirtualnej systemu Windows ma dedykowanego hosta maszyny Wirtualnej na platformie Azure, która współdziała ona z. Metryki są automatycznie pobierane dla hosta i mogą być wyświetlane w portalu Azure.
 
-1. W portalu Azure kliknij **grup zasobów**, wybierz pozycję **myResourceGroup**, a następnie wybierz **myVM** na liście zasobów.
+1. W witrynie Azure Portal kliknij pozycję **Grupy zasobów**, wybierz grupę **myResourceGroup**, a następnie wybierz maszynę wirtualną **myVM** na liście zasobów.
 2. Kliknij przycisk **metryki** w bloku maszyny Wirtualnej, a następnie wybierz jedno z hosta metryki w obszarze **dostępne metryki** aby zobaczyć, jak działa hosta maszyny Wirtualnej.
 
-    ![Wyświetlaj metryki hosta](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
+    ![Wyświetlanie metryki hosta](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
 
-## <a name="install-diagnostics-extension"></a>Zainstaluj rozszerzenie diagnostyki
+## <a name="install-diagnostics-extension"></a>Instalacja rozszerzenia diagnostyki
 
-Metryki podstawowych hostów są dostępne, ale bardziej szczegółowe i metryki specyficzne dla maszyny Wirtualnej, można, należy zainstalować rozszerzenie diagnostycznych platformy Azure na maszynie Wirtualnej. Rozszerzenia diagnostyki Azure umożliwia dodatkowe funkcje monitorowania i dane diagnostyczne mają zostać pobrane z maszyny Wirtualnej. Możesz wyświetlić te metryki wydajności i tworzyć alerty oparte na sposób wykonywania maszyny Wirtualnej. Rozszerzenia diagnostycznych jest zainstalowany za pośrednictwem portalu Azure w następujący sposób:
+Metryki podstawowych hostów są dostępne, ale bardziej szczegółowe i metryki specyficzne dla maszyny Wirtualnej, można, należy zainstalować rozszerzenie diagnostycznych platformy Azure na maszynie Wirtualnej. Rozszerzenie diagnostyki platformy Azure umożliwia pobieranie dodatkowych danych dotyczących monitorowania i diagnostyki z maszyny wirtualnej. Możesz wyświetlić te metryki wydajności i utworzyć alerty w oparciu o wydajność maszyny wirtualnej. Rozszerzenie diagnostyki jest instalowane za pośrednictwem witryny Azure Portal w następujący sposób:
 
-1. W portalu Azure kliknij **grup zasobów**, wybierz pozycję **myResourceGroup**, a następnie wybierz **myVM** na liście zasobów.
-2. Kliknij przycisk **ustawienia diagnostyki**. Lista wskazuje, że *diagnostyki rozruchu* są już włączone w poprzedniej sekcji. Kliknij pole wyboru dla *podstawowe metryki*.
+1. W witrynie Azure Portal kliknij pozycję **Grupy zasobów**, wybierz grupę **myResourceGroup**, a następnie wybierz maszynę wirtualną **myVM** na liście zasobów.
+2. Kliknij pozycję **Ustawienia diagnozy**. Lista pokazuje, że *Diagnostyka rozruchu* została już włączona w poprzedniej sekcji. Kliknij pole wyboru pozycji *Metryki podstawowe*.
 3. Kliknij przycisk **Włącz monitorowanie na poziomie gościa** przycisku.
 
-    ![Wyświetlaj metryki diagnostycznych](./media/tutorial-monitoring/enable-diagnostics-extension.png)
+    ![Wyświetlanie metryki diagnostyki](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
-## <a name="view-vm-metrics"></a>Wyświetlaj metryki maszyny Wirtualnej
+## <a name="view-vm-metrics"></a>Wyświetlanie metryki maszyny wirtualnej
 
-Metryki maszyny Wirtualnej można wyświetlać w taki sam sposób, aby wyświetlić hosta metryki maszyny Wirtualnej:
+Możesz wyświetlić metryki maszyny wirtualnej w ten sam sposób co metryki maszyny wirtualnej hosta:
 
-1. W portalu Azure kliknij **grup zasobów**, wybierz pozycję **myResourceGroup**, a następnie wybierz **myVM** na liście zasobów.
-2. Aby zobaczyć, jak działa maszyny Wirtualnej, kliknij **metryki** w bloku maszyny Wirtualnej, a następnie wybierz jedno z metryki diagnostyki w obszarze **dostępne metryki**.
+1. W witrynie Azure Portal kliknij pozycję **Grupy zasobów**, wybierz grupę **myResourceGroup**, a następnie wybierz maszynę wirtualną **myVM** na liście zasobów.
+2. Aby zobaczyć, jak działa maszyna wirtualna, kliknij pozycję **Metryki** w bloku maszyny wirtualnej, a następnie wybierz dowolną metrykę diagnostyki w pozycji **Dostępne metryki**.
 
-    ![Wyświetlaj metryki maszyny Wirtualnej](./media/tutorial-monitoring/monitor-vm-metrics.png)
+    ![Wyświetlanie metryki maszyny wirtualnej](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
 ## <a name="create-alerts"></a>Tworzenie alertów
 
-Można tworzyć alertów w oparciu metryki dotyczące wydajności. Alerty można powiadomić o, gdy średniego użycia procesora CPU przekracza określonego progu lub wolnego miejsca na dysku spada poniżej pewnego, np. Alerty są wyświetlane w portalu Azure lub mogą być wysyłane za pośrednictwem poczty e-mail. W odpowiedzi na alerty generowane może także wyzwolić elementu runbook usługi Automatyzacja Azure lub usługi Azure Logic Apps.
+Możesz utworzyć alerty w oparciu o konkretne metryki wydajności. Przykładowo alertów można używać do wysyłania powiadomień w przypadku przekroczenia wybranego progu użycia procesora lub spadku dostępnego miejsca na dysku poniżej wybranej wartości. Alerty mogą być wyświetlane w witrynie Azure Portal lub wysyłane za pośrednictwem poczty e-mail. Możesz też wyzwolić elementy runbook usługi Azure Automation lub aplikacje usługi Azure Logic Apps w ramach reakcji na wygenerowane alerty.
 
-Poniższy przykład tworzy alert dla średniego użycia procesora CPU.
+Poniższy przykład tworzy alert dotyczący średniego użycia procesora.
 
-1. W portalu Azure kliknij **grup zasobów**, wybierz pozycję **myResourceGroup**, a następnie wybierz **myVM** na liście zasobów.
-2. Kliknij przycisk **reguły alertów** w bloku maszyny Wirtualnej, następnie kliknij polecenie **Dodaj alert metryki** w górnej części bloku alerty.
-4. Podaj **nazwa** alertu, takie jak *myAlertRule*
-5. Do wyzwolenia alertu, gdy procent użycia procesora CPU przekracza 1.0 przez pięć minut, pozostaw wszystkie inne wartości domyślne wybrane.
-6. Opcjonalnie zaznacz pole wyboru, aby uzyskać *E-mail właściciele, współautorzy i czytelnicy* do wysyłania powiadomień e-mail. Domyślne działanie jest obecne powiadomienia w portalu.
+1. W witrynie Azure Portal kliknij pozycję **Grupy zasobów**, wybierz grupę **myResourceGroup**, a następnie wybierz maszynę wirtualną **myVM** na liście zasobów.
+2. Kliknij pozycję **Reguły alertów** w bloku maszyny wirtualnej, a następnie kliknij pozycję **Dodaj alert metryki** w górnej części bloku alertów.
+4. Podaj **nazwę** alertu, np. *myAlertRule*
+5. Aby wyzwolić alert, gdy procent użycia procesora przekracza 1,0 przez pięć minut, pozostaw wybrane wszystkie inne wartości domyślne.
+6. Opcjonalnie zaznacz pole pozycji *Wyślij wiadomość e-mail do właścicieli, współautorów i czytelników*, aby wysłać powiadomienie w wiadomości e-mail. Domyślne działanie to prezentowanie powiadomienia w portalu.
 7. Kliknij przycisk **OK**.
 
 ## <a name="manage-windows-updates"></a>Zarządzanie aktualizacjami systemu Windows
 
 Zarządzanie aktualizacjami umożliwia zarządzanie aktualizacje i poprawki dla maszyn wirtualnych systemu Windows Azure.
-Bezpośrednio z maszyny Wirtualnej, można szybko ocenić stan dostępne aktualizacje, zaplanowanie instalacji wymaganych aktualizacji i przejrzeć wyniki wdrożenia, aby sprawdzić, czy aktualizacje zostały pomyślnie zastosowane do maszyny Wirtualnej.
+Bezpośrednio z poziomu maszyny wirtualnej możesz szybko ocenić stan dostępnych aktualizacji, zaplanować instalację wymaganych aktualizacji i przejrzeć wyniki wdrażania, aby sprawdzić, czy aktualizacje zostały zastosowane pomyślnie do maszyny wirtualnej.
 
-Aby uzyskać informacje o cenach, zobacz [ceny Automatyzacja zarządzania aktualizacjami](https://azure.microsoft.com/pricing/details/automation/)
+Aby uzyskać informacje o cenach, zobacz [cennik usługi Automation dla rozwiązania Update Management](https://azure.microsoft.com/pricing/details/automation/)
 
-### <a name="enable-update-management"></a>Włącz zarządzanie aktualizacjami
+### <a name="enable-update-management"></a>Włączanie rozwiązania Update Management
 
 Włącz zarządzanie aktualizacji dla maszyny Wirtualnej:
  
-1. Po lewej stronie ekranu, wybierz **maszyn wirtualnych**.
-2. Z listy wybierz maszynę Wirtualną.
-3. Na ekranie maszyny Wirtualnej w **operacji** kliknij **zarządzanie aktualizacjami**. **Włączyć zarządzanie aktualizacjami** ekranu zostanie otwarta.
+1. Po lewej stronie ekranu wybierz pozycję **Maszyny wirtualne**.
+2. Z listy wybierz maszynę wirtualną.
+3. Na ekranie maszyny wirtualnej w sekcji **Operacje** kliknij pozycję **Update Management**. Zostanie wyświetlony ekran **Włączanie rozwiązania Update Management**.
 
-Weryfikacja jest przeprowadzana w celu ustalenia, czy zarządzanie aktualizacjami jest włączony dla tej maszyny Wirtualnej. Sprawdzanie poprawności obejmuje sprawdza, czy obszar roboczy analizy dzienników i połączonego konta automatyzacji, a jeśli rozwiązanie znajduje się w obszarze roboczym.
+Jest przeprowadzana walidacja w celu ustalenia, czy rozwiązanie Update Management jest włączone dla tej maszyny wirtualnej. Walidacja obejmuje kontrole obszaru roboczego usługi Log Analytics i powiązanego konta usługi Automation i tego, czy rozwiązanie znajduje się w obszarze roboczym.
 
-Obszar roboczy analizy dzienników służy do zbierania danych, który jest generowany przez funkcji i usług, takich jak zarządzanie aktualizacjami. Obszar roboczy zawiera pojedynczej lokalizacji, aby przejrzeć i analizowania danych z wielu źródeł. Do wykonania dodatkowych czynności na maszynach wirtualnych, które wymagają aktualizacji, usługi Automatyzacja Azure pozwala na uruchamianie skryptów przed maszynami wirtualnymi, takie jak do pobrania i zastosowania aktualizacji.
+Obszar roboczy usługi Log Analytics służy do zbierania danych generowanych przez funkcje i usługi, takie jak rozwiązanie Update Management. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł. Aby wykonać dodatkowe akcje na maszynach wirtualnych, które wymagają aktualizacji, usługa Azure Automation pozwala na uruchamianie skryptów dla maszyn wirtualnych, takich jak pobieranie i stosowanie aktualizacji.
 
-Proces weryfikacji sprawdza również, jeśli maszyna wirtualna jest udostępniane z programu Microsoft Monitoring Agent (MMA) i hybrydowy proces roboczy. Ten agent jest używany do komunikowania się z maszyną Wirtualną i uzyskiwania informacji o stanie aktualizacji. 
+Proces walidacji sprawdza również, czy maszyna wirtualna jest aprowizowana za pomocą programu Microsoft Monitoring Agent (MMA) i hybrydowego procesu roboczego. Ten agent jest używany do komunikacji z maszyną wirtualną i uzyskiwania informacji dotyczących stanu aktualizacji. 
 
-Te wymagania wstępne nie są spełnione, zostanie wyświetlony transparent daje możliwość włączenia rozwiązania.
+Jeśli te wymagania wstępne nie są spełnione, zostanie wyświetlony transparent zawierający opcję włączenia rozwiązania.
 
-![Zaktualizuj transparent dołączyć konfiguracji zarządzania](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
+![Transparent konfiguracji dołączony do rozwiązania Update Management](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
 
-Kliknij transparent, aby włączyć rozwiązanie. W przypadku dowolnej z następujących warunków wstępnych zostały brakować po weryfikacji, zostaną automatycznie dodane:
+Kliknij transparent, aby włączyć rozwiązanie. Jeśli którekolwiek z następujących wymagań wstępnych nie będzie występować po walidacji, zostanie ono automatycznie dodane:
 
-* [Zaloguj się Analytics](../../log-analytics/log-analytics-overview.md) obszaru roboczego
+* Obszar roboczy usługi [Log Analytics](../../log-analytics/log-analytics-overview.md)
 * [Automatyzacja](../../automation/automation-offering-get-started.md)
-* A [hybrydowy proces roboczy elementu runbook](../../automation/automation-hybrid-runbook-worker.md) jest włączona na maszynie Wirtualnej
+* [Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md) jest włączony na maszynie wirtualnej
 
-**Włączyć zarządzanie aktualizacjami** ekranu zostanie otwarta. Skonfiguruj ustawienia, a następnie kliknij przycisk **włączyć**.
+Zostanie wyświetlony ekran **Włączanie rozwiązania Update Management**. Skonfiguruj ustawienia, a następnie kliknij przycisk **Włącz**.
 
-![Włącz rozwiązanie do zarządzania aktualizacji](./media/tutorial-monitoring/manageupdates-update-enable.png)
+![Włączanie rozwiązania Update Management](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-Włączanie rozwiązania może potrwać do 15 minut, a w tym czasie nie powinna zamykać okna przeglądarki. Po włączeniu rozwiązania, informacje o brakujących aktualizacji na maszynie Wirtualnej przechodzi do analizy dzienników.
-Może upłynąć od 30 minut do 6 godzin dla danych, które mają być dostępne dla analizy.
+Włączanie rozwiązania może potrwać do 15 minut. W tym czasie nie powinno zamykać się okna przeglądarki. Po włączeniu rozwiązania informacje dotyczące brakujących aktualizacji maszyn wirtualnych są przekazywane do usługi Log Analytics.
+Udostępnienie danych do analizy może potrwać od 30 minut do 6 godzin.
 
 ### <a name="view-update-assessment"></a>Wyświetlanie oceny aktualizacji
 
 Po włączeniu rozwiązania **Update Management** zostanie wyświetlony ekran **Update Management**. Możesz wyświetlić listę brakujących aktualizacji na karcie **Brakujące aktualizacje**.
 
- ![Wyświetl stan aktualizacji](./media/tutorial-monitoring/manageupdates-view-status-win.png)
+ ![Wyświetlanie stanu aktualizacji](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
 ### <a name="schedule-an-update-deployment"></a>Planowanie wdrożenia aktualizacji
 
 Aby zainstalować aktualizacje, zaplanuj wdrożenie zgodnie z harmonogramem wydawania i oknem obsługi.
-Możesz wybrać typy aktualizacji, które mają zostać uwzględnione we wdrożeniu. Na przykład można uwzględnić krytyczny lub aktualizacji zabezpieczeń i Wyklucz pakiety zbiorcze aktualizacji.
+Możesz wybrać typy aktualizacji, które mają zostać uwzględnione we wdrożeniu. Możesz na przykład uwzględnić aktualizacje krytyczne lub aktualizacje zabezpieczeń i wykluczyć pakiety zbiorcze aktualizacji.
 
-Planowanie nowego wdrożenia aktualizacji dla maszyny Wirtualnej, klikając **harmonogram wdrożenia aktualizacji** w górnej części **zarządzanie aktualizacjami** ekranu. W **nowego wdrożenia aktualizacji** ekranu, podaj następujące informacje:
+Zaplanuj nowe wdrożenie aktualizacji dla maszyny wirtualnej, klikając pozycję **Zaplanuj wdrażanie aktualizacji** w górnej części ekranu **Update Management**. Na ekranie **Nowe wdrożenie aktualizacji** podaj następujące informacje:
 
 * **Nazwa** — wprowadź unikatową nazwę identyfikującą wdrożenie aktualizacji.
-* **Klasyfikacja aktualizacji** — wybierz typy oprogramowania uwzględnione we wdrożeniu wdrożenia aktualizacji. Dostępne są następujące typy klasyfikacji:
+* **Klasyfikacja aktualizacji** — wybierz typy oprogramowania, które zostaną uwzględnione we wdrożeniu aktualizacji. Dostępne są następujące typy klasyfikacji:
   * Aktualizacje krytyczne
   * Aktualizacje zabezpieczeń
   * Pakiety zbiorcze aktualizacji
@@ -163,7 +163,7 @@ Planowanie nowego wdrożenia aktualizacji dla maszyny Wirtualnej, klikając **ha
 * **Okno konserwacji (w minutach)** — podaj okres, w którym ma zostać przeprowadzone wdrażanie aktualizacji.  Pozwala to zagwarantować, że zmiany będą wprowadzane w ramach zdefiniowanych okien obsługi.
 
 Po ukończeniu konfigurowania harmonogramu kliknij przycisk **Utwórz**, aby wrócić do pulpitu nawigacyjnego stanu.
-Zwróć uwagę, że **zaplanowane** tabeli przedstawiono harmonogram wdrożenia został utworzony.
+Tabela **Zaplanowane** zawiera utworzony harmonogram wdrożenia.
 
 > [!WARNING]
 > Aktualizacje, które wymagają ponownego uruchomienia systemu maszyna wirtualna zostanie ponownie uruchomiony.
@@ -175,26 +175,26 @@ Jeśli wdrażanie trwa, wdrożenie ma stan **W toku**. Po pomyślnym ukończeniu
 W przypadku błędu co najmniej jednej aktualizacji w ramach wdrożenia jest wyświetlany stan **Częściowe niepowodzenie**.
 Kliknij ukończone wdrożenie aktualizacji, aby wyświetlić pulpit nawigacyjny tego wdrożenia.
 
-   ![Pulpit nawigacyjny stan wdrożenia aktualizacji dla określonego wdrożenia](./media/tutorial-monitoring/manageupdates-view-results.png)
+   ![Pulpit nawigacyjny stanu wdrożenia aktualizacji dla określonego wdrożenia](./media/tutorial-monitoring/manageupdates-view-results.png)
 
-W **wyniki aktualizacji** kafelka znajduje się podsumowanie całkowita liczba aktualizacji i wyniki wdrożenia na maszynie Wirtualnej.
+Kafelek **Wyniki aktualizacji** zawiera podsumowanie z łączną liczbą aktualizacji i wynikami wdrożenia na maszynie wirtualnej.
 Tabela po prawej stronie zawiera szczegółowy podział każdej aktualizacji i wyniki instalacji, które mogą mieć jedną z następujących wartości:
 
-* **Nie podjęto** — aktualizacja nie została zainstalowana w powodu niewystarczających czas dostępne w oparciu o czas trwania okna obsługi, które zostały zdefiniowane.
-* **Pomyślnie** -aktualizacji zakończyło się pomyślnie.
-* **Nie powiodło się** — aktualizacja nie powiodła się.
+* **Nie podjęto próby** — nie zainstalowano aktualizacji z powodu niewystarczającego czasu w zdefiniowanym oknie konserwacji.
+* **Powodzenie** — aktualizacja powiodła się.
+* **Niepowodzenie** — aktualizacja nie powiodła się.
 
 Kliknij pozycję **Wszystkie dzienniki**, aby wyświetlić wszystkie wpisy dziennika utworzone przez wdrożenie.
 
-Kliknij przycisk **dane wyjściowe** Kafelek, aby zobaczyć strumień zadań elementu runbook odpowiedzialny za zarządzanie wdrożenia aktualizacji w celu maszyny Wirtualnej.
+Kliknij kafelek **Dane wyjściowe**, aby wyświetlić strumień zadań elementu runbook odpowiedzialnego za zarządzanie wdrożeniem aktualizacji na docelowej maszynie wirtualnej.
 
 Kliknij pozycję **Błędy**, aby wyświetlić szczegółowe informacje o błędach związanych z wdrożeniem.
 
 ## <a name="advanced-monitoring"></a>Zaawansowane monitorowanie 
 
-Możliwość bardziej zaawansowane monitorowanie maszyny wirtualnej za pomocą [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview). Jeśli nie zostało to jeszcze zrobione, należy zarejestrować się w celu [bezpłatnej wersji próbnej](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) programu Operations Management Suite.
+Możesz przeprowadzić bardziej zaawansowane monitorowanie maszyny wirtualnej przy użyciu rozwiązania [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview). Jeśli jeszcze tego nie zrobiono, możesz zarejestrować się w celu skorzystania z [bezpłatnej wersji próbnej](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) rozwiązania Operations Management Suite.
 
-Jeśli masz dostęp do portalu OMS klucz obszaru roboczego i identyfikator obszaru roboczego można znaleźć w bloku ustawień. Użyj [AzureRmVMExtension zestaw](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) polecenie, aby dodać rozszerzenie OMS do maszyny Wirtualnej. Zaktualizuj wartości zmiennej w poniżej przykładowy w celu uwzględnienia możesz OMS klucz obszaru roboczego i identyfikator obszaru roboczego  
+Po uzyskaniu dostępu do portalu OMS możesz znaleźć klucz oraz identyfikator obszaru roboczego w bloku Ustawienia. Użyj [AzureRmVMExtension zestaw](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) polecenie, aby dodać rozszerzenie OMS do maszyny Wirtualnej. Zaktualizuj wartości zmiennej w poniżej przykładowy w celu uwzględnienia możesz OMS klucz obszaru roboczego i identyfikator obszaru roboczego  
 
 ```powershell
 $omsId = "<Replace with your OMS Id>"
@@ -215,20 +215,20 @@ Po upływie kilku minut powinien zostać wyświetlony nowej maszyny Wirtualnej w
 
 ![Blok OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym samouczku został skonfigurowany i przejrzeć maszyn wirtualnych w Centrum zabezpieczeń Azure. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej
 > * Tworzenie grupy zasobów i maszyny Wirtualnej 
-> * Włącz diagnostykę rozruchu na maszynie Wirtualnej
+> * Włączanie diagnostyki rozruchu na maszynie wirtualnej
 > * Wyświetlanie diagnostyki rozruchu
-> * Wyświetlaj metryki hosta
+> * Wyświetlanie metryki hosta
 > * Zainstaluj rozszerzenie diagnostyki
-> * Wyświetlaj metryki maszyny Wirtualnej
+> * Wyświetlanie metryki maszyny wirtualnej
 > * Utwórz alert
 > * Zarządzanie aktualizacjami systemu Windows
-> * Skonfiguruj zaawansowane monitorowanie
+> * Konfigurowanie zaawansowanego monitorowania
 
 Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure.
 

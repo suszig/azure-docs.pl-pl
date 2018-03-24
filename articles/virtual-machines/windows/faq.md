@@ -1,11 +1,11 @@
 ---
-title: "Często zadawane pytania dotyczące maszyn wirtualnych systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące systemu Windows maszyny wirtualne utworzone za pomocą modelu usługi Resource Manager."
+title: Często zadawane pytania dotyczące maszyn wirtualnych systemu Windows na platformie Azure | Dokumentacja firmy Microsoft
+description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące systemu Windows maszyny wirtualne utworzone za pomocą modelu usługi Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Często zadawane pytania dotyczące maszyn wirtualnych systemu Windows
 W tym artykule opisano często zadawane pytania dotyczące maszyn wirtualnych systemu Windows utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżera zasobów. W tym temacie w wersji systemu Linux [— często zadawane pytania dotyczące maszyn wirtualnych systemu Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,7 +75,7 @@ Tak. Aby szybko utworzyć Maszynę wirtualną systemu Linux wypróbowanie, zobac
 Tak, obecnie jest to możliwe. Maszyna wirtualna musi zostać zatrzymana deallocated. Następnie można dodać lub usunąć karty Sieciowej (o ile nie jest ostatni karty Sieciowej na maszynie Wirtualnej). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Czy istnieją wszystkie wymagania dotyczące nazwy komputera?
-Tak. Nazwa komputera może zawierać maksymalnie 15 znaków. Zobacz [nazewnictwa konwencje reguły i ograniczenia](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uzyskać więcej informacji dotyczących nazw zasobów.
+Tak. Nazwa komputera może zawierać maksymalnie 15 znaków. Zobacz [nazewnictwa konwencje reguły i ograniczenia](/azure/architecture/best-practices/naming-conventions#compute) uzyskać więcej informacji dotyczących nazw zasobów.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Czy istnieją dowolnego zasobu wymagania dotyczące nazw grupy?
 Tak. Nazwa grupy zasobów może zawierać maksymalnie 90 znaków długości. Zobacz [nazewnictwa konwencje reguły i ograniczenia](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) Aby uzyskać więcej informacji na temat grup zasobów.

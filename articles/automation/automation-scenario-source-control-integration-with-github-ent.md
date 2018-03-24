@@ -1,24 +1,18 @@
 ---
-title: "Integracja kontroli źródła usługi Automatyzacja Azure z systemem GitHub Enterprise | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano szczegóły dotyczące sposobu konfigurowania integracji z systemem GitHub Enterprise dla kontroli źródła elementów runbook automatyzacji."
+title: Integracja kontroli źródła usługi Automatyzacja Azure z systemem GitHub Enterprise
+description: W tym artykule opisano szczegóły dotyczące sposobu konfigurowania integracji z systemem GitHub Enterprise dla kontroli źródła elementów runbook automatyzacji.
 services: automation
-documentationCenter: 
-authors: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: magoedte
-ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: carmonm
+ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Scenariusz automatyzacji Azure - automatyzacji integracji kontroli źródła z systemem GitHub Enterprise
 
@@ -52,10 +46,10 @@ GitHRWCredential | Zasób poświadczeń, możesz utworzyć zawierać nazwę uży
 
 1. Element runbook LocalGitFolderToAutomationAccount synchronizacji jest uwierzytelniany przy użyciu [konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md). 
 
-2. Wymagany jest również obszaru roboczego programu Microsoft Operations Management Suite (OMS) z rozwiązaniem usługi Automatyzacja Azure, włączona i skonfigurowana. Jeśli nie masz, który jest skojarzony z kontem automatyzacji używane do instalowania i konfigurowania tego scenariusza, jest tworzony i skonfigurowana za użytkownika podczas wykonywania **OnPremiseHybridWorker.ps1 nowy** skryptu z hybrydowy proces roboczy elementu runbook.        
+2. Wymagany jest również obszar roboczy analizy dzienników z rozwiązania Automatyzacja Azure, włączona i skonfigurowana. Jeśli nie masz, który jest skojarzony z kontem automatyzacji używane do instalowania i konfigurowania tego scenariusza, jest tworzony i skonfigurowana za użytkownika podczas wykonywania **OnPremiseHybridWorker.ps1 nowy** skryptu z hybrydowy proces roboczy elementu runbook.        
 
     > [!NOTE]
-    > Obecnie w następujących regionach obsługują tylko automatyzacji integracji z usługą OMS - **południowo-wschodnia Australia**, **wschodnie stany USA 2**, **Azja południowo-wschodnia**, i **Europa**. 
+    > Obecnie w następujących regionach obsługują tylko automatyzacji Integracja z usługą analizy dzienników - **południowo-wschodnia Australia**, **wschodnie stany USA 2**, **Azja południowo-wschodnia**, i  **Europa Zachodnia**. 
 
 3. Komputer, który może służyć jako dedykowanych procesów roboczych Runbook hybrydowych, obsługującym oprogramowania GitHub i obsługa plików elementu runbook (*runbook*.ps1) w katalogu źródłowym, w systemie plików, które umożliwia synchronizację między GitHub i Twoje automatyzacji konto.
 

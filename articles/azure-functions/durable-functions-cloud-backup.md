@@ -1,24 +1,24 @@
 ---
-title: "Fan-wyjściowego/fan-w scenariuszach w funkcjach trwałe - Azure"
-description: "Dowiedz się, jak wdrożyć scenariusz dla fan-wyjściowego wentylator — ruch przychodzący w rozszerzeniu trwałe funkcji dla usługi Azure Functions."
+title: Fan-wyjściowego/fan-w scenariuszach w funkcjach trwałe - Azure
+description: Dowiedz się, jak wdrożyć scenariusz dla fan-wyjściowego wentylator — ruch przychodzący w rozszerzeniu trwałe funkcji dla usługi Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-wyjściowego/fan-w scenariuszu w funkcjach trwałe — przykład kopii zapasowej chmury
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Postępuj zgodnie z instrukcjami [zainstalować funkcje trwałe](durable-functions-install.md) do skonfigurowania próbki.
-* W tym artykule przyjęto już przeszły [Hello sekwencji](durable-functions-sequence.md) wskazówki przykładowe.
+* [Instalowanie funkcji trwałe](durable-functions-install.md).
+* Zakończenie [Hello sekwencji](durable-functions-sequence.md) wskazówki.
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
@@ -47,7 +47,7 @@ W tym artykule opisano następujące funkcje w przykładowej aplikacji:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-W poniższych sekcjach opisano konfigurację i kod, który są używane do tworzenia portalu Azure. Kod dla tworzenia Visual Studio jest wyświetlany na końcu tego artykułu.
+W poniższych sekcjach opisano konfigurację i kodu, które są używane dla języka C# skryptów. Kod dla tworzenia Visual Studio jest wyświetlany na końcu tego artykułu.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestration kopii zapasowych w chmurze (Visual Studio Code i Azure portal przykładowy kod)
 

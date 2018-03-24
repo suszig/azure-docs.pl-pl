@@ -1,26 +1,20 @@
 ---
-title: "Wprowadzenie do uwierzytelniania w usłudze Azure Automation | Microsoft Docs"
-description: "Ten artykuł zawiera przegląd zabezpieczeń usługi Automation i różnych dostępnych metod uwierzytelniania dla kont usługi Azure Automation."
+title: Wprowadzenie do uwierzytelniania w usłudze Automatyzacja Azure
+description: Ten artykuł zawiera przegląd zabezpieczeń usługi Automation i różnych dostępnych metod uwierzytelniania dla kont usługi Azure Automation.
+keywords: zabezpieczenia usługi automation, bezpieczna usługa automation, uwierzytelnianie usługi automation
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "zabezpieczenia usługi automation, bezpieczna usługa automation, uwierzytelnianie usługi automation"
-ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/01/2017
-ms.author: magoedte
+manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99882c1ff7517beec2ca827c63620f773d7d07c3
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4280c0de3f5c38aa8a72bad391544b03116e26c9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Wprowadzenie do uwierzytelniania w usłudze Azure Automation  
 Usługa Azure Automation pozwala na zautomatyzowanie zadań w odniesieniu do zasobów platformy Azure, a także zasobów lokalnych oraz pochodzących od innych dostawców chmury, takich jak usługa Amazon Web Services (AWS).  Aby element Runbook mógł wykonać żądane działania, musi mieć uprawnienia do bezpiecznego dostępu do zasobów z minimalnymi prawami wymaganymi w ramach subskrypcji.

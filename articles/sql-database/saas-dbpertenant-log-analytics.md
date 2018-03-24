@@ -1,7 +1,7 @@
 ---
-title: "Używanie programu Log Analytics dla aplikacji SQL Database z wieloma dzierżawami | Microsoft Docs"
-description: "Konfiguracja i analiza dzienników (OMS) za pomocą wielodostępnych aplikacji SaaS bazy danych SQL Azure"
-keywords: "samouczek usługi sql database"
+title: Analiza dzienników aplikacji korzystać z bazy danych SQL wielodostępnym | Dokumentacja firmy Microsoft
+description: Konfigurowanie i używanie wielodostępnych aplikacji SaaS bazy danych SQL Azure Log Analytics (Operations Management Suite)
+keywords: samouczek usługi sql database
 services: sql-database
 author: stevestein
 manager: craigg
@@ -11,125 +11,129 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: b141ca521ae9c4d9bf6a4be620bc8e5432c52f83
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 38a849ca5f4a767a4b9d9b9b86549e89a8217a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Konfigurowanie i używanie analizy dzienników (OMS) z wielodostępnych aplikacji SaaS bazy danych SQL Azure
+# <a name="set-up-and-use-log-analytics-operations-management-suite-with-a-multitenant-sql-database-saas-app"></a>Konfigurowanie i używanie analizy dzienników (Operations Management Suite) z wielodostępnych aplikacji SaaS bazy danych SQL
 
-W tym samouczku, konfigurowania i używania *analizy dzienników ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* monitorowania pule elastyczne i baz danych. W tym samouczku opiera się na [Samouczek zarządzania i monitorowania wydajności](saas-dbpertenant-performance-monitoring.md). Przedstawiono użycie *analizy dzienników* można rozszerzyć monitorowanie i alerty w portalu Azure. Analiza dzienników obsługuje monitorowania tysiące pule elastyczne i setkami tysięcy baz danych. Analiza dzienników udostępnia jedno rozwiązanie monitorowania, które można zintegrować monitorowanie różnych aplikacji i usług Azure, w wielu subskrypcji platformy Azure.
+W tym samouczku, konfigurowania i używania usługi Analiza dzienników Azure ([Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) do monitorowania pule elastyczne i baz danych. W tym samouczku opiera się na [Samouczek zarządzania i monitorowania wydajności](saas-dbpertenant-performance-monitoring.md). Widoczny jest sposób rozszerzyć monitorowanie za pomocą analizy dzienników i alertów dostępne w portalu Azure. Analiza dzienników obsługuje monitorowania tysiące pule elastyczne i setkami tysięcy baz danych. Analiza dzienników udostępnia jedno rozwiązanie monitorowania, które można zintegrować monitorowanie różnych aplikacji i usług Azure w wielu subskrypcji platformy Azure.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Instalowanie i konfigurowanie programu Log Analytics (OMS)
-> * Używanie programu Log Analytics do monitorowania pul i baz danych
+> * Instalowanie i konfigurowanie analizy dzienników (Operations Management Suite).
+> * Umożliwia monitorowanie pul i bazy danych analizy dzienników.
 
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
-* Aplikacja Wingtip biletów SaaS bazy danych dla dzierżawy jest wdrażana. Aby wdrożyć w mniej niż 5 minut, zobacz [Wdróż i eksplorowanie aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy](saas-dbpertenant-get-started-deploy.md)
-* Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Aplikacja bazy danych dla dzierżawy Wingtip biletów SaaS jest wdrażana. Aby wdrożyć w mniej niż 5 minut, zobacz [Wdróż i eksplorowanie aplikacji bazy danych dla dzierżawy Wingtip biletów SaaS](saas-dbpertenant-get-started-deploy.md).
+* Zainstalowany jest program Azure PowerShell. Aby uzyskać więcej informacji, zobacz [wprowadzenie do programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-W [samouczku monitorowania i zarządzania wydajnością](saas-dbpertenant-performance-monitoring.md) znajdziesz omówienie wzorców i scenariuszy SaaS oraz ich wpływu na wymagania dotyczące monitorowania.
+Zobacz [Samouczek zarządzania i monitorowania wydajności](saas-dbpertenant-performance-monitoring.md) omówienie scenariuszy SaaS, wzorców i ich wpływ na wymagania dotyczące rozwiązanie monitorowania.
 
-## <a name="monitoring-and-managing-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite-oms"></a>Monitorowanie i zarządzanie wydajnością puli bazy danych i elastyczna z analizy dzienników lub Operations Management Suite (OMS)
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite"></a>Monitorowanie i zarządzanie nimi wydajność puli bazy danych i elastyczna z analizy dzienników lub Operations Management Suite
 
-Baza danych SQL monitorowanie i alerty jest dostępna dla baz danych i pul w portalu Azure. Ten wbudowaną funkcję monitorowania i alertów jest wygodne, ale stanowi określonych zasobów, mniej dobrze nadaje się do monitorowania duże instalacje lub zapewniające ujednoliconego podglądu między zasobami i subskrypcje.
+Baza danych SQL Azure monitorowanie i alerty jest dostępna dla baz danych i pul w portalu Azure. Ten wbudowaną funkcję monitorowania i alertów jest wygodne, ale jest również określonych zasobów. Oznacza to, że mniej dobrze nadaje się do monitorowania duże instalacje lub zapewnienia ujednoliconego podglądu całej zasobów i subskrypcje.
 
-W przypadku scenariuszy dużych analizy dzienników może służyć do monitorowania i alertów. Analiza dzienników jest oddzielny usługa Azure, która umożliwia analytics przez dzienniki diagnostyczne i dane telemetryczne, które są zbierane w obszarze roboczym z potencjalnie wiele usług. Analiza dzienników zawiera wbudowaną kwerendę języka i danych narzędzi wizualizacji, stosowanie analizy danych operacyjnych. Rozwiązania analizy SQL zawiera kilka wstępnie zdefiniowanych puli elastycznej i bazy danych monitorowania i alertów widoków i zapytań. Usługa OMS udostępnia także projektanta widoków niestandardowych.
+W przypadku dużych scenariuszy analizy dzienników służy do monitorowania oraz alertów. Analiza dzienników jest osobnym usługa Azure, która umożliwia analytics przez dzienniki diagnostyczne i dane telemetryczne, które są zbierane w obszarze roboczym z potencjalnie wiele usług. Analiza dzienników udostępnia wbudowaną kwerendę narzędzia wizualizacji języka i danych, które umożliwiają analizy danych operacyjnych. Rozwiązania analizy SQL zawiera kilka wstępnie zdefiniowanych puli elastycznej i bazy danych monitorowania i alertów widoków i zapytań. Operations Management Suite udostępnia również projektanta widok niestandardowy.
 
-Obszary robocze programu Log Analytics i rozwiązania analityczne można otwierać zarówno w witrynie Azure Portal, jak i w usłudze OMS. Witryna Azure Portal jest nowszym rodzajem punktu dostępu, ale w niektórych obszarach pozostaje w tyle za portalem usługi OMS.
+Rozwiązań analitycznych dziennika obszarów roboczych i analiza Otwórz w portalu Azure i usługi Operations Management Suite. Azure portal to nowsza punktu dostępu, ale może być za portal usługi Operations Management Suite w niektórych obszarach.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Tworzenie danych diagnostycznych wydajności symulując obciążenie dzierżawców 
 
-1. W **PowerShell ISE**, Otwórz *... \\WingtipTicketsSaaS MultiTenantDb wzorca\\modułów szkoleniowych\\zarządzania i monitorowania wydajności\\** PerformanceMonitoringAndManagement.ps1*** demonstracyjnej. Nie zamykaj tego skryptu, jeśli w czasie pracy z samouczkiem chcesz uruchomić kilka scenariuszy generowania obciążenia.
-1. Jeśli jeszcze tego nie zrobiono, należy udostępnić partii dzierżawcy, aby zapewnić bardziej interesującego kontekstu monitorowania. Trwa to kilka minut:
-   1. Ustaw **$DemoScenario = 1**, _udostępnić partii dzierżawcy_
-   1. Aby uruchomić skrypt i wdrożyć dodatkowe dzierżaw 17, naciśnij klawisz **F5**.  
+1. Otwórz w programie PowerShell ISE *... \\WingtipTicketsSaaS MultiTenantDb wzorca\\modułów szkoleniowych\\zarządzania i monitorowania wydajności\\PerformanceMonitoringAndManagement.ps1 pokaz*. Nie zamykaj tego skryptu, ponieważ może chcesz uruchomić kilka obciążenia generowania scenariusze w tym samouczku.
+2. Jeśli nie zostało to jeszcze zrobione już, należy udostępnić partii dzierżawcy, aby bardziej interesującego monitorowania kontekstu. Ten proces trwa kilka minut.
 
-1. Teraz uruchomić generatora obciążenia, aby uruchomić symulowanym obciążeniem na wszystkich dzierżawców.  
-    1. Ustaw **$DemoScenario = 2**, _Generuj normalnym natężeniu obciążenia (średnio 30 DTU)_.
-    1. Aby uruchomić skrypt, naciśnij klawisz **F5**.
+   a. Ustaw **$DemoScenario = 1**, _udostępnić partii dzierżaw_.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pobierz skrypty aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy
+   b. Aby uruchomić skrypt i wdrożyć dodatkowe dzierżaw 17, naciśnij klawisz F5.
 
-Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) kroki pobrać i odblokować skryptów PowerShell biletów Wingtip.
+3. Teraz uruchomić generatora obciążenia, aby uruchomić symulowanym obciążeniem na wszystkich dzierżawców.
 
-## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalowanie i konfigurowanie programu Log Analytics i rozwiązania Azure SQL Analytics
+    a. Ustaw **$DemoScenario = 2**, _Generuj normalnym natężeniu obciążenia (średnio 30 DTU)_.
 
-Program Log Analytics jest oddzielną usługą, którą należy skonfigurować. Analiza dzienników umożliwia zbieranie danych dziennika, telemetrii i metryki w obszarze roboczym analizy dzienników. Obszar roboczy analizy dzienników jest zasobem, podobnie jak w innych zasobów na platformie Azure i musi zostać utworzony. Gdy obszar roboczy nie muszą zostać utworzone w tej samej grupie zasobów co aplikacje monitoruje, sposób często sprawia, że najbardziej odpowiednie. Dla aplikacji biletów Wingtip przy użyciu pojedynczej grupy zasobów gwarantuje, że obszar roboczy jest usuwany z aplikacją.
+    b. Aby uruchomić skrypt, naciśnij klawisz F5.
 
-1. W **PowerShell ISE**, Otwórz *... \\WingtipTicketsSaaS MultiTenantDb wzorca\\modułów szkoleniowych\\zarządzania i monitorowania wydajności\\dziennika analizy\\** LogAnalytics.ps1*** demonstracyjnej.
-1. Aby uruchomić skrypt, naciśnij klawisz **F5**.
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pobierz skrypty bazy danych dla dzierżawy aplikacji SaaS biletów Wingtip
 
-W tym momencie powinno być możliwe Otwórz Log Analytics w portalu Azure (lub portalu OMS). Trwa kilka minut, aż telemetrii mają być zbierane w obszarze roboczym analizy dzienników i stają się widoczne. Już pozostanie system zbierania danych diagnostycznych jest bardziej interesującego środowisko. Teraz możesz zrobić sobie przerwę — upewnij się tylko, że generator obciążenia nadal działa!
+SaaS biletów Wingtip wielodostępnym bazy danych skrypty i kod źródłowy aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Aby uzyskać instrukcje dotyczące pobierania i odblokować skryptów PowerShell biletów Wingtip, zobacz [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md).
+
+## <a name="install-and-configure-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalowanie i konfigurowanie analizy dzienników oraz rozwiązania analizy SQL Azure
+
+Analiza dzienników jest oddzielny usługa, która musi być skonfigurowany. Analiza dzienników umożliwia zbieranie danych dziennika, telemetrii i metryki w obszarze roboczym analizy dzienników. Podobnie jak inne zasoby na platformie Azure można utworzyć obszaru roboczego analizy dzienników. Obszar roboczy nie muszą zostać utworzone w tej samej grupie zasobów co aplikacji, którą monitoruje. Często ten najwygodniejszy jednak. W przypadku aplikacji Wingtip biletów umożliwia upewnij się, że w obszarze roboczym zostanie usunięty z aplikacją pojedyncza grupa zasobów.
+
+1. Otwórz w programie PowerShell ISE *... \\WingtipTicketsSaaS MultiTenantDb wzorca\\modułów szkoleniowych\\zarządzania i monitorowania wydajności\\dziennika analizy\\** LogAnalytics.ps1*** demonstracyjnej.
+2. Aby uruchomić skrypt, naciśnij klawisz F5.
+
+Teraz możesz otworzyć Log Analytics w portalu Azure lub w portalu usługi Operations Management Suite. Trwa kilka minut, aby zbierać dane telemetryczne w obszarze roboczym analizy dzienników i aby go wyświetlić. Już pozostanie system zbierania danych diagnostycznych jest bardziej interesującego środowisko. 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Używanie programu Log Analytics i rozwiązania SQL Analytics do monitorowana pul i baz danych
 
 
-W tym ćwiczeniu Otwórz analizy dzienników i portalu OMS, aby przyjrzeć się telemetrii zbierana dla baz danych i pul.
+W tym ćwiczeniu Otwórz analizy dzienników i portalu usługi Operations Management Suite, aby przyjrzeć się telemetryczne zebrane dla baz danych i pul.
 
-1. Przejdź do [portalu Azure](https://portal.azure.com) i otworzyć, klikając analizy dzienników **wszystkich usług**, następnie wyszukaj analizy dzienników:
+1. Przejdź do [portalu Azure](https://portal.azure.com). Wybierz **wszystkie usługi** otworzyć analizy dzienników. Następnie wyszukaj analizy dzienników.
 
-   ![otwieranie programu log analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
+   ![Otwórz dziennik analizy](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Wybierz obszar roboczy o nazwie _wtploganalytics -&lt;użytkownika&gt;_.
+2. Wybierz obszar roboczy o nazwie _wtploganalytics -&lt;użytkownika&gt;_.
 
-1. Wybierz opcję **Przegląd**, aby otworzyć rozwiązanie Log Analytics w witrynie Azure Portal.
+3. Wybierz opcję **Przegląd**, aby otworzyć rozwiązanie Log Analytics w witrynie Azure Portal.
 
-   ![overview-link](media/saas-dbpertenant-log-analytics/click-overview.png)
+   ![Przegląd](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
-    > Może upłynąć kilka minut, zanim rozwiązanie będzie aktywny. Zachowaj cierpliwość.
+    > Może upłynąć kilka minut, zanim rozwiązanie będzie aktywny. 
 
-1. Kliknij kafelek rozwiązania Azure SQL Analytics, aby je otworzyć.
+4. Wybierz **analiza SQL Azure** Kafelek, aby go otworzyć.
 
-    ![overview](media/saas-dbpertenant-log-analytics/overview.png)
+    ![Kafelka przeglądu](media/saas-dbpertenant-log-analytics/overview.png)
 
-    ![analiza](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
+5. Widoki w rozwiązaniu bok, przewijane wraz z ich własnych paska przewijania wewnętrzny u dołu. Odśwież stronę, jeśli to konieczne.
 
-1. Widoki w rozwiązaniu bok, przewijane wraz z ich własnych paska przewijania wewnętrzny u dołu (Odśwież stronę, jeśli to konieczne).
+6. Aby eksplorować strony podsumowania, wybierz Kafelki lub pojedynczych baz danych, aby otworzyć Eksploratora Przechodzenie do szczegółów.
 
-1. Poznaj strony podsumowania, klikając na kafelkach lub poszczególne bazy danych, aby otworzyć Eksploratora Przechodzenie do szczegółów.
+    ![Pulpitu nawigacyjnego Analytics dziennika](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. Zmień ustawienie, aby zmodyfikować zakres czasu - dla tego samouczka wybierz filtr _ostatni 1 godzina_
+7. Zmień ustawienie filtru, aby zmodyfikować zakres czasu. W tym samouczku, wybierz **ostatni 1 godzina**.
 
     ![Filtr czasu](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Wybierz pojedynczej bazy danych, aby zapoznać się z użycia zapytania i metryki dla tej bazy danych.
+8. Wybierz pojedynczej bazy danych, aby zapoznać się z użycia zapytania i metryki dla tej bazy danych.
 
     ![Analiza bazy danych](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-1. Aby zobaczyć użycie metryki przewiń stronę analytics z prawej strony.
+9. Aby widzieć metryki użycia, przewiń stronę analytics z prawej strony.
  
      ![metryki bazy danych](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. Przewiń strony analytics po lewej stronie i kliknij na kafelku serwera na liście informacje o zasobie. Spowoduje to otwarcie strony przedstawiający pul i baz danych na serwerze. 
+10. Przewiń analytics strony do lewej strony i wybierz Kafelek serwera w **informacje o zasobie** listy.  
 
-     ![informacje o zasobie](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
+    ![Lista informacji o zasobów](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
- 
-     ![Serwer z puli i baz danych](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
+    Zostanie otwarta strona pokazujący pul i baz danych na serwerze.
 
-1. Na serwerze strony, którego kliknięcie spowoduje otwarcie, który zawiera pul i baz danych na serwerze, kliknij w puli.  Na stronie puli przewiń w prawo, aby widzieć metryki puli.  
+    ![Serwer z puli i baz danych](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-     ![metryki puli](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
+11. Wybierz pulę. Na stronie puli przewiń w prawo, aby widzieć metryki puli. 
+
+    ![metryki puli](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
+12. W obszarze roboczym analizy dzienników, wybierz **portalu OMS** do Otwórz obszar roboczy.
 
-1. Powrót do obszaru roboczego analizy dzienników, wybierz **portalu OMS** do Otwórz obszar roboczy.
+    ![Operations Management Suite Portal kafelka](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-    ![oms](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+W portalu usługi Operations Management Suite można eksplorować dane dziennika i metryki w obszarze roboczym dalej. 
 
-W portalu OMS można eksplorować dane dziennika i metryki w obszarze roboczym dalej.  
+Monitorowanie i alerty analizy dzienników i Operations Management Suite są oparte na zapytania na danych w obszarze roboczym, w odróżnieniu od alerty zdefiniowane na każdy zasób w portalu Azure. Użycie alerty dla zapytań, można określić pojedynczy alert, która wygląda przez wszystkie bazy danych, a nie definiującego po jednym dla każdej bazy danych. Zapytania są ograniczone tylko danych dostępnych w obszarze roboczym.
 
-Monitorowanie i alerty analizy dzienników i OMS na podstawie kwerend danych w obszarze roboczym, w odróżnieniu od alerty zdefiniowane na każdy zasób w portalu Azure. Użycie alerty dla zapytań, można określić pojedynczy alert, która wygląda przez wszystkie bazy danych, a nie definiującego po jednym dla każdej bazy danych. Zapytania są ograniczone tylko przez ilość danych dostępnych w obszarze roboczym.
+Aby uzyskać więcej informacji na temat korzystania z usługi Operations Management Suite do sprawdzania i ustawiania alertów, zobacz [pracować z reguły alertów w analizy dzienników](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
-Aby uzyskać więcej informacji na temat używania OMS zapytań, Ustaw alerty Zobacz, [Praca z reguły alertów w analizy dzienników](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
-
-Opłaty za programy Log Analytics i SQL Database zależą od ilości danych w obszarze roboczym. W tym samouczku utworzono obszar roboczy wolne, która jest ograniczona do 500 MB na dzień. Po osiągnięciu tego limitu danych jest już dodany do obszaru roboczego.
+Analiza dzienników opłat bazy danych SQL na podstawie rozmiaru danych w obszarze roboczym. W tym samouczku utworzono obszar roboczy wolne, która jest ograniczona do 500 MB na dzień. Po osiągnięciu tego limitu danych jest już dodany do obszaru roboczego.
 
 
 ## <a name="next-steps"></a>Kolejne kroki
@@ -137,13 +141,13 @@ Opłaty za programy Log Analytics i SQL Database zależą od ilości danych w ob
 W tym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Instalowanie i konfigurowanie programu Log Analytics (OMS)
-> * Używanie programu Log Analytics do monitorowania pul i baz danych
+> * Instalowanie i konfigurowanie analizy dzienników (Operations Management Suite).
+> * Umożliwia monitorowanie pul i bazy danych analizy dzienników.
 
-[Samouczek analiz dzierżaw](saas-dbpertenant-log-analytics.md)
+Spróbuj [samouczek analizy dzierżawy](saas-dbpertenant-log-analytics.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Dodatkowe samouczki, które zależą od momentu pierwszego wdrożenia aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Dodatkowe samouczki, w początkowym wdrożeniu aplikacji bazy danych dla dzierżawy Wingtip biletów SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Program Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
-* [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
+* [Operations Management Suite](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

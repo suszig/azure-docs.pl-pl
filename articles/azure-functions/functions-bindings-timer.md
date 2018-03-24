@@ -1,13 +1,13 @@
 ---
-title: "Wyzwalacz czasomierza dla usługi Azure Functions"
-description: "Zrozumienie, jak używać czasomierza Wyzwalacze w funkcji Azure."
+title: Wyzwalacz czasomierza dla usługi Azure Functions
+description: Zrozumienie, jak używać czasomierza Wyzwalacze w funkcji Azure.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "funkcje usługi Azure, funkcje, przetwarzania zdarzeń, dynamiczne obliczeń niekorzystającą architektury"
+editor: ''
+tags: ''
+keywords: funkcje usługi Azure, funkcje, przetwarzania zdarzeń, dynamiczne obliczeń niekorzystającą architektury
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
-ms.custom: 
-ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 6f74dd4d9cb78c1316c87bd5a261e751b9b34923
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla usługi Azure Functions 
 
@@ -167,7 +167,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Typ** | Nie dotyczy | Musi być równa "timerTrigger". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
 |**Kierunek** | Nie dotyczy | Należy wybrać opcję "w". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt czasomierza w kodzie funkcji. | 
-|**schedule**|**ScheduleExpression**|W planie zużycie można zdefiniować harmonogramy za pomocą usługi CRON wyrażenia. Jeśli używasz planu usługi App Service można również użyć `TimeSpan` ciągu. W poniższych sekcjach opisano CRON wyrażenia. Można umieścić wyrażenia harmonogramu w ustawieniu aplikacji i ustawić tę właściwość na wartość otoczona  **%**  znaków, jak w poniższym przykładzie: "% NameOfAppSettingWithCRONExpression %". |
+|**schedule**|**ScheduleExpression**|W planie zużycie można zdefiniować harmonogramy za pomocą usługi CRON wyrażenia. Jeśli używasz planu usługi App Service można również użyć `TimeSpan` ciągu. W poniższych sekcjach opisano CRON wyrażenia. Można umieścić wyrażenia harmonogramu w ustawieniu aplikacji i ustawić tę właściwość na wartość otoczona **%** znaków, jak w poniższym przykładzie: "% NameOfAppSettingWithCRONExpression %". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -256,6 +256,10 @@ Po wywołaniu funkcji wyzwalacza czasomierza [obiekt czasomierza](https://github
 ## <a name="scale-out"></a>Skalowanie w poziomie
 
 Wyzwalacz czasomierza obsługuje wiele wystąpień skalowalnego w poziomie. Pojedyncze wystąpienie funkcji określonego czasomierza jest uruchamiane we wszystkich wystąpieniach.
+
+## <a name="function-apps-sharing-storage"></a>Funkcja aplikacji do udostępniania magazynu
+
+Jeśli konto magazynu możesz udostępnić wielu aplikacjom funkcji, upewnij się, że każda aplikacja funkcji ma inną `id` w *host.json*. Można pominąć `id` właściwości lub ręcznie ustawić każdej funkcji aplikacji `id` innej wartości. Wyzwalacza czasomierza używa blokady magazynu, aby upewnić się, że będą istnieć tylko jedno wystąpienie czasomierza podczas aplikacji funkcji skaluje się do wielu wystąpień. Jeśli dwie aplikacje funkcja mają takie same `id` i każda używa wyzwalacza bazującego na czasomierzu, tylko jeden czasomierz będzie uruchamiany.
 
 ## <a name="next-steps"></a>Kolejne kroki
 

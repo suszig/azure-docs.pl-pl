@@ -1,8 +1,8 @@
 ---
-title: "Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, co należy wziąć pod uwagę podczas planowania wdrożenia usługi pliki Azure."
+title: Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft
+description: Dowiedz się, co należy wziąć pod uwagę podczas planowania wdrożenia usługi pliki Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 097c1719ffc493539276cd98edc761eba20f3751
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -160,9 +160,14 @@ Synchronizacja programu Azure plik jest dostępny tylko w następujących region
 |--------|---------------------|
 | Australia Wschodnia | Stan Nowa Południowa Walia |
 | Kanada Środkowa | Toronto |
+| Środkowe stany USA | Iowa |
+| Azja Wschodnia | Hongkong |
 | Wschodnie stany USA | Wirginia |
+| Wschodnie US2 | Wirginia |
+| Europa Północna | Irlandia |
 | Azja Południowo-Wschodnia | Singapur |
 | Południowe Zjednoczone Królestwo | Londyn |
+| Cental zachodnie stany USA |
 | Europa Zachodnia | Holandia |
 | Zachodnie stany USA | Kalifornia |
 

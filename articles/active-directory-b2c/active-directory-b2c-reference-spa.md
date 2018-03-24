@@ -1,24 +1,21 @@
 ---
-title: "Usługa Azure Active Directory B2C: Jednostronicowej aplikacji przy użyciu niejawnego przepływu | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tworzyć aplikacje jednej strony bezpośrednio przez przy użyciu niejawnego przepływu OAuth 2.0 w usłudze Azure Active Directory B2C."
+title: 'Usługa Azure Active Directory B2C: Jednostronicowej aplikacji przy użyciu niejawnego przepływu | Dokumentacja firmy Microsoft'
+description: Dowiedz się, jak tworzyć aplikacje jednej strony bezpośrednio przez przy użyciu niejawnego przepływu OAuth 2.0 w usłudze Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 2ce4aaac117920c1da0b8a29797169d536825c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Usługa Azure AD B2C: Jednostronicowej aplikacji logowania przy użyciu niejawnego przepływu OAuth 2.0
 
@@ -99,7 +96,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Zakres |Wymagane |Rozdzieloną spacjami listę zakresów. Wskazuje wartość pojedynczy zakres do usługi Azure AD zarówno uprawnienia, które są żądane. `openid` Uprawnienia, aby zalogować użytkownika i Pobierz dane o użytkowniku w formie tokenów identyfikator wskazuje zakres. (Będzie omawianiu to bardziej dalszej części tego artykułu.) `offline_access` Zakres jest opcjonalne dla aplikacji sieci web. Oznacza to, że Twoja aplikacja powinna token odświeżania długotrwałe dostępu do zasobów. |
 | state |Zalecane |Wartość zawarte w żądaniu, który jest także zwracany w odpowiedzi tokenu. Można go ciągiem zawartość, która ma być używany. Zazwyczaj wartość losowo generowany, unikatowy jest używana, aby zapobiec fałszerstwie żądania międzywitrynowego. Stan jest również używany do kodowania informacje o stanie użytkownika w aplikacji, przed wystąpieniem żądania uwierzytelniania, takich jak znajdowały się na stronie. |
 | Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu (wygenerowany przez aplikację), który znajduje się w jego identyfikator tokenu jako oświadczenia. Aplikacja może zweryfikować tę wartość, aby ograniczyć ataków powtórzeń tokenów. Wartość jest zazwyczaj losowego, unikatowy ciąg, który może służyć do identyfikowania pochodzenia żądania. |
-| P |Wymagane |Zasady do wykonania. Jest to nazwa zasad, która jest tworzona w dzierżawie usługi Azure AD B2C. Wartość Nazwa zasad powinny rozpoczynać się od **b2c\_1\_**. Aby uzyskać więcej informacji, zobacz [wbudowane zasady usługi Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| p |Wymagane |Zasady do wykonania. Jest to nazwa zasad, która jest tworzona w dzierżawie usługi Azure AD B2C. Wartość Nazwa zasad powinny rozpoczynać się od **b2c\_1\_**. Aby uzyskać więcej informacji, zobacz [wbudowane zasady usługi Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | wiersz |Optional (Opcjonalność) |Typ interakcji z użytkownikiem, które są wymagane. Obecnie jest jedyną poprawną wartością `login`. Dzięki temu użytkownik musi wprowadzić swoje poświadczenia dla tego żądania. Logowanie jednokrotne nie zacznie obowiązywać. |
 
 W tym momencie użytkownik jest proszony o ukończenia przepływu pracy zasad. Może to obejmować wprowadzić swoją nazwę użytkownika i hasło, użytkownik zalogować społecznościowych tożsamości, podczas tworzenia katalogu lub dowolnej liczby kroków. Akcje użytkownika zależą od tego, jak zdefiniowano zasad.
@@ -121,7 +118,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parametr | Opis |
 | --- | --- |
-| ' access_token ' |Token dostępu do żądanej aplikacji.  Nie można zdekodować lub w przeciwnym razie sprawdził tokenu dostępu. Może być traktowana jako ciąg z ogólnym opisem. |
+| access_token |Token dostępu do żądanej aplikacji.  Nie można zdekodować lub w przeciwnym razie sprawdził tokenu dostępu. Może być traktowana jako ciąg z ogólnym opisem. |
 | token_type |Wartość typu tokenu. Jedynym typem, który obsługuje usługę Azure AD jest elementu nośnego. |
 | expires_in |Długość czasu, przez który token dostępu jest nieprawidłowy (w sekundach). |
 | Zakres |Token jest prawidłowy dla zakresów. Możesz również zakresów można użyć do pamięci podręcznej tokenów do późniejszego użycia. |
@@ -212,7 +209,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu wygenerowany przez aplikację, który znajduje się w jego identyfikator tokenu jako oświadczenia.  Aplikacja może zweryfikować tę wartość, aby ograniczyć ataków powtórzeń tokenów. Wartość jest zazwyczaj losowego, unikatowy ciąg identyfikujący pochodzenia żądania. |
 | wiersz |Wymagane |Aby odświeżyć i uzyskać tokenów w ukrytym iframe, użyj `prompt=none` do zapewnienia, że element iframe nie zostać zablokowane na stronie logowania i natychmiast zwraca. |
 | login_hint |Wymagane |Aby odświeżyć i uzyskać tokenów w ukrytym iframe, dołączyć tę wskazówkę odróżnienie wiele sesji użytkownika nazwa użytkownika może być w danym momencie. Można wyodrębnić nazwy użytkownika z wcześniejszych logowanie przy użyciu `preferred_username` oświadczeń. |
-| domain_hint |Wymagane |Może być `consumers` lub `organizations`.  Odświeżanie i uzyskiwania tokenów w ukrytym iframe, należy uwzględnić `domain_hint` wartość w żądaniu.  Wyodrębnij `tid` oświadczeń z tokenu identyfikator wcześniejszych logowania można określić wartość, która do użycia.  Jeśli `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, użyj `domain_hint=consumers`.  W przeciwnym razie użyj `domain_hint=organizations`. |
+| domain_hint |Wymagane |Możliwe wartości to `consumers` i `organizations`.  Odświeżanie i uzyskiwania tokenów w ukrytym iframe, należy uwzględnić `domain_hint` wartość w żądaniu.  Wyodrębnij `tid` oświadczeń z tokenu identyfikator wcześniejszych logowania można określić wartość, która do użycia.  Jeśli `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, użyj `domain_hint=consumers`.  W przeciwnym razie użyj `domain_hint=organizations`. |
 
 Przez ustawienie `prompt=none` , to żądanie albo powiedzie się albo natychmiast kończy się niepowodzeniem i zwraca do aplikacji.  Odpowiedź oznaczająca Powodzenie są wysyłane do aplikacji na wskazanych przekierowania URI, za pomocą metody określonej w `response_mode` parametru.
 
@@ -230,7 +227,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parametr | Opis |
 | --- | --- |
-| ' access_token ' |Token, który żądanej aplikacji. |
+| access_token |Token, który żądanej aplikacji. |
 | token_type |Typ tokenu jest zawsze elementu nośnego. |
 | state |Jeśli `state` parametru jest zawarte w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikację należy sprawdzić, czy `state` wartości żądań i odpowiedzi są identyczne. |
 | expires_in |Jak długo token dostępu jest nieprawidłowy (w sekundach). |
@@ -268,7 +265,7 @@ p=b2c_1_sign_in
 
 | Parametr | Wymagana? | Opis |
 | --- | --- | --- |
-| P |Wymagane |Zasady, które mają być używane do podpisywania użytkownika z aplikacji. |
+| p |Wymagane |Zasady, które mają być używane do podpisywania użytkownika z aplikacji. |
 | post_logout_redirect_uri |Zalecane |Adres URL, który użytkownik powinien być przekierowywany użytkownik po pomyślnym wylogowania. Jeśli nie zostanie włączony, usługi Azure AD B2C jest wyświetlany komunikat ogólny. |
 
 > [!NOTE]

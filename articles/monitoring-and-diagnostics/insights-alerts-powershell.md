@@ -1,9 +1,9 @@
 ---
-title: "Utwórz alerty dla usług Azure - PowerShell | Dokumentacja firmy Microsoft"
-description: "Wyzwalacz wiadomości e-mail, powiadomienia, Wywołaj adresy URL witryny sieci Web (elementy webhook) lub automatyzacji po spełnieniu warunków, które określisz."
+title: Utwórz alerty dla usług Azure - PowerShell | Dokumentacja firmy Microsoft
+description: Wyzwalacz wiadomości e-mail, powiadomienia, Wywołaj adresy URL witryny sieci Web (elementy webhook) lub automatyzacji po spełnieniu warunków, które określisz.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>W monitorze Azure tworzyć alerty metryki dla usługi Azure - PowerShell
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Tworzenie klasycznej metryki alertów w monitorze Azure dla usług Azure - PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [Program PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Przegląd
+
+> [!NOTE]
+> W tym artykule opisano sposób tworzenia starsze alerty metryki. Azure obsługuje teraz Monitor [nowszą, lepiej metryki alerty](monitoring-near-real-time-metric-alerts.md). Te alerty można monitorować wiele metryk i umożliwić alertów na wymiarów metryki. Obsługa programu PowerShell dla nowszej alerty metryki będzie dostępna wkrótce.
+>
+>
+
 W tym artykule przedstawiono sposób konfigurowania Azure metryki alertów za pomocą programu PowerShell.  
 
 Możesz otrzymywać alertu na podstawie metryki monitorowania lub zdarzenia na usługami Azure.
 
 * **Wartości metryki** — uruchamia alert, gdy wartość określonej metryki przekracza próg przypisać w żadnym kierunku. Oznacza to, że oba wyzwala po spełnieniu warunku zostanie najpierw i następnie później podczas warunku jest już spełniane.    
-* **Zdarzenia dziennika aktywności** — alert może wyzwolić na *co* zdarzenia lub tylko wtedy, gdy występuje określone zdarzenia. Aby dowiedzieć się więcej o alertach dziennika aktywności [kliknij tutaj](monitoring-activity-log-alerts.md)
+* **Zdarzenia dziennika aktywności** -alert może wyzwolić na *co* zdarzenia lub tylko wtedy, gdy wystąpi określone zdarzenie. Aby dowiedzieć się więcej o alertach dziennika aktywności [kliknij tutaj](monitoring-activity-log-alerts.md)
 
 Można skonfigurować metryki alert do wyzwala, wykonaj następujące czynności:
 
@@ -45,7 +51,7 @@ Można skonfigurować metryki alert do wyzwala, wykonaj następujące czynności
 
 Można skonfigurować i uzyskać informacje na temat przy użyciu reguły alertów
 
-* [Azure portal](insights-alerts-portal.md)
+* [Azure Portal](insights-alerts-portal.md)
 * [Program PowerShell](insights-alerts-powershell.md)
 * [Interfejs wiersza polecenia (CLI)](insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -53,7 +59,7 @@ Można skonfigurować i uzyskać informacje na temat przy użyciu reguły alert�
 Aby uzyskać dodatkowe informacje, zawsze można wpisać ```Get-Help``` , a następnie polecenie programu PowerShell chcesz uzyskać pomoc.
 
 ## <a name="create-alert-rules-in-powershell"></a>Tworzyć reguły alertów w programie PowerShell
-1. Logowanie do platformy Azure.   
+1. Loguje się do platformy Azure.   
 
     ```PowerShell
     Login-AzureRmAccount

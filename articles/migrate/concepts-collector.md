@@ -1,17 +1,17 @@
 ---
-title: "Moduł zbierający urządzenia w migracji Azure | Dokumentacja firmy Microsoft"
-description: "Zawiera omówienie urządzenia moduł zbierający i sposobie konfigurowania go."
+title: Moduł zbierający urządzenia w migracji Azure | Dokumentacja firmy Microsoft
+description: Zawiera omówienie urządzenia moduł zbierający i sposobie konfigurowania go.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Moduł zbierający urządzenia
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="overview"></a>Przegląd
 
-Moduł zbierający migracji Azure jest urządzenia lighweight, który może służyć do wykrywania w lokalnym środowisku vCenter. Urządzenie umożliwia odnalezienie lokalnych maszyn VMware i wysyła metadane dotyczące ich do usługi Azure migracji.
+Moduł zbierający migracji Azure to lekkie urządzenia, który może służyć do wykrywania w lokalnym środowisku vCenter. Urządzenie umożliwia odnalezienie lokalnych maszyn VMware i wysyła metadane dotyczące ich do usługi Azure migracji.
 
 Urządzenia moduł zbierający jest OVF pobieranych z Azure migracji projektu. Metoda tworzy maszynę wirtualną VMware o 4 rdzenie, 8 GB pamięci RAM i jeden dysk 80 GB. System operacyjny urządzenia jest Windows Server 2012 R2 (64-bitowe).
 
@@ -172,6 +172,15 @@ W poniższej tabeli wymieniono liczniki wydajności, które są zbierane, a tak�
 Moduł zbierający tylko umożliwia odnalezienie danych komputera i wysyła je do projektu. Projekt może zająć dodatkowy czas przed odnalezione dane są wyświetlane w portalu i rozpoczęciem tworzenia ocenę.
 
 Na podstawie liczby maszyn wirtualnych w wybranym zakresie, trwa maksymalnie 15 minut do wysyłania statycznych metadanych do projektu. Po statycznych metadane są dostępne w portalu, możesz zapoznać się z listą maszyn w portalu i rozpocząć tworzenie grupy. Nie można utworzyć oceny, dopiero po zakończeniu zadania zbierania i projektu zostało przetworzone dane. Raz zadanie pobierania zostało ukończone w module zbierającym, może potrwać maksymalnie jedną godzinę dane dotyczące wydajności są dostępne w portalu, zależy od liczby maszyn wirtualnych w wybranym zakresie.
+
+## <a name="locking-down-the-collector-appliance"></a>Blokowanie urządzenia modułu zbierającego
+Firma Microsoft zaleca ciągłego aktualizacji systemu Windows na urządzeniu modułu zbierającego. Jeśli moduł zbierający nie zostanie zaktualizowane 45 dni, przez moduł zbierający spowoduje uruchomienie zamykanie maszyny automatycznie. Jeśli działa odnajdywanie, komputer zostanie nie zostać wyłączony, nawet jeśli jest ona poza jego 45 dni. Kończy POST zadanie odnajdywania, maszyny zostaną wyłączone. Jeśli moduł zbierający jest używana do więcej niż 45 dni, zaleca się pozostawienie maszyny zaktualizowane na cały czas, przez uruchomionej usługi Windows update.
+
+Zalecamy również następujące kroki, aby zabezpieczyć urządzenia
+1. Udostępnij lub nie misplace hasła administratora z osoby nieupoważnione.
+2. Wyłącz urządzenia nieużywane.
+3. Umieść urządzenia w zabezpieczonej sieci.
+4. Po zakończeniu pracy migracji, Usuń to wystąpienie urządzenia. Należy również usunąć dysku wykonywanie kopii zapasowych plików (VMDKs), jak dyski może mieć poświadczenia vCenter je w pamięci podręcznej.
 
 ## <a name="how-to-upgrade-collector"></a>Jak uaktualnić moduł zbierający
 

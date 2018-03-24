@@ -1,6 +1,6 @@
 ---
 title: Importowanie i eksportowanie w bazie danych Azure dla programu MySQL
-description: "W tym artykule opisano typowe sposoby importowania i eksportowania baz danych w bazie danych Azure dla programu MySQL, za pomocą narzędzi, takich jak MySQL Workbench."
+description: W tym artykule opisano typowe sposoby importowania i eksportowania baz danych w bazie danych Azure dla programu MySQL, za pomocą narzędzi, takich jak MySQL Workbench.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 74b8c6afc5167225414f467f76f08c0e53bbade5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrowanie bazy danych MySQL za pomocą importowania i eksportowania
 W tym artykule opisano dwa podejścia wspólnej importowanie i eksportowanie danych do bazy danych MySQL serwera Azure przy użyciu narzędzia MySQL Workbench. 
@@ -33,9 +33,9 @@ Nie trzeba przenieść importowanie i eksportowanie plików do dowolnej lokaliza
 ## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Utwórz bazę danych w bazie danych Azure MySQL serwera
 Utwórz pustą bazę danych w bazie danych Azure, dla której chcesz przeprowadzić migrację danych serwera MySQL. Utwórz bazę danych za pomocą narzędzia MySQL Workbench, Toad lub Navicat. Baza danych może mieć taką samą nazwę jak bazy danych, który zawiera zrzut danych lub utworzysz bazę danych pod inną nazwą.
 
-Połączenia się znaleźć informacje o połączeniu na **właściwości** okienko w bazie danych Azure dla programu MySQL.
+Aby skontaktować się, Znajdź informacje o połączeniu w **omówienie** bazy danych Azure dla programu MySQL.
 
-![Znajdź informacje o połączeniu w portalu Azure](./media/concepts-migrate-import-export/1_server-properties-name-login.png)
+![Znajdź informacje o połączeniu w portalu Azure](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
 
 Dodaj informacje o połączeniu do MySQL Workbench.
 
