@@ -23,7 +23,7 @@ ms.lasthandoff: 03/17/2018
 
 Azure Application Insights udostępnia szczegółowe monitorowanie aplikacji sieci web do poziomu kodu. Ułatwia monitorowanie aplikacji sieci web, dostępności, wydajności i użycia. Pozwala też szybko identyfikować i diagnozować błędy w aplikacji bez oczekiwania na zgłoszenie ich przez użytkownika.
 
-W tym artykule przedstawiono tworzenie przykładowej platformy ASP.NET Core [stron Razor](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) aplikacji w Visual Studio i jak rozpocząć monitorowanie za pomocą usługi Azure Application Insights.
+W tym artykule przedstawiono tworzenie przykładowej platformy ASP.NET Core [stron Razor](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) aplikacji w Visual Studio oraz jak rozpocząć monitorowanie za pomocą usługi Azure Application Insights.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,22 +32,22 @@ W tym artykule przedstawiono tworzenie przykładowej platformy ASP.NET Core [str
 
 ## <a name="create-an-aspnet-core-project-in-visual-studio"></a>Tworzenie projektu platformy ASP.NET Core w programie Visual Studio
 
-1. Kliknij prawym przyciskiem myszy, a następnie uruchom **programu Visual Studio 2017** jako administrator.
-2. Wybierz **pliku** > **nowe** > **projektu** (Ctrl-Shift-N).
+1. Kliknij prawym przyciskiem myszy, a następnie uruchom **Visual Studio 2017** jako administrator.
+2. Wybierz **plik** > **nowy** > **projekt** (Ctrl-Shift-N).
 
-   ![Zrzut ekranu przedstawiający Menu programu Visual Studio pliku nowego projektu](./media/app-insights-asp-net-core/0001-file-new-project.png)
+   ![Zrzut ekranu przedstawiający Menu Visual Studio pliku nowego projektu](./media/app-insights-asp-net-core/0001-file-new-project.png)
 
-3. Rozwiń węzeł **Visual C#** > Wybierz **.NET Core** > **aplikacji sieci Web platformy ASP.NET Core**. Wprowadź **nazwa** > **Nazwa rozwiązania** > Sprawdź **Tworzenie nowego repozytorium Git**.
+3. Rozwiń węzeł **Visual C#** > Wybierz **.NET Core** > **aplikacja sieci Web platformy ASP.NET Core**. Wprowadź **nazwa** > **Nazwa rozwiązania** > Zaznacz **Tworzenie nowego repozytorium Git**.
 
    ![Zrzut ekranu przedstawiający Kreator nowego projektu plików programu Visual Studio](./media/app-insights-asp-net-core/0002-new-project-web-application.png)
 
-4. Wybierz **.Net Core** > **platformy ASP.NET Core 2.0** **aplikacji sieci Web** > **OK**.
+4. Wybierz **.Net Core** > **platforma ASP.NET Core 2.0** **aplikacja sieci Web** > **OK**.
 
     ![Zrzut ekranu przedstawiający Menu wyboru projektu nowy plik programu Visual Studio](./media/app-insights-asp-net-core/0003-dot-net-core.png)
 
 ## <a name="add-application-insights-telemetry"></a>Dodawanie telemetrii usługi Application Insights
 
-1. Wybierz **projektu** > **Dodaj Telemetrię usługi Application Insights...** (Alternatywnie możesz kliknąć prawym przyciskiem myszy **usług połączonych** > Dodaj połączonych usług.)
+1. Wybierz **projekt** > **Dodaj Telemetrię usługi Application Insights...** (Alternatywnie możesz kliknąć prawym przyciskiem myszy **usługi połączone** > Dodaj połączonych usług.)
 
     ![Zrzut ekranu przedstawiający Menu wyboru projektu nowy plik programu Visual Studio](./media/app-insights-asp-net-core/0004-add-application-insights-telemetry.png)
 
